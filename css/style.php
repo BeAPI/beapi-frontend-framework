@@ -8,7 +8,6 @@ $ressources = array(
 	'ressources/text.less',
 	'ressources/forms.less',
 	'ressources/img.less',
-	'grids/grid.less',
 	'master.less'
 );
 

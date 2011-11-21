@@ -2,7 +2,18 @@
 header("Content-Type: text/css"); 
 require 'lessc.inc.php';
 
-foreach( array('reset.css', 'text.css', 'master.less') as $file ) {
+// List my ressources	
+$ressources = array(
+	'ressources/reset.less',
+	'ressources/text.less',
+	'ressources/forms.less',
+	'ressources/img.less',
+	'grids/grid.less',
+	'master.less'
+);
+
+// Parse & compile LESS
+foreach( $ressources as $file ) {
 	$less = new lessc( dirname(__FILE__) . '/'.$file);
 	echo $less->parse();
 }

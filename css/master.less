@@ -1,28 +1,18 @@
 
 /* `Basic HTML
 ----------------------------------------------------------------------------------------------------*/
-@base-url = "../images";
-@base-color = #f19b21 ;
+@import "ressources/elements.less";
+@import "grids/grid.less";
 
-body {
-  background: #fff url({@base-url}/12_col.gif) repeat-y 50% 0;
-  color: #333;
-}
+body {}
 
-h1 {
-  background: #eee url(../images/h1.png) no-repeat right center;
-  border-bottom: 1px solid #ccc;
-  padding: 10px 90px 10px 15px;
-  text-shadow: #fff 0 1px 0;
-}
-
+h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
   line-height: 1;
-  color: @base-color;
 }
 
 a {

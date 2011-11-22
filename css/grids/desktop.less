@@ -10,8 +10,12 @@ body {
 .wrapper {
 	width: 960px;
 	margin:0 auto;
+	overflow: hidden;
 }
-.header {
-	.column(6);
-	background:red;
+.header,
+.footer,
+.main-menu {
+	.column(12);
 }
+.main-content { .column(9)}
+.sidebar { .column(3)}

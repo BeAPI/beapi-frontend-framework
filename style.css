@@ -1,8 +1,288 @@
 /*
-Theme Name: BeAPI Base theme
-Theme URI: http://www.beapi.fr
-Description: Responsive Base theme using less technology and 960 Grid System
-Version: 1.0
-Author: BeAPI
-Author URI: http://www.beapi.fr
-*/
+/* Font Face
+/******************/
+@font-face {
+	font-family: 'DINRegular';
+	src: url('fonts/din-webfont.eot');
+	src: url('fonts/din-webfont.eot?#iefix') format('embedded-opentype'),
+		url('fonts/din-webfont.woff') format('woff'),
+		url('fonts/din-webfont.ttf') format('truetype'),
+		url('fonts/din-webfont.svg#DINRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DINBold';
+	src: url('fonts/dinbold-webfont.eot');
+	src: url('fonts/dinbold-webfont.eot?#iefix') format('embedded-opentype'),
+		url('fonts/dinbold-webfont.woff') format('woff'),
+		url('fonts/dinbold-webfont.ttf') format('truetype'),
+		url('fonts/dinbold-webfont.svg#DINBold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DINLightRegular';
+	src: url('fonts/dinlight-webfont.eot');
+	src: url('fonts/dinlight-webfont.eot?#iefix') format('embedded-opentype'),
+		url('fonts/dinlight-webfont.woff') format('woff'),
+		url('fonts/dinlight-webfont.ttf') format('truetype'),
+		url('fonts/dinlight-webfont.svg#DINLightRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'DINMediumRegular';
+	src: url('fonts/dinmedium-webfont.eot');
+	src: url('fonts/dinmedium-webfont.eot?#iefix') format('embedded-opentype'),
+		url('fonts/dinmedium-webfont.woff') format('woff'),
+		url('fonts/dinmedium-webfont.ttf') format('truetype'),
+		url('fonts/dinmedium-webfont.svg#DINMediumRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+
+/*
+/* Base style
+/******************/
+
+/* Soft reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, 
+caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0; outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content: ''; content: none; }
+:focus { outline: 0; }
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* Structure */
+
+html {
+	font-size: 100%;
+}
+
+body {
+	font-size: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+	background: #edece7;
+	color: #404040;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+
+/* links */
+
+a {
+	text-decoration: none;
+	color: #e71a30;
+}
+
+
+a:hover, a:focus, a:active {
+	text-decoration: underline;
+}
+
+a img { border: 0; }
+
+
+
+/* Overflows */
+
+pre, code, kbd, samp {font-family: monospace, sans-serif;}
+table, td, blockquote, code, pre, textarea, input, object, embed, video {max-width: 100%;}
+img {max-width: 100%; height: auto;}
+code, pre, samp, textarea, table, td {word-wrap: break-word; white-space: pre-wrap;}
+
+
+
+/*
+/* Blocs and Misc
+/******************/
+body {
+	background: url(images/background.jpg) no-repeat top center #edece7;
+}
+
+#header {
+	background: url(images/bg-header.png) repeat-x top center #454545;
+	color: #fff;
+	border-bottom: 1px solid #a7a7a7;
+}
+
+/* Style communs */
+.wrapper {
+	width: 960px;
+	margin: 0 auto;
+}
+
+.col280 {
+	width: 280px;
+}
+
+/* Float */
+.clear { clear: both; }
+
+/* Button */
+
+/*
+/* Header
+/******************/
+#logo {
+	float: left;
+	margin-left: 3px;
+}
+#logo a {
+	position: relative;
+	display: block;
+	width: 117px;
+	height: 108px;
+	background: url(images/bg-logo.png) no-repeat top center #4e4e4e;
+	text-align: center;
+	color: #fff;
+}
+#logo a:hover, #logo a:focus, #logo a:active,
+#logo a.current {
+	background: url(images/bg-logo-over.png) no-repeat top center #5c5c5c;
+}
+#logo a span {
+	position: absolute;
+	top:108px;
+	left: 0;
+	display: none;
+	width: 117px;
+	height: 28px;
+	background: url(images/arrow-accueil.png) top center;
+}
+#logo a:hover span, #logo a:focus span, #logo a:active span,
+#logo a.current span {
+	display: block;
+}
+#logo a img {
+	margin-top: 30px;
+}
+
+.content-header {
+	float: right;
+	font-size: .6875em;
+	font-weight: bold;
+}
+#header .radio {
+	height: 62px;
+	background: url(images/bg-header-col280.png) repeat-x top left #161616;
+}
+#header .radio .col280 {
+	position: relative;
+	float: left;
+	width: 262px;
+	height: 62px;
+	padding: 0 12px 0 6px;
+	background: url(images/linesep-header-radio.png) no-repeat top left;
+	line-height: normal;
+}
+
+#header .radio .col280 .cover {
+	float: left;
+	margin: 5px 10px 0 0;
+}
+
+#header .radio .col280 p {
+	margin-top: 24px;
+	padding-right: 50px;
+}
+#header .radio .col280 p .autor {
+	display: block;
+	color: #959595;
+}
+#header .radio .col280 .play {
+	position: absolute;
+	top : 0;
+	right: 0;
+	height: 62px;
+	padding-right: 11px;
+}
+#header .radio .col280 .play .logo {
+	
+}
+
+#header .radio .col280 .play .player {
+	position: absolute;
+	bottom: 7px;
+	right: 11px;
+	width: 23px;
+	height: 24px;
+	text-indent: -999em;
+	background: url(images/player.png) no-repeat top center;
+}
+#header .radio .col280 .play .player:hover, #header .radio .col280 .play .player:focus, #header .radio .col280 .play .player:active {
+	background-position: bottom center;
+}
+
+#header .nav {
+	float: left;
+	width: 100%;
+	background: url(images/bg-nav.png) repeat-x top left;
+}
+#header .nav li {
+	float: left;
+	margin-top: 1px;
+	border-left: 1px solid #434343;
+	border-right: 1px solid #5a5a5a;
+}
+#header .nav li a {
+	display: block;
+	height: 45px;
+	text-align: center;
+	line-height: 44px;
+	font-family: 'DINMediumRegular'; /* ,Arial, Helvetica, sans-serif; */
+	font-weight: normal;
+	font-size: 1.15em;
+	color: #cacaca;
+	text-shadow: 1px 1px 0 rgba(0,0,0,.3);
+	background: url(images/bg-nav-link.png) repeat-x bottom left #4c4c4c;
+}
+#header .nav li.rtl {
+	width: 75px;
+}
+#header .nav li.rtl2 {
+	width: 76px;
+}
+#header .nav li.funradio {
+	width: 96px;
+}
+#header .nav li.cgv {
+	width: 121px;
+}
+#header .nav li.creation {
+	width: 98px;
+}
+#header .nav li.ipregions {
+	width: 117px;
+}
+#header .nav li.espaceclient {
+	width: 131px;
+}
+#header .nav li.nousrejoindre {
+	width: 110px;
+}

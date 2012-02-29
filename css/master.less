@@ -83,3 +83,43 @@ ul {
 
 /* Widget
  ----------------------------------------------------------------------------------------------------*/
+.widget-area {
+	.widget {
+		.clearfix;
+		.widget-title {
+			.bordered(0, 0, @maintext, 0);
+		}
+		.widget-inner {
+			
+		}
+	}
+	.widget_text {
+		
+	}
+	.widget_categories {
+		.widget-inner {
+			&>ul {
+				&>li {
+					&>a {
+						&:hover,
+						&:focus,
+						&:active {
+							font-weight: 700;
+						}
+					}
+				}
+			}
+			ul {
+				li {
+					&.current-cat,
+					&.current-cat-parent {
+						&>a,
+						&.current-cat a {
+							font-weight: 700;
+						}
+					}
+				}
+			}
+		}
+	}
+}

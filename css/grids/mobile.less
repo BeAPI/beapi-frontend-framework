@@ -1,9 +1,19 @@
+@import "grid.less";
+@import "../ressources/elements.less";
+
 @media (max-width:720px) {
 	body {
-		min-width: 320px;
+		min-width: 300px;
 	}
 	.wrapper {
 		margin: 0 auto;
 		width: 320px;
+	}
+	.header,
+	.footer,
+	.main-menu,
+	.main-content,
+	.sidebar {
+		.column(4);
 	}
 }

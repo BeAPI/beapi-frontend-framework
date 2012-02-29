@@ -1,3 +1,6 @@
+@import "grid.less";
+@import "../ressources/elements.less";
+
 @media (min-width:720px) and (max-width:960px) {
 	body {
 		min-width: 720px;
@@ -5,5 +8,16 @@
 	.wrapper {
 		margin: 0 auto;
 		width: 720px;
+	}
+	.header,
+	.footer,
+	.main-menu {
+		.column(9);
+	}
+	.main-content { 
+		.column(6);
+	}
+	.sidebar {
+		.column(3);
 	}
 }

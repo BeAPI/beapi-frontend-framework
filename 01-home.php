@@ -18,6 +18,7 @@
 		<aside class="sidebar">
 			<div class="widget-area">
 				<?php include 'blocks/widgets/widget-text.php'; ?>
+				<?php include 'blocks/widgets/widget-categories.php'; ?>
 			</div>
 		</aside>
 <?php include 'footer.php'; ?>

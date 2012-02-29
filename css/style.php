@@ -8,10 +8,12 @@ $ressources = array(
 	'ressources/text.less',
 	'ressources/forms.less',
 	'ressources/img.less',
+	'ressources/superfish.less',
 	'master.less',
 	'grids/desktop.less',
 	'grids/tablet.less',
-	'grids/mobile.less'
+	'grids/mobile.less',
+	'ressources/print.less'
 );
 
 // Parse & compile LESS

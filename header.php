@@ -55,8 +55,18 @@
 				<h1 class="logo">Website title</h1>
 			</header>
 			<nav class="main-menu">
-				<ul>
-					<li><a href="#">menu item</a></li>
+				<ul class="sf-menu">
+					<li>
+						<a href="#">menu item</a>
+						<ul>
+							<li><a href="#">menu item</a></li>
+							<li><a href="#">menu item</a></li>
+							<li><a href="#">menu item</a></li>
+							<li><a href="#">menu item</a></li>
+							<li><a href="#">menu item</a></li>
+							<li><a href="#">menu item</a></li>
+						</ul>
+					</li>
 					<li><a href="#">menu item</a></li>
 					<li><a href="#">menu item</a></li>
 					<li><a href="#">menu item</a></li>

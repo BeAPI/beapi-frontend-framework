@@ -67,7 +67,7 @@
 							<li><a href="#">menu item</a></li>
 						</ul>
 					</li>
-					<li><a href="#">menu item</a></li>
+					<li class="current-menu-item"><a href="#">menu item</a></li>
 					<li><a href="#">menu item</a></li>
 					<li><a href="#">menu item</a></li>
 					<li><a href="#">menu item</a></li>

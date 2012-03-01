@@ -1,6 +1,6 @@
 <?php $class = 'home'; ?>
 <?php include 'header.php'; ?>
-		<section class="main-content">
+		<section class="main-content" id="content">
 			<article class="entry">
 				<section class="entry-content">
 					<h1>Title</h1>

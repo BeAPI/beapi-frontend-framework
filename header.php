@@ -51,10 +51,15 @@
 	</head>
 	<body class="<?php echo $class; ?>">
 		<div class="wrapper">
+			<ul class="fast-access">
+				<li><a href="#content">Acces direct au contenu</a></li>
+				<li><a href="#search">Acces direct à la recherche</a></li>
+				<li><a href="#menu">Acces direct au menu</a></li>
+			</ul>
 			<header class="header">
 				<h1 class="logo">Website title</h1>
 			</header>
-			<nav class="main-menu">
+			<nav class="main-menu" id="menu" >
 				<ul class="sf-menu">
 					<li>
 						<a href="#">menu item</a>

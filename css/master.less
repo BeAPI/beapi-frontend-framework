@@ -44,6 +44,18 @@ ul {
 
 /* Main Content
 ----------------------------------------------------------------------------------------------------*/
+.fast-access {
+	li {
+		display: inline;
+		a {
+			color: #fff;
+			&:hover,
+			&:focus {
+				color: @mainlinkhover;
+			}
+		}
+	}
+}
 .main-menu {
 	&>ul {
 		.clearfix;
@@ -78,7 +90,7 @@ ul {
 
 .entry-content {
 	ul {
-		list-style: disc inside none;
+		list-style: disc inside none; margin: 0 0 20px;
 		li {
 			margin: 0 0 5px;
 		}

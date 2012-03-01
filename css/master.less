@@ -169,8 +169,7 @@ ul {
 	.widget_text {
 		
 	}
-	.widget_categories,
-	.widget_pages {
+	.widget_categories {
 		.widget-inner {
 			&>ul {
 				&>li {
@@ -188,7 +187,33 @@ ul {
 					&.current-cat,
 					&.current-cat-parent {
 						&>a,
-						&.current-cat a {
+						.current-cat a {
+							font-weight: 700;
+						}
+					}
+				}
+			}
+		}
+	}
+	.widget_pages {
+		.widget-inner {
+			&>ul {
+				&>li {
+					&>a {
+						&:hover,
+						&:focus,
+						&:active {
+							font-weight: 700;
+						}
+					}
+				}
+			}
+			ul {
+				li {
+					&.current_page_ancestor,
+					&.current_page_parent {
+						&>a,
+						.current_page_item a {
 							font-weight: 700;
 						}
 					}

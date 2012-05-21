@@ -27,8 +27,6 @@
 		<script type="text/javascript" src="js/ressources/hoverIntent.js"></script>
 		<script type="text/javascript" src="js/ressources/superfish.js"></script>
 		
-		<script type="text/javascript" src="js/scripts.js"></script>
-		
 		<script type="text/javascript">
 			//<![CDATA[
 			(function(){
@@ -43,7 +41,7 @@
 		<!--[if lte IE 8]>
 			<style type="text/css" media="screen">
 				.css3-fix {
-					behavior: url(http://dev.beapi.fr/base-theme-beapi/trunk/htc/PIE.htc);
+					behavior: url(<?php echo 'http://'.$_SERVER['SERVER_NAME']; ?>/wp-content/html/htc/PIE.php);
 				}
 			</style>
 		<![endif]-->

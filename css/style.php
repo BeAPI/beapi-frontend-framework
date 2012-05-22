@@ -10,6 +10,7 @@ $ressources = array(
 	'ressources/img.less',
 	'ressources/elements.less',
 	'ressources/superfish.less',
+	'grids/grid.less',
 	'grids/desktop.less',
 	'grids/tablet.less',
 	'grids/mobile.less',

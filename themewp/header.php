@@ -8,17 +8,41 @@
  * @subpackage BeAPI_Base_Theme
  *
  */
-?><!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+?><!doctype html>
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="fr"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7 modern-ie" lang="fr"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8 modern-ie" lang="fr"> <![endif]-->
+<!--[if IE 9 ]> <html class="no-js ie9" lang="fr"> <![endif]-->
+<!--[if !(IE)]><!-->
+<html class="no-js" <?php language_attributes(); ?>><!--<![endif]-->
 <head>
+	<script type="text/javascript">
+		//<![CDATA[
+		(function(){
+			var c = document.documentElement.className;
+			c = c.replace(/no-js/, 'js');
+			document.documentElement.className = c;
+		})();
+		//]]>
+	</script>
+		
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	
+	<link rel="shortcut icon" href="<?php bloginfo( 'stylesheet_directory' ); ?>/images/favicon.ico" />
+	<link rel="apple-touch-icon" href="<?php bloginfo( 'stylesheet_directory' ); ?>/images/apple-touch-icon.png" />
+	
 	<?php
+	// Enqueue jQuery CDN
+	wp_deregister_script('jquery');
+	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js', array(), '1.7.x', false );
+	
 	/* We add some JavaScript to pages with the comment form
 	 * to support sites with threaded comments (when in use).
 	 */
@@ -46,36 +70,6 @@
 					</span>
 				</<?php echo $heading_tag; ?>>
 				<div id="site-description"><?php bloginfo( 'description' ); ?></div>
-
-				<?php
-					// Compatibility with versions of WordPress prior to 3.4.
-					if ( function_exists( 'get_custom_header' ) ) {
-						// We need to figure out what the minimum width should be for our featured image.
-						// This result would be the suggested width if the theme were to implement flexible widths.
-						$header_image_width = get_theme_support( 'custom-header', 'width' );
-					} else {
-						$header_image_width = HEADER_IMAGE_WIDTH;
-					}
-
-					// Check if this is a post or page, if it has a thumbnail, and if it's a big one
-					if ( is_singular() && current_theme_supports( 'post-thumbnails' ) &&
-							has_post_thumbnail( $post->ID ) &&
-							( /* $src, $width, $height */ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' ) ) &&
-							$image[1] >= $header_image_width ) :
-						// Houston, we have a new header image!
-						echo get_the_post_thumbnail( $post->ID );
-					elseif ( get_header_image() ) :
-						// Compatibility with versions of WordPress prior to 3.4.
-						if ( function_exists( 'get_custom_header' ) ) {
-							$header_image_width  = get_custom_header()->width;
-							$header_image_height = get_custom_header()->height;
-						} else {
-							$header_image_width  = HEADER_IMAGE_WIDTH;
-							$header_image_height = HEADER_IMAGE_HEIGHT;
-						}
-						?>
-						<img src="<?php header_image(); ?>" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" alt="" />
-					<?php endif; ?>
 			</div><!-- #branding -->
 
 			<div id="access" role="navigation">

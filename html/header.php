@@ -35,7 +35,7 @@
 			</style>
 		<![endif]-->
 		
-		<link rel="stylesheet" href="css/style.php" />
+		<link rel="stylesheet" type="text/css" media="all" href="css/style.php" />
 		
 		<!-- jQuery -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>

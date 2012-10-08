@@ -4,6 +4,7 @@ require dirname(__FILE__) . '/lib/lessc.inc.php';
 
 // List my ressources	
 $ressources = array(
+	'ressources/url-config.less',
 	'ressources/reset.less',
 	'ressources/text.less',
 	'ressources/forms.less',
@@ -14,6 +15,7 @@ $ressources = array(
 	'grids/desktop.less',
 	'grids/tablet.less',
 	'grids/mobile.less',
+	'ressources/variables.less',
 	'master.less',
 	'ressources/print.less'
 );

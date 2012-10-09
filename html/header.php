@@ -47,6 +47,9 @@
 		<!-- Superfish -->
 		<script type="text/javascript" src="js/ressources/hoverIntent.js"></script>
 		<script type="text/javascript" src="js/ressources/superfish.js"></script>
+		
+		<!-- HorizontalNav - dynamic menu -->
+		<script type="text/javascript" src="js/ressources/jquery.horizontalNav.js"></script>
 	</head>
 	<body class="<?php echo $class; ?>">
 		<div class="wrapper">

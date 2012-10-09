@@ -11,3 +11,8 @@ if (!(window.console && console.log)) {( function() {
 		}());
 }
 // Improve css with jQuery
+
+// Superfish for submenu
+//jQuery('.sf-menu').superfish();
+// HorizontalNav Dynamic menu
+//jQuery('.full-width').horizontalNav();

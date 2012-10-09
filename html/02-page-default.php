@@ -1,6 +1,6 @@
 <?php $class = 'single'; ?>
 <?php include 'header.php'; ?>
-			<section class="main-content" id="content">
+			<section id="content">
 				<?php include 'blocks/breadcrumb.php'; ?>
 				<div class="single">
 					<h1 class="page-title">Titre de la page (liste)</h1>
@@ -114,7 +114,7 @@
 					<?php include 'blocks/comments.php'; ?>
 				</div>
 			</section>
-			<aside class="sidebar">
+			<aside id="sidebar">
 				<div class="widget-area">
 					<?php include 'blocks/widgets/widget-text.php'; ?>
 					<?php include 'blocks/widgets/widget-categories.php'; ?>

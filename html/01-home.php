@@ -1,6 +1,6 @@
 <?php $class = 'home'; ?>
 <?php include 'header.php'; ?>
-		<section class="main-content" id="content">
+		<section id="content">
 			<article class="entry">
 				<section class="entry-content">
 					<h1>Title</h1>
@@ -18,7 +18,7 @@
 				</section>
 			</article>
 		</section>
-		<aside class="sidebar">
+		<aside id="sidebar">
 			<div class="widget-area">
 				<?php include 'blocks/widgets/widget-text.php'; ?>
 				<?php include 'blocks/widgets/widget-categories.php'; ?>

@@ -41,8 +41,8 @@
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 		
 		<!-- jQuery UI -->
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-		<link rel='stylesheet' id='jquery-style-css' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css?ver=3.3.1' type='text/css' media='all' />
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+		<link rel='stylesheet' id='jquery-style-css' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/smoothness/jquery-ui.css' type='text/css' media='all' />
 		
 		<!-- Superfish -->
 		<script type="text/javascript" src="js/ressources/hoverIntent.js"></script>

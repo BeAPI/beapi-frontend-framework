@@ -27,11 +27,9 @@
 		<!--[if lt IE 9]><script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 		<!--[if lte IE 8]>
 			<style type="text/css" media="screen">
-				/*
 				.css3-fix {
 					behavior: url(<?php echo 'http://'.$_SERVER['SERVER_NAME']; ?>/wp-content/html/htc/PIE.php);
 				}
-				*/
 			</style>
 		<![endif]-->
 		

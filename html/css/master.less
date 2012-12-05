@@ -2,7 +2,6 @@
  ----------------------------------------------------------------------------------------------------*/
 body {
 	color: @maincolor;
-	-webkit-text-size-adjust: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -10,11 +9,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-	color: @mainlink;
+	color: @maincolor;
 	&:hover,
 	&:focus,
 	&:active {
-		color: @mainlinkhover;
+		color: @maincolor;
 	}
 }
 
@@ -41,7 +40,7 @@ ul {
 			color: #fff;
 			&:hover,
 			&:focus {
-				color: @mainlinkhover;
+				color: @maincolor;
 			}
 		}
 	}

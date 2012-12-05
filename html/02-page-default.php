@@ -3,7 +3,7 @@
 			<section id="content">
 				<?php include 'blocks/breadcrumb.php'; ?>
 				<div class="single">
-					<h1 class="page-title">Titre de la page (liste)</h1>
+					<h1 class="page-title">Titre de la page</h1>
 					<article class="entry">
 						<section class="entry-content">
 							<p>

@@ -37,7 +37,7 @@ ul {
 	li {
 		display: inline;
 		a {
-			color: #fff;
+			color: @contrastcolorlight;
 			&:hover,
 			&:focus {
 				color: @maincolor;
@@ -51,10 +51,11 @@ ul {
 		&>li {
 			&>a {
 				padding:0 10px; font: 700 12px/24px Arial, Helvetica, sans-serif;
+				&:hover, &:focus, &:active {
+					color:@contrastcolorlight; background:@maincolor;
+				}
 			}
-			&:hover,
-			&:focus,
-			&.sfHover {
+			&:hover, &:focus, &:active, &.sfHover {
 				ul {
 					top: 24px;
 				}
@@ -62,15 +63,18 @@ ul {
 			&.current-menu-item,
 			&.current-menu-parent {
 				a {
-					color:#fff; background:@mainlinkhover;
+					color:@contrastcolorlight; background:@maincolor;
 				}
 			}
 		}
 		ul {
-			background: #fff;
+			background: @contrastcolorlight;
 			li {
 				a {
 					padding: 10px;
+					&:hover, &:focus, &:active {
+						color:@contrastcolorlight; background:@maincolor;
+					}
 				}
 			}
 		}

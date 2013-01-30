@@ -16,3 +16,5 @@ if (!(window.console && console.log)) {( function() {
 //jQuery('.sf-menu').superfish();
 // HorizontalNav Dynamic menu
 //jQuery('.full-width').horizontalNav();
+
+jQuery("img.lazy").show().lazyload({ effect : "fadeIn" });

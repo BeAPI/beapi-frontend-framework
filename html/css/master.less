@@ -31,6 +31,18 @@ ul {
 .assistive-text {
 	display: none;
 }
+/* Plugins
+ ----------------------------------------------------------------------------------------------------*/
+.lazy,
+.lazy.aligncenter,
+.lazy.alignright,
+.lazy.alignleft,
+#content .lazy,
+#content .lazy.aligncenter,
+#content .lazy.alignright,
+#content .lazy.alignleft {
+	display: none;
+}
 /* Main Content
 ----------------------------------------------------------------------------------------------------*/
 #fast-access {
@@ -86,7 +98,11 @@ ul {
 		display: inline; margin:0;
 	}
 }
+.entry {
+	.clearfix;
+}
 .entry-content {
+	.clearfix;
 	ul {
 		list-style: disc inside none; margin: 0 0 20px;
 		li {

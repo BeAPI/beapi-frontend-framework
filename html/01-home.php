@@ -17,6 +17,49 @@
 					</p>
 				</section>
 			</article>
+			<div class="loop">
+				<article class="entry">
+					<img class="lazy alignleft" src="images/grey.gif" data-original="uploads/sample-img-1.jpg"  width="150" height="150">
+					<noscript><img class="alignleft" src="uploads/sample-img-1.jpg" width="150" height="150"></noscript>
+					<h2 class="entry-title"><a href="#">There is a post + a 20 words lorem ipsum excerpt</a></h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+					<a href="#" class="readmore">Readmore</a>
+				</article>
+				<article class="entry">
+					<img class="lazy alignleft" src="images/grey.gif" data-original="uploads/sample-img-2.jpg"  width="150" height="150">
+					<noscript><img class="alignleft" src="uploads/sample-img-2.jpg" width="150" height="150"></noscript>
+					<h2 class="entry-title"><a href="#">There is a post + a 20 words lorem ipsum excerpt</a></h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+					<a href="#" class="readmore">Readmore</a>
+				</article>
+				<article class="entry">
+					<img class="lazy alignleft" src="images/grey.gif" data-original="uploads/sample-img-3.jpg"  width="150" height="150">
+					<noscript><img class="alignleft" src="uploads/sample-img-3.jpg" width="150" height="150"></noscript>
+					<h2 class="entry-title"><a href="#">There is a post + a 20 words lorem ipsum excerpt</a></h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+					<a href="#" class="readmore">Readmore</a>
+				</article><article class="entry">
+					<img class="lazy alignleft" src="images/grey.gif" data-original="uploads/sample-img-1.jpg"  width="150" height="150">
+					<noscript><img class="alignleft" src="uploads/sample-img-1.jpg" width="150" height="150"></noscript>
+					<h2 class="entry-title"><a href="#">There is a post + a 20 words lorem ipsum excerpt</a></h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+					<a href="#" class="readmore">Readmore</a>
+				</article>
+				<article class="entry">
+					<img class="lazy alignleft" src="images/grey.gif" data-original="uploads/sample-img-2.jpg"  width="150" height="150">
+					<noscript><img class="alignleft" src="uploads/sample-img-2.jpg" width="150" height="150"></noscript>
+					<h2 class="entry-title"><a href="#">There is a post + a 20 words lorem ipsum excerpt</a></h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+					<a href="#" class="readmore">Readmore</a>
+				</article>
+				<article class="entry">
+					<img class="lazy alignleft" src="images/grey.gif" data-original="uploads/sample-img-3.jpg"  width="150" height="150">
+					<noscript><img class="alignleft" src="uploads/sample-img-3.jpg" width="150" height="150"></noscript>
+					<h2 class="entry-title"><a href="#">There is a post + a 20 words lorem ipsum excerpt</a></h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+					<a href="#" class="readmore">Readmore</a>
+				</article>
+			</div>
 		</section>
 		<aside id="sidebar">
 			<div class="widget-area">

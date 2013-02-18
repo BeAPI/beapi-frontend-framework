@@ -44,10 +44,10 @@
 		
 		<!-- Superfish -->
 		<script type="text/javascript" src="js/ressources/hoverIntent.js"></script>
-		<script type="text/javascript" src="js/ressources/superfish.js"></script>
+		<script type="text/javascript" src="js/ressources/superfish.min.js"></script>
 		
 		<!-- HorizontalNav - dynamic menu -->
-		<script type="text/javascript" src="js/ressources/jquery.horizontalNav.js"></script>
+		<script type="text/javascript" src="js/ressources/jquery.horizontalNav.min.js"></script>
 	</head>
 	<body class="<?php echo $class; ?>">
 		<div class="wrapper">

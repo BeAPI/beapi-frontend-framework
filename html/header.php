@@ -38,16 +38,6 @@
 		<!-- jQuery -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		
-		<!-- jQuery UI -->
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
-		<link rel='stylesheet' id='jquery-style-css' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/smoothness/jquery-ui.css' type='text/css' media='all' />
-		
-		<!-- Superfish -->
-		<script type="text/javascript" src="js/ressources/hoverIntent.js"></script>
-		<script type="text/javascript" src="js/ressources/superfish.min.js"></script>
-		
-		<!-- HorizontalNav - dynamic menu -->
-		<script type="text/javascript" src="js/ressources/jquery.horizontalNav.min.js"></script>
 	</head>
 	<body class="<?php echo $class; ?>">
 		<div class="wrapper">

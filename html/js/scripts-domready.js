@@ -11,10 +11,16 @@ if (!(window.console && console.log)) {( function() {
 		}());
 }
 // Improve css with jQuery
+//jQuery("ul li:last-child").addClass("last");
 
 // Superfish for submenu
 //jQuery('.sf-menu').superfish();
+
 // HorizontalNav Dynamic menu
 //jQuery('.full-width').horizontalNav();
 
+//LazyLoad
 jQuery("img.lazy").show().lazyload({ effect : "fadeIn" });
+
+//Html5 PLaceholder fallback for ie7+
+jQuery("input, textarea").placeholder();

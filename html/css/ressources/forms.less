@@ -30,6 +30,11 @@ legend, #IE8#HACK { margin-top:0; margin-bottom:0; }
   add classes for each one. ".title" simply creates a large text  
   field, this is purely for looks.
  */
+::-webkit-input-placeholder { color:@maincolor; .opacity(0.5); }
+::-moz-placeholder { color:@maincolor; .opacity(0.5); } /* firefox 19+ */
+:-ms-input-placeholder { color:@maincolor; .opacity(0.5); } /* ie */
+input:-moz-placeholder { color:@maincolor; .opacity(0.5); }
+
 input[type=text], input[type=password],
 input.text, input.title,
 textarea {

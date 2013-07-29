@@ -13,12 +13,9 @@
 		<!-- HorizontalNav - dynamic menu -->
 		<!-- <script type="text/javascript" src="js/ressources/jquery.horizontalNav.min.js"></script> -->
 		
-		<!-- LazyLoad -->
+		<!-- Placeholder -->
 		<script type="text/javascript" src="js/ressources/jquery.placeholder.min.js"></script>
-		
-		<!-- LazyLoad -->
-		<script type="text/javascript" src="js/ressources/jquery.lazyload.min.js"></script>
-		
+
 		<!-- Custom functions and scripts -->
 		<script type="text/javascript" src="js/scripts-domready.js"></script>
 	</body>

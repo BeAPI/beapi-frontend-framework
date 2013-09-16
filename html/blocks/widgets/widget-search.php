@@ -1,5 +1,5 @@
 <div class="widget widget_search">
-	<h4 class="widget-title">Recherche</h4>
+	<h4 class="widgettitle">Recherche</h4>
 	<div class="searchform">
 		<form method="get" action="#">
 			<label for="s" class="assistive-text">Recherche</label>

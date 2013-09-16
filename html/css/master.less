@@ -33,16 +33,7 @@ ul {
 }
 /* Plugins
  ----------------------------------------------------------------------------------------------------*/
-.lazy,
-.lazy.aligncenter,
-.lazy.alignright,
-.lazy.alignleft,
-#content .lazy,
-#content .lazy.aligncenter,
-#content .lazy.alignright,
-#content .lazy.alignleft {
-	display: none;
-}
+
 /* Main Content
 ----------------------------------------------------------------------------------------------------*/
 #fast-access {
@@ -62,7 +53,7 @@ ul {
 		.clearfix; margin-bottom: 20px;
 		&>li {
 			&>a {
-				padding:0 10px; font: 700 12px/24px Arial, Helvetica, sans-serif;
+				padding:0 10px; font: 700 12px/24px @font-sansserif;
 				&:hover, &:focus, &:active {
 					color:@contrastcolorlight; background:@maincolor;
 				}
@@ -115,6 +106,9 @@ ul {
 			margin: 0 0 5px;
 		}
 	}
+	img {
+		max-width: 100%; height: auto;
+	}
 	.gform_wrapper {
 		ul {
 			list-style: none;
@@ -129,118 +123,124 @@ ul {
 /* Comments
  ----------------------------------------------------------------------------------------------------*/
 #comments {
-	.commentlist {
-		list-style: none;
-		li {
-			min-height:75px; margin:0 0 20px; padding: 0 0 20px;
+	
+}
+.commentlist {
+	list-style: none;
+}
+.comment {
+	.comment {
+		min-height:75px; margin:0 0 20px; padding: 0 0 20px; position: relative;.clearfix; border-bottom: 1px solid @maincolor;
+	}
+	&.last {
+		border:0;
+	}
+	.children {
+		margin: 20px 0 0 92px;
+		.comment {
+			min-height: 28px; border-bottom: 0; margin-bottom: 0;
 			.comment {
-				position: relative;.clearfix;
-				.comment-meta {
-					position: relative; padding-left: 92px; margin-bottom: 6px;
-					.comment-author {
-						font-weight:700;
-						.avatar {
-							position: absolute; left: 5px; top: 0;
-						}
-					}
-				}
-				.comment-content {
-					padding:0 60px 0 92px;
-					p {
-						margin-bottom: 6px;
-					}
-				}
-				.reply {
-					position: absolute; right: 0; bottom: 0;
-					.comment-reply-link {
-						display:inline-block; font-size: 11px; line-height: 20px; height:20px;
+				border-bottom: 1px solid @maincolor;
+			}
+		}
+		.comment-meta,
+		.comment-content {
+			padding-left: 62px;
+		}
+	}
+}
+.comment-meta {
+	position: relative; padding-left: 92px; margin-bottom: 6px;
+}
+.comment-author {
+	font-weight:700;
+}
+.avatar {
+	position: absolute; left: 5px; top: 0;
+}
+.comment-content {
+	padding:0 60px 0 92px;
+	p {
+		margin-bottom: 6px;
+	}
+}
+.reply {
+	position: absolute; right: 0; bottom: 0;
+}
+.comment-reply-link {
+	display:inline-block; font-size: 11px; line-height: 20px; height:20px;
+}
+/* Widget
+ ----------------------------------------------------------------------------------------------------*/
+.widget-area {
+	img {
+		max-width: 100%; height: auto;
+	}
+}
+.widget {
+	.clearfix; margin-bottom: 20px;
+}
+.widgettitle {
+	.bordered(0, 0, @maincolor, 0);
+}
+.widget-inner {
+	
+}
+.widget_text {
+	
+}
+.widget_categories {
+	.widget-inner {
+		&>ul {
+			&>li {
+				&>a {
+					&:hover,
+					&:focus,
+					&:active {
+						font-weight: 700;
 					}
 				}
 			}
-			&.last {
-				border:0;
-			}
-			.children {
-				margin: 20px 0 0 92px;
-				li {
-					min-height: 28px;
-					.comment-meta,
-					.comment-content {
-						padding-left: 62px;
+		}
+		ul {
+			li {
+				&.current-cat,
+				&.current-cat-parent {
+					&>a,
+					.current-cat a {
+						font-weight: 700;
 					}
 				}
 			}
 		}
 	}
 }
-/* Widget
- ----------------------------------------------------------------------------------------------------*/
-.widget-area {
-	.widget {
-		.clearfix; margin-bottom: 20px;
-		.widget-title {
-			.bordered(0, 0, @maintext, 0);
-		}
-		.widget-inner {
-			
-		}
-	}
-	.widget_text {
-		
-	}
-	.widget_categories {
-		.widget-inner {
-			&>ul {
-				&>li {
-					&>a {
-						&:hover,
-						&:focus,
-						&:active {
-							font-weight: 700;
-						}
+.widget_pages {
+	.widget-inner {
+		&>ul {
+			&>li {
+				&>a {
+					&:hover,
+					&:focus,
+					&:active {
+						font-weight: 700;
 					}
 				}
 			}
-			ul {
-				li {
-					&.current-cat,
-					&.current-cat-parent {
-						&>a,
-						.current-cat a {
-							font-weight: 700;
-						}
+		}
+		ul {
+			li {
+				&.current_page_ancestor,
+				&.current_page_parent {
+					&>a,
+					.current_page_item a {
+						font-weight: 700;
 					}
 				}
 			}
 		}
 	}
-	.widget_pages {
-		.widget-inner {
-			&>ul {
-				&>li {
-					&>a {
-						&:hover,
-						&:focus,
-						&:active {
-							font-weight: 700;
-						}
-					}
-				}
-			}
-			ul {
-				li {
-					&.current_page_ancestor,
-					&.current_page_parent {
-						&>a,
-						.current_page_item a {
-							font-weight: 700;
-						}
-					}
-				}
-			}
-		}
-	}
-	.widget_search {
-		
-	}
+}
+.widget_search {
+	
 }

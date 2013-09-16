@@ -5,13 +5,13 @@
 			<article class="comment" id="comment-1">
 				<footer class="comment-meta">
 					<div class="comment-author vcard">
-						<img class="avatar" alt="WordPress Logo" src="http://0.gravatar.com/avatar/ec1b43daa0c816271afe6a8164b0098b?s=68&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&r=G" alt="#">
-						<span class="fn">Jacques Matinet</span>
+						<img class="avatar" alt="#" src="http://placehold.it/70x70" alt="#">
+						<span class="fn">Lorem ipsum</span>
 					</div><!-- .comment-author .vcard -->
 				</footer>
 				<div class="comment-content">
 					<p>
-						La vraie question c’est donc comment on fait pour permettre à chacun d’accéder à ce service essentiel qu’est l’énergie, parce que si on ne s’en préoccupe pas maintenant, la situation pourrait devenir dramatique.
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum qui accusantium facilis nihil dolorum modi eaque optio quibusdam nemo aperiam cumque molestias vero officiis expedita animi cupiditate amet quasi velit!
 					</p>
 				</div>
 				<div class="reply">
@@ -23,17 +23,31 @@
 					<article class="comment" id="comment-3">
 						<footer class="comment-meta">
 							<div class="comment-author vcard">
-								<img width="39" height="39" class="avatar avatar-39 photo" src="http://0.gravatar.com/avatar/ec1b43daa0c816271afe6a8164b0098b?s=39&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D39&amp;r=G" alt=""><span class="fn">admin</span> on <a href="http://dev.beapi.fr/dev-nicolas/2008/09/17/another-post-with-everything-in-it/comment-page-1/#comment-17"><time datetime="2012-03-01T09:53:44+00:00" pubdate="">01/03/2012 at 9 h 53 min</time></a> <span class="says">said:</span>
-								<span class="edit-link"><a title="Edit comment" href="http://dev.beapi.fr/dev-nicolas/wp-admin/comment.php?action=editcomment&amp;c=17" class="comment-edit-link">Edit</a></span>				</div><!-- .comment-author .vcard -->
-			
+								<img width="39" height="39" class="avatar photo" src="http://placehold.it/40x40" alt="#"><span class="fn">admin</span> on <a href="#"><time datetime="2012-03-01T09:53:44+00:00" pubdate="">01/03/2012 at 9 h 53 min</time></a> <span class="says">said:</span>
+								<span class="edit-link"><a title="Edit comment" href="#" class="comment-edit-link">Edit</a></span>
+							</div><!-- .comment-author .vcard -->
 							
 						</footer>
-			
-						<div class="comment-content"><p>I don’t give a shiiiiiiiit</p>
-			</div>
+						<div class="comment-content"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate suscipit corrupti minima veritatis velit enim optio reiciendis deleniti autem odio odit tempora nihil accusamus ex deserunt ab distinctio rerum eum.</p></div>
 			
 						<div class="reply">
-							<a onclick="return addComment.moveForm(&quot;comment-17&quot;, &quot;17&quot;, &quot;respond&quot;, &quot;214&quot;)" href="/dev-nicolas/2008/09/17/another-post-with-everything-in-it/comment-page-1/?replytocom=17#respond" class="comment-reply-link">Reply <span>↓</span></a>			</div><!-- .reply -->
+							<a onclick="return addComment.moveForm(&quot;comment-17&quot;, &quot;17&quot;, &quot;respond&quot;, &quot;214&quot;)" href="#respond" class="comment-reply-link">Reply <span>↓</span></a>			</div><!-- .reply -->
+					</article><!-- #comment-## -->
+			
+				</li>
+				<li id="li-comment-3" class="comment byuser comment-author-admin bypostauthor odd alt depth-2">
+					<article class="comment" id="comment-3">
+						<footer class="comment-meta">
+							<div class="comment-author vcard">
+								<img width="39" height="39" class="avatar photo" src="http://placehold.it/40x40" alt="#"><span class="fn">admin</span> on <a href="#"><time datetime="2012-03-01T09:53:44+00:00" pubdate="">01/03/2012 at 9 h 53 min</time></a> <span class="says">said:</span>
+								<span class="edit-link"><a title="Edit comment" href="#" class="comment-edit-link">Edit</a></span>
+							</div><!-- .comment-author .vcard -->
+							
+						</footer>
+						<div class="comment-content"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate suscipit corrupti minima veritatis velit enim optio reiciendis deleniti autem odio odit tempora nihil accusamus ex deserunt ab distinctio rerum eum.</p></div>
+			
+						<div class="reply">
+							<a onclick="return addComment.moveForm(&quot;comment-17&quot;, &quot;17&quot;, &quot;respond&quot;, &quot;214&quot;)" href="#respond" class="comment-reply-link">Reply <span>↓</span></a>			</div><!-- .reply -->
 					</article><!-- #comment-## -->
 			
 				</li>
@@ -43,13 +57,13 @@
 			<article class="comment" id="comment-2">
 				<footer class="comment-meta">
 					<div class="comment-author vcard">
-						<img class="avatar" alt="WordPress Logo" src="http://0.gravatar.com/avatar/ec1b43daa0c816271afe6a8164b0098b?s=68&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&r=G" alt="#">
+						<img class="avatar" alt="#" src="http://placehold.it/70x70" alt="#">
 						<span class="fn">Jacques Matinet</span>
 					</div><!-- .comment-author .vcard -->
 				</footer>
 				<div class="comment-content">
 					<p>
-						La vraie question c’est donc comment on fait pour permettre à chacun d’accéder à ce service essentiel qu’est l’énergie, parce que si on ne s’en préoccupe pas maintenant, la situation pourrait devenir dramatique.
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae excepturi amet eos optio error cumque laborum dolorum doloremque? Placeat ex nostrum quis ad magni impedit reiciendis recusandae quae earum iure.
 					</p>
 				</div>
 				<div class="reply">

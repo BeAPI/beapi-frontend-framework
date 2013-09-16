@@ -1,6 +1,9 @@
-<ol id="breadcrumb">
-	<li class="home"><a href="#">Accueil</a>&nbsp;&gt;</li>
-	<li><a href="#">breadcrumb 1</a>&nbsp;&gt;</li>
-	<li><a href="#">breadcrumb 2</a>&nbsp;&gt;</li>
-	<li class="current_item">Current page</li>
-</ol>
+<div id="breadcrumb">
+	<span>
+		<span typeof="v:Breadcrumb"><a href="#" rel="v:url" property="v:title">Accueil</a></span> / 
+		<span typeof="v:Breadcrumb"><a href="#" rel="v:url" property="v:title">breadcrumb level 1</a></span> / 
+		<span typeof="v:Breadcrumb">
+			<span class="breadcrumb_last" property="v:title">breadcrumb level 2 (current)</span>
+		</span>
+	</span>
+</div>

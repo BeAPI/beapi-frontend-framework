@@ -6,15 +6,6 @@
 <!--[if !(IE)]><!-->
 <html class="no-js" lang="fr"><!--<![endif]-->
 	<head>
-		<script type="text/javascript">
-			//<![CDATA[
-			(function(){
-				var c = document.documentElement.className;
-				c = c.replace(/no-js/, 'js');
-				document.documentElement.className = c;
-			})();
-			//]]>
-		</script>
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -34,6 +25,9 @@
 		<![endif]-->
 		
 		<link rel="stylesheet" type="text/css" media="all" href="functions/style.php" />
+		
+		<!-- Modernizr Custom (JS + SVG detection) -->
+		<script type="text/javascript" src="assets/js/libs/modernizr.custom.min.js"></script>
 		
 		<!-- jQuery -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>

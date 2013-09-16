@@ -12,8 +12,8 @@
 		
 		<title>BeAPI Base theme</title>
 		
-		<link rel="shortcut icon" href="assets/images/favicon.ico" />
-		<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+		<link rel="shortcut icon" href="assets/img/favicon.ico" />
+		<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
 		
 		<!--[if lt IE 9]><script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 		<!--[if lte IE 8]>
@@ -27,7 +27,7 @@
 		<link rel="stylesheet" type="text/css" media="all" href="functions/style.php" />
 		
 		<!-- Modernizr Custom (JS + SVG detection) -->
-		<script type="text/javascript" src="assets/js/libs/modernizr.custom.min.js"></script>
+		<script type="text/javascript" src="assets/js/vendor/modernizr.custom.min.js"></script>
 		
 		<!-- jQuery -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>

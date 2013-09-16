@@ -21,19 +21,19 @@
 		
 		<title>BeAPI Base theme</title>
 		
-		<link rel="shortcut icon" href="images/favicon.ico" />
-		<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+		<link rel="shortcut icon" href="assets/images/favicon.ico" />
+		<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
 		
 		<!--[if lt IE 9]><script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 		<!--[if lte IE 8]>
 			<style type="text/css" media="screen">
 				.css3-fix {
-					behavior: url(<?php echo 'http://'.$_SERVER['SERVER_NAME']; ?>/wp-content/html/htc/PIE.php);
+					behavior: url(<?php echo 'http://'.$_SERVER['SERVER_NAME']; ?>/wp-content/html/assets/htc/PIE.php);
 				}
 			</style>
 		<![endif]-->
 		
-		<link rel="stylesheet" type="text/css" media="all" href="css/style.php" />
+		<link rel="stylesheet" type="text/css" media="all" href="functions/style.php" />
 		
 		<!-- jQuery -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>

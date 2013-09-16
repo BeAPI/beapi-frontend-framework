@@ -1,0 +1,61 @@
+@media print {
+	* {
+		background: transparent !important;
+		color: black !important;
+		text-shadow: none !important;
+		filter: none !important;
+		-ms-filter: none !important;
+		font-family: Arial, Helvetica, sans-serif!important;
+		text-decoration: none;
+	}/* Black prints faster: h5bp.com/s */
+	a, a:visited {
+		text-decoration: none;
+	}
+	a[href]:after {
+		content: " (" attr(href) ")";
+	}
+	abbr[title]:after {
+		content: " (" attr(title) ")";
+	}
+	.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+		content: "";
+	}/* Don't show links for images, or javascript/internal links */
+	pre, blockquote {
+		border: 0;
+		page-break-inside: avoid;
+	}
+	thead {
+		display: table-header-group;
+	}/* h5bp.com/t */
+	tr, img {
+		page-break-inside: avoid;
+	}
+	img {
+		max-width: 100% !important;
+	}
+	@page {
+		margin: 0.5cm;
+	}
+	p, h2, h3 {
+		orphans: 3;
+		widows: 3;
+	}
+	h2, h3 {
+		page-break-after: avoid;
+	}
+	.inline-element-with-padding {
+		padding: 0;
+	}
+	/* remove useless content */
+	.header,
+	.footer,
+	.widget-area,
+	.breadcrumb,
+	.wp-pagenavi {
+		display: none!important;
+	}
+	/* reset width */
+	.content {
+		padding:10px 0!important; margin:10px 0!important; width: 100%!important;
+	}
+}

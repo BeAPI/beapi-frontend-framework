@@ -39,17 +39,16 @@ input[type=text], input[type=password],
 input.text, input.title,
 textarea {
 	display: block;
-	background: #fff;
-	border:1px solid #c6c6c6;
+	background: @contrastcolorlight;
+	border:1px solid @maincolor;
 	padding: 5px;
+	&:focus {
+		border-color:@maincolor;
+	}
 }
-input[type=text]:focus, input[type=password]:focus,
-input.text:focus, input.title:focus,
-textarea:focus {
-	border-color:#ccc;
-}
+
 select {
-	display: block; height:28px; background-color:#fff; border-width:1px; border-style:solid;
+	display: block; height:28px; background-color:@contrastcolorlight; border-width:1px; border-style:solid;
 }
 
 input[type=text], input[type=password],
@@ -70,8 +69,8 @@ input.title {
 textarea {
 	width: 98%;padding:5px;
 }
-input::-webkit-input-placeholder { color:#000!important; }
-input:-moz-placeholder { color:#000!important; }
+input::-webkit-input-placeholder { color:@maincolor!important; }
+input:-moz-placeholder { color:@maincolor!important; }
 input[type=submit] {-webkit-appearance:none;}
 /* 
   This is to be used on forms where a variety of elements are 
@@ -101,27 +100,26 @@ form {clear: both;}
 }
 .error,
 .alert {
-	background: #fbe3e4; color: #8a1f11;
+	color: @errorcolor-1; background: @errorcolor-2;
+	a {
+		color: @errorcolor-1;
+	}
 }
 .notice {
-	background: #fff6bf; color: #514721;
+	color: @noticecolor-1; background: @noticecolor-2;
+	a {
+		color: @noticecolor-1;
+	}
 }
 .success {
-	background: #e6efc2; color: #264409;
+	color: @successcolor-1; background: @successcolor-2;
+	a {
+		color: @successcolor-1;
+	}
 }
 .info {
-	background: #d5edf8; color: #205791;
-}
-.error a,
-.alert a {
-	color: #8a1f11;
-}
-.notice a {
-	color: #514721;
-}
-.success a {
-	color: #264409;
-}
-.info a {
-	color: #205791;
+	color: @infocolor-1; background: @infocolor-2;
+	a {
+		color: @infocolor-1;
+	}
 }

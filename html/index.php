@@ -16,13 +16,14 @@ $title = cleanTitle(basename(dirname(__FILE__)));
 	<title><?php echo $title; ?></title>
 	<style>
 		body { font-family:sans-serif; padding: 0; margin: 0; background: #f5f5f5; }
-		.wrap { width: 515px; margin: 1em auto; background: white; padding: 25px; border: solid 1px #ECE9E9; -moz-border-radius: 10px; -webkit-border-radius: 10px; }
-		h1 { margin: 0 0 5px 0; font-size:120%; font-weight:normal; color: #666; }
+		.wrap { width: 515px; margin: 1em auto; padding: 10px 0 0; background: white; border: solid 1px #ECE9E9;}
+		h1 { margin: 0 22px 10px; font-size:120%; font-weight:normal; color: #666; }
 		a { color: #399ae5; text-decoration: none; } a:hover { color: #206ba4; text-decoration: underline; }
 		.note { padding:  0 5px 25px 0; font-size:80%; color: #666; line-height: 18px; }
-		.media_block { clear: both;  min-height: 50px; padding: 10px 15px; border-top: solid 1px #ECE9E9; }
+		.media_block { position: relative; clear: both;  min-height: 50px; padding: 10px 15px; border-top: solid 1px #ECE9E9; }
 		.media_block_image { width: 50px; height: 50px; float: left; margin-right: 10px; }
 		.media_block_image a { width: 50px; height: 50px; line-height: 75px; display: block; background: transparent url(https://dl.dropbox.com/u/6771946/icons/icons.png) no-repeat 0 0; } .media_block_image a:hover { text-decoration: none; }
+		.media_block_file a { display: block; width: 100%; }
 		.media_block_date { margin-top: 4px; font-size: 70%; color: #666; }
 		.jpg, .jpeg, .gif, .png { background-position: -50px 0 !important; } 
 		.pdf { background-position: -100px 0 !important; }  
@@ -43,6 +44,10 @@ $title = cleanTitle(basename(dirname(__FILE__)));
 		.ai { background-position: -850px 0 !important; }
 		.html, .xhtml, .dhtml, .php, .asp, .css, .js, .inc { background-position: -900px 0 !important; }
 		.dir { background-position: -950px 0 !important; }
+
+		@media (max-width:515px) {
+			.wrap { width: 100%; border: none; }
+		}
 	</style>
 	<meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
 </head>

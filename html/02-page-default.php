@@ -171,12 +171,12 @@
 			</section>
 			<aside id="sidebar">
 				<div class="widget-area">
-					<?php include '../blocks/widgets/widget-search.php'; ?>
-					<?php include '../blocks/widgets/widget-image.php'; ?>
-					<?php include '../blocks/widgets/widget-text.php'; ?>
-					<?php include '../blocks/widgets/widget-categories.php'; ?>
-					<?php include '../blocks/widgets/widget-archive.php'; ?>
-					<?php include '../blocks/widgets/widget-pages.php'; ?>
+					<?php include 'blocks/widgets/widget-search.php'; ?>
+					<?php include 'blocks/widgets/widget-image.php'; ?>
+					<?php include 'blocks/widgets/widget-text.php'; ?>
+					<?php include 'blocks/widgets/widget-categories.php'; ?>
+					<?php include 'blocks/widgets/widget-archive.php'; ?>
+					<?php include 'blocks/widgets/widget-pages.php'; ?>
 				</div>
 			</aside>
 <?php include 'footer.php'; ?>

@@ -19,7 +19,7 @@
 		<!--[if lte IE 8]>
 			<style type="text/css" media="screen">
 				.css3-fix {
-					behavior: url(<?php echo 'http://'.$_SERVER['SERVER_NAME']; ?>/wp-content/html/assets/htc/PIE.php);
+					behavior: url("../assets/htc/PIE.htc");
 				}
 			</style>
 		<![endif]-->
@@ -27,7 +27,7 @@
 		<link rel="stylesheet" type="text/css" media="all" href="functions/style.php" />
 		
 		<!-- Modernizr Custom (JS + SVG detection) -->
-		<script type="text/javascript" src="assets/js/vendor/modernizr.custom.min.js"></script>
+		<script type="text/javascript" src="../assets/js/vendor/modernizr.custom.min.js"></script>
 		
 		<!-- jQuery -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>

@@ -31,7 +31,6 @@
 	margin: 0;
 }
 .wp-caption-text {
-	color: #424242;
 	font: italic 400 11px/12px @font-sansserif;
 	margin: 5px 5px 0;
 }
@@ -39,47 +38,35 @@
 	margin: 0;
 }
 .gallery {
-	margin: 0 auto 18px;
+	.row(12);
 }
-.gallery .gallery-item {
-	float: left;
-	margin-top: 0;
+.gallery-item {
+	.column(6);
 	text-align: center;
-	width: 255px;
 	position: relative;
-	margin-right: 20px;
-	margin-bottom: 20px
+	margin-bottom: 20px;
+	a {
+		display: block;
+		img {
+			display: block;
+		}
+	}
 }
-.gallery .gallery-item a,
-.gallery .gallery-item a img { display: block;}
-.gallery .last { margin-right: 0}
-
-.gallery .gallery-caption {
-	color: #888;
+.gallery-columns-3 {
+	.gallery-item {
+		.column(4);	margin-bottom: 10px;
+	}
+}
+.gallery-columns-4 {
+	.gallery-item {
+		.column(3);	margin-bottom: 10px;
+	}
+}
+.gallery-caption {
 	font-size: 11px;
-	margin: 12px 0 0;
+	margin: 10px 0 0;
 	text-align: left;
 }
-.gallery-columns-4 .gallery-item {
-	width: 155px;
-}
-#content .gallery .gallery-caption p {
-	font-size: 11px;
-	line-height: 15px;
-	margin-bottom: 0
-}
-.gallery .gallery-caption p a {
-	color: #5A5A5A
-}
-.gallery .gallery-caption p a:hover { text-decoration: underline}
-.gallery dl {
-	margin: 0;
-}
-
 .gallery br+br {
 	display: none;
-}
-.attachment img { /* single attachment images should be centered */
-	display: block;
-	margin: 0 auto;
 }

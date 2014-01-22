@@ -36,12 +36,12 @@ legend, #IE8#HACK { margin-top:0; margin-bottom:0; }
 input:-moz-placeholder { color:@maincolor; .opacity(0.5); }
 
 input[type=text], input[type=password],
-input.text, input.title,
 textarea {
 	display: block;
 	background: @contrastcolorlight;
 	border:1px solid @maincolor;
 	padding: 5px;
+	.rounded(0);
 	&:focus {
 		border-color:@maincolor;
 	}
@@ -52,26 +52,21 @@ select {
 }
 
 input[type=text], input[type=password],
-input.text, input.title,
 textarea, select {
 	margin:0.5em 0;
 }
 
-input.text,
-input.title { 
-	width: 200px;
-	padding:5px;
-	font-size: 11px;
-}
-input.title {
-	font-size:1.5em;
-}
 textarea {
-	width: 98%;padding:5px;
+	width: 98%; padding:5px; resize:vertical;
 }
-input::-webkit-input-placeholder { color:@maincolor!important; }
-input:-moz-placeholder { color:@maincolor!important; }
-input[type=submit] {-webkit-appearance:none;}
+input[type=submit] {
+	cursor: pointer;
+	border: 0;
+	color: @contrastcolorlight;
+	background: @maincolor;
+	-webkit-appearance:none;
+	.rounded(0);
+}
 /* 
   This is to be used on forms where a variety of elements are 
   placed side-by-side. Use the p tag to denote a line. 
@@ -89,7 +84,7 @@ form {clear: both;}
 .notice,
 .success, 
 .info {
-	padding: 15px 20px; margin-bottom: 1em; font: 400 14px/16px Arial, Helvetica, sans-serif;
+	padding: 15px 20px; margin-bottom: 1em; font: 400 14px/16px @font-sansserif;
 }
 .error p,
 .alert p, 

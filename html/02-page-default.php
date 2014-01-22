@@ -121,31 +121,45 @@
 								Aenean eu libero nec lectus ultricies laoreet. Donec rutrum, nisi vel egestas ultrices, ipsum urna sagittis libero, vitae vestibulum dui dolor vel velit.
 							</li>
 						</ul>
-						<div id="gallery-1" class="gallery galleryid-1 gallery-columns-4 gallery-size-thumbnail"><dl class="gallery-item">
-							<dt class="gallery-icon">
-								<a href="http://sandbox.beapi.fr/plugins/blog/2012/06/25/bonjour-tout-le-monde/02771_sunsetflames_1920x1080/" title="02771_sunsetflames_1920x1080"><img width="150" height="150" src="http://sandbox.beapi.fr/plugins/wp-content/uploads/2012/06/02771_sunsetflames_1920x1080-150x150.jpg" class="attachment-thumbnail" alt="02771_sunsetflames_1920x1080" title="02771_sunsetflames_1920x1080"></a>
-							</dt></dl><dl class="gallery-item">
-							<dt class="gallery-icon">
-								<a href="http://sandbox.beapi.fr/plugins/blog/2012/06/25/bonjour-tout-le-monde/lightroom_tutorials_landscape_aes6013/" title="lightroom_tutorials_landscape_AES6013"><img width="150" height="150" src="http://sandbox.beapi.fr/plugins/wp-content/uploads/2012/06/lightroom_tutorials_landscape_AES6013-150x150.jpg" class="attachment-thumbnail" alt="lightroom_tutorials_landscape_AES6013" title="lightroom_tutorials_landscape_AES6013"></a>
-							</dt></dl><dl class="gallery-item">
-							<dt class="gallery-icon">
-								<a href="http://sandbox.beapi.fr/plugins/blog/2012/06/25/bonjour-tout-le-monde/02762_aspentrail_1920x1080/" title="02762_aspentrail_1920x1080"><img width="150" height="150" src="http://sandbox.beapi.fr/plugins/wp-content/uploads/2012/06/02762_aspentrail_1920x1080-150x150.jpg" class="attachment-thumbnail" alt="02762_aspentrail_1920x1080" title="02762_aspentrail_1920x1080"></a>
-							</dt></dl><dl class="gallery-item">
-							<dt class="gallery-icon">
-								<a href="http://sandbox.beapi.fr/plugins/blog/2012/06/25/bonjour-tout-le-monde/02764_finisterre_1920x1080/" title="02764_finisterre_1920x1080"><img width="150" height="150" src="http://sandbox.beapi.fr/plugins/wp-content/uploads/2012/06/02764_finisterre_1920x1080-150x150.jpg" class="attachment-thumbnail" alt="02764_finisterre_1920x1080" title="02764_finisterre_1920x1080"></a>
-							</dt></dl><br style="clear: both"><dl class="gallery-item">
-							<dt class="gallery-icon">
-								<a href="http://sandbox.beapi.fr/plugins/blog/2012/06/25/bonjour-tout-le-monde/02765_naturesecho_1920x1080/" title="02765_naturesecho_1920x1080"><img width="150" height="150" src="http://sandbox.beapi.fr/plugins/wp-content/uploads/2012/06/02765_naturesecho_1920x1080-150x150.jpg" class="attachment-thumbnail" alt="02765_naturesecho_1920x1080" title="02765_naturesecho_1920x1080"></a>
-							</dt></dl><dl class="gallery-item">
-							<dt class="gallery-icon">
-								<a href="http://sandbox.beapi.fr/plugins/blog/2012/06/25/bonjour-tout-le-monde/02767_purplemorning_1920x1080/" title="02767_purplemorning_1920x1080"><img width="150" height="150" src="http://sandbox.beapi.fr/plugins/wp-content/uploads/2012/06/02767_purplemorning_1920x1080-150x150.jpg" class="attachment-thumbnail" alt="02767_purplemorning_1920x1080" title="02767_purplemorning_1920x1080"></a>
-							</dt></dl><dl class="gallery-item">
-							<dt class="gallery-icon">
-								<a href="http://sandbox.beapi.fr/plugins/blog/2012/06/25/bonjour-tout-le-monde/02768_thephotographer_1920x1080/" title="02768_thephotographer_1920x1080"><img width="150" height="150" src="http://sandbox.beapi.fr/plugins/wp-content/uploads/2012/06/02768_thephotographer_1920x1080-150x150.jpg" class="attachment-thumbnail" alt="mdhbfldksb" title="02768_thephotographer_1920x1080"></a>
-							</dt>
+						<div id="gallery-1" class="gallery galleryid-1 gallery-columns-4 gallery-size-thumbnail">
+							<dl class="gallery-item">
+								<dt class="gallery-icon">
+									<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
+								</dt>
 								<dd class="wp-caption-text gallery-caption">
 								mdhbfldksb
-								</dd></dl>
+								</dd>
+							</dl>
+							<dl class="gallery-item">
+								<dt class="gallery-icon">
+									<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
+								</dt>
+								<dd class="wp-caption-text gallery-caption">
+								mdhbfldksb
+								</dd>
+							</dl>
+							<dl class="gallery-item">
+								<dt class="gallery-icon">
+									<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
+								</dt>
+							</dl>
+							<dl class="gallery-item">
+								<dt class="gallery-icon">
+									<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
+								</dt>
+								<dd class="wp-caption-text gallery-caption">
+								mdhbfldksb
+								</dd>
+							</dl>
+							<dl class="gallery-item">
+								<dt class="gallery-icon">
+									<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
+								</dt>
+								<dd class="wp-caption-text gallery-caption">
+								mdhbfldksb
+								</dd>
+							</dl>
+							
 							<br style="clear: both;">
 						</div>
 						<div class="error">

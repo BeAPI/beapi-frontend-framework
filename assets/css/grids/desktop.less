@@ -1,12 +1,14 @@
+// Default grid value. Can be overide every time
 @column-width: 60;
 @gutter-width: 20;
 @columns: 12;
 
-body {
-	min-width: 960px;
-}
+// Set fluid grid system
+@total-width:100%;
+
+// Main Layout
 .wrapper {
-	width: 960px; margin:0 auto;
+	max-width: 960px; margin:0 auto;
 }
 #header,
 #footer,
@@ -19,7 +21,7 @@ body {
 #sidebar {
 	.column(3);
 }
-
+//Fix change orientation zoom bug for touch device
 @media (max-width: 1024px) {
 	body { -webkit-text-size-adjust: none; }
 }

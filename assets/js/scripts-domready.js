@@ -21,5 +21,3 @@ if (!(window.console && console.log)) {( function() {
 
 //Html5 PLaceholder fallback for ie7+
 jQuery("input, textarea").placeholder();
-
-console.log('test');

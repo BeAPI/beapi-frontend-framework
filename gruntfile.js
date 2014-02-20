@@ -8,14 +8,15 @@ module.exports = function(grunt){
 		uglify: {
 			build: {
 				files: {
-						'assets/js/scripts-domready.min.js': ['assets/js/scripts-domready.js']
+						'assets/js/scripts-domready.min.js': ['assets/js/scripts-domready.js'],
+						'assets/js/vendor.min.js': ['assets/js/vendor/*.js']
 				}
 			}
 		},
 
 		watch: {
 			html: {
-				files: ['assets/js/scripts-domready.js'],
+				files: ['assets/js/scripts-domready.js','assets/js/vendor/*.js'],
 				tasks: ['uglify']
 			}
 		}

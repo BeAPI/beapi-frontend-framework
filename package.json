@@ -1,0 +1,14 @@
+{
+	"name" : "base-theme-beapi",
+	"version" : "0.1.0",
+	"author" : "BeAPI",
+
+	"devDependencies" : {
+			"grunt" :                   "~0.4.2",
+			"grunt-contrib-cssmin":         "*",
+			"grunt-contrib-uglify":         "*",
+			"grunt-contrib-watch":          "*",
+			"grunt-cssc":                   "*",
+			"matchdep":                     "*"
+	}
+}

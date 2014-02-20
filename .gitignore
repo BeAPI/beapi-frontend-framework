@@ -46,3 +46,6 @@ sitemap.xml.gz
 *.sublime-workspace
 sftp-config.json
 sftp-config-alt.json
+
+### NodeJS ###
+node_modules/

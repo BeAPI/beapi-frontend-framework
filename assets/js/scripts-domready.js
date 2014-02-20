@@ -19,8 +19,7 @@ if (!(window.console && console.log)) {( function() {
 // HorizontalNav Dynamic menu
 //jQuery('.full-width').horizontalNav();
 
-//LazyLoad
-jQuery("img.lazy").show().lazyload({ effect : "fadeIn" });
-
 //Html5 PLaceholder fallback for ie7+
 jQuery("input, textarea").placeholder();
+
+console.log('test');

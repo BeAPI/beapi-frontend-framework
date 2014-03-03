@@ -14,7 +14,7 @@ if (!(window.console && console.log)) {( function() {
 //jQuery("ul li:last-child").addClass("last");
 
 // Superfish for submenu
-//jQuery('.sf-menu').superfish();
+jQuery('.sf-menu').superfish();
 
 // HorizontalNav Dynamic menu
 //jQuery('.full-width').horizontalNav();

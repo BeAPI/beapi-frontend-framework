@@ -1,3 +1,6 @@
+<?php
+require( dirname( __FILE__ ) . '/functions/bea-images-functions.php' );
+?>
 <!doctype html>
 <!--[if lt IE 7 ]> <html class="no-js ie6" lang="fr"> <![endif]-->
 <!--[if IE 7 ]>    <html class="no-js ie7 modern-ie" lang="fr"> <![endif]-->

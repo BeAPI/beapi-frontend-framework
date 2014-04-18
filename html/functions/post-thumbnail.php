@@ -85,15 +85,21 @@ function get_the_post_thumbnail( $post_id = 0, $size_or_img_name = 'thumbnail', 
 	return $html;
 }
 
-
+/**
+ * Emulate get_attachment_image_src for HTML context
+ * 
+ * @param string $size_or_img_name
+ * @param string $image_size
+ * @return string
+ */
 function get_attachment_image_src( $size_or_img_name = 'thumbnail', $image_size = '' ){
 	$is_img = is_size_or_img($size_or_img_name);
 	if( $is_img === true ){
 		return get_timthumb_url( BEA_IMG_SAMPLE_DIR.$size_or_img_name, $image_size  );
-	}else{
-		$img_url = get_random_sample_img_url();
-		return get_timthumb_url( $img_url, $image_size  );
 	}
+	
+	$img_url = get_random_sample_img_url();
+	return get_timthumb_url( $img_url, $image_size  );
 }
 
 /*

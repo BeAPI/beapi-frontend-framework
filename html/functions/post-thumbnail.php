@@ -69,13 +69,10 @@ function get_the_post_thumbnail( $post_id = 0, $size_or_img_name = 'thumbnail', 
 	}
 	
 	
-	$html = '';
-	$default_attr = array(
-		'src'	=> $src,
-		'class'	=> "attachment",
-	);
+	// Merge with default
+	$attr = array_merge($attr, array('src'	=> $src, 'class'	=> "attachment"));
 	
-	$attr = array_merge($attr, $default_attr);
+	// Write HTML
 	$html = rtrim("<img");
 	foreach ( $attr as $name => $value ) {
 		$html .= " $name=" . '"' . $value . '"';

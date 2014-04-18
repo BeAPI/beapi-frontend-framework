@@ -23,13 +23,13 @@ function get_the_post_thumbnail( $post_id = 0, $size_or_img_name = 'thumbnail', 
 	
 	// Test if data-location attribute exists ?
 	if( !isset($attr['data-location']) ){
-		return $attr; // TODO: Really return the array ?
+		return 'missing data location';
 	}
 	
 	// Check if location existant on JSON array
 	$location_array = $bea_image::get_location( $attr['data-location'] );
 	if( empty( $location_array ) ){
-		$attr['data-location'] = 'No location found';
+		return 'data location not found';
 	}
 	
 	// Build SRCset attributes (each sizes for location)

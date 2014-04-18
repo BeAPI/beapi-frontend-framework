@@ -9,16 +9,30 @@ function has_post_thumbnail( $return_value = true ) {
 	return $return_value;
 }
 
+/**
+ * Get random image from assets/samples folder, emulate WP function with image location context
+ * 
+ * @global type $bea_image
+ * @param integer $post_id
+ * @param string $size_or_img_name
+ * @param array $attr
+ * @return string
+ */
 function get_the_post_thumbnail( $post_id = 0, $size_or_img_name = 'thumbnail', $attr = array() ){
 	global $bea_image;
+	
+	// Test if data-location attribute exists ?
 	if( !isset($attr['data-location']) ){
-		return $attr;
+		return $attr; // TODO: Really return the array ?
 	}
 	
+	// Check if location existant on JSON array
 	$location_array = $bea_image::get_location( $attr['data-location'] );
 	if( empty( $location_array ) ){
 		$attr['data-location'] = 'No location found';
 	}
+	
+	// Build SRCset attributes (each sizes for location)
 	$srcset_attrs = array();
 	foreach( $location_array as $location ){
 		if( !isset( $location->size ) || empty( $location->size ) ){
@@ -29,6 +43,7 @@ function get_the_post_thumbnail( $post_id = 0, $size_or_img_name = 'thumbnail', 
 		if( empty($image_size) ){
 			continue;
 		}
+		
 		$img = get_attachment_image_src( $size_or_img_name, $image_size );
 		if( empty($img) ){
 			continue;
@@ -86,10 +101,11 @@ function get_attachment_image_src( $size_or_img_name = 'thumbnail', $image_size 
  * @author Alexandre Sadowski
  */
 function get_random_sample_img_url(){
-	$matches = glob( BEA_IMG_SAMPLE_DIR.'*.jpg');
+	$matches = glob( BEA_IMG_SAMPLE_DIR.'{*.gif,*.jpg,*.png}', GLOB_BRACE);
 	if( empty($matches) ){
 		return false;
 	}
+	
 	$rand_img = array_rand($matches, 1);
 	return $matches[$rand_img];
 }
@@ -107,26 +123,14 @@ function is_size_or_img( $size_or_img_name = 'thumbnail'  ){
 	return false;
 }
 
-if( !function_exists('get_full_url') ){
-	function get_full_url( $s, $only_dir_url = false ) {
-		$ssl = (!empty( $s['HTTPS'] ) && $s['HTTPS'] == 'on') ? true : false;
-		$sp = strtolower( $s['SERVER_PROTOCOL'] );
-		$protocol = substr( $sp, 0, strpos( $sp, '/' ) ) . (($ssl) ? 's' : '');
-		$port = $s['SERVER_PORT'];
-		$port = ((!$ssl && $port == '80') || ($ssl && $port == '443')) ? '' : ':' . $port;
-		$host = isset( $s['HTTP_X_FORWARDED_HOST'] ) ? $s['HTTP_X_FORWARDED_HOST'] : isset( $s['HTTP_HOST'] ) ? $s['HTTP_HOST'] : $s['SERVER_NAME'];
-
-		if ( $only_dir_url == true ) {
-			$s['REQUEST_URI'] = dirname( $s['REQUEST_URI'] ) . '/';
-		}
-		return $protocol . '://' . $host . $port . $s['REQUEST_URI'];
-}
-}
-
-/*
- * Create Timthumb URL
+/**
+ * Build Timthumb URL
+ * 
+ * @param string $path_img
+ * @param BEA_Images|null $image_size
+ * @return string
  */
-function get_timthumb_url( $path_img, $image_size ){
+function get_timthumb_url( $path_img, $image_size = null ){
 	if( !empty($image_size) ){
 		return get_full_url($_SERVER, true).'html/functions/timthumb.php?src='.$path_img.'&h='.$image_size->height.'&w='.$image_size->width.'&zc='.(int)$image_size->crop;
 	}else{

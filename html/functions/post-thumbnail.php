@@ -1,6 +1,12 @@
 <?php
-function has_post_thumbnail(){
-	return true;
+/**
+ * Allow to test if post have thumbnail or not.
+ * 
+ * @param boolean $return_value
+ * @return boolean
+ */
+function has_post_thumbnail( $return_value = true ) {
+	return $return_value;
 }
 
 function get_the_post_thumbnail( $post_id = 0, $size_or_img_name = 'thumbnail', $attr = array() ){

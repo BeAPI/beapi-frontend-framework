@@ -1,5 +1,5 @@
 <?php
-define( 'BEA_IMAGES_JSON_DIR', dirname( __FILE__ ).'/../../assets/conf-img/' );
+define( 'BEA_IMAGES_JSON_DIR', dirname( __FILE__ ).'/../assets/conf-img/' );
 
 class BEA_Images{
 	
@@ -12,6 +12,7 @@ class BEA_Images{
 		self::load_locations();
 		self::load_hooks();
 		self::add_image_sizes();
+		
 		add_filter('wp_get_attachment_image_attributes', array(__CLASS__, 'get_attributes'),10,2 );
 	}
 	/*

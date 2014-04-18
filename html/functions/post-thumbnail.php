@@ -112,14 +112,16 @@ function get_random_sample_img_url(){
 
 /*
  * Check if is a img name or a size
+ * 
  * @return bool true|false
  * @author Alexandre Sadowski
  */
 function is_size_or_img( $size_or_img_name = 'thumbnail'  ){
 	$extension = pathinfo( BEA_IMG_SAMPLE_DIR.$size_or_img_name, PATHINFO_EXTENSION);
-	if( $extension == 'jpg' ){
+	if( in_array($extension, array('jpg', 'gif', 'png') ) ) {
 		return true;
 	}
+	
 	return false;
 }
 

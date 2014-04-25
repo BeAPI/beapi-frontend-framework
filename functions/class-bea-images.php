@@ -184,11 +184,12 @@ class BEA_Images{
 			return $args;
 		}
 		
-		$location_array = self::get_location( $args['location'] );
+		$location_array = self::get_location( $args['data-location'] );
 		if( empty( $location_array ) ){
 			$args['data-location'] = 'No location found';
 		} else {
 			$srcset_attrs = array();
+			$args['sizes'] = '100vw';
 			foreach( $location_array as $location ){
 				if( !isset( $location->size ) || empty( $location->size ) ){
 					continue;

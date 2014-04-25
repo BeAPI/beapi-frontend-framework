@@ -70,7 +70,7 @@ function get_the_post_thumbnail( $post_id = 0, $size_or_img_name = 'thumbnail', 
 	
 	
 	// Merge with default
-	$attr = array_merge($attr, array('src'	=> $src, 'class'	=> "attachment"));
+	$attr = array_merge($attr, array('src'	=> $src, 'class'	=> "attachment", 'sizes' => "100vw"  ));
 	
 	// Write HTML
 	$html = rtrim("<img");
@@ -137,8 +137,8 @@ function is_size_or_img( $size_or_img_name = 'thumbnail'  ){
  */
 function get_timthumb_url( $path_img, $image_size = null ){
 	if( !empty($image_size) ){
-		return get_full_url($_SERVER, true).'html/functions/timthumb.php?src='.$path_img.'&h='.$image_size->height.'&w='.$image_size->width.'&zc='.(int)$image_size->crop;
+		return get_full_url($_SERVER, true).'functions/vendor/timthumb.php?src='.$path_img.'&h='.$image_size->height.'&w='.$image_size->width.'&zc='.(int)$image_size->crop;
 	}else{
-		return get_full_url($_SERVER, true).'html/functions/timthumb.php?src='.$path_img;
+		return get_full_url($_SERVER, true).'functions/vendor/timthumb.php?src='.$path_img;
 	}
 }

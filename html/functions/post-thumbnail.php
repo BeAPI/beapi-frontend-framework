@@ -62,9 +62,9 @@ function get_the_post_thumbnail( $post_id = 0, $size_or_img_name = 'thumbnail', 
 	
 	$is_img = is_size_or_img($size_or_img_name);
 	if( $is_img === true ){
-		$src= get_timthumb_url( BEA_IMG_SAMPLE_DIR.$size_or_img_name, ''  );
+		$src = get_file( BEA_IMG_SAMPLE_DIR.$size_or_img_name, $image_size );
 	}else{
-		$img_url = get_random_sample_img_url();
+		$img_url = get_random_sample_img_url( $size_or_img_name );
 		$src = get_timthumb_url( $img_url, ''  );
 	}
 	
@@ -92,10 +92,10 @@ function get_the_post_thumbnail( $post_id = 0, $size_or_img_name = 'thumbnail', 
 function get_attachment_image_src( $size_or_img_name = 'thumbnail', $image_size = '' ){
 	$is_img = is_size_or_img($size_or_img_name);
 	if( $is_img === true ){
-		return get_timthumb_url( BEA_IMG_SAMPLE_DIR.$size_or_img_name, $image_size  );
+		return get_file( BEA_IMG_SAMPLE_DIR.$size_or_img_name, $image_size );
 	}
 	
-	$img_url = get_random_sample_img_url();
+	$img_url = get_random_sample_img_url( $size_or_img_name );
 	return get_timthumb_url( $img_url, $image_size  );
 }
 
@@ -103,8 +103,12 @@ function get_attachment_image_src( $size_or_img_name = 'thumbnail', $image_size 
  * Get random sample img url
  * @author Alexandre Sadowski
  */
-function get_random_sample_img_url(){
-	$matches = glob( BEA_IMG_SAMPLE_DIR.'{*.gif,*.jpg,*.png}', GLOB_BRACE);
+function get_random_sample_img_url( $img_prefix = 'thumbnail' ){
+	if( strrpos( $img_prefix, '-' ) !== false ){
+		$matches = glob( BEA_IMG_SAMPLE_DIR.$img_prefix.'{*.gif,*.jpg,*.png}', GLOB_BRACE);
+	}else{
+		$matches = glob( BEA_IMG_SAMPLE_DIR.'{*.gif,*.jpg,*.png}', GLOB_BRACE);
+	}
 	if( empty($matches) ){
 		return false;
 	}
@@ -120,9 +124,15 @@ function get_random_sample_img_url(){
  * @author Alexandre Sadowski
  */
 function is_size_or_img( $size_or_img_name = 'thumbnail'  ){
-	$extension = pathinfo( BEA_IMG_SAMPLE_DIR.$size_or_img_name, PATHINFO_EXTENSION);
-	if( in_array($extension, array('jpg', 'gif', 'png') ) ) {
-		return true;
+	global $bea_image;
+	if( $size_or_img_name == 'thumbnail' ){
+		return false;
+	}
+	
+	foreach( $bea_image::$allowed_ext as $ext ){
+		if( is_file( BEA_IMG_SAMPLE_DIR.$size_or_img_name.$ext ) ){
+			return true;
+		}
 	}
 	
 	return false;
@@ -140,5 +150,14 @@ function get_timthumb_url( $path_img, $image_size = null ){
 		return get_full_url($_SERVER, true).'functions/vendor/timthumb.php?src='.$path_img.'&h='.$image_size->height.'&w='.$image_size->width.'&zc='.(int)$image_size->crop;
 	}else{
 		return get_full_url($_SERVER, true).'functions/vendor/timthumb.php?src='.$path_img;
+	}
+}
+
+function get_file( $path = '', $image_size = '' ){
+	global $bea_image;
+	foreach( $bea_image::$allowed_ext as $ext ){
+		if( is_file( $path.$ext ) ){
+			return get_timthumb_url( $path.$ext, $image_size  );
+		}
 	}
 }

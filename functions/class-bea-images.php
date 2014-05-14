@@ -1,12 +1,11 @@
 <?php
 define( 'BEA_IMAGES_JSON_DIR', dirname( __FILE__ ).'/../assets/conf-img/' );
-
 class BEA_Images{
 	
 	private static $locations;
 	private static $image_sizes;
 	private static $hooks;
-
+	public static $allowed_ext = array('.jpg', '.gif', '.png');
 	/**
 	 * Construct
 	 */

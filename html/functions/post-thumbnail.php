@@ -70,7 +70,7 @@ function get_the_post_thumbnail( $post_id = 0, $size_or_img_name = 'thumbnail', 
 	
 	
 	// Merge with default
-	$attr = array_merge($attr, array('src'	=> $src, 'class'	=> "attachment", 'sizes' => "100vw"  ));
+	$attr = array_merge($attr, array('src'	=> $src, 'sizes' => "100vw"  ));
 	
 	// Write HTML
 	$html = rtrim("<img");

@@ -144,3 +144,19 @@
   -webkit-background-clip: @argument;
   background-clip: @argument;
 }
+
+/* Mixins for font size and line height
+ ----------------------------------------------------------------------------------------------------*/
+.font-size(@sizeValue) {
+  @remValue: @sizeValue;
+  @pxValue: (@sizeValue * 16);
+  font-size: ~"@{pxValue}px"; 
+  font-size: ~"@{remValue}rem";
+}
+
+.line-height(@sizeValue) {
+  @remValue: @sizeValue;
+  @pxValue: (@sizeValue * 16);
+  line-height: ~"@{pxValue}px"; 
+  line-height: ~"@{remValue}rem";
+}

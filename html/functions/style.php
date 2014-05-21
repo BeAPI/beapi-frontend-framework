@@ -38,7 +38,7 @@ $ressources = array(
 	'components/text.less',
 	'components/forms.less',
 	'components/img.less',
-	'components/elements.less',
+	'components/mixins.less',
 	'components/superfish.less',
 	'grids/grid.less',
 	'grids/desktop.less',

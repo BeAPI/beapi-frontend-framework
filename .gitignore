@@ -49,3 +49,8 @@ sftp-config-alt.json
 
 ### NodeJS ###
 node_modules/
+
+### Temp hologram ###
+doc_assets/
+docs/
+hologram_config.yml

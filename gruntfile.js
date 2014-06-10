@@ -9,7 +9,7 @@ module.exports = function(grunt){
 			build: {
 				files: {
 						'assets/js/scripts-domready.min.js': ['assets/js/scripts-domready.js'],
-						'assets/js/vendor.min.js': ['assets/js/vendor/*.js']
+						'assets/js/vendor.min.js': ['assets/js/vendor/*.min.js']
 				}
 			}
 		},

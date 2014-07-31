@@ -1,0 +1,29 @@
+[
+	{
+		"small":[],
+		"img-1200-350":
+			{
+				"width":"1200",
+				"height":"350",
+				"crop":false
+			},
+		"img-300-100":
+			{
+				"width":"300",
+				"height":"100",
+				"crop":true
+			},
+		"img-1200-150":
+			{
+				"width":"1200",
+				"height":"150",
+				"crop":true
+			},
+		"img-800-600":
+			{
+				"width":"800",
+				"height":"600",
+				"crop":true
+			}
+	}
+]

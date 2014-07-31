@@ -1,3 +1,6 @@
+<?php
+require( dirname( __FILE__ ) . '/functions/_init.php' );
+?>
 <!doctype html>
 <!--[if lt IE 7 ]> <html class="no-js ie6" lang="fr"> <![endif]-->
 <!--[if IE 7 ]>    <html class="no-js ie7 modern-ie" lang="fr"> <![endif]-->
@@ -24,7 +27,7 @@
 			</style>
 		<![endif]-->
 		
-		<link rel="stylesheet" type="text/css" media="all" href="functions/style.php" />
+		<link rel="stylesheet" type="text/css" media="all" href="functions/style.php?t=<?php echo time(); ?>" />
 		
 		<!-- Modernizr Custom (JS + SVG detection) -->
 		<script type="text/javascript" src="../assets/js/vendor/modernizr.custom.min.js"></script>

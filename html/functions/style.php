@@ -1,35 +1,6 @@
 <?php
-header("Content-Type: text/css");
-
-require dirname(__FILE__) . '/../../assets/css/vendor/lessc.inc.php';
-
-function get_full_url( $s, $only_dir_url = false ) {
-	$ssl = (!empty( $s['HTTPS'] ) && $s['HTTPS'] == 'on') ? true : false;
-	$sp = strtolower( $s['SERVER_PROTOCOL'] );
-	$protocol = substr( $sp, 0, strpos( $sp, '/' ) ) . (($ssl) ? 's' : '');
-	$port = $s['SERVER_PORT'];
-	$port = ((!$ssl && $port == '80') || ($ssl && $port == '443')) ? '' : ':' . $port;
-	$host = isset( $s['HTTP_X_FORWARDED_HOST'] ) ? $s['HTTP_X_FORWARDED_HOST'] : isset( $s['HTTP_HOST'] ) ? $s['HTTP_HOST'] : $s['SERVER_NAME'];
-
-	if ( $only_dir_url == true ) {
-		$s['REQUEST_URI'] = dirname( $s['REQUEST_URI'] ) . '/';
-	}
-	return $protocol . '://' . $host . $port . $s['REQUEST_URI'];
-}
-
-function canonicalize( $address ) {
-	$address = explode( '/', $address );
-	$keys = array_keys( $address, '..' );
-
-	foreach ( $keys AS $keypos => $key ) {
-		array_splice( $address, $key - ($keypos * 2 + 1), 2 );
-	}
-
-	$address = implode( '/', $address );
-	$address = str_replace( './', '', $address );
-	
-	return $address;
-}
+require dirname(__FILE__) . '/url.php';
+require dirname(__FILE__) . '/vendor/lessc.inc.php';
 
 // List my ressources	
 $ressources = array(
@@ -66,6 +37,9 @@ $css_output = $less -> parse($dynamic_less);
 
 // Fix bug with IE6-IE7-IE8
 $css_output = str_replace(' / ', '/', $css_output);
+
+// send header CSS
+header("Content-Type: text/css");
 
 echo $css_output;
 exit();

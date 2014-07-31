@@ -1,0 +1,22 @@
+[
+	{
+		"the_content":[
+			{
+				"srcset":" 100w 2x",
+				"size":"img-1200-150",
+				"class":""
+			},
+			{
+				"srcset":" 100w 4x",
+				"size":"img-1200-150",
+				"class":"",
+				"default_src":true
+			},
+			{
+				"srcset":" 100w 2x",
+				"size":"img-1200-150",
+				"class":""
+			}
+		]
+	}
+]

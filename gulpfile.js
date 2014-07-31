@@ -7,13 +7,13 @@ var gulp = require('gulp'),
 	minifyCSS = require('gulp-minify-css');
 
 /*JS task*/
-gulp.task('js', function () {
+gulp.task('dev-vendor-js', function () {
 	return gulp.src(['assets/js/vendor/*.min.js', 'assets/js/vendor/*-min.js', 'assets/js/vendor/**/*-min.js'])
 		.pipe(plugins.concat('scripts.dev.js'))
 		.pipe(gulp.dest('assets/js'));
 });
 
-gulp.task('js-prod', function () {
+gulp.task('dist-all-js', function () {
 	return gulp.src(['assets/js/vendor/*.min.js', 'assets/js/vendor/*-min.js', 'assets/js/vendor/**/*-min.js', 'assets/js/scripts-domready.js'])
 		.pipe(plugins.jshint())
 		.pipe(plugins.uglify())
@@ -21,7 +21,7 @@ gulp.task('js-prod', function () {
 		.pipe(gulp.dest('assets/js/'));
 });
 
-gulp.task('js-check', function () {
+gulp.task('dev-check-js', function () {
 	return gulp.src('assets/js/scripts-domready.js')
 		.pipe(plugins.jshint())
 		.pipe(plugins.jshint.reporter('default'))
@@ -29,7 +29,7 @@ gulp.task('js-check', function () {
 });
 
 /* LESS tasks */
-gulp.task('less', function () {
+gulp.task('dev-less', function () {
 	gulp.src('assets/css/style.less')
 		.pipe(less({
 			paths: [ path.join(__dirname, 'less', 'includes') ]
@@ -38,7 +38,7 @@ gulp.task('less', function () {
 		.pipe(gulp.dest('./assets/css'));
 });
 
-gulp.task('less-prod', function () {
+gulp.task('dist-less', function () {
 	gulp.src('assets/css/style.less')
 		.pipe(less({
 			paths: [ path.join(__dirname, 'less', 'includes') ]
@@ -50,6 +50,6 @@ gulp.task('less-prod', function () {
 
 // On default task, just compile on demand
 gulp.task('default', function() {
-	gulp.watch('assets/js/*.js', ['js', 'js-check']);
-	gulp.watch(['assets/css/*.less', 'assets/css/**/*.less'], ['less']);
+	gulp.watch('assets/js/*.js', ['dev-vendor-js', 'dev-check-js']);
+	gulp.watch(['assets/css/*.less', 'assets/css/**/*.less'], ['dev-less']);
 });

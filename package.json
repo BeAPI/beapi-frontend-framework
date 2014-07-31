@@ -1,14 +1,18 @@
 {
-	"name" : "base-theme-beapi",
-	"version" : "0.1.0",
-	"author" : "BeAPI",
-
-	"devDependencies" : {
-			"grunt" :                   "~0.4.2",
-			"grunt-contrib-cssmin":         "*",
-			"grunt-contrib-uglify":         "*",
-			"grunt-contrib-watch":          "*",
-			"grunt-cssc":                   "*",
-			"matchdep":                     "*"
-	}
+  "name": "base-theme-beapi",
+  "version": "0.2.0",
+  "author": "BeAPI",
+  "devDependencies": {
+    "gulp": "^3.8.1",
+    "gulp-bower": "0.0.6",
+    "gulp-concat": "~2.2.0",
+    "gulp-jshint": "~1.5.1",
+    "gulp-less": "^1.2.3",
+    "gulp-load-plugins": "^0.5.2",
+    "gulp-minify-css": "^0.3.5",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "~0.2.1",
+    "gulp-watch": "~0.6.8",
+    "matchdep": "*"
+  }
 }

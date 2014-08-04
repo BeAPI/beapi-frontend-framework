@@ -8,6 +8,7 @@
     "gulp-concat": "~2.2.0",
     "gulp-jshint": "~1.5.1",
     "gulp-less": "^1.2.3",
+    "gulp-livereload": "^2.1.0",
     "gulp-load-plugins": "^0.5.2",
     "gulp-minify-css": "^0.3.5",
     "gulp-rename": "^1.2.0",

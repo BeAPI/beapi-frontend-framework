@@ -4,7 +4,8 @@ var gulp = require('gulp'),
 	plugins = gulpLoadPlugins(),
 	less = require('gulp-less'),
 	path = require('path'),
-	minifyCSS = require('gulp-minify-css');
+	minifyCSS = require('gulp-minify-css'),
+	livereload = require('gulp-livereload');
 
 /*JS task*/
 gulp.task('dev-vendor-js', function () {
@@ -52,4 +53,6 @@ gulp.task('dist-less', function () {
 gulp.task('default', function() {
 	gulp.watch('assets/js/*.js', ['dev-vendor-js', 'dev-check-js']);
 	gulp.watch(['assets/css/*.less', 'assets/css/**/*.less'], ['dev-less']);
+	livereload.listen();
+	gulp.watch('assets/css/**').on('change', livereload.changed);
 });

@@ -37,16 +37,18 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		
 	</head>
 	<body class="<?php echo $class; ?>">
-		<div class="wrapper">
-			<ul id="fast-access">
-				<li><a href="#content">Acces direct au contenu</a></li>
-				<li><a href="#search">Acces direct à la recherche</a></li>
-				<li><a href="#menu">Acces direct au menu</a></li>
-			</ul>
-			<header id="header">
+		<ul id="fast-access">
+			<li><a href="#content">Acces direct au contenu</a></li>
+			<li><a href="#search">Acces direct à la recherche</a></li>
+			<li><a href="#menu">Acces direct au menu</a></li>
+		</ul>
+		<header id="header">
+			<div class="wrapper">
 				<h1 id="logo">Website title</h1>
-			</header>
-			<nav class="horizontal-nav full-width" id="menu" >
+			</div>
+		</header>
+		<nav id="menu" >
+			<div class="wrapper">
 				<ul class="sf-menu">
 					<li>
 						<a href="#">menu item</a>
@@ -64,4 +66,5 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 					<li><a href="#">menu item</a></li>
 					<li><a href="#">menu item</a></li>
 				</ul>
-			</nav>
+			</div>
+		</nav>

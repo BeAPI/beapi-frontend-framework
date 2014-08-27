@@ -1,7 +1,9 @@
-			<footer id="footer">
+		<footer id="footer">
+			<div class="wrapper">
 				<p>Footer content</p>
-			</footer>
-		</div>
+			</div>
+		</footer>
+		
 		<!-- jQuery UI -->
 		<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
 		<link rel='stylesheet' id='jquery-style-css' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/smoothness/jquery-ui.css' type='text/css' media='all' /> -->

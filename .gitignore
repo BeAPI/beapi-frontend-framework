@@ -49,6 +49,7 @@ sftp-config-alt.json
 
 ### NodeJS ###
 node_modules/
+bower_components/
 
 ### Temp hologram ###
 doc_assets/

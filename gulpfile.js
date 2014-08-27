@@ -3,6 +3,8 @@ var gulp = require('gulp'),
 	gulpLoadPlugins = require('gulp-load-plugins'),
 	plugins = gulpLoadPlugins(),
 	less = require('gulp-less'),
+	sass = require('gulp-sass'),
+	neat = require('node-neat').includePaths,
 	path = require('path'),
 	minifyCSS = require('gulp-minify-css'),
 	livereload = require('gulp-livereload');
@@ -29,30 +31,29 @@ gulp.task('dev-check-js', function () {
 		.pipe(gulp.dest('assets/js/'));
 });
 
-/* LESS tasks */
-gulp.task('dev-less', function () {
-	gulp.src('assets/css/style.less')
-		.pipe(less({
-			paths: [ path.join(__dirname, 'less', 'includes') ]
+/* SASS Task */
+gulp.task('dev-sass', function () {
+	gulp.src('assets/css/style.scss')
+		.pipe(sass({
+			includePaths: ['dev-sass'].concat(neat)
 		}))
 		.pipe(plugins.concat('style.dev.css'))
 		.pipe(gulp.dest('./assets/css'));
 });
 
-gulp.task('dist-less', function () {
-	gulp.src('assets/css/style.less')
-		.pipe(less({
-			paths: [ path.join(__dirname, 'less', 'includes') ]
+gulp.task('dist-sass', function () {
+	gulp.src('assets/css/style.scss')
+		.pipe(sass({
+			includePaths: ['dist-sass'].concat(neat)
 		}))
 		.pipe(plugins.concat('style.min.css'))
 		.pipe(minifyCSS())
 		.pipe(gulp.dest('./assets/css'));
 });
-
 // On default task, just compile on demand
 gulp.task('default', function() {
 	gulp.watch('assets/js/*.js', ['dev-vendor-js', 'dev-check-js']);
-	gulp.watch(['assets/css/*.less', 'assets/css/**/*.less'], ['dev-less']);
+	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['dev-sass']);
 	livereload.listen();
 	gulp.watch('assets/css/**').on('change', livereload.changed);
 });

@@ -11,8 +11,6 @@
 		
 		<!-- Vendor -->
 		<script type="text/javascript" src="../assets/js/scripts.dev.js"></script>
-		
-		<script src="../assets/bower_components/smoothstate/jquery.smoothState.js"></script>
 
 		<!-- Custom functions and scripts -->
 		<script type="text/javascript" src="../assets/js/scripts-domready.js"></script>

@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "dependencies": {
     "flexslider": "latest",
-    "normalize-scss": "~3.0.1"
+    "normalize-scss": "~3.0.1",
+    "smoothstate": "~0.5.1"
   }
 }

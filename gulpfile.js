@@ -11,7 +11,7 @@ var gulp = require('gulp'),
 
 /* Move bower_components to assets */
 gulp.task('bower-scripts', function () {
-	return gulp.src('assets/bower_components/**/*.js', '!assets/bower_components/{jquery,jquery/**}')
+	return gulp.src(['assets/bower_components/**/*.js', '!assets/bower_components/{jquery,jquery/**}'])
 		.pipe(gulp.dest('assets/js/vendor'));
 });
 gulp.task('bower-styles', function () {

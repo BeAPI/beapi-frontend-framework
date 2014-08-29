@@ -1,21 +1,19 @@
 @import "bourbon";
 @import "neat";
 @import "../bower_components/normalize-scss/_normalize.scss";
+@import "components/_rem.scss";
+@import "components/_variables.scss";
+@import "components/_form.scss";
 
-$blue: #3bbfce;
-$margin: 16px;
-
-.content-navigation {
-	@include linear-gradient(to top, red, orange);
-	border-color: $blue;
-	color: darken($blue, 9%);
+html {
+	font-size: 62.5%;
+}
+body {
+	@include rem('font-size',12px);
+	font-family: $helvetica;
 }
 
-.border {
-	padding: $margin / 2;
-	margin: $margin / 2;
-	border-color: $blue;
-}
+
 .wrapper {
 	@include row();
 }
@@ -26,7 +24,7 @@ $margin: 16px;
 #sidebar {
 	@include media(min-width 600px, 12) {
 		@include span-columns(6);
-		background: $blue;
+		@include linear-gradient(to top, red, orange);
 	}
 }
 #header,

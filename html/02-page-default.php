@@ -1,3 +1,4 @@
+<?php $class = ''; ?>
 <?php include 'header.php'; ?>
 			<section id="content">
 				<?php include 'blocks/breadcrumb.php'; ?>

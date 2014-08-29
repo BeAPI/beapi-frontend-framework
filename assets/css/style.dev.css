@@ -340,17 +340,107 @@ table {
 td, th {
   padding: 0; }
 
-.content-navigation {
-  background-color: red;
-  background-image: -webkit-linear-gradient(bottom, #ff0000, #ffa500);
-  background-image: linear-gradient(to top,#ff0000, #ffa500);
-  border-color: #3bbfce;
-  color: #2ca2af; }
+/* Library
+ ----------------------------------------------------------------------------------------------------*/
+/* Global form css behavior Input and buttons
+-------------------------------------------------------------- */
+input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"], textarea {
+  border: 0;
+  color: #333;
+  background: #fff;
+  padding: 5px;
+  padding: 0.5rem;
+  -webkit-transition: background 0.5s ease;
+  -moz-transition: background 0.5s ease;
+  transition: background 0.5s ease; }
+  input[type="email"]::-webkit-input-placeholder, input[type="number"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder, input[type="search"]::-webkit-input-placeholder, input[type="tel"]::-webkit-input-placeholder, input[type="text"]::-webkit-input-placeholder, input[type="url"]::-webkit-input-placeholder, input[type="color"]::-webkit-input-placeholder, input[type="date"]::-webkit-input-placeholder, input[type="datetime"]::-webkit-input-placeholder, input[type="datetime-local"]::-webkit-input-placeholder, input[type="month"]::-webkit-input-placeholder, input[type="time"]::-webkit-input-placeholder, input[type="week"]::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #b3b3b3; }
+  input[type="email"]::-moz-placeholder, input[type="number"]::-moz-placeholder, input[type="password"]::-moz-placeholder, input[type="search"]::-moz-placeholder, input[type="tel"]::-moz-placeholder, input[type="text"]::-moz-placeholder, input[type="url"]::-moz-placeholder, input[type="color"]::-moz-placeholder, input[type="date"]::-moz-placeholder, input[type="datetime"]::-moz-placeholder, input[type="datetime-local"]::-moz-placeholder, input[type="month"]::-moz-placeholder, input[type="time"]::-moz-placeholder, input[type="week"]::-moz-placeholder, textarea::-moz-placeholder {
+    color: #b3b3b3; }
+  input[type="email"]:-moz-placeholder, input[type="number"]:-moz-placeholder, input[type="password"]:-moz-placeholder, input[type="search"]:-moz-placeholder, input[type="tel"]:-moz-placeholder, input[type="text"]:-moz-placeholder, input[type="url"]:-moz-placeholder, input[type="color"]:-moz-placeholder, input[type="date"]:-moz-placeholder, input[type="datetime"]:-moz-placeholder, input[type="datetime-local"]:-moz-placeholder, input[type="month"]:-moz-placeholder, input[type="time"]:-moz-placeholder, input[type="week"]:-moz-placeholder, textarea:-moz-placeholder {
+    color: #b3b3b3; }
+  input[type="email"]:-ms-input-placeholder, input[type="number"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder, input[type="search"]:-ms-input-placeholder, input[type="tel"]:-ms-input-placeholder, input[type="text"]:-ms-input-placeholder, input[type="url"]:-ms-input-placeholder, input[type="color"]:-ms-input-placeholder, input[type="date"]:-ms-input-placeholder, input[type="datetime"]:-ms-input-placeholder, input[type="datetime-local"]:-ms-input-placeholder, input[type="month"]:-ms-input-placeholder, input[type="time"]:-ms-input-placeholder, input[type="week"]:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color: #b3b3b3; }
 
-.border {
-  padding: 8px;
-  margin: 8px;
-  border-color: #3bbfce; }
+input[type="email"]:hover, input[type="number"]:hover, input[type="password"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="text"]:hover, input[type="url"]:hover, input[type="color"]:hover, input[type="date"]:hover, input[type="datetime"]:hover, input[type="datetime-local"]:hover, input[type="month"]:hover, input[type="time"]:hover, input[type="week"]:hover, textarea:hover {
+  background: #f2f2f2; }
+
+input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, textarea:focus {
+  outline: 0;
+  background: #f9f9f9; }
+
+input[type="button"], input[type="reset"], input[type="submit"] {
+  border: 0;
+  background: #56d0e6;
+  padding: 5px;
+  padding: 0.5rem; }
+
+input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover {
+  background: #40cae3; }
+
+input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus {
+  outline: 0;
+  background: #40cae3; }
+
+input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:active {
+  outline: 0;
+  background: #56d0e6; }
+
+/* Label
+-------------------------------------------------------------- */
+label {
+  font-weight: 700; }
+
+/* Textarea
+-------------------------------------------------------------- */
+textarea {
+  resize: vertical; }
+
+/* Success, info, notice and error/alert boxes
+-------------------------------------------------------------- */
+.error, .alert, .notice, .success, .info {
+  border-left: 5px solid #56d0e6;
+  color: #56d0e6;
+  padding: 5px 5px 5px 10px;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  margin: 0 10px 20px;
+  margin: 0 1rem 2rem; }
+
+.error, .alert {
+  color: #8a1f11;
+  background: #fbe3e4;
+  border-color: #8a1f11; }
+  .error a, .alert a {
+    color: #8a1f11; }
+
+.notice {
+  color: #514721;
+  background: #fff6bf;
+  border-color: #514721; }
+  .notice a {
+    color: #514721; }
+
+.success {
+  color: #264409;
+  background: #e6efc2;
+  border-color: #264409; }
+  .success a {
+    color: #264409; }
+
+.info {
+  color: #205791;
+  background: #d5edf8;
+  border-color: #205791; }
+  .info a {
+    color: #205791; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-size: 12px;
+  font-size: 1.2rem;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; }
 
 .wrapper {
   display: block; }
@@ -374,7 +464,9 @@ td, th {
     display: block;
     margin-right: 2.35765%;
     width: 48.82117%;
-    background: #3bbfce; }
+    background-color: red;
+    background-image: -webkit-linear-gradient(bottom, #ff0000, #ffa500);
+    background-image: linear-gradient(to top,#ff0000, #ffa500); }
     #content:last-child, #sidebar:last-child {
       margin-right: 0; } }
 

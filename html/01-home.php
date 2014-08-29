@@ -1,6 +1,6 @@
 <?php $class = 'home'; ?>
 <?php include 'header.php'; ?>
-		<section id="main-content">
+		<section id="main-content" class="scene_element scene_element--fadeinUp">
 			<section id="content">
 				<article class="entry">
 					<section class="entry-content">

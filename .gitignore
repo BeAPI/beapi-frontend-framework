@@ -51,6 +51,9 @@ sftp-config-alt.json
 node_modules/
 bower_components/
 
+### jQuery from Bower ###
+assets/js/vendor/jquery/
+
 ### Temp hologram ###
 doc_assets/
 docs/

@@ -964,12 +964,22 @@ ul {
 
 /* Main Content
 ----------------------------------------------------------------------------------------------------*/
-#fast-access li {
-  display: inline; }
-  #fast-access li a {
-    color: #fff; }
-    #fast-access li a:hover, #fast-access li a:focus {
-      color: #0084B4; }
+#fast-access {
+  font-size: 9px;
+  font-size: 0.9rem;
+  display: none; }
+  #fast-access li {
+    display: inline; }
+    #fast-access li a {
+      position: absolute;
+      z-index: 1;
+      color: #fff; }
+      #fast-access li a:hover, #fast-access li a:focus, #fast-access li a:active {
+        z-index: 2;
+        color: #0084B4; }
+  @media screen and (min-width: 1024px)  {
+    #fast-access {
+      display: block; } }
 
 #menu ul {
   margin-bottom: 20px; }

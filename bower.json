@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "dependencies": {
     "normalize-scss": "~3.0.1",
-    "smoothstate": "~0.5.1"
+    "smoothstate": "~0.5.1",
+    "selectivizr": "~1.0.2"
   }
 }

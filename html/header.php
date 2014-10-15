@@ -26,6 +26,9 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 				}
 			</style>
 		<![endif]-->
+		<!--[if (gte IE 6)&(lte IE 8)]>
+			<script type="text/javascript" src="../assets/bower_components/selectivizr/selectivizr.js"></script>
+		<![endif]-->
 		
 		<link rel="stylesheet" type="text/css" media="all" href="../assets/css/style.dev.css?t=<?php echo time(); ?>" />
 		

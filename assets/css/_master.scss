@@ -61,15 +61,22 @@ ul {
 /* Main Content
 ----------------------------------------------------------------------------------------------------*/
 #fast-access {
+	@include rem('font-size', 9px);
+	display: none;
 	li {
 		display: inline;
 		a {
+			position: absolute;
+			z-index: 1;
 			color: $lightcolor;
-			&:hover,
-			&:focus {
+			&:hover, &:focus, &:active {
+				z-index: 2;
 				color: $maincolor;
 			}
 		}
+	}
+	@include media(min-width 1024px) {
+		display: block;
 	}
 }
 #menu {

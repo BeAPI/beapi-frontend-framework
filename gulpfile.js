@@ -62,7 +62,7 @@ gulp.task('dist-sass', function () {
 });
 // On default task, just compile on demand
 gulp.task('default', function() {
-	gulp.watch('assets/js/*.js', ['bower-scripts','bower-styles','dev-vendor-js', 'dev-check-js']);
+	gulp.watch('assets/js/*.js', ['dev-vendor-js', 'dev-check-js']);
 	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['dev-sass']);
 	livereload.listen();
 	gulp.watch('assets/css/**').on('change', livereload.changed);

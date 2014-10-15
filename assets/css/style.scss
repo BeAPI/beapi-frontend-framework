@@ -4,10 +4,12 @@
 
 //Load neat grid library
 //http://thoughtbot.github.io/neat-docs/latest/
+//http://neat.bourbon.io/examples/
 @import "neat";
 
 //Load vendor css from bower 
 @import "vendor/normalize-scss/_normalize.scss";
+@import "vendor/_superfish.scss";
 
 //Main sass config files
 @import "components/_url-config.scss";
@@ -23,24 +25,3 @@
 
 //Master global style
 @import "_master.scss";
-
-
-.wrapper {
-	@include row();
-}
-#main-content {
-	@include outer-container;
-}
-#content,
-#sidebar {
-	@include media(min-width 600px) {
-		@include span-columns(6);
-	}
-}
-#header,
-#footer,
-#menu {
-	@include media(min-width 600px, 12) {
-		@include outer-container;
-	}
-}

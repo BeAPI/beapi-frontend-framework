@@ -37,6 +37,27 @@ ul {
 /* Plugins
  ----------------------------------------------------------------------------------------------------*/
 
+/* Main Layout
+----------------------------------------------------------------------------------------------------*/
+.wrapper {
+	@include row();
+}
+#main-content {
+	@include outer-container;
+}
+#content,
+#sidebar {
+	@include media(min-width 600px) {
+		@include span-columns(6);
+	}
+}
+#header,
+#footer,
+#menu {
+	@include media(min-width 600px) {
+		@include outer-container;
+	}
+}
 /* Main Content
 ----------------------------------------------------------------------------------------------------*/
 #fast-access {
@@ -52,7 +73,7 @@ ul {
 	}
 }
 #menu {
-	&>ul {
+	ul {
 		@include clearfix; margin-bottom: 20px;
 		&>li {
 			&>a {

@@ -16,13 +16,11 @@ if (!(window.console && console.log)) {( function() {
 // Superfish for submenu
 jQuery('.sf-menu').superfish();
 
-// HorizontalNav Dynamic menu
-//jQuery('.full-width').horizontalNav();
-
 //Html5 PLaceholder fallback for ie7+
 jQuery("input, textarea").placeholder();
 
-// Contents of functions.js
+//jQuery smoothstate
+//http://weblinc.github.io/jquery.smoothState.js/
 ;(function($) {
   'use strict';
   var $body = $('html, body'),

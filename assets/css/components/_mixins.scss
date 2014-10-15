@@ -1,23 +1,18 @@
-//Animations used for smoothstate
-//http://weblinc.github.io/jquery.smoothState.js/index.html
-.m-scene .scene_element {
+//Animations based on animate.css
+.animate {
 	@include animation-duration(0.5s);
 	@include animation-timing-function(ease);
 	@include animation-fill-mode(both);
 }
 
-.m-scene .scene_element--fadeIn {
+.fadeIn {
 	@include animation-name(fadeIn);
 }
-.m-scene .scene_element--fadeinRight {
+.fadeinRight {
 	@include animation-name(fadeInRight);
 }
-.m-scene .scene_element--fadeinUp {
+.fadeinUp {
 	@include animation-name(fadeInUp);
-}
-
-.m-scene.is-exiting .scene_element {
-	@include animation-direction(alternate-reverse);
 }
 
 //Keyframes

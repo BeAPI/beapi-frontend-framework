@@ -25,8 +25,6 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 					behavior: url("../assets/htc/PIE.htc");
 				}
 			</style>
-		<![endif]-->
-		<!--[if (gte IE 6)&(lte IE 8)]>
 			<script type="text/javascript" src="../assets/bower_components/selectivizr/selectivizr.js"></script>
 		<![endif]-->
 		
@@ -40,13 +38,13 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		
 	</head>
 	<body class="<?php echo $class; ?>">
-		<div id="main" class="m-scene">
+		<div id="main">
 			<ul id="fast-access">
 				<li><a href="#content">Acces direct au contenu</a></li>
 				<li><a href="#search">Acces direct à la recherche</a></li>
 				<li><a href="#menu">Acces direct au menu</a></li>
 			</ul>
-			<header id="header" class="scene_element scene_element--fadeIn">
+			<header id="header">
 				<div class="wrapper">
 					<h1 id="logo"><a href="01-home.php">Website title</a></h1>
 					<nav id="menu" >

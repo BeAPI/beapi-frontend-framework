@@ -3,12 +3,12 @@
 .alignleft {
 	display: inline;
 	float: left;
-	margin-right: 20px;
+	@include rem('margin-right', 20px);
 }
 .alignright {
 	display: inline;
 	float: right;
-	margin-left: 20px;
+	@include rem('margin-left', 20px);
 }
 .aligncenter {
 	clear: both;
@@ -19,32 +19,31 @@
 .alignleft,
 .alignright,
 .aligncenter {
-	margin-bottom: 20px;
+	@include rem('margin-bottom', 20px);
 }
 .wp-caption {
-	margin-bottom: 20px;
-	padding: 5px 0;
+	@include rem('margin-bottom', 20px);
+	@include rem('padding', 5px 0);
 	text-align: center;
 	max-width: 100%!important;
 }
-.wp-caption img {
-	margin: 0;
-}
-.wp-caption-text {
-	font: italic 400 11px/12px @font-sansserif;
-	margin: 5px 5px 0;
-}
+.wp-caption img,
 .wp-smiley {
 	margin: 0;
 }
+.wp-caption-text {
+	font: italic 400 11px/12px $font-sansserif;
+	@include rem('margin', 5px 5px 0);
+}
 .gallery {
-	.row(12); margin-bottom: 10px;
+	@include outer-container;
+	@include rem('margin', 0 0 20px);
 }
 .gallery-item {
-	.column(6);
+	@include span-columns(6);
 	text-align: center;
 	position: relative;
-	margin-bottom: 20px;
+	@include rem('margin-bottom', 20px);
 	a {
 		display: block;
 		img {
@@ -54,17 +53,19 @@
 }
 .gallery-columns-3 {
 	.gallery-item {
-		.column(4);	margin-bottom: 10px;
+		@include span-columns(4);
+		@include omega(3n);
 	}
 }
 .gallery-columns-4 {
 	.gallery-item {
-		.column(3);	margin-bottom: 10px;
+		@include span-columns(3);
+		@include omega(4n);
 	}
 }
 .gallery-caption {
-	font-size: 11px;
-	margin: 10px 0 0;
+	@include rem('font-size', 11px);
+	@include rem('margin', 10px 0 0);
 	text-align: left;
 }
 .gallery br+br {

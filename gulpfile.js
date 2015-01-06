@@ -7,6 +7,7 @@ var gulp = require('gulp'),
 	neat = require('node-neat').includePaths,
 	path = require('path'),
 	minifyCSS = require('gulp-minify-css'),
+	concat = require('gulp-concat-sourcemap'),
 	livereload = require('gulp-livereload');
 
 /* Move bower_components to assets */
@@ -21,23 +22,31 @@ gulp.task('bower-styles', function () {
 
 /*JS task*/
 gulp.task('dev-vendor-js', function () {
-	return gulp.src(['assets/js/vendor/*.js', 'assets/js/vendor/**/*.js', '!assets/js/vendor/*.min.js', '!assets/js/vendor/*-min.js', '!assets/js/vendor/**/*-min.js', '!assets/js/vendor/{jquery,jquery/**}'])
-		.pipe(plugins.concat('scripts.dev.js'))
+	return gulp.src(['assets/js/vendor/*.min.js', 'assets/js/vendor/*-min.js', 'assets/js/vendor/**/*-min.js', '!assets/js/vendor/{jquery,jquery/**}'])
+		.pipe(plugins.concat('vendor.min.js'))
 		.pipe(gulp.dest('assets/js'));
 });
 
 gulp.task('dist-all-js', function () {
-	return gulp.src(['assets/js/vendor/*.js', 'assets/js/vendor/**/*.js', '!assets/js/vendor/*.min.js', '!assets/js/vendor/*-min.js', '!assets/js/vendor/**/*-min.js', '!assets/js/vendor/{jquery,jquery/**}', 'assets/js/scripts-domready.js'])
-		.pipe(plugins.jshint())
+	// Make a vendor
+	gulp.src(['assets/js/vendor/*.min.js', 'assets/js/vendor/*-min.js', 'assets/js/vendor/**/*-min.js', '!assets/js/vendor/{jquery,jquery/**}'])
+		.pipe(plugins.concat('vendor.min.js'))
+		.pipe(gulp.dest('assets/js'));
+
+	// Make the rest
+	return gulp.src(['assets/js/vendor.min.js', 'assets/js/src/*.js'])
 		.pipe(plugins.uglify())
-		.pipe(plugins.concat('scripts.min.js'))
+		.pipe(concat('scripts.min.js', { sourceRoot : '../../' }))
 		.pipe(gulp.dest('assets/js/'));
 });
 
 gulp.task('dev-check-js', function () {
-	return gulp.src('assets/js/scripts-domready.js')
+	// Concat the vendor and the src
+	return gulp.src( [ 'assets/js/vendor.min.js', 'assets/js/src/*.js'])
 		.pipe(plugins.jshint())
 		.pipe(plugins.jshint.reporter('default'))
+		.pipe(plugins.uglify())
+		.pipe(concat('scripts.min.js', { sourceRoot : '../../' }))
 		.pipe(gulp.dest('assets/js/'));
 });
 
@@ -62,7 +71,8 @@ gulp.task('dist-sass', function () {
 });
 // On default task, just compile on demand
 gulp.task('default', function() {
-	gulp.watch('assets/js/*.js', ['dev-vendor-js', 'dev-check-js']);
+	gulp.watch('assets/js/src/*.js', [ 'dev-check-js']);
+	gulp.watch('assets/js/vendor/*.js', [ 'dev-vendor-js']);
 	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['dev-sass']);
 	livereload.listen();
 	gulp.watch('assets/css/**').on('change', livereload.changed);

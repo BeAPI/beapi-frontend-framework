@@ -1,0 +1,183 @@
+/* Basic HTML
+----------------------------------------------------------------------------------------------------*/
+
+hr {
+	clear: both;
+	border: 0;
+	height: 1px;
+	background: #e0e2e2;
+}
+
+/* Headings
+----------------------------------------------------------------------------------------------------*/
+
+h1 {
+	@include rem('font-size',25px);
+}
+
+h2 {
+	@include rem('font-size',23px);
+}
+
+h3 {
+	@include rem('font-size',21px);
+}
+
+h4 {
+	@include rem('font-size',19px);
+}
+
+h5 {
+	@include rem('font-size',17px);
+}
+
+h6 {
+	@include rem('font-size',15px);
+}
+
+/* Spacing
+----------------------------------------------------------------------------------------------------*/
+
+ol {
+	list-style: decimal;
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: disc;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	margin: 0;
+}
+
+p,
+dl,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul,
+pre,
+table,
+address,
+fieldset,
+figure {
+	@include rem('margin', 0 0 20px 0);
+}
+
+/* Wysiwyg style
+----------------------------------------------------------------------------------------------------*/
+blockquote {
+	border-left: 5px solid $maingrey;
+	@include rem('padding', 0 0 0 15px);
+	@include rem('margin', 0 0 20px 0);
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+}
+cite {
+	font-style: italic;
+}
+
+table {
+	@include rem('margin', 20px 0);
+	width: 100%;
+	border: 1px solid $maingrey;
+	border-collapse: collapse;
+	border-left: 0;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	th {
+		padding: 8px;
+		border-left: 1px solid $maingrey;
+		border-top: 0;
+		vertical-align: top;
+		text-align: left;
+		line-height: 18px;
+	}
+	td {
+		padding: 8px;
+		border-top: 1px solid $maingrey;
+		border-left: 1px solid $maingrey;
+		vertical-align: top;
+		text-align: left;
+		line-height: 18px;
+	}
+}
+
+address {
+	display: block;
+	margin-bottom: 20px;
+	font-style: normal;
+	line-height: 20px;
+}
+abbr {
+	text-decoration: underline;
+}
+abbr[title], abbr[data-original-title] {
+	cursor: help;
+	border-bottom: 1px dotted $maingrey;
+}
+big {
+	font-size: larger;
+}
+code {
+	@include rem('padding', 2px 5px);
+	white-space: nowrap;
+	background-color: $maingrey;
+	border: 1px solid $darkcolor;
+	font-family: monospace;
+	border-radius: 3px;
+}
+s,
+strike,
+del {
+	text-decoration: line-through;
+}
+em,
+var {
+	font-style: italic;
+}
+ins {
+	background-color: $maingrey;
+	text-decoration: none;
+}
+tt,
+kbd,
+samp {
+	font-family: monospace;
+}
+pre {
+	display: block;
+	@include rem('padding', 10px);
+	@include rem('margin', 0 0 20px);
+	@include word-wrap(break-all);
+	white-space: pre-wrap;
+	background-color: $maingrey;
+	border: 1px solid $darkcolor;
+	border-radius: 4px;
+}
+q {
+	display: inline;
+	font-style: italic;
+}
+sub,
+sup {
+	bottom: -0.25em;
+	position: relative;
+	font-size: 75%;
+	line-height: 0;
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+

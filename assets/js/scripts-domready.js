@@ -16,8 +16,6 @@ if (!(window.console && console.log)) {( function() {
 // Superfish for submenu
 jQuery('.sf-menu').superfish();
 
-// HorizontalNav Dynamic menu
-//jQuery('.full-width').horizontalNav();
-
 //Html5 PLaceholder fallback for ie7+
 jQuery("input, textarea").placeholder();
+

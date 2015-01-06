@@ -1,7 +1,15 @@
 /* Global css
  ----------------------------------------------------------------------------------------------------*/
+
+html {
+	font-size: 62.5%;
+}
+
 body {
-	color: @maincolor; -webkit-font-smoothing: antialiased;
+	@include rem('font-size',16px);
+	font-family: $helvetica;
+	color: $darkcolor;
+	-webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -9,22 +17,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-	color: @maincolor;
-	&:hover,
-	&:focus,
-	&:active {
-		color: @maincolor;
+	color: $maincolor;
+	&:hover, &:focus, &:active {
+		color: $maincolor;
 	}
 }
 
 small {
-	font-size: 11px;
+	@include rem('font-size', 11px);
 }
 ul {
-	list-style: none; margin: 0;
-	li {
-		margin: 0;
-	}
+	list-style: none;
 }
 /* Misc Classes
 ----------------------------------------------------------------------------------------------------*/
@@ -34,28 +37,56 @@ ul {
 /* Plugins
  ----------------------------------------------------------------------------------------------------*/
 
+/* Main Layout
+----------------------------------------------------------------------------------------------------*/
+.wrapper {
+	@include row();
+}
+#main-content {
+	@include outer-container;
+}
+#content,
+#sidebar {
+	@include media(min-width 600px) {
+		@include span-columns(6);
+	}
+}
+#header,
+#footer,
+#menu {
+	@include media(min-width 600px) {
+		@include outer-container;
+	}
+}
 /* Main Content
 ----------------------------------------------------------------------------------------------------*/
 #fast-access {
+	@include rem('font-size', 9px);
+	display: none;
 	li {
 		display: inline;
 		a {
-			color: @contrastcolorlight;
-			&:hover,
-			&:focus {
-				color: @maincolor;
+			position: absolute;
+			z-index: 1;
+			color: $lightcolor;
+			&:hover, &:focus, &:active {
+				z-index: 2;
+				color: $maincolor;
 			}
 		}
 	}
+	@include media(min-width 1024px) {
+		display: block;
+	}
 }
 #menu {
-	&>ul {
-		.clearfix; margin-bottom: 20px;
+	ul {
+		@include clearfix; margin-bottom: 20px;
 		&>li {
 			&>a {
-				padding:0 10px; font: 700 12px/24px @font-sansserif;
+				padding:0 10px; font: 700 12px/24px $font-sansserif;
 				&:hover, &:focus, &:active {
-					color:@contrastcolorlight; background:@maincolor;
+					color:$lightcolor; background:$maincolor;
 				}
 			}
 			&:hover, &:focus, &:active, &.sfHover {
@@ -66,17 +97,17 @@ ul {
 			&.current-menu-item,
 			&.current-menu-parent {
 				a {
-					color:@contrastcolorlight; background:@maincolor;
+					color:$lightcolor; background:$maincolor;
 				}
 			}
 		}
 		ul {
-			background: @contrastcolorlight;
+			background: $lightcolor;
 			li {
 				a {
 					padding: 10px;
 					&:hover, &:focus, &:active {
-						color:@contrastcolorlight; background:@maincolor;
+						color:$lightcolor; background:$maincolor;
 					}
 				}
 			}
@@ -90,20 +121,22 @@ ul {
 	}
 }
 .entry {
-	.clearfix;
+	@include clearfix;
 }
 .entry-content {
-	.clearfix;
+	@include clearfix;
 	ul {
-		list-style: disc inside none; margin: 0 0 20px;
+		list-style: disc inside none;
+		@include rem('margin', 0 0 20px);
 		li {
-			margin: 0 0 5px;
+			@include rem('margin', 0 0 5px);
 		}
 	}
 	ol {
-		list-style: decimal inside none; margin: 0 0 20px;
+		list-style: decimal inside none;
+		@include rem('margin', 0 0 20px);
 		li {
-			margin: 0 0 5px;
+			@include rem('margin', 0 0 5px);
 		}
 	}
 	img {
@@ -130,7 +163,7 @@ ul {
 }
 .comment {
 	.comment {
-		min-height:75px; margin:0 0 20px; padding: 0 0 20px; position: relative;.clearfix; border-bottom: 1px solid @maincolor;
+		min-height:75px; margin:0 0 20px; padding: 0 0 20px; position: relative;@include clearfix; border-bottom: 1px solid $maincolor;
 	}
 	&.last {
 		border:0;
@@ -140,7 +173,7 @@ ul {
 		.comment {
 			min-height: 28px; border-bottom: 0; margin-bottom: 0;
 			.comment {
-				border-bottom: 1px solid @maincolor;
+				border-bottom: 1px solid $maincolor;
 			}
 		}
 		.comment-meta,
@@ -178,10 +211,10 @@ ul {
 	}
 }
 .widget {
-	.clearfix; margin-bottom: 20px;
+	@include clearfix; margin-bottom: 20px;
 }
 .widgettitle {
-	.bordered(0, 0, @maincolor, 0);
+	
 }
 .widget-inner {
 	
@@ -244,3 +277,4 @@ ul {
 .widget_search {
 	
 }
+

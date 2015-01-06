@@ -1,4 +1,5 @@
 /**
- * Created by Nicolas on 18/12/2014.
+ * Sliders and carousels scripts
  */
+
 console.log('sliders');

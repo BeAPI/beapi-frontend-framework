@@ -194,7 +194,7 @@ class BEA_Images{
 					continue;
 				}
 
-				$img = wp_get_attachment_image_src( $attachment->ID, $location->size );
+				$img = wp_get_attachment_image_src( $attachment->ID, (array) self::get_image_size( $location->size ) );
 				if( empty($img) ){
 					continue;
 				}

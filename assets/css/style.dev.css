@@ -946,7 +946,7 @@ ul {
   position: absolute;
   width: 1px; }
 
-.widget-area img {
+.entry-content img, .widget-area img {
   display: block;
   max-width: 100%;
   height: auto; }
@@ -1069,9 +1069,6 @@ ul {
   .entry-content ol li {
     margin: 0 0 5px;
     margin: 0 0 0.5rem; }
-.entry-content img {
-  max-width: 100%;
-  height: auto; }
 .entry-content .gform_wrapper ul {
   list-style: none; }
 .entry-content .searchform input {
@@ -1147,8 +1144,5 @@ ul {
 .widget_categories .current-cat > a, .widget_categories .current-cat .current-cat a, .widget_categories .current-cat-parent > a, .widget_categories .current-cat-parent .current-cat a {
   font-weight: 700; }
 
-.widget_pages .widget-inner > ul > li > a:hover, .widget_pages .widget-inner > ul > li > a:focus, .widget_pages .widget-inner > ul > li > a:active {
+.widget_pages .current_page_ancestor > a, .widget_pages .current_page_ancestor .current_page_item a, .widget_pages .current_page_parent > a, .widget_pages .current_page_parent .current_page_item a {
   font-weight: 700; }
-.widget_pages .widget-inner ul li.current_page_ancestor > a, .widget_pages .widget-inner ul li.current_page_ancestor .current_page_item a, .widget_pages .widget-inner ul li.current_page_parent > a, .widget_pages .widget-inner ul li.current_page_parent .current_page_item a {
-  font-weight: 700; }
-

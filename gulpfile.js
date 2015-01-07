@@ -10,26 +10,16 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat-sourcemap'),
 	livereload = require('gulp-livereload');
 
-/* Move bower_components to assets */
-gulp.task('bower-scripts', function () {
-	return gulp.src(['assets/bower_components/**/*.js', '!assets/bower_components/{jquery,jquery/**}'])
-		.pipe(gulp.dest('assets/js/vendor'));
-});
-gulp.task('bower-styles', function () {
-	return gulp.src(['assets/bower_components/**/*.css', 'assets/bower_components/**/*.scss'])
-		.pipe(gulp.dest('assets/css/vendor'));
-});
-
 /*JS task*/
 gulp.task('dev-vendor-js', function () {
-	return gulp.src(['assets/js/vendor/*.min.js', 'assets/js/vendor/*-min.js', 'assets/js/vendor/**/*-min.js', '!assets/js/vendor/{jquery,jquery/**}'])
+	return gulp.src(['assets/js/vendor/*.min.js', 'assets/js/vendor/*-min.js', 'assets/js/vendor/**/*-min.js', 'assets/js/vendor/**/*.min.js', '!assets/js/vendor/{jquery,jquery/**}'])
 		.pipe(plugins.concat('vendor.min.js'))
 		.pipe(gulp.dest('assets/js'));
 });
 
 gulp.task('dist-all-js', function () {
 	// Make a vendor
-	gulp.src(['assets/js/vendor/*.min.js', 'assets/js/vendor/*-min.js', 'assets/js/vendor/**/*-min.js', '!assets/js/vendor/{jquery,jquery/**}'])
+	gulp.src(['assets/js/vendor/*.min.js', 'assets/js/vendor/*-min.js', 'assets/js/vendor/**/*-min.js', 'assets/js/vendor/**/*.min.js', '!assets/js/vendor/{jquery,jquery/**}'])
 		.pipe(plugins.concat('vendor.min.js'))
 		.pipe(gulp.dest('assets/js'));
 

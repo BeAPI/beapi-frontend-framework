@@ -1,0 +1,30 @@
+/* Global css
+ ----------------------------------------------------------------------------------------------------*/
+html {
+	font-size: 62.5%;
+}
+
+body {
+	@include rem('font-size',16px);
+	font-family: $helvetica;
+	color: $darkcolor;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1;
+}
+
+a {
+	color: $maincolor;
+	@include hoverActiveFocus {
+		color: $maincolor;
+	}
+}
+
+small {
+	@include rem('font-size', 11px);
+}
+ul {
+	list-style: none;
+}

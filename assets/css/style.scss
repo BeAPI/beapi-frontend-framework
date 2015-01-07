@@ -25,5 +25,13 @@
 @import "components/_buttons.scss";
 @import "components/_messages.scss";
 
-//Master global style
-@import "_master.scss";
+//Main websites patterns
+@import "patterns/_global.scss";
+@import "patterns/_utilities.scss";
+@import "patterns/_plugins.scss";
+@import "patterns/_layout.scss";
+@import "patterns/_menus.scss";
+@import "patterns/_breadcrumb.scss";
+@import "patterns/_entries.scss";
+@import "patterns/_comments.scss";
+@import "patterns/_widgets.scss";

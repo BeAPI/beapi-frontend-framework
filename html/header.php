@@ -39,7 +39,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 	</head>
 	<body class="<?php echo $class; ?>">
 		<div id="main">
-			<ul id="fast-access">
+			<ul id="menu__fastaccess">
 				<li><a href="#content">Acces direct au contenu</a></li>
 				<li><a href="#search">Acces direct à la recherche</a></li>
 				<li><a href="#menu">Acces direct au menu</a></li>

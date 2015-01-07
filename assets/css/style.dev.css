@@ -921,7 +921,7 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   color: #0084B4; }
-  a:hover, a:focus, a:active {
+  a:hover, a:active, a:focus {
     color: #0084B4; }
 
 small {
@@ -931,12 +931,27 @@ small {
 ul {
   list-style: none; }
 
-/* Misc Classes
+/* Utility/Misc Classes
 ----------------------------------------------------------------------------------------------------*/
 .assistive-text {
   display: none; }
 
-/* Plugins
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+.widget-area img {
+  display: block;
+  max-width: 100%;
+  height: auto; }
+
+/* Plugins overide css
  ----------------------------------------------------------------------------------------------------*/
 /* Main Layout
 ----------------------------------------------------------------------------------------------------*/
@@ -975,23 +990,23 @@ ul {
       display: table;
       clear: both; } }
 
-/* Main Content
+/* Menus
 ----------------------------------------------------------------------------------------------------*/
-#fast-access {
+#menu__fastaccess {
   font-size: 9px;
   font-size: 0.9rem;
   display: none; }
-  #fast-access li {
+  #menu__fastaccess li {
     display: inline; }
-    #fast-access li a {
+    #menu__fastaccess li a {
       position: absolute;
       z-index: 1;
       color: #fff; }
-      #fast-access li a:hover, #fast-access li a:focus, #fast-access li a:active {
+      #menu__fastaccess li a:hover, #menu__fastaccess li a:active, #menu__fastaccess li a:focus {
         z-index: 2;
         color: #0084B4; }
   @media screen and (min-width: 1024px)  {
-    #fast-access {
+    #menu__fastaccess {
       display: block; } }
 
 #menu ul {
@@ -1003,10 +1018,12 @@ ul {
   #menu ul > li > a {
     padding: 0 10px;
     font: 700 12px/24px Arial, Helvetica, sans-serif; }
-    #menu ul > li > a:hover, #menu ul > li > a:focus, #menu ul > li > a:active {
+    #menu ul > li > a:hover, #menu ul > li > a:active, #menu ul > li > a:focus {
       color: #fff;
       background: #0084B4; }
-  #menu ul > li:hover ul, #menu ul > li:focus ul, #menu ul > li:active ul, #menu ul > li.sfHover ul {
+  #menu ul > li:hover ul, #menu ul > li:active ul, #menu ul > li:focus ul {
+    top: 24px; }
+  #menu ul > li.sfHover ul {
     top: 24px; }
   #menu ul > li.current-menu-item a, #menu ul > li.current-menu-parent a {
     color: #fff;
@@ -1015,16 +1032,20 @@ ul {
     background: #fff; }
     #menu ul ul li a {
       padding: 10px; }
-      #menu ul ul li a:hover, #menu ul ul li a:focus, #menu ul ul li a:active {
+      #menu ul ul li a:hover, #menu ul ul li a:active, #menu ul ul li a:focus {
         color: #fff;
         background: #0084B4; }
 
+/* Breadcrumb
+----------------------------------------------------------------------------------------------------*/
 #breadcrumb {
   list-style: none; }
   #breadcrumb li {
     display: inline;
     margin: 0; }
 
+/* Entry
+----------------------------------------------------------------------------------------------------*/
 .entry:after {
   content: "";
   display: table;
@@ -1113,22 +1134,17 @@ ul {
   line-height: 20px;
   height: 20px; }
 
-/* Widget
+/* Widgets
  ----------------------------------------------------------------------------------------------------*/
-.widget-area img {
-  max-width: 100%;
-  height: auto; }
-
 .widget {
-  margin-bottom: 20px; }
+  margin: 0 0 20px;
+  margin: 0 0 2rem; }
   .widget:after {
     content: "";
     display: table;
     clear: both; }
 
-.widget_categories .widget-inner > ul > li > a:hover, .widget_categories .widget-inner > ul > li > a:focus, .widget_categories .widget-inner > ul > li > a:active {
-  font-weight: 700; }
-.widget_categories .widget-inner ul li.current-cat > a, .widget_categories .widget-inner ul li.current-cat .current-cat a, .widget_categories .widget-inner ul li.current-cat-parent > a, .widget_categories .widget-inner ul li.current-cat-parent .current-cat a {
+.widget_categories .current-cat > a, .widget_categories .current-cat .current-cat a, .widget_categories .current-cat-parent > a, .widget_categories .current-cat-parent .current-cat a {
   font-weight: 700; }
 
 .widget_pages .widget-inner > ul > li > a:hover, .widget_pages .widget-inner > ul > li > a:focus, .widget_pages .widget-inner > ul > li > a:active {

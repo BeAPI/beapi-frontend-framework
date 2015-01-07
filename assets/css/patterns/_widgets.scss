@@ -1,0 +1,42 @@
+/* Widgets
+ ----------------------------------------------------------------------------------------------------*/
+.widget-area {
+	img {
+		@extend %img__responsive;
+	}
+}
+.widget {
+	@include clearfix;
+	@include rem('margin', 0 0 20px);
+}
+.widgettitle {
+	
+}
+.widget__inner {
+	
+}
+.widget_text {
+	
+}
+.widget_search {
+	
+}
+.widget_categories {
+	.current-cat,
+	.current-cat-parent {
+		&>a,
+		.current-cat a {
+			font-weight: 700;
+		}
+	}
+}
+.widget_pages {
+	.current_page_ancestor,
+	.current_page_parent {
+			&>a,
+			.current_page_item a {
+				font-weight: 700;
+			}
+		}
+	}
+}

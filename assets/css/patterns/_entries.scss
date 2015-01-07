@@ -1,0 +1,35 @@
+/* Entry
+----------------------------------------------------------------------------------------------------*/
+.entry {
+	@include clearfix;
+}
+.entry-content {
+	@include clearfix;
+	ul {
+		list-style: disc inside none;
+		@include rem('margin', 0 0 20px);
+		li {
+			@include rem('margin', 0 0 5px);
+		}
+	}
+	ol {
+		list-style: decimal inside none;
+		@include rem('margin', 0 0 20px);
+		li {
+			@include rem('margin', 0 0 5px);
+		}
+	}
+	img {
+		@extend %img__responsive;
+	}
+	.gform_wrapper {
+		ul {
+			list-style: none;
+		}
+	}
+	.searchform {
+		input {
+			display: inline;
+		}
+	}
+}

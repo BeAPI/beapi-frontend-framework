@@ -537,13 +537,22 @@ td, th {
     margin: 10px 0 !important;
     width: 100% !important; } }
 
-/* Basic HTML
-----------------------------------------------------------------------------------------------------*/
-hr {
-  clear: both;
-  border: 0;
-  height: 1px;
-  background: #e0e2e2; }
+html {
+  font-size: 62.5%; }
+
+body {
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 19px;
+  line-height: 1.9rem;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  color: #000;
+  -webkit-font-smoothing: antialiased; }
+
+a {
+  color: #0084B4; }
+  a:hover, a:active, a:focus {
+    color: #0084B4; }
 
 /* Headings
 ----------------------------------------------------------------------------------------------------*/
@@ -571,27 +580,33 @@ h6 {
   font-size: 15px;
   font-size: 1.5rem; }
 
-/* Spacing
-----------------------------------------------------------------------------------------------------*/
-ol {
-  list-style: decimal;
-  margin: 0;
-  padding: 0; }
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1; }
 
-ul {
-  list-style: disc;
+/* Lists
+----------------------------------------------------------------------------------------------------*/
+ol, ul {
+  list-style: none;
   margin: 0;
   padding: 0; }
 
 li {
   margin: 0; }
 
+/* Spacing
+----------------------------------------------------------------------------------------------------*/
 p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset, figure {
   margin: 0 0 20px 0;
   margin: 0 0 2rem 0; }
 
 /* Wysiwyg style
 ----------------------------------------------------------------------------------------------------*/
+hr {
+  clear: both;
+  border: 0;
+  height: 1px;
+  background: #ddd; }
+
 blockquote {
   border-left: 5px solid #ddd;
   padding: 0 0 0 15px;
@@ -603,6 +618,10 @@ blockquote {
 
 cite {
   font-style: italic; }
+
+small {
+  font-size: 11px;
+  font-size: 1.1rem; }
 
 table {
   margin: 20px 0;
@@ -906,31 +925,6 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
 
 /* Global css
  ----------------------------------------------------------------------------------------------------*/
-html {
-  font-size: 62.5%; }
-
-body {
-  font-size: 16px;
-  font-size: 1.6rem;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-  color: #000;
-  -webkit-font-smoothing: antialiased; }
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1; }
-
-a {
-  color: #0084B4; }
-  a:hover, a:active, a:focus {
-    color: #0084B4; }
-
-small {
-  font-size: 11px;
-  font-size: 1.1rem; }
-
-ul {
-  list-style: none; }
-
 /* Utility/Misc Classes
 ----------------------------------------------------------------------------------------------------*/
 .assistive-text {

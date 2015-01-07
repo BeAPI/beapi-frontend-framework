@@ -1,4 +1,4 @@
-/* Global form css behavior Input and buttons
+/* Global form css elements
 -------------------------------------------------------------- */
 #{$all-text-inputs},
 textarea {
@@ -7,6 +7,8 @@ textarea {
 	background: $lightcolor;
 	@include rem('padding', 5px);
 	@include transition (background 0.5s ease);
+	@include appearance(none);
+	@include box-sizing(border-box);
 	@include placeholder {
 		color: lighten($textcolor, 50%);
 	}
@@ -23,25 +25,6 @@ textarea:focus { // Target the :focus pseudo-class
 	background: darken($lightcolor, 2.5%);
 }
 
-#{$all-button-inputs} {
-	border: 0;
-	background: $maincolor;
-	@include rem('padding', 5px);
-}
-
-#{$all-button-inputs-hover} { // Target the :hover pseudo-class
-	background: darken($maincolor, 5%);
-}
-
-#{$all-button-inputs-focus} { // Target the :focus pseudo-class
-	outline:0;
-	background: darken($maincolor, 5%);
-}
-
-#{$all-button-inputs-active} { // Target the :active pseudo-class
-	outline:0;
-	background: $maincolor;
-}
 /* Label
 -------------------------------------------------------------- */
 label {
@@ -51,51 +34,4 @@ label {
 -------------------------------------------------------------- */
 textarea {
 	resize:vertical;
-}
-/* Success, info, notice and error/alert boxes
--------------------------------------------------------------- */
-
-.error,
-.alert, 
-.notice,
-.success, 
-.info {
-	border-left: 5px solid $maincolor;
-	color: $maincolor;
-	@include rem('padding', 5px 5px 5px 10px);
-	@include rem('margin', 0 10px 20px);
-}
-
-.error,
-.alert {
-	color: $errorcolor-1;
-	background: $errorcolor-2;
-	border-color: $errorcolor-1;
-	a {
-		color: $errorcolor-1;
-	}
-}
-.notice {
-	color: $noticecolor-1;
-	background: $noticecolor-2;
-	border-color: $noticecolor-1;
-	a {
-		color: $noticecolor-1;
-	}
-}
-.success {
-	color: $successcolor-1;
-	background: $successcolor-2;
-	border-color: $successcolor-1;
-	a {
-		color: $successcolor-1;
-	}
-}
-.info {
-	color: $infocolor-1;
-	background: $infocolor-2;
-	border-color: $infocolor-1;
-	a {
-		color: $infocolor-1;
-	}
 }

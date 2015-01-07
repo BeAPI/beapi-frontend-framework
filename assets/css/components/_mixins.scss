@@ -44,3 +44,10 @@
 		@include transform(none);
 	}
 }
+
+//Hover Active Focus pseudo selector mixin
+@mixin hoverActiveFocus {
+	&:hover, &:active, &:focus {
+		@content;
+	}
+}

@@ -1,0 +1,36 @@
+/* Global buttons css
+-------------------------------------------------------------- */
+#{$all-button-inputs},
+button,
+.button {
+	display: inline-block;
+	border: 0;
+	border-radius: 0;
+	@include rem('font-size', 16px);
+	@include rem('padding', 5px);
+	color: $lightcolor;
+	background: $maincolor;
+}
+
+#{$all-button-inputs-hover},
+button:hover,
+.button:hover { // Target the :hover pseudo-class
+	color: $lightcolor;
+	background: darken($maincolor, 5%);
+}
+
+#{$all-button-inputs-focus},
+button:focus,
+.button:focus { // Target the :focus pseudo-class
+	color: $lightcolor;
+	background: darken($maincolor, 5%);
+	outline:0;
+}
+
+#{$all-button-inputs-active},
+button:active,
+.button:active { // Target the :active pseudo-class
+	color: $lightcolor;
+	background: $maincolor;
+	outline:0;
+}

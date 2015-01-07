@@ -372,7 +372,7 @@ td, th {
 
 /* Library
  ----------------------------------------------------------------------------------------------------*/
-.m-scene .scene_element {
+.animate {
   -webkit-animation-duration: 0.5s;
   -moz-animation-duration: 0.5s;
   animation-duration: 0.5s;
@@ -383,25 +383,20 @@ td, th {
   -moz-animation-fill-mode: both;
   animation-fill-mode: both; }
 
-.m-scene .scene_element--fadeIn {
+.fadeIn {
   -webkit-animation-name: fadeIn;
   -moz-animation-name: fadeIn;
   animation-name: fadeIn; }
 
-.m-scene .scene_element--fadeinRight {
+.fadeinRight {
   -webkit-animation-name: fadeInRight;
   -moz-animation-name: fadeInRight;
   animation-name: fadeInRight; }
 
-.m-scene .scene_element--fadeinUp {
+.fadeinUp {
   -webkit-animation-name: fadeInUp;
   -moz-animation-name: fadeInUp;
   animation-name: fadeInUp; }
-
-.m-scene.is-exiting .scene_element {
-  -webkit-animation-direction: alternate-reverse;
-  -moz-animation-direction: alternate-reverse;
-  animation-direction: alternate-reverse; }
 
 @-webkit-keyframes fadeIn {
   from {
@@ -799,7 +794,7 @@ sup {
 .gallery br + br {
   display: none; }
 
-/* Global form css behavior Input and buttons
+/* Global form css elements
 -------------------------------------------------------------- */
 input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"], textarea {
   border: 0;
@@ -809,7 +804,15 @@ input[type="email"], input[type="number"], input[type="password"], input[type="s
   padding: 0.5rem;
   -webkit-transition: background 0.5s ease;
   -moz-transition: background 0.5s ease;
-  transition: background 0.5s ease; }
+  transition: background 0.5s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
   input[type="email"]::-webkit-input-placeholder, input[type="number"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder, input[type="search"]::-webkit-input-placeholder, input[type="tel"]::-webkit-input-placeholder, input[type="text"]::-webkit-input-placeholder, input[type="url"]::-webkit-input-placeholder, input[type="color"]::-webkit-input-placeholder, input[type="date"]::-webkit-input-placeholder, input[type="datetime"]::-webkit-input-placeholder, input[type="datetime-local"]::-webkit-input-placeholder, input[type="month"]::-webkit-input-placeholder, input[type="time"]::-webkit-input-placeholder, input[type="week"]::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     color: #b3b3b3; }
   input[type="email"]::-moz-placeholder, input[type="number"]::-moz-placeholder, input[type="password"]::-moz-placeholder, input[type="search"]::-moz-placeholder, input[type="tel"]::-moz-placeholder, input[type="text"]::-moz-placeholder, input[type="url"]::-moz-placeholder, input[type="color"]::-moz-placeholder, input[type="date"]::-moz-placeholder, input[type="datetime"]::-moz-placeholder, input[type="datetime-local"]::-moz-placeholder, input[type="month"]::-moz-placeholder, input[type="time"]::-moz-placeholder, input[type="week"]::-moz-placeholder, textarea::-moz-placeholder {
@@ -826,23 +829,6 @@ input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:fo
   outline: 0;
   background: #f9f9f9; }
 
-input[type="button"], input[type="reset"], input[type="submit"] {
-  border: 0;
-  background: #0084B4;
-  padding: 5px;
-  padding: 0.5rem; }
-
-input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover {
-  background: #00749b; }
-
-input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus {
-  outline: 0;
-  background: #00749b; }
-
-input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:active {
-  outline: 0;
-  background: #0084B4; }
-
 /* Label
 -------------------------------------------------------------- */
 label {
@@ -852,6 +838,33 @@ label {
 -------------------------------------------------------------- */
 textarea {
   resize: vertical; }
+
+/* Global buttons css
+-------------------------------------------------------------- */
+input[type="button"], input[type="reset"], input[type="submit"], button, .button {
+  display: inline-block;
+  border: 0;
+  border-radius: 0;
+  font-size: 16px;
+  font-size: 1.6rem;
+  padding: 5px;
+  padding: 0.5rem;
+  color: #fff;
+  background: #0084B4; }
+
+input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, button:hover, .button:hover {
+  color: #fff;
+  background: #00749b; }
+
+input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, button:focus, .button:focus {
+  color: #fff;
+  background: #00749b;
+  outline: 0; }
+
+input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:active, button:active, .button:active {
+  color: #fff;
+  background: #0084B4;
+  outline: 0; }
 
 /* Success, info, notice and error/alert boxes
 -------------------------------------------------------------- */

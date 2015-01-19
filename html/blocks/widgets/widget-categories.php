@@ -13,7 +13,7 @@
 					<li class="cat-item"><a href="#">Sub Categorie 3</a></li>
 				</ul>
 			</li>
-			<li><a href="#">Consom’action</a></li>
+			<li><a href="#">Categorie 4</a></li>
 		</ul>
 	</div>
 </div>

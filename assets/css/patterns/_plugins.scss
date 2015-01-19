@@ -1,2 +1,40 @@
 /* Plugins overide css
  ----------------------------------------------------------------------------------------------------*/
+
+// Gravity Form 
+.gfield,
+.ginput_full {
+	@include clearfix;
+	@include omega;
+	select {
+		width: 100%;
+	}
+}
+.gfield {
+	@include rem('margin', 0 0 20px!important);//important to resolve conflict with entry__content ul's margins
+}
+.gfield_label {
+	@include rem('margin', 0 0 5px);
+}
+.gsection_title {
+	
+}
+.ginput_complex {
+	.ginput_left,
+	.ginput_right {
+		@include span-columns(5 of 10);
+		label {
+			@include rem('margin', 5px 0 10px);
+		}
+	}
+	.ginput_right {
+		margin-right: 0;
+	}
+	.ginput_full {
+		display: block;
+		@include rem('margin', 0 0 20px);
+		label {
+			@include rem('margin', 5px 0 10px);
+		}
+	}
+}

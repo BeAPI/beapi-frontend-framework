@@ -3,7 +3,11 @@
 .entry {
 	@include clearfix;
 }
-.entry-content {
+.entry__title,
+.page__title {
+	
+}
+.entry__content {
 	@include clearfix;
 	ul {
 		list-style: disc inside none;
@@ -32,4 +36,7 @@
 			display: inline;
 		}
 	}
+}
+.entry__summary {
+	@include clearfix;
 }

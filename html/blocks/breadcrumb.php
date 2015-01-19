@@ -1,4 +1,4 @@
-<div id="breadcrumb">
+<div id="breadcrumb" class="breadcrumb">
 	<span>
 		<span typeof="v:Breadcrumb"><a href="#" rel="v:url" property="v:title">Accueil</a></span> / 
 		<span typeof="v:Breadcrumb"><a href="#" rel="v:url" property="v:title">breadcrumb level 1</a></span> / 

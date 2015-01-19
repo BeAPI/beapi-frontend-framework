@@ -1,21 +1,15 @@
 /* Main Layout
 ----------------------------------------------------------------------------------------------------*/
 .wrapper {
-	@include row();
-}
-#main-content {
 	@include outer-container;
 }
-#content,
-#sidebar {
+.content {
 	@include media(min-width 600px) {
-		@include span-columns(6);
+		@include span-columns(9);
 	}
 }
-#header,
-#footer,
-#menu {
+.sidebar {
 	@include media(min-width 600px) {
-		@include outer-container;
+		@include span-columns(3);
 	}
 }

@@ -1,8 +1,5 @@
 /* Breadcrumb
 ----------------------------------------------------------------------------------------------------*/
-#breadcrumb {
-	list-style: none;
-	li {
-		display: inline; margin:0;
-	}
+.breadcrumb {
+	@include rem('margin', 0 0 20px);
 }

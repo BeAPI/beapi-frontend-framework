@@ -959,49 +959,78 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
   position: absolute;
   width: 1px; }
 
-.entry-content img, .widget-area img {
+.entry__content img, .widget-area img {
   display: block;
   max-width: 100%;
   height: auto; }
 
 /* Plugins overide css
  ----------------------------------------------------------------------------------------------------*/
+.gfield, .ginput_full {
+  margin-right: 0; }
+  .gfield:after, .ginput_full:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .gfield select, .ginput_full select {
+    width: 100%; }
+
+.gfield {
+  margin: 0 0 20px !important;
+  margin: 0 0 2rem !important; }
+
+.gfield_label {
+  margin: 0 0 5px;
+  margin: 0 0 0.5rem; }
+
+.ginput_complex .ginput_left, .ginput_complex .ginput_right {
+  float: left;
+  display: block;
+  margin-right: 2.84259%;
+  width: 48.57871%; }
+  .ginput_complex .ginput_left:last-child, .ginput_complex .ginput_right:last-child {
+    margin-right: 0; }
+  .ginput_complex .ginput_left label, .ginput_complex .ginput_right label {
+    margin: 5px 0 10px;
+    margin: 0.5rem 0 1rem; }
+.ginput_complex .ginput_right {
+  margin-right: 0; }
+.ginput_complex .ginput_full {
+  display: block;
+  margin: 0 0 20px;
+  margin: 0 0 2rem; }
+  .ginput_complex .ginput_full label {
+    margin: 5px 0 10px;
+    margin: 0.5rem 0 1rem; }
+
 /* Main Layout
 ----------------------------------------------------------------------------------------------------*/
 .wrapper {
-  display: block; }
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
   .wrapper:after {
     content: "";
     display: table;
     clear: both; }
 
-#main-content {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto; }
-  #main-content:after {
-    content: "";
-    display: table;
-    clear: both; }
-
 @media screen and (min-width: 600px)  {
-  #content, #sidebar {
+  .content {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 48.82117%; }
-    #content:last-child, #sidebar:last-child {
+    width: 74.41059%; }
+    .content:last-child {
       margin-right: 0; } }
 
 @media screen and (min-width: 600px)  {
-  #header, #footer, #menu {
-    max-width: 68em;
-    margin-left: auto;
-    margin-right: auto; }
-    #header:after, #footer:after, #menu:after {
-      content: "";
-      display: table;
-      clear: both; } }
+  .sidebar {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%; }
+    .sidebar:last-child {
+      margin-right: 0; } }
 
 /* Menus
 ----------------------------------------------------------------------------------------------------*/
@@ -1051,11 +1080,9 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
 
 /* Breadcrumb
 ----------------------------------------------------------------------------------------------------*/
-#breadcrumb {
-  list-style: none; }
-  #breadcrumb li {
-    display: inline;
-    margin: 0; }
+.breadcrumb {
+  margin: 0 0 20px;
+  margin: 0 0 2rem; }
 
 /* Entry
 ----------------------------------------------------------------------------------------------------*/
@@ -1064,28 +1091,33 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
   display: table;
   clear: both; }
 
-.entry-content:after {
+.entry__content:after {
   content: "";
   display: table;
   clear: both; }
-.entry-content ul {
+.entry__content ul {
   list-style: disc inside none;
   margin: 0 0 20px;
   margin: 0 0 2rem; }
-  .entry-content ul li {
+  .entry__content ul li {
     margin: 0 0 5px;
     margin: 0 0 0.5rem; }
-.entry-content ol {
+.entry__content ol {
   list-style: decimal inside none;
   margin: 0 0 20px;
   margin: 0 0 2rem; }
-  .entry-content ol li {
+  .entry__content ol li {
     margin: 0 0 5px;
     margin: 0 0 0.5rem; }
-.entry-content .gform_wrapper ul {
+.entry__content .gform_wrapper ul {
   list-style: none; }
-.entry-content .searchform input {
+.entry__content .searchform input {
   display: inline; }
+
+.entry__summary:after {
+  content: "";
+  display: table;
+  clear: both; }
 
 /* Comments
  ----------------------------------------------------------------------------------------------------*/

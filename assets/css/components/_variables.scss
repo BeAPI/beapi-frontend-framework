@@ -24,3 +24,11 @@ $successcolor-2 : #e6efc2;
 
 $infocolor-1 : #205791;
 $infocolor-2 : #d5edf8;
+
+//Breakpoint
+$mobile-small: new-breakpoint(max-width 480px);
+$mobile-medium: new-breakpoint(min-width 481px);
+$tablet-small: new-breakpoint(min-width 601px);
+$tablet-medium: new-breakpoint(min-width 768px);
+$desktop-small: new-breakpoint(min-width 1024px);
+$desktop-medium: new-breakpoint(min-width 1260px);

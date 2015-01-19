@@ -1,5 +1,11 @@
 /* Misc mixins
 -------------------------------------------------------------- */
+//Hover Active Focus pseudo selector mixin
+@mixin hover {
+	&:hover, &:active, &:focus {
+		@content;
+	}
+}
 //Animations based on animate.css
 .animate {
 	@include animation-duration(0.5s);

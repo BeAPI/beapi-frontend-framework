@@ -1,7 +1,8 @@
 <div class="searchform">
 	<form method="get" action="#">
-		<label for="s" class="assistive-text">Recherche</label>
-		<input type="text" class="field" name="s" id="s" placeholder="Recherche">
-		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Recherche">
+		<div class="form__row">
+			<input type="search" class="searchform__field" name="s" id="search" placeholder="Recherchez" aria-required="true" required="required">
+			<button type="submit" class="searchform__submit" name="submit" id="searchsubmit">Lancer la recherche</button>
+		</div>
 	</form>
 </div>

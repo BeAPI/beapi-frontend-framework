@@ -1,6 +1,6 @@
 <div class="widget widget_categories">
 	<h4 class="widgettitle">Catégories</h4>
-	<div class="widget-inner">
+	<div class="widget__inner">
 		<ul>
 			<li><a href="#">Categorie 1</a></li>
 			<li><a href="#">Categorie 2</a></li>

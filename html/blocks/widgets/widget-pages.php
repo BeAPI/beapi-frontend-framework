@@ -1,6 +1,6 @@
 <div class="widget widget_pages">
 	<h4 class="widgettitle">Widget pages</h4>
-	<div class="widget-inner">
+	<div class="widget__inner">
 		<ul>
 			<li class="page-item"><a href="#">Page 1</a></li>
 			<li class="page-item"><a href="#">Page 2</a></li>

@@ -372,6 +372,8 @@ td, th {
 
 /* Library
  ----------------------------------------------------------------------------------------------------*/
+/* Misc mixins
+-------------------------------------------------------------- */
 .animate {
   -webkit-animation-duration: 0.5s;
   -moz-animation-duration: 0.5s;
@@ -712,7 +714,7 @@ sub, sup {
 sup {
   top: -0.5em; }
 
-/* =Images
+/* Images
 -------------------------------------------------------------- */
 .alignleft {
   display: inline;
@@ -748,7 +750,8 @@ sup {
   margin: 0; }
 
 .wp-caption-text {
-  font: italic 400 11px/12px Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-size: 1.1rem;
   margin: 5px 5px 0;
   margin: 0.5rem 0.5rem 0; }
 
@@ -816,9 +819,10 @@ sup {
 /* Global form css elements
 -------------------------------------------------------------- */
 input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"], textarea {
+  width: 100%;
   border: 0;
   color: #333;
-  background: #fff;
+  background: #f2f2f2;
   padding: 5px;
   padding: 0.5rem;
   -webkit-transition: background 0.5s ease;
@@ -831,7 +835,8 @@ input[type="email"], input[type="number"], input[type="password"], input[type="s
   appearance: none;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  border-radius: 0; }
   input[type="email"]::-webkit-input-placeholder, input[type="number"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder, input[type="search"]::-webkit-input-placeholder, input[type="tel"]::-webkit-input-placeholder, input[type="text"]::-webkit-input-placeholder, input[type="url"]::-webkit-input-placeholder, input[type="color"]::-webkit-input-placeholder, input[type="date"]::-webkit-input-placeholder, input[type="datetime"]::-webkit-input-placeholder, input[type="datetime-local"]::-webkit-input-placeholder, input[type="month"]::-webkit-input-placeholder, input[type="time"]::-webkit-input-placeholder, input[type="week"]::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     color: #b3b3b3; }
   input[type="email"]::-moz-placeholder, input[type="number"]::-moz-placeholder, input[type="password"]::-moz-placeholder, input[type="search"]::-moz-placeholder, input[type="tel"]::-moz-placeholder, input[type="text"]::-moz-placeholder, input[type="url"]::-moz-placeholder, input[type="color"]::-moz-placeholder, input[type="date"]::-moz-placeholder, input[type="datetime"]::-moz-placeholder, input[type="datetime-local"]::-moz-placeholder, input[type="month"]::-moz-placeholder, input[type="time"]::-moz-placeholder, input[type="week"]::-moz-placeholder, textarea::-moz-placeholder {
@@ -842,21 +847,35 @@ input[type="email"], input[type="number"], input[type="password"], input[type="s
     color: #b3b3b3; }
 
 input[type="email"]:hover, input[type="number"]:hover, input[type="password"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="text"]:hover, input[type="url"]:hover, input[type="color"]:hover, input[type="date"]:hover, input[type="datetime"]:hover, input[type="datetime-local"]:hover, input[type="month"]:hover, input[type="time"]:hover, input[type="week"]:hover, textarea:hover {
-  background: #f2f2f2; }
+  background: #ededed; }
 
 input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, textarea:focus {
   outline: 0;
-  background: #f9f9f9; }
+  background: #ececec; }
 
 /* Label
 -------------------------------------------------------------- */
 label {
+  display: block;
   font-weight: 700; }
 
 /* Textarea
 -------------------------------------------------------------- */
 textarea {
   resize: vertical; }
+
+/* Form layout
+-------------------------------------------------------------- */
+.form__row {
+  position: relative;
+  margin: 0 0 20px;
+  margin: 0 0 2rem; }
+  .form__row:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .form__row:last-child {
+    margin-bottom: 0; }
 
 /* Global buttons css
 -------------------------------------------------------------- */
@@ -1070,60 +1089,30 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
 
 /* Comments
  ----------------------------------------------------------------------------------------------------*/
-.commentlist {
-  list-style: none; }
+.comment-list .children {
+  margin: 0 0 0 76px;
+  margin: 0 0 0 7.6rem; }
 
-.comment .comment {
-  min-height: 75px;
-  margin: 0 0 20px;
-  padding: 0 0 20px;
-  position: relative;
-  border-bottom: 1px solid #0084B4; }
-  .comment .comment:after {
-    content: "";
-    display: table;
-    clear: both; }
-.comment.last {
-  border: 0; }
-.comment .children {
-  margin: 20px 0 0 92px; }
-  .comment .children .comment {
-    min-height: 28px;
-    border-bottom: 0;
-    margin-bottom: 0; }
-    .comment .children .comment .comment {
-      border-bottom: 1px solid #0084B4; }
-  .comment .children .comment-meta, .comment .children .comment-content {
-    padding-left: 62px; }
+.comment-body {
+  margin: 0 0 10px;
+  margin: 0 0 1rem; }
 
 .comment-meta {
   position: relative;
-  padding-left: 92px;
-  margin-bottom: 6px; }
-
-.comment-author {
-  font-weight: 700; }
+  min-height: 56px;
+  min-height: 5.6rem;
+  padding: 0 0 0 76px;
+  padding: 0 0 0 7.6rem;
+  margin: 0 0 10px;
+  margin: 0 0 1rem; }
 
 .avatar {
   position: absolute;
-  left: 5px;
+  left: 0;
   top: 0; }
 
-.comment-content {
-  padding: 0 60px 0 92px; }
-  .comment-content p {
-    margin-bottom: 6px; }
-
-.reply {
-  position: absolute;
-  right: 0;
-  bottom: 0; }
-
-.comment-reply-link {
-  display: inline-block;
-  font-size: 11px;
-  line-height: 20px;
-  height: 20px; }
+.comment-content p:last-child {
+  margin-bottom: 0; }
 
 /* Widgets
  ----------------------------------------------------------------------------------------------------*/
@@ -1140,3 +1129,15 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
 
 .widget_pages .current_page_ancestor > a, .widget_pages .current_page_ancestor .current_page_item a, .widget_pages .current_page_parent > a, .widget_pages .current_page_parent .current_page_item a {
   font-weight: 700; }
+
+/* Searchform
+----------------------------------------------------------------------------------------------------*/
+.searchform {
+  position: relative; }
+
+/* Page default css
+-------------------------------------------------------------- */
+/* Page 404 css
+-------------------------------------------------------------- */
+/* Page Home css
+-------------------------------------------------------------- */

@@ -1,50 +1,35 @@
 /* Comments
  ----------------------------------------------------------------------------------------------------*/
-#comments {
-	
-}
-.commentlist {
-	list-style: none;
-}
-.comment {
-	.comment {
-		min-height:75px; margin:0 0 20px; padding: 0 0 20px; position: relative;@include clearfix; border-bottom: 1px solid $maincolor;
-	}
-	&.last {
-		border:0;
-	}
+.comment-list {
 	.children {
-		margin: 20px 0 0 92px;
-		.comment {
-			min-height: 28px; border-bottom: 0; margin-bottom: 0;
-			.comment {
-				border-bottom: 1px solid $maincolor;
-			}
-		}
-		.comment-meta,
-		.comment-content {
-			padding-left: 62px;
-		}
+		@include rem('margin', 0 0 0 76px);
 	}
+}
+.comment-body {
+	@include rem('margin', 0 0 10px);
 }
 .comment-meta {
-	position: relative; padding-left: 92px; margin-bottom: 6px;
+	position: relative;
+	@include rem('min-height', 56px);
+	@include rem('padding', 0 0 0 76px);
+	@include rem('margin', 0 0 10px);
 }
 .comment-author {
-	font-weight:700;
+	
 }
 .avatar {
-	position: absolute; left: 5px; top: 0;
+	position: absolute; left: 0; top: 0;
 }
 .comment-content {
-	padding:0 60px 0 92px;
 	p {
-		margin-bottom: 6px;
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
 .reply {
-	position: absolute; right: 0; bottom: 0;
+	
 }
 .comment-reply-link {
-	display:inline-block; font-size: 11px; line-height: 20px; height:20px;
+	
 }

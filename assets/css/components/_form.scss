@@ -2,13 +2,15 @@
 -------------------------------------------------------------- */
 #{$all-text-inputs},
 textarea {
+	width: 100%;
 	border: 0;
 	color: $textcolor;
-	background: $lightcolor;
+	background: darken($lightcolor, 5%);
 	@include rem('padding', 5px);
 	@include transition (background 0.5s ease);
 	@include appearance(none);
 	@include box-sizing(border-box);
+	border-radius: 0; //reset border radius for ios
 	@include placeholder {
 		color: lighten($textcolor, 50%);
 	}
@@ -16,22 +18,35 @@ textarea {
 
 #{$all-text-inputs-hover},
 textarea:hover { // Target the :hover pseudo-class
-	background: darken($lightcolor, 5%);
+	background: darken($lightcolor, 7%);
 }
 
 #{$all-text-inputs-focus},
 textarea:focus { // Target the :focus pseudo-class
 	outline:0;
-	background: darken($lightcolor, 2.5%);
+	background: darken($lightcolor, 7.5%);
 }
 
 /* Label
 -------------------------------------------------------------- */
 label {
+	display: block;
 	font-weight: 700;
 }
+
 /* Textarea
 -------------------------------------------------------------- */
 textarea {
 	resize:vertical;
+}
+
+/* Form layout
+-------------------------------------------------------------- */
+.form__row {
+	@include clearfix;
+	position: relative;
+	@include rem('margin', 0 0 20px);
+	&:last-child {
+		margin-bottom: 0;
+	}
 }

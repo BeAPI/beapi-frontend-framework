@@ -1,4 +1,4 @@
-/* =Images
+/* Images
 -------------------------------------------------------------- */
 .alignleft {
 	display: inline;
@@ -32,7 +32,7 @@
 	margin: 0;
 }
 .wp-caption-text {
-	font: italic 400 11px/12px $font-sansserif;
+	@include rem('font-size', 11px);
 	@include rem('margin', 5px 5px 0);
 }
 .gallery {

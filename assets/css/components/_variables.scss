@@ -1,7 +1,6 @@
 /* Library
  ----------------------------------------------------------------------------------------------------*/
-//Use here to set main style for buttons, forms etc.
-
+//Colors
 $maincolor: #0084B4;
 $textcolor: #333;
 
@@ -9,9 +8,6 @@ $lightcolor: #fff;
 $darkcolor: #000;
 
 $maingrey: #ddd;
-
-$font-sansserif: Arial, Helvetica, sans-serif;
-$font-serif: Times, Georgia, serif;
 
 $errorcolor-1 : #8a1f11;
 $errorcolor-2 : #fbe3e4;
@@ -24,6 +20,10 @@ $successcolor-2 : #e6efc2;
 
 $infocolor-1 : #205791;
 $infocolor-2 : #d5edf8;
+
+//Fonts
+$font-sansserif: Arial, Helvetica, sans-serif;
+$font-serif: Times, Georgia, serif;
 
 //Breakpoint
 $mobile-small: new-breakpoint(max-width 480px);

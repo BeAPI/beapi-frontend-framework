@@ -1,15 +1,20 @@
 /* Main Layout
 ----------------------------------------------------------------------------------------------------*/
 .wrapper {
-	@include outer-container;
+	@include outer-container();
+	max-width: 960px; //set global site max width
+	padding: 0 10px;
+	@include media($desktop-small) {
+		padding: 0;
+	}
 }
 .content {
-	@include media(min-width 600px) {
+	@include media($desktop-small) {
 		@include span-columns(9);
 	}
 }
 .sidebar {
-	@include media(min-width 600px) {
+	@include media($desktop-small) {
 		@include span-columns(3);
 	}
 }

@@ -54,7 +54,7 @@
 }
 
 //Hover Active Focus pseudo selector mixin
-@mixin hoverActiveFocus {
+@mixin hover {
 	&:hover, &:active, &:focus {
 		@content;
 	}

@@ -1,6 +1,6 @@
 /* Menus
 ----------------------------------------------------------------------------------------------------*/
-#menu__fastaccess {
+.menu__fastaccess {
 	@include rem('font-size', 9px);
 	display: none;
 	li {
@@ -9,40 +9,43 @@
 			position: absolute;
 			z-index: 1;
 			color: $lightcolor;
-			@include hoverActiveFocus {
+			@include hover {
 				z-index: 2;
 				color: $maincolor;
 			}
 		}
 	}
-	@include media(min-width 1024px) {
+	@include media($desktop-small) {
 		display: block;
 	}
 }
-#menu {
+.menu {
 	ul {
-		@include clearfix; margin-bottom: 20px;
+		@include clearfix;
+		@include rem('margin', 0 0 20px);
 		&>li {
 			&>a {
-				padding:0 10px; font: 700 12px/24px $font-sansserif;
-				@include hoverActiveFocus {
-					color:$lightcolor; background:$maincolor;
+				@include rem('padding', 10px);
+				@include hover {
+					color:$lightcolor;
+					background:$maincolor;
 				}
 			}
-			@include hoverActiveFocus {
+			@include hover {
 				ul {
-					top: 24px;
+					@include rem('top', 40px);
 				}
 			}
 			&.sfHover {
 				ul {
-					top: 24px;
+					@include rem('top', 40px);
 				}
 			}
 			&.current-menu-item,
 			&.current-menu-parent {
 				a {
-					color:$lightcolor; background:$maincolor;
+					color:$lightcolor;
+					background:$maincolor;
 				}
 			}
 		}
@@ -51,8 +54,9 @@
 			li {
 				a {
 					padding: 10px;
-					@include hoverActiveFocus {
-						color:$lightcolor; background:$maincolor;
+					@include hover {
+						color:$lightcolor;
+						background:$maincolor;
 					}
 				}
 			}

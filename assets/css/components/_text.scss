@@ -12,7 +12,7 @@ body {
 
 a {
 	color: $maincolor;
-	@include hoverActiveFocus {
+	@include hover {
 		color: $maincolor;
 	}
 }

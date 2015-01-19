@@ -1,75 +1,16 @@
 [
 	{
-		"slider-0":[
+		"entry-img-01":[
 			{
-				"srcset":" 100w 2x",
-				"size":"img-1200-150",
+				"srcset":"",
+				"size":"img-150-150",
 				"class":""
 			},
 			{
-				"srcset":" 100w 4x",
-				"size":"img-1200-150",
+				"srcset":"2x",
+				"size":"img-300-300",
 				"class":"",
 				"default_src":true
-			},
-			{
-				"srcset":" 100w 2x",
-				"size":"img-1200-150",
-				"class":""
-			}
-		],
-		"slider-1":[
-			{
-				"srcset":" 100w 2x",
-				"size":"img-1200-150",
-				"class":""
-			},
-			{
-				"srcset":" 100w 4x",
-				"size":"img-800-600",
-				"class":"",
-				"default_src":true
-			},
-			{
-				"srcset":" 100w 2x",
-				"size":"img-300-100",
-				"class":"class-align-left"
-			}
-		],
-		"slider-2":[
-			{
-				"srcset":" 100w 2x",
-				"size":"img-1200-150",
-				"class":""
-			},
-			{
-				"srcset":" 100w 4x",
-				"size":"img-1200-150",
-				"class":"",
-				"default_src":true
-			},
-			{
-				"srcset":" 100w 2x",
-				"size":"img-1200-150",
-				"class":""
-			}
-		],
-		"slider-3":[
-			{
-				"srcset":" 100w 2x",
-				"size":"img-1200-150",
-				"class":""
-			},
-			{
-				"srcset":" 100w 4x",
-				"size":"img-1200-150",
-				"class":"",
-				"default_src":true
-			},
-			{
-				"srcset":" 100w 2x",
-				"size":"img-1200-150",
-				"class":""
 			}
 		]
 	}

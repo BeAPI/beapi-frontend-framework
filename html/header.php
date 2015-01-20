@@ -44,12 +44,16 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 				<li><a href="#search">Acces direct à la recherche</a></li>
 				<li><a href="#menu">Acces direct au menu</a></li>
 			</ul>
+			<div class="button__menu-container">
+				<button class="button__menu-open">Menu</button>
+				<button class="button__menu-close">Fermer</button>
+			</div>
 			<header id="header" class="header">
 				<div class="wrapper">
 					<h1 id="logo"><a href="01-home.php">Website title</a></h1>
 				</div>
 			</header>
-			<nav id="menu" class="menu">
+			<nav id="menu" class="menu menu__mobile">
 				<div class="wrapper">
 					<ul class="sf-menu">
 						<li>

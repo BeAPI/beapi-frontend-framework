@@ -1056,35 +1056,94 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
     .menu__fastaccess {
       display: block; } }
 
-.menu ul {
-  margin: 0 0 20px;
-  margin: 0 0 2rem; }
-  .menu ul:after {
+.button__menu-open {
+  display: block; }
+
+.button__menu-close {
+  display: none; }
+
+.menu-mobile--active {
+  overflow: hidden; }
+  .menu-mobile--active .button__menu-open {
+    display: none; }
+  .menu-mobile--active .button__menu-close {
+    display: block; }
+
+.button__menu-container {
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0; }
+  @media screen and (min-width: 768px)  {
+    .button__menu-container {
+      display: none; } }
+
+.menu {
+  z-index: 998;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  bottom: 0;
+  width: 80%;
+  padding: 40px 0;
+  padding: 4rem 0;
+  background: #000;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-transition: left 0.5s ease-out;
+  -moz-transition: left 0.5s ease-out;
+  transition: left 0.5s ease-out; }
+  .menu:after {
     content: "";
     display: table;
     clear: both; }
-  .menu ul > li > a {
-    padding: 10px;
-    padding: 1rem; }
-    .menu ul > li > a:hover, .menu ul > li > a:active, .menu ul > li > a:focus {
-      color: #fff;
-      background: #0084B4; }
-  .menu ul > li:hover ul, .menu ul > li:active ul, .menu ul > li:focus ul {
-    top: 40px;
-    top: 4rem; }
-  .menu ul > li.sfHover ul {
-    top: 40px;
-    top: 4rem; }
-  .menu ul > li.current-menu-item a, .menu ul > li.current-menu-parent a {
-    color: #fff;
-    background: #0084B4; }
-  .menu ul ul {
-    background: #fff; }
-    .menu ul ul li a {
-      padding: 10px; }
-      .menu ul ul li a:hover, .menu ul ul li a:active, .menu ul ul li a:focus {
+  .menu.opened {
+    left: 0;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.5); }
+  .menu .wrapper {
+    padding: 0; }
+  .menu ul {
+    margin: 0 0 20px;
+    margin: 0 0 2rem; }
+    .menu ul:after {
+      content: "";
+      display: table;
+      clear: both; }
+    .menu ul > li {
+      float: none; }
+      .menu ul > li > a {
+        padding: 10px;
+        padding: 1rem; }
+        .menu ul > li > a:hover, .menu ul > li > a:active, .menu ul > li > a:focus {
+          color: #fff;
+          background: #0084B4; }
+      .menu ul > li.sfHover > a, .menu ul > li.current-menu-item > a, .menu ul > li.current-menu-parent > a {
         color: #fff;
         background: #0084B4; }
+    .menu ul ul {
+      position: static; }
+  @media screen and (min-width: 768px)  {
+    .menu {
+      position: static;
+      left: auto;
+      overflow: inherit;
+      background: none;
+      width: auto;
+      padding: 0; }
+      .menu ul > li {
+        float: left; }
+        .menu ul > li:hover ul, .menu ul > li:active ul, .menu ul > li:focus ul {
+          top: 40px;
+          top: 4rem; }
+        .menu ul > li.sfHover ul {
+          top: 40px;
+          top: 4rem; }
+      .menu ul ul {
+        position: absolute;
+        background: #fff; }
+        .menu ul ul li a:hover, .menu ul ul li a:active, .menu ul ul li a:focus {
+          color: #fff;
+          background: #0084B4; } }
 
 /* Breadcrumb
 ----------------------------------------------------------------------------------------------------*/

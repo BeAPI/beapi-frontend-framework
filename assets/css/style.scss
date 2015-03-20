@@ -20,9 +20,10 @@
 @import "components/_url-config.scss";
 @import "components/_rem.scss";
 @import "components/_variables.scss";
-@import "components/_mixins.scss";
 
 //Main websites components
+@import "components/_icons.scss";
+@import "components/_mixins.scss";
 @import "components/_print.scss";
 @import "components/_text.scss";
 @import "components/_img.scss";

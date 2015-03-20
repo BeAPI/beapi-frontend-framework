@@ -734,6 +734,25 @@ img.mfp-img {
   right: 0;
   padding-top: 0; }
 
+@font-face {
+  font-family: "bea_icons";
+  src: url('../../assets/fonts/bea_icons.eot');
+  src: url('../../assets/fonts/bea_icons.eot?#iefix') format('eot'), url('../../assets/fonts/bea_icons.woff') format('woff'), url('../../assets/fonts/bea_icons.ttf') format('truetype'), url('../../assets/fonts/bea_icons.svg#bea_icons') format('svg');
+  font-weight: normal;
+  font-style: normal; }
+
+.insert__icon, [class^="icon"], [class*=" icon"] {
+  display: inline-block;
+  font-family: "bea_icons";
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-menu:before {
+  content: "\E001"; }
+
 /* Misc mixins
 -------------------------------------------------------------- */
 .animate {

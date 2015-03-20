@@ -2,13 +2,31 @@
 var gulp = require('gulp'),
 	gulpLoadPlugins = require('gulp-load-plugins'),
 	plugins = gulpLoadPlugins(),
-	less = require('gulp-less'),
 	sass = require('gulp-sass'),
 	neat = require('node-neat').includePaths,
 	path = require('path'),
 	minifyCSS = require('gulp-minify-css'),
 	concat = require('gulp-concat-sourcemap'),
-	livereload = require('gulp-livereload');
+	livereload = require('gulp-livereload'),
+	iconfont = require('gulp-iconfont'),
+	consolidate = require('gulp-consolidate');
+
+/*Icon font task*/
+gulp.task('iconfont', function(){
+	gulp.src(['assets/img/icons/*.svg'])
+		.pipe(iconfont({ fontName: 'bea_icons' }))
+		.on('codepoints', function(codepoints, options) {
+			gulp.src('assets/css/vendor/_icons.scss')
+				.pipe(consolidate('lodash', {
+					glyphs: codepoints,
+					fontName: 'bea_icons',
+					fontPath: '../../assets/fonts/',
+					className: 'icon'
+				}))
+				.pipe(gulp.dest('./assets/css/components'));
+			})
+			.pipe(gulp.dest('./assets/fonts'));
+});
 
 /*JS task*/
 gulp.task('dev-vendor-js', function () {

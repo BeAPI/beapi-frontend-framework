@@ -9,8 +9,9 @@
 		
 		<article class="entry">
 			<div class="entry__content">
+				<h2>Image with link to a bigger size using a lightbox</h2>
 				<p>
-					<img align="right" alt="#" src="http://placehold.it/150x150" class="alignright">
+					<a href="../assets/img/sample/beapi_theme-img-2.jpg"><img align="right" alt="#" src="http://placehold.it/150x150" class="alignright"></a>
 					Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat. <span id="more-317"></span>
 				</p>
 				<blockquote>
@@ -29,7 +30,7 @@
 				<h6>Level 6 Heading</h6>
 				<h3>Image with a caption text</h3>
 				<div style="width: 150px;" class="wp-caption alignnone" id="attachment_19220">
-					<a href="#" rel="attachment">
+					<a href="http://placehold.it/500x500" rel="attachment">
 						<img width="125" height="125" alt="#" src="http://placehold.it/150x150" title="#" class="size-medium wp-image-19220 ">
 					</a>
 					<p class="wp-caption-text">This is an image with a caption text</p>

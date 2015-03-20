@@ -145,8 +145,8 @@ big {
 	font-size: larger;
 }
 code {
+	display: inline-block;
 	@include rem('padding', 2px 5px);
-	white-space: nowrap;
 	background-color: $maingrey;
 	border: 1px solid $darkcolor;
 	font-family: monospace;

@@ -1059,9 +1059,9 @@ big {
   font-size: larger; }
 
 code {
+  display: inline-block;
   padding: 2px 5px;
   padding: 0.2rem 0.5rem;
-  white-space: nowrap;
   background-color: #ddd;
   border: 1px solid #000;
   font-family: monospace;

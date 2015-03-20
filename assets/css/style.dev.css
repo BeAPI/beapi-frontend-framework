@@ -340,36 +340,6 @@ table {
 td, th {
   padding: 0; }
 
-/*** ESSENTIAL STYLES ***/
-.sf-menu, .sf-menu * {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
-
-.sf-menu li {
-  position: relative; }
-
-.sf-menu ul {
-  position: absolute;
-  display: none;
-  top: 100%;
-  left: 0;
-  z-index: 99; }
-
-.sf-menu > li {
-  float: left; }
-
-.sf-menu li:hover > ul, .sf-menu li.sfHover > ul {
-  display: block; }
-
-.sf-menu a {
-  display: block;
-  position: relative; }
-
-.sf-menu ul ul {
-  top: 0;
-  left: 100%; }
-
 /* Magnific Popup CSS */
 .mfp-bg {
   top: 0;
@@ -1512,7 +1482,9 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
   -webkit-overflow-scrolling: touch;
   -webkit-transition: left 0.5s ease-out;
   -moz-transition: left 0.5s ease-out;
-  transition: left 0.5s ease-out; }
+  transition: left 0.5s ease-out;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0); }
   .menu:after {
     content: "";
     display: table;
@@ -1522,26 +1494,24 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.5); }
   .menu .wrapper {
     padding: 0; }
-  .menu ul {
-    margin: 0 0 20px;
-    margin: 0 0 2rem; }
-    .menu ul:after {
-      content: "";
-      display: table;
-      clear: both; }
-    .menu ul > li {
-      float: none; }
-      .menu ul > li > a {
-        padding: 10px;
-        padding: 1rem; }
-        .menu ul > li > a:hover, .menu ul > li > a:active, .menu ul > li > a:focus {
-          color: #fff;
-          background: #0084B4; }
-      .menu ul > li.sfHover > a, .menu ul > li.current-menu-item > a, .menu ul > li.current-menu-parent > a {
-        color: #fff;
-        background: #0084B4; }
-    .menu ul ul {
-      position: static; }
+  .menu ul:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .menu ul ul {
+    display: none; }
+  .menu ul > li > a {
+    display: block;
+    padding: 10px;
+    padding: 1rem; }
+    .menu ul > li > a:hover, .menu ul > li > a:active, .menu ul > li > a:focus {
+      color: #fff;
+      background: #0084B4; }
+  .menu ul > li:hover ul, .menu ul > li:active ul, .menu ul > li:focus ul {
+    display: block; }
+  .menu ul > li.sfHover > a, .menu ul > li.current-menu-item > a, .menu ul > li.current-menu-parent > a {
+    color: #fff;
+    background: #0084B4; }
   @media screen and (min-width: 768px)  {
     .menu {
       position: static;
@@ -1551,7 +1521,8 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
       width: auto;
       padding: 0; }
       .menu ul > li {
-        float: left; }
+        display: inline-block;
+        position: relative; }
         .menu ul > li:hover ul, .menu ul > li:active ul, .menu ul > li:focus ul {
           top: 40px;
           top: 4rem; }
@@ -1559,6 +1530,7 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
           top: 40px;
           top: 4rem; }
       .menu ul ul {
+        top: 100%;
         position: absolute;
         background: #fff; }
         .menu ul ul li a:hover, .menu ul ul li a:active, .menu ul ul li a:focus {

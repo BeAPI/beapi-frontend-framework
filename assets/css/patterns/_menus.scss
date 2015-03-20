@@ -58,6 +58,8 @@
 	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
 	@include transition (left 0.5s ease-out);
+	-webkit-backface-visibility: hidden;
+	-webkit-transform: translateZ(0);
 	&.opened {
 		left: 0;
 		box-shadow: 0 0 100px rgba($darkcolor, 0.5);
@@ -67,14 +69,21 @@
 	}
 	ul {
 		@include clearfix;
-		@include rem('margin', 0 0 20px);
+		ul {
+			display: none;
+		}
 		&>li {
-			float: none;
 			&>a {
+				display: block;
 				@include rem('padding', 10px);
 				@include hover {
 					color:$lightcolor;
 					background:$maincolor;
+				}
+			}
+			@include hover {
+				ul {
+					display: block;
 				}
 			}
 			&.sfHover,
@@ -86,11 +95,9 @@
 				}
 			}
 		}
-		ul {
-			position: static;
-		}
 	}
 	@include media($tablet-medium) {
+		//reset mobile menu position and dimensions
 		position: static;
 		left: auto;
 		overflow: inherit;
@@ -99,7 +106,8 @@
 		padding: 0;
 		ul {
 			&>li {
-				float: left;
+				display: inline-block;
+				position: relative;
 				@include hover {
 					ul {
 						@include rem('top', 40px);
@@ -112,6 +120,7 @@
 				}
 			}
 			ul {
+				top: 100%;
 				position: absolute;
 				background: $lightcolor;
 				li {

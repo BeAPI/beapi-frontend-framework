@@ -2,8 +2,7 @@
 ----------------------------------------------------------------------------------------------------*/
 .wrapper {
 	@include outer-container();
-	max-width: 960px; //set global site max width
-	padding: 0 10px;
+	@include rem('padding', 0 10px);
 	@include media($desktop-small) {
 		padding: 0;
 	}
@@ -16,5 +15,16 @@
 .sidebar {
 	@include media($desktop-small) {
 		@include span-columns(3);
+	}
+}
+
+//omega reset example
+.grid-item {
+	@include span-columns(6);
+	@include omega(2n);
+	@include media($desktop-small) {
+		@include omega-reset(2n);
+		@include span-columns(4);
+		@include omega(3n);
 	}
 }

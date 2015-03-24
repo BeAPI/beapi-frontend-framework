@@ -15,9 +15,7 @@ var gulp = require('gulp'),
 /*Set server*/
 gulp.task('browser-sync', function() {
 	browserSync({
-		host: "192.168.1.36",
-		//proxy: "http://dev_domain/wp-content/themes/theme_name/html/"
-		proxy: "http://localhost/base-theme-beapi/html/"
+		proxy: "http://sandbox.devbea.fr/"
 	});
 });
 
@@ -80,7 +78,8 @@ gulp.task('dev-sass', function () {
 			includePaths: ['dev-sass'].concat(neat)
 		}))
 		.pipe(plugins.concat('style.dev.css'))
-		.pipe(gulp.dest('./assets/css'));
+		.pipe(gulp.dest('./assets/css'))
+		.pipe(browserSync.reload({stream:true}));
 });
 
 gulp.task('dist-sass', function () {

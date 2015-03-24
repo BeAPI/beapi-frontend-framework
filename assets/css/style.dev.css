@@ -744,14 +744,20 @@ img.mfp-img {
 .insert__icon, [class^="icon"], [class*=" icon"] {
   display: inline-block;
   font-family: "bea_icons";
+  speak: none;
   font-style: normal;
   font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.icon-menu:before {
+.icon-close:before {
   content: "\E001"; }
+
+.icon-menu:before {
+  content: "\E002"; }
 
 /* Misc mixins
 -------------------------------------------------------------- */

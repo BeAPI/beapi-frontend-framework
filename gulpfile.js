@@ -82,6 +82,7 @@ gulp.task('default', function() {
 	gulp.watch('assets/js/src/*.js', [ 'dev-check-js']);
 	gulp.watch('assets/js/vendor/*.js', [ 'dev-vendor-js']);
 	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['dev-sass']);
+	gulp.watch(['assets/img/icons/*.svg'], ['iconfont', 'dev-sass']);
 	livereload.listen();
 	gulp.watch('assets/css/**').on('change', livereload.changed);
 });

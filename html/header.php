@@ -46,7 +46,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 			</ul>
 			<div class="button__menu-container">
 				<button class="button__menu-open"><span class="icon-menu"></span>Menu</button>
-				<button class="button__menu-close">Fermer</button>
+				<button class="button__menu-close"><span class="icon-close"></span>Fermer</button>
 			</div>
 			<header id="header" class="header">
 				<div class="wrapper">

@@ -7,9 +7,23 @@ var gulp = require('gulp'),
 	path = require('path'),
 	minifyCSS = require('gulp-minify-css'),
 	concat = require('gulp-concat-sourcemap'),
-	livereload = require('gulp-livereload'),
 	iconfont = require('gulp-iconfont'),
-	consolidate = require('gulp-consolidate');
+	consolidate = require('gulp-consolidate'),
+	browserSync = require('browser-sync'),
+	reload = browserSync.reload;
+
+/*Set server*/
+gulp.task('browser-sync', function() {
+	browserSync({
+		//proxy: "http://dev_domain/wp-content/themes/theme_name/html/"
+		proxy: "http://localhost/base-theme-beapi/html/"
+	});
+});
+
+// Reload all Browsers
+gulp.task('bs-reload', function () {
+	browserSync.reload();
+});
 
 /*Icon font task*/
 gulp.task('iconfont', function(){
@@ -78,11 +92,10 @@ gulp.task('dist-sass', function () {
 		.pipe(gulp.dest('./assets/css'));
 });
 // On default task, just compile on demand
-gulp.task('default', function() {
+gulp.task('default', ['browser-sync'], function() {
 	gulp.watch('assets/js/src/*.js', [ 'dev-check-js']);
 	gulp.watch('assets/js/vendor/*.js', [ 'dev-vendor-js']);
 	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['dev-sass']);
 	gulp.watch(['assets/img/icons/*.svg'], ['iconfont', 'dev-sass']);
-	livereload.listen();
-	gulp.watch('assets/css/**').on('change', livereload.changed);
+	gulp.watch("html/*.php", ['bs-reload']);
 });

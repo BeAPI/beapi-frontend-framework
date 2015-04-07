@@ -15,7 +15,7 @@ var gulp = require('gulp'),
 /*Set server*/
 gulp.task('browser-sync', function() {
 	browserSync({
-		proxy: "http://sandbox.devbea.fr/"
+		proxy: "http://localhost"
 	});
 });
 
@@ -92,7 +92,14 @@ gulp.task('dist-sass', function () {
 		.pipe(gulp.dest('./assets/css'));
 });
 // On default task, just compile on demand
-gulp.task('default', ['browser-sync'], function() {
+gulp.task('default', function() {
+	gulp.watch('assets/js/src/*.js', [ 'dev-check-js']);
+	gulp.watch('assets/js/vendor/*.js', [ 'dev-vendor-js']);
+	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['dev-sass']);
+	gulp.watch(['assets/img/icons/*.svg'], ['iconfont', 'dev-sass']);
+});
+// Browser sync with local setup. Work with wamp
+gulp.task('serve', ['browser-sync'], function() {
 	gulp.watch('assets/js/src/*.js', [ 'dev-check-js']);
 	gulp.watch('assets/js/vendor/*.js', [ 'dev-vendor-js']);
 	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['dev-sass']);

@@ -98,3 +98,65 @@ CSS partials are classified and saved in 4 mains folders
 * *pages*. a css file for each pages. very useful for change module behavior in a specific context.
 * All those parts are referenced in *assets/css/style.scss*. Don't forget to add your files here in the correct order.
 
+### JS Guideline ###
+
+As said above all javascript ressources are compiled with gulp with a sourcemap for debbugging.
+
+If you need a library, instal it with bower and then move the file into *assets/js/vendor* (source and minified version) gulp will update 'vendor.min.js'.
+
+If you want to play with it, create a new file in 'assets/js/src' like slider.js for example. Gulp will compile your scripts in 'scripts.min.js' and update 'scripts.min.js.map' in order to debbug th script.
+
+
+### Responsive images ###
+
+BFF support responsive images using RICG picturefill library. But with somes limitation, you have two choices:
+* provide a 2x img with "x" descriptor. perfect for thumbnails. ( srcset="my_image, my_image-HD 2x" )
+* provide a range of image depend on viewport with "w" descriptor. ( srcset="my_image-mobile 480w, my_image-tablet 768w, etc." )
+
+You can define image sizes in *assets/conf-img/images-sizes.json* like this:
+
+    [
+    	{
+    		"small":[],
+    		"img-150-150":
+    			{
+    				"width":"150",
+    				"height":"150",
+    				"crop":true
+    			},
+    		"img-300-300":
+    			{
+    				"width":"300",
+    				"height":"300",
+    				"crop":true
+    			}
+    	}
+    ]
+
+And when your image sizes are made you have to pass them in a location like this :
+
+    [
+    	{
+    		"entry-img-01":[
+    			{
+    				"srcset":"",
+    				"size":"img-150-150",
+    				"class":""
+    			},
+    			{
+    				"srcset":"2x",
+    				"size":"img-300-300",
+    				"class":"",
+    				"default_src":true
+    			}
+    		]
+    	}
+    ]
+
+Now you can use it in your markup like this:
+
+    <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01' ) ); ?>
+
+If you need to add a class to your img tag:
+
+    <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'my_class_name' ) ); ?>

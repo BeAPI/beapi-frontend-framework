@@ -10,6 +10,7 @@ You can check if NPM exist by command :
     $ npm help
 
 Take a look at :
+
 * [Gulp](https://http://gulpjs.com/)
 * [Bower](https://bower.io)
 * [Sass](http://sass-lang.com/)
@@ -73,14 +74,14 @@ Actually you need to have wamp instaled because static page files are php. You c
 We like to present and order our css like this:
 
     .module {
-        /* Position properties (z-index, top etc.) */
-        /* Display properties (padding, margin, border etc.) */
-        /* Text properties (font-family etc.) */
-        /* Colors properties (color, background, etc.) */
-        /* Mixins (transition etc.) */
-        /* Others (white-space etc.) */
+        Position properties (z-index, top etc.)
+        Display properties (padding, margin, border etc.)
+        Text properties (font-family etc.)
+        Colors properties (color, background, etc.)
+        Mixins (transition etc.)
+        Others (white-space etc.)
         @include media($desktop-small) {
-            //responsive stuffs
+            Responsive stuffs
         }
     }
     

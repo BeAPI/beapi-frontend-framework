@@ -91,6 +91,7 @@ We do not fully respect the BEM css method but we like this kind of OOCSS:
     .module-name__element--modifier (.header__element--visible, .header__element--color-2 etc.)
 
 CSS partials are classified and saved in 4 mains folders
+
 * *vendor*. It's where external ressources are. Most of themes are selected manually from bower_components because sometimes it need to be renamed as .scss and modified. the original files are still available like this.
 * *components*. The basics like button forms elements etc. It's where you can defined you root's styles for button input headings etc.
 * *patterns*. it's related to your modules. It's where you defined the basics for your module.

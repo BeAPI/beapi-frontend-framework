@@ -2,7 +2,7 @@
 ----------------------------------------------------------------------------------------------------*/
 .wrapper {
 	@include outer-container();
-	@include rem('padding', 0 10px);
+	padding: 0 10px;
 	@include media($desktop-small) {
 		padding: 0;
 	}

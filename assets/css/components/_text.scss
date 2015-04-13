@@ -1,10 +1,6 @@
-html {
-	font-size: 62.5%;
-}
-
 body {
-	@include rem('font-size',16px);
-	@include rem('line-height',19px);
+	font-size: 16px;
+	line-height: 19px;
 	font-family: $helvetica;
 	color: $darkcolor;
 	-webkit-font-smoothing: antialiased;
@@ -21,27 +17,27 @@ a {
 ----------------------------------------------------------------------------------------------------*/
 
 h1 {
-	@include rem('font-size',25px);
+	font-size: 25px;
 }
 
 h2 {
-	@include rem('font-size',23px);
+	font-size: 23px;
 }
 
 h3 {
-	@include rem('font-size',21px);
+	font-size: 21px;
 }
 
 h4 {
-	@include rem('font-size',19px);
+	font-size: 19px;
 }
 
 h5 {
-	@include rem('font-size',17px);
+	font-size: 17px;
 }
 
 h6 {
-	@include rem('font-size',15px);
+	font-size: 15px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -78,7 +74,7 @@ table,
 address,
 fieldset,
 figure {
-	@include rem('margin', 0 0 20px 0);
+	margin: 0 0 20px 0;
 }
 /* Wysiwyg style
 ----------------------------------------------------------------------------------------------------*/
@@ -90,8 +86,8 @@ hr {
 }
 blockquote {
 	border-left: 5px solid $maingrey;
-	@include rem('padding', 0 0 0 15px);
-	@include rem('margin', 0 0 20px 0);
+	padding: 0 0 0 15px;
+	margin: 0 0 20px 0;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
 }
@@ -99,10 +95,10 @@ cite {
 	font-style: italic;
 }
 small {
-	@include rem('font-size', 11px);
+	font-size: 11px;
 }
 table {
-	@include rem('margin', 20px 0);
+	margin: 20px 0;
 	width: 100%;
 	border: 1px solid $maingrey;
 	border-collapse: collapse;
@@ -146,7 +142,7 @@ big {
 }
 code {
 	display: inline-block;
-	@include rem('padding', 2px 5px);
+	padding: 2px 5px;
 	background-color: $maingrey;
 	border: 1px solid $darkcolor;
 	font-family: monospace;
@@ -172,8 +168,8 @@ samp {
 }
 pre {
 	display: block;
-	@include rem('padding', 10px);
-	@include rem('margin', 0 0 20px);
+	padding: 10px;
+	margin: 0 0 20px;
 	@include word-wrap(break-all);
 	white-space: pre-wrap;
 	background-color: $maingrey;

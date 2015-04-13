@@ -2,23 +2,25 @@
  ----------------------------------------------------------------------------------------------------*/
 .comment-list {
 	.children {
-		@include rem('margin', 0 0 0 76px);
+		margin: 0 0 0 76px;
 	}
 }
 .comment-body {
-	@include rem('margin', 0 0 10px);
+	margin: 0 0 10px;
 }
 .comment-meta {
 	position: relative;
-	@include rem('min-height', 56px);
-	@include rem('padding', 0 0 0 76px);
-	@include rem('margin', 0 0 10px);
+	min-height: 56px;
+	padding: 0 0 0 76px;
+	margin: 0 0 10px;
 }
 .comment-author {
 	
 }
 .avatar {
-	position: absolute; left: 0; top: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
 }
 .comment-content {
 	p {

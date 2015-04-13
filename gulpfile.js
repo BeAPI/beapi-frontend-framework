@@ -9,8 +9,13 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat-sourcemap'),
 	iconfont = require('gulp-iconfont'),
 	consolidate = require('gulp-consolidate'),
+	pxtorem = require('gulp-pxtorem'),
 	browserSync = require('browser-sync'),
 	reload = browserSync.reload;
+
+var pxtoremOptions = {
+	replace: false
+};
 
 /*Set server*/
 gulp.task('browser-sync', function() {
@@ -27,7 +32,11 @@ gulp.task('bs-reload', function () {
 /*Icon font task*/
 gulp.task('iconfont', function(){
 	gulp.src(['assets/img/icons/*.svg'])
-		.pipe(iconfont({ fontName: 'bea_icons' }))
+		.pipe(iconfont({
+			fontName: 'bea_icons',
+			normalize: true,
+			fontHeight: 1001
+		}))
 		.on('codepoints', function(codepoints, options) {
 			gulp.src('assets/css/vendor/_icons.scss')
 				.pipe(consolidate('lodash', {
@@ -78,6 +87,7 @@ gulp.task('dev-sass', function () {
 			includePaths: ['dev-sass'].concat(neat)
 		}))
 		.pipe(plugins.concat('style.dev.css'))
+		.pipe(pxtorem(pxtoremOptions))
 		.pipe(gulp.dest('./assets/css'))
 		.pipe(browserSync.reload({stream:true}));
 });
@@ -88,6 +98,7 @@ gulp.task('dist-sass', function () {
 			includePaths: ['dist-sass'].concat(neat)
 		}))
 		.pipe(plugins.concat('style.min.css'))
+		.pipe(pxtorem(pxtoremOptions))
 		.pipe(minifyCSS())
 		.pipe(gulp.dest('./assets/css'));
 });

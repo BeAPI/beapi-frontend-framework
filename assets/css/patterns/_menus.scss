@@ -1,7 +1,7 @@
 /* Menus
 ----------------------------------------------------------------------------------------------------*/
 .menu__fastaccess {
-	@include rem('font-size', 9px);
+	font-size: 9px;
 	display: none;
 	li {
 		display: inline;
@@ -53,7 +53,7 @@
 	bottom: 0;
 	@include clearfix;
 	width: 80%;
-	@include rem('padding', 40px 0);
+	padding: 40px 0;
 	background: $darkcolor;
 	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
@@ -75,7 +75,7 @@
 		&>li {
 			&>a {
 				display: block;
-				@include rem('padding', 10px);
+				padding: 10px;
 				@include hover {
 					color:$lightcolor;
 					background:$maincolor;
@@ -110,12 +110,12 @@
 				position: relative;
 				@include hover {
 					ul {
-						@include rem('top', 40px);
+						top: 40px;
 					}
 				}
 				&.sfHover {
 					ul {
-						@include rem('top', 40px);
+						top: 40px;
 					}
 				}
 			}

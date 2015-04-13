@@ -7,7 +7,7 @@
 }
 .widget {
 	@include clearfix;
-	@include rem('margin', 0 0 20px);
+	margin: 0 0 20px;
 }
 .widgettitle {
 	

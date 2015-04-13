@@ -6,8 +6,8 @@ button,
 	display: inline-block;
 	border: 0;
 	border-radius: 0;
-	@include rem('font-size', 16px);
-	@include rem('padding', 5px);
+	font-size: 16px;
+	padding: 5px;
 	color: $lightcolor;
 	background: $maincolor;
 }

@@ -15,8 +15,8 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		
 		<title>BeAPI Base theme</title>
 		
-		<link rel="shortcut icon" href="assets/img/favicon.ico" />
-		<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+		<link rel="shortcut icon" href="../assets/img/favicon.ico" />
+		<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
 		
 		<!--[if lt IE 9]><script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 		<!--[if lte IE 8]>

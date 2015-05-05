@@ -4,11 +4,19 @@
 	display: inline;
 	float: left;
 	margin-right: $base-spacing;
+	max-width: 50%;
+	@include media($tablet-medium) {
+		max-width: 100%;
+	}
 }
 .alignright {
 	display: inline;
 	float: right;
 	margin-left: $base-spacing;
+	max-width: 50%;
+	@include media($tablet-medium) {
+		max-width: 100%;
+	}
 }
 .aligncenter {
 	clear: both;

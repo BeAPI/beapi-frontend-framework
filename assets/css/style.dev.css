@@ -1156,12 +1156,20 @@ sup {
 .alignleft {
   display: inline;
   float: left;
-  margin-right: 20px; }
+  margin-right: 20px;
+  max-width: 50%; }
+  @media screen and (min-width: 768px)  {
+    .alignleft {
+      max-width: 100%; } }
 
 .alignright {
   display: inline;
   float: right;
-  margin-left: 20px; }
+  margin-left: 20px;
+  max-width: 50%; }
+  @media screen and (min-width: 768px)  {
+    .alignright {
+      max-width: 100%; } }
 
 .aligncenter {
   clear: both;
@@ -1639,6 +1647,11 @@ button:active, input[type="button"]:active, input[type="reset"]:active, input[ty
   .entry__content ol li {
     margin: 0 0 10px;
     margin: 0 0 0.625rem; }
+.entry__content .alignright, .entry__content .alignleft {
+  max-width: 50%; }
+  @media screen and (min-width: 768px)  {
+    .entry__content .alignright, .entry__content .alignleft {
+      max-width: 100%; } }
 .entry__content .gform_wrapper ul {
   list-style: none; }
 .entry__content .searchform input {

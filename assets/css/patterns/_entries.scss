@@ -26,6 +26,13 @@
 	img {
 		@extend %img__responsive;
 	}
+	.alignright,
+	.alignleft {
+		max-width: 50%;
+		@include media($tablet-medium) {
+			max-width: 100%;
+		}
+	}
 	.gform_wrapper {
 		ul {
 			list-style: none;

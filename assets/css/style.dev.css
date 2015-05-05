@@ -90,7 +90,8 @@ a:active, a:hover {
  * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
  */
 abbr[title] {
-  border-bottom: 1px dotted; }
+  border-bottom: 1px dotted;
+  border-bottom: 0.0625rem dotted; }
 
 /**
  * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
@@ -161,7 +162,8 @@ svg:not(:root) {
  * Address margin not present in IE 8/9 and Safari.
  */
 figure {
-  margin: 1em 40px; }
+  margin: 1em 40px;
+  margin: 1em 2.5rem; }
 
 /**
  * Address differences between Firefox and other browsers.
@@ -301,7 +303,9 @@ input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webki
  */
 fieldset {
   border: 1px solid #c0c0c0;
+  border: 0.0625rem solid #c0c0c0;
   margin: 0 2px;
+  margin: 0 0.125rem;
   padding: 0.35em 0.625em 0.75em; }
 
 /**
@@ -372,6 +376,7 @@ td, th {
   left: 0;
   top: 0;
   padding: 0 8px;
+  padding: 0 0.5rem;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -433,7 +438,9 @@ td, th {
   text-align: center;
   margin-top: -0.8em;
   left: 8px;
+  left: 0.5rem;
   right: 8px;
+  right: 0.5rem;
   z-index: 1044; }
 
 .mfp-preloader a {
@@ -468,7 +475,9 @@ button::-moz-focus-inner {
 
 .mfp-close {
   width: 44px;
+  width: 2.75rem;
   height: 44px;
+  height: 2.75rem;
   line-height: 44px;
   line-height: 2.75rem;
   position: absolute;
@@ -479,6 +488,7 @@ button::-moz-focus-inner {
   opacity: 0.65;
   filter: alpha(opacity=65);
   padding: 0 0 18px 10px;
+  padding: 0 0 1.125rem 0.625rem;
   color: white;
   font-style: normal;
   font-size: 28px;
@@ -490,7 +500,8 @@ button::-moz-focus-inner {
   filter: alpha(opacity=100); }
 
 .mfp-close:active {
-  top: 1px; }
+  top: 1px;
+  top: 0.0625rem; }
 
 .mfp-close-btn-in .mfp-close {
   color: #333333; }
@@ -498,6 +509,7 @@ button::-moz-focus-inner {
 .mfp-image-holder .mfp-close, .mfp-iframe-holder .mfp-close {
   color: white;
   right: -6px;
+  right: -0.375rem;
   text-align: right;
   padding-right: 6px;
   width: 100%;
@@ -523,7 +535,9 @@ button::-moz-focus-inner {
   margin-top: -55px;
   padding: 0;
   width: 90px;
+  width: 5.625rem;
   height: 110px;
+  height: 6.875rem;
   -webkit-tap-highlight-color: transparent; }
 
 .mfp-arrow:active {
@@ -549,7 +563,8 @@ button::-moz-focus-inner {
 .mfp-arrow:after, .mfp-arrow .mfp-a {
   border-top-width: 13px;
   border-bottom-width: 13px;
-  top: 8px; }
+  top: 8px;
+  top: 0.5rem; }
 
 .mfp-arrow:before, .mfp-arrow .mfp-b {
   border-top-width: 21px;
@@ -561,21 +576,25 @@ button::-moz-focus-inner {
 
 .mfp-arrow-left:after, .mfp-arrow-left .mfp-a {
   border-right: 17px solid white;
+  border-right: 1.0625rem solid white;
   margin-left: 31px; }
 
 .mfp-arrow-left:before, .mfp-arrow-left .mfp-b {
   margin-left: 25px;
-  border-right: 27px solid #3f3f3f; }
+  border-right: 27px solid #3f3f3f;
+  border-right: 1.6875rem solid #3f3f3f; }
 
 .mfp-arrow-right {
   right: 0; }
 
 .mfp-arrow-right:after, .mfp-arrow-right .mfp-a {
   border-left: 17px solid white;
+  border-left: 1.0625rem solid white;
   margin-left: 39px; }
 
 .mfp-arrow-right:before, .mfp-arrow-right .mfp-b {
-  border-left: 27px solid #3f3f3f; }
+  border-left: 27px solid #3f3f3f;
+  border-left: 1.6875rem solid #3f3f3f; }
 
 .mfp-iframe-holder {
   padding-top: 40px;
@@ -587,7 +606,8 @@ button::-moz-focus-inner {
   max-width: 900px; }
 
 .mfp-iframe-holder .mfp-close {
-  top: -40px; }
+  top: -40px;
+  top: -2.5rem; }
 
 .mfp-iframe-scaler {
   width: 100%;
@@ -616,6 +636,7 @@ img.mfp-img {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 40px 0 40px;
+  padding: 2.5rem 0 2.5rem;
   margin: 0 auto; }
 
 /* The shadow behind the image */
@@ -627,7 +648,9 @@ img.mfp-img {
   position: absolute;
   left: 0;
   top: 40px;
+  top: 2.5rem;
   bottom: 40px;
+  bottom: 2.5rem;
   display: block;
   right: 0;
   width: auto;
@@ -687,6 +710,7 @@ img.mfp-img {
     margin: 0;
     top: auto;
     padding: 3px 5px;
+    padding: 0.1875rem 0.3125rem;
     position: fixed;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -695,12 +719,16 @@ img.mfp-img {
     padding: 0; }
   .mfp-img-mobile .mfp-counter {
     right: 5px;
-    top: 3px; }
+    right: 0.3125rem;
+    top: 3px;
+    top: 0.1875rem; }
   .mfp-img-mobile .mfp-close {
     top: 0;
     right: 0;
     width: 35px;
+    width: 2.1875rem;
     height: 35px;
+    height: 2.1875rem;
     line-height: 35px;
     line-height: 2.1875rem;
     background: rgba(0, 0, 0, 0.6);
@@ -727,6 +755,7 @@ img.mfp-img {
 
 .mfp-ie7 .mfp-bottom-bar {
   width: 600px;
+  width: 37.5rem;
   left: 50%;
   margin-left: -300px;
   margin-top: 5px;
@@ -932,7 +961,9 @@ img.mfp-img {
   /* reset width */
   .content {
     padding: 10px 0 !important;
+    padding: 0.625rem 0 !important;
     margin: 10px 0 !important;
+    margin: 0.625rem 0 !important;
     width: 100% !important; } }
 
 body {
@@ -990,7 +1021,8 @@ li {
 /* Spacing
 ----------------------------------------------------------------------------------------------------*/
 p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset, figure {
-  margin: 0 0 20px 0; }
+  margin: 0 0 20px 0;
+  margin: 0 0 1.25rem 0; }
 
 /* Wysiwyg style
 ----------------------------------------------------------------------------------------------------*/
@@ -998,12 +1030,16 @@ hr {
   clear: both;
   border: 0;
   height: 1px;
+  height: 0.0625rem;
   background: #ddd; }
 
 blockquote {
   border-left: 5px solid #ddd;
+  border-left: 0.3125rem solid #ddd;
   padding: 20px;
+  padding: 1.25rem;
   margin: 0 0 20px 0;
+  margin: 0 0 1.25rem 0;
   -ms-word-wrap: break-word;
   word-wrap: break-word; }
   blockquote p:last-child {
@@ -1018,21 +1054,28 @@ small {
 
 table {
   margin: 20px 0;
+  margin: 1.25rem 0;
   width: 100%;
   border: 1px solid #ddd;
+  border: 0.0625rem solid #ddd;
   border-collapse: collapse;
   border-left: 0;
   border-radius: 3px; }
   table th {
     padding: 10px;
+    padding: 0.625rem;
     border-left: 1px solid #ddd;
+    border-left: 0.0625rem solid #ddd;
     border-top: 0;
     vertical-align: top;
     text-align: left; }
   table td {
     padding: 10px;
+    padding: 0.625rem;
     border-top: 1px solid #ddd;
+    border-top: 0.0625rem solid #ddd;
     border-left: 1px solid #ddd;
+    border-left: 0.0625rem solid #ddd;
     vertical-align: top;
     text-align: left; }
 
@@ -1048,7 +1091,8 @@ abbr {
 
 abbr[title], abbr[data-original-title] {
   cursor: help;
-  border-bottom: 1px dotted #ddd; }
+  border-bottom: 1px dotted #ddd;
+  border-bottom: 0.0625rem dotted #ddd; }
 
 big {
   font-size: larger; }
@@ -1056,8 +1100,10 @@ big {
 code {
   display: inline-block;
   padding: 2px 5px;
+  padding: 0.125rem 0.3125rem;
   background-color: #ddd;
   border: 1px solid #000;
+  border: 0.0625rem solid #000;
   font-family: monospace;
   font-size: 16px;
   font-size: 1rem;
@@ -1079,13 +1125,16 @@ tt, kbd, samp {
 pre {
   display: block;
   padding: 10px;
+  padding: 0.625rem;
   margin: 0 0 20px;
+  margin: 0 0 1.25rem;
   overflow-wrap: break-all;
   word-wrap: break-all;
   word-break: break-all;
   white-space: pre-wrap;
   background-color: #ddd;
   border: 1px solid #000;
+  border: 0.0625rem solid #000;
   border-radius: 3px; }
 
 q {
@@ -1126,6 +1175,7 @@ sup {
 .wp-caption {
   margin-bottom: 20px;
   padding: 5px 0;
+  padding: 0.3125rem 0;
   text-align: center;
   max-width: 100% !important; }
 
@@ -1135,13 +1185,15 @@ sup {
 .wp-caption-text {
   font-size: 11px;
   font-size: 0.6875rem;
-  margin: 5px 5px 0; }
+  margin: 5px 5px 0;
+  margin: 0.3125rem 0.3125rem 0; }
 
 .gallery {
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
-  margin: 0 0 20px; }
+  margin: 0 0 20px;
+  margin: 0 0 1.25rem; }
   .gallery::after {
     clear: both;
     content: "";
@@ -1190,6 +1242,7 @@ sup {
   font-size: 11px;
   font-size: 0.6875rem;
   margin: 10px 0 0;
+  margin: 0.625rem 0 0;
   text-align: left; }
 
 .gallery br + br {
@@ -1202,6 +1255,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
   width: 100%;
   border: 0;
   padding: 10px;
+  padding: 0.625rem;
   color: #333;
   background: #f2f2f2;
   border-radius: 0;
@@ -1243,7 +1297,8 @@ textarea {
 -------------------------------------------------------------- */
 .form__row {
   position: relative;
-  margin: 0 0 20px; }
+  margin: 0 0 20px;
+  margin: 0 0 1.25rem; }
   .form__row::after {
     clear: both;
     content: "";
@@ -1258,6 +1313,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"], button,
   border: 0;
   border-radius: 0;
   padding: 10px;
+  padding: 0.625rem;
   font-size: 16px;
   font-size: 1rem;
   color: #fff;
@@ -1279,9 +1335,12 @@ button:active, input[type="button"]:active, input[type="reset"]:active, input[ty
 -------------------------------------------------------------- */
 .message {
   border-left: 5px solid #0084B4;
+  border-left: 0.3125rem solid #0084B4;
   color: #0084B4;
   padding: 20px;
-  margin: 0 0 20px; }
+  padding: 1.25rem;
+  margin: 0 0 20px;
+  margin: 0 0 1.25rem; }
   .message p:last-child {
     margin: 0; }
 
@@ -1324,11 +1383,14 @@ button:active, input[type="button"]:active, input[type="reset"]:active, input[ty
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
+  height: 0.0625rem;
   margin: -1px;
+  margin: -0.0625rem;
   overflow: hidden;
   padding: 0;
   position: absolute;
-  width: 1px; }
+  width: 1px;
+  width: 0.0625rem; }
 
 .img__responsive, .entry__content img, .widget-area img {
   display: block;
@@ -1347,10 +1409,12 @@ button:active, input[type="button"]:active, input[type="reset"]:active, input[ty
     width: 100%; }
 
 .gfield {
-  margin: 0 0 20px !important; }
+  margin: 0 0 20px !important;
+  margin: 0 0 1.25rem !important; }
 
 .gfield_label {
-  margin: 0 0 5px; }
+  margin: 0 0 5px;
+  margin: 0 0 0.3125rem; }
 
 .ginput_complex .ginput_left, .ginput_complex .ginput_right {
   float: left;
@@ -1360,14 +1424,17 @@ button:active, input[type="button"]:active, input[type="reset"]:active, input[ty
   .ginput_complex .ginput_left:last-child, .ginput_complex .ginput_right:last-child {
     margin-right: 0; }
   .ginput_complex .ginput_left label, .ginput_complex .ginput_right label {
-    margin: 5px 0 10px; }
+    margin: 5px 0 10px;
+    margin: 0.3125rem 0 0.625rem; }
 .ginput_complex .ginput_right {
   margin-right: 0; }
 .ginput_complex .ginput_full {
   display: block;
-  margin: 0 0 20px; }
+  margin: 0 0 20px;
+  margin: 0 0 1.25rem; }
   .ginput_complex .ginput_full label {
-    margin: 5px 0 10px; }
+    margin: 5px 0 10px;
+    margin: 0.3125rem 0 0.625rem; }
 
 /* Main Layout
 ----------------------------------------------------------------------------------------------------*/
@@ -1375,7 +1442,8 @@ button:active, input[type="button"]:active, input[type="reset"]:active, input[ty
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 10px; }
+  padding: 0 10px;
+  padding: 0 0.625rem; }
   .wrapper::after {
     clear: both;
     content: "";
@@ -1479,6 +1547,7 @@ button:active, input[type="button"]:active, input[type="reset"]:active, input[ty
   bottom: 0;
   width: 80%;
   padding: 40px 0;
+  padding: 2.5rem 0;
   background: #000;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -1504,7 +1573,8 @@ button:active, input[type="button"]:active, input[type="reset"]:active, input[ty
     display: none; }
   .menu ul > li > a {
     display: block;
-    padding: 10px; }
+    padding: 10px;
+    padding: 0.625rem; }
     .menu ul > li > a:hover, .menu ul > li > a:active, .menu ul > li > a:focus {
       color: #fff;
       background: #0084B4; }
@@ -1525,9 +1595,11 @@ button:active, input[type="button"]:active, input[type="reset"]:active, input[ty
         display: inline-block;
         position: relative; }
         .menu ul > li:hover ul, .menu ul > li:active ul, .menu ul > li:focus ul {
-          top: 40px; }
+          top: 40px;
+          top: 2.5rem; }
         .menu ul > li.sfHover ul {
-          top: 40px; }
+          top: 40px;
+          top: 2.5rem; }
       .menu ul ul {
         top: 100%;
         position: absolute;
@@ -1539,7 +1611,8 @@ button:active, input[type="button"]:active, input[type="reset"]:active, input[ty
 /* Breadcrumb
 ----------------------------------------------------------------------------------------------------*/
 .breadcrumb {
-  margin: 0 0 20px; }
+  margin: 0 0 20px;
+  margin: 0 0 1.25rem; }
 
 /* Entry
 ----------------------------------------------------------------------------------------------------*/
@@ -1554,14 +1627,18 @@ button:active, input[type="button"]:active, input[type="reset"]:active, input[ty
   display: table; }
 .entry__content ul {
   list-style: disc inside none;
-  margin: 0 0 20px; }
+  margin: 0 0 20px;
+  margin: 0 0 1.25rem; }
   .entry__content ul li {
-    margin: 0 0 10px; }
+    margin: 0 0 10px;
+    margin: 0 0 0.625rem; }
 .entry__content ol {
   list-style: decimal inside none;
-  margin: 0 0 20px; }
+  margin: 0 0 20px;
+  margin: 0 0 1.25rem; }
   .entry__content ol li {
-    margin: 0 0 10px; }
+    margin: 0 0 10px;
+    margin: 0 0 0.625rem; }
 .entry__content .gform_wrapper ul {
   list-style: none; }
 .entry__content .searchform input {
@@ -1575,16 +1652,20 @@ button:active, input[type="button"]:active, input[type="reset"]:active, input[ty
 /* Comments
  ----------------------------------------------------------------------------------------------------*/
 .comment-list .children {
-  margin: 0 0 0 76px; }
+  margin: 0 0 0 76px;
+  margin: 0 0 0 4.75rem; }
 
 .comment-body {
-  margin: 0 0 10px; }
+  margin: 0 0 10px;
+  margin: 0 0 0.625rem; }
 
 .comment-meta {
   position: relative;
   min-height: 56px;
   padding: 0 0 0 76px;
-  margin: 0 0 10px; }
+  padding: 0 0 0 4.75rem;
+  margin: 0 0 10px;
+  margin: 0 0 0.625rem; }
 
 .avatar {
   position: absolute;
@@ -1597,7 +1678,8 @@ button:active, input[type="button"]:active, input[type="reset"]:active, input[ty
 /* Widgets
  ----------------------------------------------------------------------------------------------------*/
 .widget {
-  margin: 0 0 20px; }
+  margin: 0 0 20px;
+  margin: 0 0 1.25rem; }
   .widget::after {
     clear: both;
     content: "";

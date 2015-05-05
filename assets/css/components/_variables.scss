@@ -3,6 +3,22 @@ $max-width: 960px;
 $grid-columns: 12;
 $gutter: 20px!default;
 
+//Fonts
+$font-sansserif: Arial, Helvetica, sans-serif;
+$font-serif: Times, Georgia, serif;
+
+// Font Sizes
+$base-font-size: 16px;
+
+// Line height
+$base-line-height: 1.4;
+$heading-line-height: 1.2;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: 20px;
+$half-base-spacing: $base-spacing / 2;
+
 //Colors
 $maincolor: #0084B4;
 $textcolor: #333;
@@ -11,6 +27,9 @@ $lightcolor: #fff;
 $darkcolor: #000;
 
 $maingrey: #ddd;
+$dark-gray: #333;
+$medium-gray: #999;
+$light-gray: #ddd;
 
 $errorcolor-1 : #8a1f11;
 $errorcolor-2 : #fbe3e4;
@@ -24,9 +43,9 @@ $successcolor-2 : #e6efc2;
 $infocolor-1 : #205791;
 $infocolor-2 : #d5edf8;
 
-//Fonts
-$font-sansserif: Arial, Helvetica, sans-serif;
-$font-serif: Times, Georgia, serif;
+// Border
+$base-border-color: $light-gray;
+$base-border: 1px solid $base-border-color;
 
 //Breakpoint
 $mobile-small: new-breakpoint(max-width 480px);

@@ -3,12 +3,12 @@
 .alignleft {
 	display: inline;
 	float: left;
-	margin-right: 20px;
+	margin-right: $base-spacing;
 }
 .alignright {
 	display: inline;
 	float: right;
-	margin-left: 20px;
+	margin-left: $base-spacing;
 }
 .aligncenter {
 	clear: both;
@@ -19,10 +19,10 @@
 .alignleft,
 .alignright,
 .aligncenter {
-	margin-bottom: 20px;
+	margin-bottom: $base-spacing;
 }
 .wp-caption {
-	margin-bottom: 20px;
+	margin-bottom: $base-spacing;
 	padding: 5px 0;
 	text-align: center;
 	max-width: 100%!important;
@@ -37,13 +37,13 @@
 }
 .gallery {
 	@include outer-container;
-	margin: 0 0 20px;
+	margin: 0 0 $base-spacing;
 }
 .gallery-item {
 	@include span-columns(6);
 	text-align: center;
 	position: relative;
-	margin-bottom: 20px;
+	margin-bottom: $base-spacing;
 	a {
 		display: block;
 		img {
@@ -65,7 +65,7 @@
 }
 .gallery-caption {
 	font-size: 11px;
-	margin: 10px 0 0;
+	margin: $half-base-spacing 0 0;
 	text-align: left;
 }
 .gallery br+br {

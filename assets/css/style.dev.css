@@ -938,10 +938,9 @@ img.mfp-img {
 body {
   font-size: 16px;
   font-size: 1rem;
-  line-height: 19px;
-  line-height: 1.1875rem;
+  line-height: 1.4;
   font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-  color: #000;
+  color: #333;
   -webkit-font-smoothing: antialiased; }
 
 a {
@@ -976,7 +975,7 @@ h6 {
   font-size: 0.9375rem; }
 
 h1, h2, h3, h4, h5, h6 {
-  line-height: 1; }
+  line-height: 1.2; }
 
 /* Lists
 ----------------------------------------------------------------------------------------------------*/
@@ -1003,10 +1002,12 @@ hr {
 
 blockquote {
   border-left: 5px solid #ddd;
-  padding: 0 0 0 15px;
+  padding: 20px;
   margin: 0 0 20px 0;
   -ms-word-wrap: break-word;
   word-wrap: break-word; }
+  blockquote p:last-child {
+    margin: 0; }
 
 cite {
   font-style: italic; }
@@ -1021,25 +1022,19 @@ table {
   border: 1px solid #ddd;
   border-collapse: collapse;
   border-left: 0;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px; }
+  border-radius: 3px; }
   table th {
-    padding: 8px;
+    padding: 10px;
     border-left: 1px solid #ddd;
     border-top: 0;
     vertical-align: top;
-    text-align: left;
-    line-height: 18px;
-    line-height: 1.125rem; }
+    text-align: left; }
   table td {
-    padding: 8px;
+    padding: 10px;
     border-top: 1px solid #ddd;
     border-left: 1px solid #ddd;
     vertical-align: top;
-    text-align: left;
-    line-height: 18px;
-    line-height: 1.125rem; }
+    text-align: left; }
 
 address {
   display: block;
@@ -1064,6 +1059,8 @@ code {
   background-color: #ddd;
   border: 1px solid #000;
   font-family: monospace;
+  font-size: 16px;
+  font-size: 1rem;
   border-radius: 3px; }
 
 s, strike, del {
@@ -1089,7 +1086,7 @@ pre {
   white-space: pre-wrap;
   background-color: #ddd;
   border: 1px solid #000;
-  border-radius: 4px; }
+  border-radius: 3px; }
 
 q {
   display: inline;
@@ -1204,7 +1201,7 @@ input[type="color"], input[type="date"], input[type="datetime"], input[type="dat
   box-sizing: border-box;
   width: 100%;
   border: 0;
-  padding: 5px;
+  padding: 10px;
   color: #333;
   background: #f2f2f2;
   border-radius: 0;
@@ -1229,7 +1226,6 @@ input[type="color"]:hover, input[type="date"]:hover, input[type="datetime"]:hove
   background: #ededed; }
 
 input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="email"]:focus, input[type="month"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus, textarea:focus, textarea:focus {
-  outline: 0;
   background: #ececec; }
 
 /* Label
@@ -1261,9 +1257,9 @@ button, input[type="button"], input[type="reset"], input[type="submit"], button,
   display: inline-block;
   border: 0;
   border-radius: 0;
+  padding: 10px;
   font-size: 16px;
   font-size: 1rem;
-  padding: 5px;
   color: #fff;
   background: #0084B4; }
 
@@ -1273,21 +1269,21 @@ button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type=
 
 button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, button:focus, .button:focus {
   color: #fff;
-  background: #00719b;
-  outline: 0; }
+  background: #00719b; }
 
 button:active, input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:active, button:active, .button:active {
   color: #fff;
-  background: #0084B4;
-  outline: 0; }
+  background: #0084B4; }
 
 /* Success, info, notice and error/alert boxes
 -------------------------------------------------------------- */
-.error, .alert, .notice, .success, .info {
+.message {
   border-left: 5px solid #0084B4;
   color: #0084B4;
-  padding: 5px 5px 5px 10px;
-  margin: 0 10px 20px; }
+  padding: 20px;
+  margin: 0 0 20px; }
+  .message p:last-child {
+    margin: 0; }
 
 .error, .alert {
   color: #8a1f11;
@@ -1560,12 +1556,12 @@ button:active, input[type="button"]:active, input[type="reset"]:active, input[ty
   list-style: disc inside none;
   margin: 0 0 20px; }
   .entry__content ul li {
-    margin: 0 0 5px; }
+    margin: 0 0 10px; }
 .entry__content ol {
   list-style: decimal inside none;
   margin: 0 0 20px; }
   .entry__content ol li {
-    margin: 0 0 5px; }
+    margin: 0 0 10px; }
 .entry__content .gform_wrapper ul {
   list-style: none; }
 .entry__content .searchform input {

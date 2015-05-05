@@ -5,7 +5,7 @@ textarea {
 	box-sizing: border-box;
 	width: 100%;
 	border: 0;
-	padding: 5px;
+	padding: $half-base-spacing;
 	color: $textcolor;
 	background: darken($lightcolor, 5%);
 	border-radius: 0; //reset border radius for ios
@@ -23,7 +23,6 @@ textarea:hover { // Target the :hover pseudo-class
 
 #{$all-text-inputs-focus},
 textarea:focus { // Target the :focus pseudo-class
-	outline:0;
 	background: darken($lightcolor, 7.5%);
 }
 
@@ -45,7 +44,7 @@ textarea {
 .form__row {
 	@include clearfix;
 	position: relative;
-	margin: 0 0 20px;
+	margin: 0 0 $base-spacing;
 	&:last-child {
 		margin-bottom: 0;
 	}

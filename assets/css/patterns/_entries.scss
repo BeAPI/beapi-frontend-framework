@@ -11,16 +11,16 @@
 	@include clearfix;
 	ul {
 		list-style: disc inside none;
-		margin: 0 0 20px;
+		margin: 0 0 $base-spacing;
 		li {
-			margin: 0 0 5px;
+			margin: 0 0 $half-base-spacing;
 		}
 	}
 	ol {
 		list-style: decimal inside none;
-		margin: 0 0 20px;
+		margin: 0 0 $base-spacing;
 		li {
-			margin: 0 0 5px;
+			margin: 0 0 $half-base-spacing;
 		}
 	}
 	img {

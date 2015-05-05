@@ -29,9 +29,9 @@
 				<h5>Level 5 Heading</h5>
 				<h6>Level 6 Heading</h6>
 				<h3>Image with a caption text</h3>
-				<div style="width: 150px;" class="wp-caption alignnone" id="attachment_19220">
+				<div style="width: 150px;" class="wp-caption alignnone">
 					<a href="http://placehold.it/500x500" rel="attachment">
-						<img width="125" height="125" alt="#" src="http://placehold.it/150x150" title="#" class="size-medium wp-image-19220 ">
+						<img width="150" height="150" alt="#" src="http://placehold.it/150x150" title="#">
 					</a>
 					<p class="wp-caption-text">This is an image with a caption text</p>
 				</div>
@@ -168,19 +168,19 @@
 					
 					<br style="clear: both;">
 				</div>
-				<div class="error">
+				<div class="message error">
 					<h4>Error box</h4>
 					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.</p>
 				</div>
-				<div class="success">
+				<div class="message success">
 					<h4>Success box</h4>
 					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.</p>
 				</div>
-				<div class="info">
+				<div class="message info">
 					<h4>Info box</h4>
 					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.</p>
 				</div>
-				<div class="notice">
+				<div class="message notice">
 					<h4>Notice box</h4>
 					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.</p>
 				</div>

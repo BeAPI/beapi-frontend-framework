@@ -1,8 +1,8 @@
 body {
-	font-size: 16px;
-	line-height: 19px;
+	font-size: $base-font-size;
+	line-height: $base-line-height;
 	font-family: $helvetica;
-	color: $darkcolor;
+	color: $textcolor;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -41,7 +41,7 @@ h6 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	line-height: 1;
+	line-height: $heading-line-height;
 }
 
 /* Lists
@@ -74,7 +74,7 @@ table,
 address,
 fieldset,
 figure {
-	margin: 0 0 20px 0;
+	margin: 0 0 $base-spacing 0;
 }
 /* Wysiwyg style
 ----------------------------------------------------------------------------------------------------*/
@@ -86,10 +86,13 @@ hr {
 }
 blockquote {
 	border-left: 5px solid $maingrey;
-	padding: 0 0 0 15px;
-	margin: 0 0 20px 0;
+	padding: $base-spacing;
+	margin: 0 0 $base-spacing 0;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
+	p:last-child {
+		margin: 0;
+	}
 }
 cite {
 	font-style: italic;
@@ -98,35 +101,31 @@ small {
 	font-size: 11px;
 }
 table {
-	margin: 20px 0;
+	margin: $base-spacing 0;
 	width: 100%;
-	border: 1px solid $maingrey;
+	border: $base-border;
 	border-collapse: collapse;
 	border-left: 0;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
+	border-radius: $base-border-radius;
 	th {
-		padding: 8px;
-		border-left: 1px solid $maingrey;
+		padding: $half-base-spacing;
+		border-left: 1px solid $base-border-color;
 		border-top: 0;
 		vertical-align: top;
 		text-align: left;
-		line-height: 18px;
 	}
 	td {
-		padding: 8px;
-		border-top: 1px solid $maingrey;
-		border-left: 1px solid $maingrey;
+		padding: $half-base-spacing;
+		border-top: 1px solid $base-border-color;
+		border-left: 1px solid $base-border-color;
 		vertical-align: top;
 		text-align: left;
-		line-height: 18px;
 	}
 }
 
 address {
 	display: block;
-	margin-bottom: 20px;
+	margin-bottom: $base-spacing;
 	font-style: normal;
 	line-height: 20px;
 }
@@ -135,7 +134,7 @@ abbr {
 }
 abbr[title], abbr[data-original-title] {
 	cursor: help;
-	border-bottom: 1px dotted $maingrey;
+	border-bottom: 1px dotted $base-border-color;
 }
 big {
 	font-size: larger;
@@ -146,7 +145,8 @@ code {
 	background-color: $maingrey;
 	border: 1px solid $darkcolor;
 	font-family: monospace;
-	border-radius: 3px;
+	font-size: $base-font-size;
+	border-radius: $base-border-radius;
 }
 s,
 strike,
@@ -168,13 +168,13 @@ samp {
 }
 pre {
 	display: block;
-	padding: 10px;
-	margin: 0 0 20px;
+	padding: $half-base-spacing;
+	margin: 0 0 $base-spacing;
 	@include word-wrap(break-all);
 	white-space: pre-wrap;
 	background-color: $maingrey;
 	border: 1px solid $darkcolor;
-	border-radius: 4px;
+	border-radius: $base-border-radius;
 }
 q {
 	display: inline;

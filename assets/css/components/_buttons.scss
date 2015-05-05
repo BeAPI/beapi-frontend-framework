@@ -5,9 +5,9 @@ button,
 .button {
 	display: inline-block;
 	border: 0;
-	border-radius: 0;
-	font-size: 16px;
-	padding: 5px;
+	border-radius: 0;//keep it no radius for ios reset
+	padding: $half-base-spacing;
+	font-size: $base-font-size;
 	color: $lightcolor;
 	background: $maincolor;
 }
@@ -24,7 +24,6 @@ button:focus,
 .button:focus { // Target the :focus pseudo-class
 	color: $lightcolor;
 	background: darken($maincolor, 5%);
-	outline:0;
 }
 
 #{$all-button-inputs-active},
@@ -32,5 +31,4 @@ button:active,
 .button:active { // Target the :active pseudo-class
 	color: $lightcolor;
 	background: $maincolor;
-	outline:0;
 }

@@ -10,7 +10,8 @@ var gulp = require('gulp'),
 	consolidate = require('gulp-consolidate'),
 	pxtorem = require('gulp-pxtorem'),
 	browserSync = require('browser-sync'),
-	reload = browserSync.reload;
+	reload = browserSync.reload,
+	imageop = require('gulp-image-optimization');
 
 var pxtoremOptions = {
 	replace: false,
@@ -48,6 +49,15 @@ gulp.task('iconfont', function(){
 				.pipe(gulp.dest('./assets/css/components'));
 			})
 			.pipe(gulp.dest('./assets/fonts'));
+});
+
+/*Image minification*/
+gulp.task('imgmin', function(cb) {
+	gulp.src(['assets/img/*.png','assets/img/*.jpg','assets/img/*.gif','assets/img/*.jpeg']).pipe(imageop({
+		optimizationLevel: 5,
+		progressive: true,
+		interlaced: true
+	})).pipe(gulp.dest('./assets/img')).on('end', cb).on('error', cb);
 });
 
 /*JS task*/

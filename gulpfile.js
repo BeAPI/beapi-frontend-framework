@@ -3,7 +3,6 @@ var gulp = require('gulp'),
 	gulpLoadPlugins = require('gulp-load-plugins'),
 	plugins = gulpLoadPlugins(),
 	sass = require('gulp-sass'),
-	neat = require('node-neat').includePaths,
 	path = require('path'),
 	minifyCSS = require('gulp-minify-css'),
 	concat = require('gulp-concat-sourcemap'),
@@ -85,7 +84,8 @@ gulp.task('dev-check-js', function () {
 gulp.task('dev-sass', function () {
 	gulp.src('assets/css/style.scss')
 		.pipe(sass({
-			includePaths: ['dev-sass'].concat(neat)
+			includePaths: require('node-bourbon').includePaths,
+			errLogToConsole: true
 		}))
 		.pipe(plugins.concat('style.dev.css'))
 		.pipe(pxtorem(pxtoremOptions))
@@ -96,7 +96,8 @@ gulp.task('dev-sass', function () {
 gulp.task('dist-sass', function () {
 	gulp.src('assets/css/style.scss')
 		.pipe(sass({
-			includePaths: ['dist-sass'].concat(neat)
+			includePaths: require('node-bourbon').includePaths,
+			errLogToConsole: true
 		}))
 		.pipe(plugins.concat('style.min.css'))
 		.pipe(pxtorem(pxtoremOptions))

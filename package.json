@@ -22,7 +22,6 @@
     "gulp-watch": "~0.6.8",
     "lodash": "^3.5.0",
     "matchdep": "*",
-    "node-bourbon": "^1.2.3",
-    "node-neat": "^1.3.0"
+    "node-bourbon": "^1.2.3"
   }
 }

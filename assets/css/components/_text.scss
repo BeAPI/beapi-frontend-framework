@@ -1,11 +1,13 @@
 body {
 	font-size: $base-font-size;
 	line-height: $base-line-height;
-	font-family: $helvetica;
+	font-family: $font-sansserif;
 	color: $textcolor;
 	-webkit-font-smoothing: antialiased;
 }
-
+.fonts-loaded > body {
+	font-family: $googlefont-1;
+}
 a {
 	color: $maincolor;
 	@include hover {

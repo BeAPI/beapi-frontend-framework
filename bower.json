@@ -8,6 +8,9 @@
     "picturefill": "~2.2.0",
     "superfish": "~1.7.5",
     "magnific-popup": "~1.0.0",
-    "susy": "~2.2.5"
+    "susy": "~2.2.5",
+    "loadcss": "~0.1.6",
+    "fontfaceobserver": "~1.4.12",
+    "html5shiv": "~3.7.2"
   }
 }

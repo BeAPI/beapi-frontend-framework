@@ -964,9 +964,12 @@ body {
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.4;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: #333;
   -webkit-font-smoothing: antialiased; }
+
+.fonts-loaded > body {
+  font-family: Roboto, sans-serif; }
 
 a {
   color: #0084B4; }

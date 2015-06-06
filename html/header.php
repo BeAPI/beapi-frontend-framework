@@ -2,10 +2,10 @@
 require( dirname( __FILE__ ) . '/functions/_init.php' );
 ?>
 <!doctype html>
-<!--[if lt IE 7 ]> <html class="no-js ie6" lang="fr"> <![endif]-->
-<!--[if IE 7 ]>    <html class="no-js ie7 modern-ie" lang="fr"> <![endif]-->
-<!--[if IE 8 ]>    <html class="no-js ie8 modern-ie" lang="fr"> <![endif]-->
-<!--[if IE 9 ]> <html class="no-js ie9" lang="fr"> <![endif]-->
+<!--[if lt IE 7 ]> <html class="no-js ie6 common-ie" lang="fr"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7 common-ie" lang="fr"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8 common-ie" lang="fr"> <![endif]-->
+<!--[if IE 9 ]> <html class="no-js ie9 common-ie" lang="fr"> <![endif]-->
 <!--[if !(IE)]><!-->
 <html class="no-js" lang="fr"><!--<![endif]-->
 	<head>
@@ -13,12 +13,12 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="initial-scale=1.0" />
 		
-		<title>BeAPI Base theme</title>
+		<title>BeAPI FrontEnd Framework | The WordPress BFF</title>
 		
 		<link rel="shortcut icon" href="../assets/img/favicon.ico" />
 		<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
 		
-		<!--[if lt IE 9]><script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		<!--[if lt IE 9]><script type="text/javascript" src="../assets/bower_components/html5shiv/dist/html5shiv.min.js"></script><![endif]-->
 		<!--[if lte IE 8]>
 			<style type="text/css" media="screen">
 				.css3-fix {
@@ -27,8 +27,10 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 			</style>
 			<script type="text/javascript" src="../assets/bower_components/selectivizr/selectivizr.js"></script>
 		<![endif]-->
+
 		
-		<link rel="stylesheet" type="text/css" media="all" href="../assets/css/style.dev.css?t=<?php echo time(); ?>" />
+		
+		<link rel="stylesheet" type="text/css" media="all" href="../assets/css/style.min.css?t=<?php echo time(); ?>" />
 		
 		<!-- Modernizr Custom (JS + SVG detection) -->
 		<script type="text/javascript" src="../assets/js/vendor/modernizr.custom.min.js"></script>
@@ -36,6 +38,31 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<!-- jQuery -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		
+		<!-- Load CSS JS -->
+		<script type="text/javascript" src="../assets/bower_components/loadcss/loadCSS.js"></script>
+		<!-- Font Face Observiser JS -->
+		<script type="text/javascript" src="../assets/bower_components/fontfaceobserver/fontfaceobserver.js"></script>
+
+		<script>
+			// load webfonts
+			loadCSS("//fonts.googleapis.com/css?family=Roboto:400,500,700");
+			
+			// detect loading of fonts
+			var roboto400 = new FontFaceObserver("Roboto", {
+			  weight: 400
+			});
+			var roboto700 = new FontFaceObserver("Roboto", {
+			  weight: 700
+			});
+
+			Promise.all([
+			  roboto400.check(),
+			  roboto700.check()
+			]).then(function() {
+			  document.documentElement.className += " fonts-loaded";
+			});
+		</script>
+
 	</head>
 	<body class="<?php echo $class; ?>">
 		<div id="main">
@@ -50,7 +77,16 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 			</div>
 			<header id="header" class="header">
 				<div class="wrapper">
-					<h1 id="logo"><a href="01-home.php">Website title</a></h1>
+					<div class="header__logo">
+						<a href="#" class="header__logo-link">
+							<img src="http://placehold.it/300x75&text=LOGO" alt="" class="header__logo-img">
+						</a>
+					</div>
+					<?php if ( $class == 'home' ) :?>
+						<h1 class="header__title visuallyhidden"><a href="01-home.php">BeAPI FrontEnd Framework</a></h1>
+					<?php else: ?>
+						<div class="header__title visuallyhidden"><a href="01-home.php">BeAPI FrontEnd Framework</a></div>
+					<?php endif; ?>
 				</div>
 			</header>
 			<nav id="menu" class="menu menu__mobile">

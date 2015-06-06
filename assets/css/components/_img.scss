@@ -5,7 +5,7 @@
 	float: left;
 	margin-right: $base-spacing;
 	max-width: 50%;
-	@include media($tablet-medium) {
+	@include susy-breakpoint($tablet-medium) {
 		max-width: 100%;
 	}
 }
@@ -14,7 +14,7 @@
 	float: right;
 	margin-left: $base-spacing;
 	max-width: 50%;
-	@include media($tablet-medium) {
+	@include susy-breakpoint($tablet-medium) {
 		max-width: 100%;
 	}
 }
@@ -44,11 +44,12 @@
 	margin: 5px 5px 0;
 }
 .gallery {
-	@include outer-container;
+	@include container;
 	margin: 0 0 $base-spacing;
 }
+
 .gallery-item {
-	@include span-columns(6);
+	@include gallery(6 of 12);
 	text-align: center;
 	position: relative;
 	margin-bottom: $base-spacing;
@@ -61,14 +62,12 @@
 }
 .gallery-columns-3 {
 	.gallery-item {
-		@include span-columns(4);
-		@include omega(3n);
+		@include gallery(4 of 12);
 	}
 }
 .gallery-columns-4 {
 	.gallery-item {
-		@include span-columns(3);
-		@include omega(4n);
+		@include gallery(3 of 12);
 	}
 }
 .gallery-caption {

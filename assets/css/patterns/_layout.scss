@@ -1,30 +1,27 @@
 /* Main Layout
 ----------------------------------------------------------------------------------------------------*/
 .wrapper {
-	@include outer-container();
+	@include container;
 	padding: 0 10px;
-	@include media($desktop-small) {
+	@include susy-breakpoint($desktop-small) {
 		padding: 0;
 	}
 }
 .content {
-	@include media($desktop-small) {
-		@include span-columns(9);
+	@include susy-breakpoint($desktop-small) {
+		@include span(9);
 	}
 }
 .sidebar {
-	@include media($desktop-small) {
-		@include span-columns(3);
+	@include susy-breakpoint($desktop-small) {
+		@include span(3 last);
 	}
 }
 
 //omega reset example
 .grid-item {
-	@include span-columns(6);
-	@include omega(2n);
-	@include media($desktop-small) {
-		@include omega-reset(2n);
-		@include span-columns(4);
-		@include omega(3n);
+	@include span(6);
+	@include susy-breakpoint($desktop-small) {
+		@include span(4);
 	}
 }

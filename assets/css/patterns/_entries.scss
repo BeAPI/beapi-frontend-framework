@@ -29,7 +29,7 @@
 	.alignright,
 	.alignleft {
 		max-width: 50%;
-		@include media($tablet-medium) {
+		@include susy-breakpoint($tablet-medium) {
 			max-width: 100%;
 		}
 	}

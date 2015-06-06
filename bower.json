@@ -7,6 +7,7 @@
     "respond": "~1.4.2",
     "picturefill": "~2.2.0",
     "superfish": "~1.7.5",
-    "magnific-popup": "~1.0.0"
+    "magnific-popup": "~1.0.0",
+    "susy": "~2.2.5"
   }
 }

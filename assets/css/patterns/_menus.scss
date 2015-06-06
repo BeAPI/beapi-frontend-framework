@@ -15,7 +15,7 @@
 			}
 		}
 	}
-	@include media($desktop-small) {
+	@include susy-breakpoint($desktop-small) {
 		display: block;
 	}
 }
@@ -41,7 +41,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	@include media($tablet-medium) {
+	@include susy-breakpoint($tablet-medium) {
 		display: none;
 	}
 }
@@ -96,7 +96,7 @@
 			}
 		}
 	}
-	@include media($tablet-medium) {
+	@include susy-breakpoint($tablet-medium) {
 		//reset mobile menu position and dimensions
 		position: static;
 		left: auto;

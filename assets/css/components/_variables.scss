@@ -1,7 +1,10 @@
 //Grid settings
-$max-width: 960px;
-$grid-columns: 12;
-$gutter: 20px!default;
+$susy: (
+  columns: 12,
+  gutters: .25,
+  container: 960px
+  //debug :(image: show-columns)
+);
 
 //Fonts
 $font-sansserif: Arial, Helvetica, sans-serif;
@@ -48,9 +51,9 @@ $base-border-color: $light-gray;
 $base-border: 1px solid $base-border-color;
 
 //Breakpoint
-$mobile-small: new-breakpoint(max-width 480px);
-$mobile-medium: new-breakpoint(min-width 481px);
-$tablet-small: new-breakpoint(min-width 601px);
-$tablet-medium: new-breakpoint(min-width 768px);
-$desktop-small: new-breakpoint(min-width 1024px);
-$desktop-medium: new-breakpoint(min-width 1260px);
+$mobile-small: 480px;
+$mobile-medium: 481px;
+$tablet-small: 601px;
+$tablet-medium: 768px;
+$desktop-small: 1024px;
+$desktop-medium: 1260px;

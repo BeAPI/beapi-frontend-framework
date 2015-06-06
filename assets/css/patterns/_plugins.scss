@@ -5,7 +5,6 @@
 .gfield,
 .ginput_full {
 	@include clearfix;
-	@include omega;
 	select {
 		width: 100%;
 	}
@@ -22,7 +21,7 @@
 .ginput_complex {
 	.ginput_left,
 	.ginput_right {
-		@include span-columns(5 of 10);
+		@include span(5 of 10);
 		label {
 			margin: 5px 0 10px;
 		}

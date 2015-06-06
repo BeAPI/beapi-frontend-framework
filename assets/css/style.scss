@@ -1,15 +1,9 @@
+// Load Susy
+@import "../bower_components/susy/sass/susy";
+
 //Load Bourbon mixin library
 //http://bourbon.io/docs/
 @import "bourbon";
-
-//Load neat grid library
-//http://thoughtbot.github.io/neat-docs/latest/
-//http://neat.bourbon.io/examples/
-@import "neat";
-
-//Load omega reset for responsive neat grid system
-// https://github.com/joshfry/omega-reset-for-bourbon-neat
-@import "vendor/_omega-reset.scss";
 
 //Load vendor css from bower 
 @import "vendor/normalize-scss/_normalize.scss";

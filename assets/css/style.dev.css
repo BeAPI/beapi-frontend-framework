@@ -1417,7 +1417,7 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
   width: 1px;
   width: 0.0625rem; }
 
-.img__responsive, .entry__content img, .widget-area img {
+.img__responsive, .header__logo-img, .entry__content img, .widget-area img {
   display: block;
   max-width: 100%;
   height: auto; }
@@ -1493,6 +1493,12 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
       width: 32.20339%;
       float: left;
       margin-right: 1.69492%; } }
+
+/* Header css
+ ----------------------------------------------------------------------------------------------------*/
+.header__logo-img {
+  margin: 0 auto 20px;
+  margin: 0 auto 1.25rem; }
 
 /* Menus
 ----------------------------------------------------------------------------------------------------*/

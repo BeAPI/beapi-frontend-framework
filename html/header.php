@@ -30,7 +30,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 
 		
 		
-		<link rel="stylesheet" type="text/css" media="all" href="../assets/css/style.min.css?t=<?php echo time(); ?>" />
+		<link rel="stylesheet" type="text/css" media="all" href="../assets/css/style.dev.css?t=<?php echo time(); ?>" />
 		
 		<!-- Modernizr Custom (JS + SVG detection) -->
 		<script type="text/javascript" src="../assets/js/vendor/modernizr.custom.min.js"></script>
@@ -79,7 +79,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 				<div class="wrapper">
 					<div class="header__logo">
 						<a href="#" class="header__logo-link">
-							<img src="http://placehold.it/300x75&text=LOGO" alt="" class="header__logo-img">
+							<img src="http://placehold.it/300x75&text=LOGO" alt="#" class="header__logo-img" />
 						</a>
 					</div>
 					<?php if ( $class == 'home' ) :?>

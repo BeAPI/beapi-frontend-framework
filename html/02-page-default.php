@@ -5,10 +5,16 @@
 		
 		<?php include 'blocks/breadcrumb.php'; ?>
 
-		<h1 class="page__title">Titre de la page</h1>
 		
-		<article class="entry">
-			<div class="entry__content">
+		
+		<article class="entry" itemscope itemtype="http://schema.org/Article">
+			<header class="entry__header">
+				<h1 class="page__title" itemprop="headline">Titre de la page</h1>
+				<div class="entry__date">
+					Publié le <time datetime="2015-06-30" itemprop="datePublished">06/30/2015</time>
+				</div>
+			</header>
+			<section class="entry__content" itemprop="articleBody">
 				<h2>Image with link to a bigger size using a lightbox</h2>
 				<p>
 					<a href="../assets/img/sample/beapi_theme-img-2.jpg"><img align="right" alt="#" src="http://placehold.it/150x150" class="alignright"></a>
@@ -184,7 +190,7 @@
 					<h4>Notice box</h4>
 					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.</p>
 				</div>
-			</div>
+			</section>
 		</article>
 		<?php include 'blocks/comments.php'; ?>
 	</section>

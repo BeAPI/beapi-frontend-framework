@@ -12,6 +12,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="initial-scale=1.0" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		
 		<title>BeAPI FrontEnd Framework | The WordPress BFF</title>
 		
@@ -84,6 +85,14 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 
 	</head>
 	<body class="<?php echo $class; ?>">
+		<!--[if lte IE 9]>
+			<div class="message message__browserhappy">
+				<p>
+				You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience. <br>
+				<a href="#" onclick="jQuery('.message__browserhappy').hide();"><small>Close</small></a>
+				</p>
+			</div>
+		<![endif]-->
 		<div id="main">
 			<ul class="menu__fastaccess">
 				<li><a href="#main-content">Acces direct au contenu</a></li>

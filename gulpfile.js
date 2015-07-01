@@ -11,7 +11,10 @@ var gulp = require('gulp'),
 	pxtorem = require('gulp-pxtorem'),
 	browserSync = require('browser-sync'),
 	reload = browserSync.reload,
-	imageop = require('gulp-image-optimization');
+	imageop = require('gulp-image-optimization'),
+	favicons = require('gulp-favicons'),
+	through = require('through2');
+
 
 var pxtoremOptions = {
 	replace: false,
@@ -28,6 +31,39 @@ gulp.task('browser-sync', function() {
 // Reload all Browsers
 gulp.task('bs-reload', function () {
 	browserSync.reload();
+});
+
+// Favicon Task
+// https://github.com/haydenbleasel/gulp-favicons
+// https://github.com/haydenbleasel/favicons
+gulp.task('favicons', function () {
+
+	gulp.src('assets/img/favicons/favicon_src.png')
+		.pipe(favicons({
+			settings: {
+				background: null ,
+				vinylMode: true
+			},
+			icons: {
+				android: true,            // Create Android homescreen icon. `boolean`
+				appleIcon: true,          // Create Apple touch icons. `boolean`
+				appleStartup: false,       // Create Apple startup images. `boolean`
+				coast: false,              // Create Opera Coast icon. `boolean`
+				favicons: true,           // Create regular favicons. `boolean`
+				firefox: true,            // Create Firefox OS icons. `boolean`
+				opengraph: true,          // Create Facebook OpenGraph. `boolean`
+				windows: true,            // Create Windows 8 tiles. `boolean`
+				yandex: false              // Create Yandex browser icon. `boolean`
+			}
+		}, function(code) {
+			console.log(code);
+		}))
+		.pipe(through.obj(function (file, enc, cb) {
+			console.log(file.path);
+			this.push(file);
+			cb();
+		}))
+		.pipe(gulp.dest('./assets/img/favicons/'));
 });
 
 /*Icon font task*/

@@ -24,6 +24,8 @@ var pxtoremOptions = {
 /*Set server*/
 gulp.task('browser-sync', function() {
 	browserSync({
+		//on wp install provide the path of your theme like:
+		//http://localhost/wp-content/themes/my_theme_name/html/
 		proxy: "http://localhost"
 	});
 });

@@ -15,7 +15,7 @@ Take a look at :
 * [Bower](https://bower.io)
 * [Sass](http://sass-lang.com/)
 * [Bourbon](http://bourbon.io/)
-* [Neat](http://neat.bourbon.io/)
+* [Susy](http://susy.oddbird.net/)
 
 NB: BrowserSync is in beta testing
 

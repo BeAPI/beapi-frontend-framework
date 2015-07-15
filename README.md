@@ -63,7 +63,7 @@ If you just want to compile styles and script without watching, you can hit thes
     $ gulp dev-check-js
 
 ### Gulp and Browser Sync ###
-You can use browsersync in a local environnement with yhis commmand:
+You can use browsersync in a local environnement with this commmand:
 
     $ gulp serve
 

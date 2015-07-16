@@ -1358,7 +1358,7 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
 
 /* Success, info, notice and error/alert boxes
 -------------------------------------------------------------- */
-.message {
+.message, .gform_confirmation_message, .validation_error, .gfield_error {
   border-left: 5px solid #0084B4;
   border-left: 0.3125rem solid #0084B4;
   color: #0084B4;
@@ -1366,14 +1366,14 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
   padding: 1.25rem;
   margin: 0 0 20px;
   margin: 0 0 1.25rem; }
-  .message p:last-child {
+  .message p:last-child, .gform_confirmation_message p:last-child, .validation_error p:last-child, .gfield_error p:last-child {
     margin: 0; }
 
-.error, .alert {
+.error, .validation_error, .gfield_error, .alert {
   color: #8a1f11;
   background: #fbe3e4;
   border-color: #8a1f11; }
-  .error a, .alert a {
+  .error a, .validation_error a, .gfield_error a, .alert a {
     color: #8a1f11; }
 
 .notice {
@@ -1383,11 +1383,11 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
   .notice a {
     color: #514721; }
 
-.success {
+.success, .gform_confirmation_message {
   color: #264409;
   background: #e6efc2;
   border-color: #264409; }
-  .success a {
+  .success a, .gform_confirmation_message a {
     color: #264409; }
 
 .info {
@@ -1431,7 +1431,7 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
 .gfield select, .ginput_full select {
   width: 100%; }
 
-.gform_heading, .gf_progressbar_wrapper, .gfield {
+.gform_heading, .gf_progressbar_wrapper, .gfield, .gf_page_steps {
   margin: 0 0 20px !important;
   margin: 0 0 1.25rem !important; }
 
@@ -1453,6 +1453,9 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
   font-weight: 700;
   color: #fff;
   background: #0084B4; }
+
+.gf_page_steps .gf_step {
+  display: inline-block; }
 
 .ginput_container:after {
   content: "";

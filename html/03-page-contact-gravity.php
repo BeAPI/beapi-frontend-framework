@@ -12,6 +12,23 @@
 							<h3 class="gform_title">BFF</h3>
 							<span class="gform_description">Base html GF BFF</span>
 						</div>
+						<!-- Default progressbar -->
+						<div id="gf_progressbar_wrapper_8" class="gf_progressbar_wrapper">
+							<h3 class="gf_progressbar_title">Étape 1 de 3
+						</h3>
+							<div class="gf_progressbar">
+								<div class="gf_progressbar_percentage percentbar_blue percentbar_33" style="width:33%;"><span>33%</span></div>
+							</div>
+						</div>
+						<!-- Default progressbar -->
+						<!-- Step by step option
+						<div id="gf_page_steps_8" class="gf_page_steps">
+							<div id="gf_step_8_1" class="gf_step gf_step_active gf_step_first"><span class="gf_step_number">1</span>&nbsp;<span class="gf_step_label"> </span></div>
+							<div id="gf_step_8_2" class="gf_step gf_step_next gf_step_pending"><span class="gf_step_number">2</span>&nbsp;<span class="gf_step_label"></span></div>
+							<div id="gf_step_8_3" class="gf_step gf_step_last gf_step_pending"><span class="gf_step_number">3</span>&nbsp;<span class="gf_step_label"></span></div>
+							<div class="gf_step_clear"></div>
+						</div>
+						 Step by step option -->
 						<div class="gform_body">
 							<ul id="gform_fields_8" class="gform_fields top_label form_sublabel_below description_below">
 								<li id="field_8_1" class="gfield field_sublabel_below field_description_below">

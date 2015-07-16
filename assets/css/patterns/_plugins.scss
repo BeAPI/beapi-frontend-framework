@@ -11,7 +11,8 @@
 }
 .gform_heading,
 .gf_progressbar_wrapper,
-.gfield {
+.gfield,
+.gf_page_steps {
 	margin: 0 0 $base-spacing !important;//important to resolve conflict with entry__content ul's margins
 }
 .gform_description,
@@ -20,6 +21,7 @@
 	@include clearfix;
 	font-size: 11px;
 }
+//multistep form
 //progressbar when multi part form are used
 .gf_progressbar {
 	background: $maingrey;
@@ -30,6 +32,12 @@
 	font-weight: 700;
 	color: $lightcolor;
 	background: $maincolor;
+}
+//step by step layout
+.gf_page_steps {
+	.gf_step {
+		display: inline-block;
+	}
 }
 //input size choice. keep it 100% wide by default
 .ginput_container {
@@ -117,4 +125,16 @@
 		display: inline-block;
 		width: auto;
 	}
+}
+
+//Success
+.gform_confirmation_message{
+	@extend .message;
+	@extend .success;
+}
+//Errors
+.validation_error,
+.gfield_error {
+	@extend .message;
+	@extend .error;
 }

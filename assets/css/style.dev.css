@@ -1310,7 +1310,7 @@ input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:fo
 /* Label
 -------------------------------------------------------------- */
 label {
-  display: block;
+  display: inline-block;
   font-weight: 700; }
 
 /* Textarea
@@ -1431,22 +1431,61 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
 .gfield select, .ginput_full select {
   width: 100%; }
 
-.gfield {
+.gform_heading, .gf_progressbar_wrapper, .gfield {
   margin: 0 0 20px !important;
   margin: 0 0 1.25rem !important; }
 
-.gfield_label {
-  margin: 0 0 5px;
-  margin: 0 0 0.3125rem; }
+.gform_description, .gfield_description, .gsection_description {
+  font-size: 11px;
+  font-size: 0.6875rem; }
+  .gform_description:after, .gfield_description:after, .gsection_description:after {
+    content: "";
+    display: table;
+    clear: both; }
 
-.ginput_complex .ginput_left, .ginput_complex .ginput_right {
-  width: 48.97959%;
+.gf_progressbar {
+  background: #ddd; }
+
+.gf_progressbar_percentage {
+  text-align: center;
+  font-size: 11px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #fff;
+  background: #0084B4; }
+
+.ginput_container:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.gfield_label {
+  margin: 0 0 10px;
+  margin: 0 0 0.625rem; }
+
+.gfield_description {
+  margin: 0; }
+
+.field_description_below .gfield_description {
+  margin-top: 10px; }
+
+.field_description_above .gfield_description {
+  margin-bottom: 10px; }
+
+.ginput_complex:after {
+  content: "";
+  display: table;
+  clear: both; }
+.ginput_complex .ginput_left, .ginput_complex .ginput_right, .ginput_complex .name_first, .ginput_complex .name_last {
+  width: 49.15254%;
   float: left;
-  margin-right: 2.04082%; }
-  .ginput_complex .ginput_left label, .ginput_complex .ginput_right label {
+  margin-right: 1.69492%; }
+  .ginput_complex .ginput_left label, .ginput_complex .ginput_right label, .ginput_complex .name_first label, .ginput_complex .name_last label {
     margin: 5px 0 10px;
-    margin: 0.3125rem 0 0.625rem; }
-.ginput_complex .ginput_right {
+    margin: 0.3125rem 0 0.625rem;
+    font-size: 11px;
+    font-size: 0.6875rem; }
+.ginput_complex .ginput_right, .ginput_complex .name_last {
   margin-right: 0; }
 .ginput_complex .ginput_full {
   display: block;
@@ -1454,7 +1493,27 @@ input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:ac
   margin: 0 0 1.25rem; }
   .ginput_complex .ginput_full label {
     margin: 5px 0 10px;
-    margin: 0.3125rem 0 0.625rem; }
+    margin: 0.3125rem 0 0.625rem;
+    font-size: 11px;
+    font-size: 0.6875rem; }
+
+.gfield_time_hour, .gfield_time_minute {
+  display: inline-block; }
+  .gfield_time_hour input[type="text"], .gfield_time_minute input[type="text"] {
+    display: inline-block;
+    width: auto; }
+  .gfield_time_hour label, .gfield_time_minute label {
+    display: block; }
+
+.gfield_list {
+  border: 0; }
+  .gfield_list td {
+    padding: 0;
+    border: 0; }
+
+.gfield_price input[type="text"] {
+  display: inline-block;
+  width: auto; }
 
 /* Main Layout
 ----------------------------------------------------------------------------------------------------*/

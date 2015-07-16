@@ -4,7 +4,7 @@
 	display: inline;
 	float: left;
 	margin-right: $base-spacing;
-	max-width: 50%;
+	max-width: 50%; //force image 50% rendering of viewport on mobile
 	@include susy-breakpoint($tablet-medium) {
 		max-width: 100%;
 	}
@@ -13,7 +13,7 @@
 	display: inline;
 	float: right;
 	margin-left: $base-spacing;
-	max-width: 50%;
+	max-width: 50%; //force image 50% rendering of viewport on mobile
 	@include susy-breakpoint($tablet-medium) {
 		max-width: 100%;
 	}

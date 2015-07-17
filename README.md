@@ -24,7 +24,7 @@ NB: BrowserSync is in beta testing
 Clone the repo in the WordPress's themes folder. Delete the .git in order to work with your own repo.
 
     $ cd wp-content/themes
-    $ git clone https://cocola@bitbucket.org/beapi/base-theme-beapi.git name_of_my_theme
+    $ git clone https://github.com/BeAPI/beapi-frontend-framework.git name_of_my_theme
     $ cd name_of_my_theme
     $ rm -rf .git
 

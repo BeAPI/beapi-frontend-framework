@@ -38,14 +38,14 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<meta name="msapplication-config" content="favicons/browserconfig.xml">
 		<meta name="theme-color" content="#ffffff">
 		
-		<!--[if lt IE 9]><script type="text/javascript" src="../assets/js/vendor_ie/html5shiv/dist/html5shiv.min.js"></script><![endif]-->
+		<!--[if lt IE 9]><script type="text/javascript" src="../assets/js/vendor_ie/html5shiv.min.js"></script><![endif]-->
 		<!--[if lte IE 8]>
 			<style type="text/css" media="screen">
 				.css3-fix {
 					behavior: url("../assets/htc/PIE.htc");
 				}
 			</style>
-			<script type="text/javascript" src="../assets/js/vendor_ie/selectivizr/selectivizr.js"></script>
+			<script type="text/javascript" src="../assets/js/vendor_ie/selectivizr.js"></script>
 		<![endif]-->
 
 		
@@ -113,5 +113,5 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 					</ul>
 				</div>
 			</nav>
-			<section id="main__content" class="main__content">
+			<div id="main__content" class="main__content">
 				<div class="wrapper">

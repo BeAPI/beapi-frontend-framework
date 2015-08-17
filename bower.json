@@ -10,7 +10,7 @@
     "magnific-popup": "~1.0.0",
     "susy": "~2.2.5",
     "loadcss": "~0.1.7",
-    "fontfaceobserver": "~1.4.12",
+    "fontfaceobserver": "~1.5.1",
     "html5shiv": "~3.7.2"
   }
 }

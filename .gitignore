@@ -55,7 +55,5 @@ bower_components/
 ### on dev need to specify themes path like : wp-content/themes/name_of_your_theme/assets/img/sample/cache ###
 assets/img/sample/cache
 
-### Temp hologram ###
-doc_assets/
-docs/
-hologram_config.yml
+### Temp styleguide ###
+assets/styleguide

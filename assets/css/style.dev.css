@@ -971,6 +971,9 @@ body {
 .fonts-loaded > body {
   font-family: Roboto, sans-serif; }
 
+.lte-ie8 > body {
+  font-family: Roboto, sans-serif; }
+
 a {
   color: #0084B4; }
   a:hover, a:active, a:focus {

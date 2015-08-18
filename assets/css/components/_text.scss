@@ -8,6 +8,9 @@ body {
 .fonts-loaded > body {
 	font-family: $googlefont-1;
 }
+.lte-ie8 > body {
+	font-family: $googlefont-1;
+}
 a {
 	color: $maincolor;
 	@include hover {

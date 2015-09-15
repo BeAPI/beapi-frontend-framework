@@ -34,7 +34,7 @@ NB: Directory "themewp" is used for backend purpose
 
 Install gulp, bower et browser-sync globaly (-g):
 
-    $ npm install gulp bower browser-syng -g
+    $ npm install gulp bower browser-sync -g
 
 Then launch:
 

@@ -13,7 +13,8 @@ var gulp = require('gulp'),
 	reload = browserSync.reload,
 	imageop = require('gulp-image-optimization'),
 	favicons = require('gulp-favicons'),
-	through = require('through2');
+	through = require('through2')
+	php = require('gulp-connect-php');
 
 
 var pxtoremOptions = {
@@ -21,13 +22,19 @@ var pxtoremOptions = {
 	prop_white_list: ['font', 'font-size', 'line-height', 'letter-spacing', 'margin', 'padding', 'border', 'border-top', 'border-left', 'border-bottom', 'border-right', 'border-radius', 'width', 'height', 'top', 'left', 'bottom', 'right']
 };
 
+/*Php server*/
+gulp.task('php', function() {
+	php.server({ base: '.', port: 9090, keepalive: true});
+});
+
 /*Set server*/
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', ['php'], function() {
 	browserSync({
-		//on wp install provide the path of your theme like:
-		//http://localhost/wp-content/themes/my_theme_name/html/
-		proxy: "http://localhost"
-	});
+        proxy: '127.0.0.1:9090',
+        port: 9090,
+        open: true,
+        notify: false
+    });
 });
 
 // Reload all Browsers
@@ -165,5 +172,5 @@ gulp.task('serve', ['browser-sync'], function() {
 	gulp.watch('assets/js/vendor/*.js', [ 'dev-vendor-js']);
 	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['dev-sass', 'dist-sass']);
 	gulp.watch(['assets/img/icons/*.svg'], ['iconfont', 'dev-sass']);
-	gulp.watch("html/*.php", ['bs-reload']);
+	gulp.watch(['html/**/*.php'], ['bs-reload']);
 });

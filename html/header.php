@@ -59,7 +59,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
 	</head>
-	<body class="<?php echo $class; ?>">
+	<body itemscope itemtype="http://schema.org/WebPage" class="<?php echo $class; ?>">
 		<!--[if lte IE 9]>
 			<div class="message message__browserhappy">
 				<p>

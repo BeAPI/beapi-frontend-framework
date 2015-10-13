@@ -9,3 +9,13 @@ var roboto400 = new FontFaceObserver("Roboto", {
 roboto400.check().then(function () {
 	document.documentElement.className += " fonts-loaded";
 });
+
+if (typeof Promise === 'function') { // < IE9
+	Promise.all([
+		roboto400.check(),
+	]).then(function() {
+		document.documentElement.className += " fonts-loaded";
+	});
+}else{
+	document.documentElement.className += " fonts-loaded";
+}

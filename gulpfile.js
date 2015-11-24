@@ -155,8 +155,8 @@ gulp.task('dist-sass', function () {
 			errLogToConsole: true
 		}))
 		.pipe(plugins.concat('style.min.css'))
-		.pipe(pxtorem(pxtoremOptions))
 		.pipe(minifyCSS())
+		.pipe(pxtorem(pxtoremOptions))
 		.pipe(gulp.dest('./assets/css'));
 });
 // On default task, just compile on demand

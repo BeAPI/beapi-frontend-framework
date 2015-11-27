@@ -131,7 +131,9 @@ function get_random_sample_img_url( $img_prefix = 'thumbnail' ) {
 
 	$rand_img = array_rand( $matches, 1 );
 
-	return $matches[ $rand_img ];
+	$img_path = $matches[ $rand_img ];
+
+	return str_replace( BEA_IMG_SAMPLE_DIR, BEA_IMG_SAMPLE_URL, $img_path );
 }
 
 /*

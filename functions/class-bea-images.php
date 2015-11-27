@@ -1,11 +1,15 @@
 <?php
-define( 'BEA_IMAGES_JSON_DIR', dirname( __FILE__ ).'/../assets/conf-img/' );
-class BEA_Images{
-	
+
+define( 'BEA_IMAGES_JSON_DIR', dirname( __FILE__ ) . '/../assets/conf-img/' );
+define( 'BEA_IMAGES_VERSION', '2.0.0' );
+
+class BEA_Images {
+
 	private static $locations;
 	private static $image_sizes;
 	private static $hooks;
-	public static $allowed_ext = array('.jpg', '.gif', '.png');
+	public static $allowed_ext = array( '.jpg', '.gif', '.png' );
+
 	/**
 	 * Construct
 	 */
@@ -14,89 +18,95 @@ class BEA_Images{
 		self::load_image_sizes();
 		self::load_locations();
 		self::load_hooks();
-		
+
 		// Set image size to WP
 		self::add_image_sizes();
-		
+
 		// Hook WP function for add new attribute
-		add_filter('wp_get_attachment_image_attributes', array(__CLASS__, 'get_attributes'),10,2 );
+		add_filter( 'wp_get_attachment_image_attributes', array( __CLASS__, 'get_attributes' ), 10, 2 );
+		add_filter( 'post_thumbnail_html', array( __CLASS__, 'bea_default_img' ), 10, 5 );
 	}
+
 	/*
 	 * Load JSON Image Sizes
 	 * 
 	 * @author Alexandre Sadowski
 	 */
-	public static function load_image_sizes(){
-		if( !is_file( BEA_IMAGES_JSON_DIR.'image-sizes.json' ) ){
+
+	public static function load_image_sizes() {
+		if ( !is_file( BEA_IMAGES_JSON_DIR . 'image-sizes.json' ) ) {
 			return false;
 		}
-		
-		$file_content = file_get_contents( BEA_IMAGES_JSON_DIR.'image-sizes.json' );
-		$result = json_decode( $file_content );
-		if( is_array( $result ) && !empty( $result ) ){
+
+		$file_content	 = file_get_contents( BEA_IMAGES_JSON_DIR . 'image-sizes.json' );
+		$result			 = json_decode( $file_content );
+		if ( is_array( $result ) && !empty( $result ) ) {
 			self::$image_sizes = $result;
 		}
 	}
-	
+
 	/*
 	 * Load locations JSON
 	 * 
 	 * @author Alexandre Sadowski
 	 */
-	public static function load_locations(  ){
-		if( !is_file( BEA_IMAGES_JSON_DIR.'image-locations.json' ) ){
+
+	public static function load_locations() {
+		if ( !is_file( BEA_IMAGES_JSON_DIR . 'image-locations.json' ) ) {
 			return false;
 		}
-		
-		$file_content = file_get_contents( BEA_IMAGES_JSON_DIR.'image-locations.json' );
-		$result = json_decode( $file_content );
-		if( is_array( $result ) && !empty( $result ) ){
+
+		$file_content	 = file_get_contents( BEA_IMAGES_JSON_DIR . 'image-locations.json' );
+		$result			 = json_decode( $file_content );
+		if ( is_array( $result ) && !empty( $result ) ) {
 			self::$locations = $result;
 		}
 	}
-	
+
 	/*
 	 * Load hooks JSON
 	 * 
 	 * @author Alexandre Sadowski
 	 */
-	public static function load_hooks(  ){
-		if( !is_file( BEA_IMAGES_JSON_DIR.'image-hooks.json' ) ){
+
+	public static function load_hooks() {
+		if ( !is_file( BEA_IMAGES_JSON_DIR . 'image-hooks.json' ) ) {
 			return false;
 		}
-		
-		$file_content = file_get_contents( BEA_IMAGES_JSON_DIR.'image-hooks.json' );
-		$result = json_decode( $file_content );
-		if( is_array( $result ) && !empty( $result ) ){
+
+		$file_content	 = file_get_contents( BEA_IMAGES_JSON_DIR . 'image-hooks.json' );
+		$result			 = json_decode( $file_content );
+		if ( is_array( $result ) && !empty( $result ) ) {
 			self::$hooks = $result;
 		}
 	}
-	
+
 	/*
 	 * Add Image Sizes in WP
 	 * 
 	 * @author Alexandre Sadowski
 	 */
+
 	public static function add_image_sizes() {
-		if( !is_array(self::$image_sizes) || empty(self::$image_sizes) ) {
+		if ( !is_array( self::$image_sizes ) || empty( self::$image_sizes ) ) {
 			return false;
 		}
-		
+
 		foreach ( self::$image_sizes as $key => $value ) {
-			foreach( $value as $name => $attributes ){
-				if( empty($attributes) ){
+			foreach ( $value as $name => $attributes ) {
+				if ( empty( $attributes ) ) {
 					continue;
 				}
-				
-				if( isset($attributes->width) && !empty( $attributes->width ) && isset($attributes->height) && !empty( $attributes->height ) && isset($attributes->crop) ){
-					add_image_size($name, $attributes->width, $attributes->height, $attributes->crop);
+
+				if ( isset( $attributes->width ) && !empty( $attributes->width ) && isset( $attributes->height ) && !empty( $attributes->height ) && isset( $attributes->crop ) ) {
+					add_image_size( $name, $attributes->width, $attributes->height, $attributes->crop );
 				}
 			}
 		}
-		
+
 		return true;
 	}
-	
+
 	/*
 	 * Get attributes of a location
 	 * 
@@ -105,23 +115,23 @@ class BEA_Images{
 	 * 
 	 * @author Alexandre Sadowski
 	 */
-	public static function get_location( $location = ''){
-		if( !is_array(self::$locations) | empty(self::$locations) ){
+
+	public static function get_location( $location = '' ) {
+		if ( !is_array( self::$locations ) | empty( self::$locations ) ) {
 			return false;
 		}
-		
+
 		foreach ( self::$locations as $key => $value ) {
-			foreach( $value as $name => $attributes ){
-				if( $name == $location ){
+			foreach ( $value as $name => $attributes ) {
+				if ( $name == $location ) {
 					return $attributes;
 				}
 			}
 		}
-		
+
 		return false;
 	}
-	
-	
+
 	/*
 	 * Get attributes of an image size
 	 * 
@@ -130,21 +140,22 @@ class BEA_Images{
 	 * 
 	 * @author Alexandre Sadowski
 	 */
-	public static function get_image_size( $location = ''){
-		if( !is_array(self::$image_sizes) | empty(self::$image_sizes) ){
+
+	public static function get_image_size( $location = '' ) {
+		if ( !is_array( self::$image_sizes ) | empty( self::$image_sizes ) ) {
 			return false;
 		}
-		
+
 		foreach ( self::$image_sizes as $key => $value ) {
-			foreach( $value as $name => $attributes ){
-				if( $name == $location ){
+			foreach ( $value as $name => $attributes ) {
+				if ( $name == $location ) {
 					return $attributes;
 				}
 			}
 		}
 		return false;
 	}
-	
+
 	/*
 	 * Get attributes of a hook
 	 * 
@@ -153,22 +164,23 @@ class BEA_Images{
 	 * 
 	 * @author Alexandre Sadowski
 	 */
-	public static function get_hook( $hook = ''){
-		if( !is_array(self::$hooks) | empty(self::$hooks) ){
+
+	public static function get_hook( $hook = '' ) {
+		if ( !is_array( self::$hooks ) | empty( self::$hooks ) ) {
 			return false;
 		}
-		
+
 		foreach ( self::$hooks as $key => $value ) {
-			foreach( $value as $name => $attributes ){
-				if( $name == $hook ){
+			foreach ( $value as $name => $attributes ) {
+				if ( $name == $hook ) {
 					return $attributes;
 				}
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	/*
 	 * Add filter on "wp_get_attachment_image_attributes" to add srcset attributes
 	 * 
@@ -178,39 +190,80 @@ class BEA_Images{
 	 * 
 	 * @author Alexandre Sadowski
 	 */
-	public static function get_attributes( $args = array(),WP_Post $attachment ){
-		if( !isset($args['data-location']) ){
+
+	public static function get_attributes( $args = array(), WP_Post $attachment ) {
+		if ( !isset( $args[ 'data-location' ] ) ) {
 			return $args;
 		}
-		
-		$location_array = self::get_location( $args['data-location'] );
-		if( empty( $location_array ) ){
-			$args['data-location'] = 'No location found';
+
+		$location_array = self::get_location( $args[ 'data-location' ] );
+		if ( empty( $location_array ) ) {
+			$args[ 'data-location' ] = 'No location found';
 		} else {
-			$srcset_attrs = array();
-			$args['sizes'] = '100vw';
-			foreach( $location_array as $location ){
-				if( !isset( $location->size ) || empty( $location->size ) ){
-					continue;
-				}
+			$location_array	 = array_shift( $location_array );
+			$srcset_attrs	 = array();
+			if ( !isset( $location_array->srcsets ) || empty( $location_array->srcsets ) ) {
+				$args[ 'data-location' ] = 'No srcsets found or not V2 JSON';
+			} else {
+				foreach ( $location_array->srcsets as $location ) {
+					if ( !isset( $location->size ) || empty( $location->size ) ) {
+						continue;
+					}
 
-				$img = wp_get_attachment_image_src( $attachment->ID, (array) self::get_image_size( $location->size ) );
-				if( empty($img) ){
-					continue;
-				}
+					$img = wp_get_attachment_image_src( $attachment->ID, (array) self::get_image_size( $location->size ) );
+					if ( empty( $img ) ) {
+						continue;
+					}
 
-				if( isset( $location->class ) && !empty( $location->class ) ){
-					$args['class'] = $args['class']. ' '.$location->class;
-				}
+					if ( isset( $location->class ) && !empty( $location->class ) ) {
+						$args[ 'class' ] = $args[ 'class' ] . ' ' . $location->class;
+					}
 
-				$srcset_attrs[] = $img[0].' '.$location->srcset;
+					$srcset_attrs[] = $img[ 0 ] . ' ' . $location->srcset;
+				}
 			}
-		
-			if( !empty($srcset_attrs) ){
-				$args['srcset'] = implode(', ', $srcset_attrs);
+
+			if ( !empty( $srcset_attrs ) ) {
+				$args[ 'srcset' ] = implode( ', ', $srcset_attrs );
 			}
 		}
-		
+
 		return $args;
 	}
+
+	/**
+	 * Add default image on post_thumbnail empty
+	 *
+	 * @author Alexandre Sadowski
+	 */
+	public static function bea_default_img( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
+		if ( !empty( $html ) ) {
+			return $html;
+		}
+		if ( !isset( $attr[ 'data-location' ] ) ) {
+			return $html;
+		}
+
+		$location_array = self::get_location( $attr[ 'data-location' ] );
+		if ( empty( $location_array ) ) {
+			return $html;
+		}
+
+		$location_array	 = array_shift( $location_array );
+		if ( !isset( $location_array->default_img ) || empty( $location_array->default_img ) ) {
+			return $html;
+		}
+
+		$default_path = apply_filters( 'bea_responsive_image_default_img_path', '/assets/img/default/', $attr );
+
+		$img_path = $default_path.$location_array->default_img;
+		if( !is_file(  get_stylesheet_directory().$img_path ) ){
+			return $html;
+		}
+
+		$classes = isset($attr['class']) ? $attr['class'] : '';
+
+		return '<img src="' .  get_stylesheet_directory_uri().$img_path.'" class="attachment-thumbnail wp-post-image '.$classes.'">';
+	}
+
 }

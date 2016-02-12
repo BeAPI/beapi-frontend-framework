@@ -74,12 +74,20 @@ function get_the_post_thumbnail( $post_id = 0, $size_or_img_name = 'thumbnail', 
 		$attr['srcset'] = implode( ', ', $srcset_attrs );
 	}
 
+	//Get img_base size for base SRC
+	if( isset( $location_array->img_base ) && !empty( isset( $location_array->img_base ) )  ){
+		$_size = $bea_image::get_image_size( $location_array->img_base );
+		if ( !empty( $_size ) ) {
+			$image_size = $_size;
+		}
+	}
+
 	$is_img = is_size_or_img( $size_or_img_name );
 	if ( $is_img === true ) {
 		$src = get_file( BEA_IMG_SAMPLE_DIR . $size_or_img_name, $image_size );
 	} else {
 		$img_url = get_random_sample_img_url( $size_or_img_name );
-		$src     = get_timthumb_url( $img_url, '' );
+		$src     = get_timthumb_url( $img_url, $image_size );
 	}
 
 

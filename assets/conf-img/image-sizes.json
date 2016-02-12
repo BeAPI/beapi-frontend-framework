@@ -12,6 +12,12 @@
 				"width":"300",
 				"height":"300",
 				"crop":true
-			}
+			},
+		"img-600-600":
+		{
+		  "width":"600",
+		  "height":"600",
+		  "crop":false
+		}
 	}
 ]

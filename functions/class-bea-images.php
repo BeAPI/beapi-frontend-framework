@@ -29,66 +29,66 @@ class BEA_Images {
 
 	/*
 	 * Load JSON Image Sizes
-	 * 
+	 *
 	 * @author Alexandre Sadowski
 	 */
 
 	public static function load_image_sizes() {
-		if ( !is_file( BEA_IMAGES_JSON_DIR . 'image-sizes.json' ) ) {
+		if ( ! is_file( BEA_IMAGES_JSON_DIR . 'image-sizes.json' ) ) {
 			return false;
 		}
 
-		$file_content	 = file_get_contents( BEA_IMAGES_JSON_DIR . 'image-sizes.json' );
-		$result			 = json_decode( $file_content );
-		if ( is_array( $result ) && !empty( $result ) ) {
+		$file_content = file_get_contents( BEA_IMAGES_JSON_DIR . 'image-sizes.json' );
+		$result       = json_decode( $file_content );
+		if ( is_array( $result ) && ! empty( $result ) ) {
 			self::$image_sizes = $result;
 		}
 	}
 
 	/*
 	 * Load locations JSON
-	 * 
+	 *
 	 * @author Alexandre Sadowski
 	 */
 
 	public static function load_locations() {
-		if ( !is_file( BEA_IMAGES_JSON_DIR . 'image-locations.json' ) ) {
+		if ( ! is_file( BEA_IMAGES_JSON_DIR . 'image-locations.json' ) ) {
 			return false;
 		}
 
-		$file_content	 = file_get_contents( BEA_IMAGES_JSON_DIR . 'image-locations.json' );
-		$result			 = json_decode( $file_content );
-		if ( is_array( $result ) && !empty( $result ) ) {
+		$file_content = file_get_contents( BEA_IMAGES_JSON_DIR . 'image-locations.json' );
+		$result       = json_decode( $file_content );
+		if ( is_array( $result ) && ! empty( $result ) ) {
 			self::$locations = $result;
 		}
 	}
 
 	/*
 	 * Load hooks JSON
-	 * 
+	 *
 	 * @author Alexandre Sadowski
 	 */
 
 	public static function load_hooks() {
-		if ( !is_file( BEA_IMAGES_JSON_DIR . 'image-hooks.json' ) ) {
+		if ( ! is_file( BEA_IMAGES_JSON_DIR . 'image-hooks.json' ) ) {
 			return false;
 		}
 
-		$file_content	 = file_get_contents( BEA_IMAGES_JSON_DIR . 'image-hooks.json' );
-		$result			 = json_decode( $file_content );
-		if ( is_array( $result ) && !empty( $result ) ) {
+		$file_content = file_get_contents( BEA_IMAGES_JSON_DIR . 'image-hooks.json' );
+		$result       = json_decode( $file_content );
+		if ( is_array( $result ) && ! empty( $result ) ) {
 			self::$hooks = $result;
 		}
 	}
 
 	/*
 	 * Add Image Sizes in WP
-	 * 
+	 *
 	 * @author Alexandre Sadowski
 	 */
 
 	public static function add_image_sizes() {
-		if ( !is_array( self::$image_sizes ) || empty( self::$image_sizes ) ) {
+		if ( ! is_array( self::$image_sizes ) || empty( self::$image_sizes ) ) {
 			return false;
 		}
 
@@ -98,7 +98,7 @@ class BEA_Images {
 					continue;
 				}
 
-				if ( isset( $attributes->width ) && !empty( $attributes->width ) && isset( $attributes->height ) && !empty( $attributes->height ) && isset( $attributes->crop ) ) {
+				if ( isset( $attributes->width ) && ! empty( $attributes->width ) && isset( $attributes->height ) && ! empty( $attributes->height ) && isset( $attributes->crop ) ) {
 					add_image_size( $name, $attributes->width, $attributes->height, $attributes->crop );
 				}
 			}
@@ -109,15 +109,15 @@ class BEA_Images {
 
 	/*
 	 * Get attributes of a location
-	 * 
+	 *
 	 * @value string $location The location name used in JSON
 	 * @return array|false $attributes Array of attributes in JSON : srcset, size, class, default_src...
-	 * 
+	 *
 	 * @author Alexandre Sadowski
 	 */
 
 	public static function get_location( $location = '' ) {
-		if ( !is_array( self::$locations ) | empty( self::$locations ) ) {
+		if ( ! is_array( self::$locations ) | empty( self::$locations ) ) {
 			return false;
 		}
 
@@ -134,15 +134,15 @@ class BEA_Images {
 
 	/*
 	 * Get attributes of an image size
-	 * 
+	 *
 	 * @value string $location The location name used in JSON
 	 * @return array|false $attributes Array of attributes in JSON : width, height, crop
-	 * 
+	 *
 	 * @author Alexandre Sadowski
 	 */
 
 	public static function get_image_size( $location = '' ) {
-		if ( !is_array( self::$image_sizes ) | empty( self::$image_sizes ) ) {
+		if ( ! is_array( self::$image_sizes ) | empty( self::$image_sizes ) ) {
 			return false;
 		}
 
@@ -153,20 +153,35 @@ class BEA_Images {
 				}
 			}
 		}
+
 		return false;
 	}
 
 	/*
+	 * Get all image sizes
+	 *
+	 * @return array : JSON image sizes
+	 *
+	 * @author Nicolas Juen
+	 */
+    public static function get_image_sizes() {
+		if ( ! is_array( self::$image_sizes ) || empty( self::$image_sizes ) ) {
+			return array();
+		}
+		return self::$image_sizes;
+	}
+
+	/*
 	 * Get attributes of a hook
-	 * 
+	 *
 	 * @value string $hook The Hook name used in JSON
 	 * @return array|false $attributes Array of attributes in JSON : srcset, size, class, default_src...
-	 * 
+	 *
 	 * @author Alexandre Sadowski
 	 */
 
 	public static function get_hook( $hook = '' ) {
-		if ( !is_array( self::$hooks ) | empty( self::$hooks ) ) {
+		if ( ! is_array( self::$hooks ) | empty( self::$hooks ) ) {
 			return false;
 		}
 
@@ -183,30 +198,30 @@ class BEA_Images {
 
 	/*
 	 * Add filter on "wp_get_attachment_image_attributes" to add srcset attributes
-	 * 
+	 *
 	 * @value array $args attributes for the image markup.
 	 * @value object $attachment WP_Post of attachment
 	 * @return array $attributes attributes for the image markup.
-	 * 
+	 *
 	 * @author Alexandre Sadowski
 	 */
 
 	public static function get_attributes( $args = array(), WP_Post $attachment ) {
-		if ( !isset( $args[ 'data-location' ] ) ) {
+		if ( ! isset( $args['data-location'] ) ) {
 			return $args;
 		}
 
-		$location_array = self::get_location( $args[ 'data-location' ] );
+		$location_array = self::get_location( $args['data-location'] );
 		if ( empty( $location_array ) ) {
-			$args[ 'data-location' ] = 'No location found';
+			$args['data-location'] = 'No location found';
 		} else {
-			$location_array	 = array_shift( $location_array );
-			$srcset_attrs	 = array();
-			if ( !isset( $location_array->srcsets ) || empty( $location_array->srcsets ) ) {
-				$args[ 'data-location' ] = 'No srcsets found or not V2 JSON';
+			$location_array = array_shift( $location_array );
+			$srcset_attrs   = array();
+			if ( ! isset( $location_array->srcsets ) || empty( $location_array->srcsets ) ) {
+				$args['data-location'] = 'No srcsets found or not V2 JSON';
 			} else {
 				foreach ( $location_array->srcsets as $location ) {
-					if ( !isset( $location->size ) || empty( $location->size ) ) {
+					if ( ! isset( $location->size ) || empty( $location->size ) ) {
 						continue;
 					}
 
@@ -215,16 +230,16 @@ class BEA_Images {
 						continue;
 					}
 
-					if ( isset( $location->class ) && !empty( $location->class ) ) {
-						$args[ 'class' ] = $args[ 'class' ] . ' ' . $location->class;
+					if ( isset( $location->class ) && ! empty( $location->class ) ) {
+						$args['class'] = $args['class'] . ' ' . $location->class;
 					}
 
-					$srcset_attrs[] = $img[ 0 ] . ' ' . $location->srcset;
+					$srcset_attrs[] = $img[0] . ' ' . $location->srcset;
 				}
 			}
 
-			if ( !empty( $srcset_attrs ) ) {
-				$args[ 'srcset' ] = implode( ', ', $srcset_attrs );
+			if ( ! empty( $srcset_attrs ) ) {
+				$args['srcset'] = implode( ', ', $srcset_attrs );
 			}
 		}
 
@@ -237,33 +252,33 @@ class BEA_Images {
 	 * @author Alexandre Sadowski
 	 */
 	public static function bea_default_img( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
-		if ( !empty( $html ) ) {
+		if ( ! empty( $html ) ) {
 			return $html;
 		}
-		if ( !isset( $attr[ 'data-location' ] ) ) {
+		if ( ! isset( $attr['data-location'] ) ) {
 			return $html;
 		}
 
-		$location_array = self::get_location( $attr[ 'data-location' ] );
+		$location_array = self::get_location( $attr['data-location'] );
 		if ( empty( $location_array ) ) {
 			return $html;
 		}
 
-		$location_array	 = array_shift( $location_array );
-		if ( !isset( $location_array->default_img ) || empty( $location_array->default_img ) ) {
+		$location_array = array_shift( $location_array );
+		if ( ! isset( $location_array->default_img ) || empty( $location_array->default_img ) ) {
 			return $html;
 		}
 
 		$default_path = apply_filters( 'bea_responsive_image_default_img_path', '/assets/img/default/', $attr );
 
-		$img_path = $default_path.$location_array->default_img;
-		if( !is_file(  get_stylesheet_directory().$img_path ) ){
+		$img_path = $default_path . $location_array->default_img;
+		if ( ! is_file( get_stylesheet_directory() . $img_path ) ) {
 			return $html;
 		}
 
-		$classes = isset($attr['class']) ? $attr['class'] : '';
+		$classes = isset( $attr['class'] ) ? $attr['class'] : '';
 
-		return '<img src="' .  get_stylesheet_directory_uri().$img_path.'" class="attachment-thumbnail wp-post-image '.$classes.'">';
+		return '<img src="' . get_stylesheet_directory_uri() . $img_path . '" class="attachment-thumbnail wp-post-image ' . $classes . '">';
 	}
 
 }

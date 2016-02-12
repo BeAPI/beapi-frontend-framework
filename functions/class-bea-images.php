@@ -164,10 +164,11 @@ class BEA_Images {
 	 *
 	 * @author Nicolas Juen
 	 */
-    public static function get_image_sizes() {
+	public static function get_image_sizes() {
 		if ( ! is_array( self::$image_sizes ) || empty( self::$image_sizes ) ) {
 			return array();
 		}
+
 		return self::$image_sizes;
 	}
 
@@ -235,6 +236,14 @@ class BEA_Images {
 					}
 
 					$srcset_attrs[] = $img[0] . ' ' . $location->srcset;
+				}
+			}
+
+			//Get img_base size for base SRC
+			if( isset( $location_array->img_base ) && ! empty( $location_array->img_base ) ){
+				$img = wp_get_attachment_image_src( $attachment->ID, (array) self::get_image_size( $location_array->img_base ) );
+				if ( is_array( $img ) && ! empty( $img ) ) {
+					$args['src'] = $img[0];
 				}
 			}
 

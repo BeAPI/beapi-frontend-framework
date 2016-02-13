@@ -1,17 +1,23 @@
 [
 	{
 		"small":[],
-		"img-150-150":
-			{
-				"width":"150",
-				"height":"150",
-				"crop":true
-			},
-		"img-300-300":
+		"img-300-200":
 			{
 				"width":"300",
-				"height":"300",
+				"height":"200",
 				"crop":true
+			},
+		"img-600-400":
+			{
+				"width":"600",
+				"height":"400",
+				"crop":true
+			},
+		"img-600-600":
+			{
+				"width":"600",
+				"height":"600",
+				"crop":false
 			}
 	}
 ]

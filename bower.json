@@ -2,15 +2,15 @@
   "name": "base-theme-beapi",
   "version": "0.2.0",
   "dependencies": {
-    "normalize-scss": "~3.0.1",
-    "selectivizr": "~1.0.2",
-    "respond": "~1.4.2",
-    "picturefill": "~3.0.1",
-    "superfish": "~1.7.5",
-    "magnific-popup": "~1.0.0",
-    "susy": "~2.2.5",
-    "loadcss": "~0.1.7",
     "fontfaceobserver": "~1.5.1",
-    "html5shiv": "~3.7.2"
+    "html5shiv": "~3.7.2",
+    "loadcss": "~0.1.7",
+    "magnific-popup": "~1.0.0",
+    "normalize-scss": "~3.0.1",
+    "picturefill": "~3.0.2",
+    "respond": "~1.4.2",
+    "selectivizr": "~1.0.2",
+    "superfish": "~1.7.5",
+    "susy": "~2.2.5"
   }
 }

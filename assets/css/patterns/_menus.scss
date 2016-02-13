@@ -41,7 +41,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	@include susy-breakpoint($tablet-medium) {
+	@include susy-breakpoint($desktop-small) {
 		display: none;
 	}
 }
@@ -54,7 +54,7 @@
 	@include clearfix;
 	width: 80%;
 	padding: 40px 0;
-	background: $darkcolor;
+	background: $light-gray;
 	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
 	@include transition (left 0.5s ease-out);
@@ -96,7 +96,7 @@
 			}
 		}
 	}
-	@include susy-breakpoint($tablet-medium) {
+	@include susy-breakpoint($desktop-small) {
 		//reset mobile menu position and dimensions
 		position: static;
 		left: auto;

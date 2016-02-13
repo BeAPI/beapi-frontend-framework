@@ -1,7 +1,7 @@
 <?php $class = 'home'; ?>
 <?php include 'header.php'; ?>
 		
-	<section class="content" id="content">
+	<section id="content" class="content">
 		<div class="entry__loop">
 			<?php include 'blocks/entry__summary-01.php' ?>
 			<?php include 'blocks/entry__summary-01.php' ?>
@@ -17,7 +17,6 @@
 			<?php include 'blocks/widgets/widget-categories.php'; ?>
 			<?php include 'blocks/widgets/widget-archive.php'; ?>
 			<?php include 'blocks/widgets/widget-pages.php'; ?>
-			<?php include 'blocks/widgets/widget-gravityform.php'; ?>
 		</div>
 	</aside>
 

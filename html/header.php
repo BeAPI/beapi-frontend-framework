@@ -63,20 +63,22 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<!--[if lte IE 9]>
 			<div class="message message__browserhappy">
 				<p>
-				You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience. <br>
-				<a href="#" onclick="jQuery('.message__browserhappy').hide();"><small>Close</small></a>
+				You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.
+				</p>
+				<p>
+				<button><span class="button-icon icon-close"></span>&nbsp;Close</button>
 				</p>
 			</div>
 		<![endif]-->
 		<div id="main">
 			<ul class="menu__fastaccess">
-				<li><a href="#main-content">Acces direct au contenu</a></li>
-				<li><a href="#search">Acces direct à la recherche</a></li>
+				<li><a href="#main__content">Acces direct au contenu</a></li>
+				<li><a href="#searchform">Acces direct à la recherche</a></li>
 				<li><a href="#menu">Acces direct au menu</a></li>
 			</ul>
 			<div class="button__menu-container">
-				<button class="button__menu-open"><span class="icon-menu"></span>Menu</button>
-				<button class="button__menu-close"><span class="icon-close"></span>Fermer</button>
+				<button class="button__menu-open"><span class="button__icon icon-menu"></span>Menu</button>
+				<button class="button__menu-close"><span class="button__icon icon-close"></span>Fermer</button>
 			</div>
 			<header id="header" class="header">
 				<div class="wrapper">
@@ -92,7 +94,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 					<?php endif; ?>
 				</div>
 			</header>
-			<nav id="menu" class="menu menu__mobile">
+			<nav id="menu" class="menu menu__mobile" tabindex="-1">
 				<div class="wrapper">
 					<ul class="sf-menu">
 						<li>
@@ -113,5 +115,5 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 					</ul>
 				</div>
 			</nav>
-			<div id="main__content" class="main__content">
+			<main id="main__content" class="main__content" tabindex="-1" role="main" aria-label="Contenu Principal">
 				<div class="wrapper">

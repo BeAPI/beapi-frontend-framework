@@ -32,3 +32,10 @@ button:active,
 	color: $lightcolor;
 	background: $maincolor;
 }
+
+.button__icon {
+	display: inline-block;
+	font-size: 85%;
+	vertical-align: -5%;
+	padding-right: $half-base-spacing;
+}

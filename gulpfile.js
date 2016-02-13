@@ -112,9 +112,16 @@ gulp.task('dev-vendor-js', function () {
 		.pipe(gulp.dest('assets/js'));
 });
 
+gulp.task('dev-check-js', function () {
+	// Concat the vendor and the src
+	return gulp.src( ['assets/js/src/*.js'] )
+		.pipe(plugins.jshint())
+		.pipe(plugins.jshint.reporter('default'));
+});
+
 gulp.task('dist-all-js', function () {
 	// Make a vendor
-	gulp.src(['assets/js/vendor/*.min.js', 'assets/js/vendor/*-min.js', 'assets/js/vendor/**/*-min.js', 'assets/js/vendor/**/*.min.js', '!assets/js/vendor/{jquery,jquery/**}'])
+	gulp.src(['assets/js/vendor/*.js'])
 		.pipe(plugins.concat('vendor.min.js'))
 		.pipe(gulp.dest('assets/js'));
 
@@ -125,15 +132,6 @@ gulp.task('dist-all-js', function () {
 		.pipe(gulp.dest('assets/js/'));
 });
 
-gulp.task('dev-check-js', function () {
-	// Concat the vendor and the src
-	return gulp.src( [ 'assets/js/vendor.min.js', 'assets/js/src/*.js'])
-		.pipe(plugins.jshint())
-		.pipe(plugins.jshint.reporter('default'))
-		.pipe(plugins.uglify())
-		.pipe(concat('scripts.min.js', { sourceRoot : '../../' }))
-		.pipe(gulp.dest('assets/js/'));
-});
 
 /* SASS Task */
 gulp.task('dev-sass', function () {
@@ -161,8 +159,8 @@ gulp.task('dist-sass', function () {
 });
 // On default task, just compile on demand
 gulp.task('default', function() {
-	gulp.watch('assets/js/src/*.js', [ 'dev-check-js']);
-	gulp.watch('assets/js/vendor/*.js', [ 'dev-vendor-js']);
+	gulp.watch('assets/js/src/*.js', [ 'dev-check-js', 'dist-all-js' ]);
+	gulp.watch('assets/js/vendor/*.js', [ 'dev-vendor-js', 'dist-all-js' ]);
 	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['dev-sass', 'dist-sass']);
 	gulp.watch(['assets/img/icons/*.svg'], ['iconfont', 'dev-sass']);
 });

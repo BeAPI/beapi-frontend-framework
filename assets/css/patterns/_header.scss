@@ -1,6 +1,13 @@
 /* Header css
  ----------------------------------------------------------------------------------------------------*/
+.header {
+	@extend clearfix;
+	padding-top: $base-spacing;
+}
+.header__logo-link {
+	display: block;
+}
 .header__img {
 	@extend %img__responsive;
-	margin: 0 auto 20px;
+	margin: 0 auto $base-spacing;
 }

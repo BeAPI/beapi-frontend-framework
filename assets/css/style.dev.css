@@ -1661,6 +1661,12 @@ button:active,
 
 /* Header css
  ----------------------------------------------------------------------------------------------------*/
+.header {
+  padding-top: 20px; }
+
+.header__logo-link {
+  display: block; }
+
 .header__img {
   margin: 0 auto 20px;
   margin: 0 auto 1.25rem; }
@@ -1668,6 +1674,7 @@ button:active,
 /* Menus
 ----------------------------------------------------------------------------------------------------*/
 .menu__fastaccess {
+  margin: 0;
   font-size: 9px;
   font-size: 0.5625rem;
   display: none; }

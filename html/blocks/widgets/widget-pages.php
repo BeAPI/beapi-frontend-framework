@@ -1,5 +1,5 @@
 <div class="widget widget_pages">
-	<h4 class="widgettitle">Widget pages</h4>
+	<h2 class="widgettitle">Widget pages</h2>
 	<div class="widget__inner">
 		<ul>
 			<li class="page-item"><a href="#">Page 1</a></li>

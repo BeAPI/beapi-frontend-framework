@@ -2,11 +2,10 @@
 <article class="entry__summary" itemscope itemtype="http://schema.org/Article">
 	<a class="alignleft" href="#">
 		<!-- Local dev only -->
-		<img src="http://placehold.it/150x150" width="150" height="150" alt="#">
+		<!-- <img src="http://placehold.it/150x150" width="150" height="150" alt="#"> -->
 		<!-- end Local dev only -->
-		<!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01' ) ); ?> -->
-		<!-- thumbnail to be displayed in google search result -->
-		<meta itemprop="thumbnailUrl" content="http://placehold.it/150x150">
+		<?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01' ) ); ?> 
+		
 	</a>
 	<h2 class="entry__title" itemprop="headline">
 		<a href="#">There is a post + a 20 words lorem ipsum excerpt</a>

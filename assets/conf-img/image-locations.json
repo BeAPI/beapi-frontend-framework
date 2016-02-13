@@ -5,16 +5,15 @@
         "srcsets": [
           {
             "srcset": "",
-            "size": "img-150-150",
-            "class": "alignleft"
+            "size": "img-300-200"
           },
           {
             "srcset": "2x",
-            "size": "img-300-300"
+            "size": "img-600-400"
           }
         ],
-        "default_img": "thumbnail_default-270-135.jpg",
-        "img_base": "img-600-600"
+        "default_img": "thumb-300-200.jpg",
+        "img_base": "img-300-200"
       }
     ]
   }

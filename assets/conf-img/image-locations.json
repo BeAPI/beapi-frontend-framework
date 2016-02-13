@@ -15,6 +15,22 @@
         "default_img": "thumb-300-200.jpg",
         "img_base": "img-300-200"
       }
+    ],
+    "header-logo": [
+      {
+        "srcsets": [
+          {
+            "srcset": "",
+            "size": "img-100-100"
+          },
+          {
+            "srcset": "2x",
+            "size": "img-200-200"
+          }
+        ],
+        "default_img": "thumb-100-100.jpg",
+        "img_base": "img-100-100"
+      }
     ]
   }
 ]

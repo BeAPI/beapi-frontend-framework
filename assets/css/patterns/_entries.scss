@@ -47,3 +47,6 @@
 .entry__summary {
 	@include clearfix;
 }
+.entry__img {
+	@extend %img__responsive;
+}

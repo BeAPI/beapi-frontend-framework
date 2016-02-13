@@ -84,7 +84,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 				<div class="wrapper">
 					<div class="header__logo">
 						<a href="#" class="header__logo-link">
-							<img src="http://placehold.it/300x75&text=LOGO" alt="#" class="header__logo-img" />
+							<?php echo get_the_post_thumbnail( 0, 'logo-beapi', array( 'data-location' => 'header-logo', 'class' => 'header__img' ) ); ?> 
 						</a>
 					</div>
 					<?php if ( $class == 'home' ) :?>

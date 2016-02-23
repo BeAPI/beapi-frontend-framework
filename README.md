@@ -91,6 +91,21 @@ We do not fully respect the BEM css method but we like this kind of OOCSS:
     .module-name__element (.header__column, .header__button etc.)
     .module-name__element--modifier (.header__element--visible, .header__element--color-2 etc.)
 
+Keep in mind that your class will be more reusable if they are generic enough. If you have too much subelements in your class, there's a problem in your markup.
+
+For example
+
+    .entry-metas
+    .entry-metas__date
+    .entry-metas__date__month
+Should be
+
+    .entry-metas
+    .entry-date
+    .entry-date__month
+Cause date element could be use outside metas. You shouldn't have more than 1 subelement, except in really specifical cases.
+
+
 CSS partials are classified and saved in 4 mains folders
 
 * *vendor*. It's where external ressources are. Most of themes are selected manually from bower_components because sometimes it need to be renamed as .scss and modified. the original files are still available like this.

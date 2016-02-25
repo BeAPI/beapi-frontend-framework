@@ -103,7 +103,7 @@ Should be
     .entry-metas
     .entry-date
     .entry-date__month
-Cause date element could be use outside metas. You shouldn't have more than 1 subelement, except in really specifical cases.
+Cause date element could be used outside metas. You shouldn't have more than 1 subelement, except in really specifical cases.
 
 
 CSS partials are classified and saved in 4 mains folders

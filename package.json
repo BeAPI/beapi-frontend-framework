@@ -32,5 +32,8 @@
     "matchdep": "*",
     "node-bourbon": "^1.2.3",
     "through2": "^2.0.0"
+  },
+  "dependencies": {
+    "avalanche-css": "^1.0.1"
   }
 }

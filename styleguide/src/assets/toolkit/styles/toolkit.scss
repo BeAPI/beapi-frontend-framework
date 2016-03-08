@@ -2,7 +2,6 @@
  * Toolkit styles
  */
 
-
 body {
 	font-family: sans-serif;
 }
@@ -14,13 +13,17 @@ body {
 //http://bourbon.io/docs/
 @import "bourbon";
 
+// Dynamic paths
+$images-url: "../../../../../assets/img";
+$fonts-url : "../../../../../assets/fonts";
+$sprite : $images-url + "/sprite.png";
+
 //Load vendor css from bower 
 @import "../../../../../assets/css/vendor/normalize-scss/_normalize.scss";
 
 @import "../../../../../assets/css/vendor/_magnific-popup.scss";
 
 //Main sass config files
-@import "../../../../../assets/css/components/_url-config.scss";
 @import "../../../../../assets/css/components/_variables.scss";
 
 //Main websites components

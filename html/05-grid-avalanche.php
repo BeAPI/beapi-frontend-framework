@@ -152,7 +152,7 @@
 				</div>
 			</article>
 			<h4>Make Responsive: 1 col in mobile, 2 in tablet, 3 in desktop</h4>
-			<div class="grid-sandbox grid--flush--handheld-and-up">
+			<div class="grid-sandbox">
 				<div class="grid">
 					<div class="1/2--handheld-and-up 1/3--lap-and-up grid__cell">
 						<div class="box">.1/3</div>

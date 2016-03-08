@@ -1476,6 +1476,17 @@ button:active,
   .info a {
     color: #205791; }
 
+.lazyload,
+.lazyloading {
+  opacity: 0; }
+
+.lazyloaded {
+  opacity: 1;
+  background: #ddd;
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  transition: opacity 0.5s; }
+
 /* Global css
  ----------------------------------------------------------------------------------------------------*/
 /* Utility/Misc Classes

@@ -71,7 +71,7 @@ function get_the_post_thumbnail( $post_id = 0, $size_or_img_name = 'thumbnail', 
 	}
 
 	if ( ! empty( $srcset_attrs ) ) {
-		$attr['srcset'] = implode( ', ', $srcset_attrs );
+		$attr['data-srcset'] = implode( ', ', $srcset_attrs );
 	}
 
 	//Get img_base size for base SRC
@@ -92,7 +92,7 @@ function get_the_post_thumbnail( $post_id = 0, $size_or_img_name = 'thumbnail', 
 
 
 	// Merge with default
-	$attr = array_merge( $attr, array( 'src' => $src ) );
+	$attr = array_merge( $attr, array( 'src' => 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' ) );
 
 	// Write HTML
 	$html = rtrim( "<img" );

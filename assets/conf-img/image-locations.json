@@ -4,11 +4,11 @@
       {
         "srcsets": [
           {
-            "data-srcset": "",
+            "srcset": "",
             "size": "img-300-200"
           },
           {
-            "data-srcset": "2x",
+            "srcset": "2x",
             "size": "img-600-400"
           }
         ],

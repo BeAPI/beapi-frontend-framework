@@ -1797,6 +1797,9 @@ button:active,
   content: "";
   display: table; }
 
+.entry__summary {
+  margin-bottom: 50px; }
+
 .entry__content::after {
   clear: both;
   content: "";

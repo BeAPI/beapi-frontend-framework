@@ -4,6 +4,7 @@
   "dependencies": {
     "fontfaceobserver": "~1.5.1",
     "html5shiv": "~3.7.2",
+    "lazysizes": "~1.4.0",
     "loadcss": "~0.1.7",
     "magnific-popup": "~1.0.0",
     "normalize-scss": "~3.0.1",

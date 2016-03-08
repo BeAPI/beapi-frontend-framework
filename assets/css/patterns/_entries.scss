@@ -7,6 +7,9 @@
 .page__title {
 	
 }
+.entry__summary {
+	margin-bottom: 50px;
+}
 .entry__content {
 	@include clearfix;
 	ul {

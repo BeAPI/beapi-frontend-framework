@@ -870,6 +870,11 @@ img.mfp-img {
   .grid--huge > .grid__cell {
     padding-left: 80px; }
 
+.grid--gutter {
+  margin-left: -2px; }
+  .grid--gutter > .grid__cell {
+    padding-left: 2px; }
+
 .grid--auto > .grid__cell {
   width: auto; }
 

@@ -7,7 +7,7 @@
 $av-namespace:  'grid' !default;  // Prefix namespace for grid layout and cells
 $av-gutter:     20px !default;    // Gutter between grid cells
 $av-gutter:     20px !default;
-$av-gutter-pers:     2px; //Personnal Grid Gutter
+$av-gutter-custom:     2px; //Personnal Grid Gutter
 
 $av-width-class-namespace:  '' !default;          // Prefix namepspace for width classes
 $av-width-class-style:      'fraction' !default;  // Width class naming style. Can be 'fraction', 'percentage' or 'fragment'
@@ -275,11 +275,11 @@ $av-enable-grid-gutter:          true !default;
 }
 
 @if $av-enable-grid-gutter{
-  .#{$av-namespace}--gutter{
-    margin-left: -($av-gutter-pers);
+  .#{$av-namespace}--gutter-custom{
+    margin-left: -($av-gutter-custom);
 
     > .#{$av-namespace}__cell{
-      padding-left: $av-gutter-pers;
+      padding-left: $av-gutter-custom;
     }
   }
 }

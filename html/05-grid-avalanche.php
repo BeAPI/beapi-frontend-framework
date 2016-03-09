@@ -167,7 +167,7 @@
 			</div>
 			<h4>Personnal Gutters</h4>
 			<article class="grid-sandbox">
-				<div class="grid grid--gutter">
+				<div class="grid grid--gutter-custom">
 					<div class="1/4 grid__cell">
 						<div class="box">.1/4</div>
 					</div>

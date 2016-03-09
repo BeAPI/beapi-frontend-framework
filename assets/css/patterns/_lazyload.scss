@@ -4,6 +4,5 @@
 }
 .lazyloaded {
 	opacity: 1;
-	background: $maingrey;
 	@include transition(opacity 0.5s);
 }

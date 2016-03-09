@@ -1482,7 +1482,6 @@ button:active,
 
 .lazyloaded {
   opacity: 1;
-  background: #ddd;
   -webkit-transition: opacity 0.5s;
   -moz-transition: opacity 0.5s;
   transition: opacity 0.5s; }

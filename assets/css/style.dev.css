@@ -799,6 +799,12 @@ img.mfp-img {
   right: 0;
   padding-top: 0; }
 
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
 @font-face {
   font-family: "bea_icons";
   src: url("../../assets/fonts/bea_icons.eot");

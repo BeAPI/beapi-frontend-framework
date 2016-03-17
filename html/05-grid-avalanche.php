@@ -176,6 +176,17 @@
 					</div>
 				</div>
 			</article>
+			<h4>Responsive Gutters</h4>
+			<article class="grid-sandbox">
+				<div class="grid grid--flush  grid--small--handheld-and-up grid--huge--lap-and-up">
+					<div class="1/4 grid__cell">
+						<div class="box">.1/4</div>
+					</div>
+					<div class="3/4 grid__cell">
+						<div class="box">.3/4</div>
+					</div>
+				</div>
+			</article>
 		</article>
 	</section>
 

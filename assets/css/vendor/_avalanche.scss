@@ -8,6 +8,12 @@ $av-namespace:  'grid' !default;  // Prefix namespace for grid layout and cells
 $av-gutter:     20px !default;    // Gutter between grid cells
 $av-gutter:     20px !default;
 $av-gutter-custom:     2px; //Personnal Grid Gutter
+$av-gutters:  (
+  "tiny":   0.25,
+  "small":  0.5,
+  "large":  2,
+  "huge":   4
+);
 
 $av-width-class-namespace:  '' !default;          // Prefix namepspace for width classes
 $av-width-class-style:      'fraction' !default;  // Width class naming style. Can be 'fraction', 'percentage' or 'fragment'
@@ -328,6 +334,21 @@ $av-enable-grid-gutter:          true !default;
     // Create each media query
     @media #{$query}{
       @include av-create-widths($av-widths, --#{$alias});    
+    }
+  }
+}
+
+
+@each $alias, $query in $av-breakpoints{
+  @media #{$query}{
+    @each $gutter-alias, $multiplier in $av-gutters{
+      .#{$av-namespace}--#{$gutter-alias}--#{$alias}{
+        margin-left: -($av-gutter * $multiplier);
+
+        > .#{$av-namespace}__cell{
+          padding-left: ($av-gutter * $multiplier);
+        }
+      }
     }
   }
 }

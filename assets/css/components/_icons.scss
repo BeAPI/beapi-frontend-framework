@@ -1,11 +1,11 @@
 //Icon template in order to automaticaly generate icon-xx scss
 @font-face {
 	font-family: "bea_icons";
-	src: url('../../assets/fonts/bea_icons.eot');
-	src: url('../../assets/fonts/bea_icons.eot?#iefix') format('eot'),
-		url('../../assets/fonts/bea_icons.woff') format('woff'),
-		url('../../assets/fonts/bea_icons.ttf') format('truetype'),
-		url('../../assets/fonts/bea_icons.svg#bea_icons') format('svg');
+	src: url('#{$fonts-url}/bea_icons.eot');
+	src: url('#{$fonts-url}/bea_icons.eot?#iefix') format('eot'),
+		url('#{$fonts-url}/bea_icons.woff') format('woff'),
+		url('#{$fonts-url}/bea_icons.ttf') format('truetype'),
+		url('#{$fonts-url}/bea_icons.svg#bea_icons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -26,4 +26,4 @@
 }
 
 .icon-close:before { content: "\E001" }
-.icon-menu:before { content: "\E002" }
+.icon-menu:before { content: "\E002" }

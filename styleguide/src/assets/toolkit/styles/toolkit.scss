@@ -20,8 +20,8 @@ $sprite : $images-url + "/sprite.png";
 
 //Load vendor css from bower 
 @import "../../../../../assets/css/vendor/normalize-scss/_normalize.scss";
-
 @import "../../../../../assets/css/vendor/_magnific-popup.scss";
+@import "../../../../../assets/css/vendor/_avalanche.scss";
 
 //Main sass config files
 @import "../../../../../assets/css/components/_variables.scss";
@@ -48,6 +48,7 @@ $sprite : $images-url + "/sprite.png";
 @import "../../../../../assets/css/patterns/_comments.scss";
 @import "../../../../../assets/css/patterns/_widgets.scss";
 @import "../../../../../assets/css/patterns/_searchform.scss";
+@import "../../../../../assets/css/patterns/_grids.scss";
 
 //Pages
 @import "../../../../../assets/css/pages/_default.scss";

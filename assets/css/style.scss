@@ -10,6 +10,8 @@
 
 @import "vendor/_magnific-popup.scss";
 
+@import "vendor/_avalanche.scss";
+
 //Main sass config files
 @import "components/_url-config.scss";
 @import "components/_variables.scss";
@@ -37,6 +39,7 @@
 @import "patterns/_comments.scss";
 @import "patterns/_widgets.scss";
 @import "patterns/_searchform.scss";
+@import "patterns/_grids.scss";
 
 //Pages
 @import "pages/_default.scss";

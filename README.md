@@ -176,3 +176,35 @@ Now you can use it in your markup like this:
 If you need to add a class to your img tag:
 
     <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'my_class_name' ) ); ?>
+
+
+### Styleguide / Toolkit (Fabricator) ###
+
+BFF include a UI toolkit generated with node package Fabricator. It's stored in the styleguide/ folder.
+
+Install and lauch (localhost)
+
+    $ npm install
+    $ npm start
+
+If you need to add some styles, juste add it in :
+
+    /styleguide/src/assets/toolkit/styles/toolkit.scss
+
+If you want to add a component, a structure, or a page, add an HTML file in one of those folders :
+
+    /styleguide/src/materials/components/
+    /styleguide/src/materials/structures/
+    /styleguide/src/views/pages/
+
+Then just add your code and a comment above. For example :
+
+    ---
+        notes: |
+          Description of your component
+    ---
+    <span class="your-component"></span>
+
+Keep in mind that your components will be listed by alphabetical order.
+Issues :
+- At the moment, you will not be able to load assets (fonts, img) on localhost

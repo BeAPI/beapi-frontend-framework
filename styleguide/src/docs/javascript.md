@@ -1,5 +1,5 @@
-This is a markdown document.
+Settings
 
 ```javascript
-var foo = 'bar'
+For jQuery, use the function "jQuery" instead of "$"
 ```

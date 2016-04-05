@@ -1,8 +1,10 @@
 colors:
   primary:
-    Dark: "rgb(30, 30, 30)"
+    Red neon pastel: "rgb(245, 116, 90)"
     Light: "rgb(242, 242, 242)"
+    Text color: "rgb(51, 51, 51)"
   secondary:
-    Red: "rgb(201, 55, 6)"
-    Yellow: "rgb(252, 207, 80)"
-    Blue: "rgb(39, 102, 143)"
+    Pink neon pastel: "rgb(233, 96, 142)"
+    Coral neon pastel: "rgb(238, 136, 114)"
+    Orange neon pastel: "rgb(237, 139, 42)"
+    Yellow neon pastel: "rgb(242, 226, 104)"

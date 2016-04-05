@@ -1,9 +1,9 @@
 <?php
 /**
- * Version 2.0.0
+ * Version 2.1.0
  *
  * Implement default_img and img_base size
- *
+ * Implement lazysize
  */
 
 /**
@@ -63,6 +63,11 @@ function get_the_post_thumbnail( $post_id = 0, $size_or_img_name = 'thumbnail', 
 			continue;
 		}
 
+		// add lazyload on all medias
+		if ( defined( 'BEA_LAZYSIZE' ) && true === BEA_LAZYSIZE ) {
+			$attr['class'] = $attr['class'] . ' lazyload';
+		}
+
 		if ( isset( $location->class ) && ! empty( $location->class ) ) {
 			$attr['class'] = $attr['class'] . ' ' . $location->class;
 		}
@@ -70,8 +75,12 @@ function get_the_post_thumbnail( $post_id = 0, $size_or_img_name = 'thumbnail', 
 		$srcset_attrs[] = $img . ' ' . $location->srcset;
 	}
 
-	if ( ! empty( $srcset_attrs ) ) {
-		$attr['data-srcset'] = implode( ', ', $srcset_attrs );
+	if ( ! empty( $srcset_attrs ) && defined( 'BEA_LAZYSIZE' ) ) {
+		if ( false === BEA_LAZYSIZE ) {
+			$attr['srcset'] = implode( ', ', $srcset_attrs );
+		} else {
+			$attr['data-srcset'] = implode( ', ', $srcset_attrs );
+		}
 	}
 
 	//Get img_base size for base SRC
@@ -89,7 +98,6 @@ function get_the_post_thumbnail( $post_id = 0, $size_or_img_name = 'thumbnail', 
 		$img_url = get_random_sample_img_url( $size_or_img_name );
 		$src     = get_timthumb_url( $img_url, $image_size );
 	}
-
 
 	// Merge with default
 	$attr = array_merge( $attr, array( 'src' => 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' ) );

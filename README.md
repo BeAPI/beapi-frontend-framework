@@ -208,3 +208,4 @@ Then just add your code and a comment above. For example :
 Keep in mind that your components will be listed by alphabetical order.
 Issues :
 - At the moment, you will not be able to load assets (fonts, img) on localhost
+- Picturefill is not supported

@@ -177,6 +177,14 @@ If you need to add a class to your img tag:
 
     <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'my_class_name' ) ); ?>
 
+We add Lazyload support too! We use [Lazysize](https://github.com/aFarkas/lazysizes) in addition to picturefill in order to provide responsive image served as fast as possible.
+The only thing to do is to provide the lazyload class when you call the image, like this :
+
+    <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'my_class_name lazyload' ) ); ?>
+
+And you can mangage the effect in the css in /assets/css/patterns/lazyload.scss
+
+If you don't want this feature you still can set BEA_LAZYSIZE to false in /functions/class-bea-images.php. it will turn the markup to basic img tag with srcset.
 
 ### Styleguide / Toolkit (Fabricator) ###
 

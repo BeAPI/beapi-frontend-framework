@@ -1,7 +1,8 @@
 <?php
 
 define( 'BEA_IMAGES_JSON_DIR', dirname( __FILE__ ) . '/../assets/conf-img/' );
-define( 'BEA_IMAGES_VERSION', '2.0.0' );
+define( 'BEA_IMAGES_VERSION', '2.1.0' );
+define( 'BEA_LAZYSIZE', true ); //Set to false to have a no lazyload img markup
 
 class BEA_Images {
 
@@ -216,11 +217,16 @@ class BEA_Images {
 		if ( empty( $location_array ) ) {
 			$args['data-location'] = 'No location found';
 		} else {
-			$location_array = array_shift( $location_array );
+			$location_array = reset( $location_array );
 			$srcset_attrs   = array();
 			if ( ! isset( $location_array->srcsets ) || empty( $location_array->srcsets ) ) {
 				$args['data-location'] = 'No srcsets found or not V2 JSON';
 			} else {
+				// add lazyload on all medias
+				if ( defined( 'BEA_LAZYSIZE' ) && true === BEA_LAZYSIZE ) {
+					$args['class'] = $args['class'] . ' lazyload';
+				}
+
 				foreach ( $location_array->srcsets as $location ) {
 					if ( ! isset( $location->size ) || empty( $location->size ) ) {
 						continue;
@@ -240,15 +246,20 @@ class BEA_Images {
 			}
 
 			//Get img_base size for base SRC
-			if( isset( $location_array->img_base ) && ! empty( $location_array->img_base ) ){
+			if ( isset( $location_array->img_base ) && ! empty( $location_array->img_base ) ) {
 				$img = wp_get_attachment_image_src( $attachment->ID, (array) self::get_image_size( $location_array->img_base ) );
 				if ( is_array( $img ) && ! empty( $img ) ) {
-					$args['src'] = $img[0];
+					$args['src'] = reset( $img );
 				}
 			}
 
-			if ( ! empty( $srcset_attrs ) ) {
-				$args['srcset'] = implode( ', ', $srcset_attrs );
+			if ( ! empty( $srcset_attrs ) && defined( 'BEA_LAZYSIZE' ) ) {
+				if ( false === BEA_LAZYSIZE ) {
+					$args['srcset'] = implode( ', ', $srcset_attrs );
+				} else {
+					$args['data-srcset'] = implode( ', ', $srcset_attrs );
+					$args['src'] = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+				}
 			}
 		}
 
@@ -285,9 +296,15 @@ class BEA_Images {
 			return $html;
 		}
 
-		$classes = isset( $attr['class'] ) ? $attr['class'] : '';
+		$classes = array( 'attachment-thumbnail', 'wp-post-image' );
+		$classes[] = isset( $attr['class'] ) ? $attr['class'] : '';
+		// add lazyload on all medias
+		if ( defined( 'BEA_LAZYSIZE' ) && true === BEA_LAZYSIZE ) {
+			$classes[] = 'lazyload';
+			return '<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="' . get_stylesheet_directory_uri() . $img_path . '" class="' . implode( ' ', $classes ) . '">';
+		}
 
-		return '<img src="' . get_stylesheet_directory_uri() . $img_path . '" class="attachment-thumbnail wp-post-image ' . $classes . '">';
+		return '<img src="' . get_stylesheet_directory_uri() . $img_path . '" class="' . implode( ' ', $classes ) . '">';
 	}
 
 }

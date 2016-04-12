@@ -6,6 +6,15 @@
 			<?php include 'blocks/entry__summary-01.php' ?>
 			<?php include 'blocks/entry__summary-01.php' ?>
 			<?php include 'blocks/entry__summary-01.php' ?>
+			<?php include 'blocks/entry__summary-01.php' ?>
+			<?php include 'blocks/entry__summary-01.php' ?>
+			<?php include 'blocks/entry__summary-01.php' ?>
+			<?php include 'blocks/entry__summary-01.php' ?>
+			<?php include 'blocks/entry__summary-01.php' ?>
+			<?php include 'blocks/entry__summary-01.php' ?>
+			<?php include 'blocks/entry__summary-01.php' ?>
+			<?php include 'blocks/entry__summary-01.php' ?>
+			<?php include 'blocks/entry__summary-01.php' ?>
 		</div>
 		<?php include 'blocks/wp-pagenavi.php' ?>
 	</section>

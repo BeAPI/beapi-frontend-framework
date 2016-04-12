@@ -84,7 +84,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 				<div class="wrapper">
 					<div class="header__logo">
 						<a href="#" class="header__logo-link">
-							<?php echo get_the_post_thumbnail( 0, 'logo-beapi', array( 'data-location' => 'header-logo', 'class' => 'header__img' ) ); ?> 
+							<?php echo get_the_post_thumbnail( 0, 'logo-beapi', array( 'data-location' => 'header-logo', 'class' => 'header__img lazyload' ) ); ?> 
 						</a>
 					</div>
 					<?php if ( $class == 'home' ) :?>

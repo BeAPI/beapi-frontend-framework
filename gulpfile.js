@@ -137,9 +137,8 @@ gulp.task('dist-all-js', function () {
 gulp.task('dev-sass', function () {
 	gulp.src('assets/css/style.scss')
 		.pipe(sass({
-			includePaths: require('node-bourbon').includePaths,
-			errLogToConsole: true
-		}))
+			includePaths: require('node-bourbon').includePaths
+		}).on('error', sass.logError))
 		.pipe(plugins.concat('style.dev.css'))
 		.pipe(pxtorem(pxtoremOptions))
 		.pipe(gulp.dest('./assets/css'))
@@ -149,9 +148,8 @@ gulp.task('dev-sass', function () {
 gulp.task('dist-sass', function () {
 	gulp.src('assets/css/style.scss')
 		.pipe(sass({
-			includePaths: require('node-bourbon').includePaths,
-			errLogToConsole: true
-		}))
+			includePaths: require('node-bourbon').includePaths
+		}).on('error', sass.logError))
 		.pipe(plugins.concat('style.min.css'))
 		.pipe(minifyCSS())
 		.pipe(pxtorem(pxtoremOptions))
@@ -162,9 +160,13 @@ gulp.task('default', function() {
 	gulp.watch('assets/js/src/*.js', [ 'dev-check-js', 'dist-all-js' ]);
 	gulp.watch('assets/js/vendor/*.js', [ 'dev-vendor-js', 'dist-all-js' ]);
 	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['dev-sass', 'dist-sass']);
-	gulp.watch(['assets/img/icons/*.svg'], ['iconfont', 'dev-sass']);
+	gulp.watch(['assets/img/icons/*.svg'], ['iconfont', 'dev-sass', 'dist-sass']);
 });
 // Browser sync with local setup.
 gulp.task('serve', ['browser-sync'], function() {
+	gulp.watch('assets/js/src/*.js', [ 'dev-check-js', 'dist-all-js' ]);
+	gulp.watch('assets/js/vendor/*.js', [ 'dev-vendor-js', 'dist-all-js' ]);
+	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['dev-sass', 'dist-sass']);
+	gulp.watch(['assets/img/icons/*.svg'], ['iconfont', 'dev-sass', 'dist-sass']);
 	gulp.watch(['html/**/*.php', 'assets/css/style.dev.css', 'assets/css/style.min.css', 'assets/js/scripts.min.js'], ['bs-reload']);
 });

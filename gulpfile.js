@@ -164,11 +164,7 @@ gulp.task('default', function() {
 	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['dev-sass', 'dist-sass']);
 	gulp.watch(['assets/img/icons/*.svg'], ['iconfont', 'dev-sass']);
 });
-// Browser sync with local setup. Work with wamp
+// Browser sync with local setup.
 gulp.task('serve', ['browser-sync'], function() {
-	gulp.watch('assets/js/src/*.js', [ 'dev-check-js']);
-	gulp.watch('assets/js/vendor/*.js', [ 'dev-vendor-js']);
-	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['dev-sass', 'dist-sass']);
-	gulp.watch(['assets/img/icons/*.svg'], ['iconfont', 'dev-sass']);
-	gulp.watch(['html/**/*.php'], ['bs-reload']);
+	gulp.watch(['html/**/*.php', 'assets/css/style.dev.css', 'assets/css/style.min.css', 'assets/js/scripts.min.js'], ['bs-reload']);
 });

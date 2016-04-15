@@ -68,7 +68,8 @@ You can use browsersync in a local environnement with this commmand:
     $ gulp serve
 
 It will provide local and external url in order to work on mutiple device at the same time.
-Actually you need to have wamp instaled because static page files are php. You can change the proxy option in the gulpfile if you want to adapt it to your workspace. More informations at [Browsersync](http://www.browsersync.io/).
+You can change the proxy option in the gulpfile if you want to adapt it to your workspace. More informations at [Browsersync](http://www.browsersync.io/).
+NB : Responsive image are not working yet
 
 ### CSS/SASS Guideline ###
 We like to present and order our css like this:

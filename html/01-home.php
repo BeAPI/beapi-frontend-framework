@@ -2,6 +2,7 @@
 <?php include 'header.php'; ?>
 		
 	<section id="content" class="content">
+		<h2>A post list</h2>
 		<div class="entry__loop">
 			<?php include 'blocks/entry__summary-01.php' ?>
 			<?php include 'blocks/entry__summary-01.php' ?>

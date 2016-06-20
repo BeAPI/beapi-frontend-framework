@@ -4,7 +4,7 @@
 		<!-- Local dev only -->
 		<!-- <img src="http://placehold.it/150x150" width="150" height="150" alt="#"> -->
 		<!-- end Local dev only -->
-		<?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img' ) ); ?>
+		<?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?>
 		
 	</a>
 	<h2 class="entry__title" itemprop="headline">

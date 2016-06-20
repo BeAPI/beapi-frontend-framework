@@ -6,7 +6,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 <!--[if IE 7 ]>    <html class="no-js ie lte-ie9 lte-ie8 lte-ie7 ie7" lang="fr"> <![endif]-->
 <!--[if IE 8 ]>    <html class="no-js ie lte-ie9 lte-ie8 ie8" lang="fr"> <![endif]-->
 <!--[if IE 9 ]> <html class="no-js ie lte-ie9 ie9" lang="fr"> <![endif]-->
-<!--[if !(IE)]><!-->
+<!--[if !(IE)]><! -->
 <html class="no-js" lang="fr"><!--<![endif]-->
 	<head>
 		
@@ -84,7 +84,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 				<div class="wrapper">
 					<div class="header__logo">
 						<a href="#" class="header__logo-link">
-							<?php echo get_the_post_thumbnail( 0, 'logo-beapi', array( 'data-location' => 'header-logo', 'class' => 'header__img lazyload' ) ); ?> 
+							<?php echo get_the_post_thumbnail( 0, 'logo-beapi', array( 'data-location' => 'header-logo', 'class' => 'header__img', 'alt' => 'Logo' ) ); ?> 
 						</a>
 					</div>
 					<?php if ( $class == 'home' ) :?>
@@ -115,5 +115,5 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 					</ul>
 				</div>
 			</nav>
-			<main id="main__content" class="main__content" tabindex="-1" role="main" aria-label="Contenu Principal">
+			<main id="main__content" class="main__content" tabindex="-1" aria-label="Contenu Principal">
 				<div class="wrapper">

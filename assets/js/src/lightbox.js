@@ -3,7 +3,7 @@
  * http://dimsemenov.com/plugins/magnific-popup/documentation.html
  */
 //Lightbox french translation
-$.extend(true, $.magnificPopup.defaults, {
+jQuery.extend(true, jQuery.magnificPopup.defaults, {
 	tClose: 'Fermer (Esc)',
 	tLoading: 'Chargement...',
 	gallery: {

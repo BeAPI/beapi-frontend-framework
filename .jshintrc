@@ -12,9 +12,15 @@
   "node": true,
   "noempty": true,
   "nonew": true,
-  "strict": true,
+  "strict": false,
   "trailing": true,
   "undef": true,
   "unused": true,
-  "globals": {}
+  "jquery": false,
+  "globals": {
+    "jQuery" : true,
+    "Promise" : true,
+    "loadCSS" : true,
+    "FontFaceObserver" : true
+  }
 }

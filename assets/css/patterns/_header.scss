@@ -1,7 +1,7 @@
 /* Header css
  ----------------------------------------------------------------------------------------------------*/
 .header {
-	@extend clearfix;
+	@include clearfix;
 	padding-top: $base-spacing;
 }
 .header__logo-link {

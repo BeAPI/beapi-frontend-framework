@@ -29,10 +29,9 @@
     "gulp-sass": "^2.0.4",
     "gulp-uglify": "~0.2.1",
     "gulp-watch": "~0.6.8",
-    "lodash": "^3.7.0",
     "matchdep": "*",
     "node-bourbon": "^4.2.8",
-    "through2": "^2.0.0"
+    "through2": "^2.0.1"
   },
   "dependencies": {
     "avalanche-css": "^1.0.1"

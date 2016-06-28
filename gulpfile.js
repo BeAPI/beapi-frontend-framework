@@ -6,18 +6,25 @@ function getTask(task) {
 	return require('./assets/tasks/' + task)(gulp, plugins);
 }
 
+//Scripts
 gulp.task('js', [ 'js-vendor', 'js-lint'], getTask('js-dist'));
 gulp.task('js-vendor', getTask('js-vendor'));
 gulp.task('js-lint', getTask('js-lint'));
 
+//Styles
 gulp.task('sass-dev', getTask('sass-dev'));
 gulp.task('sass-dist', getTask('sass-dist'));
 
+//Iconfont
 gulp.task('iconfont', getTask('iconfont'));
+
+//Favicon
 gulp.task('favicon', getTask('favicon'));
 
+//Image Minification
 gulp.task('imagemin', getTask('imagemin'));
 
+//Local dev
 gulp.task('browser-sync', ['server'], getTask('browser-sync'));
 gulp.task('server', getTask('server'));
 gulp.task('bs-reload', getTask('bs-reload'));

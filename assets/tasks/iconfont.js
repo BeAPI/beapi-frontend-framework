@@ -15,7 +15,11 @@ module.exports = function (gulp, plugins) {
 				cssClass: 'icon'
 			}))
 			.pipe(iconfont({
-				fontName: fontName
+				fontName: fontName,
+				prependUnicode: true,
+				formats: ['woff'], //add more format if ie9- support needed. and update template in assets/css/vendor/_icons.scss
+				normalize: true,
+				fontHeight: 1001
 			}))
 			.pipe(gulp.dest('./assets/fonts'));
 	};

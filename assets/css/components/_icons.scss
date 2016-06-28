@@ -1,11 +1,11 @@
 
 @font-face {
 	font-family: "bea_icons";
-	src: url('#{$fonts-url}/bea_icons.eot');
-	src: url('#{$fonts-url}/bea_icons.eot?#iefix') format('eot'),
+	//src: url('#{$fonts-url}/bea_icons.eot');
+	src: //url('#{$fonts-url}/bea_icons.eot?#iefix') format('eot'),
 		//url('#{$fonts-url}/bea_icons.woff2') format('woff2'),
 		url('#{$fonts-url}/bea_icons.woff') format('woff'),
-		url('#{$fonts-url}/bea_icons.ttf') format('truetype');
+		//url('#{$fonts-url}/bea_icons.ttf') format('truetype');
 		//url('#{$fonts-url}/bea_icons.svg#bea_icons') format('svg');
 }
 
@@ -31,8 +31,11 @@
 	@if $filename == close {
 		$char: "\E001";
 	}
-	@if $filename == menu {
+	@if $filename == facebook {
 		$char: "\E002";
+	}
+	@if $filename == menu {
+		$char: "\E003";
 	}
 
 	@return $char;
@@ -51,6 +54,9 @@
 
 .icon-close {
 	@include icon(close);
+}
+.icon-facebook {
+	@include icon(facebook);
 }
 .icon-menu {
 	@include icon(menu);

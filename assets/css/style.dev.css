@@ -1577,10 +1577,9 @@ html {
 
 @font-face {
   font-family: "bea_icons";
-  src: url("../../assets/fonts/bea_icons.eot");
-  src: url("../../assets/fonts/bea_icons.eot?#iefix") format("eot"), url("../../assets/fonts/bea_icons.woff") format("woff"), url("../../assets/fonts/bea_icons.ttf") format("truetype"); }
+  src: url("../../assets/fonts/bea_icons.woff") format("woff"); }
 
-.icon-close:before, .icon-menu:before {
+.icon-close:before, .icon-facebook:before, .icon-menu:before {
   font-family: "bea_icons";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1593,8 +1592,11 @@ html {
 .icon-close:before {
   content: ""; }
 
-.icon-menu:before {
+.icon-facebook:before {
   content: ""; }
+
+.icon-menu:before {
+  content: ""; }
 
 /* Misc mixins
 -------------------------------------------------------------- */

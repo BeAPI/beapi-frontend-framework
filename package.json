@@ -12,7 +12,6 @@
     "browser-sync": "^2.4.0",
     "glob": "^4.2.2",
     "gulp": "^3.8.11",
-    "gulp-bower": "0.0.6",
     "gulp-clean-css": "^2.0.3",
     "gulp-concat": "~2.2.0",
     "gulp-concat-sourcemap": "~1.3.1",
@@ -28,7 +27,7 @@
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^2.0.4",
     "gulp-uglify": "~0.2.1",
-    "gulp-watch": "~0.6.8",
+    "gulp-watch": "^4.3.8",
     "matchdep": "*",
     "node-bourbon": "^4.2.8",
     "through2": "^2.0.1"

@@ -21,6 +21,7 @@
     "jQuery" : true,
     "Promise" : true,
     "loadCSS" : true,
-    "FontFaceObserver" : true
+    "FontFaceObserver" : true,
+    "_" : false
   }
 }

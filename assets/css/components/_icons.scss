@@ -1,29 +1,63 @@
-//Icon template in order to automaticaly generate icon-xx scss
+
 @font-face {
 	font-family: "bea_icons";
-	src: url('#{$fonts-url}/bea_icons.eot');
-	src: url('#{$fonts-url}/bea_icons.eot?#iefix') format('eot'),
+	//src: url('#{$fonts-url}/bea_icons.eot');
+	src: //url('#{$fonts-url}/bea_icons.eot?#iefix') format('eot'),
+		//url('#{$fonts-url}/bea_icons.woff2') format('woff2'),
 		url('#{$fonts-url}/bea_icons.woff') format('woff'),
-		url('#{$fonts-url}/bea_icons.ttf') format('truetype'),
-		url('#{$fonts-url}/bea_icons.svg#bea_icons') format('svg');
-	font-weight: normal;
-	font-style: normal;
+		//url('#{$fonts-url}/bea_icons.ttf') format('truetype');
+		//url('#{$fonts-url}/bea_icons.svg#bea_icons') format('svg');
 }
 
-.insert__icon,
-[class^="icon"], [class*=" icon"] {
-	display: inline-block;
+@mixin icon-styles {
 	font-family: "bea_icons";
-	speak: none;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 	font-style: normal;
-	font-weight: normal;
 	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
 	text-transform: none;
-	line-height: 1;
-	//Better Font Rendering
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-close:before { content: "\E001" }
-.icon-menu:before { content: "\E002" }
+%icon {
+	@include icon-styles;
+}
+
+@function icon-char($filename) {
+	$char: "";
+
+	@if $filename == close {
+		$char: "\E001";
+	}
+	@if $filename == facebook {
+		$char: "\E002";
+	}
+	@if $filename == menu {
+		$char: "\E003";
+	}
+
+	@return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %icon;
+		} @else {
+			@include icon-styles;
+		}
+		content: icon-char($filename);
+	}
+}
+
+.icon-close {
+	@include icon(close);
+}
+.icon-facebook {
+	@include icon(facebook);
+}
+.icon-menu {
+	@include icon(menu);
+}

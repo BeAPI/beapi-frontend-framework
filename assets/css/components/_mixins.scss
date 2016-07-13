@@ -1,5 +1,21 @@
 /* Misc mixins
 -------------------------------------------------------------- */
+@mixin declare-font-face($font-family, $font-filename, $font-weight : normal, $font-style :normal, $font-stretch : normal){
+	@font-face{
+		font-family: '#{$font-family}';
+		src: url(#{$font-filename}.woff) format('woff');
+		font-weight: $font-weight;
+		font-style: $font-style;
+		font-stretch: $font-stretch;
+	}
+}
+
+//Example of effective font declaration
+//@include declare-font-face("font-family-name", "#{$fonts-url}/font-folder/font-name"); //regular
+//@include declare-font-face("font-family-name", "#{$fonts-url}/font-folder/font-name-bold", bold); //bold
+//@include declare-font-face("font-family-name", "#{$fonts-url}/font-folder/font-name-light", 300); //light
+//@include declare-font-face("font-family-name", "#{$fonts-url}/font-folder/font-name-extrabold", 900); //extrabold
+
 //Hover Active Focus pseudo selector mixin
 @mixin hover {
 	&:hover, &:active, &:focus {

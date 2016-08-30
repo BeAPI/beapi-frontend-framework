@@ -3,17 +3,17 @@
 .wrapper {
 	@include container;
 	padding: 0 10px;
-	@include susy-breakpoint($desktop-small) {
+	@media screen and (min-width: $desktop-small) {
 		padding: 0;
 	}
 }
 .content {
-	@include susy-breakpoint($desktop-small) {
+	@media screen and (min-width: $desktop-small) {
 		@include span(9);
 	}
 }
 .sidebar {
-	@include susy-breakpoint($desktop-small) {
+	@media screen and (min-width: $desktop-small) {
 		@include span(3 last);
 	}
 }
@@ -21,7 +21,7 @@
 //omega reset example
 .grid-item {
 	@include span(6);
-	@include susy-breakpoint($desktop-small) {
+	@media screen and (min-width: $desktop-small) {
 		@include span(4);
 	}
 }

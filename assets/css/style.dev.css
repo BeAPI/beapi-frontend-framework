@@ -2417,17 +2417,17 @@ button:active,
     content: " ";
     display: block;
     clear: both; }
-  @media (min-width: 1024px) {
+  @media screen and (min-width: 1024px) {
     .wrapper {
       padding: 0; } }
 
-@media (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .content {
     width: 74.57627%;
     float: left;
     margin-right: 1.69492%; } }
 
-@media (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .sidebar {
     width: 23.72881%;
     float: right;
@@ -2437,7 +2437,7 @@ button:active,
   width: 49.15254%;
   float: left;
   margin-right: 1.69492%; }
-  @media (min-width: 1024px) {
+  @media screen and (min-width: 1024px) {
     .grid-item {
       width: 32.20339%;
       float: left;
@@ -2475,7 +2475,7 @@ button:active,
       .menu__fastaccess li a:hover, .menu__fastaccess li a:active, .menu__fastaccess li a:focus {
         z-index: 2;
         color: #f5745a; }
-  @media (min-width: 1024px) {
+  @media screen and (min-width: 1024px) {
     .menu__fastaccess {
       display: block; } }
 
@@ -2497,7 +2497,7 @@ button:active,
   position: absolute;
   top: 0;
   left: 0; }
-  @media (min-width: 1024px) {
+  @media screen and (min-width: 1024px) {
     .button__menu-container {
       display: none; } }
 
@@ -2545,7 +2545,7 @@ button:active,
   .menu ul > li.sfHover > a, .menu ul > li.current-menu-item > a, .menu ul > li.current-menu-parent > a {
     color: #fff;
     background: #f5745a; }
-  @media (min-width: 1024px) {
+  @media screen and (min-width: 1024px) {
     .menu {
       position: static;
       left: auto;
@@ -2610,7 +2610,7 @@ button:active,
 .entry__content .alignright,
 .entry__content .alignleft {
   max-width: 50%; }
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     .entry__content .alignright,
     .entry__content .alignleft {
       max-width: 100%; } }

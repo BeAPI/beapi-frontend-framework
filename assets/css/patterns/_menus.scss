@@ -16,7 +16,7 @@
 			}
 		}
 	}
-	@include susy-breakpoint($desktop-small) {
+	@media screen and (min-width: $desktop-small) {
 		display: block;
 	}
 }
@@ -42,7 +42,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	@include susy-breakpoint($desktop-small) {
+	@media screen and (min-width: $desktop-small) {
 		display: none;
 	}
 }
@@ -97,7 +97,7 @@
 			}
 		}
 	}
-	@include susy-breakpoint($desktop-small) {
+	@media screen and (min-width: $desktop-small) {
 		//reset mobile menu position and dimensions
 		position: static;
 		left: auto;

@@ -1,6 +1,12 @@
 /**
  * Superfish for submenu most of the time in header
  */
+
+// Dependencies
+var jQuery = require('jquery');
+var superfish = require('../vendor/superfish');
+
+
 jQuery('.sf-menu').superfish();
 
 /**

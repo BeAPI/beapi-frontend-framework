@@ -2,6 +2,12 @@
  * Lightbox
  * http://dimsemenov.com/plugins/magnific-popup/documentation.html
  */
+
+// Dependencies
+var jQuery = require('jquery');
+var magnificPopup = require('../vendor/jquery.magnific-popup');
+
+
 //Lightbox french translation
 jQuery.extend(true, jQuery.magnificPopup.defaults, {
 	tClose: 'Fermer (Esc)',

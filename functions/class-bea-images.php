@@ -1,7 +1,7 @@
 <?php
 
 define( 'BEA_IMAGES_JSON_DIR', dirname( __FILE__ ) . '/../assets/conf-img/' );
-define( 'BEA_IMAGES_VERSION', '2.1.0' );
+define( 'BEA_IMAGES_VERSION', '2.1.1' );
 define( 'BEA_LAZYSIZE', true ); //Set to false to have a no lazyload img markup
 
 class BEA_Images {
@@ -236,6 +236,9 @@ class BEA_Images {
 					if ( empty( $img ) ) {
 						continue;
 					}
+
+					// Verif SSL
+					$img[0] = ( function_exists( 'is_ssl' ) && is_ssl() ) ? str_replace( 'http://', 'https://', $img[0] ) : $img[0];
 
 					if ( isset( $location->class ) && ! empty( $location->class ) ) {
 						$args['class'] = $args['class'] . ' ' . $location->class;

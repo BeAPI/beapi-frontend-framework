@@ -14,6 +14,7 @@ gulp.task('js-lint', getTask('js-lint'));
 //Styles
 gulp.task('sass-dev', getTask('sass-dev'));
 gulp.task('sass-dist', getTask('sass-dist'));
+gulp.task('critical-css', getTask('critical-css'));
 
 //Iconfont
 gulp.task('iconfont', getTask('iconfont'));

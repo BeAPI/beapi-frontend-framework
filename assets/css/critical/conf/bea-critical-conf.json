@@ -1,0 +1,31 @@
+{
+	"envUrl": "sandbox.devbea.fr",
+
+	"pages": [
+		// Define the pages who need a critical
+		// {
+		// 	"name": "home",
+		// 	"url": "/"
+		// },
+		// {
+		// 	"name": "archive",
+		// 	"url": "/archive"
+		// },
+		// {
+		// 	"name": "single",
+		// 	"url": "/single"
+		// }
+	],
+	"viewports": [
+		{
+			"name": "mobile",
+			"width": "480",
+			"height": "800"
+		},
+		{
+			"name": "desktop",
+			"width": "1024",
+			"height": "768"
+		}
+	]
+}

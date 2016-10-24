@@ -35,11 +35,13 @@ function funcPenthouse(_width, _height, _viewport, _url, _page) {
 }
 
 // Test generate critical css
-gulp.task('critical-css', function() {
-	_configCritical.pages.forEach( function(page) {
-		page.url = _envUrl + page.url;
-		_configCritical.viewports.forEach( function(viewport) {
-			funcPenthouse(viewport.width, viewport.height, viewport.name, page.url, page.name);
+module.exports = function(gulp, plugins) {
+	return function() {
+		_configCritical.pages.forEach( function(page) {
+			page.url = _envUrl + page.url;
+			_configCritical.viewports.forEach( function(viewport) {
+				funcPenthouse(viewport.width, viewport.height, viewport.name, page.url, page.name);
+			});
 		});
-	});
-});
+	};
+};

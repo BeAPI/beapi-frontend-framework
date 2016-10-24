@@ -2,7 +2,7 @@
   "name": "base-theme-beapi",
   "version": "0.2.0",
   "dependencies": {
-    "fontfaceobserver": "~1.5.1",
+    "fontfaceobserver": "^2.0.5",
     "html5shiv": "~3.7.2",
     "lazysizes": "~1.5.0",
     "loadcss": "~0.1.7",

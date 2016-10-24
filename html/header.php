@@ -45,9 +45,10 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 			<script type="text/javascript" src="../assets/js/vendor_ie/selectivizr.js"></script>
 		<![endif]-->
 
-		
-		
 		<link rel="stylesheet" type="text/css" media="all" href="../assets/css/style.dev.css?t=<?php echo time(); ?>" />
+
+		<!-- Google font for dev only, add the font locally in main stylesheet -->
+		<link rel="stylesheet" type="text/css" media="all" href="http://fonts.googleapis.com/css?family=Roboto:400,500,700" />
 		
 		<!-- Modernizr Custom (JS + SVG detection) -->
 		<script type="text/javascript" src="../assets/js/vendor_async/modernizr.custom.min.js"></script>

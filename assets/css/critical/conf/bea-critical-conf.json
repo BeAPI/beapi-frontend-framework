@@ -2,19 +2,10 @@
 	"envUrl": "sandbox.devbea.fr",
 
 	"pages": [
-		// Define the pages who need a critical
-		// {
-		// 	"name": "home",
-		// 	"url": "/"
-		// },
-		// {
-		// 	"name": "archive",
-		// 	"url": "/archive"
-		// },
-		// {
-		// 	"name": "single",
-		// 	"url": "/single"
-		// }
+		{
+			"name": "home",
+			"url": "/"
+		}
 	],
 	"viewports": [
 		{

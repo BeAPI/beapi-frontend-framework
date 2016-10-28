@@ -1,6 +1,6 @@
 				</div><!-- main content wrapper -->
 			</main> <!-- Main content -->
-			<footer class="footer" id="footer" role="contentInfo">
+			<footer class="footer" id="footer" role="contentinfo">
 				<div class="wrapper">
 					<p>Follow us:</p>
 					<a class="button button--circle" href="https://www.facebook.com/beapi.agency/?ref=bookmarks">

@@ -1,0 +1,14 @@
+.icon {
+	display: inline-block;
+	vertical-align: middle;
+    fill: currentColor;
+	height: $base-spacing;
+	width: $base-spacing;
+}
+.no-svg {
+	.visuallyhidden {
+		position: static;
+		height: auto;
+		width: auto;
+	}
+}

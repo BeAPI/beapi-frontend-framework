@@ -1,2 +1,7 @@
 /* Footer css
  ----------------------------------------------------------------------------------------------------*/
+.footer {
+	@include clearfix;
+	padding-bottom: $base-spacing;
+	text-align: center;
+}

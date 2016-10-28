@@ -74,10 +74,20 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 				<li><a href="#menu">Acces direct au menu</a></li>
 			</ul>
 			<div class="button__menu-container">
-				<button class="button__menu-open"><span class="button__icon icon-menu"></span>Menu</button>
-				<button class="button__menu-close"><span class="button__icon icon-close"></span>Fermer</button>
+				<button class="button__menu-open">
+					<svg class="button__icon icon icon-menu" aria-hidden="true" role="img">
+						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-menu"></use>
+					</svg>
+					Menu
+				</button>
+				<button class="button__menu-close">
+					<svg class="button__icon icon icon-close" aria-hidden="true" role="img">
+						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+					</svg>
+					Fermer
+				</button>
 			</div>
-			<header id="header" class="header">
+			<header id="header" class="header" role="banner">
 				<div class="wrapper">
 					<div class="header__logo">
 						<a href="#" class="header__logo-link">
@@ -91,7 +101,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 					<?php endif; ?>
 				</div>
 			</header>
-			<nav id="menu" class="menu menu__mobile" tabindex="-1">
+			<nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">
 				<div class="wrapper">
 					<ul class="sf-menu">
 						<li>
@@ -112,5 +122,5 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 					</ul>
 				</div>
 			</nav>
-			<main id="main__content" class="main__content" tabindex="-1" aria-label="Contenu Principal">
+			<main id="main__content" class="main__content" role="main" tabindex="-1" aria-label="Contenu Principal">
 				<div class="wrapper">

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* ==========================================================================
    Normalize.scss settings
    ========================================================================== */
@@ -1575,28 +1574,19 @@ html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
-@font-face {
-  font-family: "bea_icons";
-  src: url("../../assets/fonts/bea_icons.woff") format("woff"); }
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
+  height: 20px;
+  height: 1.25rem;
+  width: 20px;
+  width: 1.25rem; }
 
-.icon-close:before, .icon-facebook:before, .icon-menu:before {
-  font-family: "bea_icons";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  text-decoration: none;
-  text-transform: none; }
-
-.icon-close:before {
-  content: ""; }
-
-.icon-facebook:before {
-  content: ""; }
-
-.icon-menu:before {
-  content: ""; }
+.no-svg .visuallyhidden {
+  position: static;
+  height: auto;
+  width: auto; }
 
 /* Misc mixins
 -------------------------------------------------------------- */
@@ -1707,59 +1697,6 @@ html {
     -ms-transform: none;
     -o-transform: none;
     transform: none; } }
-
-@media print {
-  * {
-    background: transparent !important;
-    color: black !important;
-    text-shadow: none !important;
-    filter: none !important;
-    -ms-filter: none !important;
-    font-family: Arial, Helvetica, sans-serif !important;
-    text-decoration: none; }
-  /* Black prints faster: h5bp.com/s */
-  a, a:visited {
-    text-decoration: none; }
-  a[href]:after {
-    content: " (" attr(href) ")"; }
-  abbr[title]:after {
-    content: " (" attr(title) ")"; }
-  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
-    content: ""; }
-  /* Don't show links for images, or javascript/internal links */
-  pre, blockquote {
-    border: 0;
-    page-break-inside: avoid; }
-  thead {
-    display: table-header-group; }
-  /* h5bp.com/t */
-  tr, img {
-    page-break-inside: avoid; }
-  img {
-    max-width: 100% !important; }
-  @page {
-    margin: 0.5cm; }
-  p, h2, h3 {
-    orphans: 3;
-    widows: 3; }
-  h2, h3 {
-    page-break-after: avoid; }
-  .inline-element-with-padding {
-    padding: 0; }
-  /* remove useless content */
-  .header,
-  .footer,
-  .widget-area,
-  .breadcrumb,
-  .wp-pagenavi {
-    display: none !important; }
-  /* reset width */
-  .content {
-    padding: 10px 0 !important;
-    padding: 0.625rem 0 !important;
-    margin: 10px 0 !important;
-    margin: 0.625rem 0 !important;
-    width: 100% !important; } }
 
 body {
   font-size: 16px;
@@ -2195,10 +2132,16 @@ button:active,
   background: #f5745a; }
 
 .button__icon {
-  display: inline-block;
-  font-size: 85%;
-  vertical-align: -5%;
-  padding-right: 10px; }
+  width: 25px;
+  width: 1.5625rem;
+  padding-right: 10px;
+  vertical-align: -20%; }
+
+.button--circle {
+  border-radius: 50%;
+  line-height: 1; }
+  .button--circle .button__icon {
+    padding-right: 0; }
 
 /* Success, info, notice and error/alert boxes
 -------------------------------------------------------------- */
@@ -2459,6 +2402,16 @@ button:active,
   margin: 0 auto 20px;
   margin: 0 auto 1.25rem; }
 
+/* Footer css
+ ----------------------------------------------------------------------------------------------------*/
+.footer {
+  padding-bottom: 20px;
+  text-align: center; }
+  .footer::after {
+    clear: both;
+    content: "";
+    display: table; }
+
 /* Menus
 ----------------------------------------------------------------------------------------------------*/
 .menu__fastaccess {
@@ -2705,3 +2658,55 @@ button:active,
 -------------------------------------------------------------- */
 /* Page Home css
 -------------------------------------------------------------- */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -ms-filter: none !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    text-decoration: none; }
+  /* Black prints faster: h5bp.com/s */
+  a, a:visited {
+    text-decoration: none; }
+  a[href]:after {
+    content: " (" attr(href) ")"; }
+  abbr[title]:after {
+    content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+    content: ""; }
+  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote {
+    border: 0;
+    page-break-inside: avoid; }
+  thead {
+    display: table-header-group; }
+  /* h5bp.com/t */
+  tr, img {
+    page-break-inside: avoid; }
+  img {
+    max-width: 100% !important; }
+  @page {
+    margin: 0.5cm; }
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3; }
+  h2, h3 {
+    page-break-after: avoid; }
+  .inline-element-with-padding {
+    padding: 0; }
+  /* remove useless content */
+  .header,
+  .footer,
+  .widget-area,
+  .breadcrumb,
+  .wp-pagenavi {
+    display: none !important; }
+  /* reset width */
+  .content {
+    padding: 10px 0 !important;
+    padding: 0.625rem 0 !important;
+    margin: 10px 0 !important;
+    margin: 0.625rem 0 !important;
+    width: 100% !important; } }

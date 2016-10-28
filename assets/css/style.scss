@@ -16,9 +16,10 @@
 
 //Main websites components
 @import "components/_box-sizing.scss";
-@import "components/_icons.scss";
+//@import "components/_icons.scss";
+//use this task for ie8 and minus projects
+@import "components/_svg-icons.scss";
 @import "components/_mixins.scss";
-@import "components/_print.scss";
 @import "components/_text.scss";
 @import "components/_img.scss";
 @import "components/_form.scss";
@@ -32,6 +33,7 @@
 @import "patterns/_plugins.scss";
 @import "patterns/_layout.scss";
 @import "patterns/_header.scss";
+@import "patterns/_footer.scss";
 @import "patterns/_menus.scss";
 @import "patterns/_breadcrumb.scss";
 @import "patterns/_entries.scss";
@@ -44,3 +46,4 @@
 @import "pages/_default.scss";
 @import "pages/_404.scss";
 @import "pages/_home.scss";
+@import "pages/_print.scss";

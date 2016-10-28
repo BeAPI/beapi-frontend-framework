@@ -1,0 +1,15 @@
+.icon {
+	display: inline-block;
+	vertical-align: middle;
+    fill: currentColor;
+	height: $base-spacing;
+	width: $base-spacing;
+}
+//display hidden text for icon only button
+.no-svg {
+	.visuallyhidden {
+		position: static;
+		height: auto;
+		width: auto;
+	}
+}

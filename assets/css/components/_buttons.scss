@@ -34,8 +34,14 @@ button:active,
 }
 
 .button__icon {
-	display: inline-block;
-	font-size: 85%;
-	vertical-align: -5%;
+	width: $base-spacing*1.25;
 	padding-right: $half-base-spacing;
+	vertical-align: -20%;
+}
+.button--circle {
+	border-radius: 50%;
+	line-height: 1;
+	.button__icon {
+		padding-right: 0;
+	}
 }

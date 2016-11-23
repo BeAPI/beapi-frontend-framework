@@ -47,7 +47,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 
 		
 		
-		<link rel="stylesheet" type="text/css" media="all" href="../assets/css/style.dev.css?t=<?php echo time(); ?>" />
+		<link rel="stylesheet" type="text/css" media="all" href="../assets/css/style.css?t=<?php echo time(); ?>" />
 		
 		<!-- Modernizr Custom (JS + SVG detection) -->
 		<script type="text/javascript" src="../assets/js/vendor_async/modernizr.custom.min.js"></script>

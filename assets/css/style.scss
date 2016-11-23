@@ -3,7 +3,7 @@
 
 //Load Bourbon mixin library
 //http://bourbon.io/docs/
-@import "bourbon";
+@import "vendor/bourbon/app/assets/stylesheets/_bourbon.scss";
 
 //Load vendor css from bower 
 @import "vendor/normalize-scss/_normalize.scss";

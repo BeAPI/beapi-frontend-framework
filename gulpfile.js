@@ -12,7 +12,6 @@ gulp.task('js-vendor', getTask('js-vendor'));
 gulp.task('js-lint', getTask('js-lint'));
 
 //Styles
-gulp.task('sass-dev', getTask('sass-dev'));
 gulp.task('sass-dist', getTask('sass-dist'));
 gulp.task('critical-css', getTask('critical-css'));
 
@@ -35,17 +34,17 @@ gulp.task('bs-reload', getTask('bs-reload'));
 
 
 // On default task, just compile on demand
-gulp.task('default', ['js', 'sass-dev', 'sass-dist', 'svgicons'], function() {
+gulp.task('default', ['js', 'sass-dist', 'svgicons'], function() {
 	gulp.watch('assets/js/src/*.js', [ 'js' ]);
 	gulp.watch('assets/js/vendor/*.js', [ 'js-vendor', 'js' ]);
-	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['sass-dev', 'sass-dist']);
-	gulp.watch(['assets/img/icons/*.svg'], ['svgicons', 'sass-dev', 'sass-dist']);
+	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['sass-dist']);
+	gulp.watch(['assets/img/icons/*.svg'], ['svgicons', 'sass-dist']);
 });
 // Browser sync with local setup.
-gulp.task('serve', ['browser-sync', 'server', 'bs-reload', 'js', 'sass-dev', 'sass-dist', 'svgicons'], function() {
+gulp.task('serve', ['browser-sync', 'server', 'bs-reload', 'js', 'sass-dist', 'svgicons'], function() {
 	gulp.watch('assets/js/src/*.js', [ 'js' ]);
 	gulp.watch('assets/js/vendor/*.js', [ 'js-vendor', 'js' ]);
-	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['sass-dev', 'sass-dist']);
-	gulp.watch(['assets/img/icons/*.svg'], ['svgicons', 'sass-dev', 'sass-dist']);
-	gulp.watch(['html/**/*.php', 'assets/css/style.dev.css', 'assets/css/style.min.css', 'assets/js/scripts.min.js'], ['bs-reload']);
+	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['sass-dist']);
+	gulp.watch(['assets/img/icons/*.svg'], ['svgicons', 'sass-dist']);
+	gulp.watch(['html/**/*.php', 'assets/css/style.css', 'assets/js/scripts.min.js'], ['bs-reload']);
 });

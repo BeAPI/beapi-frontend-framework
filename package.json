@@ -36,6 +36,7 @@
     "gulp-watch": "^4.3.8",
     "matchdep": "*",
     "node-bourbon": "^4.2.8",
+    "susy": "^2.2.12",
     "through2": "^2.0.1"
   },
   "dependencies": {

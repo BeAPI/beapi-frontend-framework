@@ -12,6 +12,10 @@ var autoprefixerOptions = {
 };
 
 var sassOptions = {
+	includePaths: [
+		'./node_modules/bourbon/app/assets/stylesheets/',
+		'./node_modules/susy/sass'
+	],
 	errLogToConsole: true,
 	outputStyle: 'expanded'
 }
@@ -23,13 +27,14 @@ var pxtoremOptions = {
 
 module.exports = function (gulp, plugins) {
 	return function () {
-		gulp.src(['assets/css/style.scss', 'assets/css/components/*.scss', 'assets/css/patterns/*.scss', 'assets/css/pages/*.scss'])
-			.pipe(sourcemaps.init())
-			.pipe(sass(sassOptions).on('error', sass.logError))
-			.pipe(sourcemaps.write())
-			.pipe(autoprefixer(autoprefixerOptions))
-			.pipe(minifyCSS())
-			.pipe(pxtorem(pxtoremOptions))
+		gulp.src(['assets/css/style.scss'])
+			.pipe(sourcemaps.init({identityMap:true}))
+				.pipe(sass(sassOptions).on('error', sass.logError))
+				.pipe(autoprefixer())
+				.pipe(minifyCSS())
+				.pipe(pxtorem(pxtoremOptions))
+			.pipe(sourcemaps.write('.'))
+			
 			.pipe(gulp.dest('./assets/css'));
 	};
 };

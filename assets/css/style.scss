@@ -1,9 +1,10 @@
-// Load Susy
-@import "vendor/susy/sass/susy";
+// Load Susy with includePaths in tasks/sass.js
+//http://susydocs.oddbird.net/en/latest/
+@import "susy";
 
-//Load Bourbon mixin library
+//Load Bourbon mixin library with includePaths in tasks/sass.js
 //http://bourbon.io/docs/
-@import "vendor/bourbon/app/assets/stylesheets/_bourbon.scss";
+@import "bourbon";
 
 //Load vendor css from bower 
 @import "vendor/normalize-scss/_normalize.scss";

@@ -1,0 +1,94 @@
+{
+  "_args": [
+    [
+      {
+        "name": "susy",
+        "raw": "susy",
+        "rawSpec": "",
+        "scope": null,
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/nicolasfiascaro/Git/beapi-frontend-framework"
+    ]
+  ],
+  "_from": "susy@latest",
+  "_id": "susy@2.2.12",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/susy",
+  "_nodeVersion": "5.1.0",
+  "_npmUser": {
+    "email": "miriam@oddbird.net",
+    "name": "mirisuzanne"
+  },
+  "_npmVersion": "3.3.12",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "susy",
+    "raw": "susy",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/susy/-/susy-2.2.12.tgz",
+  "_shasum": "644c2441ed00d293287e8d49a016dbf919215953",
+  "_shrinkwrap": null,
+  "_spec": "susy",
+  "_where": "/Users/nicolasfiascaro/Git/beapi-frontend-framework",
+  "author": {
+    "email": "miriam@oddbird.net",
+    "name": "Miriam Eric Suzanne"
+  },
+  "bugs": {
+    "url": "https://github.com/oddbird/susy/issues"
+  },
+  "dependencies": {},
+  "description": "Sass power-tools for web layout.",
+  "devDependencies": {
+    "sass-true": "^2.0.3"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "644c2441ed00d293287e8d49a016dbf919215953",
+    "tarball": "https://registry.npmjs.org/susy/-/susy-2.2.12.tgz"
+  },
+  "eyeglass": {
+    "exports": "eyeglass-exports.js",
+    "needs": "*"
+  },
+  "gitHead": "6c10e82e69d3cb03a487c99bb752485a25a58113",
+  "homepage": "https://github.com/oddbird/susy#readme",
+  "keywords": [
+    "layout",
+    "grid",
+    "sass",
+    "responsive",
+    "rwd",
+    "semantic",
+    "eyeglass-module"
+  ],
+  "license": "BSD-3-Clause",
+  "main": "sass/_susy.scss",
+  "maintainers": [
+    {
+      "email": "miriam@miriamsuzanne.com",
+      "name": "mirisuzanne"
+    }
+  ],
+  "name": "susy",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/oddbird/susy.git"
+  },
+  "scripts": {
+    "test": "rake test"
+  },
+  "version": "2.2.12"
+}

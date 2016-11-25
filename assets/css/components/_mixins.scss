@@ -22,49 +22,20 @@
 		@content;
 	}
 }
-//Animations based on animate.css
-.animate {
-	@include animation-duration(0.5s);
-	@include animation-timing-function(ease);
-	@include animation-fill-mode(both);
+//visually hide from html5 boilerplate
+@mixin visuallyhidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
 }
-
-.fadeIn {
-	@include animation-name(fadeIn);
-}
-.fadeinRight {
-	@include animation-name(fadeInRight);
-}
-.fadeinUp {
-	@include animation-name(fadeInUp);
-}
-
-//Keyframes
-@include keyframes(fadeIn) {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
-}
-@include keyframes(fadeInUp) {
-	from {
-		opacity: 0;
-		@include transform(translate3d(0, 100%, 0));
-	}
-	to {
-		opacity: 1;
-		@include transform(none);
-	}
-}
-@include keyframes(fadeInRight) {
-	from {
-		opacity: 0;
-		@include transform(translate3d(100%, 0, 0));
-	}
-	to {
-		opacity: 1;
-		@include transform(none);
-	}
+//image responsive
+@mixin img__responsive($max-width:100%) {
+	display: block;
+	max-width: $max-width;
+	height: auto;
 }

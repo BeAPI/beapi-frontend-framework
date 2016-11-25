@@ -27,7 +27,7 @@
 		}
 	}
 	img {
-		@extend %img__responsive;
+		@include img__responsive();
 	}
 	.alignright,
 	.alignleft {
@@ -51,5 +51,5 @@
 	@include clearfix;
 }
 .entry__img {
-	@extend %img__responsive;
+	@include img__responsive();
 }

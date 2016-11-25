@@ -7,7 +7,14 @@
 .header__logo-link {
 	display: block;
 }
+.header__icon {
+	display: block;
+	height: 50px;
+	width: 50px;
+	margin: 0 auto 10px;
+	color: $maincolor;
+}
 .header__img {
-	@extend %img__responsive;
+	@include img__responsive();
 	margin: 0 auto $base-spacing;
 }

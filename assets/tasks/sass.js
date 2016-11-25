@@ -8,7 +8,7 @@ var sourcemaps = require('gulp-sourcemaps'),
 	reload = browserSync.reload;
 
 var autoprefixerOptions = {
-	browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
+	browsers: ['last 2 versions', 'ie >= 9', 'Firefox ESR']
 };
 
 var sassOptions = {
@@ -27,14 +27,13 @@ var pxtoremOptions = {
 
 module.exports = function (gulp, plugins) {
 	return function () {
-		gulp.src(['assets/css/style.scss'])
+		gulp.src(['assets/css/**/*.scss'])
 			.pipe(sourcemaps.init({identityMap:true}))
 				.pipe(sass(sassOptions).on('error', sass.logError))
 				.pipe(autoprefixer())
 				.pipe(minifyCSS())
 				.pipe(pxtorem(pxtoremOptions))
 			.pipe(sourcemaps.write('.'))
-			
 			.pipe(gulp.dest('./assets/css'));
 	};
 };

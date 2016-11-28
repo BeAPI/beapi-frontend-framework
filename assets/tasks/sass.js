@@ -28,11 +28,11 @@ var pxtoremOptions = {
 module.exports = function (gulp, plugins) {
 	return function () {
 		gulp.src(['assets/css/**/*.scss'])
-			.pipe(sourcemaps.init({identityMap:true}))
+			.pipe(sourcemaps.init({identityMap:true, debug: true}))
 				.pipe(sass(sassOptions).on('error', sass.logError))
 				.pipe(autoprefixer())
 				.pipe(minifyCSS())
-				.pipe(pxtorem(pxtoremOptions))
+				//.pipe(pxtorem(pxtoremOptions))
 			.pipe(sourcemaps.write('.'))
 			.pipe(gulp.dest('./assets/css'));
 	};

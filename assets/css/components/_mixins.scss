@@ -22,17 +22,6 @@
 		@content;
 	}
 }
-//visually hide from html5 boilerplate
-@mixin visuallyhidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
-}
 //image responsive
 @mixin img__responsive($max-width:100%) {
 	display: block;

@@ -49,7 +49,7 @@ SOFTWARE.
 	$toggle_sub_folders = true;
 	
 	// FORCE DOWNLOAD ATTRIBUTE
-	$force_download = true;
+	$force_download = false;
 	
 	// IGNORE EMPTY FOLDERS
 	$ignore_empty_folders = true;

@@ -46,7 +46,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<![endif]-->
 		
 		<style type="text/css">
-			.overlay {
+			.cssloading__overlay {
 				position: fixed;
 				top: 0;
 				left: 0;
@@ -55,7 +55,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 				background: #fff;
 				opacity: 1;
 				z-index: 10001;
-				transition: opacity .25s ease, z-index .25s ease .5s, width .25s ease .5s, height .25s ease .25s;
+				transition: opacity .25s ease, z-index .25s ease .5s, width .25s ease .5s, height .25s ease .25s, visibility .25s ease .25s;
 			}
 		</style>
 		
@@ -77,7 +77,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 				</p>
 			</div>
 		<![endif]-->
-		<div class="overlay"></div>
+		<div class="cssloading__overlay"></div>
 		<div id="main">
 			<ul class="menu__fastaccess">
 				<li><a href="#main__content">Acces direct au contenu</a></li>

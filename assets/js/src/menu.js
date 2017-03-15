@@ -27,13 +27,11 @@ if (menuBody.hasClass("menu-mobile--active")) {
 
 var	resizeBreakpoint = window.matchMedia('(min-width: 1024px)');
 
-resizeBreakpoint.addListener(carouselResizing);
+resizeBreakpoint.addListener(menuResizing);
 
-function carouselResizing(mediaQuery) {
+function menuResizing(mediaQuery) {
 	if (mediaQuery.matches) {
 		//enter desktop
 		menuBody.removeClass("menu-mobile--active");
-	} else {
-		
 	}
 }

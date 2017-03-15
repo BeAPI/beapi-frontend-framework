@@ -12,6 +12,7 @@
     "browser-sync": "^2.4.0",
     "glob": "^4.2.2",
     "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^3.1.1",
     "gulp-cheerio": "^0.6.2",
     "gulp-clean-css": "^2.0.3",
     "gulp-color": "0.0.1",
@@ -26,9 +27,10 @@
     "gulp-imagemin": "^3.0.1",
     "gulp-jshint": "~1.5.1",
     "gulp-load-plugins": "^1.2.4",
-    "gulp-pxtorem": "^1.0.1",
+    "gulp-pxtorem": "^2.0.0",
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.9.1",
     "gulp-svgmin": "^1.2.3",
     "gulp-svgstore": "^6.1.0",
     "gulp-uglify": "~0.2.1",
@@ -36,6 +38,7 @@
     "matchdep": "*",
     "node-bourbon": "^4.2.8",
     "penthouse": "^0.10.3",
+    "susy": "^2.2.12",
     "through2": "^2.0.1"
   },
   "dependencies": {

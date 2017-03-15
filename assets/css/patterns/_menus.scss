@@ -58,7 +58,7 @@
 	background: $light-gray;
 	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
-	@include transition (left 0.5s ease-out);
+	transition : left 0.5s ease-out;
 	-webkit-backface-visibility: hidden;
 	-webkit-transform: translateZ(0);
 	&.opened {

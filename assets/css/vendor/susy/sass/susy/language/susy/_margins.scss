@@ -12,7 +12,9 @@
   $span   : map-merge((spread: wide), parse-span($span));
   $flow   : susy-get(flow, $span);
   $split  : if(susy-get(gutter-position, $span) == split, true, false);
-  $width  : if($split, span($span) + gutter($span), span($span));
+  $gutter : gutter($span);
+  $span   : span($span);
+  $width  : if($split and $gutter, $span + $gutter, $span);
 
   @include susy-inspect(pre, $inspect);
   @include margin-output($width, null, $flow);
@@ -71,7 +73,7 @@
   $pre,
   $post: false
 ) {
-  $inspect      : $pre, $post;
+  $inspect      : ($pre, $post);
   $pre          : map-merge((spread: wide), parse-span($pre));
 
   @if $post {
@@ -86,7 +88,7 @@
     }
   }
 
-  @include susy-inspect(squish, $inspect...);
+  @include susy-inspect(squish, $inspect);
   @include pre($pre);
   @include post($post);
 }

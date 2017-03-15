@@ -44,10 +44,8 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<!--[if lte IE 8]>
 			<script type="text/javascript" src="../assets/js/vendor_ie/selectivizr.js"></script>
 		<![endif]-->
-
 		
-		
-		<link rel="stylesheet" type="text/css" media="all" href="../assets/css/style.dev.css?t=<?php echo time(); ?>" />
+		<link rel="stylesheet" type="text/css" media="all" href="../assets/css/style.css?t=<?php echo time(); ?>" />
 		
 		<!-- Modernizr Custom (JS + SVG detection) -->
 		<script type="text/javascript" src="../assets/js/vendor_async/modernizr.custom.min.js"></script>
@@ -91,7 +89,10 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 				<div class="wrapper">
 					<div class="header__logo">
 						<a href="#" class="header__logo-link">
-							<?php echo get_the_post_thumbnail( 0, 'logo-beapi', array( 'data-location' => 'header-logo', 'class' => 'header__img', 'alt' => 'Logo' ) ); ?> 
+							<!-- <?php //echo get_the_post_thumbnail( 0, 'logo-beapi', array( 'data-location' => 'header-logo', 'class' => 'header__img', 'alt' => 'Logo' ) ); ?>  -->
+							<svg class="header__icon icon" aria-hidden="true" role="img">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
+							</svg>
 						</a>
 					</div>
 					<?php if ( $class == 'home' ) :?>

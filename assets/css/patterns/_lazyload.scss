@@ -4,5 +4,5 @@
 }
 .lazyloaded {
 	opacity: 1;
-	@include transition(opacity 0.5s);
+	transition : opacity 0.5s;
 }

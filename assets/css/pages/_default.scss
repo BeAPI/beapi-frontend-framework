@@ -1,2 +1,9 @@
 /* Page default css
 -------------------------------------------------------------- */
+//hide overlay on page load
+.overlay {
+	z-index: -1;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}

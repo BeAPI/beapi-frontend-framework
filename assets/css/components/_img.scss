@@ -1,30 +1,5 @@
 /* Images
 -------------------------------------------------------------- */
-img{
-	position: relative;
-	text-align: center;
-	width: 100%;
-	height: auto;
-	display: block;
-	&:after {
-		content: "☠ Image broken of" " " attr(alt);
-		display: block;
-		position: absolute;
-		z-index: $zindex*2;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		padding: 7px 10px 0;
-		font-size: 14px;
-		border: 1px solid $maingrey;
-		color: $medium-gray;
-		background-color:$lightcolor;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		overflow: hidden;
-	}
-}
 .alignleft {
 	display: inline;
 	float: left;

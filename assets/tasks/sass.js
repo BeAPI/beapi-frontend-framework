@@ -27,13 +27,21 @@ var pxtoremOptions = {
 
 module.exports = function (gulp, plugins) {
 	return function () {
+		//developpement css with sourcemapping
 		gulp.src(['assets/css/**/*.scss'])
 			.pipe(sourcemaps.init({identityMap:true, debug: true}))
 				.pipe(sass(sassOptions).on('error', sass.logError))
 				.pipe(autoprefixer())
-				//.pipe(pxtorem(pxtoremOptions))
 				.pipe(minifyCSS())
 			.pipe(sourcemaps.write('.'))
+			.pipe(gulp.dest('./assets/css'));
+		//production css with px to rem conversion
+		gulp.src(['assets/css/**/*.scss'])
+			.pipe(sass(sassOptions).on('error', sass.logError))
+			.pipe(plugins.concat('style.min.css'))
+			.pipe(autoprefixer())
+			.pipe(minifyCSS())
+			.pipe(pxtorem(pxtoremOptions))
 			.pipe(gulp.dest('./assets/css'));
 	};
 };

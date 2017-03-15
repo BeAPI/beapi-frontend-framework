@@ -10,7 +10,7 @@ textarea {
 	background: darken($lightcolor, 5%);
 	border-radius: 0; //reset border radius for ios
 	transition : background 0.5s ease;
-	@include appearance(none);
+	appearance: none;
 	@include placeholder {
 		color: lighten($textcolor, 50%);
 	}

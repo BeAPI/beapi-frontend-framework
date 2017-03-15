@@ -1,0 +1,3 @@
+@include declare-font-face("Roboto", "#{$fonts-url}/roboto-v15-latin/roboto-v15-latin-regular"); //regularx400
+@include declare-font-face("Roboto", "#{$fonts-url}/roboto-v15-latin/roboto-v15-latin-500", 500); //mediumx500
+@include declare-font-face("Roboto", "#{$fonts-url}/roboto-v15-latin/roboto-v15-latin-700", bold); //boldx700

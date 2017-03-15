@@ -45,7 +45,19 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 			<script type="text/javascript" src="../assets/js/vendor_ie/selectivizr.js"></script>
 		<![endif]-->
 		
-		<link rel="stylesheet" type="text/css" media="all" href="../assets/css/style.css?t=<?php echo time(); ?>" />
+		<style type="text/css">
+			.cssloading__overlay {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: #fff;
+				opacity: 1;
+				z-index: 10001;
+				transition: opacity .25s ease, z-index .25s ease .5s, width .25s ease .5s, height .25s ease .25s, visibility .25s ease .25s;
+			}
+		</style>
 		
 		<!-- Modernizr Custom (JS + SVG detection) -->
 		<script type="text/javascript" src="../assets/js/vendor_async/modernizr.custom.min.js"></script>
@@ -65,6 +77,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 				</p>
 			</div>
 		<![endif]-->
+		<div class="cssloading__overlay"></div>
 		<div id="main">
 			<ul class="menu__fastaccess">
 				<li><a href="#main__content">Acces direct au contenu</a></li>

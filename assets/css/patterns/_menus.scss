@@ -61,10 +61,6 @@
 	transition : left 0.5s ease-out;
 	-webkit-backface-visibility: hidden;
 	-webkit-transform: translateZ(0);
-	&.opened {
-		left: 0;
-		box-shadow: 0 0 100px rgba($darkcolor, 0.5);
-	}
 	.wrapper {
 		padding: 0;
 	}
@@ -133,6 +129,14 @@
 					}
 				}
 			}
+		}
+	}
+}
+.menu-mobile--active {
+	@media screen and (max-width: $desktop-small) {
+		.menu {
+			left: 0;
+			box-shadow: 0 0 100px rgba($darkcolor, 0.5);
 		}
 	}
 }

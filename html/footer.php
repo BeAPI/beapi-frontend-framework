@@ -33,9 +33,18 @@
 			// load webfonts asyn cusing LoasCSS filament group lib
 			loadCSS("../assets/css/fonts.css");
 			loadCSS("../assets/css/style.css");
+			
 			// inline loadJS
 			function loadJS(e,t){"use strict";var n=window.document.getElementsByTagName("script")[0],o=window.document.createElement("script");return o.src=e,o.async=!0,n.parentNode.insertBefore(o,n),t&&"function"==typeof t&&(o.onload=t),o}
-			// then load your JS
+			// js for font loading with caching strategy
+			if (sessionStorage.getItem('fonts-loaded')) {
+				// fonts cached, add class to document
+				document.documentElement.classList.add('fonts-loaded');
+			} else {
+				// load script with font observing logic
+				loadJS('../assets/js/vendor_async/fonts-css-async.js');
+			}
+			//load main site js
 			loadJS("../assets/js/scripts.min.js");
 		</script>
 	</body>

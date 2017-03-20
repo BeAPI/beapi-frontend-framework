@@ -3,10 +3,11 @@
 @mixin declare-font-face($font-family, $font-filename, $font-weight : normal, $font-style :normal, $font-stretch : normal){
 	@font-face{
 		font-family: '#{$font-family}';
-		src: url(#{$font-filename}.woff) format('woff');
 		font-weight: $font-weight;
 		font-style: $font-style;
 		font-stretch: $font-stretch;
+		src: url(#{$font-filename}.woff2) format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+			 url(#{$font-filename}.woff) format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 	}
 }
 

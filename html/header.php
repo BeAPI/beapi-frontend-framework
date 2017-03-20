@@ -101,7 +101,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 			<header id="header" class="header" role="banner">
 				<div class="wrapper">
 					<div class="header__logo">
-						<a href="#" class="header__logo-link">
+						<a href="01-home.php" class="header__logo-link">
 							<!-- <?php //echo get_the_post_thumbnail( 0, 'logo-beapi', array( 'data-location' => 'header-logo', 'class' => 'header__img', 'alt' => 'Logo' ) ); ?>  -->
 							<svg class="header__icon icon" aria-hidden="true" role="img">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>

@@ -5,7 +5,14 @@
 }
 .entry__title,
 .page__title {
-	
+	font-weight: 900;
+	text-transform: uppercase;
+	&>a {
+		text-decoration: none;
+		@include hover {
+			text-decoration: underline;
+		}
+	}
 }
 .entry__summary {
 	margin-bottom: 50px;

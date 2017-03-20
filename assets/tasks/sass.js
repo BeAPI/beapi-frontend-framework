@@ -36,9 +36,16 @@ module.exports = function (gulp, plugins) {
 			.pipe(sourcemaps.write('.'))
 			.pipe(gulp.dest('./assets/css'));
 		//production css with px to rem conversion
-		gulp.src(['assets/css/**/*.scss'])
+		gulp.src(['assets/css/style.scss'])
 			.pipe(sass(sassOptions).on('error', sass.logError))
 			.pipe(plugins.concat('style.min.css'))
+			.pipe(autoprefixer())
+			.pipe(minifyCSS())
+			.pipe(pxtorem(pxtoremOptions))
+			.pipe(gulp.dest('./assets/css'));
+		gulp.src(['assets/css/fonts.scss'])
+			.pipe(sass(sassOptions).on('error', sass.logError))
+			.pipe(plugins.concat('fonts.min.css'))
 			.pipe(autoprefixer())
 			.pipe(minifyCSS())
 			.pipe(pxtorem(pxtoremOptions))

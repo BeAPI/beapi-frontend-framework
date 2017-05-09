@@ -3,8 +3,8 @@
  */
 
 // Dependencies
-var jQuery = require('jquery');
+var $ = require('jquery');
 var placeholder = require('../vendor/jquery.placeholder');
 
 
-jQuery("input, textarea").placeholder();
+$("input, textarea").placeholder();

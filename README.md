@@ -121,7 +121,7 @@ As said above all javascript ressources are compiled with gulp with a sourcemap 
 
 If you need a library, instal it with bower and then move the file into *assets/js/vendor* (source and minified version) gulp will update 'vendor.min.js'.
 
-If you want to play with it, create a new file in 'assets/js/src' like slider.js for example. Gulp will compile your scripts in 'scripts.min.js' and update 'scripts.min.js.map' in order to debbug th script.
+If you want to play with it, create a new file in 'assets/js/src' like slider.js for example. You need to require it in scripts.js as a CommonJS module, then gulp will compile your scripts in 'scripts.min.js' and update 'scripts.min.js.map' in order to debbug the script.
 
 
 ### Responsive images ###

@@ -1,14 +1,20 @@
 /**
  * Superfish for submenu most of the time in header
  */
-jQuery('.sf-menu').superfish();
+
+// Dependencies
+var $ = require('jquery');
+var superfish = require('../vendor/superfish');
+
+
+$('.sf-menu').superfish();
 
 /**
  * Menu Mobile
  */
-var menuBody = jQuery("html, body"),
-	menuOpen = jQuery(".button__menu-open"),
-	menuClose = jQuery(".button__menu-close");
+var menuBody = $("html, body"),
+	menuOpen = $(".button__menu-open"),
+	menuClose = $(".button__menu-close");
 
 menuOpen.on("click", function(){
 	menuBody.addClass("menu-mobile--active");
@@ -20,7 +26,7 @@ menuClose.on("click", function(){
 });
 
 if (menuBody.hasClass("menu-mobile--active")) {
-	jQuery("#main").on("click", function(){
+	$("#main").on("click", function(){
 		menuBody.removeClass("menu-mobile--active");
 	});
 }

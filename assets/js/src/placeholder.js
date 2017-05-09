@@ -1,4 +1,10 @@
 /**
  * Html5 PLaceholder fallback for ie7+
  */
-jQuery("input, textarea").placeholder();
+
+// Dependencies
+var $ = require('jquery');
+var placeholder = require('../vendor/jquery.placeholder');
+
+
+$("input, textarea").placeholder();

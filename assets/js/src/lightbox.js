@@ -2,8 +2,14 @@
  * Lightbox
  * http://dimsemenov.com/plugins/magnific-popup/documentation.html
  */
+
+// Dependencies
+var $ = require('jquery');
+var magnificPopup = require('../vendor/jquery.magnific-popup');
+
+
 //Lightbox french translation
-jQuery.extend(true, jQuery.magnificPopup.defaults, {
+$.extend(true, $.magnificPopup.defaults, {
 	tClose: 'Fermer (Esc)',
 	tLoading: 'Chargement...',
 	gallery: {
@@ -19,8 +25,8 @@ jQuery.extend(true, jQuery.magnificPopup.defaults, {
 	}
 });
 //lightbox in wysiwyg WP content for images AND native WP gallery
-jQuery('.entry__content').each(function() { // the containers for all your galleries
-	jQuery(this).find("a[href$='.png'], a[href$='.jpg'], a[href$='.gif']").magnificPopup({
+$('.entry__content').each(function() { // the containers for all your galleries
+	$(this).find("a[href$='.png'], a[href$='.jpg'], a[href$='.gif']").magnificPopup({
 		type: 'image',
 		gallery: {
 			enabled:true

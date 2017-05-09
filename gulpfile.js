@@ -8,6 +8,7 @@ function getTask(task) {
 
 //Scripts
 gulp.task('js', [ 'js-vendor', 'js-lint'], getTask('js-dist'));
+gulp.task('js-dist', getTask('js-dist'));
 gulp.task('js-vendor', getTask('js-vendor'));
 gulp.task('js-lint', getTask('js-lint'));
 

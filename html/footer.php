@@ -27,17 +27,9 @@
 		</div><!-- Main -->
 		<?php include '../assets/icons/icons.svg'; ?>
 		<script>
-			//inline loadCSS
-			function loadCSS(e,n,t){"use strict";var o=window.document.createElement("link"),d=n||window.document.getElementsByTagName("script")[0],i=window.document.styleSheets;return o.rel="stylesheet",o.href=e,o.media="only x",d.parentNode.insertBefore(o,d),o.onloadcssdefined=function(e){for(var n,t=0;t<i.length;t++)i[t].href&&i[t].href===o.href&&(n=!0);n?e():setTimeout(function(){o.onloadcssdefined(e)})},o.onloadcssdefined(function(){o.media=t||"all"}),o}
-
-			// load webfonts asyn cusing LoasCSS filament group lib
-			// minified files are needed for production
-			loadCSS("../assets/css/fonts.css");
-			loadCSS("../assets/css/style.css");
-			
 			// inline loadJS
 			function loadJS(e,t){"use strict";var n=window.document.getElementsByTagName("script")[0],o=window.document.createElement("script");return o.src=e,o.async=!0,n.parentNode.insertBefore(o,n),t&&"function"==typeof t&&(o.onload=t),o}
-			// js for font loading with caching strategy
+			// then load your JS
 			if (sessionStorage.getItem('fonts-loaded')) {
 				// fonts cached, add class to document
 				document.documentElement.classList.add('fonts-loaded');
@@ -45,8 +37,7 @@
 				// load script with font observing logic
 				loadJS('../assets/js/vendor_async/fonts-css-async.js');
 			}
-			//load main site js
-			loadJS("../assets/js/scripts.min.js");
 		</script>
+		<script src="../assets/js/scripts.min.js" async defer></script>
 	</body>
 </html>

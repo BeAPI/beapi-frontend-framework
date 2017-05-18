@@ -14,7 +14,6 @@
     "superfish": "~1.7.9",
     "susy": "~2.2.5",
     "underscore": "~1.8.3",
-    "avalanche-css": "^1.0.1",
     "bourbon": "^4.2.7"
   }
 }

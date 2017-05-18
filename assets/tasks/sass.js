@@ -43,12 +43,5 @@ module.exports = function (gulp, plugins) {
 			.pipe(minifyCSS())
 			.pipe(pxtorem(pxtoremOptions))
 			.pipe(gulp.dest('./assets/css'));
-		gulp.src(['assets/css/fonts.scss'])
-			.pipe(sass(sassOptions).on('error', sass.logError))
-			.pipe(plugins.concat('fonts.min.css'))
-			.pipe(autoprefixer())
-			.pipe(minifyCSS())
-			.pipe(pxtorem(pxtoremOptions))
-			.pipe(gulp.dest('./assets/css'));
 	};
 };

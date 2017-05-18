@@ -1,3 +1,11 @@
+//Main sass config files
+@import "root/_url-config.scss";
+@import "root/_variables.scss"; 
+@import "root/_mixins.scss";
+
+//@font-face first !
+@import "root/_fonts.scss";
+
 // Load Susy with includePaths in tasks/sass.js
 //http://susydocs.oddbird.net/en/latest/
 @import "vendor/susy/sass/susy";
@@ -9,18 +17,12 @@
 //Load vendor css from bower 
 @import "vendor/normalize-scss/_normalize.scss";
 @import "vendor/_magnific-popup.scss";
-@import "vendor/_avalanche.scss";
-
-//Main sass config files
-@import "components/_url-config.scss";
-@import "components/_variables.scss";
 
 //Main websites components
 @import "components/_box-sizing.scss";
 //@import "components/_icons.scss";
 //use this task for ie8 and minus projects
 @import "components/_svg-icons.scss";
-@import "components/_mixins.scss";
 @import "components/_cssloading.scss";
 @import "components/_text.scss";
 @import "components/_img.scss";
@@ -42,7 +44,6 @@
 @import "patterns/_comments.scss";
 @import "patterns/_widgets.scss";
 @import "patterns/_searchform.scss";
-@import "patterns/_grids.scss";
 
 //Pages
 @import "pages/_default.scss";

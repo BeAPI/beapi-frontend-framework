@@ -1,52 +1,52 @@
 //Main sass config files
-@import "root/_url-config.scss";
-@import "root/_variables.scss"; 
-@import "root/_mixins.scss";
-
-//@font-face first !
-@import "root/_fonts.scss";
+@import "root/url-config";
 
 // Load Susy with includePaths in tasks/sass.js
 //http://susydocs.oddbird.net/en/latest/
-@import "vendor/susy/sass/susy";
+@import "root/susy/sass/susy";
 
 //Load Bourbon mixin library with includePaths in tasks/sass.js
 //http://bourbon.io/docs/
-@import "vendor/bourbon/app/assets/stylesheets/_bourbon.scss";
+@import "root/bourbon/app/assets/stylesheets/bourbon";
+
+@import "root/variables"; 
+@import "root/mixins";
+
+//@font-face first !
+@import "root/fonts";
+@import "root/normalize";
+@import "root/box-sizing";
+@import "root/cssloading";
 
 //Load vendor css from bower 
-@import "vendor/normalize-scss/_normalize.scss";
-@import "vendor/_magnific-popup.scss";
+@import "vendor/magnific-popup";
 
 //Main websites components
-@import "components/_box-sizing.scss";
-//@import "components/_icons.scss";
-//use this task for ie8 and minus projects
-@import "components/_svg-icons.scss";
-@import "components/_cssloading.scss";
-@import "components/_text.scss";
-@import "components/_img.scss";
-@import "components/_form.scss";
-@import "components/_buttons.scss";
-@import "components/_messages.scss";
+//@import "components/icons"; use iconfont for ie8 and minus projects. task => iconfont.js
+@import "components/svg-icons";
+@import "components/text";
+@import "components/img";
+@import "components/form";
+@import "components/buttons";
+@import "components/messages";
 
 //Main websites patterns
-@import "patterns/_lazyload.scss";
-@import "patterns/_global.scss";
-@import "patterns/_utilities.scss";
-@import "patterns/_plugins.scss";
-@import "patterns/_layout.scss";
-@import "patterns/_header.scss";
-@import "patterns/_footer.scss";
-@import "patterns/_menus.scss";
-@import "patterns/_breadcrumb.scss";
-@import "patterns/_entries.scss";
-@import "patterns/_comments.scss";
-@import "patterns/_widgets.scss";
-@import "patterns/_searchform.scss";
+@import "patterns/lazyload";
+@import "patterns/global";
+@import "patterns/utilities";
+@import "patterns/plugins";
+@import "patterns/layout";
+@import "patterns/header";
+@import "patterns/footer";
+@import "patterns/menus";
+@import "patterns/breadcrumb";
+@import "patterns/entries";
+@import "patterns/comments";
+@import "patterns/widgets";
+@import "patterns/searchform";
 
 //Pages
-@import "pages/_default.scss";
-@import "pages/_404.scss";
-@import "pages/_home.scss";
-@import "pages/_print.scss";
+@import "pages/default";
+@import "pages/404";
+@import "pages/home";
+@import "pages/print";

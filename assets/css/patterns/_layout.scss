@@ -18,12 +18,3 @@
 	}
 }
 
-//omega reset example
-.grid-item {
-	@include span(6);
-	@media screen and (min-width: $desktop-small) {
-		@include span(4);
-	}
-}
-
-

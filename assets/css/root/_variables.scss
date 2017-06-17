@@ -1,10 +1,24 @@
-//Grid settings
+//Grid default settings
+//GO to _layouts.scss for example
 $susy: (
+	//debug :(image: show-columns),
+	global-box-sizing: border-box,
 	columns: 12,
-	gutters: .25,
-	container: 960px,
-	global-box-sizing: border-box
-	//debug :(image: show-columns)
+	column-width: 60px,
+	gutters: 20px/60px,
+	container: 960px
+);
+//Sample grid with Fixed 20px gutters.
+//Gutters are set with padding on both sideof the element. last argument is not needed
+//Container must take care of padding on edge of the columns
+//can be used like this : http://susydocs.oddbird.net/en/latest/settings/#with-layout
+$fixedgrid:(
+	global-box-sizing: border-box,
+	gutter-position: inside-static,
+	columns: 12,
+	column-width: 60px,
+	gutters: 20px/60px,
+	container: 980px
 );
 
 //Positioning
@@ -58,9 +72,9 @@ $base-border-color: $light-gray;
 $base-border: 1px solid $base-border-color;
 
 //Breakpoint
-$mobile-small: 480px;
-$mobile-medium: 481px;
-$tablet-small: 601px;
-$tablet-medium: 768px;
-$desktop-small: 1024px;
-$desktop-medium: 1260px;
+$mobile-small: em(480);
+$mobile-medium: em(481);
+$tablet-small: em(601);
+$tablet-medium: em(768);
+$desktop-small: em(1024);
+$desktop-medium: em(1260);

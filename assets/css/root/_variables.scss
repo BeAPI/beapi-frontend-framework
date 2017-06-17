@@ -72,9 +72,9 @@ $base-border-color: $light-gray;
 $base-border: 1px solid $base-border-color;
 
 //Breakpoint
-$mobile-small: 480px;
-$mobile-medium: 481px;
-$tablet-small: 601px;
-$tablet-medium: 768px;
-$desktop-small: 1024px;
-$desktop-medium: 1260px;
+$mobile-small: em(480);
+$mobile-medium: em(481);
+$tablet-small: em(601);
+$tablet-medium: em(768);
+$desktop-small: em(1024);
+$desktop-medium: em(1260);

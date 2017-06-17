@@ -129,6 +129,15 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 					<?php else: ?>
 						<div class="header__title visuallyhidden"><a href="01-home.php">BeAPI FrontEnd Framework</a></div>
 					<?php endif; ?>
+
+					<!-- Button href demo -->
+					<button class="button" data-href="https://beapi.fr/">
+						Button w/o blank
+					</button>
+
+					<button class="button" data-href="https://beapi.fr/" data-blank="true">
+						Button w/ blank
+					</button>
 				</div>
 			</header>
 			<nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">

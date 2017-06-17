@@ -6,6 +6,7 @@
 // Dependencies
 var $ = require('jquery');
 var magnificPopup = require('../vendor/jquery.magnific-popup');
+/* exported magnificPopup */
 
 
 //Lightbox french translation

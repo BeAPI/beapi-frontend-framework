@@ -2,6 +2,7 @@
  ----------------------------------------------------------------------------------------------------*/
 .header {
 	@include clearfix;
+	margin-bottom: $base-spacing;
 	padding-top: $base-spacing;
 }
 .header__logo-link {

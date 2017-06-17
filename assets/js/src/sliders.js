@@ -1,3 +1,0 @@
-/**
- * Sliders and carousels scripts
- */

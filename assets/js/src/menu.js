@@ -5,6 +5,7 @@
 // Dependencies
 var $ = require('jquery');
 var superfish = require('../vendor/superfish');
+/* exported superfish */
 
 
 $('.sf-menu').superfish();

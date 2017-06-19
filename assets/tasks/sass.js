@@ -31,7 +31,7 @@ module.exports = function (gulp, plugins) {
 		gulp.src(['assets/css/**/*.scss'])
 			.pipe(sourcemaps.init({identityMap:true, debug: true}))
 				.pipe(sass(sassOptions).on('error', sass.logError))
-				.pipe(autoprefixer())
+				.pipe(autoprefixer(autoprefixerOptions))
 				.pipe(minifyCSS())
 			.pipe(sourcemaps.write('.'))
 			.pipe(gulp.dest('./assets/css'));
@@ -39,7 +39,7 @@ module.exports = function (gulp, plugins) {
 		gulp.src(['assets/css/style.scss'])
 			.pipe(sass(sassOptions).on('error', sass.logError))
 			.pipe(plugins.concat('style.min.css'))
-			.pipe(autoprefixer())
+			.pipe(autoprefixer(autoprefixerOptions))
 			.pipe(minifyCSS())
 			.pipe(pxtorem(pxtoremOptions))
 			.pipe(gulp.dest('./assets/css'));

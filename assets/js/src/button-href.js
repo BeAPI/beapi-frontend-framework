@@ -1,21 +1,24 @@
+var $ = require('jquery');
+
 // Detect CTRL pressed
 var cntrlIsPressed = false;
-jQuery(document).keydown(function(event){
+$(document).keydown(function(event){
     if(event.which==="17") {
     	cntrlIsPressed = true;
     }
 });
-jQuery(document).keyup(function(){
+$(document).keyup(function(){
     cntrlIsPressed = false;
 });
 
 // Handle data-href on button components
-jQuery('body').on('click', '[data-href]', function (e) {
-	var href = jQuery(this).data('href');
-	var isBlank = jQuery(this).data('blank');
+$('body').on('mousedown', '[data-href]', function (e) {
+	var href = $(this).data('href');
+	var isBlank = $(this).data('blank');
+	console.log(e.which);
 	if (isBlank || e.which === 2 || cntrlIsPressed) {
 		window.open(href, '_blank');
-	} else {
+	} else if (e.which === 1) {
 		window.location.href = href;
 	}
 });

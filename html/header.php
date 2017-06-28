@@ -114,8 +114,8 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 					Fermer
 				</button>
 			</div>
-			<header id="header" class="header" role="banner">
-				<div class="wrapper">
+			<header id="header" class="header lazyload" role="banner" data-bgset="../assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | ../assets/img/bg-sample/bg_img-desktop-01.jpg" >
+				<div class="container">
 					<div class="header__logo">
 						<a href="01-home.php" class="header__logo-link">
 							<!-- <?php //echo get_the_post_thumbnail( 0, 'logo-beapi', array( 'data-location' => 'header-logo', 'class' => 'header__img', 'alt' => 'Logo' ) ); ?>  -->
@@ -141,7 +141,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 				</div>
 			</header>
 			<nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">
-				<div class="wrapper">
+				<div class="container">
 					<ul class="sf-menu">
 						<li>
 							<a href="02-page-default.php">menu item</a>
@@ -162,4 +162,4 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 				</div>
 			</nav>
 			<main id="main__content" class="main__content" role="main" tabindex="-1" aria-label="Contenu Principal">
-				<div class="wrapper">
+				<div class="container">

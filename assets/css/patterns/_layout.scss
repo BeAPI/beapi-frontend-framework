@@ -1,6 +1,6 @@
 /* Main Layout
 ----------------------------------------------------------------------------------------------------*/
-.wrapper {
+.container {
 	@include container;
 	padding: 0 10px;
 	@media screen and (min-width: $desktop-small) {

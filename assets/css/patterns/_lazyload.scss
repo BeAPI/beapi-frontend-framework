@@ -27,7 +27,7 @@ $loading-dimensions : 50px;
 		bottom: 0;
 		left: 0;
 		background: $maincolor;
-		transition : opacity .5s;
+		transition: opacity .5s, z-index .5s ease .5s;
 	}
 	&:after {
 		@include pseudo__content;
@@ -48,7 +48,6 @@ $loading-dimensions : 50px;
 	&.lazyload {
 		opacity: 1;
 		transition : opacity 0.5s;
-		
 	}
 	&.lazyloaded {
 		&:after,

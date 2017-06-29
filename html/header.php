@@ -114,7 +114,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 					Fermer
 				</button>
 			</div>
-			<header id="header" class="header lazyload" role="banner" data-bgset="../assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | ../assets/img/bg-sample/bg_img-desktop-01.jpg" >
+			<header id="header" class="header lazyload" role="banner" data-bgset="../assets/img/bg-sample/bg_img-mobile-02.jpg [(max-width: 1023px)] | ../assets/img/bg-sample/bg_img-desktop-02.jpg" >
 				<div class="container">
 					<div class="header__logo">
 						<a href="01-home.php" class="header__logo-link">

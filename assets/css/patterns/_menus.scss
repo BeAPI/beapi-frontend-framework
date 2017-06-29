@@ -9,10 +9,13 @@
 		a {
 			position: absolute;
 			z-index: 1;
-			color: $lightcolor;
+			color: transparent;
 			@include hover {
+				text-decoration: none;
 				z-index: 2;
-				color: $maincolor;
+				padding: $base-spacing / 2;
+				color: $lightcolor;
+				background-color: $maincolor;
 			}
 		}
 	}

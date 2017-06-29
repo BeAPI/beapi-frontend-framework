@@ -8,6 +8,7 @@ var jQuery = require('jquery');
 
 // Vendor
 var lazysizes 		= require('./vendor/lazysizes');
+var lazysizesBgset 		= require('./vendor/lazysizes.bgset');
 var picturefill 	= require('./vendor/picturefill');
 
 // Modules

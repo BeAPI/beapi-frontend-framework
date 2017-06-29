@@ -29,3 +29,9 @@
 	max-width: $max-width;
 	height: auto;
 }
+//insert content for extra style
+@mixin pseudo__content {
+	content: "";
+	display: block;
+	speak: none;
+}

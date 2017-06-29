@@ -4,6 +4,8 @@
 	@include clearfix;
 	margin-bottom: $base-spacing;
 	padding-top: $base-spacing;
+	padding-bottom: $base-spacing;
+	height: 400px;
 }
 .header__logo-link {
 	display: block;

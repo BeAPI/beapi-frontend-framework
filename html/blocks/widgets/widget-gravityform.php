@@ -1,7 +1,7 @@
 <div class="widget gform_widget">
 	<h2 class="widgettitle">Gravity Forms Widget</h2>
 
-	<div class="gform_wrapper">
+	<div class="gform_container">
 		<a id="gf_277" name="gf_277" class="gform_anchor"></a>
 		<form method="post" enctype="multipart/form-data" target="gform_ajax_frame_277" id="gform_277" action="/demo/contact-us-form/#gf_277">
 			<div class="gform_body">

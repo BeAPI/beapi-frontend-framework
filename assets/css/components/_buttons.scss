@@ -10,6 +10,7 @@ button,
 	font-size: $base-font-size;
 	color: $lightcolor;
 	background: $maincolor;
+	transition: background .25s ease-in-out, transform .25s ease-in-out;
 }
 
 #{$all-button-inputs-hover},
@@ -17,6 +18,7 @@ button:hover,
 .button:hover { // Target the :hover pseudo-class
 	color: $lightcolor;
 	background: darken($maincolor, 5%);
+	transform: translateY(-1px);
 }
 
 #{$all-button-inputs-focus},
@@ -24,6 +26,7 @@ button:focus,
 .button:focus { // Target the :focus pseudo-class
 	color: $lightcolor;
 	background: darken($maincolor, 5%);
+	transform: translateY(-1px);
 }
 
 #{$all-button-inputs-active},
@@ -31,6 +34,7 @@ button:active,
 .button:active { // Target the :active pseudo-class
 	color: $lightcolor;
 	background: $maincolor;
+	transform: translateY(1px);
 }
 
 .button__icon {

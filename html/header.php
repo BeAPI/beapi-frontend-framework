@@ -135,8 +135,12 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 						Button w/o blank
 					</button>
 
-					<button class="button" data-href="https://beapi.fr/" data-blank="true">
+					<button class="button" data-href="https://beapi.fr/" data-target="_blank">
 						Button w/ blank
+					</button>
+
+					<button class="button" data-href="../assets/pdf/sample.pdf" data-target="download" data-filename="sample.pdf">
+						Button download
 					</button>
 				</div>
 			</header>

@@ -17,9 +17,6 @@ $('body').on('mousedown', '[data-href]', function (e) {
 	var isBlank = $(this).data('target') === '_blank' ? true : false;
 	var download = $(this).data('target') === 'download' ? true : false;
 	var filename = $(this).data('filename');
-
-	console.log(isBlank, download);
-
 	if (isBlank || e.which === 2 || cntrlIsPressed) {
 		window.open(href, '_blank');
 	} else if (e.which === 1) {

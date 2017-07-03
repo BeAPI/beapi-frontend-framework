@@ -14,9 +14,12 @@ $(document).keyup(function(){
 // Handle data-href on button components
 $('body').on('mousedown', '[data-href]', function (e) {
 	var href = $(this).data('href');
-	var isBlank = $(this).attr('data-target', '_blank');
-	var download = $(this).attr('data-target', 'download');
+	var isBlank = $(this).data('target') === '_blank' ? true : false;
+	var download = $(this).data('target') === 'download' ? true : false;
 	var filename = $(this).data('filename');
+
+	console.log(isBlank, download);
+
 	if (isBlank || e.which === 2 || cntrlIsPressed) {
 		window.open(href, '_blank');
 	} else if (e.which === 1) {

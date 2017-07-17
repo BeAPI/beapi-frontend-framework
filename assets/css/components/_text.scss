@@ -4,6 +4,7 @@ body {
 	font-family: $font-sansserif;
 	color: $textcolor;
 	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 a {
 	color: $maincolor;

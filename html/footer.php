@@ -38,6 +38,7 @@
 				loadJS('../assets/js/vendor_async/fonts-css-async.js');
 			}
 		</script>
-		<script src="../assets/js/scripts.min.js" async defer></script>
+		<!-- <script src="../assets/js/scripts.min.js" async defer></script> -->
+		<script src="../assets/js/bundle.js" async defer></script>
 	</body>
 </html>

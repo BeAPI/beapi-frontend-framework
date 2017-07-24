@@ -8,7 +8,7 @@ var extractCSS = new ExtractTextPlugin('bundle.css');
 
 module.exports = {
 	entry: {
-		app: ['./src/main.js']
+		app: ['./assets/js/scripts.js']
 		// app: ['./assets/css/style.scss', './assets/js/scripts.js']
 	},
 	output: {

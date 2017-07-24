@@ -50,6 +50,7 @@
     "gulp-svgstore": "^6.1.0",
     "gulp-uglify": "~0.2.1",
     "gulp-watch": "^4.3.8",
+    "jquery": "^3.2.1",
     "matchdep": "*",
     "node-bourbon": "^4.2.8",
     "node-sass": "^4.5.3",

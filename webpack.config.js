@@ -1,40 +1,79 @@
-const webpack = require('webpack');
+/**
+ * Dependencies
+ */
+const webpack 					= require('webpack'),
+	  path 						= require('path'),
+	  ExtractTextPlugin 		= require('extract-text-webpack-plugin'),
+	  OptimizeCssAssetsPlugin 	= require('optimize-css-assets-webpack-plugin');
 
-const path = require('path');
 var root = path.resolve( __dirname );
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-var extractCSS = new ExtractTextPlugin('bundle.css');
+//var extractCSS = new ExtractTextPlugin('style.css');
 
 module.exports = {
 	entry: {
-		app: ['./assets/js/scripts.js']
-		// app: ['./assets/css/style.scss', './assets/js/scripts.js']
+		app: ['./assets/css/style.scss', './assets/js/scripts.js']
 	},
 	output: {
 		path: path.resolve( __dirname, './assets/js' ),
 		filename: 'bundle.js'
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.js$/,
-				loader: 'babel-loader',
 				exclude: /(node_modules|bower_components)/,
-				include: root
+				include: root,
+				use: ['babel-loader']
 			},
 			{
 				test: /\.css$/,
-				loader: extractCSS.extract(['css-loader'])
+				loader: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: [ 'css-loader?importLoaders=1', 'postcss-loader', 'resolve-url-loader' ],
+				}),
 			},
 			{
-				test: /\.scss$/,
-				loaders: ['style-loader', 'css-loader', 'sass-loader']
+		      	test: /\.(sass|scss)$/,
+		      	loader: ExtractTextPlugin.extract([
+		      		'css-loader',
+		      		'sass-loader'
+		      	])
+		    },
+			{
+				test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+				use: ['url-loader?limit=100000']
 			}
 		]
 	},
 	plugins: [
-		extractCSS,
+		/**
+		 * Styles
+		 */
+		
+		// style.css
+		new ExtractTextPlugin({
+			filename: './../css/style.css',
+			allChunks: true,
+		}),
+		// style.min.css
+		new ExtractTextPlugin({
+			filename: './../css/style.min.css',
+			allChunks: true,
+		}),
+		// Minify style.min.css
+		new OptimizeCssAssetsPlugin({
+		    assetNameRegExp: /\.min\.css$/,
+		    cssProcessorOptions: {
+		    	discardComments: {
+		    		removeAll: true
+		    	}
+		    }
+		}),
+
+		/**
+		 * Scripts
+		 */
 		new webpack.optimize.UglifyJsPlugin({
 			comments: false
 		})

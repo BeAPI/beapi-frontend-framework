@@ -71,5 +71,10 @@
   "dependencies": {
     "avalanche-css": "^1.0.1",
     "critical": "^0.7.3"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie >= 9",
+    "Firefox ESR"
+  ]
 }

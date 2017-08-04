@@ -1,7 +1,6 @@
 /*Load all plugin define in package.json*/
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
-var tasks = require('./assets/tasks/tasks');
 
 function getTask(task) {
 	return require('./assets/tasks/' + task)(gulp, plugins);
@@ -34,15 +33,7 @@ gulp.task('server', getTask('server'));
 gulp.task('bs-reload', getTask('bs-reload'));
 
 // Gulp build
-gulp.task('build', function() {
-	tasks.map(function(task) {
-		if(task.options) {
-			gulp.task(task.name, task.options, getTask(task.task));
-		} else {
-			gulp.task(task.name, getTask(task.task));
-		}
-	});
-});
+gulp.task('build', ['js', 'sass', 'critical-css', 'iconfont', 'svgicons', 'favicon', 'imagemin']);
 
 // On default task, just compile on demand
 gulp.task('default', ['js', 'sass', 'svgicons'], function() {

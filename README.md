@@ -106,6 +106,18 @@ Should be
     .entry-date__month
 Cause date element could be used outside metas. You shouldn't have more than 1 subelement, except in really specifical cases.
 
+We like to keep our code clean and readable. This is why we skip lines between each selectors and add empty line between declarations and includes (like media queries)
+
+    // Example
+    .class,
+    .class--alt {
+      attr: value;
+
+      @media screen and (min-width: $breakpoint) {
+        attr: value;
+      }
+    }
+
 
 CSS partials are classified and saved in 4 mains folders
 

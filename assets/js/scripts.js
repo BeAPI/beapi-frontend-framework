@@ -18,6 +18,7 @@ var placeholder 			= require('./src/placeholder');
 var menu 							= require('./src/menu');
 var lightbox 					= require('./src/lightbox');
 var buttonHref 				= require('./src/button-href');		
+var selext 					= require('./src/select');		
 
 jQuery(document).ready(function(){
 	//console.log('Init');

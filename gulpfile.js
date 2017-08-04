@@ -13,6 +13,7 @@ gulp.task('js-lint', getTask('js-lint'));
 
 //Styles
 gulp.task('sass', getTask('sass'));
+gulp.task('bump', getTask('style-version'));
 gulp.task('critical-css', getTask('critical-css'));
 
 //Iconfont

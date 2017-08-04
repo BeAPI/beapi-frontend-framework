@@ -19,6 +19,12 @@
 }
 .entry__content {
 	@include clearfix;
+	a {
+		text-decoration: underline;
+		@include hover {
+			text-decoration: none;
+		}
+	}
 	ul {
 		list-style: disc inside none;
 		margin: 0 0 $base-spacing;

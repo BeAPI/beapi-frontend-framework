@@ -16,6 +16,11 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		
 		<title>BeAPI FrontEnd Framework | The WordPress BFF</title>
 		
+		<!-- Web App favicons -->
+		<link rel="manifest" href="../assets/img/favicons/manifest.json">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="theme-color" content="#ffffff">
+		<meta name="application-name" content="BFF">
 		<link rel="apple-touch-icon" sizes="57x57" href="../assets/img/favicons/apple-touch-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="../assets/img/favicons/apple-touch-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="../assets/img/favicons/apple-touch-icon-72x72.png">
@@ -25,18 +30,29 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<link rel="apple-touch-icon" sizes="144x144" href="../assets/img/favicons/apple-touch-icon-144x144.png">
 		<link rel="apple-touch-icon" sizes="152x152" href="../assets/img/favicons/apple-touch-icon-152x152.png">
 		<link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicons/apple-touch-icon-180x180.png">
-		<link rel="icon" type="image/png" href="../assets/img/favicons/favicon-32x32.png" sizes="32x32">
-		<link rel="icon" type="image/png" href="../assets/img/favicons/favicon-230x230.png" sizes="230x230">
-		<link rel="icon" type="image/png" href="../assets/img/favicons/favicon-96x96.png" sizes="96x96">
-		<link rel="icon" type="image/png" href="../assets/img/favicons/android-chrome-192x192.png" sizes="192x192">
-		<link rel="icon" type="image/png" href="../assets/img/favicons/favicon-16x16.png" sizes="16x16">
-		<link rel="manifest" href="../assets/img/favicons/android-chrome-manifest.json">
-		<link rel="shortcut icon" href="../assets/img/favicons/favicon.ico">
-		<meta property="og:image" content="favicons/open-graph.png">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="apple-mobile-web-app-title" content="BFF">
+		<link rel="icon" type="image/png" sizes="228x228" href="../assets/img/favicons/coast-228x228.png">
 		<meta name="msapplication-TileColor" content="#ffffff">
-		<meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
-		<meta name="msapplication-config" content="favicons/browserconfig.xml">
-		<meta name="theme-color" content="#ffffff">
+		<meta name="msapplication-TileImage" content="../assets/img/favicons/mstile-144x144.png">
+		<meta name="msapplication-config" content="../assets/img/favicons/browserconfig.xml">
+		<link rel="yandex-tableau-widget" href="../assets/img/favicons/yandex-browser-manifest.json">
+		<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="../assets/img/favicons/apple-touch-startup-image-320x460.png">
+		<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="../assets/img/favicons/apple-touch-startup-image-640x920.png">
+		<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="../assets/img/favicons/apple-touch-startup-image-640x1096.png">
+		<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="../assets/img/favicons/apple-touch-startup-image-750x1294.png">
+		<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="../assets/img/favicons/apple-touch-startup-image-1182x2208.png">
+		<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="../assets/img/favicons/apple-touch-startup-image-1242x2148.png">
+		<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="../assets/img/favicons/apple-touch-startup-image-748x1024.png">
+		<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="../assets/img/favicons/apple-touch-startup-image-768x1004.png">
+		<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="../assets/img/favicons/apple-touch-startup-image-1496x2048.png">
+		<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="../assets/img/favicons/apple-touch-startup-image-1536x2008.png">
+		
+		<!-- Standard favicons -->
+		<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicons/favicon-16x16.png">
+		<link rel="shortcut icon" href="../assets/img/favicons/favicon.ico">
 		
 		<!--[if lte IE 9]>
 			<script type="text/javascript" src="../assets/js/vendor_ie/matchmedia-polyfill.js"></script>

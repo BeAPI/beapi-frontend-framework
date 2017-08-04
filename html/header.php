@@ -7,7 +7,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 <!--[if IE 8 ]>    <html class="no-js ie lte-ie9 lte-ie8 ie8" lang="fr"> <![endif]-->
 <!--[if IE 9 ]> <html class="no-js ie lte-ie9 ie9" lang="fr"> <![endif]-->
 <!--[if !(IE)]><! -->
-<html class="no-js" lang="fr"><!--<![endif]-->
+<html class="fonts-loading no-js" lang="fr"><!--<![endif]-->
 	<head>
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -30,7 +30,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<link rel="icon" type="image/png" href="../assets/img/favicons/favicon-96x96.png" sizes="96x96">
 		<link rel="icon" type="image/png" href="../assets/img/favicons/android-chrome-192x192.png" sizes="192x192">
 		<link rel="icon" type="image/png" href="../assets/img/favicons/favicon-16x16.png" sizes="16x16">
-		<link rel="manifest" href="../assets/img/favicons/android-chrome-manifest.json">
+		<!-- <link rel="manifest" href="../assets/img/favicons/android-chrome-manifest.json"> -->
 		<link rel="shortcut icon" href="../assets/img/favicons/favicon.ico">
 		<meta property="og:image" content="favicons/open-graph.png">
 		<meta name="msapplication-TileColor" content="#ffffff">
@@ -147,8 +147,9 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 			<nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">
 				<div class="container">
 					<ul class="sf-menu">
+						<li class="current-menu-item"><a href="01-home.php">Home</a></li>
 						<li>
-							<a href="02-page-default.php">menu item</a>
+							<a href="02-page-default.php">Page default</a>
 							<ul>
 								<li><a href="#">menu item</a></li>
 								<li><a href="#">menu item</a></li>
@@ -158,7 +159,6 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 								<li><a href="#">menu item</a></li>
 							</ul>
 						</li>
-						<li class="current-menu-item"><a href="#">menu item</a></li>
 						<li><a href="#">menu item</a></li>
 						<li><a href="#">menu item</a></li>
 						<li><a href="#">menu item</a></li>

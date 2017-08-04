@@ -1,13 +1,37 @@
+/* Fonts loading
+----------------------------------------------------------------------------------------------------*/
+.fonts-loading {
+	&>body {
+		font-family: $font-sansserif;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: $font-sansserif;
+	}
+}
 body {
 	font-size: $base-font-size;
 	line-height: $base-line-height;
-	font-family: $font-sansserif;
+	font-family: $customfont-1;
 	color: $textcolor;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $customfont-2;
+}
 a {
 	color: $maincolor;
+	text-decoration: none;
 	@include hover {
 		color: $maincolor;
 	}
@@ -190,20 +214,4 @@ sup {
 }
 sup {
 	top: -0.5em;
-}
-
-/* Fonts loading
-----------------------------------------------------------------------------------------------------*/
-.fonts-loaded {
-	&>body {
-		font-family: $customfont-1;
-	}
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		font-family: $customfont-2;
-	}
 }

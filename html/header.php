@@ -16,7 +16,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		
 		<title>BeAPI FrontEnd Framework | The WordPress BFF</title>
 		
-		<!-- Web App favicons -->
+		<!-- Web App favicons from /assets/img/favicons/index_hd.html -->
 		<link rel="manifest" href="../assets/img/favicons/manifest.json">
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="theme-color" content="#ffffff">
@@ -49,7 +49,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="../assets/img/favicons/apple-touch-startup-image-1496x2048.png">
 		<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="../assets/img/favicons/apple-touch-startup-image-1536x2008.png">
 		
-		<!-- Standard favicons -->
+		<!-- Standard favicons from /assets/img/favicons/index_sd.html -->
 		<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicons/favicon-16x16.png">
 		<link rel="shortcut icon" href="../assets/img/favicons/favicon.ico">

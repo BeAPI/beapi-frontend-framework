@@ -17,12 +17,14 @@ $('body').on('mousedown', '[data-href]', function (e) {
 	var isBlank = $(this).data('target') === '_blank' ? true : false;
 	var download = $(this).data('target') === 'download' ? true : false;
 	var filename = $(this).data('filename');
-	if (isBlank || e.which === 2 || cntrlIsPressed) {
-		window.open(href, '_blank');
-	} else if (e.which === 1) {
-		window.location.href = href;
-	}
-	if (download) {
+	
+	if (!download) {
+		if (isBlank || e.which === 2 || cntrlIsPressed) {
+			window.open(href, '_blank');
+		} else if (e.which === 1) {
+			window.location.href = href;
+		}
+	} else {
 		var anchor = document.createElement('a');
 		anchor.href = href;
 		anchor.target = '_blank';

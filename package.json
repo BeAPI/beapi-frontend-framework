@@ -70,6 +70,7 @@
   },
   "dependencies": {
     "avalanche-css": "^1.0.1",
+    "babel-preset-env": "^1.6.0",
     "critical": "^0.7.3"
   },
   "browserslist": [

@@ -5,20 +5,22 @@ const webpack 					= require('webpack'),
 	  path 						= require('path'),
 	  ExtractTextPlugin 		= require('extract-text-webpack-plugin'),
 	  OptimizeCssAssetsPlugin 	= require('optimize-css-assets-webpack-plugin'),
-	  autoprefixer 				= require('autoprefixer');
+	  autoprefixer 				= require('autoprefixer'),
+	  dev						= process.env.NODE_ENV === 'dev';
 
-var root = path.resolve( __dirname );
+let root = path.resolve( __dirname );
 
 //var extractCSS = new ExtractTextPlugin('style.css');
 
-module.exports = {
+let config = {
 	entry: {
-		app: ['./assets/css/style.scss', './assets/js/scripts.js']
+		app: ['./assets/css/style.scss', './assets/js/app.js']
 	},
 	output: {
 		path: path.resolve( __dirname, './assets/js' ),
-		filename: 'bundle.js'
+		filename: 'scripts.js'
 	},
+	devtool: dev ? 'cheap-module-eval-source-map' : 'source-map',
 	module: {
 		rules: [
 			{
@@ -72,26 +74,42 @@ module.exports = {
 			filename: './../css/style.css',
 			allChunks: true,
 		}),
-		// style.min.css
-		new ExtractTextPlugin({
-			filename: './../css/style.min.css',
-			allChunks: true,
-		}),
-		// Minify style.min.css
-		new OptimizeCssAssetsPlugin({
-		    assetNameRegExp: /\.min\.css$/,
-		    cssProcessorOptions: {
-		    	discardComments: {
-		    		removeAll: true
-		    	}
-		    }
-		}),
-
-		/**
-		 * Scripts
-		 */
-		new webpack.optimize.UglifyJsPlugin({
-			comments: false
-		})
+		// new webpack.optimize.UglifyJsPlugin({
+		// 	comments: false
+		// });
 	]
 }
+
+/**
+ * Production
+ */
+if(!dev) {
+	/**
+	 * Styles
+	 */
+	
+	// style.min.css
+	config.plugins.push( new ExtractTextPlugin({
+		filename: './../css/style.min.css',
+		allChunks: true,
+	}));
+	
+	// Minify style.min.css
+	config.plugins.push( new OptimizeCssAssetsPlugin({
+	    assetNameRegExp: /\.min\.css$/,
+	    cssProcessorOptions: {
+	    	discardComments: {
+	    		removeAll: true
+	    	}
+	    }
+	}));
+	
+	/**
+	 * Scripts
+	 */
+	config.plugins.push( new webpack.optimize.UglifyJsPlugin({
+		sourceMap: true
+	}));
+}
+
+module.exports = config;

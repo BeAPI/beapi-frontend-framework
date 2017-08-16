@@ -1,6 +1,10 @@
 {
   "name": "beapi-frontend-framework",
   "version": "1.0.0",
+  "scripts": {
+    "dev": "NODE_ENV=dev webpack",
+    "prod": "webpack"
+  },
   "author": "BeAPI",
   "repository": {
     "type": "git",

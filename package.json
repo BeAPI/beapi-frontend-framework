@@ -72,10 +72,5 @@
     "avalanche-css": "^1.0.1",
     "babel-preset-env": "^1.6.0",
     "critical": "^0.7.3"
-  },
-  "browserslist": [
-    "last 2 versions",
-    "ie >= 9",
-    "Firefox ESR"
-  ]
+  }
 }

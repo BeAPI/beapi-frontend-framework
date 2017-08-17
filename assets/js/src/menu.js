@@ -1,17 +1,15 @@
+import $ from 'jquery';
+window.$ = window.jQuery = $;
+
 /**
  * Superfish for submenu most of the time in header
  */
 
-// Dependencies
-var $ = require('jquery');
+const superfish = require('superfish');
 
-window.$ = window.jQuery = $;
-var superfish = require('superfish');
-/* exported superfish */
-
-
-$('.sf-menu').superfish();
-console.log('');
+if( $('.sf-menu').length > 0 ) {
+	$('.sf-menu').superfish();
+}
 
 /**
  * Menu Mobile
@@ -24,7 +22,6 @@ menuOpen.on("click", function(){
 	menuBody.addClass("menu-mobile--active");
 });
 
-// Close menu
 menuClose.on("click", function(){
 	menuBody.removeClass("menu-mobile--active");
 });

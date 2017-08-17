@@ -64,6 +64,7 @@
     "node-sass": "^4.5.3",
     "optimize-css-assets-webpack-plugin": "^3.0.0",
     "penthouse": "^0.10.3",
+    "picturefill": "3.0.2",
     "postcss-loader": "^2.0.6",
     "resolve-url-loader": "^2.1.0",
     "sass-loader": "^6.0.6",

@@ -1,5 +1,10 @@
+/** 
+ * Lightbox 
+ * http://dimsemenov.com/plugins/magnific-popup/documentation.html 
+ */ 
+
 import $ from 'jquery';
-import magnificPopup from 'magnific-popup'; // http://dimsemenov.com/plugins/magnific-popup/documentation.html
+import magnificPopup from 'magnific-popup';
 
 //Lightbox french translation
 $.extend(true, $.magnificPopup.defaults, {

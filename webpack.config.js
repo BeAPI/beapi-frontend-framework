@@ -10,7 +10,7 @@ const webpack 					= require('webpack'),
 
 let root = path.resolve( __dirname );
 
-//var extractCSS = new ExtractTextPlugin('style.css');
+let cssLoaders = require('./webpack.css-loader.js');
 
 let config = {
 	entry: {
@@ -31,17 +31,16 @@ let config = {
 			},
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract({
+				use: ExtractTextPlugin.extract({
 					fallback: 'style-loader',
-					use: [ 'css-loader?importLoaders=1', 'postcss-loader', 'resolve-url-loader' ]
+					use: [...cssLoaders, 'resolve-url-loader']
 				}),
 			},
 			{
 		      	test: /\.(sass|scss)$/,
-		      	loader: ExtractTextPlugin.extract([
-		      		'css-loader',
-		      		'sass-loader'
-		      	])
+		      	use: ExtractTextPlugin.extract({
+					use: [...cssLoaders, 'sass-loader']
+		      	})
 		    },
 			{
 				test: /\.(png|woff|woff2|eot|ttf|svg)$/,
@@ -53,21 +52,6 @@ let config = {
 		/**
 		 * Styles
 		 */
-		
-		new webpack.LoaderOptionsPlugin({
-			options: {
-				postcss: [
-					autoprefixer({
-						add: true,
-						browsers: [
-							'last 2 versions',
-							'ie >= 9',
-							'Firefox ESR'
-						],
-					}),
-				],
-			}
-		}),
 		
 		// style.css
 		new ExtractTextPlugin({

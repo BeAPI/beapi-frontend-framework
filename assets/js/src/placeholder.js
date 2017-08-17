@@ -4,7 +4,7 @@
 
 // Dependencies
 var $ = require('jquery');
-var placeholder = require('../vendor/jquery.placeholder');
+var placeholder = require('jquery.placeholder');
 /* exported placeholder */
 
 

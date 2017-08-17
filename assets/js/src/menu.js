@@ -4,11 +4,14 @@
 
 // Dependencies
 var $ = require('jquery');
-var superfish = require('../vendor/superfish');
+
+window.$ = window.jQuery = $;
+var superfish = require('superfish');
 /* exported superfish */
 
 
 $('.sf-menu').superfish();
+console.log('');
 
 /**
  * Menu Mobile

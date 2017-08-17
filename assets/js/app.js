@@ -4,20 +4,20 @@
  */
 
 // Dependencies
-var jQuery 					= require('jquery');
+const jQuery 			= require('jquery');
 
 // Vendor
-var lazysizes 				= require('./vendor/lazysizes');
-var lazysizesBgset 			= require('./vendor/lazysizes.bgset');
-var picturefill 			= require('./vendor/picturefill');
+const lazysizes 		= require('lazysizes');
+const lazysizesBgset 	= require('./vendor/lazysizes.bgset');
+const picturefill 		= require('./vendor/picturefill');
 
 // Modules
-var consoleLog 				= require('./src/console');
-var ieMessage 				= require('./src/ie_message');
-var placeholder 			= require('./src/placeholder');
-var menu 					= require('./src/menu');
-var lightbox 				= require('./src/lightbox');
-var buttonHref 				= require('./src/button-href');		
+const consoleLog 		= require('./src/console');
+const ieMessage 		= require('./src/ie_message');
+const placeholder 		= require('./src/placeholder');
+const menu 				= require('./src/menu');
+const lightbox 			= require('./src/lightbox');
+const buttonHref 		= require('./src/button-href');		
 
 jQuery(document).ready(function(){
 	//console.log('Init');

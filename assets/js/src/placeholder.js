@@ -5,5 +5,4 @@
 import $ from 'jquery';
 import placeholder from 'jquery.placeholder';
 
-
 $('input, textarea').placeholder();

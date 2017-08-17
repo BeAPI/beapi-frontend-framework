@@ -2,12 +2,10 @@
  * IE disclaimer
  */
 
-
-// Dependencies
-var $ = require('jquery');
-
+import $ from 'jquery';
 
 var ieUiMessage = $('.message__browserhappy');
-$('.message__browserhappy button').on("click", function(){
+
+$('.message__browserhappy button').on('click', function() {
 	ieUiMessage.hide();
 });

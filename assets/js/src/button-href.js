@@ -1,4 +1,4 @@
-var $ = require('jquery');
+import $ from 'jquery';
 
 // Detect CTRL pressed
 var cntrlIsPressed = false;

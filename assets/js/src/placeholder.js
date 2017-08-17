@@ -2,10 +2,8 @@
  * Html5 PLaceholder fallback for ie7+
  */
 
-// Dependencies
-var $ = require('jquery');
-var placeholder = require('jquery.placeholder');
-/* exported placeholder */
+import $ from 'jquery';
+import placeholder from 'jquery.placeholder';
 
 
-$("input, textarea").placeholder();
+$('input, textarea').placeholder();

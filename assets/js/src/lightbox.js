@@ -1,13 +1,5 @@
-/**
- * Lightbox
- * http://dimsemenov.com/plugins/magnific-popup/documentation.html
- */
-
-// Dependencies
-var $ = require('jquery');
-var magnificPopup = require('../vendor/jquery.magnific-popup');
-/* exported magnificPopup */
-
+import $ from 'jquery';
+import magnificPopup from 'magnific-popup'; // http://dimsemenov.com/plugins/magnific-popup/documentation.html
 
 //Lightbox french translation
 $.extend(true, $.magnificPopup.defaults, {

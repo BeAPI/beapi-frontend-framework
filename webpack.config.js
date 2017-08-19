@@ -5,7 +5,6 @@ const webpack 					= require('webpack'),
 	  path 						= require('path'),
 	  ExtractTextPlugin 		= require('extract-text-webpack-plugin'),
 	  OptimizeCssAssetsPlugin 	= require('optimize-css-assets-webpack-plugin'),
-	  autoprefixer 				= require('autoprefixer'),
 	  dev						= process.env.NODE_ENV === 'dev';
 
 let root = path.resolve( __dirname );

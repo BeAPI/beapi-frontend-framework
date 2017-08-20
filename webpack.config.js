@@ -4,12 +4,18 @@
 const webpack 					= require('webpack'),
 	  path 						= require('path'),
 	  ExtractTextPlugin 		= require('extract-text-webpack-plugin'),
+	  UglifyJsPlugin			= require('uglifyjs-webpack-plugin'),
 	  OptimizeCssAssetsPlugin 	= require('optimize-css-assets-webpack-plugin'),
+	  ManifestPlugin			= require('webpack-manifest-plugin'),
+	  CleanWebpackPlugin		= require('clean-webpack-plugin'),
+	  autoprefixer 				= require('autoprefixer'),
+	  cssLoaders				= require('./webpack.css-loader.js'),
 	  dev						= process.env.NODE_ENV === 'dev';
 
 let root = path.resolve( __dirname );
 
-let cssLoaders = require('./webpack.css-loader.js');
+
+process.traceDeprecation = true
 
 let config = {
 	entry: {
@@ -17,9 +23,10 @@ let config = {
 	},
 	output: {
 		path: path.resolve( __dirname, './assets/js' ),
-		filename: 'scripts.js'
+		filename: dev ? '[name].js' : '[name].[chunkhash:8].js' 
 	},
-	devtool: dev ? 'cheap-module-eval-source-map' : 'source-map',
+	watch: dev,
+	devtool: dev ? 'source-map' : false,
 	module: {
 		rules: [
 			{
@@ -47,20 +54,7 @@ let config = {
 			}
 		]
 	},
-	plugins: [
-		/**
-		 * Styles
-		 */
-		
-		// style.css
-		new ExtractTextPlugin({
-			filename: './../css/style.css',
-			allChunks: true,
-		}),
-		// new webpack.optimize.UglifyJsPlugin({
-		// 	comments: false
-		// });
-	]
+	plugins: []
 }
 
 /**
@@ -73,7 +67,7 @@ if(!dev) {
 	
 	// style.min.css
 	config.plugins.push( new ExtractTextPlugin({
-		filename: './../css/style.min.css',
+		filename: '[name].[contenthash:8].min.css',
 		allChunks: true,
 	}));
 	
@@ -90,8 +84,37 @@ if(!dev) {
 	/**
 	 * Scripts
 	 */
-	config.plugins.push( new webpack.optimize.UglifyJsPlugin({
-		sourceMap: true
+	config.plugins.push( new UglifyJsPlugin({
+		sourceMap: true,
+		comments: false
+    }));
+
+	/**
+	 * Assets
+	 * Using on production to load dynamically scripts and style with hashes
+	 */
+    config.plugins.push( new ManifestPlugin({
+    	fileName: 'assets.json'
+	}));
+
+
+    /**
+     * Clean dist directory before prod build
+     */
+	config.plugins.push( new CleanWebpackPlugin(['dist'], {
+		root: path.resolve('./'),
+		verbose: true,
+		dry: false
+    }));
+} else {
+	/**
+	 * Styles
+	 */
+	
+	// style.css
+	config.plugins.push( new ExtractTextPlugin({
+		filename: '[name].css',
+		allChunks: true,
 	}));
 }
 

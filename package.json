@@ -28,6 +28,7 @@
     "browser-sync": "^2.4.0",
     "browserify": "^13.0.1",
     "browserify-shim": "^3.8.12",
+    "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
@@ -65,7 +66,7 @@
     "optimize-css-assets-webpack-plugin": "^3.0.0",
     "penthouse": "^0.10.3",
     "picturefill": "3.0.2",
-    "postcss-loader": "^2.0.6",
+    "postcss-loader": "^1.0.0",
     "resolve-url-loader": "^2.1.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
@@ -75,7 +76,8 @@
     "url-loader": "^0.5.9",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "webpack": "^3.3.0"
+    "webpack": "^3.3.0",
+    "webpack-manifest-plugin": "^1.3.1"
   },
   "dependencies": {
     "avalanche-css": "^1.0.1",

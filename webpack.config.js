@@ -22,7 +22,7 @@ let config = {
 		app: ['./assets/css/style.scss', './assets/js/app.js']
 	},
 	output: {
-		path: path.resolve( __dirname, './assets/js' ),
+		path: path.resolve( __dirname, './dist' ),
 		filename: dev ? '[name].js' : '[name].[chunkhash:8].js' 
 	},
 	watch: dev,

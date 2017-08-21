@@ -8,7 +8,6 @@ const webpack 					= require('webpack'),
 	  OptimizeCssAssetsPlugin 	= require('optimize-css-assets-webpack-plugin'),
 	  ManifestPlugin			= require('webpack-manifest-plugin'),
 	  CleanWebpackPlugin		= require('clean-webpack-plugin'),
-	  autoprefixer 				= require('autoprefixer'),
 	  cssLoaders				= require('./webpack.css-loader.js'),
 	  dev						= process.env.NODE_ENV === 'dev';
 

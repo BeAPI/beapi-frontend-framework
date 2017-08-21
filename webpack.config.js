@@ -48,8 +48,33 @@ let config = {
 		      	})
 		    },
 			{
-				test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-				use: ['url-loader?limit=100000']
+				test: /\.(woff2?|eot|ttf|otf|mp3|wav)(\?.*)?$/,
+				use: {
+            		loader: 'file-loader',
+            		options: {
+            			name:'[name].[ext]',
+            			outputPath: './fonts/'
+            		}
+            	}
+			},
+			{
+				test: /\.(png|jpe?g|gif|svg)$/,
+				use: [
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 8192,
+							name: '[name].[ext]',
+							outputPath: './img/'
+						}
+	            	},
+	            	{
+	            		loader: 'img-loader',
+	            		options: {
+	            			enabled: !dev
+	            		}
+	            	}
+            	]
 			}
 		]
 	},

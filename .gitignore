@@ -60,3 +60,5 @@ assets/img/sample/cache
 ### Fabricator styleguide ###
 styleguide/dist
 styleguide/node_modules
+
+index\.html

@@ -64,13 +64,11 @@ if(!dev) {
 	 * Styles
 	 */
 	
-	// style.min.css
 	config.plugins.push( new ExtractTextPlugin({
 		filename: '[name].[contenthash:8].min.css',
 		allChunks: true,
 	}));
 	
-	// Minify style.min.css
 	config.plugins.push( new OptimizeCssAssetsPlugin({
 	    assetNameRegExp: /\.min\.css$/,
 	    cssProcessorOptions: {
@@ -109,8 +107,6 @@ if(!dev) {
 	/**
 	 * Styles
 	 */
-	
-	// style.css
 	config.plugins.push( new ExtractTextPlugin({
 		filename: '[name].css',
 		allChunks: true,

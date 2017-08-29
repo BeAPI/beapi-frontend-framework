@@ -32,7 +32,8 @@ let config = {
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
 				include: root,
-				use: ['babel-loader']
+				enforce: 'pre',
+				use: ['eslint-loader']
 			},
 			{
 				test: /\.css$/,

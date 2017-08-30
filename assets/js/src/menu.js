@@ -1,44 +1,44 @@
-import $ from 'jquery';
-window.$ = window.jQuery = $;
+import $ from 'jquery'
+window.$ = window.jQuery = $
 
 /**
  * Superfish for submenu most of the time in header
  */
 
-const superfish = require('superfish');
+require('superfish')
 
-if( $('.sf-menu').length > 0 ) {
-	$('.sf-menu').superfish();
+if ($('.sf-menu').length > 0) {
+  $('.sf-menu').superfish()
 }
 
 /**
  * Menu Mobile
  */
-var menuBody = $("html, body"),
-	menuOpen = $(".button__menu-open"),
-	menuClose = $(".button__menu-close");
+let menuBody = $('html, body')
+let menuOpen = $('.button__menu-open')
+let menuClose = $('.button__menu-close')
 
-menuOpen.on("click", function(){
-	menuBody.addClass("menu-mobile--active");
-});
+menuOpen.on('click', function () {
+  menuBody.addClass('menu-mobile--active')
+})
 
-menuClose.on("click", function(){
-	menuBody.removeClass("menu-mobile--active");
-});
+menuClose.on('click', function () {
+  menuBody.removeClass('menu-mobile--active')
+})
 
-if (menuBody.hasClass("menu-mobile--active")) {
-	$("#main").on("click", function(){
-		menuBody.removeClass("menu-mobile--active");
-	});
+if (menuBody.hasClass('menu-mobile--active')) {
+  $('#main').on('click', function () {
+    menuBody.removeClass('menu-mobile--active')
+  })
 }
 
-var	resizeBreakpoint = window.matchMedia('(min-width: 1024px)');
+let resizeBreakpoint = window.matchMedia('(min-width: 1024px)')
 
-resizeBreakpoint.addListener(menuResizing);
+resizeBreakpoint.addListener(menuResizing)
 
-function menuResizing(mediaQuery) {
-	if (mediaQuery.matches) {
-		//enter desktop
-		menuBody.removeClass("menu-mobile--active");
-	}
+function menuResizing (mediaQuery) {
+  if (mediaQuery.matches) {
+    // enter desktop
+    menuBody.removeClass('menu-mobile--active')
+  }
 }

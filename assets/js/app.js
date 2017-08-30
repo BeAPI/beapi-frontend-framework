@@ -1,20 +1,26 @@
 /**
  * Main scripts file
- *
  */
 
-// Dependencies
-const jQuery 			= require('jquery');
+import lazySizes from 'lazysizes'
+import lazySizesBgset from 'lazysizes/plugins/bgset/ls.bgset'
+require('picturefill')
 
-// Vendor
-const lazysizes 		= require('lazysizes');
-const lazysizesBgset 	= require('./vendor/lazysizes.bgset');
-const picturefill 		= require('picturefill');
+require('./src/button-href')
+require('./src/console')
+require('./src/ie_message')
+require('./src/menu')
+require('./src/lightbox')
+require('./src/placeholder')
 
-// Modules
-const buttonHref 		= require('./src/button-href');		
-const consoleLog 		= require('./src/console');
-const ieMessage 		= require('./src/ie_message');
-const menu 				= require('./src/menu');
-const lightbox 			= require('./src/lightbox');
-const placeholder 		= require('./src/placeholder');
+/**
+ * LazySizes configuration
+ * https://github.com/aFarkas/lazysizes/#js-api---options
+ */
+lazySizes.customMedia = {}
+
+/**
+ * LazySizesBgset configuration
+ * https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/bgset#lazysizes-bgset-extension---responsive-background-images
+ */
+lazySizesBgset.customMedia = {}

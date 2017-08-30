@@ -2,10 +2,10 @@
  * IE disclaimer
  */
 
-import $ from 'jquery';
+import $ from 'jquery'
 
-var ieUiMessage = $('.message__browserhappy');
+var ieUiMessage = $('.message__browserhappy')
 
-$('.message__browserhappy button').on('click', function() {
-	ieUiMessage.hide();
-});
+$('.message__browserhappy button').on('click', function () {
+  ieUiMessage.hide()
+})

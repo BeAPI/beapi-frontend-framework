@@ -62,3 +62,6 @@ styleguide/dist
 styleguide/node_modules
 
 index\.html
+
+### Mac OSX
+.DS_Store

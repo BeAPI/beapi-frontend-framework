@@ -21,6 +21,24 @@
 							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-instagram"></use>
 						</svg>
 					</a>
+					<a class="button button--circle" href="#">
+						<span class="visuallyhidden">On Viadeo</span>
+						<svg class="icon icon-viadeo" aria-hidden="true" role="img">
+							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-viadeo"></use>
+						</svg>
+					</a>
+					<a class="button button--circle" href="#">
+						<span class="visuallyhidden">On Google</span>
+						<svg class="icon icon-google" aria-hidden="true" role="img">
+							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-google"></use>
+						</svg>
+					</a>
+					<a class="button button--circle" href="#">
+						<span class="visuallyhidden">On Youtube</span>
+						<svg class="icon icon-youtube" aria-hidden="true" role="img">
+							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-youtube"></use>
+						</svg>
+					</a>
 					
 				</div>
 			</footer>

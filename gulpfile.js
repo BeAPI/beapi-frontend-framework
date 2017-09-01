@@ -34,7 +34,7 @@ gulp.task('server', getTask('server'));
 gulp.task('bs-reload', getTask('bs-reload'));
 
 // Gulp build
-gulp.task('build', ['js', 'sass', 'critical-css', 'iconfont', 'svgicons', 'favicon', 'imagemin']);
+gulp.task('build', ['imagemin', 'svgicons', 'favicon', 'js', 'sass', 'critical-css' ]);
 
 // On default task, just compile on demand
 gulp.task('default', ['js', 'sass', 'svgicons'], function() {

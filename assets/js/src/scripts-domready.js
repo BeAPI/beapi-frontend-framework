@@ -1,9 +1,9 @@
 /**
  * Miscellaneous stuffs
  */
-
 // Dependencies
-//var $ = require('jquery');
+// const $ = require('jquery')
 
-// Improve css with jQuery
-//$("ul li:last-child").addClass("last");
+// $(document).ready(function () {
+//   console.log('DOM Ready')
+// })

@@ -4,7 +4,7 @@ function buildTheme {
 	for theme in *; do
 	    if [ -d "${theme}" ]; then
 	        cd "${theme}" && gulp build
-	        if [ $2 == "-t" ]; then
+	        if [ $2 == "-t" ] || [ $2 == "-type" ]; then
 	        	gulp bump -type $3
 	        fi
 	        cd ..

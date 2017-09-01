@@ -1,18 +1,3 @@
-/* Fonts loading
-----------------------------------------------------------------------------------------------------*/
-.fonts-loading {
-	&>body {
-		font-family: $font-sansserif;
-	}
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		font-family: $font-sansserif;
-	}
-}
 body {
 	font-size: $base-font-size;
 	line-height: $base-line-height;
@@ -20,6 +5,11 @@ body {
 	color: $textcolor;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	//Fonts loading FOUT
+	//Adjust FOUT with tools like https://meowni.ca/font-style-matcher/
+	.fonts-loading & {
+		font-family: $font-sansserif;
+	}
 }
 h1,
 h2,
@@ -28,6 +18,9 @@ h4,
 h5,
 h6 {
 	font-family: $customfont-2;
+	.fonts-loading & {
+		font-family: $font-sansserif;
+	}
 }
 a {
 	color: $maincolor;

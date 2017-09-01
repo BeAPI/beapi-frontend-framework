@@ -19,6 +19,8 @@ let updateStyle = function (content, type) {
 		}
 
 
+		console.log('\x1b[33m%s\x1b[0m\x1b[40m', 'style.css version updated to : ' + typeArr.join('.'));
+
 		return match.replace(gr1, typeArr.join('.'));
 	});
 
@@ -59,7 +61,7 @@ module.exports = function(gulp, plugins) {
 		let type = 'patch';
 		let typeAvailable = ['major', 'minor', 'patch'];
 		for (let i = 0; i < process.argv.length; i++) {
-			if (process.argv[i] === '--t' || process.argv[i] === '-type' ) {
+			if (process.argv[i] === '-t' || process.argv[i] === '-type' ) {
 				if (typeAvailable.indexOf(process.argv[i + 1]) > -1) {
 					type = process.argv[i + 1];
 				}

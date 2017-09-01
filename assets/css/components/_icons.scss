@@ -34,8 +34,32 @@
 	@if $filename == facebook {
 		$char: "\E002";
 	}
-	@if $filename == menu {
+	@if $filename == google {
 		$char: "\E003";
+	}
+	@if $filename == instagram {
+		$char: "\E004";
+	}
+	@if $filename == linkedin {
+		$char: "\E005";
+	}
+	@if $filename == logo-beapi {
+		$char: "\E006";
+	}
+	@if $filename == menu {
+		$char: "\E007";
+	}
+	@if $filename == search {
+		$char: "\E008";
+	}
+	@if $filename == twitter {
+		$char: "\E009";
+	}
+	@if $filename == viadeo {
+		$char: "\E00A";
+	}
+	@if $filename == youtube {
+		$char: "\E00B";
 	}
 
 	@return $char;
@@ -58,6 +82,30 @@
 .icon-facebook {
 	@include icon(facebook);
 }
+.icon-google {
+	@include icon(google);
+}
+.icon-instagram {
+	@include icon(instagram);
+}
+.icon-linkedin {
+	@include icon(linkedin);
+}
+.icon-logo-beapi {
+	@include icon(logo-beapi);
+}
 .icon-menu {
 	@include icon(menu);
+}
+.icon-search {
+	@include icon(search);
+}
+.icon-twitter {
+	@include icon(twitter);
+}
+.icon-viadeo {
+	@include icon(viadeo);
+}
+.icon-youtube {
+	@include icon(youtube);
 }

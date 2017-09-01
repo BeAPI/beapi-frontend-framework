@@ -13,6 +13,7 @@ gulp.task('js-lint', getTask('js-lint'));
 
 //Styles
 gulp.task('sass', getTask('sass'));
+gulp.task('bump', getTask('style-version'));
 gulp.task('critical-css', getTask('critical-css'));
 
 //Iconfont
@@ -32,6 +33,8 @@ gulp.task('browser-sync', ['server'], getTask('browser-sync'));
 gulp.task('server', getTask('server'));
 gulp.task('bs-reload', getTask('bs-reload'));
 
+// Gulp build
+gulp.task('build', ['imagemin', 'svgicons', 'favicon', 'js', 'sass', 'critical-css' ]);
 
 // On default task, just compile on demand
 gulp.task('default', ['js', 'sass', 'svgicons'], function() {

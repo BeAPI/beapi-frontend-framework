@@ -32,7 +32,7 @@
 			// then load your JS
 			if (sessionStorage.getItem('fonts-loaded')) {
 				// fonts cached, add class to document
-				document.documentElement.classList.add('fonts-loaded');
+				document.documentElement.classList.remove('fonts-loading');
 			} else {
 				// load script with font observing logic
 				loadJS('../assets/js/vendor_async/fonts-css-async.js');

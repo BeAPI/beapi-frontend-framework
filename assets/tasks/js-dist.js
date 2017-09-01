@@ -1,6 +1,6 @@
 var concat = require('gulp-concat-sourcemap');
 //var sourcemaps = require('gulp-sourcemaps');
-var uglify = require('gulp-uglify');
+var uglify = require('gulp-uglify-es').default;
 var browserify = require('browserify');
 var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');

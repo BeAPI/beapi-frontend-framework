@@ -33,6 +33,16 @@ label {
 	font-weight: 700;
 }
 
+/* Checkbox + Radio
+-------------------------------------------------------------- */
+.checkbox--custom {
+	@include checkbox--custom($maincolor);
+}
+.radio--custom {
+	@include checkbox--custom($maincolor);
+	@include radio--custom();
+}
+
 /* Textarea
 -------------------------------------------------------------- */
 textarea {

@@ -35,3 +35,52 @@
 	display: block;
 	speak: none;
 }
+
+//Mixin for custom checkbox
+@mixin checkbox--custom($color: $maincolor, $size: 18px) {
+	margin-bottom: 20px;
+	input[type="checkbox"], input[type="radio"] {
+		position: absolute;
+		opacity: 0;
+		& + label {
+			cursor: pointer;
+			font-size: 14px;
+			&:before {
+				content: '';
+				position: relative;
+				display: inline-block;
+				background-color: transparent;
+				width: $size;
+				height: $size;
+				margin: 0 ($base-spacing/2) 5px 0;
+				border: 2px solid $color;
+				vertical-align: top;
+				cursor: pointer;
+				transition: background-color .35s ease;
+			}
+			&:empty {
+				&:before {
+					margin-right: 0;
+				}
+			}
+		}
+		&:checked {
+			& + label {
+				&:before {
+					content: '';
+					background-color: $color;
+				}
+			}
+		}
+	}
+}
+
+@mixin radio--custom() {
+	input[type="radio"] {
+		& + label {
+			&:before {
+				border-radius: 50%;
+			}
+		}
+	}
+}

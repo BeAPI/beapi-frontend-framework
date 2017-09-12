@@ -4,7 +4,7 @@
 		<form action="#">
 			<div class="checkbox--custom">
 			  <input id="checkbox-1" name="checkbox" type="checkbox" checked>
-			  <label for="checkbox-1">Checkbox item</label>
+			  <label for="checkbox-1">Checkbox item Lorem ipsum dolor sit amet.</label>
 			</div>
 			<div class="checkbox--custom">
 			<input id="checkbox-2" name="checkbox" type="checkbox">

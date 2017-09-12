@@ -27,6 +27,8 @@
 			<?php include 'blocks/widgets/widget-categories.php'; ?>
 			<?php include 'blocks/widgets/widget-archive.php'; ?>
 			<?php include 'blocks/widgets/widget-pages.php'; ?>
+			<?php include 'blocks/checkbox.php'; ?>
+			<?php include 'blocks/radio.php'; ?>
 		</div>
 	</aside>
 

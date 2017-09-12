@@ -61,6 +61,7 @@ textarea {
 	overflow: hidden;
 	background-color: $lightcolor;
 	background: $lightcolor url("#{$images-url}/icons/down.svg") no-repeat 98% 50%;
+	background-size: 11px 6px;
 	select {
 		line-height: 1.1;
 		padding: $half-base-spacing;
@@ -78,4 +79,10 @@ textarea {
 }
 _:-ms-input-placeholder, :root .select--custom select { //ie10 
 	width: 120%;
+}
+.lte-ie9 .select--custom select { //ie9
+	width: 120%;
+	option {
+		background-color: transparent;
+	}
 }

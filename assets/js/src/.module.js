@@ -26,7 +26,7 @@ var MODULE = function () {
   return self
 }
 
-MODULE.publicMethod() // return 'I am accessible !'
-MODULE.privateMethod() // return an error
+MODULE().publicMethod() // return 'I am accessible !'
+MODULE().privateMethod() // return an error
 
-console.log(MODULE.publicAttr) // return 'bonjour'
+console.log(MODULE().publicAttr) // return 'bonjour'

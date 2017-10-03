@@ -128,7 +128,3 @@ function formatSassFileName() {
   fileName = fileName.replace(/\.[^/.]+$/, '')
   return fileName
 }
-// inquirer.prompt(questions).then(function (answers) {
-//   var res = JSON.stringify(answers, null, '  ');
-//   console.log(res);
-// });

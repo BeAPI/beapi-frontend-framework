@@ -6,6 +6,9 @@
     "type": "git",
     "url": "https://github.com/BeAPI/beapi-frontend-framework"
   },
+  "scripts": {
+    "composerjs": "cd composerjs && node app.js"
+  },
   "license": "GPL-2.0",
   "browserify-shim": {
     "jquery": "global:jQuery"

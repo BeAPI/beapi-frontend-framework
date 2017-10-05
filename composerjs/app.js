@@ -4,8 +4,8 @@ const fuzzy = require('fuzzy')
 const Promise = require('promise')
 const download = require('download-file')
 const reqUrl = {
-  'scss': 'https://api.github.com/repos/Nkzq/Components/contents/scss',
-  'js': 'https://api.github.com/repos/Nkzq/Components/contents/js'
+  'scss': 'https://api.github.com/repos/BeAPI/bff-components/contents/scss',
+  'js': 'https://api.github.com/repos/BeAPI/bff-components/contents/js'
 }
 let files = []
 let fileOpts = {}

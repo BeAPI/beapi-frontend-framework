@@ -178,6 +178,10 @@ If you want to play with it, create a new file in 'assets/js/src' like slider.js
 
 We are using ESLint coding Standard : https://github.com/standard/standard
 
+### Composer JS ###
+
+In order to keep a lightweight stack, you can add extra components that are used most of the time in Web dev. You have to use [composerjs](composerjs)  
+
 ### Responsive images ###
 
 BFF support responsive images using RICG picturefill library. But with somes limitation, you have two choices:

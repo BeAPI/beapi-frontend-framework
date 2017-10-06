@@ -1,5 +1,6 @@
 # Composerjs 🦄 #
 Composerjs is a little script that let you download SCSS and/or JS snippets from :
+
 https://github.com/BeAPI/bff-components
 
 ---
@@ -15,4 +16,5 @@ The script will ask you few questions :
 + Where should I put the downloaded file ?
 
 Congratulations ! 🎉
+
 You can now import your snippets into your styles/scripts.

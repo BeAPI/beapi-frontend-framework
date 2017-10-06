@@ -1,8 +1,12 @@
 /**
  * Wrapper for select
  */
-var $ = require('jquery')
+const $ = require('jquery')
 
-var customSelect = $('.gform_wrapper select:not([multiple])')
+const selects = [
+  '.gform_wrapper select:not([multiple])'
+]
 
-customSelect.wrap("<div class='select--custom'/>")
+for (let i = 0; i < selects.length; i++) {
+  $(selects[i]).wrap("<div class='select--custom'/>")
+}

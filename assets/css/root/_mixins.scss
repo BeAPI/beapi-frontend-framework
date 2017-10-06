@@ -88,6 +88,33 @@
 
 /* Bourbon's mixins
 -------------------------------------------------------------- */
+$em-base: 16px !default;
+// Strip units
+@function strip-units($value) {
+	@return ($value / ($value * 0 + 1));
+}
+// PX to EM
+@function em($pxval, $base: $em-base) {
+	@if not unitless($pxval) {
+	  $pxval: strip-units($pxval);
+	}
+	@if not unitless($base) {
+	  $base: strip-units($base);
+	}
+	@return ($pxval / $base) * 1em;
+}
+// PX to REM
+@function rem($pxval) {
+	@if not unitless($pxval) {
+	  $pxval: strip-units($pxval);
+	}
+
+	$base: $em-base;
+	@if not unitless($base) {
+	  $base: strip-units($base);
+	}
+	@return ($pxval / $base) * 1rem;
+}
 // Clearfix
 @mixin clearfix {
 	&::after {

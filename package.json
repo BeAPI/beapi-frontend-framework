@@ -64,7 +64,7 @@
     "picturefill": "3.0.2",
     "standard": "^10.0.3",
     "superfish": "^1.7.9",
-    "susy": "^3.0.1",
+    "susy": "^2.2.12",
     "through2": "^2.0.3",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"

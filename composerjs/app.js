@@ -20,19 +20,19 @@ inquirer.prompt({
   name: 'req',
   message: 'What kind of snippet do you need?',
   choices: ['scss', 'js']
-}).then(function (data) {
+}).then(data => {
   fileOpts.ext = data.req
-  axios.get(reqUrl[data.req]).then(function (res) {
+  axios.get(reqUrl[data.req]).then(res => {
     files = res.data.map(file => file.name)
     inquirer.prompt({
       type: 'autocomplete',
       name: 'file',
       message: 'Which file you need to download ?',
       source: searchFiles
-    }).then(function (data) {
+    }).then(data => {
       fileOpts.name = data.file
       let dirPath = setDirPath(fileOpts.ext)
-      axios.get(reqUrl[fileOpts.ext]).then(function (res) {
+      axios.get(reqUrl[fileOpts.ext]).then(res => {
         let remoteFile = res.data.find(f => f.name === fileOpts.name)
         fileOpts.downloadUrl = remoteFile.download_url
         inquirer.prompt({
@@ -40,24 +40,24 @@ inquirer.prompt({
           name: 'path',
           message: 'Where should I put the downloaded file ?',
           choices: dirPath
-        }).then(function (data) {
+        }).then(data => {
           fileOpts.path = data.path
           let downloadOpts = {
             directory: fileOpts.path,
             filename: fileOpts.name
           }
-          download(fileOpts.downloadUrl, downloadOpts, function (err) {
+          download(fileOpts.downloadUrl, downloadOpts, err => {
             if (err) {
               throw err
             }
             console.log('\n\nYour snippet was download successfully 😃\n')
             printImportToConsole()
-            console.log('\n');
+            console.log('\n')
           })
         })
       })
     })
-  }).catch(function (error) {
+  }).catch(error => {
     console.log(error)
   })
 })
@@ -69,10 +69,10 @@ inquirer.prompt({
  */
 function searchFiles (answers, input) {
   input = input || ''
-  return new Promise(function(resolve) {
-    setTimeout(function() {
+  return new Promise(resolve => {
+    setTimeout(() => {
       let fuzzyResult = fuzzy.filter(input, files)
-      resolve(fuzzyResult.map(function(el) {
+      resolve(fuzzyResult.map(el => {
         return el.original
       }))
     }, 100)
@@ -120,7 +120,7 @@ function formatSassPath () {
  * Remove _ and extension form sass file name
  * @return {string}
  */
-function formatSassFileName() {
+function formatSassFileName () {
   let fileName = fileOpts.name
   if (fileName[0] === '_') {
     fileName = fileName.substr(1)

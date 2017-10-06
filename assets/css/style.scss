@@ -5,11 +5,7 @@
 //http://susydocs.oddbird.net/en/latest/
 @import "root/susy/sass/susy";
 
-//Load Bourbon mixin library with includePaths in tasks/sass.js
-//http://bourbon.io/docs/
-@import "root/bourbon/app/assets/stylesheets/bourbon";
-
-@import "root/variables"; 
+@import "root/variables";
 @import "root/mixins";
 
 //@font-face first !
@@ -18,7 +14,7 @@
 @import "root/box-sizing";
 @import "root/cssloading";
 
-//Load vendor css from bower 
+//Load vendor css from bower
 @import "vendor/magnific-popup";
 
 //Main websites components

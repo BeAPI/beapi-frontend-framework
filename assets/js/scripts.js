@@ -8,11 +8,10 @@ require('picturefill')
 
 require('./src/button-href')
 require('./src/ie_message')
-require('./src/lightbox')
 require('./src/menu')
 require('./src/placeholder')
-require('./src/select')
 require('./src/scripts-domready')
+require('./src/select')
 
 /**
  * LazySizes configuration

@@ -11,6 +11,9 @@ button,
 	color: $lightcolor;
 	background: $maincolor;
 	transition: background .25s ease-in-out, transform .25s ease-in-out;
+	svg {
+		pointer-events: none;
+	}
 }
 
 #{$all-button-inputs-hover},

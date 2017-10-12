@@ -2,7 +2,7 @@
  * Html5 PLaceholder fallback for ie7+
  */
 
-var $ = require('jquery')
+const $ = require('jquery')
 require('../vendor/jquery.placeholder')
 
 $('input, textarea').placeholder()

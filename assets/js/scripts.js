@@ -2,8 +2,8 @@
  * Main scripts file
  */
 
-var lazySizes = require('lazysizes')
-var lazySizesBgset = require('lazysizes/plugins/bgset/ls.bgset')
+const lazySizes = require('lazysizes')
+const lazySizesBgset = require('lazysizes/plugins/bgset/ls.bgset')
 require('picturefill')
 
 require('./src/button-href')

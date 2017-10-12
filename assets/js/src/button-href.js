@@ -3,18 +3,18 @@ const $ = require('jquery')
 // Detect CTRL pressed
 let cntrlIsPressed = false
 
-$(document).keydown(function (event) {
+$(document).keydown(event => {
   if (event.which === '17') {
     cntrlIsPressed = true
   }
 })
 
-$(document).keyup(function () {
+$(document).keyup(() => {
   cntrlIsPressed = false
 })
 
 // Handle data-href on button components
-$('body').on('mousedown', '[data-href]', function (e) {
+$('body').on('mousedown', '[data-href]', e => {
   let href = $(this).data('href')
   let isBlank = $(this).data('target') === '_blank'
   let download = $(this).data('target') === 'download'

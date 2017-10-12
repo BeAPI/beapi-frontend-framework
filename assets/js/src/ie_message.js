@@ -2,10 +2,10 @@
  * IE disclaimer
  */
 
-var $ = require('jquery')
+const $ = require('jquery')
 
-var ieUiMessage = $('.message__browserhappy')
+let ieUiMessage = $('.message__browserhappy')
 
-$('.message__browserhappy button').on('click', function () {
+$('.message__browserhappy button').on('click', () => {
   ieUiMessage.hide()
 })

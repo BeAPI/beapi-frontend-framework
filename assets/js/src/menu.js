@@ -1,4 +1,4 @@
-var $ = require('jquery')
+const $ = require('jquery')
 window.$ = window.jQuery = $
 
 /**
@@ -14,25 +14,25 @@ if ($('.sf-menu').length > 0) {
 /**
  * Menu Mobile
  */
-var menuBody = $('html, body')
-var menuOpen = $('.button__menu-open')
-var menuClose = $('.button__menu-close')
+let menuBody = $('html, body')
+let menuOpen = $('.button__menu-open')
+let menuClose = $('.button__menu-close')
 
-menuOpen.on('click', function () {
+menuOpen.on('click', () => {
   menuBody.addClass('menu-mobile--active')
 })
 
-menuClose.on('click', function () {
+menuClose.on('click', () => {
   menuBody.removeClass('menu-mobile--active')
 })
 
 if (menuBody.hasClass('menu-mobile--active')) {
-  $('#main').on('click', function () {
+  $('#main').on('click', () => {
     menuBody.removeClass('menu-mobile--active')
   })
 }
 
-var resizeBreakpoint = window.matchMedia('(min-width: 1024px)')
+const resizeBreakpoint = window.matchMedia('(min-width: 1024px)')
 
 resizeBreakpoint.addListener(menuResizing)
 

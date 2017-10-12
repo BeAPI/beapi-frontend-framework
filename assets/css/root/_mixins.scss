@@ -74,6 +74,7 @@
 	}
 }
 
+// Custom radio
 @mixin radio--custom() {
 	input[type="radio"] {
 		&+label {
@@ -81,5 +82,84 @@
 				border-radius: 50%;
 			}
 		}
+	}
+}
+
+
+/* Bourbon's mixins
+-------------------------------------------------------------- */
+$em-base: 16px !default;
+// Strip units
+@function strip-units($value) {
+	@return ($value / ($value * 0 + 1));
+}
+// PX to EM
+@function em($pxval, $base: $em-base) {
+	@if not unitless($pxval) {
+	  $pxval: strip-units($pxval);
+	}
+	@if not unitless($base) {
+	  $base: strip-units($base);
+	}
+	@return ($pxval / $base) * 1em;
+}
+// PX to REM
+@function rem($pxval) {
+	@if not unitless($pxval) {
+	  $pxval: strip-units($pxval);
+	}
+
+	$base: $em-base;
+	@if not unitless($base) {
+	  $base: strip-units($base);
+	}
+	@return ($pxval / $base) * 1rem;
+}
+// Clearfix
+@mixin clearfix {
+	&::after {
+	  clear: both;
+	  content: "";
+	  display: table;
+	}
+}
+
+// Appearence for form elements
+@mixin appearance($value) {
+	appearance: $value;
+}
+
+// Assign inputs
+@function assign-inputs($inputs, $pseudo: null) {
+	$list: ();
+
+	@each $input in $inputs {
+		$input: unquote($input);
+		$input: if($pseudo, $input + ":" + $pseudo, $input);
+		$list: append($list, $input, comma);
+	}
+
+	@return $list;
+}
+
+// Customize placeholder
+@mixin placeholder {
+	$placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+	@each $placeholder in $placeholders {
+	  &:#{$placeholder}-placeholder {
+		@content;
+	  }
+	}
+}
+
+// Word wrap
+@mixin word-wrap($wrap: break-word) {
+	overflow-wrap: $wrap;
+	word-wrap: $wrap;
+
+	@if $wrap == break-word {
+	  word-break: break-all;
+	} @else {
+	  word-break: $wrap;
 	}
 }

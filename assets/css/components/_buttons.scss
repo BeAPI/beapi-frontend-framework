@@ -1,5 +1,21 @@
 /* Global buttons css
 -------------------------------------------------------------- */
+
+$buttons-list: 'button',
+'input[type="button"]',
+'input[type="reset"]',
+'input[type="submit"]';
+
+$all-buttons:        assign-inputs($buttons-list);
+$all-buttons-active: assign-inputs($buttons-list, active);
+$all-buttons-focus:  assign-inputs($buttons-list, focus);
+$all-buttons-hover:  assign-inputs($buttons-list, hover);
+
+$all-button-inputs:        $all-buttons;
+$all-button-inputs-active: $all-buttons-active;
+$all-button-inputs-focus:  $all-buttons-focus;
+$all-button-inputs-hover:  $all-buttons-hover;
+
 #{$all-button-inputs},
 button,
 .button {

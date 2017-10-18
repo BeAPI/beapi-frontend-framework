@@ -12,7 +12,9 @@ module.exports = function (gulp, plugins) {
 
 	return function () {
 		// Make the rest
-		b.bundle()
+		b
+			.transform("babelify", {presets: ["es2015"]})
+			.bundle()
 			.pipe(source('scripts.js'))
 			.pipe(buffer())
 			.pipe(uglify())

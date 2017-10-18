@@ -1,3 +1,5 @@
+"use strict";
+
 let fs = require('fs');
 
 let updateStyle = function (content, type) {

@@ -97,6 +97,7 @@ textarea {
 	background: $lightcolor url("#{$images-url}/icons/down.svg") no-repeat 98% 50%;
 	background-size: 11px 6px;
 	select {
+		width: 100%;
 		line-height: 1.1;
 		padding: $half-base-spacing;
 		border: none;

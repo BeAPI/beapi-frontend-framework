@@ -38,16 +38,6 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<meta name="msapplication-TileImage" content="../assets/img/favicons/mstile-144x144.png">
 		<meta name="msapplication-config" content="../assets/img/favicons/browserconfig.xml">
 		<link rel="yandex-tableau-widget" href="../assets/img/favicons/yandex-browser-manifest.json">
-		<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="../assets/img/favicons/apple-touch-startup-image-320x460.png">
-		<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="../assets/img/favicons/apple-touch-startup-image-640x920.png">
-		<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="../assets/img/favicons/apple-touch-startup-image-640x1096.png">
-		<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="../assets/img/favicons/apple-touch-startup-image-750x1294.png">
-		<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="../assets/img/favicons/apple-touch-startup-image-1182x2208.png">
-		<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="../assets/img/favicons/apple-touch-startup-image-1242x2148.png">
-		<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="../assets/img/favicons/apple-touch-startup-image-748x1024.png">
-		<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="../assets/img/favicons/apple-touch-startup-image-768x1004.png">
-		<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="../assets/img/favicons/apple-touch-startup-image-1496x2048.png">
-		<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="../assets/img/favicons/apple-touch-startup-image-1536x2008.png">
 		
 		<!-- Standard favicons from /assets/img/favicons/index_sd.html -->
 		<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">

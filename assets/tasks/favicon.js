@@ -22,7 +22,7 @@ module.exports = function(gulp, plugins) {
 				icons: {
 					android: true, // Create Android homescreen icon. `boolean`
 					appleIcon: true, // Create Apple touch icons. `boolean`
-					appleStartup: true, // Create Apple startup images. `boolean`
+					appleStartup: false, // Create Apple startup images. `boolean`
 					coast: true, // Create Opera Coast icon. `boolean`
 					favicons: false, // Create regular favicons. `boolean`
 					firefox: true, // Create Firefox OS icons. `boolean`

@@ -13,7 +13,6 @@ Take a look at :
 
 * [Gulp](https://http://gulpjs.com/)
 * [Sass](http://sass-lang.com/)
-* [Bourbon](http://bourbon.io/)
 * [Susy](http://susy.oddbird.net/)
 
 ### Installing (Only if WordPress installed)  ###
@@ -52,8 +51,8 @@ Once installation done you just need to hit :
 
 This task will watch your SCSS and JS and compile them:
 
-* style.css (sass task) 
-* style.min.css (sass task) 
+* style.css (sass task, scss with sourcemap) 
+* style.min.css (sass task, css for production, pixels converted to rem unit) 
 * scripts.min.js (js task)
 
 If you just want to compile styles and script without watching, you can hit theses command:
@@ -150,9 +149,10 @@ We like to keep our code clean and readable. This is why we skip lines between e
     }
 
 
-CSS partials are classified and saved in 4 mains folders
+CSS partials are classified and saved in 5 mains folders
 
-* *vendor*. It's where external ressources are. Most of themes are selected manually from bower_components because sometimes it need to be renamed as .scss and modified. the original files are still available like this.
+* *root*. Where you're define common base. Variables, Mixins, Fonts, Susy library etc.
+* *vendor*. It's where external ressources are (jQuery plugins fr example).
 * *components*. The basics like button forms elements etc. It's where you can defined you root's styles for button input headings etc.
 * *patterns*. it's related to your modules. It's where you defined the basics for your module.
 * *pages*. a css file for each pages. very useful for change module behavior in a specific context.

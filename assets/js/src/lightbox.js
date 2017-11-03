@@ -1,7 +1,7 @@
-/** 
- * Lightbox 
- * http://dimsemenov.com/plugins/magnific-popup/documentation.html 
- */ 
+/**
+ * Lightbox
+ * http://dimsemenov.com/plugins/magnific-popup/documentation.html
+ */
 
 import $ from 'jquery'
 require('magnific-popup')

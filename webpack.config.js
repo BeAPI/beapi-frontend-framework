@@ -32,7 +32,7 @@ let config = {
         exclude: /(node_modules|bower_components)/,
         include: root,
         enforce: 'pre',
-        use: ['eslint-loader']
+        use: ['babel-loader', 'eslint-loader']
       },
       {
         test: /\.css$/,
@@ -52,7 +52,7 @@ let config = {
         use: {
           loader: 'file-loader',
           options: {
-            name:'[name].[ext]',
+            name: '[name].[ext]',
             outputPath: './fonts/'
           }
         }

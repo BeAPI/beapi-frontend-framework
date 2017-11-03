@@ -2,67 +2,64 @@
 ----------------------------------------------------------------------------------------------------*/
 .entry {
 	@include clearfix;
-}
-.entry__title,
-.page__title {
-	font-weight: 900;
-	text-transform: uppercase;
-	&>a {
-		text-decoration: none;
-		@include hover {
-			text-decoration: underline;
-		}
-	}
-}
-.entry__summary {
-	margin-bottom: 50px;
-}
-.entry__content {
-	@include clearfix;
-	a {
-		text-decoration: underline;
-		@include hover {
+	&__title {
+		font-weight: 900;
+		text-transform: uppercase;
+		&>a {
 			text-decoration: none;
+			@include hover {
+				text-decoration: underline;
+			}
 		}
 	}
-	ul {
-		list-style: disc inside none;
-		margin: 0 0 $base-spacing;
-		li {
-			margin: 0 0 $half-base-spacing;
+	&__summary {
+		margin-bottom: 50px;
+		@include clearfix;
+	}
+	&__content {
+		@include clearfix;
+		a {
+			text-decoration: underline;
+			@include hover {
+				text-decoration: none;
+			}
+		}
+		ul {
+			list-style: disc inside none;
+			margin: 0 0 $base-spacing;
+			li {
+				margin: 0 0 $half-base-spacing;
+			}
+		}
+		ol {
+			list-style: decimal inside none;
+			margin: 0 0 $base-spacing;
+			li {
+				margin: 0 0 $half-base-spacing;
+			}
+		}
+		img {
+			@include img__responsive();
+		}
+		.alignright,
+		.alignleft {
+			max-width: 50%;
+			@media screen and (min-width: $tablet-medium) {
+				max-width: 100%;
+			}
+		}
+		.gform_wrapper {
+			ul {
+				list-style: none;
+			}
+		}
+		.searchform {
+			input {
+				display: inline;
+			}
 		}
 	}
-	ol {
-		list-style: decimal inside none;
-		margin: 0 0 $base-spacing;
-		li {
-			margin: 0 0 $half-base-spacing;
-		}
-	}
-	img {
+	&__img {
 		@include img__responsive();
 	}
-	.alignright,
-	.alignleft {
-		max-width: 50%;
-		@media screen and (min-width: $tablet-medium) {
-			max-width: 100%;
-		}
-	}
-	.gform_wrapper {
-		ul {
-			list-style: none;
-		}
-	}
-	.searchform {
-		input {
-			display: inline;
-		}
-	}
-}
-.entry__summary {
-	@include clearfix;
-}
-.entry__img {
-	@include img__responsive();
 }

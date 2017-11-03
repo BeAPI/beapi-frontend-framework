@@ -15,6 +15,7 @@ gulp.task('js-lint', getTask('js-lint'));
 gulp.task('sass', getTask('sass'));
 gulp.task('bump', getTask('style-version'));
 gulp.task('critical-css', getTask('critical-css'));
+gulp.task('livingcss', getTask('livingcss'));
 
 //Iconfont
 //use this task for ie8 and minus projects

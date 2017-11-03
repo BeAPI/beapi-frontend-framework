@@ -1,6 +1,17 @@
 /* Global buttons css
 -------------------------------------------------------------- */
-
+/**
+ * Buttons
+ *
+ * The Button `.btn` class can be applied to `<button>`, `<input>`, or `<a>` elements.
+ *
+ * @section
+ *
+ * @example
+ * <button class="button">Button</button>
+ * <input type="submit" class="btn" value="Input"/>
+ * <a href="#" class="btn">Anchor</a>
+ */
 $buttons-list: 'button',
 'input[type="button"]',
 'input[type="reset"]',

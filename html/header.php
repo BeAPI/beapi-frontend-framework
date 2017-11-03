@@ -137,15 +137,15 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 					<?php endif; ?>
 
 					<!-- Button href demo -->
-					<button class="button" data-href="https://beapi.fr/">
+					<button class="button button--rounded" data-href="https://beapi.fr/">
 						Button w/o blank
 					</button>
 
-					<button class="button" data-href="https://beapi.fr/" data-target="_blank">
+					<button class="button button--bordered" data-href="https://beapi.fr/" data-target="_blank">
 						Button w/ blank
 					</button>
 
-					<button class="button" data-href="../assets/pdf/sample.pdf" data-target="download" data-filename="sample.pdf">
+					<button class="button button--revert" data-href="../assets/pdf/sample.pdf" data-target="download" data-filename="sample.pdf">
 						Button download
 					</button>
 				</div>

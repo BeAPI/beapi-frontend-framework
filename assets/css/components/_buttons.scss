@@ -16,9 +16,22 @@ $all-button-inputs-active: $all-buttons-active;
 $all-button-inputs-focus:  $all-buttons-focus;
 $all-button-inputs-hover:  $all-buttons-hover;
 
-#{$all-button-inputs},
-button,
-.button {
+// Modifier mixins
+@mixin button--rounded {
+	border-radius: 5px;
+	overflow: hidden;
+}
+@mixin button--bordered {
+	border: 1px solid $maincolor;
+	background: none;
+	color: $maincolor;
+}
+@mixin button--revert {
+	background: $lightcolor;
+	color: $maincolor;
+}
+
+@mixin button {
 	display: inline-block;
 	border: 0;
 	border-radius: 0;//keep it no radius for ios reset
@@ -30,34 +43,35 @@ button,
 	svg {
 		pointer-events: none;
 	}
-}
-
-#{$all-button-inputs-hover},
-button:hover,
-.button:hover { // Target the :hover pseudo-class
-	color: $lightcolor;
-	background: darken($maincolor, 5%);
-	transform: translateY(-1px);
-}
-
-#{$all-button-inputs-focus},
-button:focus,
-.button:focus { // Target the :focus pseudo-class
-	color: $lightcolor;
-	background: darken($maincolor, 5%);
-	transform: translateY(-1px);
-}
-
-#{$all-button-inputs-active},
-button:active,
-.button:active { // Target the :active pseudo-class
-	color: $lightcolor;
-	background: $maincolor;
-	transform: translateY(1px);
+	&:hover {
+		color: $lightcolor;
+		background: darken($maincolor, 5%);
+		transform: translateY(-1px);
+	}
+	&:focus {
+		color: $lightcolor;
+		background: darken($maincolor, 5%);
+		transform: translateY(-1px);
+	}
+	&:active {
+		color: $lightcolor;
+		background: $maincolor;
+		transform: translateY(1px);
+	}
+	&--rounded {
+		@include button--rounded;
+	}
+	&--bordered {
+		@include button--bordered;
+	}
+	&--revert {
+		@include button--revert;
+	}
 }
 
 .button {
 	$parent: &;
+	@include button;
 	&__icon {
 		width: $base-spacing*1.25;
 		padding-right: $half-base-spacing;

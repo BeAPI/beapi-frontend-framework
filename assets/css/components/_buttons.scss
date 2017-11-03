@@ -56,15 +56,18 @@ button:active,
 	transform: translateY(1px);
 }
 
-.button__icon {
-	width: $base-spacing*1.25;
-	padding-right: $half-base-spacing;
-	vertical-align: -20%;
-}
-.button--circle {
-	border-radius: 50%;
-	line-height: 1;
-	.button__icon {
-		padding-right: 0;
+.button {
+	$parent: &;
+	&__icon {
+		width: $base-spacing*1.25;
+		padding-right: $half-base-spacing;
+		vertical-align: -20%;
+	}
+	&--circle {
+		border-radius: 50%;
+		line-height: 1;
+		#{$parent}__icon {
+			padding-right: 0;
+		}
 	}
 }

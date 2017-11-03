@@ -7,14 +7,7 @@ $buttons-list: 'button',
 'input[type="submit"]';
 
 $all-buttons:        assign-inputs($buttons-list);
-$all-buttons-active: assign-inputs($buttons-list, active);
-$all-buttons-focus:  assign-inputs($buttons-list, focus);
-$all-buttons-hover:  assign-inputs($buttons-list, hover);
-
 $all-button-inputs:        $all-buttons;
-$all-button-inputs-active: $all-buttons-active;
-$all-button-inputs-focus:  $all-buttons-focus;
-$all-button-inputs-hover:  $all-buttons-hover;
 
 // Modifier mixins
 @mixin button--rounded {
@@ -58,19 +51,12 @@ $all-button-inputs-hover:  $all-buttons-hover;
 		background: $maincolor;
 		transform: translateY(1px);
 	}
-	&--rounded {
-		@include button--rounded;
-	}
-	&--bordered {
-		@include button--bordered;
-	}
-	&--revert {
-		@include button--revert;
-	}
 }
 
+#{$all-button-inputs},
 .button {
 	$parent: &;
+	$button: '.button';
 	@include button;
 	&__icon {
 		width: $base-spacing*1.25;
@@ -83,5 +69,14 @@ $all-button-inputs-hover:  $all-buttons-hover;
 		#{$parent}__icon {
 			padding-right: 0;
 		}
+	}
+	&#{$button}--rounded {
+		@include button--rounded;
+	}
+	&#{$button}--bordered {
+		@include button--bordered;
+	}
+	&#{$button}--revert {
+		@include button--revert;
 	}
 }

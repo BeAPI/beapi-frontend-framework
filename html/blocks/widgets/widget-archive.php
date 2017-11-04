@@ -1,5 +1,5 @@
 <div class="widget widget_archive">
-	<h2 class="widgettitle">Widget archive</h2>
+	<div class="widget__title">Widget archive</div>
 	<div class="widget__inner">
 		<ul>
 			<li><a href="#">Fevrier 2012</a></li>

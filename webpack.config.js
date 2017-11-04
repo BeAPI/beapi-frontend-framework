@@ -21,7 +21,7 @@ let config = {
     app: ['./assets/css/style.scss', './assets/js/app.js']
   },
   output: {
-    path: path.resolve( __dirname, './dist' ),
+    path: path.resolve(__dirname, './dist'),
     filename: dev ? '[name].js' : '[name].[chunkhash:8].js'
   },
   watch: dev,
@@ -100,7 +100,7 @@ if (!dev) {
    * Styles
    */
 
-  config.plugins.push( new ExtractTextPlugin({
+  config.plugins.push(new ExtractTextPlugin({
     filename: '[name].[contenthash:8].min.css',
     allChunks: true
   }))
@@ -117,7 +117,7 @@ if (!dev) {
   /**
   * Scripts
   */
-  config.plugins.push( new UglifyJsPlugin({
+  config.plugins.push(new UglifyJsPlugin({
     sourceMap: true,
     comments: false
   }))
@@ -126,7 +126,7 @@ if (!dev) {
    * Assets
    * Using on production to load dynamically scripts and style with hashes
    */
-  config.plugins.push( new ManifestPlugin({
+  config.plugins.push(new ManifestPlugin({
     fileName: 'assets.json'
   }))
 
@@ -142,19 +142,34 @@ if (!dev) {
   /**
    * Styles
    */
-  config.plugins.push( new ExtractTextPlugin({
+  config.plugins.push(new ExtractTextPlugin({
     filename: '[name].css',
     allChunks: true
   }))
 
-  // config.plugins.push(new BrowserSyncPlugin({
-  //   proxy: '127.0.0.1:9090',
-  //   port: 9090,
-  //   startPath: '/html/01-home.php'
-  // },
-  // {
-  //   reload: false
-  // }))
+  /**
+   * Browser Sync
+   */
+  config.plugins.push(new BrowserSyncPlugin({
+    proxy: 'http://localhost:8080',
+    files: [
+      {
+        match: [
+          '**/*.php'
+        ],
+        fn: function (event, file) {
+          if (event === 'change') {
+            const bs = require('browser-sync').get('bs-webpack-plugin')
+            bs.reload()
+          }
+        }
+      }
+    ],
+    startPath: '/html/index.php'
+  },
+  {
+    reload: false
+  }))
 }
 
 module.exports = config

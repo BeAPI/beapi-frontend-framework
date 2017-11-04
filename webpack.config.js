@@ -4,6 +4,7 @@
 const webpack = require('webpack')
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
@@ -78,7 +79,17 @@ let config = {
       }
     ]
   },
-  plugins: []
+  plugins: [],
+  devServer: {
+    contentBase: path.resolve('./dist'),
+    proxy: {
+      '/': {
+        target: 'http://[::1]:9090',
+        changeOrigin: false,
+        secure: false
+      }
+    }
+  }
 }
 
 /**
@@ -135,6 +146,15 @@ if (!dev) {
     filename: '[name].css',
     allChunks: true
   }))
+
+  // config.plugins.push(new BrowserSyncPlugin({
+  //   proxy: '127.0.0.1:9090',
+  //   port: 9090,
+  //   startPath: '/html/01-home.php'
+  // },
+  // {
+  //   reload: false
+  // }))
 }
 
 module.exports = config

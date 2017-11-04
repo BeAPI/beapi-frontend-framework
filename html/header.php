@@ -65,7 +65,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 
 		<link rel="preload" href="../dist/app.css" as="style" onload="this.rel='stylesheet'">
 		<noscript>
-			<link rel="stylesheet" href="../assets/css/style.css">
+			<link rel="stylesheet" href="../dist/app.css">
 		</noscript>
 
 		<script>

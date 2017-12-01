@@ -31,6 +31,7 @@
     "browserify": "^13.0.1",
     "browserify-shim": "^3.8.12",
     "clean-webpack-plugin": "^0.1.16",
+    "copy-webpack-plugin": "^4.2.3",
     "css-loader": "^0.28.4",
     "eslint": "^4.5.0",
     "eslint-config-standard": "^10.2.1",

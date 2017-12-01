@@ -7,6 +7,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const cssLoaders = require('./webpack.css-loader.js')
 const dev = process.env.NODE_ENV === 'dev'
@@ -78,7 +79,35 @@ let config = {
     ]
   },
   watch: dev,
-  plugins: []
+  plugins: [
+    new CleanWebpackPlugin(['html/assets'], {
+      root: path.resolve('./'),
+      verbose: true,
+      dry: false
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: 'assets/fonts/',
+        to: 'fonts/'
+      },
+      {
+        from: 'assets/icons/',
+        to: 'icons/'
+      },
+      {
+        from: 'assets/img/bg-sample/',
+        to: 'img/bg-sample/'
+      },
+      {
+        from: 'assets/img/favicons/',
+        to: 'img/favicons/'
+      },
+      {
+        from: 'assets/img/sample/',
+        to: 'img/sample/'
+      }
+    ])
+  ]
 }
 
 /**
@@ -122,11 +151,6 @@ if (!dev) {
   /**
    * Clean dist directory before prod build
    */
-  config.plugins.push(new CleanWebpackPlugin(['dist'], {
-    root: path.resolve('./'),
-    verbose: true,
-    dry: false
-  }))
 } else {
   /**
    * Styles

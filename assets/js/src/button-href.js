@@ -20,8 +20,8 @@ $(document).keyup(() => {
  * Firefox : only same origin file or it will open new tab
  * IE 10-11 : will open new tab
  */
-$('body').on('mousedown', '[data-href]', e => {
-  let $this = $(this)
+$('body').on('mousedown', '[data-href]', (e) => {
+  let $this = $(e.currentTarget)
   let href = $this.data('href')
   let isBlank = $this.data('target') === '_blank'
   let download = $this.data('target') === 'download'

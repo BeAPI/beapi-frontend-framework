@@ -1,7 +1,7 @@
 /**
  * Dependencies
  */
-const webpack = require('webpack')
+const {HotModuleReplacementPlugin} = require('webpack')
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
@@ -14,17 +14,17 @@ const dev = process.env.NODE_ENV === 'dev'
 
 let root = path.resolve(__dirname)
 
-process.traceDeprecation = true
+// process.traceDeprecation = true
 
 let config = {
   entry: {
     app: ['./assets/css/style.scss', './assets/js/app.js']
   },
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, './html/assets'),
+    publicPath: '/assets/',
     filename: dev ? '[name].js' : '[name].[chunkhash:8].js'
   },
-  watch: dev,
   devtool: dev ? 'source-map' : false,
   module: {
     rules: [
@@ -79,9 +79,12 @@ let config = {
       }
     ]
   },
+  watch: dev,
   plugins: [],
   devServer: {
-    contentBase: path.resolve('./dist'),
+    contentBase: path.resolve('./html'),
+    port: 9090,
+    headers: { 'Access-Control-Allow-Origin': '*' },
     proxy: {
       '/': {
         target: 'http://[::1]:9090',
@@ -105,7 +108,7 @@ if (!dev) {
     allChunks: true
   }))
 
-  config.plugins.push( new OptimizeCssAssetsPlugin({
+  config.plugins.push(new OptimizeCssAssetsPlugin({
     assetNameRegExp: /\.min\.css$/,
     cssProcessorOptions: {
       discardComments: {
@@ -147,15 +150,19 @@ if (!dev) {
     allChunks: true
   }))
 
+  config.plugins.push(new HotModuleReplacementPlugin())
+
   /**
    * Browser Sync
    */
   config.plugins.push(new BrowserSyncPlugin({
-    proxy: 'http://localhost:8080',
+    proxy: 'http://[::1]:9090',
     files: [
       {
         match: [
-          '**/*.php'
+          '**/*.php',
+          'dist/**/*.css',
+          'dist/**/*.js'
         ],
         fn: function (event, file) {
           if (event === 'change') {

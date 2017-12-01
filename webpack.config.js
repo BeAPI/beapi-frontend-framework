@@ -48,7 +48,7 @@ let config = {
         })
       },
       {
-        test: /\.(woff2?|eot|ttf|otf|mp3|wav)(\?.*)?$/,
+        test: /\.(woff2?|woff|eot|ttf|otf|mp3|wav)(\?.*)?$/,
         use: {
           loader: 'file-loader',
           options: {
@@ -146,8 +146,8 @@ if (!dev) {
       {
         match: [
           '**/*.php',
-          '**/*.css',
-          '**/*.js'
+          'html/**/*.css',
+          'html/**/*.js'
         ],
         fn: function (event, file) {
           if (event === 'change') {

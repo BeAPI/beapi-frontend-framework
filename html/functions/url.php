@@ -17,6 +17,11 @@ function get_full_url( $s, $only_dir_url = false ) {
 		$s['REQUEST_URI'] = dirname( $s['REQUEST_URI'] ) . '/';
 	}
 
+	// Replace host for webpack
+	if( '[::1]:9090' === $host ){
+		$host = 'localhost:9090';
+	}
+
 	return $protocol . '://' . $host . $s['REQUEST_URI'];
 }
 

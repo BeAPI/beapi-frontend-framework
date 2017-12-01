@@ -1,6 +1,6 @@
 <?php
 /**
- * Version 2.1.0
+ * Version 2.1.1
  *
  * Implement default_img and img_base size
  * Implement lazysize

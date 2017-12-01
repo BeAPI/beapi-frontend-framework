@@ -5,7 +5,7 @@
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
-  src: url(./fonts//roboto-v15-latin/roboto-v15-latin-regular.woff2) format("woff2"), url(./fonts//roboto-v15-latin/roboto-v15-latin-regular.woff) format("woff");
+  src: url(./fonts/roboto-v15-latin-regular.woff2) format("woff2"), url(./fonts/roboto-v15-latin-regular.woff) format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
 
 @font-face {
@@ -13,7 +13,7 @@
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
-  src: url(./fonts//roboto-v15-latin/roboto-v15-latin-500.woff2) format("woff2"), url(./fonts//roboto-v15-latin/roboto-v15-latin-500.woff) format("woff");
+  src: url(./fonts/roboto-v15-latin-500.woff2) format("woff2"), url(./fonts/roboto-v15-latin-500.woff) format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
 
 @font-face {
@@ -21,7 +21,7 @@
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
-  src: url(./fonts//roboto-v15-latin/roboto-v15-latin-700.woff2) format("woff2"), url(./fonts//roboto-v15-latin/roboto-v15-latin-700.woff) format("woff");
+  src: url(./fonts/roboto-v15-latin-700.woff2) format("woff2"), url(./fonts/roboto-v15-latin-700.woff) format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
 
 @font-face {
@@ -29,7 +29,7 @@
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
-  src: url(./fonts//Circular/CircularStdBook.woff2) format("woff2"), url(./fonts//Circular/CircularStdBook.woff) format("woff");
+  src: url(./fonts/CircularStdBook.woff2) format("woff2"), url(./fonts/CircularStdBook.woff) format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
 
 @font-face {
@@ -37,7 +37,7 @@
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
-  src: url(./fonts//Circular/CircularStdMedium.woff2) format("woff2"), url(./fonts//Circular/CircularStdMedium.woff) format("woff");
+  src: url(./fonts/CircularStdMedium.woff2) format("woff2"), url(./fonts/CircularStdMedium.woff) format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
 
 @font-face {
@@ -45,7 +45,7 @@
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
-  src: url(./fonts//Circular/CircularStdBold.woff2) format("woff2"), url(./fonts//Circular/CircularStdBold.woff) format("woff");
+  src: url(./fonts/CircularStdBold.woff2) format("woff2"), url(./fonts/CircularStdBold.woff) format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
 
 @font-face {
@@ -53,7 +53,7 @@
   font-weight: 900;
   font-style: normal;
   font-stretch: normal;
-  src: url(./fonts//Circular/CircularStdBlack.woff2) format("woff2"), url(./fonts//Circular/CircularStdBlack.woff) format("woff");
+  src: url(./fonts/CircularStdBlack.woff2) format("woff2"), url(./fonts/CircularStdBlack.woff) format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
 
 /* ==========================================================================

@@ -157,7 +157,8 @@ if (!dev) {
         }
       }
     ],
-    startPath: '/html/index.php'
+    startPath: '/html/index.php',
+    notify: false
   },
   {
     reload: false

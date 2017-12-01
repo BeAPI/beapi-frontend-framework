@@ -1,6 +1,7 @@
 /* Entry
 ----------------------------------------------------------------------------------------------------*/
 .entry {
+	$parent : &;
 	@include clearfix;
 	&__title {
 		font-weight: 900;
@@ -12,9 +13,29 @@
 			}
 		}
 	}
-	&__summary {
-		margin-bottom: 50px;
+	&__item,
+	&__card {
 		@include clearfix;
+		margin-bottom: $base-spacing;
+		@media screen and (min-width: $tablet-medium) {
+			margin-bottom: $base-spacing*2;
+		}
+		#{$parent}__img {
+			margin-bottom: $base-spacing;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#{$parent}__media {
+			@media screen and (min-width: $tablet-medium) {
+				@include align;
+				&~#{$parent}__summary {
+					margin-left: 320px; // = image width
+				}
+			}
+		}
+	}
+	&__card {
+		@include card;
 	}
 	&__content {
 		@include clearfix;

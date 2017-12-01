@@ -85,7 +85,21 @@
 	}
 }
 
+// Card base
+@mixin card {
+	padding: $base-spacing;
+	box-shadow: 0 2px 4px rgba($darkcolor, .25);
+}
 
+// Float, left by default
+@mixin align($direction:left) {
+	float: $direction;
+	@if ($direction == left) {
+		margin-right: $base-spacing;
+	} @else {
+		margin-left: $base-spacing;
+	}
+}
 /* Bourbon's mixins
 -------------------------------------------------------------- */
 $em-base: 16px !default;

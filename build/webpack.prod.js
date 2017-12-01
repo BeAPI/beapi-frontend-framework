@@ -1,7 +1,7 @@
-const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin') 
 const webpackBase = require('./webpack.base')
 
 webpackBase.plugins.push(
@@ -17,9 +17,8 @@ webpackBase.plugins.push(
       }
     }
   }),
-  new webpack.optimize.UglifyJsPlugin({
-    sourceMap: true,
-    comments: false
+  new UglifyJsPlugin({
+    sourceMap: true
   }),
   new ManifestPlugin({
     fileName: 'assets.json'

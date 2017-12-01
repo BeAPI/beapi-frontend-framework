@@ -1,7 +1,6 @@
 /**
  * Dependencies
  */
-const {HotModuleReplacementPlugin} = require('webpack')
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
@@ -80,19 +79,7 @@ let config = {
     ]
   },
   watch: dev,
-  plugins: [],
-  devServer: {
-    contentBase: path.resolve('./html'),
-    port: 9090,
-    headers: { 'Access-Control-Allow-Origin': '*' },
-    proxy: {
-      '/': {
-        target: 'http://[::1]:9090',
-        changeOrigin: false,
-        secure: false
-      }
-    }
-  }
+  plugins: []
 }
 
 /**
@@ -150,8 +137,6 @@ if (!dev) {
     allChunks: true
   }))
 
-  config.plugins.push(new HotModuleReplacementPlugin())
-
   /**
    * Browser Sync
    */
@@ -161,8 +146,8 @@ if (!dev) {
       {
         match: [
           '**/*.php',
-          'dist/**/*.css',
-          'dist/**/*.js'
+          '**/*.css',
+          '**/*.js'
         ],
         fn: function (event, file) {
           if (event === 'change') {

@@ -2,9 +2,9 @@
   "name": "beapi-frontend-framework",
   "version": "2.0.0",
   "scripts": {
-    "start": "concurrently \"NODE_BUILD=true NODE_ENV=dev webpack --config build/webpack.dev.js\" \"php -S localhost:9090\" --kill-others",
-    "dev": "NODE_BUILD=false NODE_ENV=dev webpack --config build/webpack.dev.js",
-    "prod": "NODE_BUILD=false webpack --config build/webpack.prod.js"
+    "start": "concurrently \"NODE_ENV=dev webpack --config build/server.js\" \"php -S localhost:9090\" --kill-others",
+    "dev": "NODE_ENV=dev webpack --config build/webpack.dev.js",
+    "prod": "webpack --config build/webpack.prod.js"
   },
   "author": "BeAPI",
   "repository": {

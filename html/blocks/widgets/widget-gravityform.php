@@ -1,5 +1,5 @@
 <div class="widget gform_widget">
-	<h2 class="widgettitle">Gravity Forms Widget</h2>
+	<div class="widget__title">Gravity Forms Widget</div>
 
 	<div class="gform_container">
 		<a id="gf_277" name="gf_277" class="gform_anchor"></a>

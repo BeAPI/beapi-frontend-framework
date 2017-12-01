@@ -1,14 +1,10 @@
 /* Images
 -------------------------------------------------------------- */
 .alignleft {
-	display: inline;
-	float: left;
-	margin-right: $base-spacing;
+	@include align;
 }
 .alignright {
-	display: inline;
-	float: right;
-	margin-left: $base-spacing;
+	@include align(right);
 }
 .aligncenter {
 	clear: both;

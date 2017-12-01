@@ -1,4 +1,4 @@
 <div class="widget widget_search">
-	<h2 class="widgettitle">Recherche</h2>
+	<div class="widget__title">Recherche</div>
 	<?php include "searchform.php" ?>
 </div>

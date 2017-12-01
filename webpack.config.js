@@ -10,10 +10,9 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const cssLoaders = require('./webpack.css-loader.js')
 const dev = process.env.NODE_ENV === 'dev'
+const build = process.env.NODE_BUILD === 'true'
 
 let root = path.resolve(__dirname)
-
-// process.traceDeprecation = true
 
 let config = {
   entry: {
@@ -140,29 +139,31 @@ if (!dev) {
   /**
    * Browser Sync
    */
-  config.plugins.push(new BrowserSyncPlugin({
-    proxy: 'http://[::1]:9090',
-    files: [
-      {
-        match: [
-          '**/*.php',
-          'html/**/*.css',
-          'html/**/*.js'
-        ],
-        fn: function (event, file) {
-          if (event === 'change') {
-            const bs = require('browser-sync').get('bs-webpack-plugin')
-            bs.reload()
+  if (build) {
+    config.plugins.push(new BrowserSyncPlugin({
+      proxy: 'http://[::1]:9090',
+      files: [
+        {
+          match: [
+            '**/*.php',
+            'html/**/*.css',
+            'html/**/*.js'
+          ],
+          fn: function (event, file) {
+            if (event === 'change') {
+              const bs = require('browser-sync').get('bs-webpack-plugin')
+              bs.reload()
+            }
           }
         }
-      }
-    ],
-    startPath: '/html/index.php',
-    notify: false
-  },
-  {
-    reload: false
-  }))
+      ],
+      startPath: '/html/index.php',
+      notify: false
+    },
+    {
+      reload: false
+    }))
+  }
 }
 
 module.exports = config

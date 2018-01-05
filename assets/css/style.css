@@ -1,3 +1,17 @@
+/**
+ * @section Colors
+ * @page index
+ *
+ * @example
+ * <div class="colors">
+ * 	<div class="color color--main"><span>#f5745a</span></div>
+ * 	<div class="color color--light"><span>#fff</span></div>
+ * 	<div class="color color--dark"><span>#000</span></div>
+ * 	<div class="color color--darkgray"><span>#333</span></div>
+ * 	<div class="color color--mediumgray"><span>#999</span></div>
+ * 	<div class="color color--lightgray"><span>#ddd</span></div>
+ * </div>
+ */
 /* Misc mixins
 -------------------------------------------------------------- */
 /* Bourbon's mixins
@@ -961,6 +975,86 @@ img.mfp-img {
   padding-top: 0;
 }
 
+/**
+ * @section Icons
+ * @page index
+ *
+ * @example
+ * <ul class="icons">
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-close</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-down"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-down</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-facebook</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-google"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-google</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-instagram"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-instagram</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-linkedin"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-linkedin</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-logo-beapi</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-menu"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-menu</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-search"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-search</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-twitter</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-viadeo"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-viadeo</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-youtube"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-youtube</span>
+ *	</li>
+ * </ul>
+ */
 .icon {
   display: inline-block;
   vertical-align: middle;
@@ -975,6 +1069,29 @@ img.mfp-img {
   width: auto;
 }
 
+/**
+ * @section Typography
+ * @page index
+ *
+ * @example
+ * <div class="row">
+ * <div class="col-6">
+ * <h1 class="font--title">Circular</h1>
+ * <h1>Level 1 Heading</h1>
+ * <h2>Level 2 Heading</h2>
+ * <h3>Level 3 Heading</h3>
+ * <h4>Level 4 Heading</h4>
+ * <h5>Level 5 Heading</h5>
+ * <h6>Level 6 Heading</h6>
+ * </div>
+ * <div class="col-6">
+ * <h1 class="font--title">Roboto</h1>
+ * <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla.</p>
+ * <p class="font--italic">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla.</p>
+ * <p class="font--bold">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla.</p>
+ * </div>
+ * </div>
+ */
 body {
   font-size: 16px;
   line-height: 1.4;
@@ -1586,7 +1703,8 @@ _:-ms-input-placeholder, :root .select--custom select {
  *
  * The Button `.btn` class can be applied to `<button>`, `<input>`, or `<a>` elements.
  *
- * @section
+ * @section Buttons
+ * @page components
  *
  * @example
  * <button class="button">Button</button>
@@ -2164,6 +2282,25 @@ button:active,
 
 /* Breadcrumb
 ----------------------------------------------------------------------------------------------------*/
+/**
+ * Breadcrumb
+ *
+ * This is the Breadcrumb
+ *
+ * @section Breadcrumb
+ * @page patterns
+ *
+ * @example
+ * <div id="breadcrumb" class="breadcrumb">
+ * 	<span>
+ * 		<span typeof="v:Breadcrumb"><a href="#" rel="v:url" property="v:title">Accueil</a></span> / 
+ * 		<span typeof="v:Breadcrumb"><a href="#" rel="v:url" property="v:title">breadcrumb level 1</a></span> / 
+ * 		<span typeof="v:Breadcrumb">
+ * 			<span class="breadcrumb_last" property="v:title">breadcrumb level 2 (current)</span>
+ * 		</span>
+ * 	</span>
+ * </div>
+ */
 .breadcrumb {
   margin: 0 0 20px;
 }

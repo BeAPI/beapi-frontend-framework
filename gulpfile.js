@@ -38,9 +38,10 @@ gulp.task('bs-reload', getTask('bs-reload'));
 gulp.task('build', ['imagemin', 'svgicons', 'favicon', 'js', 'sass', 'critical-css' ]);
 
 // On default task, just compile on demand
-gulp.task('default', ['js', 'sass', 'svgicons'], function() {
+gulp.task('default', ['js', 'sass', 'svgicons', 'livingcss'], function() {
 	gulp.watch('assets/js/src/*.js', [ 'js' ]);
 	gulp.watch('assets/js/vendor/*.js', [ 'js' ]);
+	gulp.watch('livingcss/**/*.scss', ['livingcss']);
 	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['sass']);
 	gulp.watch(['assets/img/icons/*.svg'], ['svgicons', 'sass']);
 });

@@ -44,6 +44,7 @@
     "gulp-connect-php": "1.0.1",
     "gulp-consolidate": "^0.2.0",
     "gulp-eslint": "^4.0.0",
+    "gulp-ext-replace": "^0.3.0",
     "gulp-favicons": "^2.2.7",
     "gulp-iconfont": "^9.0.2",
     "gulp-iconfont-css": "^2.1.0",

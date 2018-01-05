@@ -32,5 +32,4 @@
 		</div>
 	</aside>
 
-			
 <?php include 'footer.php'; ?>

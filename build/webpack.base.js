@@ -3,6 +3,7 @@ const config = require('./config')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const SvgStore = require('webpack-svgstore-plugin')
 const cssLoaders = require('./css-loader.js')
 const dev = process.env.NODE_ENV === 'dev'
 
@@ -88,10 +89,6 @@ let webpackBase = {
         to: 'fonts/'
       },
       {
-        from: 'assets/icons/',
-        to: 'icons/'
-      },
-      {
         from: 'assets/img/bg-sample/',
         to: 'img/bg-sample/'
       },
@@ -103,7 +100,17 @@ let webpackBase = {
         from: 'assets/img/sample/',
         to: 'img/sample/'
       }
-    ])
+    ]),
+    new SvgStore({
+      svgoOptions: {
+        plugins: [
+          {
+            removeTitle: true
+          }
+        ]
+      },
+      prefix: 'icon'
+    })
   ]
 }
 

@@ -26,10 +26,6 @@
 	</section>
 
 	<aside class="sidebar" id="sidebar">
-		<div class="widget-area">
-			<?php include 'blocks/checkbox.php'; ?>
-			<?php include 'blocks/radio.php'; ?>
-		</div>
 	</aside>
 
 <?php include 'footer.php'; ?>

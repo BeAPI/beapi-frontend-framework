@@ -91,7 +91,7 @@ function setDirPath (ext) {
   } else if (ext === 'js') {
     return ['../assets/js/src/', '../assets/js/vendor', '../assets/js/vendor_async']
   } else if (ext === 'html') {
-    return ['../html', '../html/blocks', '../html/plugins']
+    return ['../html', '../html/blocks', '../html/plugins', '../html/widgets']
   }
 }
 
@@ -106,7 +106,7 @@ function printImportToConsole () {
     console.log(`@import "${sassPath}${sassFileName}"`)
   } else if (fileOpts.ext === 'js') {
     console.log('You can require your script where you need it')
-  } else if ( fileOpts === 'html') {
+  } else if (fileOpts === 'html') {
     console.log('You can include your php files with <?php include \'\' ?>')
   }
 }

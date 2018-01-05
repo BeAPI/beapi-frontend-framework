@@ -33,6 +33,7 @@
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "glob": "^4.2.2",
+    "image-webpack-loader": "^3.4.2",
     "img-loader": "^2.0.0",
     "jquery": "^3.2.1",
     "jquery.placeholder": "^2.0.7",

@@ -51,18 +51,24 @@ let webpackBase = {
       {
         test: /\.(png|jpe?g|gif|svg)$/,
         use: [
+          'file-loader',
           {
-            loader: 'url-loader',
+            loader: 'image-webpack-loader',
             options: {
-              limit: 8192,
-              name: '[name].[ext]',
-              outputPath: './img/'
-            }
-          },
-          {
-            loader: 'img-loader',
-            options: {
-              enabled: !dev
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false
+              },
+              webp: {
+                quality: 75
+              }
             }
           }
         ]

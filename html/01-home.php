@@ -2,9 +2,27 @@
 <?php include 'header.php'; ?>
 
 	<section id="content" class="content">
-		<?php include 'blocks/elementor.php' ?>
-		<?php include 'blocks/wpform.php' ?>
-		<?php include 'blocks/facetwp.php' ?>
+		<h2 class="entry__title">An entry "card" list</h2>
+		<div class="entry__loop">
+			<?php include 'blocks/entry__seo-01.php' ?>
+			<?php include 'blocks/entry__seo-01.php' ?>
+			<?php include 'blocks/entry__seo-01.php' ?>
+		</div>
+		<h2 class="entry__title">An entry list</h2>
+		<div class="entry__loop">
+			<?php include 'blocks/entry__summary-01.php' ?>
+			<?php include 'blocks/entry__summary-01.php' ?>
+			<?php include 'blocks/entry__summary-01.php' ?>
+			<?php include 'blocks/entry__summary-01.php' ?>
+			<?php include 'blocks/entry__summary-01.php' ?>
+			<?php include 'blocks/entry__summary-01.php' ?>
+			<?php include 'blocks/entry__summary-01.php' ?>
+			<?php include 'blocks/entry__summary-01.php' ?>
+			<?php include 'blocks/entry__summary-01.php' ?>
+			<?php include 'blocks/entry__summary-01.php' ?>
+			<?php include 'blocks/entry__summary-01.php' ?>
+		</div>
+		<?php include 'blocks/wp-pagenavi.php' ?>
 	</section>
 
 	<aside class="sidebar" id="sidebar">

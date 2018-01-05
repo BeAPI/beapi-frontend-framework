@@ -12,7 +12,7 @@
             "size": "img-600-400"
           }
         ],
-        "default_img": "thumb-300-200.jpg",
+        "default_img": "default-300-200.jpg",
         "img_base": "img-300-200"
       }
     ],
@@ -28,7 +28,7 @@
             "size": "img-200-200"
           }
         ],
-        "default_img": "thumb-100-100.jpg",
+        "default_img": "default-100-100.jpg",
         "img_base": "img-100-100"
       }
     ]

@@ -109,7 +109,7 @@ let webpackBase = {
           }
         ]
       },
-      prefix: 'icon'
+      prefix: 'icon-'
     })
   ]
 }

@@ -13,6 +13,8 @@ module.exports = {
   refresh: [
     '**/*.php',
     'html/assets/*.css',
-    'html/assets/*.js'
+    'html/assets/*.js',
+    'assets/img/icons/',
+    'assets/img/icons/*.svg'
   ]
 }

@@ -101,15 +101,17 @@ let webpackBase = {
         to: 'img/sample/'
       }
     ]),
-    new SvgStore({
+    new SvgStore(path.resolve(__dirname, './../assets/img/icons/*.svg'), path.resolve(__dirname, './../html/assets/icons/'), {
+      name: 'icons',
+      prefix: 'icon-',
+      chunk: 'svg',
       svgoOptions: {
         plugins: [
           {
             removeTitle: true
           }
         ]
-      },
-      prefix: 'icon-'
+      }
     })
   ]
 }

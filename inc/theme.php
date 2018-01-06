@@ -1,18 +1,22 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nicolasjuen
- * Date: 05/01/2018
- * Time: 18:30
- */
 
 namespace BEA\Theme\Framework;
 
 
 class Theme implements Service {
 
+	/**
+	 * The registered services.
+	 *
+	 * @var array
+	 */
 	private $services = [];
 
+	/**
+	 * The services container for quick access.
+	 *
+	 * @var array
+	 */
 	private $services_container = [];
 
 	public function register() {
@@ -25,36 +29,22 @@ class Theme implements Service {
 
 	public function after_setup_theme() {
 		/**
-		 * Init the supports
+		 * Init the supports.
 		 */
 		$this->add_theme_supports();
 
 		/**
-		 * Init menus
+		 * Register all the Services.
 		 */
-		$this->register_menus();
-
-		/**
-		 * Init sidebars
-		 */
-		$this->register_sidebars();
-
 		$this->register_services();
 	}
 
 	public function add_theme_supports() {
 		// Add the theme support basic elements
 		add_theme_support( 'post-thumbnails' );
-		add_theme_support( 'menus' );
 		add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form' ) );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'async-css' );
-	}
-
-	public function register_menus() {
-	}
-
-	public function register_sidebars() {
 	}
 
 	/**
@@ -65,16 +55,15 @@ class Theme implements Service {
 	 * @param string $class Service class to instantiate.
 	 *
 	 * @return Service
-	 * @throws  If the service is not valid.
 	 */
 	private function instantiate_service( $class ) {
 		/**
 		 * @var $service Service
 		 */
-		$service                                            = new $class();
+		$service = new $class();
 		$this->services_container[ $service->get_service_name() ] = $service;
 
-		return $service;
+		return $this->services_container[ $service->get_service_name() ];
 	}
 
 	public function register_services() {
@@ -86,7 +75,7 @@ class Theme implements Service {
 	}
 
 	/**
-	 * @param $name
+	 * @param string $name : the service name.
 	 *
 	 * @return bool|Service
 	 */
@@ -99,7 +88,7 @@ class Theme implements Service {
 	 *
 	 * @since 0.1.0
 	 *
-	 * @return array<string> Array of fully qualified class names.
+	 * @return array[string] Array of fully qualified class names.
 	 */
 	private function get_services() {
 		return $this->services;

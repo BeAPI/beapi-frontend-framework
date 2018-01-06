@@ -10,10 +10,20 @@ class Body_Class implements Service {
 	 * @author Maxime Culea
 	 */
 	private $body_class = [];
-	private $delete_class = [];
+
+	/**
+	 * The unwanted classes
+	 *
+	 * @var array
+	 */
+	private $unwanted_classes = [];
 
 	public function register() {
 		add_filter( 'body_class', array( $this, 'body_class' ) );
+	}
+
+	public function get_service_name() {
+		return 'body-class';
 	}
 
 	/**
@@ -32,10 +42,10 @@ class Body_Class implements Service {
 	 *
 	 * @author Maxime Culea
 	 *
-	 * @param $body_class String
+	 * @param $body_class string
 	 */
-	public function delete( $body_class ) {
-		$this->delete_class[] = $body_class;
+	public function remove( $body_class ) {
+		$this->unwanted_classes[] = $body_class;
 	}
 
 	/**
@@ -46,16 +56,8 @@ class Body_Class implements Service {
 	 * @return array
 	 */
 	public function body_class( $classes ) {
-		if ( is_array( $this->body_class ) ) {
-			foreach ( $this->body_class as $bd ) {
-				$classes[] = $bd;
-			}
-		} else {
-			$classes[] = $this->body_class;
-		}
-
 		// Filter body classes
-		return array_filter( $classes, [ $this, 'delete_wanted_body_classes' ] );
+		return array_filter( \array_merge( $classes, $this->body_class ), [ $this, 'filter' ] );
 	}
 
 	/**
@@ -67,7 +69,7 @@ class Body_Class implements Service {
 	 *
 	 * @return bool
 	 */
-	private function delete_wanted_body_classes( $class ) {
-		return ! in_array( $class, $this->delete_class, true );
+	private function filter( $class ) {
+		return ! in_array( $class, $this->unwanted_classes, true );
 	}
 }

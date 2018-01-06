@@ -12,6 +12,8 @@ $theme->register_service( \BEA\Theme\Framework\Assets_Async::class );
 $theme->register_service( \BEA\Theme\Framework\SVG::class );
 $theme->register_service( \BEA\Theme\Framework\Favicons::class );
 $theme->register_service( \BEA\Theme\Framework\Acf::class );
+$theme->register_service( \BEA\Theme\Framework\Sidebar::class );
+$theme->register_service( \BEA\Theme\Framework\Menu::class );
 
 $theme->register();
 

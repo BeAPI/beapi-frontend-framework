@@ -15,6 +15,16 @@ $theme->register_service( \BEA\Theme\Framework\Acf::class );
 $theme->register_service( \BEA\Theme\Framework\Sidebar::class );
 $theme->register_service( \BEA\Theme\Framework\Menu::class );
 
+// Services as Tools
+$theme->register_service( \BEA\Theme\Framework\Tools\Body_Class::class );
+$theme->register_service( \BEA\Theme\Framework\Tools\Template_Parts::class );
+
+// Register the service, at after_setup_theme
 $theme->register();
 
-$this->get_service( 'acf' )->register_file('test');
+/**
+ * Add a filter for getting the theme class.
+ */
+add_filter( 'Bea\Theme\Framework\Theme', function() use ($theme) {
+	return $theme;
+} );

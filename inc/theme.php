@@ -37,14 +37,24 @@ class Theme implements Service {
 		 * Register all the Services.
 		 */
 		$this->register_services();
+
+		/**
+		 * Load translations.
+		 */
+		$this->i18n();
 	}
 
-	public function add_theme_supports() {
+	private function add_theme_supports() {
 		// Add the theme support basic elements
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form' ) );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'async-css' );
+	}
+
+	private function i18n() {
+		// Load theme texdomain
+		load_theme_textdomain( 'framework-textdomain', \get_theme_file_path( '/languages' ) );
 	}
 
 	/**

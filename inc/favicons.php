@@ -33,6 +33,10 @@ class Favicons implements Service {
 		$base_path = \get_theme_file_path( $this->path_suffix );
 		$base_url  = \get_theme_file_uri( $this->path_suffix );
 
+		$favicons[] = '<meta name="mobile-web-app-capable" content="yes">';
+		$favicons[] = '<meta name="theme-color" content="#ffffff">';
+		$favicons[] = '<meta name="application-name" content="BFF">';
+
 		$favicons_atts = array(
 			array(
 				'sizes'         => array(
@@ -51,6 +55,42 @@ class Favicons implements Service {
 				'filename_base' => 'apple-touch-icon',
 				'file_type'     => 'png',
 			),
+		);
+
+		$favicons = $this->generate_favicons( $favicons, $favicons_atts, $base_path, $base_url );
+
+		$favicons[] = '<meta name="apple-mobile-web-app-capable" content="yes">';
+		$favicons[] = '<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">';
+		$favicons[] = '<meta name="apple-mobile-web-app-title" content="BFF">';
+
+
+		$favicons_atts = array(
+			array(
+				'sizes'         => array(
+					'228x228',
+				),
+				'rel'           => 'icon',
+				'type'          => 'image/png',
+				'filename_base' => 'coast',
+				'file_type'     => 'png',
+			),
+		);
+
+		$favicons   = $this->generate_favicons( $favicons, $favicons_atts, $base_path, $base_url );
+		$favicons[] = '<meta name="msapplication-TileColor" content="#ffffff">';
+		if ( file_exists( $base_path . 'mstile-144x144.png' ) ) {
+			$favicons[] = sprintf( '<meta name="msapplication-TileImage" content="%s">', esc_url( $base_url . 'mstile-144x144.png' ) );
+		}
+		if ( file_exists( $base_path . 'browserconfig.xml' ) ) {
+			$favicons[] = sprintf( '<meta name="msapplication-config" content="%s">', esc_url( $base_url . 'browserconfig.xml' ) );
+		}
+
+		if ( file_exists( $base_path . 'yandex-browser-manifest.json' ) ) {
+			$favicons[] = sprintf( '<link rel="yandex-tableau-widget" href="%s">', esc_url( $base_url . 'yandex-browser-manifest.json' ) );
+		}
+
+		$favicons[]    = '<!-- Standard favicons from /assets/img/favicons/index_sd.html -->';
+		$favicons_atts = array(
 			array(
 				'sizes'         => array(
 					'16x16',
@@ -61,15 +101,28 @@ class Favicons implements Service {
 				'filename_base' => 'favicon',
 				'file_type'     => 'png',
 			),
-			array(
-				'sizes'         => array( '228x228' ),
-				'rel'           => 'icon',
-				'type'          => 'image/png',
-				'filename_base' => 'coast',
-				'file_type'     => 'png',
-			),
 		);
+		$favicons      = $this->generate_favicons( $favicons, $favicons_atts, $base_path, $base_url );
 
+
+		if ( file_exists( $base_path . 'favicon.ico' ) ) {
+			$favicons[] = sprintf( '<link rel="shortcut icon" href="%s">', esc_url( $base_url . 'favicon.ico' ) );
+		}
+
+		printf( "\t%s", implode( "\n\t", $favicons ) );
+	}
+
+
+	/**
+	 * @param array $favicons
+	 * @param array $favicons_atts
+	 * @param $base_path
+	 * @param $base_url
+	 *
+	 * @return array
+	 * @author Alexandre Sadowski
+	 */
+	private function generate_favicons( array $favicons, array $favicons_atts, $base_path, $base_url ) {
 		foreach ( $favicons_atts as $type ) {
 			if ( ! is_array( $type ) || empty( $type['sizes'] ) ) {
 				continue;
@@ -107,29 +160,6 @@ class Favicons implements Service {
 			}
 		}
 
-		if ( file_exists( $base_path . 'favicon.ico' ) ) {
-			$favicons[] = sprintf( '<link rel="shortcut icon" href="%s">', esc_url( $base_url . 'favicon.ico' ) );
-		}
-		$favicons[] = '<meta name="theme-color" content="#ffffff">';
-		$favicons[] = '<meta name="msapplication-TileColor" content="#ffffff">';
-		if ( file_exists( $base_path . 'mstile-144x144.png' ) ) {
-			$favicons[] = sprintf( '<link name="msapplication-TileImage" content="%s">', esc_url( $base_url . 'mstile-144x144.png' ) );
-		}
-		if ( file_exists( $base_path . 'browserconfig.xml' ) ) {
-			$favicons[] = sprintf( '<meta name="msapplication-config" content="%s">', esc_url( $base_url . 'browserconfig.xml' ) );
-		}
-
-		$favicons[] = '<meta name="mobile-web-app-capable" content="yes">';
-		$favicons[] = '<meta name="application-name" content="Journal du Geek">';
-
-		$favicons[] = '<meta name="apple-mobile-web-app-capable" content="yes">';
-		$favicons[] = '<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">';
-		$favicons[] = '<meta name="apple-mobile-web-app-title" content="Journal du Geek">';
-
-		if ( empty( $favicons ) ) {
-			return;
-		}
-
-		printf( "\t%s", implode( "\n\t", $favicons ) );
+		return $favicons;
 	}
 }

@@ -44,7 +44,7 @@ class Acf implements Service {
 		$this->path = (string) $path;
 	}
 
-	function init() {
+	public function init() {
 		$files = $this->get_files();
 
 		if ( empty( $files ) || ! is_dir( \get_theme_file_path( $this->path ) ) ) {
@@ -58,6 +58,18 @@ class Acf implements Service {
 
 			require_once $this->path . $file . '.php';
 		}
+
+	}
+
+	public function acf_add_options_sub_page( $parameters ) {
+		/**
+		 * Add Option Mage
+		 */
+		if ( ! function_exists( 'acf_add_options_sub_page' ) ) {
+			return false;
+		}
+
+		return acf_add_options_sub_page( $parameters );
 
 	}
 

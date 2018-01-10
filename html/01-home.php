@@ -1,31 +1,13 @@
 <?php $class = 'home'; ?>
 <?php include 'header.php'; ?>
-
-	<section id="content" class="content">
-		<h2 class="entry__title">An entry "card" list</h2>
-		<div class="entry__loop">
-			<?php include 'blocks/entry__seo-01.php' ?>
-			<?php include 'blocks/entry__seo-01.php' ?>
-			<?php include 'blocks/entry__seo-01.php' ?>
-		</div>
-		<h2 class="entry__title">An entry list</h2>
-		<div class="entry__loop">
-			<?php include 'blocks/entry__summary-01.php' ?>
-			<?php include 'blocks/entry__summary-01.php' ?>
-			<?php include 'blocks/entry__summary-01.php' ?>
-			<?php include 'blocks/entry__summary-01.php' ?>
-			<?php include 'blocks/entry__summary-01.php' ?>
-			<?php include 'blocks/entry__summary-01.php' ?>
-			<?php include 'blocks/entry__summary-01.php' ?>
-			<?php include 'blocks/entry__summary-01.php' ?>
-			<?php include 'blocks/entry__summary-01.php' ?>
-			<?php include 'blocks/entry__summary-01.php' ?>
-			<?php include 'blocks/entry__summary-01.php' ?>
-		</div>
-		<?php include 'blocks/wp-pagenavi.php' ?>
-	</section>
-
-	<aside class="sidebar" id="sidebar">
-	</aside>
+	<article class="entry">
+		<header class="entry__header">
+			<h1 class="entry__title">Welcome to the BFF</h1>
+		</header>
+		<section class="entry__content">
+			<p>This a starter theme so it's empty</p>
+			<p>You can use composerjs in order to add components (html, css or js)</p>
+		</section>
+	</article>
 
 <?php include 'footer.php'; ?>

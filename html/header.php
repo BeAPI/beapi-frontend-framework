@@ -137,15 +137,15 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 					<?php endif; ?>
 
 					<!-- Button href demo -->
-					<button class="button button--rounded" data-href="https://beapi.fr/">
+					<button type="button" class="button button--rounded" data-href="https://beapi.fr/">
 						Button w/o blank
 					</button>
 
-					<button class="button button--bordered" data-href="https://beapi.fr/" data-target="_blank">
+					<button type="button" class="button button--bordered" data-href="https://beapi.fr/" data-target="_blank">
 						Button w/ blank
 					</button>
 
-					<button class="button button--revert" data-href="../assets/pdf/sample.pdf" data-target="download" data-filename="sample.pdf">
+					<button type="button" class="button button--revert" data-href="../assets/pdf/sample.pdf" data-target="download" data-filename="sample.pdf">
 						Button download
 					</button>
 				</div>
@@ -157,17 +157,16 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 						<li class="menu__item">
 							<a href="02-page-default.php">Page default</a>
 							<ul class="menu__list menu__list--sub">
-								<li class="menu__item"><a href="#">menu item</a></li>
-								<li class="menu__item"><a href="#">menu item</a></li>
-								<li class="menu__item"><a href="#">menu item</a></li>
-								<li class="menu__item"><a href="#">menu item</a></li>
-								<li class="menu__item"><a href="#">menu item</a></li>
-								<li class="menu__item"><a href="#">menu item</a></li>
+								<li class="menu__item"><a href="#">Sub menu item</a></li>
+								<li class="menu__item"><a href="#">Sub menu item</a></li>
+								<li class="menu__item"><a href="#">Sub menu item</a></li>
+								<li class="menu__item"><a href="#">Sub menu item</a></li>
+								<li class="menu__item"><a href="#">Sub menu item</a></li>
+								<li class="menu__item"><a href="#">Sub menu item</a></li>
 							</ul>
 						</li>
-						<li class="menu__item"><a href="#">menu item</a></li>
-						<li class="menu__item"><a href="#">menu item</a></li>
-						<li class="menu__item"><a href="#">menu item</a></li>
+						<li class="menu__item"><a href="03-archive-default.php">Archive default</a></li>
+						<li class="menu__item"><a href="04-page-404.php">Page 404</a></li>
 					</ul>
 				</div>
 			</nav>

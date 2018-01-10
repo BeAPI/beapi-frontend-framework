@@ -1,18 +1,14 @@
-<?php $class = ''; ?>
+<?php $class = 'page'; ?>
 <?php include 'header.php'; ?>
-
-	<section class="content" id="content">
-
-		<?php include 'blocks/breadcrumb.php'; ?>
-
-		<article class="entry" itemscope itemtype="http://schema.org/Article">
-			<header class="entry__header">
-				<h1 class="entry__title" itemprop="headline">Titre de la page</h1>
-				<div class="entry__date">
-					Publié le <time datetime="2015-06-30" itemprop="datePublished">06/30/2015</time>
-				</div>
-			</header>
-			<section class="entry__content" itemprop="articleBody">
+	<article class="entry">
+		<header class="entry__header">
+			<h1 class="entry__title">Titre de la page par défaut, avec sidebar</h1>
+			<div class="entry__date">
+				Publié le <time datetime="2015-06-30">06/30/2015</time>
+			</div>
+		</header>
+		<div class="content">
+			<section class="entry__content">
 				<h2>Image with link to a bigger size using a lightbox</h2>
 				<p>
 					<a href="../assets/img/sample/beapi_theme-img-2.jpg"><img align="right" alt="#" src="http://placehold.it/150x150" class="alignright"></a>
@@ -189,18 +185,11 @@
 					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.</p>
 				</div>
 			</section>
-		</article>
-		<?php include 'blocks/comments.php'; ?>
-	</section>
-
-	<aside class="sidebar" id="sidebar">
-		<div class="widget-area">
-			<?php include 'blocks/widgets/widget-search.php'; ?>
-			<?php include 'blocks/widgets/widget-text.php'; ?>
-			<?php include 'blocks/widgets/widget-categories.php'; ?>
-			<?php include 'blocks/widgets/widget-archive.php'; ?>
-			<?php include 'blocks/widgets/widget-pages.php'; ?>
-			<?php include 'blocks/widgets/widget-gravityform.php'; ?>
+			<!-- You can add commments sample (html/css) from composerjs here
+			<?php // include 'blocks/comments.php'; ?> -->
 		</div>
-	</aside>
+		<div class="sidebar">
+			<!-- You can add widget sample (html/css) from composerjs here -->
+		</div>
+	</article>
 <?php include 'footer.php'; ?>

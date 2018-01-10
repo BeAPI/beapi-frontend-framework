@@ -1,4 +1,4 @@
-<?php $class = 'single'; ?>
+<?php $class = 'error-404'; ?>
 <?php include 'header.php'; ?>
 	<article class="entry">
 		<h1 class="entry__title">Erreur 404</h1>

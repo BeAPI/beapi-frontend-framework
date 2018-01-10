@@ -1,4 +1,4 @@
-<?php $class = ''; ?>
+<?php $class = 'archive'; ?>
 <?php include 'header.php'; ?>
     <header class="entry__header">
         <h1 class="entry__title">Two basic styles of archive list</h1>

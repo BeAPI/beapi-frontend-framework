@@ -1,4 +1,4 @@
-<?php $class = ''; ?>
+<?php $class = 'page'; ?>
 <?php include 'header.php'; ?>
 	<article class="entry">
 		<header class="entry__header">

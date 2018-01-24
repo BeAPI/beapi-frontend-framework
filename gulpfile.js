@@ -41,8 +41,8 @@ gulp.task('build', ['imagemin', 'svgicons', 'favicon', 'js', 'sass', 'critical-c
 gulp.task('default', ['js', 'sass', 'svgicons', 'livingcss'], function() {
 	gulp.watch('assets/js/src/*.js', [ 'js' ]);
 	gulp.watch('assets/js/vendor/*.js', [ 'js' ]);
-	gulp.watch('livingcss/**/*.scss', ['livingcss']);
 	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['sass']);
+	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss', 'livingcss/**/*.scss'], ['livingcss']);
 	gulp.watch(['assets/img/icons/*.svg'], ['svgicons', 'sass']);
 });
 // Browser sync with local setup.

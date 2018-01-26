@@ -26,10 +26,10 @@ module.exports = function (gulp, plugins) {
               index: ['Typography', 'Colors', 'Icons']
             },
             {
-              components: ['Buttons']
+              components: ['Buttons', 'Form', 'Messages']
             },
             {
-              patterns: ['Breadcrumb']
+              patterns: ['Menu', 'Breadcrumb', 'Searchform', 'Entry', 'Comments']
             },
             {
               pages: []

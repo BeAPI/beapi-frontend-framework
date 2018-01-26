@@ -7693,7 +7693,8 @@
   </div><dom-module id="styleguide-styles">
     <template>
       <style>
-      /**
+      @charset "UTF-8";
+  /**
    * @section Colors
    * @page index
    *
@@ -9180,6 +9181,42 @@
   
   /* Global form css elements
   -------------------------------------------------------------- */
+  /**
+   * Form
+   *
+   * `.radio--custom` class can be applied to `<input type="radio">` element.  
+   * `.checbox--custom` class can be applied to `<input type="checkbox">` element.  
+   * `.select--custom` class can be applied to `<select>` element.  
+   *
+   * @section Form
+   * @page components
+   *
+   * @example
+   * <form action="#">
+   *		<div class="radio--custom">
+   *			<input id="radio-1" name="radio" type="radio" checked>
+   *			<label for="radio-1">Radio item Lorem ipsum dolor sit amet.</label>
+   *		</div>
+   *		<div class="radio--custom">
+   *			<input id="radio-2" name="radio" type="radio">
+   *			<label for="radio-2">Radio item</label>
+   *		</div>
+   *		<div class="checkbox--custom">
+   *			<input id="checkbox-1" name="checkbox1" type="checkbox" checked>
+   *			<label for="checkbox-1">Checkbox item Lorem ipsum dolor sit amet.</label>
+   *		</div>
+   *		<div class="checkbox--custom">
+   *			<input id="checkbox-2" name="checkbox2" type="checkbox">
+   *			<label for="checkbox-2">Checkbox item</label>
+   *		</div>
+   *		<div class="select--custom">
+   *			<select>
+   *				<option>M.</option>
+   *				<option>Mme</option>
+   *			</select>
+   *		</div>
+   * </form>
+   */
   input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], input:not([type]), textarea,
   textarea {
     -webkit-box-sizing: border-box;
@@ -9402,7 +9439,7 @@
    * @page components
    *
    * @example
-   * <button class="button">Button</button>
+   * <button class="button">Buton</button>
    * <input type="submit" class="btn" value="Input"/>
    * <a href="#" class="btn">Anchor</a>
    */
@@ -9475,6 +9512,22 @@
   
   /* Success, info, notice and error/alert boxes
   -------------------------------------------------------------- */
+  /**
+   * Messages
+   *
+   * Add `.error` | `.alert` | `.notice` | `.success` | `.info` class to `<p>` element.  
+   * `<p>` element must be have `.message` class.
+   *
+   * @section Messages
+   * @page components
+   *
+   * @example
+   * <p class="message error">Error message.</p>
+   * <p class="message alert">Alert message.</p>
+   * <p class="message notice">Notice message.</p>
+   * <p class="message success">Success message.</p>
+   * <p class="message info">Info message.</p>
+   */
   .message {
     border-left: 5px solid #f5745a;
     color: #f5745a;
@@ -9818,6 +9871,37 @@
   
   /* Menus
   ----------------------------------------------------------------------------------------------------*/
+  /**
+   * Menu
+   *
+   * Menu template.
+   *
+   * @section Menu
+   * @page patterns
+   *
+   * @example
+   * 	<nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">
+   * 		<div class="container">
+   *			<ul class="sf-menu">
+   *				<li class="current-menu-item"><a href="01-home.php">Home</a></li>
+   *				<li>
+   *					<a href="02-page-default.php">Page default</a>
+   *					<ul>
+   *						<li><a href="#">menu item</a></li>
+   *						<li><a href="#">menu item</a></li>
+   *						<li><a href="#">menu item</a></li>
+   *						<li><a href="#">menu item</a></li>
+   *						<li><a href="#">menu item</a></li>
+   *						<li><a href="#">menu item</a></li>
+   *					</ul>
+   *				</li>
+   *				<li><a href="#">menu item</a></li>
+   *				<li><a href="#">menu item</a></li>
+   *				<li><a href="#">menu item</a></li>
+   *			</ul>
+   *		</div>
+   * </nav>
+   */
   .menu__fastaccess {
     margin: 0;
     font-size: 9px;
@@ -10002,6 +10086,38 @@
   
   /* Entry
   ----------------------------------------------------------------------------------------------------*/
+  /**
+   * Entry
+   *
+   * Entry template.
+   *
+   * @section Entry
+   * @page patterns
+   *
+   * @example
+   *	<article class="entry__summary">
+   *		<a class="alignleft" href="#">
+   *			<!-- Local dev only -->
+   *			<img src="http://placehold.it/150x150" width="150" height="150" alt="#">
+   *			<!-- end Local dev only -->
+   *			<!-- Web dev -->
+   *			<!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?> -->
+   *			<!-- end Web dev -->
+   *		</a>
+   *		<h2 class="entry__title" itemprop="headline">
+   *			<a href="#">There is a post + a 20 words lorem ipsum excerpt</a>
+   *	 	</h2>
+   *	 	<div class="entry__date">
+   *		 	Publie le <time datetime="2015-06-30" itemprop="datePublished">06/30/2015</time>
+   *	 	</div>
+   *	 	<div class="entry__excerpt">
+   *			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+   *	 	</div>
+   *	 	<div class="entry__more">
+   *			<a href="#" class="entry__more-button">Readmore</a>
+   *	 	</div>
+   *	</article>
+   */
   .entry::after {
     clear: both;
     content: "";
@@ -10102,6 +10218,109 @@
   
   /* Comments
    ----------------------------------------------------------------------------------------------------*/
+  /**
+   * Comments
+   *
+   * Comments template.
+   *
+   * @section Comments
+   * @page patterns
+   *
+   * @example
+   * <div id="comments" class="comments-area">
+   *		<h2 class="comments-title">Commentaire</h2>
+  *		<ol class="comment-list">
+  *			<li class="comment even">
+  *				<article class="comment-body">
+  *					<footer class="comment-meta">
+  *						<div class="comment-author vcard">
+  *							<img alt="" src="https://placehold.it/56x56" class="avatar" height="56" width="56">
+  *							<b class="fn"><a href="#" rel="external nofollow" class="url">Mr WordPress</a></b>
+  *							<span class="says">says:</span>
+  *						</div><!-- .comment-author -->
+  *						<div class="comment-metadata">
+  *							<a href="#">
+  *								<time datetime="2008-06-04T22:40:06+00:00">June 4 at 10:40 pm</time>
+  *							</a>
+  *						</div><!-- .comment-metadata -->
+  *					</footer><!-- .comment-meta -->
+  *					<div class="comment-content">
+  *						<p>Hi, this is a comment.<br>To delete a comment, just log in and view the post's comments. There you will have the option to edit or delete them.</p>
+  *					</div><!-- .comment-content -->
+  *				</article><!-- .comment-body -->
+  *				<ul class="children">
+  *					<li class="comment">
+  *						<article class="comment-body">
+  *							<footer class="comment-meta">
+  *								<div class="comment-author vcard">
+  *									<img alt="" src="https://placehold.it/56x56" class="avatar" height="56" width="56">
+  *									<b class="fn"><a href="#" rel="external nofollow" class="url">Joseph Scott</a></b>
+  *									<span class="says">says:</span>
+  *								</div><!-- .comment-author -->
+  *								<div class="comment-metadata">
+  *									<a href="https://wp-themes.com/?p=1&amp;cpage=1#comment-509">
+  *										<time datetime="2008-11-05T19:38:11+00:00">November 5 at 7:38 pm</time>
+  *									</a>
+  *								</div><!-- .comment-metadata -->
+  *							</footer><!-- .comment-meta -->
+  *							<div class="comment-content">
+  *								<p>Need a comment with a real Gravatar.</p>
+  *							</div><!-- .comment-content -->
+  *						</article><!-- .comment-body -->
+  *					</li><!-- #comment-## -->
+  *					<li class="comment odd">
+  *						<article class="comment-body">
+  *							<footer class="comment-meta">
+  *								<div class="comment-author vcard">
+  *									<img alt="" src="https://placehold.it/56x56" class="avatar" height="56" width="56">
+  *									<b class="fn"><a href="#" rel="external nofollow" class="url">Joseph Scott</a></b>
+  *									<span class="says">says:</span>
+  *								</div><!-- .comment-author -->
+  *								<div class="comment-metadata">
+  *									<a href="https://wp-themes.com/?p=1&amp;cpage=1#comment-509">
+  *										<time datetime="2008-11-05T19:38:11+00:00">November 5 at 7:38 pm</time>
+  *									</a>
+  *								</div><!-- .comment-metadata -->
+  *							</footer><!-- .comment-meta -->
+  *							<div class="comment-content">
+  *								<p>Need a comment with a real Gravatar.</p>
+  *							</div><!-- .comment-content -->
+  *						</article><!-- .comment-body -->
+  *					</li><!-- #comment-## -->
+  *				</ul>
+  *			</li>
+  *		</ol>
+  *		<div id="respond" class="comment-respond">
+  *			<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/?p=1&amp;cpage=1#respond" style="display:none;">Cancel reply</a></small>
+  *			</h3>
+  *			<form action="#" method="post" id="commentform" class="comment-form" novalidate="">
+  *				<p class="comment-notes">
+  *					<span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
+  *				</p>
+  *				<p class="comment-form-author">
+  *					<label for="author">Name <span class="required">*</span></label>
+  *					<input id="author" name="author" type="text" value="" size="30" aria-required="true" required="required">
+  *				</p>
+  *				<p class="comment-form-email">
+  *					<label for="email">Email <span class="required">*</span></label>
+  *					<input id="email" name="email" type="email" value="" size="30" aria-describedby="email-notes" aria-required="true" required="required">
+  *				</p>
+  *				<p class="comment-form-comment">
+  *					<label for="comment">Comment</label>
+  *					<textarea id="comment" name="comment" cols="45" rows="8" aria-describedby="form-allowed-tags" aria-required="true" required="required"></textarea>
+  *				</p>
+  *				<p class="form-allowed-tags" id="form-allowed-tags">
+  *					You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;s&gt; &lt;strike&gt; &lt;strong&gt; </code>
+  *				</p>
+  *				<p class="form-submit">
+  *					<input name="submit" type="submit" id="submit" class="submit" value="Post Comment">
+  *					<input type="hidden" name="comment_post_ID" value="1" id="comment_post_ID">
+  *					<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+  *				</p>
+  *			</form>
+  *		</div><!-- #respond -->
+  * </div>
+  */
   .comment-list .children {
     margin: 0 0 0 76px;
   }
@@ -10161,6 +10380,29 @@
   
   /* Searchform
   ----------------------------------------------------------------------------------------------------*/
+  /**
+   * Searchform
+   *
+   * Searchform template.
+   *
+   * @section Searchform
+   * @page patterns
+   *
+   * @example
+   *	<div class="searchform" id="searchform" tabindex="-1">
+   *		<form method="get" action="#">
+   *			<div class="form__row">
+   *				<input type="search" class="searchform__field" name="s" id="search" placeholder="Recherchez" aria-required="true" required="required">
+   *				<button type="submit" class="searchform__submit" name="submit" id="searchsubmit">
+   *					<span class="visuallyhidden">Lancer la recherche</span>
+   *					<svg class="icon icon-search" aria-hidden="true" role="img"> *
+   *						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-search"></use>
+   *					</svg>
+   *				</button>
+   *			</div>
+   *		</form>
+   *	</div>
+   */
   .searchform {
     position: relative;
   }
@@ -10333,10 +10575,65 @@
       <main class="livingcss__main" role="main">
         <nav class="livingcss__nav">
           <div class="livingcss__nav-container">
+            <a class="livingcss__nav-link" href="#menu">Menu</a>
             <a class="livingcss__nav-link" href="#breadcrumb">Breadcrumb</a>
+            <a class="livingcss__nav-link" href="#searchform">Searchform</a>
+            <a class="livingcss__nav-link" href="#entry">Entry</a>
+            <a class="livingcss__nav-link" href="#comments">Comments</a>
           </div>
         </nav>
 
+        <article class="livingcss__article" id="menu">
+          <h1 class="livingcss__article-title">Menu</h1><div class="livingcss__section-description"><p>Menu</p>
+<p>Menu template.</p></div>
+
+<livingcss-example><nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">
+		<div class="container">
+		<ul class="sf-menu">
+			<li class="current-menu-item"><a href="01-home.php">Home</a></li>
+			<li>
+				<a href="02-page-default.php">Page default</a>
+				<ul>
+					<li><a href="#">menu item</a></li>
+					<li><a href="#">menu item</a></li>
+					<li><a href="#">menu item</a></li>
+					<li><a href="#">menu item</a></li>
+					<li><a href="#">menu item</a></li>
+					<li><a href="#">menu item</a></li>
+				</ul>
+			</li>
+			<li><a href="#">menu item</a></li>
+			<li><a href="#">menu item</a></li>
+			<li><a href="#">menu item</a></li>
+		</ul>
+	</div>
+</nav></livingcss-example>
+
+<div class="livingcss__section-markup">
+  <pre class="livingcss__section-code"><code class="language-markup">&lt;nav id&#x3D;&quot;menu&quot; class&#x3D;&quot;menu menu__mobile&quot; role&#x3D;&quot;navigation&quot; tabindex&#x3D;&quot;-1&quot; aria-label&#x3D;&quot;Navigation Principal&quot;&gt;
+		&lt;div class&#x3D;&quot;container&quot;&gt;
+		&lt;ul class&#x3D;&quot;sf-menu&quot;&gt;
+			&lt;li class&#x3D;&quot;current-menu-item&quot;&gt;&lt;a href&#x3D;&quot;01-home.php&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;
+				&lt;a href&#x3D;&quot;02-page-default.php&quot;&gt;Page default&lt;/a&gt;
+				&lt;ul&gt;
+					&lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;menu item&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;menu item&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;menu item&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;menu item&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;menu item&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;menu item&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;
+			&lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;menu item&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;menu item&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;menu item&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+</div>
+
+        </article>
         <article class="livingcss__article" id="breadcrumb">
           <h1 class="livingcss__article-title">Breadcrumb</h1><div class="livingcss__section-description"><p>Breadcrumb</p>
 <p>This is the Breadcrumb</p></div>
@@ -10360,6 +10657,289 @@
 			&lt;span class&#x3D;&quot;breadcrumb_last&quot; property&#x3D;&quot;v:title&quot;&gt;breadcrumb level 2 (current)&lt;/span&gt;
 		&lt;/span&gt;
 	&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+        </article>
+        <article class="livingcss__article" id="searchform">
+          <h1 class="livingcss__article-title">Searchform</h1><div class="livingcss__section-description"><p>Searchform</p>
+<p>Searchform template.</p></div>
+
+<livingcss-example><div class="searchform" id="searchform" tabindex="-1">
+	<form method="get" action="#">
+		<div class="form__row">
+			<input type="search" class="searchform__field" name="s" id="search" placeholder="Recherchez" aria-required="true" required="required">
+			<button type="submit" class="searchform__submit" name="submit" id="searchsubmit">
+				<span class="visuallyhidden">Lancer la recherche</span>
+				<svg class="icon icon-search" aria-hidden="true" role="img"> *
+					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-search"></use>
+				</svg>
+			</button>
+		</div>
+	</form>
+</div></livingcss-example>
+
+<div class="livingcss__section-markup">
+  <pre class="livingcss__section-code"><code class="language-markup">&lt;div class&#x3D;&quot;searchform&quot; id&#x3D;&quot;searchform&quot; tabindex&#x3D;&quot;-1&quot;&gt;
+	&lt;form method&#x3D;&quot;get&quot; action&#x3D;&quot;#&quot;&gt;
+		&lt;div class&#x3D;&quot;form__row&quot;&gt;
+			&lt;input type&#x3D;&quot;search&quot; class&#x3D;&quot;searchform__field&quot; name&#x3D;&quot;s&quot; id&#x3D;&quot;search&quot; placeholder&#x3D;&quot;Recherchez&quot; aria-required&#x3D;&quot;true&quot; required&#x3D;&quot;required&quot;&gt;
+			&lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;searchform__submit&quot; name&#x3D;&quot;submit&quot; id&#x3D;&quot;searchsubmit&quot;&gt;
+				&lt;span class&#x3D;&quot;visuallyhidden&quot;&gt;Lancer la recherche&lt;/span&gt;
+				&lt;svg class&#x3D;&quot;icon icon-search&quot; aria-hidden&#x3D;&quot;true&quot; role&#x3D;&quot;img&quot;&gt; *
+					&lt;use xmlns:xlink&#x3D;&quot;http://www.w3.org/1999/xlink&quot; xlink:href&#x3D;&quot;#icon-search&quot;&gt;&lt;/use&gt;
+				&lt;/svg&gt;
+			&lt;/button&gt;
+		&lt;/div&gt;
+	&lt;/form&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+        </article>
+        <article class="livingcss__article" id="entry">
+          <h1 class="livingcss__article-title">Entry</h1><div class="livingcss__section-description"><p>Entry</p>
+<p>Entry template.</p></div>
+
+<livingcss-example><article class="entry__summary">
+	<a class="alignleft" href="#">
+		<!-- Local dev only -->
+		<img src="http://placehold.it/150x150" width="150" height="150" alt="#">
+		<!-- end Local dev only -->
+		<!-- Web dev -->
+		<!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?> -->
+		<!-- end Web dev -->
+	</a>
+	<h2 class="entry__title" itemprop="headline">
+		<a href="#">There is a post + a 20 words lorem ipsum excerpt</a>
+ 	</h2>
+ 	<div class="entry__date">
+	 	Publie le <time datetime="2015-06-30" itemprop="datePublished">06/30/2015</time>
+ 	</div>
+ 	<div class="entry__excerpt">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+ 	</div>
+ 	<div class="entry__more">
+		<a href="#" class="entry__more-button">Readmore</a>
+ 	</div>
+</article></livingcss-example>
+
+<div class="livingcss__section-markup">
+  <pre class="livingcss__section-code"><code class="language-markup">&lt;article class&#x3D;&quot;entry__summary&quot;&gt;
+	&lt;a class&#x3D;&quot;alignleft&quot; href&#x3D;&quot;#&quot;&gt;
+		&lt;!-- Local dev only --&gt;
+		&lt;img src&#x3D;&quot;http://placehold.it/150x150&quot; width&#x3D;&quot;150&quot; height&#x3D;&quot;150&quot; alt&#x3D;&quot;#&quot;&gt;
+		&lt;!-- end Local dev only --&gt;
+		&lt;!-- Web dev --&gt;
+		&lt;!-- &lt;?php echo get_the_post_thumbnail( 0, &#x27;thumbnail&#x27;, array( &#x27;data-location&#x27; &#x3D;&gt; &#x27;entry-img-01&#x27;, &#x27;class&#x27; &#x3D;&gt; &#x27;entry__img&#x27;, &#x27;alt&#x27; &#x3D;&gt; &#x27;#&#x27; ) ); ?&gt; --&gt;
+		&lt;!-- end Web dev --&gt;
+	&lt;/a&gt;
+	&lt;h2 class&#x3D;&quot;entry__title&quot; itemprop&#x3D;&quot;headline&quot;&gt;
+		&lt;a href&#x3D;&quot;#&quot;&gt;There is a post + a 20 words lorem ipsum excerpt&lt;/a&gt;
+ 	&lt;/h2&gt;
+ 	&lt;div class&#x3D;&quot;entry__date&quot;&gt;
+	 	Publie le &lt;time datetime&#x3D;&quot;2015-06-30&quot; itemprop&#x3D;&quot;datePublished&quot;&gt;06/30/2015&lt;/time&gt;
+ 	&lt;/div&gt;
+ 	&lt;div class&#x3D;&quot;entry__excerpt&quot;&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.&lt;/p&gt;
+ 	&lt;/div&gt;
+ 	&lt;div class&#x3D;&quot;entry__more&quot;&gt;
+		&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;entry__more-button&quot;&gt;Readmore&lt;/a&gt;
+ 	&lt;/div&gt;
+&lt;/article&gt;</code></pre>
+</div>
+
+        </article>
+        <article class="livingcss__article" id="comments">
+          <h1 class="livingcss__article-title">Comments</h1><div class="livingcss__section-description"><p>Comments</p>
+<p>Comments template.</p></div>
+
+<livingcss-example><div id="comments" class="comments-area">
+	<h2 class="comments-title">Commentaire</h2>
+	<ol class="comment-list">
+		<li class="comment even">
+			<article class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://placehold.it/56x56" class="avatar" height="56" width="56">
+						<b class="fn"><a href="#" rel="external nofollow" class="url">Mr WordPress</a></b>
+						<span class="says">says:</span>
+					</div><!-- .comment-author -->
+					<div class="comment-metadata">
+						<a href="#">
+							<time datetime="2008-06-04T22:40:06+00:00">June 4 at 10:40 pm</time>
+						</a>
+					</div><!-- .comment-metadata -->
+				</footer><!-- .comment-meta -->
+				<div class="comment-content">
+					<p>Hi, this is a comment.<br>To delete a comment, just log in and view the post's comments. There you will have the option to edit or delete them.</p>
+				</div><!-- .comment-content -->
+			</article><!-- .comment-body -->
+			<ul class="children">
+				<li class="comment">
+					<article class="comment-body">
+						<footer class="comment-meta">
+							<div class="comment-author vcard">
+								<img alt="" src="https://placehold.it/56x56" class="avatar" height="56" width="56">
+								<b class="fn"><a href="#" rel="external nofollow" class="url">Joseph Scott</a></b>
+								<span class="says">says:</span>
+							</div><!-- .comment-author -->
+							<div class="comment-metadata">
+								<a href="https://wp-themes.com/?p=1&amp;cpage=1#comment-509">
+									<time datetime="2008-11-05T19:38:11+00:00">November 5 at 7:38 pm</time>
+								</a>
+							</div><!-- .comment-metadata -->
+						</footer><!-- .comment-meta -->
+						<div class="comment-content">
+							<p>Need a comment with a real Gravatar.</p>
+						</div><!-- .comment-content -->
+					</article><!-- .comment-body -->
+				</li><!-- #comment-## -->
+				<li class="comment odd">
+					<article class="comment-body">
+						<footer class="comment-meta">
+							<div class="comment-author vcard">
+								<img alt="" src="https://placehold.it/56x56" class="avatar" height="56" width="56">
+								<b class="fn"><a href="#" rel="external nofollow" class="url">Joseph Scott</a></b>
+								<span class="says">says:</span>
+							</div><!-- .comment-author -->
+							<div class="comment-metadata">
+								<a href="https://wp-themes.com/?p=1&amp;cpage=1#comment-509">
+									<time datetime="2008-11-05T19:38:11+00:00">November 5 at 7:38 pm</time>
+								</a>
+							</div><!-- .comment-metadata -->
+						</footer><!-- .comment-meta -->
+						<div class="comment-content">
+							<p>Need a comment with a real Gravatar.</p>
+						</div><!-- .comment-content -->
+					</article><!-- .comment-body -->
+				</li><!-- #comment-## -->
+			</ul>
+		</li>
+	</ol>
+	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/?p=1&amp;cpage=1#respond" style="display:none;">Cancel reply</a></small>
+		</h3>
+		<form action="#" method="post" id="commentform" class="comment-form" novalidate="">
+			<p class="comment-notes">
+				<span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
+			</p>
+			<p class="comment-form-author">
+				<label for="author">Name <span class="required">*</span></label>
+				<input id="author" name="author" type="text" value="" size="30" aria-required="true" required="required">
+			</p>
+			<p class="comment-form-email">
+				<label for="email">Email <span class="required">*</span></label>
+				<input id="email" name="email" type="email" value="" size="30" aria-describedby="email-notes" aria-required="true" required="required">
+			</p>
+			<p class="comment-form-comment">
+				<label for="comment">Comment</label>
+				<textarea id="comment" name="comment" cols="45" rows="8" aria-describedby="form-allowed-tags" aria-required="true" required="required"></textarea>
+			</p>
+			<p class="form-allowed-tags" id="form-allowed-tags">
+				You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;s&gt; &lt;strike&gt; &lt;strong&gt; </code>
+			</p>
+			<p class="form-submit">
+				<input name="submit" type="submit" id="submit" class="submit" value="Post Comment">
+				<input type="hidden" name="comment_post_ID" value="1" id="comment_post_ID">
+				<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+			</p>
+		</form>
+	</div><!-- #respond -->
+</div></livingcss-example>
+
+<div class="livingcss__section-markup">
+  <pre class="livingcss__section-code"><code class="language-markup">&lt;div id&#x3D;&quot;comments&quot; class&#x3D;&quot;comments-area&quot;&gt;
+	&lt;h2 class&#x3D;&quot;comments-title&quot;&gt;Commentaire&lt;/h2&gt;
+	&lt;ol class&#x3D;&quot;comment-list&quot;&gt;
+		&lt;li class&#x3D;&quot;comment even&quot;&gt;
+			&lt;article class&#x3D;&quot;comment-body&quot;&gt;
+				&lt;footer class&#x3D;&quot;comment-meta&quot;&gt;
+					&lt;div class&#x3D;&quot;comment-author vcard&quot;&gt;
+						&lt;img alt&#x3D;&quot;&quot; src&#x3D;&quot;https://placehold.it/56x56&quot; class&#x3D;&quot;avatar&quot; height&#x3D;&quot;56&quot; width&#x3D;&quot;56&quot;&gt;
+						&lt;b class&#x3D;&quot;fn&quot;&gt;&lt;a href&#x3D;&quot;#&quot; rel&#x3D;&quot;external nofollow&quot; class&#x3D;&quot;url&quot;&gt;Mr WordPress&lt;/a&gt;&lt;/b&gt;
+						&lt;span class&#x3D;&quot;says&quot;&gt;says:&lt;/span&gt;
+					&lt;/div&gt;&lt;!-- .comment-author --&gt;
+					&lt;div class&#x3D;&quot;comment-metadata&quot;&gt;
+						&lt;a href&#x3D;&quot;#&quot;&gt;
+							&lt;time datetime&#x3D;&quot;2008-06-04T22:40:06+00:00&quot;&gt;June 4 at 10:40 pm&lt;/time&gt;
+						&lt;/a&gt;
+					&lt;/div&gt;&lt;!-- .comment-metadata --&gt;
+				&lt;/footer&gt;&lt;!-- .comment-meta --&gt;
+				&lt;div class&#x3D;&quot;comment-content&quot;&gt;
+					&lt;p&gt;Hi, this is a comment.&lt;br&gt;To delete a comment, just log in and view the post&#x27;s comments. There you will have the option to edit or delete them.&lt;/p&gt;
+				&lt;/div&gt;&lt;!-- .comment-content --&gt;
+			&lt;/article&gt;&lt;!-- .comment-body --&gt;
+			&lt;ul class&#x3D;&quot;children&quot;&gt;
+				&lt;li class&#x3D;&quot;comment&quot;&gt;
+					&lt;article class&#x3D;&quot;comment-body&quot;&gt;
+						&lt;footer class&#x3D;&quot;comment-meta&quot;&gt;
+							&lt;div class&#x3D;&quot;comment-author vcard&quot;&gt;
+								&lt;img alt&#x3D;&quot;&quot; src&#x3D;&quot;https://placehold.it/56x56&quot; class&#x3D;&quot;avatar&quot; height&#x3D;&quot;56&quot; width&#x3D;&quot;56&quot;&gt;
+								&lt;b class&#x3D;&quot;fn&quot;&gt;&lt;a href&#x3D;&quot;#&quot; rel&#x3D;&quot;external nofollow&quot; class&#x3D;&quot;url&quot;&gt;Joseph Scott&lt;/a&gt;&lt;/b&gt;
+								&lt;span class&#x3D;&quot;says&quot;&gt;says:&lt;/span&gt;
+							&lt;/div&gt;&lt;!-- .comment-author --&gt;
+							&lt;div class&#x3D;&quot;comment-metadata&quot;&gt;
+								&lt;a href&#x3D;&quot;https://wp-themes.com/?p&#x3D;1&amp;amp;cpage&#x3D;1#comment-509&quot;&gt;
+									&lt;time datetime&#x3D;&quot;2008-11-05T19:38:11+00:00&quot;&gt;November 5 at 7:38 pm&lt;/time&gt;
+								&lt;/a&gt;
+							&lt;/div&gt;&lt;!-- .comment-metadata --&gt;
+						&lt;/footer&gt;&lt;!-- .comment-meta --&gt;
+						&lt;div class&#x3D;&quot;comment-content&quot;&gt;
+							&lt;p&gt;Need a comment with a real Gravatar.&lt;/p&gt;
+						&lt;/div&gt;&lt;!-- .comment-content --&gt;
+					&lt;/article&gt;&lt;!-- .comment-body --&gt;
+				&lt;/li&gt;&lt;!-- #comment-## --&gt;
+				&lt;li class&#x3D;&quot;comment odd&quot;&gt;
+					&lt;article class&#x3D;&quot;comment-body&quot;&gt;
+						&lt;footer class&#x3D;&quot;comment-meta&quot;&gt;
+							&lt;div class&#x3D;&quot;comment-author vcard&quot;&gt;
+								&lt;img alt&#x3D;&quot;&quot; src&#x3D;&quot;https://placehold.it/56x56&quot; class&#x3D;&quot;avatar&quot; height&#x3D;&quot;56&quot; width&#x3D;&quot;56&quot;&gt;
+								&lt;b class&#x3D;&quot;fn&quot;&gt;&lt;a href&#x3D;&quot;#&quot; rel&#x3D;&quot;external nofollow&quot; class&#x3D;&quot;url&quot;&gt;Joseph Scott&lt;/a&gt;&lt;/b&gt;
+								&lt;span class&#x3D;&quot;says&quot;&gt;says:&lt;/span&gt;
+							&lt;/div&gt;&lt;!-- .comment-author --&gt;
+							&lt;div class&#x3D;&quot;comment-metadata&quot;&gt;
+								&lt;a href&#x3D;&quot;https://wp-themes.com/?p&#x3D;1&amp;amp;cpage&#x3D;1#comment-509&quot;&gt;
+									&lt;time datetime&#x3D;&quot;2008-11-05T19:38:11+00:00&quot;&gt;November 5 at 7:38 pm&lt;/time&gt;
+								&lt;/a&gt;
+							&lt;/div&gt;&lt;!-- .comment-metadata --&gt;
+						&lt;/footer&gt;&lt;!-- .comment-meta --&gt;
+						&lt;div class&#x3D;&quot;comment-content&quot;&gt;
+							&lt;p&gt;Need a comment with a real Gravatar.&lt;/p&gt;
+						&lt;/div&gt;&lt;!-- .comment-content --&gt;
+					&lt;/article&gt;&lt;!-- .comment-body --&gt;
+				&lt;/li&gt;&lt;!-- #comment-## --&gt;
+			&lt;/ul&gt;
+		&lt;/li&gt;
+	&lt;/ol&gt;
+	&lt;div id&#x3D;&quot;respond&quot; class&#x3D;&quot;comment-respond&quot;&gt;
+		&lt;h3 id&#x3D;&quot;reply-title&quot; class&#x3D;&quot;comment-reply-title&quot;&gt;Leave a Reply &lt;small&gt;&lt;a rel&#x3D;&quot;nofollow&quot; id&#x3D;&quot;cancel-comment-reply-link&quot; href&#x3D;&quot;/?p&#x3D;1&amp;amp;cpage&#x3D;1#respond&quot; style&#x3D;&quot;display:none;&quot;&gt;Cancel reply&lt;/a&gt;&lt;/small&gt;
+		&lt;/h3&gt;
+		&lt;form action&#x3D;&quot;#&quot; method&#x3D;&quot;post&quot; id&#x3D;&quot;commentform&quot; class&#x3D;&quot;comment-form&quot; novalidate&#x3D;&quot;&quot;&gt;
+			&lt;p class&#x3D;&quot;comment-notes&quot;&gt;
+				&lt;span id&#x3D;&quot;email-notes&quot;&gt;Your email address will not be published.&lt;/span&gt; Required fields are marked &lt;span class&#x3D;&quot;required&quot;&gt;*&lt;/span&gt;
+			&lt;/p&gt;
+			&lt;p class&#x3D;&quot;comment-form-author&quot;&gt;
+				&lt;label for&#x3D;&quot;author&quot;&gt;Name &lt;span class&#x3D;&quot;required&quot;&gt;*&lt;/span&gt;&lt;/label&gt;
+				&lt;input id&#x3D;&quot;author&quot; name&#x3D;&quot;author&quot; type&#x3D;&quot;text&quot; value&#x3D;&quot;&quot; size&#x3D;&quot;30&quot; aria-required&#x3D;&quot;true&quot; required&#x3D;&quot;required&quot;&gt;
+			&lt;/p&gt;
+			&lt;p class&#x3D;&quot;comment-form-email&quot;&gt;
+				&lt;label for&#x3D;&quot;email&quot;&gt;Email &lt;span class&#x3D;&quot;required&quot;&gt;*&lt;/span&gt;&lt;/label&gt;
+				&lt;input id&#x3D;&quot;email&quot; name&#x3D;&quot;email&quot; type&#x3D;&quot;email&quot; value&#x3D;&quot;&quot; size&#x3D;&quot;30&quot; aria-describedby&#x3D;&quot;email-notes&quot; aria-required&#x3D;&quot;true&quot; required&#x3D;&quot;required&quot;&gt;
+			&lt;/p&gt;
+			&lt;p class&#x3D;&quot;comment-form-comment&quot;&gt;
+				&lt;label for&#x3D;&quot;comment&quot;&gt;Comment&lt;/label&gt;
+				&lt;textarea id&#x3D;&quot;comment&quot; name&#x3D;&quot;comment&quot; cols&#x3D;&quot;45&quot; rows&#x3D;&quot;8&quot; aria-describedby&#x3D;&quot;form-allowed-tags&quot; aria-required&#x3D;&quot;true&quot; required&#x3D;&quot;required&quot;&gt;&lt;/textarea&gt;
+			&lt;/p&gt;
+			&lt;p class&#x3D;&quot;form-allowed-tags&quot; id&#x3D;&quot;form-allowed-tags&quot;&gt;
+				You may use these &lt;abbr title&#x3D;&quot;HyperText Markup Language&quot;&gt;HTML&lt;/abbr&gt; tags and attributes:  &lt;code&gt;&amp;lt;a href&#x3D;&quot;&quot; title&#x3D;&quot;&quot;&amp;gt; &amp;lt;abbr title&#x3D;&quot;&quot;&amp;gt; &amp;lt;acronym title&#x3D;&quot;&quot;&amp;gt; &amp;lt;b&amp;gt; &amp;lt;blockquote cite&#x3D;&quot;&quot;&amp;gt; &amp;lt;cite&amp;gt; &amp;lt;code&amp;gt; &amp;lt;del datetime&#x3D;&quot;&quot;&amp;gt; &amp;lt;em&amp;gt; &amp;lt;i&amp;gt; &amp;lt;q cite&#x3D;&quot;&quot;&amp;gt; &amp;lt;s&amp;gt; &amp;lt;strike&amp;gt; &amp;lt;strong&amp;gt; &lt;/code&gt;
+			&lt;/p&gt;
+			&lt;p class&#x3D;&quot;form-submit&quot;&gt;
+				&lt;input name&#x3D;&quot;submit&quot; type&#x3D;&quot;submit&quot; id&#x3D;&quot;submit&quot; class&#x3D;&quot;submit&quot; value&#x3D;&quot;Post Comment&quot;&gt;
+				&lt;input type&#x3D;&quot;hidden&quot; name&#x3D;&quot;comment_post_ID&quot; value&#x3D;&quot;1&quot; id&#x3D;&quot;comment_post_ID&quot;&gt;
+				&lt;input type&#x3D;&quot;hidden&quot; name&#x3D;&quot;comment_parent&quot; id&#x3D;&quot;comment_parent&quot; value&#x3D;&quot;0&quot;&gt;
+			&lt;/p&gt;
+		&lt;/form&gt;
+	&lt;/div&gt;&lt;!-- #respond --&gt;
 &lt;/div&gt;</code></pre>
 </div>
 

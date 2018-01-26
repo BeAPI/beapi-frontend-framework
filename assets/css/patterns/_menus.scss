@@ -1,5 +1,36 @@
 /* Menus
 ----------------------------------------------------------------------------------------------------*/
+/**
+ * Menu
+ *
+ * Menu template.
+ *
+ * @section Menu
+ * @page patterns
+ *
+ * @example
+ * 	<nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">
+ * 		<div class="container">
+ *			<ul class="sf-menu">
+ *				<li class="current-menu-item"><a href="01-home.php">Home</a></li>
+ *				<li>
+ *					<a href="02-page-default.php">Page default</a>
+ *					<ul>
+ *						<li><a href="#">menu item</a></li>
+ *						<li><a href="#">menu item</a></li>
+ *						<li><a href="#">menu item</a></li>
+ *						<li><a href="#">menu item</a></li>
+ *						<li><a href="#">menu item</a></li>
+ *						<li><a href="#">menu item</a></li>
+ *					</ul>
+ *				</li>
+ *				<li><a href="#">menu item</a></li>
+ *				<li><a href="#">menu item</a></li>
+ *				<li><a href="#">menu item</a></li>
+ *			</ul>
+ *		</div>
+ * </nav>
+ */
 .menu__fastaccess {
 	margin: 0;
 	font-size: 9px;

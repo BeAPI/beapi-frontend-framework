@@ -1,6 +1,41 @@
 /* Global form css elements
 -------------------------------------------------------------- */
-
+/**
+ * Form
+ *
+ * `.radio--custom` class can be applied to `<input type="radio">` element.  
+ * `.checbox--custom` class can be applied to `<input type="checkbox">` element.  
+ * `.select--custom` class can be applied to `<select>` element.  
+ *
+ * @section Form
+ * @page components
+ *
+ * @example
+ * <form action="#">
+ *		<div class="radio--custom">
+ *			<input id="radio-1" name="radio" type="radio" checked>
+ *			<label for="radio-1">Radio item Lorem ipsum dolor sit amet.</label>
+ *		</div>
+ *		<div class="radio--custom">
+ *			<input id="radio-2" name="radio" type="radio">
+ *			<label for="radio-2">Radio item</label>
+ *		</div>
+ *		<div class="checkbox--custom">
+ *			<input id="checkbox-1" name="checkbox1" type="checkbox" checked>
+ *			<label for="checkbox-1">Checkbox item Lorem ipsum dolor sit amet.</label>
+ *		</div>
+ *		<div class="checkbox--custom">
+ *			<input id="checkbox-2" name="checkbox2" type="checkbox">
+ *			<label for="checkbox-2">Checkbox item</label>
+ *		</div>
+ *		<div class="select--custom">
+ *			<select>
+ *				<option>M.</option>
+ *				<option>Mme</option>
+ *			</select>
+ *		</div>
+ * </form>
+ */
 // All inputs variables
 $text-inputs-list: 'input[type="color"]',
 	'input[type="date"]',

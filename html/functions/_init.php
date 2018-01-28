@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 define( 'BEA_IMG_SAMPLE_DIR', dirname( __FILE__ ) . '/../../assets/img/sample/' );
 
 require dirname( __FILE__ ) . '/url.php';

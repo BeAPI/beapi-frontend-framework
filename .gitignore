@@ -65,3 +65,6 @@ styleguide/node_modules
 
 ### VS Code ###
 .vscode/
+
+### PHPstorm ###
+.idea

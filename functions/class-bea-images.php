@@ -1,5 +1,5 @@
 <?php
-define( 'BEA_IMAGES_VERSION', '2.2.0' );
+define( 'BEA_IMAGES_VERSION', '2.2.1' );
 define( 'BEA_LAZYSIZE', true ); //Set to false to have a no lazyload img markup
 
 class BEA_Images {

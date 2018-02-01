@@ -15,7 +15,7 @@ let webpackBase = {
   output: {
     path: config.assets_path,
     publicPath: config.assets_public_path,
-    filename: dev ? '[name].js' : '[name].[chunkhash:8].js'
+    filename: dev ? '[name].js' : '[name].[chunkhash:8].min.js'
   },
   module: {
     rules: [

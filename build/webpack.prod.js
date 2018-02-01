@@ -1,7 +1,7 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin') 
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const webpackBase = require('./webpack.base')
 
 webpackBase.plugins.push(

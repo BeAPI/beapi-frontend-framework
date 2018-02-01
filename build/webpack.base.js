@@ -78,7 +78,7 @@ let webpackBase = {
   },
   watch: dev,
   plugins: [
-    new CleanWebpackPlugin(['html/assets'], {
+    new CleanWebpackPlugin(['dist/assets'], {
       root: path.resolve('./'),
       verbose: true,
       dry: false
@@ -101,7 +101,7 @@ let webpackBase = {
         to: 'img/sample/'
       }
     ]),
-    new SvgStore(path.resolve(__dirname, './../assets/img/icons/*.svg'), path.resolve(__dirname, './../html/assets/icons/'), {
+    new SvgStore(path.resolve(__dirname, './../assets/img/icons/*.svg'), path.resolve(__dirname, './../dist/assets/icons/'), {
       name: 'icons',
       prefix: 'icon-',
       chunk: 'svg',

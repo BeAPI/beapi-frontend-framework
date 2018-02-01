@@ -7,13 +7,13 @@ module.exports = {
       './assets/js/app.js'
     ]
   },
-  assets_path: path.resolve(__dirname, './../html/assets'),
+  assets_path: path.resolve(__dirname, './../dist/assets'),
   assets_public_path: '/assets/',
   port: 9090,
   refresh: [
     '**/*.php',
-    'html/assets/*.css',
-    'html/assets/*.js',
+    'dist/assets/*.css',
+    'dist/assets/*.js',
     'assets/img/icons/',
     'assets/img/icons/*.svg'
   ]

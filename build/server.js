@@ -18,7 +18,7 @@ webpackDev.plugins.push(
           }
         }
       ],
-      startPath: '/html/index.php',
+      startPath: '/dist/index.php',
       notify: false
     },
     {

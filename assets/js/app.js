@@ -11,7 +11,7 @@ require('picturefill')
  */
 let __svg__ = {
   path: '../img/icons/*.svg', // entry
-  name: '../../html/assets/icons/icons.svg' // output
+  name: '../../dist/assets/icons/icons.svg' // output
 }
 require('webpack-svgstore-plugin/src/helpers/svgxhr')(__svg__)
 require('./src/button-href')

@@ -8574,6 +8574,72 @@
   
   /* Images
   -------------------------------------------------------------- */
+  /**
+   * Image
+   *
+   * 1. Image with a caption text.  
+   * Add `.alignleft` | `.alignright` | `.aligncenter` class to `<img>` element for a specific alignment.  
+   * 2. Responsive images gallery example.
+   *
+   * @section Images
+   * @page components
+   *
+   * @example
+   * <div style="width: 150px;" class="wp-caption alignnone">
+   *		<a href="http://placehold.it/500x500" rel="attachment">
+   *			<img width="150" height="150" alt="#" src="http://placehold.it/150x150" title="#">
+   *		</a>
+   *		<p class="wp-caption-text">This is an image with a caption text</p>
+   * </div>
+   *
+   * <!-- GALLERY -->
+   * <div class="entry">
+   *		<div class="content">
+   *			<section class="entry__content">
+   * 				<div id="gallery-1" class="gallery galleryid-1 gallery-columns-4 gallery-size-thumbnail">
+   *					<dl class="gallery-item">
+   *						<dt class="gallery-icon">
+   *							<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
+   *						</dt>
+   *						<dd class="wp-caption-text gallery-caption">
+   *							mdhbfldksb
+   *						</dd>
+   *					</dl>
+   *					<dl class="gallery-item">
+   *						<dt class="gallery-icon">
+   *							<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
+   *						</dt>
+   *						<dd class="wp-caption-text gallery-caption">
+   *							mdhbfldksb
+   *						</dd>
+   *					</dl>
+   *					<dl class="gallery-item">
+   *						<dt class="gallery-icon">
+   *							<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
+   *						</dt>
+   *					</dl>
+   *					<dl class="gallery-item">
+   *						<dt class="gallery-icon">
+   *							<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
+   *						</dt>
+   *						<dd class="wp-caption-text gallery-caption">
+   *							mdhbfldksb
+   *						</dd>
+   *					</dl>
+   *					<dl class="gallery-item">
+   *						<dt class="gallery-icon">
+   *							<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
+   *						</dt>
+   *						<dd class="wp-caption-text gallery-caption">
+   *							mdhbfldksb
+   *						</dd>
+   *					</dl>
+   *					<br style="clear: both;">
+   *				</div>
+   *			</section>
+   *		</div>
+   *	</div>
+   */
   .alignleft {
     float: left;
     margin-right: 20px;
@@ -8974,15 +9040,16 @@
   /**
    * Buttons
    *
-   * The Button `.btn` class can be applied to `<button>`, `<input>`, or `<a>` elements.
+   * The Button `.button` class can be applied to `<button>`, `<input>`, or `<a>` elements.  
+   * Use `.button--rounded`, `.button--bordered`, `.button--revert` class for a specific style.
    *
    * @section Buttons
    * @page components
    *
    * @example
-   * <button class="button">Buton</button>
-   * <input type="submit" class="btn" value="Input"/>
-   * <a href="#" class="btn">Anchor</a>
+   * <button class="button--bordered">Buton</button>
+   * <input type="submit" class="button--rounded" value="Input"/>
+   * <a href="#" class="button">Anchor</a>
    */
   button, input[type="button"], input[type="reset"], input[type="submit"],
   .button {
@@ -9077,7 +9144,7 @@
   /**
    * Messages
    *
-   * Add `.error` | `.alert` | `.notice` | `.success` | `.info` class to `<p>` element.  
+   * Add `.message--error` | `.message--alert` | `.message--notice` | `.message--success` | `.message--info` class to `<p>` element.  
    * `<p>` element must be have `.message` class.
    *
    * @section Messages
@@ -10052,21 +10119,22 @@
             <a class="livingcss__nav-link" href="#buttons">Buttons</a>
             <a class="livingcss__nav-link" href="#form">Form</a>
             <a class="livingcss__nav-link" href="#messages">Messages</a>
+            <a class="livingcss__nav-link" href="#images">Images</a>
           </div>
         </nav>
 
         <article class="livingcss__article" id="buttons">
           <h1 class="livingcss__article-title">Buttons</h1><div class="livingcss__section-description"><p>Buttons</p>
-<p>The Button <code>.btn</code> class can be applied to <code>&lt;button&gt;</code>, <code>&lt;input&gt;</code>, or <code>&lt;a&gt;</code> elements.</p></div>
+<p>The Button <code>.button</code> class can be applied to <code>&lt;button&gt;</code>, <code>&lt;input&gt;</code>, or <code>&lt;a&gt;</code> elements.<br>Use <code>.button--rounded</code>, <code>.button--bordered</code>, <code>.button--revert</code> class for a specific style.</p></div>
 
-<livingcss-example><button class="button">Buton</button>
-<input type="submit" class="btn" value="Input"/>
-<a href="#" class="btn">Anchor</a></livingcss-example>
+<livingcss-example><button class="button--bordered">Buton</button>
+<input type="submit" class="button--rounded" value="Input"/>
+<a href="#" class="button">Anchor</a></livingcss-example>
 
 <div class="livingcss__section-markup">
-  <pre class="livingcss__section-code"><code class="language-markup">&lt;button class&#x3D;&quot;button&quot;&gt;Buton&lt;/button&gt;
-&lt;input type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn&quot; value&#x3D;&quot;Input&quot;/&gt;
-&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;btn&quot;&gt;Anchor&lt;/a&gt;</code></pre>
+  <pre class="livingcss__section-code"><code class="language-markup">&lt;button class&#x3D;&quot;button--bordered&quot;&gt;Buton&lt;/button&gt;
+&lt;input type&#x3D;&quot;submit&quot; class&#x3D;&quot;button--rounded&quot; value&#x3D;&quot;Input&quot;/&gt;
+&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;button&quot;&gt;Anchor&lt;/a&gt;</code></pre>
 </div>
 
         </article>
@@ -10129,7 +10197,7 @@
         </article>
         <article class="livingcss__article" id="messages">
           <h1 class="livingcss__article-title">Messages</h1><div class="livingcss__section-description"><p>Messages</p>
-<p>Add <code>.error</code> | <code>.alert</code> | <code>.notice</code> | <code>.success</code> | <code>.info</code> class to <code>&lt;p&gt;</code> element.<br><code>&lt;p&gt;</code> element must be have <code>.message</code> class.</p></div>
+<p>Add <code>.message--error</code> | <code>.message--alert</code> | <code>.message--notice</code> | <code>.message--success</code> | <code>.message--info</code> class to <code>&lt;p&gt;</code> element.<br><code>&lt;p&gt;</code> element must be have <code>.message</code> class.</p></div>
 
 <livingcss-example><p class="message message--error">Error message.</p>
 <p class="message message--alert">Alert message.</p>
@@ -10143,6 +10211,126 @@
 &lt;p class&#x3D;&quot;message message--notice&quot;&gt;Notice message.&lt;/p&gt;
 &lt;p class&#x3D;&quot;message message--success&quot;&gt;Success message.&lt;/p&gt;
 &lt;p class&#x3D;&quot;message message--info&quot;&gt;Info message.&lt;/p&gt;</code></pre>
+</div>
+
+        </article>
+        <article class="livingcss__article" id="images">
+          <h1 class="livingcss__article-title">Images</h1><div class="livingcss__section-description"><p>Image</p>
+<ol>
+<li>Image with a caption text.<br>Add <code>.alignleft</code> | <code>.alignright</code> | <code>.aligncenter</code> class to <code>&lt;img&gt;</code> element for a specific alignment.  </li>
+<li>Responsive images gallery example.</li>
+</ol></div>
+
+<livingcss-example><div style="width: 150px;" class="wp-caption alignnone">
+	<a href="http://placehold.it/500x500" rel="attachment">
+		<img width="150" height="150" alt="#" src="http://placehold.it/150x150" title="#">
+	</a>
+	<p class="wp-caption-text">This is an image with a caption text</p>
+</div>
+
+<!-- GALLERY -->
+<div class="entry">
+	<div class="content">
+		<section class="entry__content">
+				<div id="gallery-1" class="gallery galleryid-1 gallery-columns-4 gallery-size-thumbnail">
+				<dl class="gallery-item">
+					<dt class="gallery-icon">
+						<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
+					</dt>
+					<dd class="wp-caption-text gallery-caption">
+						mdhbfldksb
+					</dd>
+				</dl>
+				<dl class="gallery-item">
+					<dt class="gallery-icon">
+						<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
+					</dt>
+					<dd class="wp-caption-text gallery-caption">
+						mdhbfldksb
+					</dd>
+				</dl>
+				<dl class="gallery-item">
+					<dt class="gallery-icon">
+						<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
+					</dt>
+				</dl>
+				<dl class="gallery-item">
+					<dt class="gallery-icon">
+						<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
+					</dt>
+					<dd class="wp-caption-text gallery-caption">
+						mdhbfldksb
+					</dd>
+				</dl>
+				<dl class="gallery-item">
+					<dt class="gallery-icon">
+						<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
+					</dt>
+					<dd class="wp-caption-text gallery-caption">
+						mdhbfldksb
+					</dd>
+				</dl>
+				<br style="clear: both;">
+			</div>
+		</section>
+	</div>
+</div></livingcss-example>
+
+<div class="livingcss__section-markup">
+  <pre class="livingcss__section-code"><code class="language-markup">&lt;div style&#x3D;&quot;width: 150px;&quot; class&#x3D;&quot;wp-caption alignnone&quot;&gt;
+	&lt;a href&#x3D;&quot;http://placehold.it/500x500&quot; rel&#x3D;&quot;attachment&quot;&gt;
+		&lt;img width&#x3D;&quot;150&quot; height&#x3D;&quot;150&quot; alt&#x3D;&quot;#&quot; src&#x3D;&quot;http://placehold.it/150x150&quot; title&#x3D;&quot;#&quot;&gt;
+	&lt;/a&gt;
+	&lt;p class&#x3D;&quot;wp-caption-text&quot;&gt;This is an image with a caption text&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- GALLERY --&gt;
+&lt;div class&#x3D;&quot;entry&quot;&gt;
+	&lt;div class&#x3D;&quot;content&quot;&gt;
+		&lt;section class&#x3D;&quot;entry__content&quot;&gt;
+				&lt;div id&#x3D;&quot;gallery-1&quot; class&#x3D;&quot;gallery galleryid-1 gallery-columns-4 gallery-size-thumbnail&quot;&gt;
+				&lt;dl class&#x3D;&quot;gallery-item&quot;&gt;
+					&lt;dt class&#x3D;&quot;gallery-icon&quot;&gt;
+						&lt;a href&#x3D;&quot;#&quot; title&#x3D;&quot;#&quot;&gt;&lt;img width&#x3D;&quot;150&quot; height&#x3D;&quot;150&quot; src&#x3D;&quot;http://placehold.it/150x150&quot; class&#x3D;&quot;attachment-thumbnail&quot; alt&#x3D;&quot;#&quot; title&#x3D;&quot;#&quot;&gt;&lt;/a&gt;
+					&lt;/dt&gt;
+					&lt;dd class&#x3D;&quot;wp-caption-text gallery-caption&quot;&gt;
+						mdhbfldksb
+					&lt;/dd&gt;
+				&lt;/dl&gt;
+				&lt;dl class&#x3D;&quot;gallery-item&quot;&gt;
+					&lt;dt class&#x3D;&quot;gallery-icon&quot;&gt;
+						&lt;a href&#x3D;&quot;#&quot; title&#x3D;&quot;#&quot;&gt;&lt;img width&#x3D;&quot;150&quot; height&#x3D;&quot;150&quot; src&#x3D;&quot;http://placehold.it/150x150&quot; class&#x3D;&quot;attachment-thumbnail&quot; alt&#x3D;&quot;#&quot; title&#x3D;&quot;#&quot;&gt;&lt;/a&gt;
+					&lt;/dt&gt;
+					&lt;dd class&#x3D;&quot;wp-caption-text gallery-caption&quot;&gt;
+						mdhbfldksb
+					&lt;/dd&gt;
+				&lt;/dl&gt;
+				&lt;dl class&#x3D;&quot;gallery-item&quot;&gt;
+					&lt;dt class&#x3D;&quot;gallery-icon&quot;&gt;
+						&lt;a href&#x3D;&quot;#&quot; title&#x3D;&quot;#&quot;&gt;&lt;img width&#x3D;&quot;150&quot; height&#x3D;&quot;150&quot; src&#x3D;&quot;http://placehold.it/150x150&quot; class&#x3D;&quot;attachment-thumbnail&quot; alt&#x3D;&quot;#&quot; title&#x3D;&quot;#&quot;&gt;&lt;/a&gt;
+					&lt;/dt&gt;
+				&lt;/dl&gt;
+				&lt;dl class&#x3D;&quot;gallery-item&quot;&gt;
+					&lt;dt class&#x3D;&quot;gallery-icon&quot;&gt;
+						&lt;a href&#x3D;&quot;#&quot; title&#x3D;&quot;#&quot;&gt;&lt;img width&#x3D;&quot;150&quot; height&#x3D;&quot;150&quot; src&#x3D;&quot;http://placehold.it/150x150&quot; class&#x3D;&quot;attachment-thumbnail&quot; alt&#x3D;&quot;#&quot; title&#x3D;&quot;#&quot;&gt;&lt;/a&gt;
+					&lt;/dt&gt;
+					&lt;dd class&#x3D;&quot;wp-caption-text gallery-caption&quot;&gt;
+						mdhbfldksb
+					&lt;/dd&gt;
+				&lt;/dl&gt;
+				&lt;dl class&#x3D;&quot;gallery-item&quot;&gt;
+					&lt;dt class&#x3D;&quot;gallery-icon&quot;&gt;
+						&lt;a href&#x3D;&quot;#&quot; title&#x3D;&quot;#&quot;&gt;&lt;img width&#x3D;&quot;150&quot; height&#x3D;&quot;150&quot; src&#x3D;&quot;http://placehold.it/150x150&quot; class&#x3D;&quot;attachment-thumbnail&quot; alt&#x3D;&quot;#&quot; title&#x3D;&quot;#&quot;&gt;&lt;/a&gt;
+					&lt;/dt&gt;
+					&lt;dd class&#x3D;&quot;wp-caption-text gallery-caption&quot;&gt;
+						mdhbfldksb
+					&lt;/dd&gt;
+				&lt;/dl&gt;
+				&lt;br style&#x3D;&quot;clear: both;&quot;&gt;
+			&lt;/div&gt;
+		&lt;/section&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 </div>
 
         </article>

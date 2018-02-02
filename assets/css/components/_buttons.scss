@@ -3,15 +3,16 @@
 /**
  * Buttons
  *
- * The Button `.btn` class can be applied to `<button>`, `<input>`, or `<a>` elements.
+ * The Button `.button` class can be applied to `<button>`, `<input>`, or `<a>` elements.  
+ * Use `.button--rounded`, `.button--bordered`, `.button--revert` class for a specific style.
  *
  * @section Buttons
  * @page components
  *
  * @example
- * <button class="button">Buton</button>
- * <input type="submit" class="btn" value="Input"/>
- * <a href="#" class="btn">Anchor</a>
+ * <button class="button--bordered">Buton</button>
+ * <input type="submit" class="button--rounded" value="Input"/>
+ * <a href="#" class="button">Anchor</a>
  */
 $buttons-list: 'button',
 'input[type="button"]',

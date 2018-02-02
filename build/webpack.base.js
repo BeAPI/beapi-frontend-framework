@@ -1,6 +1,5 @@
 const path = require('path')
 const config = require('./config')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const SvgStore = require('webpack-svgstore-plugin')
@@ -78,11 +77,6 @@ let webpackBase = {
   },
   watch: dev,
   plugins: [
-    new CleanWebpackPlugin(['dist/assets'], {
-      root: path.resolve('./'),
-      verbose: true,
-      dry: false
-    }),
     new CopyWebpackPlugin([
       {
         from: 'assets/fonts/',

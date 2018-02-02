@@ -19,18 +19,24 @@ $buttons-list: 'button',
 'input[type="submit"]';
 
 $all-buttons:        assign-inputs($buttons-list);
-$all-buttons-active: assign-inputs($buttons-list, active);
-$all-buttons-focus:  assign-inputs($buttons-list, focus);
-$all-buttons-hover:  assign-inputs($buttons-list, hover);
-
 $all-button-inputs:        $all-buttons;
-$all-button-inputs-active: $all-buttons-active;
-$all-button-inputs-focus:  $all-buttons-focus;
-$all-button-inputs-hover:  $all-buttons-hover;
 
-#{$all-button-inputs},
-button,
-.button {
+// Modifier mixins
+@mixin button--rounded {
+	border-radius: 5px;
+	overflow: hidden;
+}
+@mixin button--bordered {
+	border: 1px solid $maincolor;
+	background: none;
+	color: $maincolor;
+}
+@mixin button--revert {
+	background: $lightcolor;
+	color: $maincolor;
+}
+
+@mixin button {
 	display: inline-block;
 	border: 0;
 	border-radius: 0;//keep it no radius for ios reset
@@ -42,41 +48,47 @@ button,
 	svg {
 		pointer-events: none;
 	}
+	&:hover {
+		color: $lightcolor;
+		background: darken($maincolor, 5%);
+		transform: translateY(-1px);
+	}
+	&:focus {
+		color: $lightcolor;
+		background: darken($maincolor, 5%);
+		transform: translateY(-1px);
+	}
+	&:active {
+		color: $lightcolor;
+		background: $maincolor;
+		transform: translateY(1px);
+	}
 }
 
-#{$all-button-inputs-hover},
-button:hover,
-.button:hover { // Target the :hover pseudo-class
-	color: $lightcolor;
-	background: darken($maincolor, 5%);
-	transform: translateY(-1px);
-}
-
-#{$all-button-inputs-focus},
-button:focus,
-.button:focus { // Target the :focus pseudo-class
-	color: $lightcolor;
-	background: darken($maincolor, 5%);
-	transform: translateY(-1px);
-}
-
-#{$all-button-inputs-active},
-button:active,
-.button:active { // Target the :active pseudo-class
-	color: $lightcolor;
-	background: $maincolor;
-	transform: translateY(1px);
-}
-
-.button__icon {
-	width: $base-spacing*1.25;
-	padding-right: $half-base-spacing;
-	vertical-align: -20%;
-}
-.button--circle {
-	border-radius: 50%;
-	line-height: 1;
-	.button__icon {
-		padding-right: 0;
+#{$all-button-inputs},
+.button {
+	$parent: &;
+	$button: '.button';
+	@include button;
+	&__icon {
+		width: $base-spacing*1.25;
+		padding-right: $half-base-spacing;
+		vertical-align: -20%;
+	}
+	&--circle {
+		border-radius: 50%;
+		line-height: 1;
+		#{$parent}__icon {
+			padding-right: 0;
+		}
+	}
+	&#{$button}--rounded {
+		@include button--rounded;
+	}
+	&#{$button}--bordered {
+		@include button--bordered;
+	}
+	&#{$button}--revert {
+		@include button--revert;
 	}
 }

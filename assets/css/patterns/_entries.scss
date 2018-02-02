@@ -34,68 +34,86 @@
  */
 
 .entry {
+	$parent : &;
 	@include clearfix;
-}
-.entry__title,
-.page__title {
-	font-weight: 900;
-	text-transform: uppercase;
-	&>a {
-		text-decoration: none;
-		@include hover {
-			text-decoration: underline;
-		}
-	}
-}
-.entry__summary {
-	margin-bottom: 50px;
-}
-.entry__content {
-	@include clearfix;
-	a {
-		text-decoration: underline;
-		@include hover {
+	&__title {
+		font-weight: 900;
+		text-transform: uppercase;
+		&>a {
 			text-decoration: none;
+			@include hover {
+				text-decoration: underline;
+			}
 		}
 	}
-	ul {
-		list-style: disc inside none;
-		margin: 0 0 $base-spacing;
-		li {
-			margin: 0 0 $half-base-spacing;
+	&__item,
+	&__card {
+		@include clearfix;
+		margin-bottom: $base-spacing;
+		@media screen and (min-width: $tablet-medium) {
+			margin-bottom: $base-spacing*2;
+		}
+		#{$parent}__img {
+			margin-bottom: $base-spacing;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#{$parent}__media {
+			@media screen and (min-width: $tablet-medium) {
+				@include align;
+				&~#{$parent}__summary {
+					margin-left: 320px; // = image width
+				}
+			}
 		}
 	}
-	ol {
-		list-style: decimal inside none;
-		margin: 0 0 $base-spacing;
-		li {
-			margin: 0 0 $half-base-spacing;
+	&__card {
+		@include card;
+	}
+	&__content {
+		@include clearfix;
+		a {
+			text-decoration: underline;
+			@include hover {
+				text-decoration: none;
+			}
+		}
+		ul {
+			list-style: disc inside none;
+			margin: 0 0 $base-spacing;
+			li {
+				margin: 0 0 $half-base-spacing;
+			}
+		}
+		ol {
+			list-style: decimal inside none;
+			margin: 0 0 $base-spacing;
+			li {
+				margin: 0 0 $half-base-spacing;
+			}
+		}
+		img {
+			@include img__responsive();
+		}
+		.alignright,
+		.alignleft {
+			max-width: 50%;
+			@media screen and (min-width: $tablet-medium) {
+				max-width: 100%;
+			}
+		}
+		.gform_wrapper {
+			ul {
+				list-style: none;
+			}
+		}
+		.searchform {
+			input {
+				display: inline;
+			}
 		}
 	}
-	img {
+	&__img {
 		@include img__responsive();
 	}
-	.alignright,
-	.alignleft {
-		max-width: 50%;
-		@media screen and (min-width: $tablet-medium) {
-			max-width: 100%;
-		}
-	}
-	.gform_wrapper {
-		ul {
-			list-style: none;
-		}
-	}
-	.searchform {
-		input {
-			display: inline;
-		}
-	}
-}
-.entry__summary {
-	@include clearfix;
-}
-.entry__img {
-	@include img__responsive();
 }

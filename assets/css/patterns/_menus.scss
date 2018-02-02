@@ -31,11 +31,11 @@
  *		</div>
  * </nav>
  */
-.menu__fastaccess {
+.menu-fastaccess {
 	margin: 0;
 	font-size: 9px;
 	display: none;
-	li {
+	&__item {
 		display: inline;
 		a {
 			position: absolute;
@@ -55,32 +55,43 @@
 	}
 }
 // Mobile open/close button */
-.button__menu-open {
-	display: block;
-}
-.button__menu-close {
-	display: none;
+.button{
+	&__menu-open {
+		display: block;
+		.menu-mobile--active & {
+			display: none;
+		}
+	}
+	&__menu-close {
+		display: none;
+		.menu-mobile--active & {
+			display: block;
+		}
+	}
+	&__menu-container {
+		z-index: 999;
+		position: absolute;
+		top: 0;
+		left: 0;
+		@media screen and (min-width: $desktop-small) {
+			display: none;
+		}
+	}
 }
 // Mobile menu stop scroll on body and display button */
 .menu-mobile--active {
 	overflow: hidden;
-	.button__menu-open {
-		display: none;
-	}
-	.button__menu-close {
-		display: block;
-	}
-}
-.button__menu-container {
-	z-index: 999;
-	position: absolute;
-	top: 0;
-	left: 0;
-	@media screen and (min-width: $desktop-small) {
-		display: none;
+	@media screen and (max-width: $desktop-small) {
+		.menu {
+			left: 0;
+			box-shadow: 0 0 100px rgba($darkcolor, 0.5);
+		}
 	}
 }
+
 .menu {
+	$parent: &;
+
 	z-index: 998;
 	position: fixed;
 	top: 0;
@@ -95,23 +106,40 @@
 	transition : left 0.5s ease-out;
 	-webkit-backface-visibility: hidden;
 	-webkit-transform: translateZ(0);
+	@media screen and (min-width: $desktop-small) {
+		//reset mobile menu position and dimensions
+		position: static;
+		left: auto;
+		overflow: inherit;
+		background: none;
+		width: auto;
+		padding: 0;
+	}
 	.wrapper {
 		padding: 0;
 	}
-	ul {
+	// Main list
+	&__list {
 		@include clearfix;
-		ul {
+		// Sub list
+		&--sub {
 			display: none;
-		}
-		&>li {
-			&>a {
-				display: block;
-				padding: 10px;
-				@include hover {
-					color:$lightcolor;
-					background:$maincolor;
+			@media screen and (min-width: $desktop-small) {
+				top: 100%;
+				position: absolute;
+				background: $lightcolor;
+				#{$parent}__item {
+					a {
+						@include hover {
+							color:$lightcolor;
+							background:$maincolor;
+						}
+					}
 				}
 			}
+		}
+		// Child list item
+		&>#{$parent}__item {
 			@include hover {
 				ul {
 					display: block;
@@ -125,22 +153,11 @@
 					background:$maincolor;
 				}
 			}
-		}
-	}
-	@media screen and (min-width: $desktop-small) {
-		//reset mobile menu position and dimensions
-		position: static;
-		left: auto;
-		overflow: inherit;
-		background: none;
-		width: auto;
-		padding: 0;
-		ul {
-			&>li {
+			@media screen and (min-width: $desktop-small) {
 				display: inline-block;
 				position: relative;
 				@include hover {
-					ul {
+					#{$parent}__list {
 						top: 40px;
 					}
 				}
@@ -150,27 +167,22 @@
 					}
 				}
 			}
-			ul {
-				top: 100%;
-				position: absolute;
-				background: $lightcolor;
-				li {
-					a {
-						@include hover {
-							color:$lightcolor;
-							background:$maincolor;
-						}
-					}
-				}
-			}
 		}
 	}
-}
-.menu-mobile--active {
-	@media screen and (max-width: $desktop-small) {
-		.menu {
-			left: 0;
-			box-shadow: 0 0 100px rgba($darkcolor, 0.5);
+	// Base list item
+	&__item {
+		& > a {
+			display: block;
+			padding: 10px;
+			@include hover {
+				color:$lightcolor;
+				background:$maincolor;
+			}
+		}
+		@include hover {
+			#{$parent}__list {
+				display: block;
+			}
 		}
 	}
 }

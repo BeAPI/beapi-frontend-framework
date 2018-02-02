@@ -8,12 +8,13 @@ var source = require('vinyl-source-stream');
 module.exports = function (gulp, plugins) {
 	var b = browserify({
 		entries: './assets/js/scripts.js'
-	});
+	})
+	.transform("babelify", {presets: ["es2015"]}
+);
 
 	return function () {
 		// Make the rest
 		b
-			.transform("babelify", {presets: ["es2015"]})
 			.bundle()
 			.pipe(source('scripts.js'))
 			.pipe(buffer())

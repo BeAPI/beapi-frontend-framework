@@ -6,18 +6,18 @@
 	padding-top: $base-spacing;
 	padding-bottom: $base-spacing;
 	height: 400px;
-}
-.header__logo-link {
-	display: block;
-}
-.header__icon {
-	display: block;
-	height: 50px;
-	width: 50px;
-	margin: 0 auto 10px;
-	color: $maincolor;
-}
-.header__img {
-	@include img__responsive();
-	margin: 0 auto $base-spacing;
+	&__logo-link {
+		display: block;
+	}
+	&__icon {
+		display: block;
+		height: 50px;
+		width: 50px;
+		margin: 0 auto 10px;
+		color: $maincolor;
+	}
+	&__img {
+		@include img__responsive();
+		margin: 0 auto $base-spacing;
+	}
 }

@@ -3,9 +3,9 @@
   "name": "BFF",
   "description": "BFF starter theme",
   "icons": {
-    "60": "assets/img/favicons/firefox_app_60x60.png",
-    "128": "assets/img/favicons/firefox_app_128x128.png",
-    "512": "assets/img/favicons/firefox_app_512x512.png"
+    "60": "dist/assets/img/favicons/firefox_app_60x60.png",
+    "128": "dist/assets/img/favicons/firefox_app_128x128.png",
+    "512": "dist/assets/img/favicons/firefox_app_512x512.png"
   },
   "developer": {
     "name": "Be API",

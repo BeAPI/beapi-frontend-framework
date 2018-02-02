@@ -1,38 +1,62 @@
-var favicons = require('gulp-favicons'),
-gutil = require("gulp-util");
+const favicons = require('favicons')
+const fs = require('fs')
+const mkdirp = require('mkdirp')
+const source = 'assets/img/favicons/favicon_src.png'
+const configuration = {
+  appName: 'BFF',
+  appDescription: 'BFF starter theme',
+  developerName: 'Be API',
+  developerURL: 'http://beapi.fr',
+  background: '#ffffff',
+  path: './dist/assets/img/favicons',
+  url: 'http://beapi.fr',
+  display: 'standalone',
+  orientation: 'portrait',
+  version: 1.0,
+  logging: false,
+  online: false,
+  html: 'index_hd.html',
+  pipeHTML: true,
+  replace: true,
+  icons: {
+    android: true,
+    appleIcon: true,
+    appleStartup: false,
+    coast: true,
+    favicons: false,
+    firefox: true,
+    opengraph: false,
+    windows: true,
+    yandex: true
+  }
+}
 
-module.exports = function(gulp, plugins) {
-	return function() {
-		gulp.src("assets/img/favicons/favicon_src.png").pipe(favicons({
-				appName: "BFF",
-				appDescription: "BFF starter theme",
-				developerName: "Be API",
-				developerURL: "http://beapi.fr",
-				background: "#ffffff",
-				path: "assets/img/favicons/",
-				url: "http://beapi.fr",
-				display: "standalone",
-				orientation: "portrait",
-				version: 1.0,
-				logging: false,
-				online: false,
-				html: "index.html",
-				pipeHTML: true,
-				replace: true,
-				icons: {
-					android: true, // Create Android homescreen icon. `boolean`
-					appleIcon: true, // Create Apple touch icons. `boolean`
-					appleStartup: false, // Create Apple startup images. `boolean`
-					coast: false, // Create Opera Coast icon. `boolean`
-					favicons: true, // Create regular favicons. `boolean`
-					firefox: true, // Create Firefox OS icons. `boolean`
-					opengraph: true, // Create Facebook OpenGraph. `boolean`
-					windows: true, // Create Windows 8 tiles. `boolean`
-					yandex: false // Create Yandex browser icon. `boolean`
-				}
-			}))
-			.on("error", gutil.log)
-			.pipe(gulp.dest("./assets/img/favicons/"));
-	};
+const callback = function (error, response) {
+  if (error) {
+    console.log(error.status) // HTTP error code (e.g. `200`) or `null`
+    console.log(error.name) // Error name e.g. 'API Error'
+    console.log(error.message) // Error description e.g. 'An unknown error has occurred'
+    return
+  }
+  console.log(response.images) // Array of { name: string, contents: <buffer> }
+  console.log(response.files) // Array of { name: string, contents: <string> }
+  console.log(response.html) // Array of strings (html elements)
 
-};
+  if (response.images) {
+    mkdirp.sync(configuration.path)
+    response.images.forEach((image) =>
+      fs.writeFileSync(`${configuration.path}/${image.name}`, image.contents))
+  }
+
+  if (response.files) {
+    mkdirp.sync(configuration.path)
+    response.files.forEach((file) =>
+      fs.writeFileSync(`${configuration.path}/${file.name}`, file.contents))
+  }
+
+  if (response.html) {
+    fs.writeFileSync(`${configuration.path}/test.html`, response.html.join('\n'))
+  }
+}
+
+favicons(source, configuration, callback)

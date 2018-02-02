@@ -14,11 +14,10 @@
 @import "root/box-sizing";
 @import "root/cssloading";
 
-//Load vendor css from bower
-@import "vendor/magnific-popup";
+//Vendor for external librairies (jQuery css's plugins etc.)
+//@import "vendor/libname";
 
 //Main websites components
-//@import "components/icons"; use iconfont for ie8 and minus projects. task => iconfont.js
 @import "components/svg-icons";
 @import "components/text";
 @import "components/img";
@@ -29,15 +28,12 @@
 
 //Main websites patterns
 @import "patterns/lazyload";
-@import "patterns/global";
 @import "patterns/utilities";
 @import "patterns/layout";
 @import "patterns/header";
 @import "patterns/footer";
 @import "patterns/menus";
-@import "patterns/breadcrumb";
 @import "patterns/entries";
-@import "patterns/widgets";
 @import "patterns/searchform";
 
 //Pages

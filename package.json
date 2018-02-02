@@ -1,6 +1,6 @@
 {
   "name": "beapi-frontend-framework",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "scripts": {
     "start": "concurrently \"NODE_ENV=dev webpack --config build/server.js\" \"php -S localhost:9090\" --kill-others",
     "dev": "NODE_ENV=dev webpack --config build/webpack.dev.js",

@@ -9386,11 +9386,32 @@
   
   /* Header css
    ----------------------------------------------------------------------------------------------------*/
+  /**
+   * Header
+   *
+   * Header template
+   *
+   * @section Header
+   * @page patterns
+   *
+   * @example
+   *	<header id="header" class="header" role="banner">
+   *		<div class="container">
+   *			<div class="header__logo">
+   *				<a href="01-home.php" class="header__logo-link">
+   *					<svg class="header__icon icon" aria-hidden="true" role="img">
+   *						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
+   *					</svg>
+   *				</a>
+   *			</div>
+   *			<h1 class="header__title visuallyhidden"><a href="01-home.php">BeAPI FrontEnd Framework</a></h1>
+   *		</div>
+   *	</header>
+   */
   .header {
     margin-bottom: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
-    height: 400px;
   }
   
   .header::after {
@@ -9420,6 +9441,21 @@
   
   /* Footer css
    ----------------------------------------------------------------------------------------------------*/
+  /**
+   * Footer
+   *
+   * Footer template
+   *
+   * @section Footer
+   * @page patterns
+   *
+   * @example
+   *	<footer class="footer" id="footer" role="contentinfo">
+   *		<div class="container">
+   *			<p>Copyright</p>
+   *		</div>
+   *	</footer>
+   */
   .footer {
     padding-bottom: 20px;
     text-align: center;
@@ -10013,12 +10049,66 @@
       <main class="livingcss__main" role="main">
         <nav class="livingcss__nav">
           <div class="livingcss__nav-container">
+            <a class="livingcss__nav-link" href="#header">Header</a>
+            <a class="livingcss__nav-link" href="#footer">Footer</a>
             <a class="livingcss__nav-link" href="#menu">Menu</a>
             <a class="livingcss__nav-link" href="#searchform">Searchform</a>
             <a class="livingcss__nav-link" href="#entries">Entries</a>
           </div>
         </nav>
 
+        <article class="livingcss__article" id="header">
+          <h1 class="livingcss__article-title">Header</h1><div class="livingcss__section-description"><p>Header</p>
+<p>Header template</p></div>
+
+<livingcss-example><header id="header" class="header" role="banner">
+	<div class="container">
+		<div class="header__logo">
+			<a href="01-home.php" class="header__logo-link">
+				<svg class="header__icon icon" aria-hidden="true" role="img">
+					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
+				</svg>
+			</a>
+		</div>
+		<h1 class="header__title visuallyhidden"><a href="01-home.php">BeAPI FrontEnd Framework</a></h1>
+	</div>
+</header></livingcss-example>
+
+<div class="livingcss__section-markup">
+  <pre class="livingcss__section-code"><code class="language-markup">&lt;header id&#x3D;&quot;header&quot; class&#x3D;&quot;header&quot; role&#x3D;&quot;banner&quot;&gt;
+	&lt;div class&#x3D;&quot;container&quot;&gt;
+		&lt;div class&#x3D;&quot;header__logo&quot;&gt;
+			&lt;a href&#x3D;&quot;01-home.php&quot; class&#x3D;&quot;header__logo-link&quot;&gt;
+				&lt;svg class&#x3D;&quot;header__icon icon&quot; aria-hidden&#x3D;&quot;true&quot; role&#x3D;&quot;img&quot;&gt;
+					&lt;use xmlns:xlink&#x3D;&quot;http://www.w3.org/1999/xlink&quot; xlink:href&#x3D;&quot;#icon-logo-beapi&quot;&gt;&lt;/use&gt;
+				&lt;/svg&gt;
+			&lt;/a&gt;
+		&lt;/div&gt;
+		&lt;h1 class&#x3D;&quot;header__title visuallyhidden&quot;&gt;&lt;a href&#x3D;&quot;01-home.php&quot;&gt;BeAPI FrontEnd Framework&lt;/a&gt;&lt;/h1&gt;
+	&lt;/div&gt;
+&lt;/header&gt;</code></pre>
+</div>
+
+        </article>
+        <article class="livingcss__article" id="footer">
+          <h1 class="livingcss__article-title">Footer</h1><div class="livingcss__section-description"><p>Footer</p>
+<p>Footer template</p></div>
+
+<livingcss-example><footer class="footer" id="footer" role="contentinfo">
+	<div class="container">
+		<p>Copyright</p>
+	</div>
+</footer></livingcss-example>
+
+<div class="livingcss__section-markup">
+  <pre class="livingcss__section-code"><code class="language-markup">&lt;footer class&#x3D;&quot;footer&quot; id&#x3D;&quot;footer&quot; role&#x3D;&quot;contentinfo&quot;&gt;
+	&lt;div class&#x3D;&quot;container&quot;&gt;
+		&lt;p&gt;Copyright&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+</div>
+
+        </article>
         <article class="livingcss__article" id="menu">
           <h1 class="livingcss__article-title">Menu</h1><div class="livingcss__section-description"><p>Menu</p>
 <p>Menu template.</p></div>

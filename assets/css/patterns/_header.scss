@@ -1,11 +1,33 @@
 /* Header css
  ----------------------------------------------------------------------------------------------------*/
-.header {
+/**
+ * Header
+ *
+ * Header template
+ *
+ * @section Header
+ * @page patterns
+ *
+ * @example
+ *	<header id="header" class="header" role="banner">
+ *		<div class="container">
+ *			<div class="header__logo">
+ *				<a href="01-home.php" class="header__logo-link">
+ *					<svg class="header__icon icon" aria-hidden="true" role="img">
+ *						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
+ *					</svg>
+ *				</a>
+ *			</div>
+ *			<h1 class="header__title visuallyhidden"><a href="01-home.php">BeAPI FrontEnd Framework</a></h1>
+ *		</div>
+ *	</header>
+ */
+
+ .header {
 	@include clearfix;
 	margin-bottom: $base-spacing;
 	padding-top: $base-spacing;
 	padding-bottom: $base-spacing;
-	height: 400px;
 	&__logo-link {
 		display: block;
 	}

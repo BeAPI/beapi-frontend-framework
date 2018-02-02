@@ -1,5 +1,4 @@
-/* Misc mixins
--------------------------------------------------------------- */
+// FontFace. GO to root/_fonts.scss to see it in action
 @mixin declare-font-face($font-family, $font-filename, $font-weight : normal, $font-style :normal, $font-stretch : normal){
 	@font-face{
 		font-family: '#{$font-family}';
@@ -11,32 +10,26 @@
 	}
 }
 
-//Example of effective font declaration
-//@include declare-font-face("font-family-name", "#{$fonts-url}/font-folder/font-name"); //regular
-//@include declare-font-face("font-family-name", "#{$fonts-url}/font-folder/font-name-bold", bold); //bold
-//@include declare-font-face("font-family-name", "#{$fonts-url}/font-folder/font-name-light", 300); //light
-//@include declare-font-face("font-family-name", "#{$fonts-url}/font-folder/font-name-extrabold", 900); //extrabold
-
-//Hover Active Focus pseudo selector mixin
+// Hover Active Focus pseudo selector mixin
 @mixin hover {
 	&:hover, &:active, &:focus {
 		@content;
 	}
 }
-//image responsive
+// Image responsive
 @mixin img__responsive($max-width:100%) {
 	display: block;
 	max-width: $max-width;
 	height: auto;
 }
-//insert content for extra style
+// Insert content for extra style
 @mixin pseudo__content {
 	content: "";
 	display: block;
 	speak: none;
 }
 
-//Mixin for custom checkbox
+// Mixin for custom checkbox
 @mixin checkbox--custom($color: $maincolor, $size: 20px, $border-width: 2px) {
 	margin-bottom: 20px;
 	input[type="checkbox"],
@@ -100,8 +93,7 @@
 		margin-left: $base-spacing;
 	}
 }
-/* Bourbon's mixins
--------------------------------------------------------------- */
+// Bourbon's essentials mixins
 $em-base: 16px !default;
 // Strip units
 @function strip-units($value) {

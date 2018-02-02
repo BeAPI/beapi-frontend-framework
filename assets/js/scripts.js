@@ -1,17 +1,25 @@
 /**
  * Main scripts file
  */
+import 'picturefill'
+import './polyfill/forEach'
+import lazySizes from 'lazysizes'
+import lazySizesBgset from 'lazysizes/plugins/bgset/ls.bgset'
 
-const lazySizes = require('lazysizes')
-const lazySizesBgset = require('lazysizes/plugins/bgset/ls.bgset')
-require('picturefill')
+import Menu from './src/menu'
+import ButtonLink from './src/button-href'
+import Select from './src/select'
+import SeoLink from './src/seo'
 
-require('./src/button-href')
-require('./src/ie_message')
-require('./src/menu')
-require('./src/select')
-require('./src/seo')
-require('./src/scripts-domready')
+const menu = new Menu()
+menu.init()
+
+ButtonLink.bind('button[data-href]')
+
+const selects = ['.gform_wrapper select:not([multiple])']
+selects.forEach(el => Select.bind(el))
+
+SeoLink.bind('[data-seo]')
 
 /**
  * LazySizes configuration

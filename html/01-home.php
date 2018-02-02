@@ -11,4 +11,27 @@
 		</section>
 	</article>
 
+	<div class="message__browserhappy 1">
+		<button>remove</button>
+	</div>
+	<div class="message__browserhappy 2">
+		<button>remove</button>
+	</div>
+
+	<div class="gform_wrapper">
+		<select>
+			<option value="#">val 1</option>
+			<option value="#">val 1</option>
+			<option value="#">val 1</option>
+		</select>
+	</div>
+
+	<div class="gform_wrapper">
+		<select>
+			<option value="#">val 1</option>
+			<option value="#">val 1</option>
+			<option value="#">val 1</option>
+		</select>
+	</div>
+
 <?php include 'footer.php'; ?>

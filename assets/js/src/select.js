@@ -1,12 +1,30 @@
 /**
  * Wrapper for select
  */
-const $ = require('jquery')
 
-const selects = [
-  '.gform_wrapper select:not([multiple])'
-]
+import '../polyfill/forEach'
 
-for (let i = 0; i < selects.length; i++) {
-  $(selects[i]).wrap("<div class='select--custom'/>")
+class Select {
+  /**
+   * Bind select that has to be wrapped
+   * @param {string} selector
+   */
+  static bind (selector) {
+    document.querySelectorAll(selector).forEach(element => new Select(element))
+  }
+
+  /**
+   * @param {HTMLElement} element
+   */
+  constructor (element) {
+    this.element = element
+    this.init()
+  }
+
+  init () {
+    const inner = this.element.outerHTML
+    this.element.outerHTML = `<div class="select--custom">${inner}</div>`
+  }
 }
+
+export default Select

@@ -93,10 +93,6 @@ let webpackBase = {
         to: 'img/bg-sample/'
       },
       {
-        from: 'assets/img/favicons/',
-        to: 'img/favicons/'
-      },
-      {
         from: 'assets/img/sample/',
         to: 'img/sample/'
       }

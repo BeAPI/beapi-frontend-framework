@@ -54,8 +54,7 @@ if (process.argv.indexOf('--appicon') === -1) {
     }
   }
 }
-
-console.log('Favicons are being generated...')
+console.log('\x1b[36m%s\x1b[0m', 'Favicons are being generated...')
 
 const callback = function (error, response) {
   if (error) {
@@ -68,7 +67,7 @@ const callback = function (error, response) {
   if (response.images) {
     mkdirp.sync(configuration.path)
     response.images.forEach((image) => {
-      console.log(`${image.name} has been successfully generated into ${configuration.path}`)
+      console.log('\x1b[32m', `${image.name} has been successfully generated into ${configuration.path}`)
       return fs.writeFileSync(`${configuration.path}/${image.name}`, image.contents)
     })
   }
@@ -76,13 +75,13 @@ const callback = function (error, response) {
   if (response.files) {
     mkdirp.sync(configuration.path)
     response.files.forEach((file) => {
-      console.log(`${file.name} has been successfully generated into ${configuration.path}`)
+      console.log('\x1b[32m', `${file.name} has been successfully generated into ${configuration.path}`)
       return fs.writeFileSync(`${configuration.path}/${file.name}`, file.contents)
     })
   }
 
   if (response.html) {
-    console.log(`${configuration.html} is successfully moved to ${configuration.path}`)
+    console.log('\x1b[32m', `${configuration.html} has been successfully generated to ${configuration.path}`)
     fs.writeFileSync(`${configuration.path}/${configuration.html}`, response.html.join('\n'))
   }
 }

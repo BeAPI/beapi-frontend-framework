@@ -47,6 +47,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<!--[if lte IE 9]>
 			<script type="text/javascript" src="../assets/js/vendor_ie/matchmedia-polyfill.js"></script>
 			<script type="text/javascript" src="../assets/js/vendor_ie/matchMedia.addListener.js"></script>
+			<script type="text/javascript" src="../assets/js/vendor_ie/placeholders.min.js"></script>
 		<![endif]-->
 		<!--[if lt IE 9]>
 			<script type="text/javascript" src="../assets/js/vendor_ie/html5shiv.min.js"></script>
@@ -84,8 +85,8 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<!-- Modernizr Custom (JS + SVG detection) -->
 		<script type="text/javascript" src="../assets/js/vendor_async/modernizr.custom.min.js"></script>
 
-		<!-- jQuery -->
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<!-- jQuery from official WordPress Core -->
+		<script type="text/javascript" src="../assets/js/vendor_async/jquery.js"></script>
 
 	</head>
 	<body itemscope itemtype="http://schema.org/WebPage" class="<?php echo $class; ?>">

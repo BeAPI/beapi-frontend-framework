@@ -10,11 +10,11 @@
  * @page components
  *
  * @example
- * <p class="message error">Error message.</p>
- * <p class="message alert">Alert message.</p>
- * <p class="message notice">Notice message.</p>
- * <p class="message success">Success message.</p>
- * <p class="message info">Info message.</p>
+ * <p class="message message--error">Error message.</p>
+ * <p class="message message--alert">Alert message.</p>
+ * <p class="message message--notice">Notice message.</p>
+ * <p class="message message--success">Success message.</p>
+ * <p class="message message--info">Info message.</p>
  */
 .message {
 	border-left: 5px solid $maincolor;

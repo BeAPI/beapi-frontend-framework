@@ -1389,11 +1389,11 @@ button.button--revert, input[type="button"].button--revert, input[type="reset"].
  * @page components
  *
  * @example
- * <p class="message error">Error message.</p>
- * <p class="message alert">Alert message.</p>
- * <p class="message notice">Notice message.</p>
- * <p class="message success">Success message.</p>
- * <p class="message info">Info message.</p>
+ * <p class="message message--error">Error message.</p>
+ * <p class="message message--alert">Alert message.</p>
+ * <p class="message message--notice">Notice message.</p>
+ * <p class="message message--success">Success message.</p>
+ * <p class="message message--info">Info message.</p>
  */
 .message {
   border-left: 5px solid #f5745a;
@@ -1747,27 +1747,26 @@ button.button--revert, input[type="button"].button--revert, input[type="reset"].
  * @page patterns
  *
  * @example
- * 	<nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">
- * 		<div class="container">
- *			<ul class="sf-menu">
- *				<li class="current-menu-item"><a href="01-home.php">Home</a></li>
- *				<li>
- *					<a href="02-page-default.php">Page default</a>
- *					<ul>
- *						<li><a href="#">menu item</a></li>
- *						<li><a href="#">menu item</a></li>
- *						<li><a href="#">menu item</a></li>
- *						<li><a href="#">menu item</a></li>
- *						<li><a href="#">menu item</a></li>
- *						<li><a href="#">menu item</a></li>
- *					</ul>
- *				</li>
- *				<li><a href="#">menu item</a></li>
- *				<li><a href="#">menu item</a></li>
- *				<li><a href="#">menu item</a></li>
+ * <nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">
+ *	 <div class="container">
+ *	   	<ul class="menu__list sf-menu">
+ *			  <li class="menu__item menu__item--current"><a href="01-home.php">Home</a></li>
+ *		  	<li class="menu__item">
+ *				  <a href="02-page-default.php">Page default</a>
+ *				  <ul class="menu__list menu__list--sub">
+ *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
+ *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
+ *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
+ *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
+ *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
+ *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
+ *				  </ul>
+ *			  </li>
+ *			  <li class="menu__item"><a href="03-archive-default.php">Archive default</a></li>
+ *			  <li class="menu__item"><a href="04-page-404.php">Page 404</a></li>
  *			</ul>
  *		</div>
- * </nav>
+ *	</nav>
  */
 .menu-fastaccess {
   margin: 0;
@@ -1947,27 +1946,55 @@ button.button--revert, input[type="button"].button--revert, input[type="reset"].
  * @page patterns
  *
  * @example
- *	<article class="entry__summary">
- *		<a class="alignleft" href="#">
+ *	<!-- ENTRY SUMMARY -->
+ *	<article class="entry__item">
+ *		<div class="entry__media">
  *			<!-- Local dev only -->
  *			<img src="http://placehold.it/150x150" width="150" height="150" alt="#">
  *			<!-- end Local dev only -->
  *			<!-- Web dev -->
  *			<!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?> -->
  *			<!-- end Web dev -->
- *		</a>
- *		<h2 class="entry__title" itemprop="headline">
- *			<a href="#">There is a post + a 20 words lorem ipsum excerpt</a>
- *	 	</h2>
- *	 	<div class="entry__date">
- *		 	Publie le <time datetime="2015-06-30" itemprop="datePublished">06/30/2015</time>
- *	 	</div>
- *	 	<div class="entry__excerpt">
- *			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
- *	 	</div>
- *	 	<div class="entry__more">
- *			<a href="#" class="entry__more-button">Readmore</a>
- *	 	</div>
+ *		</div>
+ *		<div class="entry__summary">
+ *			<h2 class="entry__title">
+ *				<a href="#">There is a post + a 20 words lorem ipsum excerpt</a>
+ *			</h2>
+ *			<div class="entry__date">
+ *				Publie le <time datetime="2015-06-30">06/30/2015</time>
+ *			</div>
+ *			<div class="entry__excerpt">
+ *				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+ *			</div>
+ *			<div class="entry__more">
+ *				<button data-href="#" class="entry__more-button">Readmore</a>
+ *			</div>
+ *		</div>
+ *	</article>
+ *	<!-- ENTRY SEO -->
+ *	<article class="entry__card" data-seo>
+ *		<div class="entry__media">
+ *			<!-- Local dev only -->
+ *			<img src="http://placehold.it/150x150" width="150" height="150" alt="#">
+ *			<!-- end Local dev only -->
+ *			<!-- Web dev -->
+ *			<!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?> -->
+ *			<!-- end Web dev -->
+ *		</div>
+ *		<div class="entry__summary">
+ *			<h2 class="entry__title">
+ *				<a href="02-page-default.php">There is a post + a 20 words lorem ipsum excerpt</a>
+ *			</h2>
+ *			<div class="entry__date">
+ *				Publie le <time datetime="2015-06-30">06/30/2015</time>
+ *			</div>
+ *			<div class="entry__excerpt">
+ *				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+ *			</div>
+ *			<div class="entry__more">
+ *				<span class="button">Readmore</span>
+ *			</div>
+ *		</div>
  *	</article>
  */
 .entry::after {

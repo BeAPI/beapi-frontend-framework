@@ -9,27 +9,26 @@
  * @page patterns
  *
  * @example
- * 	<nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">
- * 		<div class="container">
- *			<ul class="sf-menu">
- *				<li class="current-menu-item"><a href="01-home.php">Home</a></li>
- *				<li>
- *					<a href="02-page-default.php">Page default</a>
- *					<ul>
- *						<li><a href="#">menu item</a></li>
- *						<li><a href="#">menu item</a></li>
- *						<li><a href="#">menu item</a></li>
- *						<li><a href="#">menu item</a></li>
- *						<li><a href="#">menu item</a></li>
- *						<li><a href="#">menu item</a></li>
- *					</ul>
- *				</li>
- *				<li><a href="#">menu item</a></li>
- *				<li><a href="#">menu item</a></li>
- *				<li><a href="#">menu item</a></li>
+ * <nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">
+ *	 <div class="container">
+ *	   	<ul class="menu__list sf-menu">
+ *			  <li class="menu__item menu__item--current"><a href="01-home.php">Home</a></li>
+ *		  	<li class="menu__item">
+ *				  <a href="02-page-default.php">Page default</a>
+ *				  <ul class="menu__list menu__list--sub">
+ *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
+ *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
+ *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
+ *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
+ *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
+ *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
+ *				  </ul>
+ *			  </li>
+ *			  <li class="menu__item"><a href="03-archive-default.php">Archive default</a></li>
+ *			  <li class="menu__item"><a href="04-page-404.php">Page 404</a></li>
  *			</ul>
  *		</div>
- * </nav>
+ *	</nav>
  */
 .menu-fastaccess {
 	margin: 0;

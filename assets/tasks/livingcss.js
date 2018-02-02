@@ -29,7 +29,7 @@ module.exports = function (gulp, plugins) {
               components: ['Buttons', 'Form', 'Messages']
             },
             {
-              patterns: ['Menu', 'Breadcrumb', 'Searchform', 'Entry', 'Comments']
+              patterns: ['Menu', 'Searchform', 'Entry']
             },
             {
               pages: []

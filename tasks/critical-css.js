@@ -27,7 +27,7 @@ function funcPenthouse (_width, _height, _viewport, _url, _page) {
       shell.mkdir('-p', path.resolve('dist/assets/css/critical/'))
 
       fs.writeFileSync(__dirname + '/../dist/assets/css/critical/' + _page + '-' + _viewport + '.css', criticalCss)
-      console.log('\x1b[32m', 'Critical CSS successfully generated for [[ page ' + _page + ' ]]   [[ ' + _viewport + ' viewport ]]   [[ ' + _url + ' ]]')
+      console.log('\x1b[32m', '🤘 Critical CSS successfully generated for [[ page ' + _page + ' ]]   [[ ' + _viewport + ' viewport ]]   [[ ' + _url + ' ]]')
     })
     .catch(err => {
       console.log(err)
@@ -35,7 +35,7 @@ function funcPenthouse (_width, _height, _viewport, _url, _page) {
 }
 
 // Test generate critical css
-console.log('\x1b[36m%s\x1b[0m', 'Critical CSS are being generated...')
+console.log('\x1b[36m%s\x1b[0m', '🤞 Critical CSS are being generated...')
 
 _configCritical.pages.forEach(function (page) {
   page.url = _envUrl + page.url

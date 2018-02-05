@@ -57,18 +57,14 @@ let parseIntArr = function (arr) {
 	return arr;
 }
 
-module.exports = function(gulp, plugins) {
-	return function() {
-		let content = fs.readFileSync('style.css', 'utf8');
-		let type = 'patch';
-		let typeAvailable = ['major', 'minor', 'patch'];
-		for (let i = 0; i < process.argv.length; i++) {
-			if (process.argv[i] === '-t' || process.argv[i] === '-type' ) {
-				if (typeAvailable.indexOf(process.argv[i + 1]) > -1) {
-					type = process.argv[i + 1];
-				}
-			}
+let content = fs.readFileSync('style.css', 'utf8');
+let type = 'patch';
+let typeAvailable = ['major', 'minor', 'patch'];
+for (let i = 0; i < process.argv.length; i++) {
+	if (process.argv[i] === '-t' || process.argv[i] === '-type' ) {
+		if (typeAvailable.indexOf(process.argv[i + 1]) > -1) {
+			type = process.argv[i + 1];
 		}
-		updateStyle(content, type);
-	};
-};
+	}
+}
+updateStyle(content, type);

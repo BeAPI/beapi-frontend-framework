@@ -91,7 +91,7 @@ function setDirPath (ext) {
   } else if (ext === 'js') {
     return ['../assets/js/src/', '../assets/js/vendor', '../assets/js/vendor_async']
   } else if (ext === 'html') {
-    return ['../html', '../html/blocks', '../html/plugins', '../html/widgets']
+    return ['../dist', '../dist/blocks', '../dist/plugins', '../dist/widgets']
   }
 }
 

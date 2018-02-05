@@ -12,7 +12,7 @@
     "prod": "webpack --config build/webpack.prod.js && node tasks/critical-css.js && node tasks/favicon.js",
     "favicon": "node tasks/favicon.js",
     "appicon": "node tasks/favicon.js --appicon",
-    "composerjs": "cd composerjs && node app.js"
+    "composerjs": "cd composerjs && npm install && node app.js"
   },
   "license": "GPL-2.0",
   "devDependencies": {

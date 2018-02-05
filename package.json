@@ -9,7 +9,7 @@
   "scripts": {
     "start": "concurrently \"NODE_ENV=dev webpack --config build/server.js\" \"php -S localhost:9090\" --kill-others",
     "dev": "NODE_ENV=dev webpack --config build/webpack.dev.js",
-    "prod": "webpack --config build/webpack.prod.js && node tasks/critical-css.js && node tasks/favicon.js",
+    "prod": "webpack --config build/webpack.prod.js && node tasks/critical-css.js && node tasks/favicon.js && npm run bump",
     "favicon": "node tasks/favicon.js",
     "appicon": "node tasks/favicon.js --appicon",
     "composerjs": "cd composerjs && npm install && node app.js",

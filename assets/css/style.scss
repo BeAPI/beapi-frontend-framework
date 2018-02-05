@@ -5,11 +5,7 @@
 //http://susydocs.oddbird.net/en/latest/
 @import "root/susy/sass/susy";
 
-//Load Bourbon mixin library with includePaths in tasks/sass.js
-//http://bourbon.io/docs/
-@import "root/bourbon/app/assets/stylesheets/bourbon";
-
-@import "root/variables"; 
+@import "root/variables";
 @import "root/mixins";
 
 //@font-face first !
@@ -18,31 +14,26 @@
 @import "root/box-sizing";
 @import "root/cssloading";
 
-//Load vendor css from bower 
-@import "vendor/magnific-popup";
+//Vendor for external librairies (jQuery css's plugins etc.)
+//@import "vendor/libname";
 
 //Main websites components
-//@import "components/icons"; use iconfont for ie8 and minus projects. task => iconfont.js
 @import "components/svg-icons";
 @import "components/text";
 @import "components/img";
 @import "components/form";
 @import "components/buttons";
 @import "components/messages";
+@import "components/seo";
 
 //Main websites patterns
 @import "patterns/lazyload";
-@import "patterns/global";
 @import "patterns/utilities";
-@import "patterns/plugins";
 @import "patterns/layout";
 @import "patterns/header";
 @import "patterns/footer";
 @import "patterns/menus";
-@import "patterns/breadcrumb";
 @import "patterns/entries";
-@import "patterns/comments";
-@import "patterns/widgets";
 @import "patterns/searchform";
 
 //Pages

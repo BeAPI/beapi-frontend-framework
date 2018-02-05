@@ -1,12 +1,4 @@
 /**
- * Main scripts file
- */
-
-import lazySizes from 'lazysizes'
-import lazySizesBgset from 'lazysizes/plugins/bgset/ls.bgset'
-require('picturefill')
-
-/**
  * SVG Sprite
  */
 let __svg__ = {
@@ -14,12 +6,22 @@ let __svg__ = {
   name: '../../dist/assets/icons/icons.svg' // output
 }
 require('webpack-svgstore-plugin/src/helpers/svgxhr')(__svg__)
+
+/**
+ * Main scripts file
+ */
+
+const lazySizes = require('lazysizes')
+const lazySizesBgset = require('lazysizes/plugins/bgset/ls.bgset')
+require('picturefill')
+
+
 require('./src/button-href')
-require('./src/console')
 require('./src/ie_message')
 require('./src/menu')
-require('./src/lightbox')
-require('./src/placeholder')
+require('./src/select')
+require('./src/seo')
+require('./src/scripts-domready')
 
 /**
  * LazySizes configuration

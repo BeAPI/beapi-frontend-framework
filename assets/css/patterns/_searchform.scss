@@ -2,14 +2,14 @@
 ----------------------------------------------------------------------------------------------------*/
 .searchform {
 	position: relative;
-}
-.searchform__field[type=search] {
-	padding-right: $base-spacing*1.5;
-}
-.searchform__submit {
-	position: absolute;
-	top: 0; right: 0; bottom: 0;
-	.icon {
-		vertical-align: -15%;
+	&__field[type=search] {
+		padding-right: $base-spacing*1.5;
+	}
+	&__submit {
+		position: absolute;
+		top: 0; right: 0; bottom: 0;
+		.icon {
+			vertical-align: -15%;
+		}
 	}
 }

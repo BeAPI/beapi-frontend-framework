@@ -1,13 +1,19 @@
 body {
 	font-size: $base-font-size;
 	line-height: $base-line-height;
-	font-family: $font-sansserif;
+	font-family: $customfont-1;
 	color: $textcolor;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	//Fonts loading FOUT
+	//Adjust FOUT with tools like https://meowni.ca/font-style-matcher/
+	.fonts-loading & {
+		font-family: $font-sansserif;
+	}
 }
 a {
 	color: $maincolor;
+	text-decoration: none;
 	@include hover {
 		color: $maincolor;
 	}
@@ -16,32 +22,15 @@ a {
 /* Headings
 ----------------------------------------------------------------------------------------------------*/
 
-h1 {
-	font-size: 25px;
-}
-
-h2 {
-	font-size: 23px;
-}
-
-h3 {
-	font-size: 21px;
-}
-
-h4 {
-	font-size: 19px;
-}
-
-h5 {
-	font-size: 17px;
-}
-
-h6 {
-	font-size: 15px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-	line-height: $heading-line-height;
+@for $i from 1 through 6 {
+	h#{$i} {
+		line-height: $heading-line-height;
+		font-size: $heading-font-size - ($i - 1) * 2px;
+		font-family: $customfont-2;
+		.fonts-loading & {
+			font-family: $font-sansserif;
+		}
+	}
 }
 
 /* Lists
@@ -190,20 +179,4 @@ sup {
 }
 sup {
 	top: -0.5em;
-}
-
-/* Fonts loading
-----------------------------------------------------------------------------------------------------*/
-.fonts-loaded {
-	&>body {
-		font-family: $customfont-1;
-	}
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		font-family: $customfont-2;
-	}
 }

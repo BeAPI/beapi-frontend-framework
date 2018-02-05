@@ -22,10 +22,10 @@ if ( typeof Promise !== "undefined" ) {
 	//Load any fonts you want
 	Promise.all([Roboto.load(), Circular.load()]).then(function () {
 		//Add class when fonts are loaded
-		document.documentElement.classList.add('fonts-loaded');
+		document.documentElement.classList.remove('fonts-loading');
 		// set mark on storage for future page views
 		sessionStorage.setItem('fonts-loaded', true);
 	});
 } else {
-	document.documentElement.classList.add('fonts-loaded');
+	document.documentElement.classList.remove('fonts-loading');
 }

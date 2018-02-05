@@ -1,17 +1,18 @@
 {
   "name": "beapi-frontend-framework",
   "version": "3.0.0",
+  "author": "BeAPI",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BeAPI/beapi-frontend-framework"
+  },
   "scripts": {
     "start": "concurrently \"NODE_ENV=dev webpack --config build/server.js\" \"php -S localhost:9090\" --kill-others",
     "dev": "NODE_ENV=dev webpack --config build/webpack.dev.js",
     "prod": "webpack --config build/webpack.prod.js && node tasks/critical-css.js && node tasks/favicon.js",
     "favicon": "node tasks/favicon.js",
-    "appicon": "node tasks/favicon.js --appicon"
-  },
-  "author": "BeAPI",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/BeAPI/beapi-frontend-framework"
+    "appicon": "node tasks/favicon.js --appicon",
+    "composerjs": "cd composerjs && node app.js"
   },
   "license": "GPL-2.0",
   "devDependencies": {

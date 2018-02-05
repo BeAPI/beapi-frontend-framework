@@ -7,16 +7,10 @@
 				"height":"200",
 				"crop":true
 			},
-		"img-600-100":
+		"img-600-400":
 			{
 				"width":"600",
-				"height":"100",
-				"crop":true
-			},
-		"img-600-600":
-			{
-				"width":"600",
-				"height":"600",
+				"height":"400",
 				"crop":true
 			},
 		"img-100-100":

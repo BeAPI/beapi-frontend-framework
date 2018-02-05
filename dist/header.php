@@ -7,15 +7,20 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 <!--[if IE 8 ]>    <html class="no-js ie lte-ie9 lte-ie8 ie8" lang="fr"> <![endif]-->
 <!--[if IE 9 ]> <html class="no-js ie lte-ie9 ie9" lang="fr"> <![endif]-->
 <!--[if !(IE)]><! -->
-<html class="no-js" lang="fr"><!--<![endif]-->
+<html class="fonts-loading no-js" lang="fr"><!--<![endif]-->
 	<head>
-		
+
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="initial-scale=1.0" />
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		
+
 		<title>BeAPI FrontEnd Framework | The WordPress BFF</title>
-		
+
+		<!-- Web App favicons from /assets/img/favicons/index_hd.html -->
+		<link rel="manifest" href="../assets/img/favicons/manifest.json">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="theme-color" content="#ffffff">
+		<meta name="application-name" content="BFF">
 		<link rel="apple-touch-icon" sizes="57x57" href="../assets/img/favicons/apple-touch-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="../assets/img/favicons/apple-touch-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="../assets/img/favicons/apple-touch-icon-72x72.png">
@@ -25,22 +30,24 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<link rel="apple-touch-icon" sizes="144x144" href="../assets/img/favicons/apple-touch-icon-144x144.png">
 		<link rel="apple-touch-icon" sizes="152x152" href="../assets/img/favicons/apple-touch-icon-152x152.png">
 		<link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicons/apple-touch-icon-180x180.png">
-		<link rel="icon" type="image/png" href="../assets/img/favicons/favicon-32x32.png" sizes="32x32">
-		<link rel="icon" type="image/png" href="../assets/img/favicons/favicon-230x230.png" sizes="230x230">
-		<link rel="icon" type="image/png" href="../assets/img/favicons/favicon-96x96.png" sizes="96x96">
-		<link rel="icon" type="image/png" href="../assets/img/favicons/android-chrome-192x192.png" sizes="192x192">
-		<link rel="icon" type="image/png" href="../assets/img/favicons/favicon-16x16.png" sizes="16x16">
-		<link rel="manifest" href="../assets/img/favicons/android-chrome-manifest.json">
-		<link rel="shortcut icon" href="../assets/img/favicons/favicon.ico">
-		<meta property="og:image" content="favicons/open-graph.png">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="apple-mobile-web-app-title" content="BFF">
+		<link rel="icon" type="image/png" sizes="228x228" href="../assets/img/favicons/coast-228x228.png">
 		<meta name="msapplication-TileColor" content="#ffffff">
-		<meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
-		<meta name="msapplication-config" content="favicons/browserconfig.xml">
-		<meta name="theme-color" content="#ffffff">
-		
+		<meta name="msapplication-TileImage" content="../assets/img/favicons/mstile-144x144.png">
+		<meta name="msapplication-config" content="../assets/img/favicons/browserconfig.xml">
+		<link rel="yandex-tableau-widget" href="../assets/img/favicons/yandex-browser-manifest.json">
+
+		<!-- Standard favicons from /assets/img/favicons/index_sd.html -->
+		<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicons/favicon-16x16.png">
+		<link rel="shortcut icon" href="../assets/img/favicons/favicon.ico">
+
 		<!--[if lte IE 9]>
 			<script type="text/javascript" src="../assets/js/vendor_ie/matchmedia-polyfill.js"></script>
 			<script type="text/javascript" src="../assets/js/vendor_ie/matchMedia.addListener.js"></script>
+			<script type="text/javascript" src="../assets/js/vendor_ie/placeholders.min.js"></script>
 		<![endif]-->
 		<!--[if lt IE 9]>
 			<script type="text/javascript" src="../assets/js/vendor_ie/html5shiv.min.js"></script>
@@ -48,7 +55,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<!--[if lte IE 8]>
 			<script type="text/javascript" src="../assets/js/vendor_ie/selectivizr.js"></script>
 		<![endif]-->
-		
+
 		<style>
 			.cssloading__overlay {
 				position: fixed;
@@ -74,12 +81,12 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
 		!function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(b){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);
 		</script>
-		
+
 		<!-- Modernizr Custom (JS + SVG detection) -->
 		<script type="text/javascript" src="../assets/js/vendor_async/modernizr.custom.min.js"></script>
-		
-		<!-- jQuery -->
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+		<!-- jQuery from official WordPress Core -->
+		<script type="text/javascript" src="../assets/js/vendor_async/jquery.js"></script>
 
 	</head>
 	<body itemscope itemtype="http://schema.org/WebPage" class="<?php echo $class; ?>">
@@ -95,10 +102,10 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<![endif]-->
 		<div class="cssloading__overlay"></div>
 		<div id="main">
-			<ul class="menu__fastaccess">
-				<li><a href="#main__content">Acces direct au contenu</a></li>
-				<li><a href="#searchform">Acces direct à la recherche</a></li>
-				<li><a href="#menu">Acces direct au menu</a></li>
+			<ul class="menu-fastaccess">
+				<li class="menu-fastaccess__item"><a href="#main__content">Acces direct au contenu</a></li>
+				<li class="menu-fastaccess__item"><a href="#searchform">Acces direct à la recherche</a></li>
+				<li class="menu-fastaccess__item"><a href="#menu">Acces direct au menu</a></li>
 			</ul>
 			<div class="button__menu-container">
 				<button class="button__menu-open">
@@ -131,37 +138,36 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 					<?php endif; ?>
 
 					<!-- Button href demo -->
-					<button class="button" data-href="https://beapi.fr/">
+					<button type="button" class="button button--rounded" data-href="https://beapi.fr/">
 						Button w/o blank
 					</button>
 
-					<button class="button" data-href="https://beapi.fr/" data-target="_blank">
+					<button type="button" class="button button--bordered" data-href="https://beapi.fr/" data-target="_blank">
 						Button w/ blank
 					</button>
 
-					<button class="button" data-href="../assets/pdf/sample.pdf" data-target="download" data-filename="sample.pdf">
+					<button type="button" class="button button--revert" data-href="../assets/pdf/sample.pdf" data-target="download" data-filename="sample.pdf">
 						Button download
 					</button>
 				</div>
 			</header>
 			<nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">
 				<div class="container">
-					<ul class="sf-menu">
-						<li>
-							<a href="02-page-default.php">menu item</a>
-							<ul>
-								<li><a href="#">menu item</a></li>
-								<li><a href="#">menu item</a></li>
-								<li><a href="#">menu item</a></li>
-								<li><a href="#">menu item</a></li>
-								<li><a href="#">menu item</a></li>
-								<li><a href="#">menu item</a></li>
+					<ul class="menu__list sf-menu">
+						<li class="menu__item menu__item--current"><a href="01-home.php">Home</a></li>
+						<li class="menu__item">
+							<a href="02-page-default.php">Page default</a>
+							<ul class="menu__list menu__list--sub">
+								<li class="menu__item"><a href="#">Sub menu item</a></li>
+								<li class="menu__item"><a href="#">Sub menu item</a></li>
+								<li class="menu__item"><a href="#">Sub menu item</a></li>
+								<li class="menu__item"><a href="#">Sub menu item</a></li>
+								<li class="menu__item"><a href="#">Sub menu item</a></li>
+								<li class="menu__item"><a href="#">Sub menu item</a></li>
 							</ul>
 						</li>
-						<li class="current-menu-item"><a href="#">menu item</a></li>
-						<li><a href="#">menu item</a></li>
-						<li><a href="#">menu item</a></li>
-						<li><a href="#">menu item</a></li>
+						<li class="menu__item"><a href="03-archive-default.php">Archive default</a></li>
+						<li class="menu__item"><a href="04-page-404.php">Page 404</a></li>
 					</ul>
 				</div>
 			</nav>

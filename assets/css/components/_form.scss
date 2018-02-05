@@ -1,5 +1,29 @@
 /* Global form css elements
 -------------------------------------------------------------- */
+
+// All inputs variables
+$text-inputs-list: 'input[type="color"]',
+	'input[type="date"]',
+	'input[type="datetime"]',
+	'input[type="datetime-local"]',
+	'input[type="email"]',
+	'input[type="month"]',
+	'input[type="number"]',
+	'input[type="password"]',
+	'input[type="search"]',
+	'input[type="tel"]',
+	'input[type="text"]',
+	'input[type="time"]',
+	'input[type="url"]',
+	'input[type="week"]',
+	'input:not([type])',
+	'textarea';
+
+$all-text-inputs:        assign-inputs($text-inputs-list);
+$all-text-inputs-active: assign-inputs($text-inputs-list, active);
+$all-text-inputs-focus:  assign-inputs($text-inputs-list, focus);
+$all-text-inputs-hover:  assign-inputs($text-inputs-list, hover);
+
 #{$all-text-inputs},
 textarea {
 	box-sizing: border-box;
@@ -33,6 +57,16 @@ label {
 	font-weight: 700;
 }
 
+/* Checkbox + Radio
+-------------------------------------------------------------- */
+.checkbox--custom {
+	@include checkbox--custom($maincolor);
+}
+.radio--custom {
+	@include checkbox--custom($maincolor);
+	@include radio--custom();
+}
+
 /* Textarea
 -------------------------------------------------------------- */
 textarea {
@@ -47,5 +81,43 @@ textarea {
 	margin: 0 0 $base-spacing;
 	&:last-child {
 		margin-bottom: 0;
+	}
+}
+
+/* Custom select
+-------------------------------------------------------------- */
+.select--custom {
+	position: relative;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	border: 1px solid darken($lightcolor, 5%);
+	overflow: hidden;
+	background-color: $lightcolor;
+	background: $lightcolor url("#{$images-url}/icons/down.svg") no-repeat 98% 50%;
+	background-size: 11px 6px;
+	select {
+		width: 100%;
+		line-height: 1.1;
+		padding: $half-base-spacing;
+		border: none;
+		box-shadow: none;
+		background-color: transparent;
+		background-image: none;
+		@include appearance(none);
+		option {
+			border: 0;
+			color: $darkcolor;
+			background-color: $lightcolor;
+		}
+	}
+}
+_:-ms-input-placeholder, :root .select--custom select { //ie10 
+	width: 120%;
+}
+.lte-ie9 .select--custom select { //ie9
+	width: 120%;
+	option {
+		background-color: transparent;
 	}
 }

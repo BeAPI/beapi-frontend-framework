@@ -26,6 +26,8 @@ local.properties
 # PDT-specific
 .buildpath
 
+# MacOS
+.DS_Store
 
 ### WordPress ###
 wp-content/uploads/
@@ -61,7 +63,8 @@ assets/img/sample/cache
 styleguide/dist
 styleguide/node_modules
 
-index\.html
 
 ### Mac OSX
 .DS_Store
+### VS Code ###
+.vscode/

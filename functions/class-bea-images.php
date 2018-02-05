@@ -1,7 +1,6 @@
 <?php
 
-define( 'BEA_IMAGES_JSON_DIR', dirname( __FILE__ ) . '/../assets/conf-img/' );
-define( 'BEA_IMAGES_VERSION', '2.1.1' );
+define( 'BEA_IMAGES_VERSION', '2.2.0' );
 define( 'BEA_LAZYSIZE', true ); //Set to false to have a no lazyload img markup
 
 class BEA_Images {
@@ -28,6 +27,23 @@ class BEA_Images {
 		add_filter( 'post_thumbnail_html', array( __CLASS__, 'bea_default_img' ), 10, 5 );
 	}
 
+	/**
+	 * Return dir for conf-img folder
+	 *
+	 * @author Romain DORR
+	 *
+	 * @return string
+	 */
+	public static function get_conf_dir() {
+		$dir = dirname( __FILE__ ) . '/../assets/conf-img/';
+
+		if ( defined( 'BEA_IMAGES_JSON_DIR' ) ) {
+			$dir = constant( 'BEA_IMAGES_JSON_DIR' );
+		}
+
+		return apply_filters( 'bea_responsive_image_conf_dir', $dir );
+	}
+
 	/*
 	 * Load JSON Image Sizes
 	 *
@@ -35,11 +51,11 @@ class BEA_Images {
 	 */
 
 	public static function load_image_sizes() {
-		if ( ! is_file( BEA_IMAGES_JSON_DIR . 'image-sizes.json' ) ) {
+		if ( ! is_file( self::get_conf_dir() . 'image-sizes.json' ) ) {
 			return false;
 		}
 
-		$file_content = file_get_contents( BEA_IMAGES_JSON_DIR . 'image-sizes.json' );
+		$file_content = file_get_contents( self::get_conf_dir() . 'image-sizes.json' );
 		$result       = json_decode( $file_content );
 		if ( is_array( $result ) && ! empty( $result ) ) {
 			self::$image_sizes = $result;
@@ -53,11 +69,11 @@ class BEA_Images {
 	 */
 
 	public static function load_locations() {
-		if ( ! is_file( BEA_IMAGES_JSON_DIR . 'image-locations.json' ) ) {
+		if ( ! is_file( self::get_conf_dir() . 'image-locations.json' ) ) {
 			return false;
 		}
 
-		$file_content = file_get_contents( BEA_IMAGES_JSON_DIR . 'image-locations.json' );
+		$file_content = file_get_contents( self::get_conf_dir() . 'image-locations.json' );
 		$result       = json_decode( $file_content );
 		if ( is_array( $result ) && ! empty( $result ) ) {
 			self::$locations = $result;
@@ -71,11 +87,11 @@ class BEA_Images {
 	 */
 
 	public static function load_hooks() {
-		if ( ! is_file( BEA_IMAGES_JSON_DIR . 'image-hooks.json' ) ) {
+		if ( ! is_file( self::get_conf_dir() . 'image-hooks.json' ) ) {
 			return false;
 		}
 
-		$file_content = file_get_contents( BEA_IMAGES_JSON_DIR . 'image-hooks.json' );
+		$file_content = file_get_contents( self::get_conf_dir() . 'image-hooks.json' );
 		$result       = json_decode( $file_content );
 		if ( is_array( $result ) && ! empty( $result ) ) {
 			self::$hooks = $result;

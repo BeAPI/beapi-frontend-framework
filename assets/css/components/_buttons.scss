@@ -20,7 +20,7 @@ $all-button-inputs:        $all-buttons;
 	color: $maincolor;
 }
 @mixin button--revert {
-	background: $lightcolor;
+	background: $textcolor;
 	color: $maincolor;
 }
 
@@ -30,24 +30,24 @@ $all-button-inputs:        $all-buttons;
 	border-radius: 0;//keep it no radius for ios reset
 	padding: $half-base-spacing;
 	font-size: $base-font-size;
-	color: $lightcolor;
+	color: $textcolor;
 	background: $maincolor;
 	transition: background .25s ease-in-out, transform .25s ease-in-out;
 	svg {
 		pointer-events: none;
 	}
 	&:hover {
-		color: $lightcolor;
+		color: $textcolor;
 		background: darken($maincolor, 5%);
 		transform: translateY(-1px);
 	}
 	&:focus {
-		color: $lightcolor;
+		color: $textcolor;
 		background: darken($maincolor, 5%);
 		transform: translateY(-1px);
 	}
 	&:active {
-		color: $lightcolor;
+		color: $textcolor;
 		background: $maincolor;
 		transform: translateY(1px);
 	}

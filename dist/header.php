@@ -121,7 +121,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 					Fermer
 				</button>
 			</div>
-			<header id="header" class="header lazyload" role="banner" data-bgset="../assets/img/bg-sample/bg_img-mobile-02.jpg [(max-width: 1023px)] | ../assets/img/bg-sample/bg_img-desktop-02.jpg" >
+			<header id="header" class="header" role="banner">
 				<div class="container">
 					<div class="header__logo">
 						<a href="01-home.php" class="header__logo-link">
@@ -131,45 +131,27 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 							</svg>
 						</a>
 					</div>
+					<nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">
+						<ul class="menu__list sf-menu">
+							<li class="menu__item menu__item--current">
+								<a href="01-home.php">Home</a>
+								<ul class="menu__list menu__list--sub">
+									<li class="menu__item"><a href="02-page-default.php">Page default</a></li>
+									<li class="menu__item"><a href="03-archive-default.php">Archive default</a></li>
+									<li class="menu__item"><a href="04-page-404.php">Page 404</a></li>
+								</ul>
+							</li>
+							<li class="menu__item"><a href="02-page-default.php">Page default</a></li>
+							<li class="menu__item"><a href="03-archive-default.php">Archive default</a></li>
+							<li class="menu__item"><a href="04-page-404.php">Page 404</a></li>
+						</ul>
+					</nav>
 					<?php if ( $class == 'home' ) :?>
 						<h1 class="header__title visuallyhidden"><a href="01-home.php">BeAPI FrontEnd Framework</a></h1>
 					<?php else: ?>
 						<div class="header__title visuallyhidden"><a href="01-home.php">BeAPI FrontEnd Framework</a></div>
 					<?php endif; ?>
-
-					<!-- Button href demo -->
-					<button type="button" class="button button--rounded" data-href="https://beapi.fr/">
-						Button w/o blank
-					</button>
-
-					<button type="button" class="button button--bordered" data-href="https://beapi.fr/" data-target="_blank">
-						Button w/ blank
-					</button>
-
-					<button type="button" class="button button--revert" data-href="../assets/pdf/sample.pdf" data-target="download" data-filename="sample.pdf">
-						Button download
-					</button>
 				</div>
 			</header>
-			<nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">
-				<div class="container">
-					<ul class="menu__list sf-menu">
-						<li class="menu__item menu__item--current"><a href="01-home.php">Home</a></li>
-						<li class="menu__item">
-							<a href="02-page-default.php">Page default</a>
-							<ul class="menu__list menu__list--sub">
-								<li class="menu__item"><a href="#">Sub menu item</a></li>
-								<li class="menu__item"><a href="#">Sub menu item</a></li>
-								<li class="menu__item"><a href="#">Sub menu item</a></li>
-								<li class="menu__item"><a href="#">Sub menu item</a></li>
-								<li class="menu__item"><a href="#">Sub menu item</a></li>
-								<li class="menu__item"><a href="#">Sub menu item</a></li>
-							</ul>
-						</li>
-						<li class="menu__item"><a href="03-archive-default.php">Archive default</a></li>
-						<li class="menu__item"><a href="04-page-404.php">Page 404</a></li>
-					</ul>
-				</div>
-			</nav>
 			<main id="main__content" class="main__content" role="main" tabindex="-1" aria-label="Contenu Principal">
 				<div class="container">

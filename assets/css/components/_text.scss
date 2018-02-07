@@ -12,10 +12,10 @@ body {
 	}
 }
 a {
-	color: $maincolor;
+	color: $textcolor;
 	text-decoration: none;
 	@include hover {
-		color: $maincolor;
+		color: $textcolor;
 	}
 }
 

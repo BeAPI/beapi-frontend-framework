@@ -1,7 +1,7 @@
 <?php $class = 'page'; ?>
 <?php include 'header.php'; ?>
 	<article class="entry">
-		<header class="entry__header">
+		<header class="entry__header lazyload" data-bgset="../assets/img/bg-sample/bg_img-mobile-02.jpg [(max-width: 1023px)] | ../assets/img/bg-sample/bg_img-desktop-02.jpg">
 			<h1 class="entry__title">Titre de la page par défaut, avec sidebar</h1>
 			<div class="entry__date">
 				Publié le <time datetime="2015-06-30">06/30/2015</time>
@@ -184,6 +184,19 @@
 					<h4>Notice box</h4>
 					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.</p>
 				</div>
+
+				<!-- Button href demo -->
+				<button type="button" class="button button--rounded" data-href="https://beapi.fr/">
+					Button w/o blank
+				</button>
+
+				<button type="button" class="button button--bordered" data-href="https://beapi.fr/" data-target="_blank">
+					Button w/ blank
+				</button>
+
+				<button type="button" class="button button--revert" data-href="../assets/pdf/sample.pdf" data-target="download" data-filename="sample.pdf">
+					Button download
+				</button>
 			</section>
 			<!-- You can add commments sample (html/css) from composerjs here
 			<?php // include 'blocks/comments.php'; ?> -->

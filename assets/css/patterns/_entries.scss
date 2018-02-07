@@ -3,6 +3,19 @@
 .entry {
 	$parent : &;
 	@include clearfix;
+	&__header {
+		margin-bottom: 20px;
+		padding: 10px;
+
+		@media screen and (min-width: $desktop-small) {
+			padding: 100px 10px;
+		}
+
+		#{$parent}__title,
+		#{$parent}__date {
+			color: $lightcolor;
+		}
+	}
 	&__title {
 		font-weight: 900;
 		text-transform: uppercase;

@@ -1,20 +1,33 @@
 /* Header css
  ----------------------------------------------------------------------------------------------------*/
 .header {
-	@include clearfix;
 	margin-bottom: $base-spacing;
 	padding-top: $base-spacing;
 	padding-bottom: $base-spacing;
-	height: 400px;
-	&__logo-link {
-		display: block;
+	background-color: $maincolor;
+
+	@include clearfix;
+
+	.container {
+		&:after {
+			@include clearfix;
+		}
 	}
+
+	&__logo {
+		float: left;
+
+		&-link {
+			display: block;
+		}
+	}
+
 	&__icon {
 		display: block;
 		height: 50px;
 		width: 50px;
-		margin: 0 auto 10px;
-		color: $maincolor;
+		margin: 0 auto;
+		color: $textcolor;
 	}
 	&__img {
 		@include img__responsive();

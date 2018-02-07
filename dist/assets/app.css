@@ -458,10 +458,10 @@ body {
     font-family: Arial, Helvetica, sans-serif; }
 
 a {
-  color: #F1E25B;
+  color: #333;
   text-decoration: none; }
   a:hover, a:active, a:focus {
-    color: #F1E25B; }
+    color: #333; }
 
 /* Headings
 ----------------------------------------------------------------------------------------------------*/
@@ -932,7 +932,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"],
   border-radius: 0;
   padding: 10px;
   font-size: 16px;
-  color: #fff;
+  color: #333;
   background: #F1E25B;
   transition: background .25s ease-in-out, -webkit-transform .25s ease-in-out;
   transition: background .25s ease-in-out, transform .25s ease-in-out;
@@ -942,19 +942,19 @@ button, input[type="button"], input[type="reset"], input[type="submit"],
     pointer-events: none; }
   button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover,
   .button:hover {
-    color: #fff;
+    color: #333;
     background: #efde44;
     -webkit-transform: translateY(-1px);
             transform: translateY(-1px); }
   button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus,
   .button:focus {
-    color: #fff;
+    color: #333;
     background: #efde44;
     -webkit-transform: translateY(-1px);
             transform: translateY(-1px); }
   button:active, input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:active,
   .button:active {
-    color: #fff;
+    color: #333;
     background: #F1E25B;
     -webkit-transform: translateY(1px);
             transform: translateY(1px); }
@@ -985,7 +985,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"],
     color: #F1E25B; }
   button.button--revert, input[type="button"].button--revert, input[type="reset"].button--revert, input[type="submit"].button--revert,
   .button.button--revert {
-    background: #fff;
+    background: #333;
     color: #F1E25B; }
 
 /* Success, info, notice and error/alert boxes
@@ -1214,19 +1214,25 @@ button, input[type="button"], input[type="reset"], input[type="submit"],
   margin-bottom: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
-  height: 400px; }
+  background-color: #F1E25B; }
   .header::after {
     clear: both;
     content: "";
     display: table; }
-  .header__logo-link {
-    display: block; }
+  .header .container:after::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .header__logo {
+    float: left; }
+    .header__logo-link {
+      display: block; }
   .header__icon {
     display: block;
     height: 50px;
     width: 50px;
-    margin: 0 auto 10px;
-    color: #F1E25B; }
+    margin: 0 auto;
+    color: #333; }
   .header__img {
     display: block;
     max-width: 100%;
@@ -1265,6 +1271,9 @@ button, input[type="button"], input[type="reset"], input[type="submit"],
     .menu-fastaccess {
       display: block; } }
 
+.button__menu-open, .button__menu-close {
+  background-color: transparent; }
+
 .button__menu-open {
   display: block; }
   .menu-mobile--active .button__menu-open {
@@ -1278,8 +1287,8 @@ button, input[type="button"], input[type="reset"], input[type="submit"],
 .button__menu-container {
   z-index: 999;
   position: absolute;
-  top: 0;
-  left: 0; }
+  top: 20px;
+  right: 10px; }
   @media screen and (min-width: 64em) {
     .button__menu-container {
       display: none; } }
@@ -1288,21 +1297,22 @@ button, input[type="button"], input[type="reset"], input[type="submit"],
   overflow: hidden; }
   @media screen and (max-width: 64em) {
     .menu-mobile--active .menu {
-      left: 0;
+      right: 0;
       box-shadow: 0 0 100px rgba(0, 0, 0, 0.5); } }
 
 .menu {
+  float: left;
   z-index: 998;
   position: fixed;
   top: 0;
-  left: -100%;
+  right: -100%;
   bottom: 0;
   width: 80%;
   padding: 40px 0;
   background: #ddd;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  transition: left 0.5s ease-out;
+  transition: right 0.5s ease-out;
   -webkit-backface-visibility: hidden;
   -webkit-transform: translateZ(0); }
   .menu::after {
@@ -1316,42 +1326,45 @@ button, input[type="button"], input[type="reset"], input[type="submit"],
       overflow: inherit;
       background: none;
       width: auto;
+      margin-left: 20px;
       padding: 0; } }
   .menu .wrapper {
     padding: 0; }
-  .menu__list::after {
-    clear: both;
-    content: "";
-    display: table; }
-  .menu__list--sub {
-    display: none; }
+  .menu__list {
+    margin: 0; }
+    .menu__list::after {
+      clear: both;
+      content: "";
+      display: table; }
+    .menu__list--sub {
+      display: none; }
+      @media screen and (min-width: 64em) {
+        .menu__list--sub {
+          top: 100%;
+          position: absolute;
+          background: #fff; }
+          .menu__list--sub .menu__item a:hover, .menu__list--sub .menu__item a:active, .menu__list--sub .menu__item a:focus {
+            background-color: #F1E25B;
+            text-decoration: underline; } }
+    .menu__list > .menu__item:hover ul, .menu__list > .menu__item:active ul, .menu__list > .menu__item:focus ul {
+      display: block; }
+    .menu__list > .menu__item.sfHover > a, .menu__list > .menu__item.current-menu-item > a, .menu__list > .menu__item.current-menu-parent > a {
+      background-color: #F1E25B;
+      text-decoration: underline; }
     @media screen and (min-width: 64em) {
-      .menu__list--sub {
-        top: 100%;
-        position: absolute;
-        background: #fff; }
-        .menu__list--sub .menu__item a:hover, .menu__list--sub .menu__item a:active, .menu__list--sub .menu__item a:focus {
-          color: #fff;
-          background: #F1E25B; } }
-  .menu__list > .menu__item:hover ul, .menu__list > .menu__item:active ul, .menu__list > .menu__item:focus ul {
-    display: block; }
-  .menu__list > .menu__item.sfHover > a, .menu__list > .menu__item.current-menu-item > a, .menu__list > .menu__item.current-menu-parent > a {
-    color: #fff;
-    background: #F1E25B; }
-  @media screen and (min-width: 64em) {
-    .menu__list > .menu__item {
-      display: inline-block;
-      position: relative; }
-      .menu__list > .menu__item:hover .menu__list, .menu__list > .menu__item:active .menu__list, .menu__list > .menu__item:focus .menu__list {
-        top: 40px; }
-      .menu__list > .menu__item.sfHover ul {
-        top: 40px; } }
+      .menu__list > .menu__item {
+        display: inline-block;
+        position: relative; }
+        .menu__list > .menu__item:hover .menu__list, .menu__list > .menu__item:active .menu__list, .menu__list > .menu__item:focus .menu__list {
+          top: 40px; }
+        .menu__list > .menu__item.sfHover ul {
+          top: 40px; } }
   .menu__item > a {
     display: block;
     padding: 10px; }
     .menu__item > a:hover, .menu__item > a:active, .menu__item > a:focus {
-      color: #fff;
-      background: #F1E25B; }
+      background-color: #F1E25B;
+      text-decoration: underline; }
   .menu__item:hover .menu__list, .menu__item:active .menu__list, .menu__item:focus .menu__list {
     display: block; }
 
@@ -1361,6 +1374,16 @@ button, input[type="button"], input[type="reset"], input[type="submit"],
   clear: both;
   content: "";
   display: table; }
+
+.entry__header {
+  margin-bottom: 20px;
+  padding: 10px; }
+  @media screen and (min-width: 64em) {
+    .entry__header {
+      padding: 100px 10px; } }
+  .entry__header .entry__title,
+  .entry__header .entry__date {
+    color: #fff; }
 
 .entry__title {
   font-weight: 900;

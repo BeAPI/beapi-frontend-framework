@@ -6,6 +6,10 @@ webpackDev.plugins.push(
   new BrowserSyncPlugin(
     {
       proxy: 'http://[::1]:' + config.port,
+      watchOptions: {
+        ignoreInitial: true,
+        ignored: '*.txt'
+      },
       files: [
         {
           match: config.refresh,

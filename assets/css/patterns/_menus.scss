@@ -1,5 +1,3 @@
-/* Menus
-----------------------------------------------------------------------------------------------------*/
 /**
  * Menu
  *
@@ -12,9 +10,9 @@
  * <nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">
  *	 <div class="container">
  *	   	<ul class="menu__list sf-menu">
- *			  <li class="menu__item menu__item--current"><a href="01-home.php">Home</a></li>
+ *			  <li class="menu__item current-menu-item"><a href="#">Home</a></li>
  *		  	<li class="menu__item">
- *				  <a href="02-page-default.php">Page default</a>
+ *				  <a href="#">Page default</a>
  *				  <ul class="menu__list menu__list--sub">
  *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
  *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
@@ -24,8 +22,8 @@
  *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
  *				  </ul>
  *			  </li>
- *			  <li class="menu__item"><a href="03-archive-default.php">Archive default</a></li>
- *			  <li class="menu__item"><a href="04-page-404.php">Page 404</a></li>
+ *			  <li class="menu__item"><a href="#">Archive default</a></li>
+ *			  <li class="menu__item"><a href="#">Page 404</a></li>
  *			</ul>
  *		</div>
  *	</nav>
@@ -126,11 +124,12 @@
 			@media screen and (min-width: $desktop-small) {
 				top: 100%;
 				position: absolute;
+				min-width: 200px;
 				background: $lightcolor;
 				#{$parent}__item {
 					a {
 						@include hover {
-							color:$lightcolor;
+							color:$textcolor;
 							background:$maincolor;
 						}
 					}
@@ -148,21 +147,24 @@
 			&.current-menu-item,
 			&.current-menu-parent {
 				&>a {
-					color:$lightcolor;
+					color:$textcolor;
 					background:$maincolor;
 				}
 			}
 			@media screen and (min-width: $desktop-small) {
 				display: inline-block;
 				position: relative;
+				li {
+					display: block;
+				}
 				@include hover {
 					#{$parent}__list {
-						top: 40px;
+						top: 100%;
 					}
 				}
 				&.sfHover {
 					ul {
-						top: 40px;
+						top: 100%;
 					}
 				}
 			}
@@ -174,7 +176,7 @@
 			display: block;
 			padding: 10px;
 			@include hover {
-				color:$lightcolor;
+				color:$textcolor;
 				background:$maincolor;
 			}
 		}

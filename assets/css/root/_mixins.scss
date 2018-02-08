@@ -34,10 +34,7 @@
 	margin-bottom: 20px;
 	input[type="checkbox"],
 	input[type="radio"] {
-		position: absolute;
-		left: -999em;
-		top: -999em;
-		opacity: 0;
+		@extend .visuallyhidden;
 		&+label {
 			display: block;
 			cursor: pointer;

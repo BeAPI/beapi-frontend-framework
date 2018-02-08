@@ -35,7 +35,7 @@ gulp.task('server', getTask('server'));
 gulp.task('bs-reload', getTask('bs-reload'));
 
 // Gulp build
-gulp.task('build', ['imagemin', 'svgicons', 'favicon', 'js', 'sass', 'critical-css' ]);
+gulp.task('build', ['imagemin', 'svgicons', 'favicon', 'js', 'sass', 'critical-css', 'livingcss']);
 
 // On default task, just compile on demand
 gulp.task('default', ['js', 'sass', 'svgicons', 'livingcss'], function() {
@@ -46,10 +46,11 @@ gulp.task('default', ['js', 'sass', 'svgicons', 'livingcss'], function() {
 	gulp.watch(['assets/img/icons/*.svg'], ['svgicons', 'sass']);
 });
 // Browser sync with local setup.
-gulp.task('serve', ['browser-sync', 'server', 'bs-reload', 'js', 'sass', 'svgicons'], function() {
+gulp.task('serve', ['browser-sync', 'server', 'bs-reload', 'js', 'sass', 'svgicons', 'livingcss'], function () {
 	gulp.watch('assets/js/src/*.js', [ 'js' ]);
 	gulp.watch('assets/js/vendor/*.js', [ 'js' ]);
 	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss'], ['sass']);
+	gulp.watch(['assets/css/*.scss', 'assets/css/**/*.scss', 'livingcss/**/*.scss'], ['livingcss']);
 	gulp.watch(['assets/img/icons/*.svg'], ['svgicons', 'sass']);
 	gulp.watch(['html/**/*.php', 'assets/css/style.css', 'assets/js/scripts.min.js'], ['bs-reload']);
 });

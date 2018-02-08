@@ -8288,7 +8288,11 @@
     width: 20px;
   }
   
-  .no-svg .visuallyhidden {
+  .no-svg .visuallyhidden, .no-svg .checkbox--custom input[type="checkbox"], .checkbox--custom .no-svg input[type="checkbox"], .no-svg
+  .checkbox--custom input[type="radio"],
+  .checkbox--custom .no-svg input[type="radio"], .no-svg .radio--custom input[type="checkbox"], .radio--custom .no-svg input[type="checkbox"], .no-svg
+  .radio--custom input[type="radio"],
+  .radio--custom .no-svg input[type="radio"] {
     position: static;
     height: auto;
     width: auto;
@@ -8331,12 +8335,12 @@
   }
   
   a {
-    color: #F1E25B;
+    color: #333;
     text-decoration: none;
   }
   
   a:hover, a:active, a:focus {
-    color: #F1E25B;
+    color: #333;
   }
   
   /* Headings
@@ -8579,7 +8583,7 @@
    *
    * 1. Image with a caption text.  
    * Add `.alignleft` | `.alignright` | `.aligncenter` class to `<img>` element for a specific alignment.  
-   * 2. Responsive images gallery example.
+   * 2. Responsive images gallery example (default WordPress markup).
    *
    * @section Images
    * @page components
@@ -8602,7 +8606,7 @@
    *							<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
    *						</dt>
    *						<dd class="wp-caption-text gallery-caption">
-   *							mdhbfldksb
+   * 							caption text
    *						</dd>
    *					</dl>
    *					<dl class="gallery-item">
@@ -8610,7 +8614,7 @@
    *							<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
    *						</dt>
    *						<dd class="wp-caption-text gallery-caption">
-   *							mdhbfldksb
+   * 							caption text
    *						</dd>
    *					</dl>
    *					<dl class="gallery-item">
@@ -8623,7 +8627,7 @@
    *							<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
    *						</dt>
    *						<dd class="wp-caption-text gallery-caption">
-   *							mdhbfldksb
+   * 							caption text
    *						</dd>
    *					</dl>
    *					<dl class="gallery-item">
@@ -8631,7 +8635,7 @@
    *							<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
    *						</dt>
    *						<dd class="wp-caption-text gallery-caption">
-   *							mdhbfldksb
+   * 							caption text
    *						</dd>
    *					</dl>
    *					<br style="clear: both;">
@@ -8791,9 +8795,9 @@
   /**
    * Form
    *
-   * `.radio--custom` class can be applied to `<input type="radio">` element.  
-   * `.checbox--custom` class can be applied to `<input type="checkbox">` element.  
-   * `.select--custom` class can be applied to `<select>` element.  
+   * `.radio--custom` class can be applied to a parent div wrapping `<input type="radio">` element.  
+   * `.checbox--custom` class can be applied to a parent div wrapping `<input type="checkbox">` element.  
+   * `.select--custom` class can be applied to a parent div wrapping `<select>` element.<br>
    *
    * @section Form
    * @page components
@@ -8802,7 +8806,7 @@
    * <form action="#">
    *		<div class="radio--custom">
    *			<input id="radio-1" name="radio" type="radio" checked>
-   *			<label for="radio-1">Radio item Lorem ipsum dolor sit amet.</label>
+   *			<label for="radio-1">Radio item <br> on two line</label>
    *		</div>
    *		<div class="radio--custom">
    *			<input id="radio-2" name="radio" type="radio">
@@ -8810,7 +8814,7 @@
    *		</div>
    *		<div class="checkbox--custom">
    *			<input id="checkbox-1" name="checkbox1" type="checkbox" checked>
-   *			<label for="checkbox-1">Checkbox item Lorem ipsum dolor sit amet.</label>
+   *			<label for="checkbox-1">Checkbox item <br>on two line</label>
    *		</div>
    *		<div class="checkbox--custom">
    *			<input id="checkbox-2" name="checkbox2" type="checkbox">
@@ -8884,14 +8888,6 @@
     margin-bottom: 20px;
   }
   
-  .checkbox--custom input[type="checkbox"],
-  .checkbox--custom input[type="radio"] {
-    position: absolute;
-    left: -999em;
-    top: -999em;
-    opacity: 0;
-  }
-  
   .checkbox--custom input[type="checkbox"] + label,
   .checkbox--custom input[type="radio"] + label {
     display: block;
@@ -8923,14 +8919,6 @@
   
   .radio--custom {
     margin-bottom: 20px;
-  }
-  
-  .radio--custom input[type="checkbox"],
-  .radio--custom input[type="radio"] {
-    position: absolute;
-    left: -999em;
-    top: -999em;
-    opacity: 0;
   }
   
   .radio--custom input[type="checkbox"] + label,
@@ -9058,7 +9046,7 @@
     border-radius: 0;
     padding: 10px;
     font-size: 16px;
-    color: #fff;
+    color: #333;
     background: #F1E25B;
     -webkit-transition: background .25s ease-in-out, -webkit-transform .25s ease-in-out;
     transition: background .25s ease-in-out, -webkit-transform .25s ease-in-out;
@@ -9073,7 +9061,7 @@
   
   button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover,
   .button:hover {
-    color: #fff;
+    color: #333;
     background: #efde44;
     -webkit-transform: translateY(-1px);
         -ms-transform: translateY(-1px);
@@ -9082,7 +9070,7 @@
   
   button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus,
   .button:focus {
-    color: #fff;
+    color: #333;
     background: #efde44;
     -webkit-transform: translateY(-1px);
         -ms-transform: translateY(-1px);
@@ -9091,7 +9079,7 @@
   
   button:active, input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:active,
   .button:active {
-    color: #fff;
+    color: #333;
     background: #F1E25B;
     -webkit-transform: translateY(1px);
         -ms-transform: translateY(1px);
@@ -9136,7 +9124,7 @@
   button.button--revert, input[type="button"].button--revert, input[type="reset"].button--revert, input[type="submit"].button--revert,
   .button.button--revert {
     background: #fff;
-    color: #F1E25B;
+    color: #333;
   }
   
   /* Success, info, notice and error/alert boxes
@@ -9242,7 +9230,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: #F1E25B;
+    background: #000;
     -webkit-transition: opacity .5s, z-index .5s ease .5s;
     transition: opacity .5s, z-index .5s ease .5s;
   }
@@ -9309,7 +9297,9 @@
     display: none;
   }
   
-  .visuallyhidden {
+  .visuallyhidden, .checkbox--custom input[type="checkbox"],
+  .checkbox--custom input[type="radio"], .radio--custom input[type="checkbox"],
+  .radio--custom input[type="radio"] {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -9451,8 +9441,6 @@
     }
   }
   
-  /* Header css
-   ----------------------------------------------------------------------------------------------------*/
   /**
    * Header
    *
@@ -9479,6 +9467,7 @@
     margin-bottom: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
+    background-color: #000;
   }
   
   .header::after {
@@ -9506,8 +9495,6 @@
     margin: 0 auto 20px;
   }
   
-  /* Footer css
-   ----------------------------------------------------------------------------------------------------*/
   /**
    * Footer
    *
@@ -9534,8 +9521,6 @@
     display: table;
   }
   
-  /* Menus
-  ----------------------------------------------------------------------------------------------------*/
   /**
    * Menu
    *
@@ -9548,9 +9533,9 @@
    * <nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">
    *	 <div class="container">
    *	   	<ul class="menu__list sf-menu">
-   *			  <li class="menu__item menu__item--current"><a href="01-home.php">Home</a></li>
+   *			  <li class="menu__item current-menu-item"><a href="#">Home</a></li>
    *		  	<li class="menu__item">
-   *				  <a href="02-page-default.php">Page default</a>
+   *				  <a href="#">Page default</a>
    *				  <ul class="menu__list menu__list--sub">
    *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
    *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
@@ -9560,8 +9545,8 @@
    *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
    *				  </ul>
    *			  </li>
-   *			  <li class="menu__item"><a href="03-archive-default.php">Archive default</a></li>
-   *			  <li class="menu__item"><a href="04-page-404.php">Page 404</a></li>
+   *			  <li class="menu__item"><a href="#">Archive default</a></li>
+   *			  <li class="menu__item"><a href="#">Page 404</a></li>
    *			</ul>
    *		</div>
    *	</nav>
@@ -9689,10 +9674,11 @@
     .menu__list--sub {
       top: 100%;
       position: absolute;
+      min-width: 200px;
       background: #fff;
     }
     .menu__list--sub .menu__item a:hover, .menu__list--sub .menu__item a:active, .menu__list--sub .menu__item a:focus {
-      color: #fff;
+      color: #333;
       background: #F1E25B;
     }
   }
@@ -9702,7 +9688,7 @@
   }
   
   .menu__list > .menu__item.sfHover > a, .menu__list > .menu__item.current-menu-item > a, .menu__list > .menu__item.current-menu-parent > a {
-    color: #fff;
+    color: #333;
     background: #F1E25B;
   }
   
@@ -9711,11 +9697,14 @@
       display: inline-block;
       position: relative;
     }
+    .menu__list > .menu__item li {
+      display: block;
+    }
     .menu__list > .menu__item:hover .menu__list, .menu__list > .menu__item:active .menu__list, .menu__list > .menu__item:focus .menu__list {
-      top: 40px;
+      top: 100%;
     }
     .menu__list > .menu__item.sfHover ul {
-      top: 40px;
+      top: 100%;
     }
   }
   
@@ -9725,7 +9714,7 @@
   }
   
   .menu__item > a:hover, .menu__item > a:active, .menu__item > a:focus {
-    color: #fff;
+    color: #333;
     background: #F1E25B;
   }
   
@@ -9733,15 +9722,15 @@
     display: block;
   }
   
-  /* Entry
-  ----------------------------------------------------------------------------------------------------*/
   /**
    * Entries
    *
    * Resume blog post.
    *
    * Card entry is optimized for SEO.
-   * The post will be open in a new window due to the data-seo attribute.
+   * The post will be open in a new window due to the data-seo attribute (seo.js).
+   * `.entry__content` is the container class for WordPress wysiwyg. link are underline by default in this container.
+   * Unordered list are displayed with standard disc.
    *
    * @section Entries
    * @page patterns
@@ -9750,8 +9739,8 @@
    *	<!-- ENTRY SUMMARY -->
    *	<article class="entry__item">
    *		<div class="entry__media">
-   *			<!-- Local dev only -->
-   *			<img src="http://placehold.it/150x150" width="150" height="150" alt="#">
+   *			<!-- Local dev only. use get_the_post_thumbnail function when you work on a server -->
+   *			<img src="http://placehold.it/300x200" width="300" height="200" alt="#">
    *			<!-- end Local dev only -->
    *			<!-- Web dev -->
    *			<!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?> -->
@@ -9775,12 +9764,7 @@
    *	<!-- ENTRY SEO -->
    *	<article class="entry__card" data-seo>
    *		<div class="entry__media">
-   *			<!-- Local dev only -->
-   *			<img src="http://placehold.it/150x150" width="150" height="150" alt="#">
-   *			<!-- end Local dev only -->
-   *			<!-- Web dev -->
-   *			<!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?> -->
-   *			<!-- end Web dev -->
+   *			<img src="http://placehold.it/300x200" width="300" height="200" alt="#">
    *		</div>
    *		<div class="entry__summary">
    *			<h2 class="entry__title">
@@ -9796,6 +9780,10 @@
    *				<span class="button">Readmore</span>
    *			</div>
    *		</div>
+   *	</article>
+   *	<!-- ENTRY CONTENT-->
+   *	<article class="entry__content">
+   *		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
    *	</article>
    */
   .entry::after {
@@ -9905,22 +9893,12 @@
     }
   }
   
-  .entry__content .gform_wrapper ul {
-    list-style: none;
-  }
-  
-  .entry__content .searchform input {
-    display: inline;
-  }
-  
   .entry__img {
     display: block;
     max-width: 100%;
     height: auto;
   }
   
-  /* Searchform
-  ----------------------------------------------------------------------------------------------------*/
   /**
    * Searchform
    *
@@ -10183,9 +10161,9 @@
 <livingcss-example><nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">
  <div class="container">
    	<ul class="menu__list sf-menu">
-		  <li class="menu__item menu__item--current"><a href="01-home.php">Home</a></li>
+		  <li class="menu__item current-menu-item"><a href="#">Home</a></li>
 	  	<li class="menu__item">
-			  <a href="02-page-default.php">Page default</a>
+			  <a href="#">Page default</a>
 			  <ul class="menu__list menu__list--sub">
 				  <li class="menu__item"><a href="#">Sub menu item</a></li>
 				  <li class="menu__item"><a href="#">Sub menu item</a></li>
@@ -10195,8 +10173,8 @@
 				  <li class="menu__item"><a href="#">Sub menu item</a></li>
 			  </ul>
 		  </li>
-		  <li class="menu__item"><a href="03-archive-default.php">Archive default</a></li>
-		  <li class="menu__item"><a href="04-page-404.php">Page 404</a></li>
+		  <li class="menu__item"><a href="#">Archive default</a></li>
+		  <li class="menu__item"><a href="#">Page 404</a></li>
 		</ul>
 	</div>
 </nav></livingcss-example>
@@ -10205,9 +10183,9 @@
   <pre class="livingcss__section-code"><code class="language-markup">&lt;nav id&#x3D;&quot;menu&quot; class&#x3D;&quot;menu menu__mobile&quot; role&#x3D;&quot;navigation&quot; tabindex&#x3D;&quot;-1&quot; aria-label&#x3D;&quot;Navigation Principal&quot;&gt;
  &lt;div class&#x3D;&quot;container&quot;&gt;
    	&lt;ul class&#x3D;&quot;menu__list sf-menu&quot;&gt;
-		  &lt;li class&#x3D;&quot;menu__item menu__item--current&quot;&gt;&lt;a href&#x3D;&quot;01-home.php&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+		  &lt;li class&#x3D;&quot;menu__item current-menu-item&quot;&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
 	  	&lt;li class&#x3D;&quot;menu__item&quot;&gt;
-			  &lt;a href&#x3D;&quot;02-page-default.php&quot;&gt;Page default&lt;/a&gt;
+			  &lt;a href&#x3D;&quot;#&quot;&gt;Page default&lt;/a&gt;
 			  &lt;ul class&#x3D;&quot;menu__list menu__list--sub&quot;&gt;
 				  &lt;li class&#x3D;&quot;menu__item&quot;&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Sub menu item&lt;/a&gt;&lt;/li&gt;
 				  &lt;li class&#x3D;&quot;menu__item&quot;&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Sub menu item&lt;/a&gt;&lt;/li&gt;
@@ -10217,8 +10195,8 @@
 				  &lt;li class&#x3D;&quot;menu__item&quot;&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Sub menu item&lt;/a&gt;&lt;/li&gt;
 			  &lt;/ul&gt;
 		  &lt;/li&gt;
-		  &lt;li class&#x3D;&quot;menu__item&quot;&gt;&lt;a href&#x3D;&quot;03-archive-default.php&quot;&gt;Archive default&lt;/a&gt;&lt;/li&gt;
-		  &lt;li class&#x3D;&quot;menu__item&quot;&gt;&lt;a href&#x3D;&quot;04-page-404.php&quot;&gt;Page 404&lt;/a&gt;&lt;/li&gt;
+		  &lt;li class&#x3D;&quot;menu__item&quot;&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Archive default&lt;/a&gt;&lt;/li&gt;
+		  &lt;li class&#x3D;&quot;menu__item&quot;&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Page 404&lt;/a&gt;&lt;/li&gt;
 		&lt;/ul&gt;
 	&lt;/div&gt;
 &lt;/nav&gt;</code></pre>
@@ -10264,13 +10242,15 @@
           <h1 class="livingcss__article-title">Entries</h1><div class="livingcss__section-description"><p>Entries</p>
 <p>Resume blog post.</p>
 <p>Card entry is optimized for SEO.
-The post will be open in a new window due to the data-seo attribute.</p></div>
+The post will be open in a new window due to the data-seo attribute (seo.js).
+<code>.entry__content</code> is the container class for WordPress wysiwyg. link are underline by default in this container.
+Unordered list are displayed with standard disc.</p></div>
 
 <livingcss-example><!-- ENTRY SUMMARY -->
 <article class="entry__item">
 	<div class="entry__media">
-		<!-- Local dev only -->
-		<img src="http://placehold.it/150x150" width="150" height="150" alt="#">
+		<!-- Local dev only. use get_the_post_thumbnail function when you work on a server -->
+		<img src="http://placehold.it/300x200" width="300" height="200" alt="#">
 		<!-- end Local dev only -->
 		<!-- Web dev -->
 		<!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?> -->
@@ -10294,12 +10274,7 @@ The post will be open in a new window due to the data-seo attribute.</p></div>
 <!-- ENTRY SEO -->
 <article class="entry__card" data-seo>
 	<div class="entry__media">
-		<!-- Local dev only -->
-		<img src="http://placehold.it/150x150" width="150" height="150" alt="#">
-		<!-- end Local dev only -->
-		<!-- Web dev -->
-		<!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?> -->
-		<!-- end Web dev -->
+		<img src="http://placehold.it/300x200" width="300" height="200" alt="#">
 	</div>
 	<div class="entry__summary">
 		<h2 class="entry__title">
@@ -10315,14 +10290,18 @@ The post will be open in a new window due to the data-seo attribute.</p></div>
 			<span class="button">Readmore</span>
 		</div>
 	</div>
+</article>
+<!-- ENTRY CONTENT-->
+<article class="entry__content">
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
 </article></livingcss-example>
 
 <div class="livingcss__section-markup">
   <pre class="livingcss__section-code"><code class="language-markup">&lt;!-- ENTRY SUMMARY --&gt;
 &lt;article class&#x3D;&quot;entry__item&quot;&gt;
 	&lt;div class&#x3D;&quot;entry__media&quot;&gt;
-		&lt;!-- Local dev only --&gt;
-		&lt;img src&#x3D;&quot;http://placehold.it/150x150&quot; width&#x3D;&quot;150&quot; height&#x3D;&quot;150&quot; alt&#x3D;&quot;#&quot;&gt;
+		&lt;!-- Local dev only. use get_the_post_thumbnail function when you work on a server --&gt;
+		&lt;img src&#x3D;&quot;http://placehold.it/300x200&quot; width&#x3D;&quot;300&quot; height&#x3D;&quot;200&quot; alt&#x3D;&quot;#&quot;&gt;
 		&lt;!-- end Local dev only --&gt;
 		&lt;!-- Web dev --&gt;
 		&lt;!-- &lt;?php echo get_the_post_thumbnail( 0, &#x27;thumbnail&#x27;, array( &#x27;data-location&#x27; &#x3D;&gt; &#x27;entry-img-01&#x27;, &#x27;class&#x27; &#x3D;&gt; &#x27;entry__img&#x27;, &#x27;alt&#x27; &#x3D;&gt; &#x27;#&#x27; ) ); ?&gt; --&gt;
@@ -10346,12 +10325,7 @@ The post will be open in a new window due to the data-seo attribute.</p></div>
 &lt;!-- ENTRY SEO --&gt;
 &lt;article class&#x3D;&quot;entry__card&quot; data-seo&gt;
 	&lt;div class&#x3D;&quot;entry__media&quot;&gt;
-		&lt;!-- Local dev only --&gt;
-		&lt;img src&#x3D;&quot;http://placehold.it/150x150&quot; width&#x3D;&quot;150&quot; height&#x3D;&quot;150&quot; alt&#x3D;&quot;#&quot;&gt;
-		&lt;!-- end Local dev only --&gt;
-		&lt;!-- Web dev --&gt;
-		&lt;!-- &lt;?php echo get_the_post_thumbnail( 0, &#x27;thumbnail&#x27;, array( &#x27;data-location&#x27; &#x3D;&gt; &#x27;entry-img-01&#x27;, &#x27;class&#x27; &#x3D;&gt; &#x27;entry__img&#x27;, &#x27;alt&#x27; &#x3D;&gt; &#x27;#&#x27; ) ); ?&gt; --&gt;
-		&lt;!-- end Web dev --&gt;
+		&lt;img src&#x3D;&quot;http://placehold.it/300x200&quot; width&#x3D;&quot;300&quot; height&#x3D;&quot;200&quot; alt&#x3D;&quot;#&quot;&gt;
 	&lt;/div&gt;
 	&lt;div class&#x3D;&quot;entry__summary&quot;&gt;
 		&lt;h2 class&#x3D;&quot;entry__title&quot;&gt;
@@ -10367,6 +10341,10 @@ The post will be open in a new window due to the data-seo attribute.</p></div>
 			&lt;span class&#x3D;&quot;button&quot;&gt;Readmore&lt;/span&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
+&lt;/article&gt;
+&lt;!-- ENTRY CONTENT--&gt;
+&lt;article class&#x3D;&quot;entry__content&quot;&gt;
+	&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.&lt;/p&gt;
 &lt;/article&gt;</code></pre>
 </div>
 

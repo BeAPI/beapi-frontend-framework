@@ -1,12 +1,12 @@
-/* Entry
-----------------------------------------------------------------------------------------------------*/
 /**
  * Entries
  *
  * Resume blog post.
  *
  * Card entry is optimized for SEO.
- * The post will be open in a new window due to the data-seo attribute.
+ * The post will be open in a new window due to the data-seo attribute (seo.js).
+ * `.entry__content` is the container class for WordPress wysiwyg. link are underline by default in this container.
+ * Unordered list are displayed with standard disc.
  *
  * @section Entries
  * @page patterns
@@ -15,8 +15,8 @@
  *	<!-- ENTRY SUMMARY -->
  *	<article class="entry__item">
  *		<div class="entry__media">
- *			<!-- Local dev only -->
- *			<img src="http://placehold.it/150x150" width="150" height="150" alt="#">
+ *			<!-- Local dev only. use get_the_post_thumbnail function when you work on a server -->
+ *			<img src="http://placehold.it/300x200" width="300" height="200" alt="#">
  *			<!-- end Local dev only -->
  *			<!-- Web dev -->
  *			<!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?> -->
@@ -40,12 +40,7 @@
  *	<!-- ENTRY SEO -->
  *	<article class="entry__card" data-seo>
  *		<div class="entry__media">
- *			<!-- Local dev only -->
- *			<img src="http://placehold.it/150x150" width="150" height="150" alt="#">
- *			<!-- end Local dev only -->
- *			<!-- Web dev -->
- *			<!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?> -->
- *			<!-- end Web dev -->
+ *			<img src="http://placehold.it/300x200" width="300" height="200" alt="#">
  *		</div>
  *		<div class="entry__summary">
  *			<h2 class="entry__title">
@@ -131,16 +126,6 @@
 			max-width: 50%;
 			@media screen and (min-width: $tablet-medium) {
 				max-width: 100%;
-			}
-		}
-		.gform_wrapper {
-			ul {
-				list-style: none;
-			}
-		}
-		.searchform {
-			input {
-				display: inline;
 			}
 		}
 	}

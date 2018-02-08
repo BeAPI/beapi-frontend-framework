@@ -5,7 +5,7 @@
  *
  * 1. Image with a caption text.  
  * Add `.alignleft` | `.alignright` | `.aligncenter` class to `<img>` element for a specific alignment.  
- * 2. Responsive images gallery example.
+ * 2. Responsive images gallery example (default WordPress markup).
  *
  * @section Images
  * @page components
@@ -28,7 +28,7 @@
  *							<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
  *						</dt>
  *						<dd class="wp-caption-text gallery-caption">
- *							mdhbfldksb
+ * 							caption text
  *						</dd>
  *					</dl>
  *					<dl class="gallery-item">
@@ -36,7 +36,7 @@
  *							<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
  *						</dt>
  *						<dd class="wp-caption-text gallery-caption">
- *							mdhbfldksb
+ * 							caption text
  *						</dd>
  *					</dl>
  *					<dl class="gallery-item">
@@ -49,7 +49,7 @@
  *							<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
  *						</dt>
  *						<dd class="wp-caption-text gallery-caption">
- *							mdhbfldksb
+ * 							caption text
  *						</dd>
  *					</dl>
  *					<dl class="gallery-item">
@@ -57,7 +57,7 @@
  *							<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
  *						</dt>
  *						<dd class="wp-caption-text gallery-caption">
- *							mdhbfldksb
+ * 							caption text
  *						</dd>
  *					</dl>
  *					<br style="clear: both;">

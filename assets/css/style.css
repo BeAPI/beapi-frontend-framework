@@ -881,8 +881,6 @@ sup {
   top: -0.5em;
 }
 
-/* Images
--------------------------------------------------------------- */
 /**
  * Image
  *
@@ -1095,8 +1093,6 @@ sup {
   display: none;
 }
 
-/* Global form css elements
--------------------------------------------------------------- */
 /**
  * Form
  *
@@ -1180,15 +1176,11 @@ textarea:focus {
   background: #ececec;
 }
 
-/* Label
--------------------------------------------------------------- */
 label {
   display: inline-block;
   font-weight: 700;
 }
 
-/* Checkbox + Radio
--------------------------------------------------------------- */
 .checkbox--custom {
   margin-bottom: 20px;
 }
@@ -1259,14 +1251,10 @@ label {
   border-radius: 50%;
 }
 
-/* Textarea
--------------------------------------------------------------- */
 textarea {
   resize: vertical;
 }
 
-/* Form layout
--------------------------------------------------------------- */
 .form__row {
   position: relative;
   margin: 0 0 20px;
@@ -1282,8 +1270,6 @@ textarea {
   margin-bottom: 0;
 }
 
-/* Custom select
--------------------------------------------------------------- */
 .select--custom {
   position: relative;
   padding: 0;
@@ -1328,8 +1314,6 @@ _:-ms-input-placeholder, :root .select--custom select {
   background-color: transparent;
 }
 
-/* Global buttons css
--------------------------------------------------------------- */
 /**
  * Buttons
  *
@@ -1432,8 +1416,6 @@ button.button--revert, input[type="button"].button--revert, input[type="reset"].
   color: #333;
 }
 
-/* Success, info, notice and error/alert boxes
--------------------------------------------------------------- */
 /**
  * Messages
  *

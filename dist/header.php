@@ -136,9 +136,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 							<li class="menu__item menu__item--current">
 								<a href="01-home.php">Home</a>
 								<ul class="menu__list menu__list--sub">
-									<li class="menu__item"><a href="02-page-default.php">Page default</a></li>
-									<li class="menu__item"><a href="03-archive-default.php">Archive default</a></li>
-									<li class="menu__item"><a href="04-page-404.php">Page 404</a></li>
+									<li class="menu__item"><a href="../livingcss/html/index.html">Living CSS</a></li>
 								</ul>
 							</li>
 							<li class="menu__item"><a href="02-page-default.php">Page default</a></li>
@@ -154,4 +152,3 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 				</div>
 			</header>
 			<main id="main__content" class="main__content" role="main" tabindex="-1" aria-label="Contenu Principal">
-				<div class="container">

@@ -81,7 +81,7 @@
 // Card base
 @mixin card {
 	padding: $base-spacing;
-	box-shadow: 0 2px 4px rgba($darkcolor, .25);
+	border: 1px solid $light-gray;
 }
 
 // Float, left by default

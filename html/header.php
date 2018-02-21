@@ -153,8 +153,8 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 			</header>
 			<nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">
 				<div class="container">
-					<ul class="menu__list sf-menu">
-						<li class="menu__item menu__item--current"><a href="01-home.php">Home</a></li>
+					<ul class="menu__list">
+						<li class="menu__item current-menu-item"><a href="01-home.php">Home</a></li>
 						<li class="menu__item">
 							<a href="02-page-default.php">Page default</a>
 							<ul class="menu__list menu__list--sub">

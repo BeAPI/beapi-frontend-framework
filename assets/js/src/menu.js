@@ -7,8 +7,8 @@ window.$ = window.jQuery = $
 
 require('superfish')
 
-if ($('.sf-menu').length > 0) {
-  $('.sf-menu').superfish()
+if ($('.menu__list').length > 0) {
+  $('.menu__list').superfish()
 }
 
 /**

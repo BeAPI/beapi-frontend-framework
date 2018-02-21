@@ -116,7 +116,8 @@
 			}
 			&.sfHover,
 			&.current-menu-item,
-			&.current-menu-parent {
+			&.current-menu-parent,
+			&.current-menu-ancestor {
 				&>a {
 					color:$lightcolor;
 					background:$maincolor;
@@ -127,12 +128,12 @@
 				position: relative;
 				@include hover {
 					#{$parent}__list {
-						top: 40px;
+						top: 100%;
 					}
 				}
 				&.sfHover {
 					ul {
-						top: 40px;
+						top: 100%;
 					}
 				}
 			}

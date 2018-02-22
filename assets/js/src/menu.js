@@ -34,8 +34,7 @@ class Menu {
   }
   sfMenuInit () {
     // Sf menu
-    this.sfMenu = document.querySelectorAll('.sf-menu')
-    this.sfMenu.forEach(menu => menu.superfish())
+    this.menu.superfish()
   }
   /**
    * Open menu
@@ -60,8 +59,8 @@ class Menu {
    * @param {*} mediaQuery
    */
   menuResizing (mediaQuery) {
-    if (mediaQuery.matches) {
-      this.menuBody.removeClass(this.activeClass)
+    if (mediaQuery.matches && this.menuBody.classList) {
+      this.menuBody.classList.remove(this.activeClass)
     }
   }
 }

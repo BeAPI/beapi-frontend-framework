@@ -17,8 +17,8 @@
 		//]]>
 	</script>
 
-	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta http-equiv="Content-Type" content="text/html; charset=<?php bloginfo( 'charset' ); ?>" />
+    <meta charset="<?php bloginfo( 'charset' ); ?>" />
+    <meta http-equiv="Content-Type" content="text/html; charset=<?php bloginfo( 'charset' ); ?>" />
     <meta name="viewport" content="initial-scale=1.0" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 

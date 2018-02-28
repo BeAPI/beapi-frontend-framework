@@ -26,7 +26,7 @@
 	margin-bottom: $base-spacing;
 	padding-top: $base-spacing;
 	padding-bottom: $base-spacing;
-	background-color: $darkcolor;
+	background-color: $maincolor;
 	&__logo-link {
 		display: block;
 	}
@@ -35,7 +35,7 @@
 		height: 50px;
 		width: 50px;
 		margin: 0 auto 10px;
-		color: $maincolor;
+		color: $textcolor;
 	}
 	&__img {
 		@include img__responsive();

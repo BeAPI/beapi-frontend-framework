@@ -29,6 +29,7 @@ body {
 	color: $textcolor;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
 	//Fonts loading FOUT
 	//Adjust FOUT with tools like https://meowni.ca/font-style-matcher/
 	.fonts-loading & {

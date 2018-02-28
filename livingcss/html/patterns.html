@@ -8328,6 +8328,7 @@
     color: #333;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
   
   .fonts-loading body {
@@ -9212,7 +9213,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: #000;
+    background: #F1E25B;
     -webkit-transition: opacity .5s, z-index .5s ease .5s;
     transition: opacity .5s, z-index .5s ease .5s;
   }
@@ -9423,6 +9424,10 @@
     }
   }
   
+  [tabindex]:focus {
+    outline: none;
+  }
+  
   /**
    * Header
    *
@@ -9449,7 +9454,7 @@
     margin-bottom: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #000;
+    background-color: #F1E25B;
   }
   
   .header::after {
@@ -9467,7 +9472,7 @@
     height: 50px;
     width: 50px;
     margin: 0 auto 10px;
-    color: #F1E25B;
+    color: #333;
   }
   
   .header__img {
@@ -9629,7 +9634,7 @@
   
   @media screen and (min-width: 64em) {
     .menu {
-      position: static;
+      position: relative;
       left: auto;
       overflow: inherit;
       background: none;
@@ -9705,65 +9710,137 @@
   }
   
   /**
+   * Hero
+   *
+   * Hero template base. It fill all viewport outside container using `row__fullwidth` mixin
+   *
+   * @section Hero
+   * @page patterns
+   *
+   * @example
+   *	<div class="hero>
+   *		<div class="container">
+   *			<h1>An hero title</h1>
+   *		</div>
+   *	</div>
+   */
+  .hero {
+    z-index: 1;
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(0);
+        -ms-transform: translateX(-50%) translateY(0);
+            transform: translateX(-50%) translateY(0);
+    min-height: 100px;
+    padding: 20px 0;
+    margin-bottom: 20px;
+  }
+  
+  /**
    * Entries
    *
-   * Resume blog post.
-   *
-   * Card entry is optimized for SEO.
-   * The post will be open in a new window due to the data-seo attribute (seo.js).
-   * `.entry__content` is the container class for WordPress wysiwyg. link are underline by default in this container.
-   * Unordered list are displayed with standard disc.
+   * Base style and markup for blog/post/entry.
+   * `.entry__item` and `.entry__card` are used for listing.  
+   * `.entry__content` is used for single view.
    *
    * @section Entries
    * @page patterns
    *
-   * @example
-   *	<!-- ENTRY SUMMARY -->
-   *	<article class="entry__item">
-   *		<div class="entry__media">
-   *			<!-- Local dev only. use get_the_post_thumbnail function when you work on a server -->
-   *			<img src="http://placehold.it/300x200" width="300" height="200" alt="#">
-   *			<!-- end Local dev only -->
-   *			<!-- Web dev -->
-   *			<!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?> -->
-   *			<!-- end Web dev -->
-   *		</div>
-   *		<div class="entry__summary">
-   *			<h2 class="entry__title">
-   *				<a href="#">There is a post + a 20 words lorem ipsum excerpt</a>
-   *			</h2>
-   *			<div class="entry__date">
-   *				Publie le <time datetime="2015-06-30">06/30/2015</time>
-   *			</div>
-   *			<div class="entry__excerpt">
-   *				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
-   *			</div>
-   *			<div class="entry__more">
-   *				<button data-href="#" class="entry__more-button">Readmore</a>
-   *			</div>
-   *		</div>
-   *	</article>
-   *	<!-- ENTRY SEO -->
-   *	<article class="entry__card" data-seo>
-   *		<div class="entry__media">
-   *			<img src="http://placehold.it/300x200" width="300" height="200" alt="#">
-   *		</div>
-   *		<div class="entry__summary">
-   *			<h2 class="entry__title">
-   *				<a href="02-page-default.php">There is a post + a 20 words lorem ipsum excerpt</a>
-   *			</h2>
-   *			<div class="entry__date">
-   *				Publie le <time datetime="2015-06-30">06/30/2015</time>
-   *			</div>
-   *			<div class="entry__excerpt">
-   *				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
-   *			</div>
-   *			<div class="entry__more">
-   *				<span class="button">Readmore</span>
-   *			</div>
-   *		</div>
-   *	</article>
    */
+  .entry {
+    /**
+  	* An entry title base style. Used by default in single view.  
+  	* Redefined in `.entry__item` and `.entry__card`.
+  	*
+  	* @section Entry Title
+  	* @sectionof Entries
+  	*
+  	* @example
+  	*	<h1 class="entry__title">A title</h1>
+  	*/
+    /**
+  	* A entry item base style. dataused in an archive/index list
+  	*
+  	* @section Entry item
+  	* @sectionof Entries
+  	*
+  	* @example
+  	*	<article class="entry__item">
+  	*		<div class="entry__media">
+  	*			<img src="http://placehold.it/300x200" width="300" height="200" alt="#">
+  	*		</div>
+  	*		<div class="entry__summary">
+  	*			<h2 class="entry__title">
+  	*				<a href="#">There is a post + a 20 words lorem ipsum excerpt</a>
+  	*			</h2>
+  	*			<div class="entry__date">
+  	*				Publie le <time datetime="2015-06-30">06/30/2015</time>
+  	*			</div>
+  	*			<div class="entry__excerpt">
+  	*				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+  	*			</div>
+  	*			<div class="entry__more">
+  	*				<button data-href="#" class="entry__more-button">Readmore</a>
+  	*			</div>
+  	*		</div>
+  	*	</article>
+  	*/
+    /**
+  	* A "card like" base style. data-seo attribute is used.  
+  	* The post will be open in a new window due to the data-seo attribute (see src/seo.js).
+  	*
+  	* @section Entry card
+  	* @sectionof Entries
+  	*
+  	* @example
+  	*	<article class="entry__card" data-seo>
+  	*		<div class="entry__media">
+  	*			<img src="http://placehold.it/300x200" width="300" height="200" alt="#">
+  	*		</div>
+  	*		<div class="entry__summary">
+  	*			<h2 class="entry__title">
+  	*				<a href="02-page-default.php">There is a post + a 20 words lorem ipsum excerpt</a>
+  	*			</h2>
+  	*			<div class="entry__date">
+  	*				Publie le <time datetime="2015-06-30">06/30/2015</time>
+  	*			</div>
+  	*			<div class="entry__excerpt">
+  	*				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+  	*			</div>
+  	*			<div class="entry__more">
+  	*				<span class="button">Readmore</span>
+  	*			</div>
+  	*		</div>
+  	*	</article>
+  	*/
+    /**
+  	* `.entry__content` is the container class for WordPress wysiwyg. link are underline by default in this container.
+  	* Link are underlined by default.
+  	* Unordered list are displayed with standard disc.
+  	* Images alignements are managed by WordPress using `.alignleft`, `.alignright` and `.aligncenter` classes. see more details at components/_img.scss
+  	* Galleries are managed by WordPress using `.gallery` class. see more details at components/_img.scss
+  	*
+  	* @section Entry content
+  	* @sectionof Entries
+  	*
+  	* @example
+  	*	<section class="entry__content">
+  	*		<img class="alignleft" src="http://placehold.it/300x200" width="300" height="200" alt="#">
+  	*		<p>lorem ipsum</p>
+  	*		<p><a href="#">a link</a></p>
+  	*		<ul>
+  	*			<li>Unordered List item</li>
+  	*			<li>Unordered List item</li>
+  	*		</ul>
+  	*		<ol>
+  	*			<li>Ordered List item</li>
+  	*			<li>Ordered List item</li>
+  	*		</ol>
+  	*	</section>
+  	*/
+  }
+  
   .entry::after {
     clear: both;
     content: "";
@@ -9781,6 +9858,12 @@
   
   .entry__title > a:hover, .entry__title > a:active, .entry__title > a:focus {
     text-decoration: underline;
+  }
+  
+  .entry__img {
+    display: block;
+    max-width: 100%;
+    height: auto;
   }
   
   .entry__item, .entry__card {
@@ -9869,12 +9952,6 @@
     .entry__content .alignleft {
       max-width: 100%;
     }
-  }
-  
-  .entry__img {
-    display: block;
-    max-width: 100%;
-    height: auto;
   }
   
   /**
@@ -10077,6 +10154,7 @@
             <a class="livingcss__nav-link" href="#menu">Menu</a>
             <a class="livingcss__nav-link" href="#searchform">Searchform</a>
             <a class="livingcss__nav-link" href="#entries">Entries</a>
+            <a class="livingcss__nav-link" href="#hero">Hero</a>
           </div>
         </nav>
 
@@ -10218,21 +10296,26 @@
         </article>
         <article class="livingcss__article" id="entries">
           <h1 class="livingcss__article-title">Entries</h1><div class="livingcss__section-description"><p>Entries</p>
-<p>Resume blog post.</p>
-<p>Card entry is optimized for SEO.
-The post will be open in a new window due to the data-seo attribute (seo.js).
-<code>.entry__content</code> is the container class for WordPress wysiwyg. link are underline by default in this container.
-Unordered list are displayed with standard disc.</p></div>
+<p>Base style and markup for blog/post/entry.
+<code>.entry__item</code> and <code>.entry__card</code> are used for listing.<br><code>.entry__content</code> is used for single view.</p></div>
 
-<livingcss-example><!-- ENTRY SUMMARY -->
-<article class="entry__item">
+
+
+<section class="livingcss__section" id="entries-entry-title">
+  <h2>Entry Title</h2><div class="livingcss__section-description"><p>An entry title base style. Used by default in single view.<br>Redefined in <code>.entry__item</code> and <code>.entry__card</code>.</p></div>
+
+<livingcss-example><h1 class="entry__title">A title</h1></livingcss-example>
+
+<div class="livingcss__section-markup">
+  <pre class="livingcss__section-code"><code class="language-markup">&lt;h1 class&#x3D;&quot;entry__title&quot;&gt;A title&lt;/h1&gt;</code></pre>
+</div>
+
+</section><section class="livingcss__section" id="entries-entry-item">
+  <h2>Entry item</h2><div class="livingcss__section-description"><p>A entry item base style. dataused in an archive/index list</p></div>
+
+<livingcss-example><article class="entry__item">
 	<div class="entry__media">
-		<!-- Local dev only. use get_the_post_thumbnail function when you work on a server -->
 		<img src="http://placehold.it/300x200" width="300" height="200" alt="#">
-		<!-- end Local dev only -->
-		<!-- Web dev -->
-		<!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?> -->
-		<!-- end Web dev -->
 	</div>
 	<div class="entry__summary">
 		<h2 class="entry__title">
@@ -10248,9 +10331,34 @@ Unordered list are displayed with standard disc.</p></div>
 			<button data-href="#" class="entry__more-button">Readmore</a>
 		</div>
 	</div>
-</article>
-<!-- ENTRY SEO -->
-<article class="entry__card" data-seo>
+</article></livingcss-example>
+
+<div class="livingcss__section-markup">
+  <pre class="livingcss__section-code"><code class="language-markup">&lt;article class&#x3D;&quot;entry__item&quot;&gt;
+	&lt;div class&#x3D;&quot;entry__media&quot;&gt;
+		&lt;img src&#x3D;&quot;http://placehold.it/300x200&quot; width&#x3D;&quot;300&quot; height&#x3D;&quot;200&quot; alt&#x3D;&quot;#&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class&#x3D;&quot;entry__summary&quot;&gt;
+		&lt;h2 class&#x3D;&quot;entry__title&quot;&gt;
+			&lt;a href&#x3D;&quot;#&quot;&gt;There is a post + a 20 words lorem ipsum excerpt&lt;/a&gt;
+		&lt;/h2&gt;
+		&lt;div class&#x3D;&quot;entry__date&quot;&gt;
+			Publie le &lt;time datetime&#x3D;&quot;2015-06-30&quot;&gt;06/30/2015&lt;/time&gt;
+		&lt;/div&gt;
+		&lt;div class&#x3D;&quot;entry__excerpt&quot;&gt;
+			&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div class&#x3D;&quot;entry__more&quot;&gt;
+			&lt;button data-href&#x3D;&quot;#&quot; class&#x3D;&quot;entry__more-button&quot;&gt;Readmore&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/article&gt;</code></pre>
+</div>
+
+</section><section class="livingcss__section" id="entries-entry-card">
+  <h2>Entry card</h2><div class="livingcss__section-description"><p>A &quot;card like&quot; base style. data-seo attribute is used.<br>The post will be open in a new window due to the data-seo attribute (see src/seo.js).</p></div>
+
+<livingcss-example><article class="entry__card" data-seo>
 	<div class="entry__media">
 		<img src="http://placehold.it/300x200" width="300" height="200" alt="#">
 	</div>
@@ -10271,33 +10379,7 @@ Unordered list are displayed with standard disc.</p></div>
 </article></livingcss-example>
 
 <div class="livingcss__section-markup">
-  <pre class="livingcss__section-code"><code class="language-markup">&lt;!-- ENTRY SUMMARY --&gt;
-&lt;article class&#x3D;&quot;entry__item&quot;&gt;
-	&lt;div class&#x3D;&quot;entry__media&quot;&gt;
-		&lt;!-- Local dev only. use get_the_post_thumbnail function when you work on a server --&gt;
-		&lt;img src&#x3D;&quot;http://placehold.it/300x200&quot; width&#x3D;&quot;300&quot; height&#x3D;&quot;200&quot; alt&#x3D;&quot;#&quot;&gt;
-		&lt;!-- end Local dev only --&gt;
-		&lt;!-- Web dev --&gt;
-		&lt;!-- &lt;?php echo get_the_post_thumbnail( 0, &#x27;thumbnail&#x27;, array( &#x27;data-location&#x27; &#x3D;&gt; &#x27;entry-img-01&#x27;, &#x27;class&#x27; &#x3D;&gt; &#x27;entry__img&#x27;, &#x27;alt&#x27; &#x3D;&gt; &#x27;#&#x27; ) ); ?&gt; --&gt;
-		&lt;!-- end Web dev --&gt;
-	&lt;/div&gt;
-	&lt;div class&#x3D;&quot;entry__summary&quot;&gt;
-		&lt;h2 class&#x3D;&quot;entry__title&quot;&gt;
-			&lt;a href&#x3D;&quot;#&quot;&gt;There is a post + a 20 words lorem ipsum excerpt&lt;/a&gt;
-		&lt;/h2&gt;
-		&lt;div class&#x3D;&quot;entry__date&quot;&gt;
-			Publie le &lt;time datetime&#x3D;&quot;2015-06-30&quot;&gt;06/30/2015&lt;/time&gt;
-		&lt;/div&gt;
-		&lt;div class&#x3D;&quot;entry__excerpt&quot;&gt;
-			&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.&lt;/p&gt;
-		&lt;/div&gt;
-		&lt;div class&#x3D;&quot;entry__more&quot;&gt;
-			&lt;button data-href&#x3D;&quot;#&quot; class&#x3D;&quot;entry__more-button&quot;&gt;Readmore&lt;/a&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/article&gt;
-&lt;!-- ENTRY SEO --&gt;
-&lt;article class&#x3D;&quot;entry__card&quot; data-seo&gt;
+  <pre class="livingcss__section-code"><code class="language-markup">&lt;article class&#x3D;&quot;entry__card&quot; data-seo&gt;
 	&lt;div class&#x3D;&quot;entry__media&quot;&gt;
 		&lt;img src&#x3D;&quot;http://placehold.it/300x200&quot; width&#x3D;&quot;300&quot; height&#x3D;&quot;200&quot; alt&#x3D;&quot;#&quot;&gt;
 	&lt;/div&gt;
@@ -10316,6 +10398,62 @@ Unordered list are displayed with standard disc.</p></div>
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/article&gt;</code></pre>
+</div>
+
+</section><section class="livingcss__section" id="entries-entry-content">
+  <h2>Entry content</h2><div class="livingcss__section-description"><p><code>.entry__content</code> is the container class for WordPress wysiwyg. link are underline by default in this container.
+Link are underlined by default.
+Unordered list are displayed with standard disc.
+Images alignements are managed by WordPress using <code>.alignleft</code>, <code>.alignright</code> and <code>.aligncenter</code> classes. see more details at components/_img.scss
+Galleries are managed by WordPress using <code>.gallery</code> class. see more details at components/_img.scss</p></div>
+
+<livingcss-example><section class="entry__content">
+	<img class="alignleft" src="http://placehold.it/300x200" width="300" height="200" alt="#">
+	<p>lorem ipsum</p>
+	<p><a href="#">a link</a></p>
+	<ul>
+		<li>Unordered List item</li>
+		<li>Unordered List item</li>
+	</ul>
+	<ol>
+		<li>Ordered List item</li>
+		<li>Ordered List item</li>
+	</ol>
+</section></livingcss-example>
+
+<div class="livingcss__section-markup">
+  <pre class="livingcss__section-code"><code class="language-markup">&lt;section class&#x3D;&quot;entry__content&quot;&gt;
+	&lt;img class&#x3D;&quot;alignleft&quot; src&#x3D;&quot;http://placehold.it/300x200&quot; width&#x3D;&quot;300&quot; height&#x3D;&quot;200&quot; alt&#x3D;&quot;#&quot;&gt;
+	&lt;p&gt;lorem ipsum&lt;/p&gt;
+	&lt;p&gt;&lt;a href&#x3D;&quot;#&quot;&gt;a link&lt;/a&gt;&lt;/p&gt;
+	&lt;ul&gt;
+		&lt;li&gt;Unordered List item&lt;/li&gt;
+		&lt;li&gt;Unordered List item&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;ol&gt;
+		&lt;li&gt;Ordered List item&lt;/li&gt;
+		&lt;li&gt;Ordered List item&lt;/li&gt;
+	&lt;/ol&gt;
+&lt;/section&gt;</code></pre>
+</div>
+
+</section>        </article>
+        <article class="livingcss__article" id="hero">
+          <h1 class="livingcss__article-title">Hero</h1><div class="livingcss__section-description"><p>Hero</p>
+<p>Hero template base. It fill all viewport outside container using <code>row__fullwidth</code> mixin</p></div>
+
+<livingcss-example><div class="hero>
+	<div class="container">
+		<h1>An hero title</h1>
+	</div>
+</div></livingcss-example>
+
+<div class="livingcss__section-markup">
+  <pre class="livingcss__section-code"><code class="language-markup">&lt;div class&#x3D;&quot;hero&gt;
+	&lt;div class&#x3D;&quot;container&quot;&gt;
+		&lt;h1&gt;An hero title&lt;/h1&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 </div>
 
         </article>

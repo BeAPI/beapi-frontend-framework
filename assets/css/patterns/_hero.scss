@@ -1,0 +1,21 @@
+/**
+ * Hero
+ *
+ * Hero template base. It fill all viewport outside container using `row__fullwidth` mixin
+ *
+ * @section Hero
+ * @page patterns
+ *
+ * @example
+ *	<div class="hero>
+ *		<div class="container">
+ *			<h1>An hero title</h1>
+ *		</div>
+ *	</div>
+ */
+
+.hero {
+    @include row__fullwidth;
+    padding: $base-spacing 0;
+    margin-bottom: $base-spacing;
+}

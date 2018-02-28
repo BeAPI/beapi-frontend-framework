@@ -633,6 +633,7 @@ body {
   color: #333;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 .fonts-loading body {
@@ -1517,7 +1518,7 @@ button.button--revert, input[type="button"].button--revert, input[type="reset"].
   right: 0;
   bottom: 0;
   left: 0;
-  background: #000;
+  background: #F1E25B;
   -webkit-transition: opacity .5s, z-index .5s ease .5s;
   transition: opacity .5s, z-index .5s ease .5s;
 }
@@ -1728,6 +1729,10 @@ button.button--revert, input[type="button"].button--revert, input[type="reset"].
   }
 }
 
+[tabindex]:focus {
+  outline: none;
+}
+
 /**
  * Header
  *
@@ -1754,7 +1759,7 @@ button.button--revert, input[type="button"].button--revert, input[type="reset"].
   margin-bottom: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: #000;
+  background-color: #F1E25B;
 }
 
 .header::after {
@@ -1772,7 +1777,7 @@ button.button--revert, input[type="button"].button--revert, input[type="reset"].
   height: 50px;
   width: 50px;
   margin: 0 auto 10px;
-  color: #F1E25B;
+  color: #333;
 }
 
 .header__img {
@@ -1934,7 +1939,7 @@ button.button--revert, input[type="button"].button--revert, input[type="reset"].
 
 @media screen and (min-width: 64em) {
   .menu {
-    position: static;
+    position: relative;
     left: auto;
     overflow: inherit;
     background: none;
@@ -2010,65 +2015,136 @@ button.button--revert, input[type="button"].button--revert, input[type="reset"].
 }
 
 /**
+ * Hero
+ *
+ * Hero template base. It fill all viewport outside container using `row__fullwidth` mixin
+ *
+ * @section Hero
+ * @page patterns
+ *
+ * @example
+ *	<div class="hero>
+ *		<div class="container">
+ *			<h1>An hero title</h1>
+ *		</div>
+ *	</div>
+ */
+.hero {
+  z-index: 1;
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(0);
+      -ms-transform: translateX(-50%) translateY(0);
+          transform: translateX(-50%) translateY(0);
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+/**
  * Entries
  *
- * Resume blog post.
- *
- * Card entry is optimized for SEO.
- * The post will be open in a new window due to the data-seo attribute (seo.js).
- * `.entry__content` is the container class for WordPress wysiwyg. link are underline by default in this container.
- * Unordered list are displayed with standard disc.
+ * Base style and markup for blog/post/entry.
+ * `.entry__item` and `.entry__card` are used for listing.  
+ * `.entry__content` is used for single view.
  *
  * @section Entries
  * @page patterns
  *
- * @example
- *	<!-- ENTRY SUMMARY -->
- *	<article class="entry__item">
- *		<div class="entry__media">
- *			<!-- Local dev only. use get_the_post_thumbnail function when you work on a server -->
- *			<img src="http://placehold.it/300x200" width="300" height="200" alt="#">
- *			<!-- end Local dev only -->
- *			<!-- Web dev -->
- *			<!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?> -->
- *			<!-- end Web dev -->
- *		</div>
- *		<div class="entry__summary">
- *			<h2 class="entry__title">
- *				<a href="#">There is a post + a 20 words lorem ipsum excerpt</a>
- *			</h2>
- *			<div class="entry__date">
- *				Publie le <time datetime="2015-06-30">06/30/2015</time>
- *			</div>
- *			<div class="entry__excerpt">
- *				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
- *			</div>
- *			<div class="entry__more">
- *				<button data-href="#" class="entry__more-button">Readmore</a>
- *			</div>
- *		</div>
- *	</article>
- *	<!-- ENTRY SEO -->
- *	<article class="entry__card" data-seo>
- *		<div class="entry__media">
- *			<img src="http://placehold.it/300x200" width="300" height="200" alt="#">
- *		</div>
- *		<div class="entry__summary">
- *			<h2 class="entry__title">
- *				<a href="02-page-default.php">There is a post + a 20 words lorem ipsum excerpt</a>
- *			</h2>
- *			<div class="entry__date">
- *				Publie le <time datetime="2015-06-30">06/30/2015</time>
- *			</div>
- *			<div class="entry__excerpt">
- *				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
- *			</div>
- *			<div class="entry__more">
- *				<span class="button">Readmore</span>
- *			</div>
- *		</div>
- *	</article>
  */
+.entry {
+  /**
+	* An entry title base style. Used by default in single view.  
+	* Redefined in `.entry__item` and `.entry__card`.
+	*
+	* @section Entry Title
+	* @sectionof Entries
+	*
+	* @example
+	*	<h1 class="entry__title">A title</h1>
+	*/
+  /**
+	* A entry item base style. dataused in an archive/index list
+	*
+	* @section Entry item
+	* @sectionof Entries
+	*
+	* @example
+	*	<article class="entry__item">
+	*		<div class="entry__media">
+	*			<img src="http://placehold.it/300x200" width="300" height="200" alt="#">
+	*		</div>
+	*		<div class="entry__summary">
+	*			<h2 class="entry__title">
+	*				<a href="#">There is a post + a 20 words lorem ipsum excerpt</a>
+	*			</h2>
+	*			<div class="entry__date">
+	*				Publie le <time datetime="2015-06-30">06/30/2015</time>
+	*			</div>
+	*			<div class="entry__excerpt">
+	*				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+	*			</div>
+	*			<div class="entry__more">
+	*				<button data-href="#" class="entry__more-button">Readmore</a>
+	*			</div>
+	*		</div>
+	*	</article>
+	*/
+  /**
+	* A "card like" base style. data-seo attribute is used.  
+	* The post will be open in a new window due to the data-seo attribute (see src/seo.js).
+	*
+	* @section Entry card
+	* @sectionof Entries
+	*
+	* @example
+	*	<article class="entry__card" data-seo>
+	*		<div class="entry__media">
+	*			<img src="http://placehold.it/300x200" width="300" height="200" alt="#">
+	*		</div>
+	*		<div class="entry__summary">
+	*			<h2 class="entry__title">
+	*				<a href="02-page-default.php">There is a post + a 20 words lorem ipsum excerpt</a>
+	*			</h2>
+	*			<div class="entry__date">
+	*				Publie le <time datetime="2015-06-30">06/30/2015</time>
+	*			</div>
+	*			<div class="entry__excerpt">
+	*				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+	*			</div>
+	*			<div class="entry__more">
+	*				<span class="button">Readmore</span>
+	*			</div>
+	*		</div>
+	*	</article>
+	*/
+  /**
+	* `.entry__content` is the container class for WordPress wysiwyg. link are underline by default in this container.
+	* Link are underlined by default.
+	* Unordered list are displayed with standard disc.
+	* Images alignements are managed by WordPress using `.alignleft`, `.alignright` and `.aligncenter` classes. see more details at components/_img.scss
+	* Galleries are managed by WordPress using `.gallery` class. see more details at components/_img.scss
+	*
+	* @section Entry content
+	* @sectionof Entries
+	*
+	* @example
+	*	<section class="entry__content">
+	*		<img class="alignleft" src="http://placehold.it/300x200" width="300" height="200" alt="#">
+	*		<p>lorem ipsum</p>
+	*		<p><a href="#">a link</a></p>
+	*		<ul>
+	*			<li>Unordered List item</li>
+	*			<li>Unordered List item</li>
+	*		</ul>
+	*		<ol>
+	*			<li>Ordered List item</li>
+	*			<li>Ordered List item</li>
+	*		</ol>
+	*	</section>
+	*/
+}
+
 .entry::after {
   clear: both;
   content: "";
@@ -2086,6 +2162,12 @@ button.button--revert, input[type="button"].button--revert, input[type="reset"].
 
 .entry__title > a:hover, .entry__title > a:active, .entry__title > a:focus {
   text-decoration: underline;
+}
+
+.entry__img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .entry__item, .entry__card {
@@ -2174,12 +2256,6 @@ button.button--revert, input[type="button"].button--revert, input[type="reset"].
   .entry__content .alignleft {
     max-width: 100%;
   }
-}
-
-.entry__img {
-  display: block;
-  max-width: 100%;
-  height: auto;
 }
 
 /**

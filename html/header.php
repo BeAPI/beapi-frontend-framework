@@ -121,7 +121,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 					Fermer
 				</button>
 			</div>
-			<header id="header" class="header lazyload" role="banner" data-bgset="../assets/img/bg-sample/bg_img-mobile-02.jpg [(max-width: 1023px)] | ../assets/img/bg-sample/bg_img-desktop-02.jpg" >
+			<header id="header" class="header lazyload" role="banner">
 				<div class="container">
 					<div class="header__logo">
 						<a href="01-home.php" class="header__logo-link">
@@ -136,19 +136,6 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 					<?php else: ?>
 						<div class="header__title visuallyhidden"><a href="01-home.php">BeAPI FrontEnd Framework</a></div>
 					<?php endif; ?>
-
-					<!-- Button href demo -->
-					<button type="button" class="button button--rounded" data-href="https://beapi.fr/">
-						Button w/o blank
-					</button>
-
-					<button type="button" class="button button--bordered" data-href="https://beapi.fr/" data-target="_blank">
-						Button w/ blank
-					</button>
-
-					<button type="button" class="button button--revert" data-href="../assets/pdf/sample.pdf" data-target="download" data-filename="sample.pdf">
-						Button download
-					</button>
 				</div>
 			</header>
 			<nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">

@@ -11,7 +11,7 @@
 			<section class="entry__content">
 				<h2>Image with link to a bigger size using a lightbox</h2>
 				<p>
-					<a href="../assets/img/sample/beapi_theme-img-2.jpg"><img align="left" alt="#" src="http://placehold.it/150x150" class="alignright"></a>
+					<a href="../assets/img/sample/beapi_theme-img-2.jpg"><img align="right" alt="#" src="http://placehold.it/150x150" class="alignright"></a>
 					Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat. <span id="more-317"></span>
 				</p>
 				<blockquote>
@@ -65,11 +65,6 @@
 						</tr>
 					</tbody>
 				</table>
-				<a href="../assets/img/sample/beapi_theme-img-2.jpg"><img align="left" alt="#" src="http://placehold.it/150x150" class="alignleft"></a>
-				<a href="../assets/img/sample/beapi_theme-img-2.jpg"><img align="left" alt="#" src="http://placehold.it/150x150" class="alignleft"></a>
-				<a href="../assets/img/sample/beapi_theme-img-2.jpg"><img align="left" alt="#" src="http://placehold.it/150x150" class="alignleft"></a>
-				<a href="../assets/img/sample/beapi_theme-img-2.jpg"><img align="left" alt="#" src="http://placehold.it/150x150" class="alignleft"></a>
-				<a href="../assets/img/sample/beapi_theme-img-2.jpg"><img align="left" alt="#" src="http://placehold.it/150x150" class="alignleft"></a>
 				<h3>An Unordered List</h3>
 				<ul>
 					<li>

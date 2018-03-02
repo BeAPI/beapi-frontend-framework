@@ -66,6 +66,10 @@
 					</tbody>
 				</table>
 				<a href="../assets/img/sample/beapi_theme-img-2.jpg"><img align="left" alt="#" src="http://placehold.it/150x150" class="alignleft"></a>
+				<a href="../assets/img/sample/beapi_theme-img-2.jpg"><img align="left" alt="#" src="http://placehold.it/150x150" class="alignleft"></a>
+				<a href="../assets/img/sample/beapi_theme-img-2.jpg"><img align="left" alt="#" src="http://placehold.it/150x150" class="alignleft"></a>
+				<a href="../assets/img/sample/beapi_theme-img-2.jpg"><img align="left" alt="#" src="http://placehold.it/150x150" class="alignleft"></a>
+				<a href="../assets/img/sample/beapi_theme-img-2.jpg"><img align="left" alt="#" src="http://placehold.it/150x150" class="alignleft"></a>
 				<h3>An Unordered List</h3>
 				<ul>
 					<li>

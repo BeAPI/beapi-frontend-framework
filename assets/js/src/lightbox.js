@@ -17,11 +17,19 @@ const LightboxModaal = () => {
   const entryInit = () => {
     // lightbox in wysiwyg WP content for images AND native WP gallery
     $('.entry__content').each(function () { // the containers for all your galleries
-      // $(this)
-      $(this).find("a[href$='.png'], a[href$='.jpg'], a[href$='.gif']").attr('rel', 'gallery').modaal(opts)
-    })
+      let instance = 0
+      let imagesInstances = $(this).find("a[href$='.png'], a[href$='.jpg'], a[href$='.gif']")
 
-    console.log('Entry init')
+      // Organize galleries by container
+      imagesInstances.parent().each(function () {
+        let gallery = `js-gallery_${instance}`
+
+        $(this).addClass(gallery)
+        $(this).find("a[href$='.png'], a[href$='.jpg'], a[href$='.gif']").attr('rel', gallery).modaal(opts)
+
+        instance++
+      })
+    })
   }
 
   /**
@@ -30,8 +38,6 @@ const LightboxModaal = () => {
    */
   self.init = () => {
     entryInit()
-
-    console.log('Modaal init')
   }
 
   return self

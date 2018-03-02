@@ -4,7 +4,7 @@
 	"pages": [
 		{
 			"name": "home",
-			"url": "/"
+			"url": "/bff/html/01-home.php"
 		}
 	],
 	"viewports": [

@@ -87,11 +87,11 @@ function searchFiles (answers, input) {
  */
 function setDirPath (ext) {
   if (ext === 'scss') {
-    return ['../assets/css/patterns/', '../assets/css/components/', '../assets/css/pages/', '../assets/css/plugins/', '../assets/css/root/', '../assets/css/vendor/']
+    return ['../assets/css/patterns/', '../assets/css/components/', '../assets/css/pages/', '../assets/css/plugins/', '../assets/css/root/']
   } else if (ext === 'js') {
-    return ['../assets/js/src/', '../assets/js/vendor', '../assets/js/vendor_async', '../assets/js/polyfill/']
+    return ['../assets/js/src/', '../assets/js/vendor', '../assets/js/vendor_async']
   } else if (ext === 'html') {
-    return ['../html', '../html/blocks', '../html/plugins', '../html/widgets']
+    return ['../dist', '../dist/blocks', '../dist/plugins', '../dist/widgets']
   }
 }
 

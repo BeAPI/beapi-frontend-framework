@@ -1,7 +1,3 @@
-/**
- * Superfish for submenu most of the time in header
- */
-
 import $ from 'jquery'
 import 'superfish'
 
@@ -30,7 +26,7 @@ class Menu {
       }
     })
     // Event breakpoint
-    this.resizeBreakpoint.addListener(this.menuResizing)
+    this.resizeBreakpoint.addListener(this.menuResizing.bind(this))
   }
   sfMenuInit () {
     // Sf menu
@@ -58,7 +54,7 @@ class Menu {
    * Remove menu-mobile active class if breakpoint reach desktop
    * @param {*} mediaQuery
    */
-  menuResizing (mediaQuery) {
+  menuResizing(mediaQuery = this.resizeBreakpoint) {
     if (mediaQuery.matches && this.menuBody.classList) {
       this.menuBody.classList.remove(this.activeClass)
     }

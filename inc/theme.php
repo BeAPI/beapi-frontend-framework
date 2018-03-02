@@ -77,7 +77,7 @@ class Theme implements Service {
 	}
 
 	public function register_services() {
-		$services = $this->get_services();
+		$services = array_unique( $this->get_services() );
 		$services = array_map( [ $this, 'instantiate_service' ], $services );
 		array_walk( $services, function ( Service $service ) {
 			$service->register();

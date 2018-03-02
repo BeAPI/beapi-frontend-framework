@@ -1319,15 +1319,19 @@ _:-ms-input-placeholder, :root .select--custom select {
  * Buttons
  *
  * The Button `.button` class can be applied to `<button>`, `<input>`, or `<a>` elements.  
- * Use `.button--rounded`, `.button--bordered`, `.button--revert` class for a specific style.
+ * Use `.button--rounded`, `.button--bordered`, `.button--revert` class for a specific style.  
+ * For SEO purpose use `data-href`, `data-target` and `data-filename` in order to have buttons playing as link.
  *
  * @section Buttons
  * @page components
  *
  * @example
- * <button class="button--bordered">Buton</button>
- * <input type="submit" class="button--rounded" value="Input"/>
  * <a href="#" class="button">Anchor</a>
+ * <input type="submit" class="button--rounded" value="Input"/>
+ * <button type="button" class="button--bordered">Button</button>
+ * <button type="button" class="button" data-href="https://beapi.fr/">Button as a link</button>
+ * <button type="button" class="button" data-href="https://beapi.fr/" data-target="_blank">Button as a link in a new tab</button>
+ * <button type="button" class="button" data-href="#pdf_name.pdf" data-target="download" data-filename="pdf_name.pdf">Button as a download link</button>
  */
 button, input[type="button"], input[type="reset"], input[type="submit"],
 .button {
@@ -1922,7 +1926,7 @@ button.button--revert, input[type="button"].button--revert, input[type="reset"].
   bottom: 0;
   width: 80%;
   padding: 40px 0;
-  background: #ddd;
+  background: #F1E25B;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   -webkit-transition: left 0.5s ease-out;

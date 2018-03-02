@@ -105,11 +105,10 @@ class Theme implements Service {
 	}
 
 	public function register_service( string $service ) {
-		if ( ! class_exists( $service ) ) {
-			return false;
-		}
-		$reflection = new \ReflectionClass( $service );
-		if ( ! $reflection->implementsInterface( Service::class ) ) {
+		if (
+			! class_exists( $service )
+			|| ! in_array( Service::class, class_implements( $service ) )
+		) {
 			return false;
 		}
 

@@ -1,3 +1,9 @@
+/**
+ * Import modaal.js with NPM and modaal.scss with composerjs
+ * http://www.humaan.com/modaal/
+ * https://github.com/humaan/Modaal
+ */
+
 import $ from 'jquery'
 import 'modaal/dist/js/modaal'
 

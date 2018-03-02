@@ -8,13 +8,11 @@ class Assets_Async implements Service {
 	private $handler = 'theme-style';
 
 	public function register() {
-		if ( ! current_theme_supports( 'async-css' ) || is_admin() ) {
-			return;
+		if ( current_theme_supports( 'async-css' ) && ! is_admin() ) {
+			add_filter( 'style_loader_tag', array( $this, 'style_loader_tag' ), 20, 4 );
+			add_action( 'wp_head', array( $this, 'load_css' ), 0 );
+			add_action( 'wp_footer', array( $this, 'load_js' ), 0 );
 		}
-
-		add_filter( 'style_loader_tag', array( $this, 'style_loader_tag' ), 20, 4 );
-		add_action( 'wp_head', array( $this, 'load_css' ), 0 );
-		add_action( 'wp_footer', array( $this, 'load_js' ), 0 );
 	}
 
 	public function get_service_name() {

@@ -7,6 +7,9 @@ class Assets_Async implements Service {
 
 	private $handler = 'theme-style';
 
+	/**
+	 * @inheritdoc
+	 */
 	public function register() {
 		if ( current_theme_supports( 'async-css' ) && ! is_admin() ) {
 			add_filter( 'style_loader_tag', array( $this, 'style_loader_tag' ), 20, 4 );
@@ -15,6 +18,9 @@ class Assets_Async implements Service {
 		}
 	}
 
+	/**
+	 * @inheritdoc
+	 */
 	public function get_service_name() {
 		return 'assets-async';
 	}

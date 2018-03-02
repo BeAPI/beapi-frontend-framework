@@ -2,7 +2,7 @@
  * Buttons
  *
  * The Button `.button` class can be applied to `<button>`, `<input>`, or `<a>` elements.  
- * Use `.button--rounded`, `.button--bordered`, `.button--revert` class for a specific style.  
+ * Use `.button--round`, `.button--outline`, `.button--revert` class for a specific style.  
  * For SEO purpose use `data-href`, `data-target` and `data-filename` in order to have buttons playing as link.
  *
  * @section Buttons
@@ -10,88 +10,99 @@
  *
  * @example
  * <a href="#" class="button">Anchor</a>
- * <input type="submit" class="button--rounded" value="Input"/>
- * <button type="button" class="button--bordered">Button</button>
+ * <input type="submit" class="button--round" value="Input"/>
+ * <button type="button" class="button--outline">Button</button>
  * <button type="button" class="button" data-href="https://beapi.fr/">Button as a link</button>
  * <button type="button" class="button" data-href="https://beapi.fr/" data-target="_blank">Button as a link in a new tab</button>
  * <button type="button" class="button" data-href="#pdf_name.pdf" data-target="download" data-filename="pdf_name.pdf">Button as a download link</button>
  */
-$buttons-list: 'button',
+
+ $buttons-list: 'button',
 'input[type="button"]',
 'input[type="reset"]',
 'input[type="submit"]';
 
-$all-buttons:        assign-inputs($buttons-list);
-$all-button-inputs:        $all-buttons;
-
-// Modifier mixins
-@mixin button--rounded {
-	border-radius: 5px;
-	overflow: hidden;
-}
-@mixin button--bordered {
-	border: 1px solid $maincolor;
-	background: none;
-	color: $maincolor;
-}
-@mixin button--revert {
-	background: $lightcolor;
-	color: $textcolor;
-}
+$all-buttons : assign-inputs($buttons-list);
+$all-button-inputs : $all-buttons;
 
 @mixin button {
 	display: inline-block;
-	border: 0;
-	border-radius: 0;//keep it no radius for ios reset
-	padding: $half-base-spacing;
-	font-size: $base-font-size;
+	padding: 10px;
 	color: $textcolor;
+	border: 1px solid $maincolor;
 	background: $maincolor;
-	transition: background .25s ease-in-out, transform .25s ease-in-out;
+	transition: border-color .25s ease-in-out, background-color .25s ease-in-out, transform .25s ease-in-out;
 	svg {
 		pointer-events: none;
 	}
 	&:hover {
 		color: $textcolor;
-		background: darken($maincolor, 5%);
+		border-color: darken($maincolor, 5%);
+		background-color: darken($maincolor, 5%);
 		transform: translateY(-1px);
 	}
 	&:focus {
+		outline: none;
 		color: $textcolor;
-		background: darken($maincolor, 5%);
+		border-color: darken($maincolor, 5%);
+		background-color: darken($maincolor, 5%);
 		transform: translateY(-1px);
 	}
 	&:active {
 		color: $textcolor;
-		background: $maincolor;
+		border-color: $maincolor;
+		background-color: $maincolor;
 		transform: translateY(1px);
 	}
 }
 
-#{$all-button-inputs},
+// Modifier mixins
+@mixin button--round {
+	border-radius: 5px;
+}
+
+@mixin button--circle {
+	border-radius: 50%;
+}
+
+@mixin button--outline {
+	color: $maincolor;
+	background-color: transparent;
+}
+
+@mixin button--revert {
+	border-color: $lightcolor;
+	background-color: $lightcolor;
+	color: $maincolor;
+}
+
+#{$all-button-inputs} {
+	@include button;
+}
+
 .button {
 	$parent: &;
-	$button: '.button';
 	@include button;
+	&__text {
+		display: inline-block;
+		vertical-align: middle;
+	}
 	&__icon {
-		width: $base-spacing*1.25;
-		padding-right: $half-base-spacing;
-		vertical-align: -20%;
+		width: 5px;
+		height: 9px;
+		margin: 0 4px;
+		vertical-align: middle;
+	}
+	&--outline {
+		@include button--outline;
+	}
+	&--revert {
+		@include button--revert;
+	}
+	&--round {
+		@include button--round;
 	}
 	&--circle {
-		border-radius: 50%;
-		line-height: 1;
-		#{$parent}__icon {
-			padding-right: 0;
-		}
-	}
-	&#{$button}--rounded {
-		@include button--rounded;
-	}
-	&#{$button}--bordered {
-		@include button--bordered;
-	}
-	&#{$button}--revert {
-		@include button--revert;
+		@include button--circle;
 	}
 }

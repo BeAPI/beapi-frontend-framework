@@ -12,11 +12,11 @@
 					<h2>🦄 Happy Coding ! 🦄</h2>
 					<h3>BFF buttons</h3>
 					<!-- Button href demo -->
-					<button type="button" class="button button--rounded" data-href="https://beapi.fr/">
+					<button type="button" class="button button--round" data-href="https://beapi.fr/">
 						Button w/o blank
 					</button>
 
-					<button type="button" class="button button--bordered" data-href="https://beapi.fr/" data-target="_blank">
+					<button type="button" class="button button--outline" data-href="https://beapi.fr/" data-target="_blank">
 						Button w/ blank
 					</button>
 

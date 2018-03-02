@@ -1319,7 +1319,7 @@ _:-ms-input-placeholder, :root .select--custom select {
  * Buttons
  *
  * The Button `.button` class can be applied to `<button>`, `<input>`, or `<a>` elements.  
- * Use `.button--rounded`, `.button--bordered`, `.button--revert` class for a specific style.  
+ * Use `.button--round`, `.button--outline`, `.button--revert` class for a specific style.  
  * For SEO purpose use `data-href`, `data-target` and `data-filename` in order to have buttons playing as link.
  *
  * @section Buttons
@@ -1327,98 +1327,129 @@ _:-ms-input-placeholder, :root .select--custom select {
  *
  * @example
  * <a href="#" class="button">Anchor</a>
- * <input type="submit" class="button--rounded" value="Input"/>
- * <button type="button" class="button--bordered">Button</button>
+ * <input type="submit" class="button--round" value="Input"/>
+ * <button type="button" class="button--outline">Button</button>
  * <button type="button" class="button" data-href="https://beapi.fr/">Button as a link</button>
  * <button type="button" class="button" data-href="https://beapi.fr/" data-target="_blank">Button as a link in a new tab</button>
  * <button type="button" class="button" data-href="#pdf_name.pdf" data-target="download" data-filename="pdf_name.pdf">Button as a download link</button>
  */
-button, input[type="button"], input[type="reset"], input[type="submit"],
-.button {
+button, input[type="button"], input[type="reset"], input[type="submit"] {
   display: inline-block;
-  border: 0;
-  border-radius: 0;
   padding: 10px;
-  font-size: 16px;
   color: #333;
+  border: 1px solid #F1E25B;
   background: #F1E25B;
-  -webkit-transition: background .25s ease-in-out, -webkit-transform .25s ease-in-out;
-  transition: background .25s ease-in-out, -webkit-transform .25s ease-in-out;
-  transition: background .25s ease-in-out, transform .25s ease-in-out;
-  transition: background .25s ease-in-out, transform .25s ease-in-out, -webkit-transform .25s ease-in-out;
+  -webkit-transition: border-color .25s ease-in-out, background-color .25s ease-in-out, -webkit-transform .25s ease-in-out;
+  transition: border-color .25s ease-in-out, background-color .25s ease-in-out, -webkit-transform .25s ease-in-out;
+  transition: border-color .25s ease-in-out, background-color .25s ease-in-out, transform .25s ease-in-out;
+  transition: border-color .25s ease-in-out, background-color .25s ease-in-out, transform .25s ease-in-out, -webkit-transform .25s ease-in-out;
 }
 
-button svg, input[type="button"] svg, input[type="reset"] svg, input[type="submit"] svg,
-.button svg {
+button svg, input[type="button"] svg, input[type="reset"] svg, input[type="submit"] svg {
   pointer-events: none;
 }
 
-button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover,
-.button:hover {
+button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover {
   color: #333;
-  background: #efde44;
+  border-color: #efde44;
+  background-color: #efde44;
   -webkit-transform: translateY(-1px);
       -ms-transform: translateY(-1px);
           transform: translateY(-1px);
 }
 
-button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus,
-.button:focus {
+button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus {
+  outline: none;
   color: #333;
-  background: #efde44;
+  border-color: #efde44;
+  background-color: #efde44;
   -webkit-transform: translateY(-1px);
       -ms-transform: translateY(-1px);
           transform: translateY(-1px);
 }
 
-button:active, input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:active,
-.button:active {
+button:active, input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:active {
   color: #333;
-  background: #F1E25B;
+  border-color: #F1E25B;
+  background-color: #F1E25B;
   -webkit-transform: translateY(1px);
       -ms-transform: translateY(1px);
           transform: translateY(1px);
 }
 
-button__icon, input[type="button"]__icon, input[type="reset"]__icon, input[type="submit"]__icon,
-.button__icon {
-  width: 25px;
-  padding-right: 10px;
-  vertical-align: -20%;
-}
-
-button--circle, input[type="button"]--circle, input[type="reset"]--circle, input[type="submit"]--circle,
-.button--circle {
-  border-radius: 50%;
-  line-height: 1;
-}
-
-button--circle button, button--circle input[type="button"], button--circle input[type="reset"], button--circle input[type="submit"], button--circle .button__icon, input[type="button"]--circle button, input[type="button"]--circle input[type="button"], input[type="button"]--circle input[type="reset"], input[type="button"]--circle input[type="submit"], input[type="button"]--circle .button__icon, input[type="reset"]--circle button, input[type="reset"]--circle input[type="button"], input[type="reset"]--circle input[type="reset"], input[type="reset"]--circle input[type="submit"], input[type="reset"]--circle .button__icon, input[type="submit"]--circle button, input[type="submit"]--circle input[type="button"], input[type="submit"]--circle input[type="reset"], input[type="submit"]--circle input[type="submit"], input[type="submit"]--circle .button__icon,
-.button--circle button,
-.button--circle input[type="button"],
-.button--circle input[type="reset"],
-.button--circle input[type="submit"],
-.button--circle .button__icon {
-  padding-right: 0;
-}
-
-button.button--rounded, input[type="button"].button--rounded, input[type="reset"].button--rounded, input[type="submit"].button--rounded,
-.button.button--rounded {
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-button.button--bordered, input[type="button"].button--bordered, input[type="reset"].button--bordered, input[type="submit"].button--bordered,
-.button.button--bordered {
+.button {
+  display: inline-block;
+  padding: 10px;
+  color: #333;
   border: 1px solid #F1E25B;
-  background: none;
+  background: #F1E25B;
+  -webkit-transition: border-color .25s ease-in-out, background-color .25s ease-in-out, -webkit-transform .25s ease-in-out;
+  transition: border-color .25s ease-in-out, background-color .25s ease-in-out, -webkit-transform .25s ease-in-out;
+  transition: border-color .25s ease-in-out, background-color .25s ease-in-out, transform .25s ease-in-out;
+  transition: border-color .25s ease-in-out, background-color .25s ease-in-out, transform .25s ease-in-out, -webkit-transform .25s ease-in-out;
+}
+
+.button svg {
+  pointer-events: none;
+}
+
+.button:hover {
+  color: #333;
+  border-color: #efde44;
+  background-color: #efde44;
+  -webkit-transform: translateY(-1px);
+      -ms-transform: translateY(-1px);
+          transform: translateY(-1px);
+}
+
+.button:focus {
+  outline: none;
+  color: #333;
+  border-color: #efde44;
+  background-color: #efde44;
+  -webkit-transform: translateY(-1px);
+      -ms-transform: translateY(-1px);
+          transform: translateY(-1px);
+}
+
+.button:active {
+  color: #333;
+  border-color: #F1E25B;
+  background-color: #F1E25B;
+  -webkit-transform: translateY(1px);
+      -ms-transform: translateY(1px);
+          transform: translateY(1px);
+}
+
+.button__text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.button__icon {
+  width: 5px;
+  height: 9px;
+  margin: 0 4px;
+  vertical-align: middle;
+}
+
+.button--outline {
+  color: #F1E25B;
+  background-color: transparent;
+}
+
+.button--revert {
+  border-color: #fff;
+  background-color: #fff;
   color: #F1E25B;
 }
 
-button.button--revert, input[type="button"].button--revert, input[type="reset"].button--revert, input[type="submit"].button--revert,
-.button.button--revert {
-  background: #fff;
-  color: #333;
+.button--round {
+  border-radius: 5px;
+}
+
+.button--circle {
+  border-radius: 50%;
 }
 
 /**

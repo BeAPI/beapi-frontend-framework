@@ -19,10 +19,16 @@ class Theme implements Service {
 	 */
 	private $services_container = [];
 
+	/**
+	 * @inheritdoc
+	 */
 	public function register() {
 		\add_action( 'after_setup_theme', [ $this, 'after_setup_theme' ] );
 	}
 
+	/**
+	 * @inheritdoc
+	 */
 	public function get_service_name() {
 		return 'theme';
 	}
@@ -44,6 +50,9 @@ class Theme implements Service {
 		$this->i18n();
 	}
 
+	/**
+	 * Set theme supports
+	 */
 	private function add_theme_supports() {
 		// Add the theme support basic elements
 		add_theme_support( 'post-thumbnails' );
@@ -60,8 +69,6 @@ class Theme implements Service {
 	/**
 	 * Instantiate a single service.
 	 *
-	 * @since 0.1.0
-	 *
 	 * @param string $class Service class to instantiate.
 	 *
 	 * @return Service
@@ -76,6 +83,9 @@ class Theme implements Service {
 		return $this->services_container[ $service->get_service_name() ];
 	}
 
+	/**
+	 * Load all services.
+	 */
 	public function register_services() {
 		$services = array_unique( $this->get_services() );
 		$services = array_map( [ $this, 'instantiate_service' ], $services );
@@ -85,9 +95,11 @@ class Theme implements Service {
 	}
 
 	/**
-	 * @param string $name : the service name.
+	 * Get a service's instance
 	 *
-	 * @return bool|Service
+	 * @param string $name the service name
+	 *
+	 * @return Service|bool The service instance or false if service not found
 	 */
 	public function get_service( $name ) {
 		return isset( $this->services_container[ $name ] ) ? $this->services_container[ $name ] : false;
@@ -104,6 +116,14 @@ class Theme implements Service {
 		return $this->services;
 	}
 
+	/**
+	 * Register a service
+	 *
+	 * @param string $service
+	 *
+	 * @return bool
+	 * @author Clément Boirie
+	 */
 	public function register_service( string $service ) {
 		if (
 			! class_exists( $service )

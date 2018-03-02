@@ -10,5 +10,4 @@
 			<h2>🦄 Happy Coding ! 🦄</h2>
 		</section>
 	</article>
-
 <?php include 'footer.php'; ?>

@@ -5,6 +5,9 @@
  * Firefox : only same origin file or it will open new tab
  * IE 10-11 : will open new tab
  */
+
+import '../polyfill/forEach'
+
 class ButtonLink {
   /**
    * Bind button link behavior on targeted elements
@@ -48,7 +51,7 @@ class ButtonLink {
    * @param {function} fn
    */
   addEventListenerOnce (element, event, fn) {
-    let func = function () {
+    const func = () => {
       element.removeEventListener(event, func)
       fn()
     }
@@ -59,10 +62,10 @@ class ButtonLink {
    * @param {Object} e
    */
   clickHandler (e) {
-    let download = this.element.getAttribute('data-target') === 'download'
-    let isBlank = this.element.getAttribute('data-target') === '_blank'
-    let href = this.element.getAttribute('data-href')
-    let filename = this.element.getAttribute('data-filename')
+    const download = this.element.getAttribute('data-target') === 'download'
+    const isBlank = this.element.getAttribute('data-target') === '_blank'
+    const href = this.element.getAttribute('data-href')
+    const filename = this.element.getAttribute('data-filename')
     if (download) {
       this.createLink(href, filename)
     } else {
@@ -79,7 +82,7 @@ class ButtonLink {
    * @param {String} filename
    */
   createLink (href, filename) {
-    let link = document.createElement('a')
+    const link = document.createElement('a')
     link.href = href
     link.target = '_blank'
     link.download = filename
@@ -89,4 +92,4 @@ class ButtonLink {
   }
 }
 
-ButtonLink.bind('button[data-href]')
+export default ButtonLink

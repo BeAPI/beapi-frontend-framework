@@ -11,6 +11,7 @@ require('./src/ie_message')
 require('./src/menu')
 require('./src/select')
 require('./src/seo')
+require('./src/lightbox-modaal')
 require('./src/scripts-domready')
 
 /**

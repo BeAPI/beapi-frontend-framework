@@ -22,10 +22,3 @@ function wp_get_attachment_image_src() {}
  * @ignore
  */
 function esc_attr() {}
-
-/**
- * @ignore
- */
-function apply_filters( $tag, $value ) {
-	return $value;
-}

@@ -1,29 +1,25 @@
 [
-	{
-		"small":[],
-		"img-300-200":
-			{
-				"width":"300",
-				"height":"200",
-				"crop":true
-			},
-		"img-600-400":
-			{
-				"width":"600",
-				"height":"400",
-				"crop":true
-			},
-		"img-100-100":
-			{
-				"width":"100",
-				"height":"100",
-				"crop":true
-			},
-		"img-200-200":
-			{
-				"width":"200",
-				"height":"200",
-				"crop":true
-			}
-	}
+  {
+    "small": [],
+    "img-720-237": {
+      "width": "720",
+      "height": "237",
+      "crop": true
+    },
+    "img-1440-474": {
+      "width": "1440",
+      "height": "474",
+      "crop": true
+    },
+    "img-386-237": {
+      "width": "386",
+      "height": "237",
+      "crop": true
+    },
+    "img-772-474": {
+      "width": "772",
+      "height": "474",
+      "crop": true
+    }
+  }
 ]

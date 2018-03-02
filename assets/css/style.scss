@@ -14,8 +14,11 @@
 @import "root/box-sizing";
 @import "root/cssloading";
 
-//Vendor for external librairies (jQuery css's plugins etc.)
+//Vendor for external librairies (Slick etc.)
 //@import "vendor/libname";
+
+//Plugins for WordPress plugin custom css (Mailpoet, WPForms etc.)
+//@import "plugin/pluginname";
 
 //Main websites components
 @import "components/svg-icons";

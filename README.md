@@ -149,10 +149,11 @@ We like to keep our code clean and readable. This is why we skip lines between e
     }
 
 
-CSS partials are classified and saved in 5 mains folders
+CSS partials are classified and saved in 6 mains folders
 
 * *root*. Where you're define common base. Variables, Mixins, Fonts, Susy library etc.
 * *vendor*. It's where external ressources are (jQuery plugins fr example).
+* *plugins*. One file by WordPress plugins (Mailpoet, WPForms etc.). in order to define the base style of plugin in the theme. Make specific style in your patterns or pages.
 * *components*. The basics like button forms elements etc. It's where you can defined you root's styles for button input headings etc.
 * *patterns*. it's related to your modules. It's where you defined the basics for your module.
 * *pages*. a css file for each pages. very useful for change module behavior in a specific context.
@@ -181,6 +182,12 @@ We are using ESLint coding Standard : https://github.com/standard/standard
 ### Composer JS ###
 
 In order to keep a lightweight stack, you can add extra components that are used most of the time in Web dev. You have to use [composerjs](composerjs)  
+
+### LivingCSS / Styleguide ###
+
+SASS file are commented in order to generate a living styleguide using `gulp livingcss`
+It is also available at `your_local_url/livingcss/html/` and watched by `gulp serve`
+For more details look at : https://github.com/straker/livingcss
 
 ### Responsive images ###
 

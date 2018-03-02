@@ -2,8 +2,8 @@
  * Superfish for submenu most of the time in header
  */
 
+import $ from 'jquery'
 import 'superfish'
-import '../polyfill/forEach'
 
 class Menu {
   constructor () {
@@ -34,7 +34,7 @@ class Menu {
   }
   sfMenuInit () {
     // Sf menu
-    this.menu.superfish()
+    $('.sf-menu').superfish()
   }
   /**
    * Open menu

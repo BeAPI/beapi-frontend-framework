@@ -13,6 +13,7 @@ import SeoLink from './src/seo'
 
 const menu = new Menu()
 menu.init()
+menu.sfMenuInit()
 
 ButtonLink.bind('button[data-href]')
 

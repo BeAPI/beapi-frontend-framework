@@ -32,7 +32,6 @@ module.exports = function (gulp, plugins) {
 			.pipe(sourcemaps.init({identityMap:true, debug: true}))
 				.pipe(sass(sassOptions).on('error', sass.logError))
 				.pipe(autoprefixer(autoprefixerOptions))
-				.pipe(minifyCSS())
 			.pipe(sourcemaps.write('.'))
 			.pipe(gulp.dest('./assets/css'));
 		//production css with px to rem conversion

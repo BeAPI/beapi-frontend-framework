@@ -3,6 +3,7 @@ var svgmin = require('gulp-svgmin');
 var path = require('path');
 var rename = require('gulp-rename');
 var cheerio = require('gulp-cheerio');
+var ext_replace = require('gulp-ext-replace');
 
 module.exports = function (gulp, plugins) {
     return function () {
@@ -26,6 +27,11 @@ module.exports = function (gulp, plugins) {
             },
             parserOptions: { xmlMode: true }
         }))
-        .pipe(gulp.dest('assets/icons'));
+        .pipe(gulp.dest('assets/icons'))
+        .pipe(gulp.dest('livingcss/partials'))
+
+        gulp.src('livingcss/partials/icons.svg')
+            .pipe(ext_replace('.hbs'))
+            .pipe(gulp.dest('livingcss/partials'))
     };
 };

@@ -1,6 +1,19 @@
-/* Footer css
- ----------------------------------------------------------------------------------------------------*/
-.footer {
+/**
+ * Footer
+ *
+ * Footer template
+ *
+ * @section Footer
+ * @page patterns
+ *
+ * @example
+ *	<footer class="footer" id="footer" role="contentinfo">
+ *		<div class="container">
+ *			<p>Copyright</p>
+ *		</div>
+ *	</footer>
+ */
+ .footer {
 	@include clearfix;
 	padding-bottom: $base-spacing;
 	text-align: center;

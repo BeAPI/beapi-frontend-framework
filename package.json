@@ -44,11 +44,13 @@
     "gulp-connect-php": "1.0.1",
     "gulp-consolidate": "^0.2.0",
     "gulp-eslint": "^4.0.0",
+    "gulp-ext-replace": "^0.3.0",
     "gulp-favicons": "^2.2.7",
     "gulp-iconfont": "^9.0.2",
     "gulp-iconfont-css": "^2.1.0",
     "gulp-imagemin": "^3.3.0",
     "gulp-jshint": "~2.0.4",
+    "gulp-livingcss": "^2.2.1",
     "gulp-load-plugins": "^1.5.0",
     "gulp-pxtorem": "^2.0.0",
     "gulp-rename": "^1.2.2",
@@ -67,11 +69,13 @@
     "matchdep": "^2.0.0",
     "penthouse": "^1.0.6",
     "picturefill": "3.0.2",
+    "run-sequence": "^2.2.1",
     "standard": "^10.0.3",
     "superfish": "^1.7.9",
     "susy": "^2.2.12",
     "through2": "^2.0.3",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
-  }
+  },
+  "dependencies": {}
 }

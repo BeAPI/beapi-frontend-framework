@@ -1,0 +1,47 @@
+#colors {
+    .livingcss__section-code {
+        display: none;
+    }
+    livingcss-example {
+        position: relative;
+        width: calc(100vw - 300px);
+        left: 50%;
+        transform: translateX(-50%) translateY(0);
+    }
+    .colors {
+        display: flex;
+        height: 300px;
+    }
+    .color {
+        flex: 1;
+        position: relative;
+        box-shadow: inset 0 -60px 60px rgba(0, 0, 0, .3);
+        span {
+            position: absolute;
+            left: 50%;
+            bottom: $base-spacing;
+            text-align: center;
+            font-weight: bold;
+            color: $lightcolor;
+            transform: translateX(-50%);
+        }
+        &--main {
+            background-color: $maincolor;
+        }
+        &--light {
+            background-color: $lightcolor;
+        }
+        &--dark {
+            background-color: $darkcolor;
+        }
+        &--darkgray {
+            background-color: $dark-gray;
+        }
+        &--mediumgray {
+            background-color: $medium-gray;
+        }
+        &--lightgray {
+            background-color: $light-gray;
+        }
+    }
+}

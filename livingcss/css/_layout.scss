@@ -1,0 +1,12 @@
+.livingcss__content {
+    margin-left: 300px;
+    padding-top: 70px;
+}
+.row {
+    @include clearfix;
+    .col-6 {
+        width: 50%;
+        float: left;
+        padding-right: $base-spacing;
+    }
+}

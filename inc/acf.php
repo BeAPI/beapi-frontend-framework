@@ -15,11 +15,17 @@ class Acf implements Service {
 	 */
 	private $path = 'assets/acf/php/';
 
+	/**
+	 * @inheritdoc
+	 */
 	public function register() {
 		add_action( 'template_redirect', [ $this, 'warning' ], 0 );
 		add_action( 'init', [ $this, 'init' ], 0 );
 	}
 
+	/**
+	 * @inheritdoc
+	 */
 	public function get_service_name() {
 		return 'acf';
 	}

@@ -1,0 +1,19 @@
+{
+  "name": "bea-livingcss",
+  "version": "1.0.0",
+  "description": "Living CSS for Be API Frontend Framework",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-livingcss": "^2.2.2",
+    "gulp-sass": "^3.1.0"
+  }
+}

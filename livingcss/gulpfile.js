@@ -19,7 +19,7 @@ gulp.task('livingcss', function () {
       {
         template: './template.hbs',
         preprocess: function (context, template, Handlebars) {
-          context.title = 'Be API Frontend Framework',
+          context.title = 'Be API Frontend Framework'
           Handlebars.registerPartial('icons', '{{icons}}')
         },
         sortOrder: [

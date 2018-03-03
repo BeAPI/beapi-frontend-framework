@@ -7944,7 +7944,6 @@
    * Address differences between Firefox and other browsers.
    */
   hr {
-    -moz-box-sizing: content-box;
     box-sizing: content-box;
     height: 0; }
   
@@ -8075,8 +8074,6 @@
   input[type="search"] {
     -webkit-appearance: textfield;
     /* 1 */
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
     /* 2 */
     box-sizing: content-box; }
   
@@ -8693,7 +8690,9 @@
     background: #f2f2f2;
     border-radius: 0;
     transition: background 0.5s ease;
-    appearance: none; }
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none; }
     input[type="color"]::-webkit-input-placeholder, input[type="date"]::-webkit-input-placeholder, input[type="datetime"]::-webkit-input-placeholder, input[type="datetime-local"]::-webkit-input-placeholder, input[type="email"]::-webkit-input-placeholder, input[type="month"]::-webkit-input-placeholder, input[type="number"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder, input[type="search"]::-webkit-input-placeholder, input[type="tel"]::-webkit-input-placeholder, input[type="text"]::-webkit-input-placeholder, input[type="time"]::-webkit-input-placeholder, input[type="url"]::-webkit-input-placeholder, input[type="week"]::-webkit-input-placeholder, input:not([type])::-webkit-input-placeholder, textarea::-webkit-input-placeholder,
     textarea::-webkit-input-placeholder {
       color: #b3b3b3; }
@@ -8802,7 +8801,9 @@
       box-shadow: none;
       background-color: transparent;
       background-image: none;
-      appearance: none; }
+      -webkit-appearance: none;
+         -moz-appearance: none;
+              appearance: none; }
       .select--custom select option {
         border: 0;
         color: #000;
@@ -9557,7 +9558,8 @@
       background: transparent !important;
       color: black !important;
       text-shadow: none !important;
-      filter: none !important;
+      -webkit-filter: none !important;
+              filter: none !important;
       -ms-filter: none !important;
       font-family: Arial, Helvetica, sans-serif !important;
       text-decoration: none; }
@@ -9603,6 +9605,7 @@
       margin: 10px 0 !important;
       width: 100% !important; } }
   
+  /*# sourceMappingURL=app.css.map*/
   
       </style>
     </template>

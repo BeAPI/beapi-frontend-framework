@@ -37,13 +37,29 @@ class Assets implements Service{
 		// Theme js dependencies
 		$scripts_dependencies = array( 'jquery' );
 
-		// Domready scripts
-		$assets->register_script( 'modernizr', 'assets/js/vendor_async/modernizr.custom.min.js', null, "2.6.2", false );
+		$assets->register_script( 'matchmedia-polyfill', 'assets/js/vendor_ie/matchmedia-polyfill.js', null, "1", false );
+		wp_script_add_data( 'matchmedia-polyfill', 'conditional', 'lte IE 9' );
+
+		$assets->register_script( 'matchMedia-addListener', 'assets/js/vendor_ie/matchMedia.addListener.js', null, "1", false );
+		wp_script_add_data( 'matchmedia-addListener', 'conditional', 'lte IE 9' );
+
+		$assets->register_script( 'placeholders', 'assets/js/vendor_ie/placeholders.min.js', null, "1", false );
+		wp_script_add_data( 'placeholders', 'conditional', 'lte IE 9' );
+
+		$assets->register_script( 'html5shiv', 'assets/js/vendor_ie/html5shiv.min.js', null, "1", false );
+		wp_script_add_data( 'html5shiv', 'conditional', 'lt IE 9' );
+
+		$assets->register_script( 'selectivizr', 'assets/js/vendor_ie/selectivizr.js', null, "1", false );
+		wp_script_add_data( 'selectivizr', 'conditional', 'lte IE 8' );
+
+		$assets->register_script( 'modernizr', 'assets/js/vendor_async/modernizr.custom.min.js', null, '1', false );
+
+		// Async and footer
 		$assets->register_script( 'scripts', 'assets/js/scripts.min.js', $scripts_dependencies, '1', true );
 
-		//Css
+		// CSS
 		$theme = wp_get_theme();
-		wp_register_style( 'theme-style', get_stylesheet_uri(), array(), $theme->Version );
+		wp_register_style( 'theme-style', get_stylesheet_directory_uri() . '/assets/css/style.css', null, $theme->Version );
 	}
 
 	/**
@@ -58,7 +74,12 @@ class Assets implements Service{
 		$assets = new Assets_Tools();
 
 		// JS
-		$assets->enqueue_script( 'scripts' );
+		$assets->enqueue_script( 'matchmedia-polyfill' );
+		$assets->enqueue_script( 'matchmedia-addListener' );
+		$assets->enqueue_script( 'placeholders' );
+		$assets->enqueue_script( 'html5shiv' );
+		$assets->enqueue_script( 'selectivizr' );
+		$assets->enqueue_script( 'modernizr' );
 		$assets->enqueue_script( 'scripts' );
 	}
 

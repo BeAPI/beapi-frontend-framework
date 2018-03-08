@@ -27,7 +27,7 @@ class Assets implements Service{
 		if ( is_admin() ) {
 			return;
 		}
-
+		$theme = wp_get_theme();
 		/**
 		 * Assets handler
 		 */
@@ -55,11 +55,10 @@ class Assets implements Service{
 		$assets->register_script( 'modernizr', 'assets/js/vendor_async/modernizr.custom.min.js', null, '1', false );
 
 		// Async and footer
-		$assets->register_script( 'scripts', 'assets/js/scripts.min.js', $scripts_dependencies, '1', true );
+		$assets->register_script( 'scripts', 'assets/js/scripts.min.js', $scripts_dependencies, $theme->get( 'Version' ), true );
 
 		// CSS
-		$theme = wp_get_theme();
-		wp_register_style( 'theme-style', get_stylesheet_directory_uri() . '/assets/css/style.css', null, $theme->Version );
+		wp_register_style( 'theme-style', get_stylesheet_directory_uri() . '/assets/css/style.css', null, $theme->get( 'Version' ) );
 	}
 
 	/**

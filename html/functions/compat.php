@@ -21,4 +21,4 @@ function wp_get_attachment_image_src() {}
 /**
  * @ignore
  */
-function esc_attr() {}
+function esc_attr( $text ) { return $text }

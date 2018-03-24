@@ -1,104 +1,79 @@
-# Be API FrontEnd Framework
-## The WordPress BFF !
 
-### Before start ###
+#  BeAPI FrontEnd Framework
+##  What is it ?
+BeAPI FrontEnd Framework (BFF) is an open source framework for WordPress stacks.
+##  Installation
+You have to install [Webpack](https://webpack.js.org/) and [Concurrently](https://www.npmjs.com/package/concurrently) globaly.
 
-Install [NodeJS](https://nodejs.org)
+```$ npm install webpack concurrently --g```
 
-You can check if NPM exist by command :
+Clone the repository in the WordPress's themes folder. Remove the `.git` folder in order to work with your own repo.
 
-    $ npm help
+```
+$ cd wp-content/themes
+$ git clone https://github.com/BeAPI/beapi-frontend-framework.git name\_of\_my_theme
+$ cd name\_of\_my_theme
+$ mv build.sh ../../../
+$ rm -rf .git
+```
+Then install dependencies width NPM.
+```
+$ npm install
+```
+Or using Yarn.
+```
+$ yarn
+```
+##  Configuration
+In the `build` directory, you can find the Webpack configurations files.
+-   _config.js —_ the configuration settings (entries, output, port etc…)
+- _css-loader.js —_ the common loaders for CSS, SASS and SCSS filetypes
+- _server.js_ — the Browser Sync configuration
+- _webpack.base.js_ — the basic configuration of Webpack for development and production purpose.
+- _webpack.dev.js_ — the configuration of Webpack for development purpose
+- _webpack.prod.js_ — the configuration of Webpack for production purpose
 
-Take a look at :
+##  How to use it ?
+### Local Server with Browser Sync
+You can launch a local php server with Browser Sync using :
+```
+$ npm start
+```
+### Development purpose
+If you don't need this server you can just compile styles and JS using :
+```
+$ npm run dev
+```
+### Production purpose
+For production purpose, you can compile all of your assets by using :
+```
+$ npm run prod
+```
+If want to bump your WordPress theme version you can add a flag like this :
+```
+$ npm run prod -- -t minor
+```
+For example, if you have a 1.2.1 theme version, it will be bumped to 1.3.0. You can replace `minor` by `patch` or `major`.
 
-* [Gulp](https://http://gulpjs.com/)
-* [Sass](http://sass-lang.com/)
-* [Susy](http://susy.oddbird.net/)
+### Favicons and appicons generation
+You can also generate favicons from the sources files in `assets/img/favicons/` by using :
+```
+$ npm run favicon
+```
+ You can also generate appicons :
+```
+$ npm run appicon
+```
+### Bump of WordPress theme version
+To prevent WordPress and/or browsers cache issues, you can update the version of `style.css` in the theme's root. There are 3 kinds of update available : `patch`, `minor` or `major`.
+```
+$ gulp bump [-t | -type] [patch | minor | major]
+```
+In the case of a multiple themes of a Wordpress project, you can use the previous task in any themes in one command with a bash script. _To use the command, you have to be in the Wordpress root path._ By the way, you can specify the type of bump wanted.
 
-### Installing (Only if WordPress installed)  ###
-
-Clone the repo in the WordPress's themes folder. Delete the .git in order to work with your own repo.
-
-    $ cd wp-content/themes
-    $ git clone https://github.com/BeAPI/beapi-frontend-framework.git name_of_my_theme
-    $ cd name_of_my_theme
-    $ mv build.sh ../../../
-    $ rm -rf .git
-
-NB: Directory "themewp" is used for backend purpose
-
-### Gulp ###
-
-#### Gulp - Installation ####
-
-Install gulp and browser-sync globaly (-g):
-
-    $ npm install gulp browser-sync -g
-
-Then launch:
-
-    $ npm install
-
-First command will "read" the package.json, where all dependencies are listed.
-The second one is used to managed external ressources like jQuery etc.
-If you have errors, it's probably because NodeJS is not installed.
-
-#### Gulp - Sass/Js ####
-
-Once installation done you just need to hit :
-
-    $ gulp
-
-This task will watch your SCSS and JS and compile them:
-
-* style.css (sass task, scss with sourcemap) 
-* style.min.css (sass task, css for production, pixels converted to rem unit) 
-* scripts.min.js (js task)
-
-If you just want to compile styles and script without watching, you can hit theses command:
-
-    $ gulp sass
-    $ gulp js
-
-#### Gulp - Icons ####
-
-There are 2 differents tasks for icon purpose :
-
-    $ gulp svgicons
-    $ gulp iconfont
-    
-By default, iconfont task is not used, you can enable it for old browsers support.
-Svgicons create a svg sprite from all svg files located in `assets/img/icons`.
-
-#### Gulp - Serve ####
-
-You can use browsersync in a local environnement with this commmand:
-
-    $ gulp serve
-    
-It will provide local and external url in order to work on mutiple device at the same time.
-You can change the proxy option in the gulpfile if you want to adapt it to your workspace. More informations at Browsersync.
-
-#### Gulp - Build ####
-
-You can generate a css file that contains all styles visible before the float line break :
-
-    $ gulp critical-css
-    
-In order to use this command, you have to edit the configuration file in `assets/css/critical/bea-critical-conf.json`.
-
-To prevent Wordpress and/or browsers cache issues, you can update the `style.css` in the theme's root. There are 3 kinds of update available : `patch`, `minor` or `major`.
-
-    $ gulp bump [-t | -type] [patch | minor | major]
-    
-To launch all the gulp tasks, without watching any files, in once command, you can type :
-
-    $ gulp build
-    
-In the case of a multiple themes of a Wordpress project, you can use the previous task in any themes in one command with a bash script. *To use the command, you have to be in the Wordpress root path.*
-By the way, you can specify the type of bump wanted.
-
-    $ sh build.sh [-t | -type] [patch | minor | major]
+```
+$ sh build.sh [-t | -type] [patch | minor | major]
+```
 
 ### CSS/SASS Guideline ###
 

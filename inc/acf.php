@@ -21,6 +21,7 @@ class Acf implements Service {
 	public function register() {
 		add_action( 'template_redirect', [ $this, 'warning' ], 0 );
 		add_action( 'init', [ $this, 'init' ], 0 );
+		add_action( 'init', [ $this, 'init_acf' ] );
 	}
 
 	/**
@@ -30,20 +31,16 @@ class Acf implements Service {
 		return 'acf';
 	}
 
-	function warning() {
+	public function warning() {
 		if ( function_exists( 'get_field' ) ) {
 			return;
 		}
 
-		wp_die( sprintf( 'This theme can\'t work without ACF plugin. <a href="%s">Please login to admin</a>, and activate it !', wp_login_url() ) );
+		wp_die( sprintf( __( 'This theme can\'t work without ACF plugin. <a href="%s">Please login to admin</a>, and activate it !', 'framework-textdomain' ), wp_login_url() ) );
 	}
 
-	function register_file( $filename ) {
+	public function register_file( $filename ) {
 		$this->files[ $filename ] = $filename;
-	}
-
-	public function get_files() {
-		return $this->files;
 	}
 
 	public function set_path( $path ) {
@@ -51,6 +48,26 @@ class Acf implements Service {
 	}
 
 	public function init() {
+		/**
+		 * Register ACF Files and Pages/Subpages
+		 */
+
+
+	}
+
+	public function acf_add_options_page( $parameters ) {
+		/**
+		 * Add Option Page
+		 */
+		if ( ! function_exists( 'acf_add_options_page' ) ) {
+			return false;
+		}
+
+		return acf_add_options_page( $parameters );
+
+	}
+
+	public function init_acf() {
 		$files = $this->get_files();
 
 		if ( empty( $files ) || ! is_dir( \get_theme_file_path( $this->path ) ) ) {
@@ -64,19 +81,20 @@ class Acf implements Service {
 
 			require_once $this->path . $file . '.php';
 		}
+	}
 
+	public function get_files() {
+		return $this->files;
 	}
 
 	public function acf_add_options_sub_page( $parameters ) {
 		/**
-		 * Add Option Mage
+		 * Add Option Subpage
 		 */
 		if ( ! function_exists( 'acf_add_options_sub_page' ) ) {
 			return false;
 		}
 
 		return acf_add_options_sub_page( $parameters );
-
 	}
-
 }

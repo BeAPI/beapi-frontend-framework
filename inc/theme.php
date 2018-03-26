@@ -56,9 +56,10 @@ class Theme implements Service {
 	private function add_theme_supports() {
 		// Add the theme support basic elements
 		add_theme_support( 'post-thumbnails' );
-		add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form' ) );
+		add_theme_support( 'html5', [ 'comment-list', 'comment-form', 'search-form' ] );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'async-css' );
+		add_theme_support( 'yoast-seo-breadcrumbs' );
 	}
 
 	private function i18n() {

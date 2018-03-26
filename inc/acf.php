@@ -70,7 +70,7 @@ class Acf implements Service {
 	public function init_acf() {
 		$files = $this->get_files();
 
-		if ( empty( $files ) || ! is_dir( \get_theme_file_path( $this->path ) ) ) {
+		if ( empty( $files ) || ! is_dir( get_theme_file_path( $this->path ) ) ) {
 			return;
 		}
 
@@ -79,7 +79,7 @@ class Acf implements Service {
 				continue;
 			}
 
-			require_once $this->path . $file . '.php';
+			require_once get_theme_file_path( $this->path . $file . '.php' );
 		}
 	}
 

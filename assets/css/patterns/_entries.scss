@@ -1,8 +1,28 @@
-/* Entry
-----------------------------------------------------------------------------------------------------*/
+/**
+ * Entries
+ *
+ * Base style and markup for blog/post/entry.
+ * `.entry__item` and `.entry__card` are used for listing.  
+ * `.entry__content` is used for single view.
+ *
+ * @section Entries
+ * @page patterns
+ *
+ */
+
 .entry {
 	$parent : &;
 	@include clearfix;
+	/**
+	* An entry title base style. Used by default in single view.  
+	* Redefined in `.entry__item` and `.entry__card`.
+	*
+	* @section Entry Title
+	* @sectionof Entries
+	*
+	* @example
+	*	<h1 class="entry__title">A title</h1>
+	*/
 	&__title {
 		font-weight: 900;
 		text-transform: uppercase;
@@ -13,6 +33,36 @@
 			}
 		}
 	}
+	&__img {
+		@include img__responsive();
+	}
+	/**
+	* A entry item base style. dataused in an archive/index list
+	*
+	* @section Entry item
+	* @sectionof Entries
+	*
+	* @example
+	*	<article class="entry__item">
+	*		<div class="entry__media">
+	*			<img src="http://placehold.it/300x200" width="300" height="200" alt="#">
+	*		</div>
+	*		<div class="entry__summary">
+	*			<h2 class="entry__title">
+	*				<a href="#">There is a post + a 20 words lorem ipsum excerpt</a>
+	*			</h2>
+	*			<div class="entry__date">
+	*				Publie le <time datetime="2015-06-30">06/30/2015</time>
+	*			</div>
+	*			<div class="entry__excerpt">
+	*				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+	*			</div>
+	*			<div class="entry__more">
+	*				<button data-href="#" class="entry__more-button">Readmore</a>
+	*			</div>
+	*		</div>
+	*	</article>
+	*/
 	&__item,
 	&__card {
 		@include clearfix;
@@ -34,9 +84,62 @@
 			}
 		}
 	}
+	/**
+	* A "card like" base style. data-seo attribute is used.  
+	* The post will be open in a new window due to the data-seo attribute (see src/seo.js).
+	*
+	* @section Entry card
+	* @sectionof Entries
+	*
+	* @example
+	*	<article class="entry__card" data-seo>
+	*		<div class="entry__media">
+	*			<img src="http://placehold.it/300x200" width="300" height="200" alt="#">
+	*		</div>
+	*		<div class="entry__summary">
+	*			<h2 class="entry__title">
+	*				<a href="02-page-default.php">There is a post + a 20 words lorem ipsum excerpt</a>
+	*			</h2>
+	*			<div class="entry__date">
+	*				Publie le <time datetime="2015-06-30">06/30/2015</time>
+	*			</div>
+	*			<div class="entry__excerpt">
+	*				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+	*			</div>
+	*			<div class="entry__more">
+	*				<span class="button">Readmore</span>
+	*			</div>
+	*		</div>
+	*	</article>
+	*/
 	&__card {
 		@include card;
 	}
+	/**
+	* `.entry__content` is the container class for WordPress wysiwyg. link are underline by default in this container.
+	* Link are underlined by default.
+	* Unordered list are displayed with standard disc.
+	* Images alignements are managed by WordPress using `.alignleft`, `.alignright` and `.aligncenter` classes. see more details at components/_img.scss
+	* Galleries are managed by WordPress using `.gallery` class. see more details at components/_img.scss
+	*
+	* @section Entry content
+	* @sectionof Entries
+	*
+	* @example
+	*	<section class="entry__content">
+	*		<img class="alignleft" src="http://placehold.it/300x200" width="300" height="200" alt="#">
+	*		<p>lorem ipsum</p>
+	*		<p><a href="#">a link</a></p>
+	*		<ul>
+	*			<li>Unordered List item</li>
+	*			<li>Unordered List item</li>
+	*		</ul>
+	*		<ol>
+	*			<li>Ordered List item</li>
+	*			<li>Ordered List item</li>
+	*		</ol>
+	*	</section>
+	*/
 	&__content {
 		@include clearfix;
 		a {
@@ -69,18 +172,5 @@
 				max-width: 100%;
 			}
 		}
-		.gform_wrapper {
-			ul {
-				list-style: none;
-			}
-		}
-		.searchform {
-			input {
-				display: inline;
-			}
-		}
-	}
-	&__img {
-		@include img__responsive();
 	}
 }

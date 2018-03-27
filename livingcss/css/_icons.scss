@@ -1,0 +1,21 @@
+#icons {
+    .livingcss__section-code {
+        display: none;
+    }
+    .icons {
+        li {
+            display: inline-block;
+            margin: 0 $base-spacing $base-spacing 0;
+            .icon {
+                display: block;
+                margin: 0 auto 10px auto;
+                width: 50px;
+                height: 50px;
+            }
+            span {
+                text-align: center;
+                font-weight: bold;
+            }
+        }
+    }
+}

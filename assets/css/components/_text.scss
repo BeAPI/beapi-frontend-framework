@@ -1,3 +1,27 @@
+/**
+ * @section Typography
+ * @page index
+ *
+ * @example
+ * <div class="row">
+ * <div class="col-6">
+ * <h1 class="font--title">Circular</h1>
+ * <h1>Level 1 Heading</h1>
+ * <h2>Level 2 Heading</h2>
+ * <h3>Level 3 Heading</h3>
+ * <h4>Level 4 Heading</h4>
+ * <h5>Level 5 Heading</h5>
+ * <h6>Level 6 Heading</h6>
+ * </div>
+ * <div class="col-6">
+ * <h1 class="font--title">Roboto</h1>
+ * <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla.</p>
+ * <p class="font--italic">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla.</p>
+ * <p class="font--bold">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla.</p>
+ * </div>
+ * </div>
+ */
+
 body {
 	font-size: $base-font-size;
 	line-height: $base-line-height;
@@ -5,6 +29,7 @@ body {
 	color: $textcolor;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
 	//Fonts loading FOUT
 	//Adjust FOUT with tools like https://meowni.ca/font-style-matcher/
 	.fonts-loading & {
@@ -12,10 +37,10 @@ body {
 	}
 }
 a {
-	color: $maincolor;
+	color: $textcolor;
 	text-decoration: none;
 	@include hover {
-		color: $maincolor;
+		color: $textcolor;
 	}
 }
 

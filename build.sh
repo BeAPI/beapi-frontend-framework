@@ -3,9 +3,9 @@ function buildTheme {
 	cd $1/themes/
 	for theme in *; do
 	    if [ -d "${theme}" ]; then
-	        cd "${theme}" && gulp build
+	        cd "${theme}" && npm run prod
 	        if [ $2 == "-t" ] || [ $2 == "-type" ]; then
-	        	gulp bump -type $3
+	        	npm run bump -- -type $3
 	        fi
 	        cd ..
 	    fi

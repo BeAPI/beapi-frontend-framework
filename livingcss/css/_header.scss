@@ -1,0 +1,66 @@
+.livingcss__header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    padding: $base-spacing * 2 $base-spacing;
+    background-color: $maincolor;
+    height: 100%;
+    .livingcss__header-title-container {
+        a {
+            color: $darkcolor;
+            text-decoration: none;
+        }
+        margin-bottom: $base-spacing * 2;
+        .livingcss__logo .icon {
+            display: block;
+            width: 100px;
+            height: 100px;
+        }
+        .livingcss__header-title {
+            font-size: 22px;
+        }
+    }
+}
+.livingcss__main-nav {
+    ul {
+        padding-left: 0;
+    }
+    li {
+        list-style: none;
+        margin-bottom: $base-spacing / 2;
+    }
+    .livingcss__nav-link {
+        display: block;
+        padding: 0 5px;
+        color: $darkcolor;
+        position: relative;
+        text-decoration: none;
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: -3px; left: 0;
+            height: 1px; width: 0;
+            background: $darkcolor;
+            transition: width .2s cubic-bezier(.215,.61,.355,1);
+        }
+        @include hover {
+            &:after {
+                width: 100%;
+            }
+        }
+        &--active {
+            padding: 2px 5px;
+            background: #000;
+            color: $lightcolor;
+            @include hover {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+}

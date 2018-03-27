@@ -2,10 +2,9 @@
  * IE disclaimer
  */
 
-const $ = require('jquery')
+import '../polyfill/forEach'
 
-let ieUiMessage = $('.message__browserhappy')
-
-$('.message__browserhappy button').on('click', () => {
-  ieUiMessage.hide()
+const ieUiMessage = document.querySelectorAll('.message__browserhappy')
+ieUiMessage.forEach(el => {
+  el.querySelector('button').addEventListener('click', () => (el.style.display = 'none'))
 })

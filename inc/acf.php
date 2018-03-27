@@ -39,7 +39,16 @@ class Acf implements Service {
 		wp_die( sprintf( __( 'This theme can\'t work without ACF plugin. <a href="%s">Please login to admin</a>, and activate it !', 'framework-textdomain' ), wp_login_url() ) );
 	}
 
-	public function register_file( $filename ) {
+	public function register_files( $files ) {
+		foreach ( $files as $file ) {
+			if ( empty( $file ) ) {
+				continue;
+			}
+			$this->register_file( $file );
+		}
+	}
+
+	private function register_file( $filename ) {
 		$this->files[ $filename ] = $filename;
 	}
 
@@ -52,7 +61,18 @@ class Acf implements Service {
 		 * Register ACF Files and Pages/Subpages
 		 */
 
-
+		/**
+		 * Example
+		 *
+		 *    $this->acf_add_options_page( [
+		 *        'page_title'  => __( 'Theme Options', 'framework-textdomain' ),
+		 *        'parent_slug' => 'themes.php',
+		 *    ] );
+		 *
+		 *    $this->register_files( [
+		 *        'options-theme',
+		 *    ] );
+		 */
 	}
 
 	public function acf_add_options_page( $parameters ) {

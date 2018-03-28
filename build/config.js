@@ -12,7 +12,7 @@ module.exports = {
   port: 9090,
   refresh: [
     '**/*.php',
-    'dist/assets/*.css',
+    'assets/*.scss',
     'dist/assets/*.js',
     'assets/img/icons/',
     'assets/img/icons/*.svg'

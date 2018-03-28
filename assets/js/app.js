@@ -33,3 +33,10 @@ lazySizes.customMedia = {}
  * https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/bgset#lazysizes-bgset-extension---responsive-background-images
  */
 lazySizesBgset.customMedia = {}
+
+let __svg__ = {
+  path: '../img/icons/*.svg', // entry
+  name: '../../dist/assets/icons/icons.svg' // output
+}
+
+require('webpack-svgstore-plugin/src/helpers/svgxhr')(__svg__)

@@ -1146,25 +1146,30 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   color: #333;
   border: 1px solid #F1E25B;
   background: #F1E25B;
-  transition: border-color .25s ease-in-out, background-color .25s ease-in-out, transform .25s ease-in-out; }
+  transition: border-color .25s ease-in-out, background-color .25s ease-in-out, -webkit-transform .25s ease-in-out;
+  transition: border-color .25s ease-in-out, background-color .25s ease-in-out, transform .25s ease-in-out;
+  transition: border-color .25s ease-in-out, background-color .25s ease-in-out, transform .25s ease-in-out, -webkit-transform .25s ease-in-out; }
   button svg, input[type="button"] svg, input[type="reset"] svg, input[type="submit"] svg {
     pointer-events: none; }
   button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover {
     color: #333;
     border-color: #efde44;
     background-color: #efde44;
-    transform: translateY(-1px); }
+    -webkit-transform: translateY(-1px);
+            transform: translateY(-1px); }
   button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus {
     outline: none;
     color: #333;
     border-color: #efde44;
     background-color: #efde44;
-    transform: translateY(-1px); }
+    -webkit-transform: translateY(-1px);
+            transform: translateY(-1px); }
   button:active, input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:active {
     color: #333;
     border-color: #F1E25B;
     background-color: #F1E25B;
-    transform: translateY(1px); }
+    -webkit-transform: translateY(1px);
+            transform: translateY(1px); }
 
 .button {
   display: inline-block;
@@ -1172,25 +1177,30 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   color: #333;
   border: 1px solid #F1E25B;
   background: #F1E25B;
-  transition: border-color .25s ease-in-out, background-color .25s ease-in-out, transform .25s ease-in-out; }
+  transition: border-color .25s ease-in-out, background-color .25s ease-in-out, -webkit-transform .25s ease-in-out;
+  transition: border-color .25s ease-in-out, background-color .25s ease-in-out, transform .25s ease-in-out;
+  transition: border-color .25s ease-in-out, background-color .25s ease-in-out, transform .25s ease-in-out, -webkit-transform .25s ease-in-out; }
   .button svg {
     pointer-events: none; }
   .button:hover {
     color: #333;
     border-color: #efde44;
     background-color: #efde44;
-    transform: translateY(-1px); }
+    -webkit-transform: translateY(-1px);
+            transform: translateY(-1px); }
   .button:focus {
     outline: none;
     color: #333;
     border-color: #efde44;
     background-color: #efde44;
-    transform: translateY(-1px); }
+    -webkit-transform: translateY(-1px);
+            transform: translateY(-1px); }
   .button:active {
     color: #333;
     border-color: #F1E25B;
     background-color: #F1E25B;
-    transform: translateY(1px); }
+    -webkit-transform: translateY(1px);
+            transform: translateY(1px); }
   .button__text {
     display: inline-block;
     vertical-align: middle; }
@@ -1297,7 +1307,8 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     position: absolute;
     top: calc(50% - 25px);
     left: calc(50% - 25px);
-    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
     width: 50px;
     height: 50px;
     border-radius: 50px;
@@ -1305,7 +1316,8 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     border-top-color: transparent;
     opacity: 1;
     transition: opacity .5s, z-index .5s ease .5s;
-    animation: loading .5s linear infinite; }
+    -webkit-animation: loading .5s linear infinite;
+            animation: loading .5s linear infinite; }
   [data-bgset].lazyload {
     opacity: 1;
     transition: opacity 0.5s; }
@@ -1313,11 +1325,21 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     opacity: 0;
     z-index: -1; }
 
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
 @keyframes loading {
   0% {
-    transform: rotate(0deg); }
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
   100% {
-    transform: rotate(360deg); } }
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
 
 /* Utility/Misc Classes
 ----------------------------------------------------------------------------------------------------*/
@@ -1337,18 +1359,30 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   width: 1px; }
 
 .animate {
-  animation-duration: 2s;
-  animation-timing-function: ease;
-  animation-fill-mode: both; }
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both; }
 
 .fadeIn {
-  animation-name: fadeIn; }
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn; }
 
 .fadeinRight {
-  animation-name: fadeInRight; }
+  -webkit-animation-name: fadeInRight;
+          animation-name: fadeInRight; }
 
 .fadeinUp {
-  animation-name: fadeInUp; }
+  -webkit-animation-name: fadeInUp;
+          animation-name: fadeInUp; }
+
+@-webkit-keyframes (fadeIn) {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
 
 @keyframes (fadeIn) {
   from {
@@ -1356,21 +1390,45 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   to {
     opacity: 1; } }
 
+@-webkit-keyframes (fadeInUp) {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%); }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none; } }
+
 @keyframes (fadeInUp) {
   from {
     opacity: 0;
-    transform: translateY(100%); }
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%); }
   to {
     opacity: 1;
-    transform: none; } }
+    -webkit-transform: none;
+            transform: none; } }
+
+@-webkit-keyframes (fadeInRight) {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none; } }
 
 @keyframes (fadeInRight) {
   from {
     opacity: 0;
-    transform: translateX(100%); }
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); }
   to {
     opacity: 1;
-    transform: none; } }
+    -webkit-transform: none;
+            transform: none; } }
 
 /* Main Layout
 ----------------------------------------------------------------------------------------------------*/
@@ -1633,7 +1691,8 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   position: relative;
   width: 100vw;
   left: 50%;
-  transform: translateX(-50%) translateY(0);
+  -webkit-transform: translateX(-50%) translateY(0);
+          transform: translateX(-50%) translateY(0);
   padding: 20px 0;
   margin-bottom: 20px; }
 

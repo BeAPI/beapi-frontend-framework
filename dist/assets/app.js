@@ -10999,9 +10999,9 @@ jQuery.nodeName = nodeName;
 // https://github.com/jrburke/requirejs/wiki/Updating-existing-libraries#wiki-anon
 
 if ( true ) {
-	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function() {
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
 		return jQuery;
-	}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 }
 
@@ -11109,6 +11109,10 @@ __WEBPACK_IMPORTED_MODULE_2_lazysizes___default.a.customMedia = {}
  * https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/bgset#lazysizes-bgset-extension---responsive-background-images
  */
 __WEBPACK_IMPORTED_MODULE_3_lazysizes_plugins_bgset_ls_bgset___default.a.customMedia = {}
+
+let __svg__ = { filename: __webpack_require__.p +"../../dist/assets/icons/icons.svg" }
+
+__webpack_require__(13)(__svg__)
 
 /***/ }),
 /* 6 */
@@ -12649,7 +12653,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		module.exports = picturefill;
 	} else if ( true ) {
 		// AMD support
-		!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() { return picturefill; }).call(exports, __webpack_require__, exports, module),
+		!(__WEBPACK_AMD_DEFINE_RESULT__ = function() { return picturefill; }.call(exports, __webpack_require__, exports, module),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	}
 
@@ -13380,6 +13384,61 @@ class SeoLink {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (SeoLink);
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+/**
+ * Load svg via ajax
+ * @param  {string} url path to svg sprite
+ * @generator: webpack-svgstore-plugin
+ * @see: https://www.npmjs.com/package/webpack-svgstore-plugin
+ * @return {[type]}     [description]
+ */
+var svgXHR = function(options) {
+  var url = false;
+  var baseUrl = undefined;
+
+  options && options.filename
+    ? url = options.filename
+    : null;
+
+  if (!url) return false;
+  var _ajax = new XMLHttpRequest();
+  var _fullPath;
+
+  if (typeof XDomainRequest !== 'undefined') {
+    _ajax = new XDomainRequest();
+  }
+
+  if (typeof baseUrl === 'undefined') {
+    if (typeof window.baseUrl !== 'undefined') {
+      baseUrl = window.baseUrl;
+    } else {
+      baseUrl = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+    }
+  }
+
+  _fullPath = (baseUrl + '/' + url).replace(/([^:]\/)\/+/g, '$1');
+  _ajax.open('GET', _fullPath, true);
+  _ajax.onprogress = function() {};
+  _ajax.onload = function() {
+    if(!_ajax.responseText || _ajax.responseText.substr(0, 4) !== "<svg") {
+      throw Error("Invalid SVG Response");
+    }
+    if(_ajax.status < 200 || _ajax.status >= 300) {
+      return;
+    }
+    var div = document.createElement('div');
+    div.innerHTML = _ajax.responseText;
+    document.body.insertBefore(div, document.body.childNodes[0]);
+  };
+  _ajax.send();
+};
+
+module.exports = svgXHR;
+
 
 /***/ })
 /******/ ]);

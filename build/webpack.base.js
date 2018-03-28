@@ -76,7 +76,6 @@ let webpackBase = {
       }
     ]
   },
-  watch: dev,
   plugins: [
     new webpack.ProvidePlugin({
       $: 'jquery',

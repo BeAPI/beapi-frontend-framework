@@ -13,9 +13,11 @@ class SVG implements Service {
 	}
 
 	public function footer_icons() {
-		if ( ! locate_template( [ 'assets/icons/icons.svg' ], true ) ) {
+		if ( ! file_exists( \get_theme_file_path( '/dist/assets/icons/icons.svg' ) ) ) {
 			echo '<!-- No SVG File found -->';
 		}
+
+		require_once( \get_theme_file_path( '/dist/assets/icons/icons.svg' ) );
 	}
 
 	public function get_the_icon( $icon_class, $additionnal_classes = array() ) {

@@ -37,28 +37,29 @@ class Assets implements Service{
 		// Theme js dependencies
 		$scripts_dependencies = array( 'jquery' );
 
-		$assets->register_script( 'matchmedia-polyfill', 'assets/js/vendor_ie/matchmedia-polyfill.js', null, "1", false );
+		$assets->register_script( 'matchmedia-polyfill', 'assets/js/vendor_ie/matchmedia-polyfill.js', [], '1', false );
 		wp_script_add_data( 'matchmedia-polyfill', 'conditional', 'lte IE 9' );
 
-		$assets->register_script( 'matchMedia-addListener', 'assets/js/vendor_ie/matchMedia.addListener.js', null, "1", false );
+		$assets->register_script( 'matchMedia-addListener', 'assets/js/vendor_ie/matchMedia.addListener.js', [], '1', false );
 		wp_script_add_data( 'matchmedia-addListener', 'conditional', 'lte IE 9' );
 
-		$assets->register_script( 'placeholders', 'assets/js/vendor_ie/placeholders.min.js', null, "1", false );
+		$assets->register_script( 'placeholders', 'assets/js/vendor_ie/placeholders.min.js', [], '1', false );
 		wp_script_add_data( 'placeholders', 'conditional', 'lte IE 9' );
 
-		$assets->register_script( 'html5shiv', 'assets/js/vendor_ie/html5shiv.min.js', null, "1", false );
+		$assets->register_script( 'html5shiv', 'assets/js/vendor_ie/html5shiv.min.js', [], '1', false );
 		wp_script_add_data( 'html5shiv', 'conditional', 'lt IE 9' );
 
-		$assets->register_script( 'selectivizr', 'assets/js/vendor_ie/selectivizr.js', null, "1", false );
+		$assets->register_script( 'selectivizr', 'assets/js/vendor_ie/selectivizr.js', [], '1', false );
 		wp_script_add_data( 'selectivizr', 'conditional', 'lte IE 8' );
 
-		$assets->register_script( 'modernizr', 'assets/js/vendor_async/modernizr.custom.min.js', null, '1', false );
+		$assets->register_script( 'modernizr', 'assets/js/vendor_async/modernizr.custom.min.js', [], '1', false );
 
 		// Async and footer
-		$assets->register_script( 'scripts', 'assets/js/scripts.min.js', $scripts_dependencies, $theme->get( 'Version' ), true );
+		$file = ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) ? $this->get_min_file( 'js' ) : 'app.js';
+		$assets->register_script( 'scripts', 'assets/' . $file, $scripts_dependencies, $theme->get( 'Version' ), true );
 
 		// CSS
-		wp_register_style( 'theme-style', get_stylesheet_directory_uri() . '/assets/css/style.css', null, $theme->get( 'Version' ) );
+		wp_register_style( 'theme-style', get_stylesheet_uri(), [], $theme->get( 'Version' ) );
 	}
 
 	/**
@@ -106,10 +107,59 @@ class Assets implements Service{
 	 * @author Nicolas Juen
 	 */
 	public function stylesheet_uri( $stylesheet_uri ) {
-		if ( file_exists( \get_theme_file_path( '/assets/css/style.min.css' ) ) ) {
-			return \get_theme_file_uri( '/assets/css/style.min.css' );
+		if ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) {
+			$file = $this->get_min_file( 'css' );
+			if ( ! empty( $file ) && file_exists( \get_theme_file_path( '/dist/assets/' . $file ) ) ) {
+				return \get_theme_file_uri( '/dist/assets/' . $file );
+			}
+		}
+
+		if ( file_exists( \get_theme_file_path( '/dist/assets/app.css' ) ) ) {
+			return \get_theme_file_uri( '/dist/assets/app.css' );
 		}
 
 		return $stylesheet_uri;
+	}
+
+	/**
+	 * Return JS/CSS .min file based on assets.json
+	 *
+	 * @param $type
+	 *
+	 * @return bool|null
+	 */
+	public function get_min_file( $type ) {
+		if ( empty( $type ) ) {
+			return false;
+		}
+
+		if ( ! file_exists( \get_theme_file_path( '/dist/assets/assets.json' ) ) ) {
+			return false;
+		}
+
+		$json   = file_get_contents( \get_theme_file_path( '/dist/assets/assets.json' ) );
+		$assets = json_decode( $json, true );
+
+		if ( empty( $assets ) ) {
+			return false;
+		}
+
+		switch ( $type ) {
+			case 'css':
+				$file = $assets['app.css'];
+				break;
+			case 'js':
+				$file = $assets['app.js'];
+				break;
+			default:
+				$file = null;
+				break;
+		}
+
+		if ( empty( $file ) ) {
+			return false;
+		}
+
+		return $file;
 	}
 }

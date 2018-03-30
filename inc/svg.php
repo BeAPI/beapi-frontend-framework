@@ -21,11 +21,11 @@ class SVG implements Service {
 	}
 
 	public function get_the_icon( $icon_class, $additionnal_classes = array() ) {
-		$classes[] = 'icon';
 		$classes[] = sprintf( 'icon-%s', $icon_class );
 		$classes   = array_merge( $classes, $additionnal_classes );
+		$classes = array_map('sanitize_html_class', $classes );
 
-		return sprintf( '<svg class="%s" aria-hidden="true" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-%s"></use></svg>', \sanitize_html_class( implode( ' ', $classes ) ), $icon_class );
+		return sprintf( '<svg class="%s" aria-hidden="true" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-%s"></use></svg>', implode( ' ', $classes ), $icon_class );
 	}
 
 	public function the_icon( $icon_class, $additionnal_classes = array() ) {

@@ -24,7 +24,15 @@ let webpackBase = {
         exclude: /(node_modules|bower_components)/,
         include: root,
         enforce: 'pre',
-        use: ['babel-loader', 'eslint-loader']
+        use: [{
+          loader: 'babel-loader',
+          options: {
+            babelrc: true
+          }
+        },
+        {
+          loader: 'eslint-loader'
+        }]
       },
       {
         test: /\.css$/,

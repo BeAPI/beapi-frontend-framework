@@ -1,6 +1,6 @@
 {
   "name": "beapi-frontend-framework",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "author": "BeAPI",
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-eslint": "^8.2.1",
-    "babel-loader": "^7.1.2",
+    "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",

@@ -1,12 +1,12 @@
 
 #  BeAPI FrontEnd Framework
 ##  What is it ?
-BeAPI FrontEnd Framework (BFF) is an open source framework for WordPress stacks. Mobile-first projects with the latest useful tools for the Frontend Development like Webpack, LivingCSS, SASS, Critical CSS, Favicons generation and custom tools like ComposerJS.
+BeAPI FrontEnd Framework (BFF) is an open source framework for WordPress stacks. Mobile-first projects with the latest useful tools for the Frontend Development like Webpack 3, LivingCSS, SASS, Critical CSS, Favicons generation and custom tools like ComposerJS.
 
 ##  Installation
 You have to install [Webpack](https://webpack.js.org/) and [Concurrently](https://www.npmjs.com/package/concurrently) globaly.
 
-```$ npm install webpack concurrently --g```
+```$ npm install webpack@3 concurrently -g```
 
 Clone the repository in the WordPress's themes folder. Remove the `.git` folder in order to work with your own repo.
 

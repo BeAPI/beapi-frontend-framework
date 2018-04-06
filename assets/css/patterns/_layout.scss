@@ -17,4 +17,6 @@
 		@include span(3 last);
 	}
 }
-
+[tabindex]:focus {
+	outline: none;
+}

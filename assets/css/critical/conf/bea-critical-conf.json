@@ -1,10 +1,10 @@
 {
-	"envUrl": "sandbox.devbea.fr",
+	"envUrl": "rlefort.beapi.space",
 
 	"pages": [
 		{
 			"name": "home",
-			"url": "/"
+			"url": "/bff/html/01-home.php"
 		}
 	],
 	"viewports": [

@@ -58,11 +58,15 @@ bower_components/
 ### PictureFill/Retina images/Timthumb ###
 ### on dev need to specify themes path like : wp-content/themes/name_of_your_theme/assets/img/sample/cache ###
 assets/img/sample/cache
+dist/assets/img/sample/cache
 
 ### Fabricator styleguide ###
 styleguide/dist
 styleguide/node_modules
 
+
+### Mac OSX
+.DS_Store
 ### VS Code ###
 .vscode/
 

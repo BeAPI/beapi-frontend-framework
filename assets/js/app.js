@@ -36,7 +36,7 @@ lazySizesBgset.customMedia = {}
 
 let __svg__ = {
   path: '../img/icons/*.svg', // entry
-  name: '../../dist/assets/icons/icons.svg' // output
+  name: '/assets/icons/icons.svg' // output
 }
 
-require('webpack-svgstore-plugin/src/helpers/svgxhr')(__svg__)
+require('./vendor/svgxhr')(__svg__)

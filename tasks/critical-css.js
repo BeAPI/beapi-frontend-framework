@@ -12,6 +12,7 @@ function funcPenthouse (_width, _height, _viewport, _url, _page) {
   penthouse({
     url: _url,
     css: path.join('dist/assets/' + _css['app.css']),
+    propertiesToRemove: ['src'],
     width: _width, // viewport width
     height: _height, // viewport height
     timeout: 30000, // ms; abort critical css generation after this timeout
@@ -24,9 +25,9 @@ function funcPenthouse (_width, _height, _viewport, _url, _page) {
     } */
   })
     .then(criticalCss => {
-      shell.mkdir('-p', path.resolve('dist/assets/css/critical/'))
+      shell.mkdir('-p', path.resolve('dist/assets/critical/'))
 
-      fs.writeFileSync(__dirname + '/../dist/assets/css/critical/' + _page + '-' + _viewport + '.css', criticalCss)
+      fs.writeFileSync(__dirname + '/../dist/assets/critical/' + _page + '-' + _viewport + '.css', criticalCss)
       console.log('\x1b[32m', '🤘 Critical CSS successfully generated for [[ page ' + _page + ' ]]   [[ ' + _viewport + ' viewport ]]   [[ ' + _url + ' ]]')
     })
     .catch(err => {
@@ -35,7 +36,7 @@ function funcPenthouse (_width, _height, _viewport, _url, _page) {
 }
 
 // Test generate critical css
-console.log('\x1b[36m%s\x1b[0m', '🤞 Critical CSS are being generated...')
+console.log('\x1b[36m%s\x1b[0m', '🤞 Generating Critical CSS...')
 
 _configCritical.pages.forEach(function (page) {
   page.url = _envUrl + page.url

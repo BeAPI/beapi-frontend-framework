@@ -1,10 +1,10 @@
 {
-	"envUrl": "rlefort.beapi.space",
+	"envUrl": "https://mricoul.beapi.space",
 
 	"pages": [
 		{
 			"name": "home",
-			"url": "/bff/html/01-home.php"
+			"url": "/themes/beapi-frontend-framework/dist/01-home.php"
 		}
 	],
 	"viewports": [

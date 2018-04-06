@@ -10,6 +10,7 @@ module.exports = {
   assets_path: path.resolve(__dirname, './../dist/assets'),
   assets_public_path: '/assets/',
   port: 9090,
+  dev: process.env.NODE_ENV === 'dev',
   refresh: [
     '**/*.php',
     'assets/**/*.scss',

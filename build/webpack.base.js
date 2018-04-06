@@ -5,17 +5,16 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const SvgStore = require('webpack-svgstore-plugin')
 const cssLoaders = require('./css-loader.js')
-const dev = process.env.NODE_ENV === 'dev'
 
 let root = path.resolve(__dirname)
 
 let webpackBase = {
-  devtool: dev ? 'source-map' : false,
+  devtool: config.dev ? 'source-map' : false,
   entry: config.entry,
   output: {
     path: config.assets_path,
     publicPath: config.assets_public_path,
-    filename: dev ? '[name].js' : '[name].[chunkhash:8].min.js'
+    filename: config.dev ? '[name].js' : '[name].[chunkhash:8].min.js'
   },
   module: {
     rules: [

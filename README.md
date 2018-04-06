@@ -67,7 +67,7 @@ $ npm run appicon
 ### Bump of WordPress theme version
 To prevent WordPress and/or browsers cache issues, you can update the version of `style.css` in the theme's root. There are 3 kinds of update available : `patch`, `minor` or `major`.
 ```
-$ gulp bump [-t | -type] [patch | minor | major]
+$ npm run bump [-t | -type] [patch | minor | major]
 ```
 In the case of a multiple themes of a Wordpress project, you can use the previous task in any themes in one command with a bash script. _To use the command, you have to be in the Wordpress root path._ By the way, you can specify the type of bump wanted.
 
@@ -136,7 +136,7 @@ CSS partials are classified and saved in 6 mains folders
 
 ### JS Guideline ###
 
-As said above all javascript ressources are compiled with gulp with a sourcemap for debbugging.
+As said above all JavaScript ressources are compiled with Webpack with a sourcemap for debbugging.
 
 If you need a library, install it with npm.
     
@@ -144,13 +144,12 @@ If you need a library, install it with npm.
     
 Then you can require it where you need to use it, like this :
     
-    $ var npm_lib = require('npm_lib')
+    $ import npm_lib from 'npm_lib'
     
 If there is no packages available on npm for the library you need, paste the dist file into js vendor folder. Then you have to require it :
 
-    $ var vendor_lib = require('../vendor/vendor_lib')
+    $ import vendor_lib from '../vendor/vendor_lib'
 
-If you want to play with it, create a new file in 'assets/js/src' like slider.js for example. You need to require it in scripts.js as a CommonJS module, then gulp will compile your scripts in 'scripts.min.js' and update 'scripts.min.js.map' in order to debbug the script.
 
 We are using ESLint coding Standard : https://github.com/standard/standard
 
@@ -160,7 +159,7 @@ In order to keep a lightweight stack, you can add extra components that are used
 
 ### LivingCSS / Styleguide ###
 
-SASS file are commented in order to generate a living styleguide using `gulp livingcss`
+SASS file are commented in order to generate a living styleguide using `npm run livingcss`
 It is also available at `your_local_url/livingcss/html/` and watched by `gulp serve`
 For more details look at : https://github.com/straker/livingcss
 

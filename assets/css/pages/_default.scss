@@ -7,7 +7,7 @@
         margin-bottom: $base-spacing;
 		padding: $base-spacing / 2;
 
-		@media screen and (min-width: $desktop-small) {
+		@include breakpoints(md) {
 			padding: 100px 0;
 		}
 

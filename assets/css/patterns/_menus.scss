@@ -47,7 +47,7 @@
 			}
 		}
 	}
-	@media screen and (min-width: $desktop-small) {
+	@include breakpoints(md) {
 		display: block;
 	}
 }
@@ -70,7 +70,7 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		@media screen and (min-width: $desktop-small) {
+		@include breakpoints(md) {
 			display: none;
 		}
 	}
@@ -78,7 +78,7 @@
 // Mobile menu stop scroll on body and display button */
 .menu-mobile--active {
 	overflow: hidden;
-	@media screen and (max-width: $desktop-small) {
+	@include breakpoints(md) {
 		.menu {
 			left: 0;
 			box-shadow: 0 0 100px rgba($darkcolor, 0.5);
@@ -94,7 +94,6 @@
 	top: 0;
 	left: -100%;
 	bottom: 0;
-	@include clearfix;
 	width: 80%;
 	padding: 40px 0;
 	background: $maincolor;
@@ -103,7 +102,10 @@
 	transition : left 0.5s ease-out;
 	-webkit-backface-visibility: hidden;
 	-webkit-transform: translateZ(0);
-	@media screen and (min-width: $desktop-small) {
+
+	@include clearfix;
+
+	@include breakpoints(md) {
 		//reset mobile menu position and dimensions
 		position: relative;
 		left: auto;
@@ -121,7 +123,8 @@
 		// Sub list
 		&--sub {
 			display: none;
-			@media screen and (min-width: $desktop-small) {
+
+			@include breakpoints(md) {
 				top: 100%;
 				position: absolute;
 				min-width: 200px;
@@ -152,7 +155,8 @@
 					background:$maincolor;
 				}
 			}
-			@media screen and (min-width: $desktop-small) {
+
+			@include breakpoints(md) {
 				display: inline-block;
 				position: relative;
 				li {

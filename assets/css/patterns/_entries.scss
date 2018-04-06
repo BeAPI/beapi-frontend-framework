@@ -67,7 +67,7 @@
 	&__card {
 		@include clearfix;
 		margin-bottom: $base-spacing;
-		@media screen and (min-width: $tablet-medium) {
+		@include breakpoints(sm) {
 			margin-bottom: $base-spacing*2;
 		}
 		#{$parent}__img {
@@ -76,7 +76,7 @@
 			margin-right: auto;
 		}
 		#{$parent}__media {
-			@media screen and (min-width: $tablet-medium) {
+			@include breakpoints(sm) {
 				@include align;
 				&~#{$parent}__summary {
 					margin-left: 320px; // = image width
@@ -168,7 +168,7 @@
 		.alignright,
 		.alignleft {
 			max-width: 50%;
-			@media screen and (min-width: $tablet-medium) {
+			@include breakpoints(sm) {
 				max-width: 100%;
 			}
 		}

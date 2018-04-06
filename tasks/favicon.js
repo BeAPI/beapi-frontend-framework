@@ -54,7 +54,7 @@ if (process.argv.indexOf('--appicon') === -1) {
     }
   }
 }
-console.log('\x1b[36m%s\x1b[0m', '🤞 Favicons are being generated...')
+console.log('\x1b[36m%s\x1b[0m', '🤞 Generating favicons...')
 
 const callback = function (error, response) {
   if (error) {

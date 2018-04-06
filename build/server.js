@@ -17,7 +17,14 @@ webpackDev.plugins.push(
             if (event === 'change') {
               const bs = require('browser-sync').get('bs-webpack-plugin')
               bs.stream({once: true})
-              bs.reload()
+
+              if (file.indexOf('.scss') >= 0) {
+                setTimeout(function () {
+                  bs.reload()
+                }, 3000)
+              } else {
+                bs.reload()
+              }
             }
           }
         }

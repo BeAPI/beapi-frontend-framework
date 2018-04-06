@@ -3,9 +3,13 @@
 namespace BEA\Theme\Framework;
 
 
-class Assets_Async implements Service {
+class Assets_CSS_Async implements Service {
 
-	private $handler = 'theme-style';
+	/**
+	 * CSS handlers for the themes.
+	 * @var array : the theme styles to async load
+	 */
+	private $css_handlers = [ 'theme-style' => true ];
 
 	/**
 	 * @inheritdoc
@@ -22,11 +26,11 @@ class Assets_Async implements Service {
 	 * @inheritdoc
 	 */
 	public function get_service_name() {
-		return 'assets-async';
+		return 'assets-css-async';
 	}
 
-	public function set_handler( $handler ) {
-		$this->handler = (string) $handler;
+	public function add_css_handler( $handler ) {
+		$this->css_handlers[ $handler ] = true;
 	}
 
 	/**
@@ -41,7 +45,7 @@ class Assets_Async implements Service {
 	 * @author Alexandre Sadowski
 	 */
 	public function style_loader_tag( $html, $handle, $href, $media ) {
-		if ( $this->handler !== $handle ) {
+		if ( ! isset( $this->css_handlers[ $handle ] ) ) {
 			return $html;
 		}
 

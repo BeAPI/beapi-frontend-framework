@@ -59,6 +59,7 @@ class Theme implements Service {
 		add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form' ) );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'async-css' );
+		add_theme_support( 'async-js' );
 	}
 
 	private function i18n() {

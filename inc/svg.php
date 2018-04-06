@@ -14,7 +14,11 @@ class SVG implements Service {
 
 	public function footer_icons() {
 		if ( ! file_exists( \get_theme_file_path( '/dist/assets/icons/icons.svg' ) ) ) {
-			echo '<!-- No SVG File found -->';
+			if ( defined('WP_DEBUG') && WP_DEBUG == true ) {
+				echo '<!-- No SVG File found -->';
+			}
+
+			return;
 		}
 
 		require_once( \get_theme_file_path( '/dist/assets/icons/icons.svg' ) );

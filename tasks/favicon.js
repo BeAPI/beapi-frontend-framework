@@ -3,7 +3,11 @@
 const favicons = require('favicons')
 const fs = require('fs')
 const mkdirp = require('mkdirp')
-const source = 'assets/img/favicons/favicon_src.png'
+const faviconPath = 'assets/img/favicons/'
+const faviconSource = faviconPath + 'favicon_src.png'
+const appiconSource = faviconPath + 'appicon_src.png'
+const appicon = process.argv.indexOf('--appicon') === -1
+
 let configuration = {
   appName: 'BFF',
   appDescription: 'BFF starter theme',
@@ -18,10 +22,10 @@ let configuration = {
   logging: false,
   online: false,
   pipeHTML: true,
-  replace: true
+  replace: true,
 }
 
-if (process.argv.indexOf('--appicon') === -1) {
+if (appicon) {
   configuration = {
     ...configuration,
     html: 'index_sd.html',
@@ -34,8 +38,8 @@ if (process.argv.indexOf('--appicon') === -1) {
       firefox: false,
       opengraph: false,
       windows: false,
-      yandex: false
-    }
+      yandex: false,
+    },
   }
 } else {
   configuration = {
@@ -50,13 +54,13 @@ if (process.argv.indexOf('--appicon') === -1) {
       firefox: true,
       opengraph: false,
       windows: true,
-      yandex: true
-    }
+      yandex: true,
+    },
   }
 }
 console.log('\x1b[36m%s\x1b[0m', '🤞 Generating favicons...')
 
-const callback = function (error, response) {
+const callback = function(error, response) {
   if (error) {
     console.log(error.status) // HTTP error code (e.g. `200`) or `null`
     console.log(error.name) // Error name e.g. 'API Error'
@@ -66,7 +70,7 @@ const callback = function (error, response) {
 
   if (response.images) {
     mkdirp.sync(configuration.path)
-    response.images.forEach((image) => {
+    response.images.forEach(image => {
       console.log('\x1b[32m', `🤘 ${image.name} has been successfully generated into ${configuration.path}`)
       return fs.writeFileSync(`${configuration.path}/${image.name}`, image.contents)
     })
@@ -74,7 +78,7 @@ const callback = function (error, response) {
 
   if (response.files) {
     mkdirp.sync(configuration.path)
-    response.files.forEach((file) => {
+    response.files.forEach(file => {
       console.log('\x1b[32m', `🤘 ${file.name} has been successfully generated into ${configuration.path}`)
       return fs.writeFileSync(`${configuration.path}/${file.name}`, file.contents)
     })
@@ -86,4 +90,4 @@ const callback = function (error, response) {
   }
 }
 
-favicons(source, configuration, callback)
+favicons(appicon ? faviconSource : appiconSource, configuration, callback)

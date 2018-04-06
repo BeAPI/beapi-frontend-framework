@@ -29,7 +29,7 @@ class Assets_CSS_Async implements Service {
 		return 'assets-css-async';
 	}
 
-	public function add_css_handler( $handler ) {
+	public function add_handler( $handler ) {
 		$this->css_handlers[ $handler ] = true;
 	}
 

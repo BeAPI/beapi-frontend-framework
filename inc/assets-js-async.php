@@ -9,7 +9,7 @@ class Assets_JS_Async implements Service {
 	 * JS handlers for the script.
 	 * @var array : the script styles to async load
 	 */
-	private $js_handlers = [ 'scripts' => true ];
+	private $js_handlers = [ 'scripts' => 'async' ];
 
 	/**
 	 * @inheritdoc
@@ -18,6 +18,12 @@ class Assets_JS_Async implements Service {
 		if ( current_theme_supports( 'async-js' ) && ! is_admin() ) {
 			add_filter( 'script_loader_tag', array( $this, 'script_loader_tag' ), 20, 2 );
 		}
+
+		/**
+		 * Example
+		 *
+		 * $this->add_handler( 'scripts', 'async defer' );
+		 */
 	}
 
 	/**
@@ -30,8 +36,8 @@ class Assets_JS_Async implements Service {
 	/**
 	 * @param $handler
 	 */
-	public function add_js_handler( $handler ) {
-		$this->js_handlers[ $handler ] = true;
+	public function add_handler( $handler, $type = 'async' ) {
+		$this->js_handlers[ $handler ] = $type;
 	}
 
 	/**
@@ -48,6 +54,6 @@ class Assets_JS_Async implements Service {
 			return $html;
 		}
 
-		return  str_replace( ' src', ' async="async" src', $html );
+		return  str_replace( ' src', sprintf( ' %s src', $this->js_handlers[ $handle ] ), $html );
 	}
 }

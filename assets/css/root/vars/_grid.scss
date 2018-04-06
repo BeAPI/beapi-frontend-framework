@@ -1,0 +1,12 @@
+/**
+ * Susy layout
+ * Go to _layouts.scss for example
+ */
+ $susy: (
+	//debug :(image: show-columns),
+	global-box-sizing: border-box,
+	columns: 12,
+	column-width: 60px,
+	gutters: 20px/60px,
+	container: 960px
+);

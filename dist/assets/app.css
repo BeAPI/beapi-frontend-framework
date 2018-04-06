@@ -1511,63 +1511,20 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
  * @page patterns
  *
  * @example
- * <nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">
- *	 <div class="container">
- *	   	<ul class="menu__list sf-menu">
- *			  <li class="menu__item current-menu-item"><a href="#">Home</a></li>
- *		  	<li class="menu__item">
- *				  <a href="#">Page default</a>
- *				  <ul class="menu__list menu__list--sub">
- *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
- *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
- *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
- *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
- *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
- *					  <li class="menu__item"><a href="#">Sub menu item</a></li>
- *				  </ul>
- *			  </li>
- *			  <li class="menu__item"><a href="#">Archive default</a></li>
- *			  <li class="menu__item"><a href="#">Page 404</a></li>
+ *<nav id="menu" class="menu" role="navigation" tabindex="-1" aria-label="Navigation Principal">
+ *	<ul class="menu__list sf-menu">
+ *		<li class="menu-item current-menu-item menu-item-has-children">
+ *			<a href="01-home.php">Home</a>
+ *			<ul class="sub-menu">
+ *				<li class="menu-item"><a href="../livingcss/html/index.html">Living CSS</a></li>
  *			</ul>
- *		</div>
- *	</nav>
+ *		</li>
+ *		<li class="menu-item"><a href="02-page-default.php">Page default</a></li>
+ *		<li class="menu-item"><a href="03-archive-default.php">Archive default</a></li>
+ *		<li class="menu-item"><a href="04-page-404.php">Page 404</a></li>
+ *	</ul>
+ *</nav>
  */
-.menu-fastaccess {
-  margin: 0;
-  font-size: 9px;
-  display: none; }
-  .menu-fastaccess__item {
-    display: inline; }
-    .menu-fastaccess__item a {
-      position: absolute;
-      z-index: 1;
-      color: transparent; }
-      .menu-fastaccess__item a:hover, .menu-fastaccess__item a:active, .menu-fastaccess__item a:focus {
-        text-decoration: none;
-        z-index: 2;
-        padding: 10px;
-        color: #fff;
-        background-color: #F1E25B; }
-
-.button__menu-open {
-  display: block; }
-  .menu-mobile--active .button__menu-open {
-    display: none; }
-
-.button__menu-close {
-  display: none; }
-  .menu-mobile--active .button__menu-close {
-    display: block; }
-
-.button__menu-container {
-  z-index: 999;
-  position: absolute;
-  top: 0;
-  left: 0; }
-
-.menu-mobile--active {
-  overflow: hidden; }
-
 .menu {
   z-index: 998;
   position: fixed;
@@ -1586,27 +1543,68 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     clear: both;
     content: "";
     display: table; }
-  .menu .wrapper {
-    padding: 0; }
   .menu__list::after {
     clear: both;
     content: "";
     display: table; }
-  .menu__list--sub {
-    display: none; }
-  .menu__list > .menu__item:hover ul, .menu__list > .menu__item:active ul, .menu__list > .menu__item:focus ul {
+  .menu__list > .menu-item:hover ul, .menu__list > .menu-item:active ul, .menu__list > .menu-item:focus ul {
     display: block; }
-  .menu__list > .menu__item.sfHover > a, .menu__list > .menu__item.current-menu-item > a, .menu__list > .menu__item.current-menu-parent > a, .menu__list > .menu__item.current-menu-ancestor > a {
-    color: #333;
-    background: #F1E25B; }
-  .menu__item > a {
+  .menu__list > .menu-item.sfHover > a, .menu__list > .menu-item.current-menu-item > a, .menu__list > .menu-item.current-menu-parent > a, .menu__list > .menu-item.current-menu-ancestor > a {
+    background: #F1E25B;
+    color: #333; }
+  .menu .menu-item > a {
     display: block;
     padding: 10px; }
-    .menu__item > a:hover, .menu__item > a:active, .menu__item > a:focus {
+    .menu .menu-item > a:hover, .menu .menu-item > a:active, .menu .menu-item > a:focus {
       color: #333;
       background: #F1E25B; }
-  .menu__item:hover .menu__list, .menu__item:active .menu__list, .menu__item:focus .menu__list {
+  .menu .menu-item:hover .menu__list, .menu .menu-item:active .menu__list, .menu .menu-item:focus .menu__list {
     display: block; }
+  .menu .sub-menu {
+    display: none; }
+
+.menu-mobile--active {
+  overflow: hidden; }
+  .menu-mobile--active .menu {
+    left: 0;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.5); }
+
+/**
+ * Mobile open/close button
+ */
+.menu-trigger {
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0; }
+  .menu-trigger__open {
+    display: block; }
+    .menu-mobile--active .menu-trigger__open {
+      display: none; }
+  .menu-trigger__close {
+    display: none; }
+    .menu-mobile--active .menu-trigger__close {
+      display: block; }
+
+/**
+ * Menu Fast Access
+ */
+.menu-fastaccess {
+  margin: 0;
+  font-size: 9px;
+  display: none; }
+  .menu-fastaccess__item {
+    display: inline; }
+    .menu-fastaccess__item a {
+      position: absolute;
+      z-index: 1;
+      color: transparent; }
+      .menu-fastaccess__item a:hover, .menu-fastaccess__item a:active, .menu-fastaccess__item a:focus {
+        text-decoration: none;
+        z-index: 2;
+        padding: 10px;
+        color: #fff;
+        background-color: #F1E25B; }
 
 /**
  * Hero
@@ -1848,13 +1846,6 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     width: 23.40426%;
     float: right;
     margin-right: 0; }
-  .menu-fastaccess{
-    display: block; }
-  .button__menu-container{
-    display: none; }
-  .menu-mobile--active .menu{
-    left: 0;
-    box-shadow: 0 0 100px rgba(0, 0, 0, 0.5); }
   .menu{
     position: relative;
     left: auto;
@@ -1862,23 +1853,27 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     background: none;
     width: auto;
     padding: 0; }
-  .menu__list--sub{
-    top: 100%;
-    position: absolute;
-    min-width: 200px;
-    background: #fff; }
-  .menu__list--sub .menu__item a:hover, .menu__list--sub .menu__item a:active, .menu__list--sub .menu__item a:focus{
-    color: #333;
-    background: #F1E25B; }
-  .menu__list > .menu__item{
+  .menu__list > .menu-item{
     display: inline-block;
     position: relative; }
-  .menu__list > .menu__item li{
+  .menu__list > .menu-item:hover .menu__list, .menu__list > .menu-item:active .menu__list, .menu__list > .menu-item:focus .menu__list{
+    top: 100%; }
+  .menu__list > .menu-item.sfHover ul{
+    top: 100%; }
+  .menu__list > .menu-item li{
     display: block; }
-  .menu__list > .menu__item:hover .menu__list, .menu__list > .menu__item:active .menu__list, .menu__list > .menu__item:focus .menu__list{
-    top: 100%; }
-  .menu__list > .menu__item.sfHover ul{
-    top: 100%; }
+  .menu .sub-menu{
+    position: absolute;
+    top: 100%;
+    min-width: 200px;
+    background: #fff; }
+  .menu .sub-menu .menu-item a:hover, .menu .sub-menu .menu-item a:active, .menu .sub-menu .menu-item a:focus{
+    background: #F1E25B;
+    color: #333; }
+  .menu-trigger{
+    display: none; }
+  .menu-fastaccess{
+    display: block; }
   .page__header{
     padding: 100px 0; } }
 @media screen and (min-width: 48em){

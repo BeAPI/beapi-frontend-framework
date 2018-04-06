@@ -107,14 +107,14 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 				<li class="menu-fastaccess__item"><a href="#searchform">Acces direct à la recherche</a></li>
 				<li class="menu-fastaccess__item"><a href="#menu">Acces direct au menu</a></li>
 			</ul>
-			<div class="button__menu-container">
-				<button class="button__menu-open">
+			<div class="menu-trigger">
+				<button type="button" class="menu-trigger__open">
 					<svg class="button__icon icon icon-menu" aria-hidden="true" role="img">
 						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-menu"></use>
 					</svg>
 					Menu
 				</button>
-				<button class="button__menu-close">
+				<button type="button" class="menu-trigger__close">
 					<svg class="button__icon icon icon-close" aria-hidden="true" role="img">
 						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
 					</svg>
@@ -131,17 +131,17 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 							</svg>
 						</a>
 					</div>
-					<nav id="menu" class="menu menu__mobile" role="navigation" tabindex="-1" aria-label="Navigation Principal">
+					<nav id="menu" class="menu" role="navigation" tabindex="-1" aria-label="Navigation Principal">
 						<ul class="menu__list sf-menu">
-							<li class="menu__item current-menu-item">
+							<li class="menu-item current-menu-item menu-item-has-children">
 								<a href="01-home.php">Home</a>
-								<ul class="menu__list menu__list--sub">
-									<li class="menu__item"><a href="../livingcss/html/index.html">Living CSS</a></li>
+								<ul class="sub-menu">
+									<li class="menu-item"><a href="../livingcss/html/index.html">Living CSS</a></li>
 								</ul>
 							</li>
-							<li class="menu__item"><a href="02-page-default.php">Page default</a></li>
-							<li class="menu__item"><a href="03-archive-default.php">Archive default</a></li>
-							<li class="menu__item"><a href="04-page-404.php">Page 404</a></li>
+							<li class="menu-item"><a href="02-page-default.php">Page default</a></li>
+							<li class="menu-item"><a href="03-archive-default.php">Archive default</a></li>
+							<li class="menu-item"><a href="04-page-404.php">Page 404</a></li>
 						</ul>
 					</nav>
 					<?php if ( $class == 'home' ) :?>

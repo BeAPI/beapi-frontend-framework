@@ -11110,7 +11110,7 @@ __WEBPACK_IMPORTED_MODULE_2_lazysizes___default.a.customMedia = {}
  */
 __WEBPACK_IMPORTED_MODULE_3_lazysizes_plugins_bgset_ls_bgset___default.a.customMedia = {}
 
-let __svg__ = { filename: __webpack_require__.p +"../../dist/assets/icons/icons.svg" }
+let __svg__ = { filename: __webpack_require__.p +"/assets/icons/icons.svg" }
 
 __webpack_require__(13)(__svg__)
 
@@ -12863,9 +12863,9 @@ class Menu {
     // Elements to handle toggle menu
     this.menuBody = document.body
     this.menu = document.querySelector('#menu')
-    this.menuOpen = document.querySelector('.button__menu-open')
-    this.menuClose = document.querySelector('.button__menu-close')
-    this.buttonContainer = document.querySelector('.button__menu-container')
+    this.menuOpen = document.getElementById('js-menu-open')
+    this.menuClose = document.getElementById('js-menu-close')
+    this.buttonContainer = document.getElementById('js-menu-trigger')
     this.activeClass = 'menu-mobile--active'
     // Resize breakpoint
     this.resizeBreakpoint = window.matchMedia('(min-width: 1024px)')
@@ -13416,9 +13416,10 @@ var svgXHR = function(options) {
     if (typeof window.baseUrl !== 'undefined') {
       baseUrl = window.baseUrl;
     } else {
-      baseUrl = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+      baseUrl = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) + "/";
     }
   }
+
 
   _fullPath = (baseUrl + '/' + url).replace(/([^:]\/)\/+/g, '$1');
   _ajax.open('GET', _fullPath, true);
@@ -13427,6 +13428,7 @@ var svgXHR = function(options) {
     if(!_ajax.responseText || _ajax.responseText.substr(0, 4) !== "<svg") {
       throw Error("Invalid SVG Response");
     }
+
     if(_ajax.status < 200 || _ajax.status >= 300) {
       return;
     }

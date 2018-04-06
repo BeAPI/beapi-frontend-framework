@@ -6,9 +6,9 @@ class Menu {
     // Elements to handle toggle menu
     this.menuBody = document.body
     this.menu = document.querySelector('#menu')
-    this.menuOpen = document.querySelector('.button__menu-open')
-    this.menuClose = document.querySelector('.button__menu-close')
-    this.buttonContainer = document.querySelector('.button__menu-container')
+    this.menuOpen = document.getElementById('js-menu-open')
+    this.menuClose = document.getElementById('js-menu-close')
+    this.buttonContainer = document.getElementById('js-menu-trigger')
     this.activeClass = 'menu-mobile--active'
     // Resize breakpoint
     this.resizeBreakpoint = window.matchMedia('(min-width: 1024px)')

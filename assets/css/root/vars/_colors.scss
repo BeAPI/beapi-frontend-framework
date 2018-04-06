@@ -1,0 +1,49 @@
+/**
+ * @section Colors
+ * @page index
+ *
+ * @example
+ * <div class="colors">
+ * 	<div class="color color--main"><span>#f5745a</span></div>
+ * 	<div class="color color--light"><span>#fff</span></div>
+ * 	<div class="color color--dark"><span>#000</span></div>
+ * 	<div class="color color--darkgray"><span>#333</span></div>
+ * 	<div class="color color--mediumgray"><span>#999</span></div>
+ * 	<div class="color color--lightgray"><span>#ddd</span></div>
+ * </div>
+ */
+
+/**
+ * Main colors
+ */
+$maincolor: #F1E25B;
+$textcolor: #333;
+
+/**
+ * Light and Dark colors
+ */
+$lightcolor: #fff;
+$darkcolor: #000;
+
+/**
+ * Grey colors
+ */
+$maingrey: #ddd;
+$dark-gray: #333;
+$medium-gray: #999;
+$light-gray: #ddd;
+
+/**
+ * Contextual colors
+ */
+$errorcolor-1 : #8a1f11;
+$errorcolor-2 : #fbe3e4;
+
+$noticecolor-1 : #514721;
+$noticecolor-2 : #fff6bf;
+
+$successcolor-1 : #264409;
+$successcolor-2 : #e6efc2;
+
+$infocolor-1 : #205791;
+$infocolor-2 : #d5edf8;

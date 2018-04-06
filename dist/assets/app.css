@@ -1,5 +1,18 @@
 @charset "UTF-8";
 /**
+ * Susy layout
+ * Go to _layouts.scss for example
+ */
+/**
+ * Font Family
+ */
+/**
+ * Font Size
+ */
+/**
+ * Line Height
+ */
+/**
  * @section Colors
  * @page index
  *
@@ -12,6 +25,33 @@
  * 	<div class="color color--mediumgray"><span>#999</span></div>
  * 	<div class="color color--lightgray"><span>#ddd</span></div>
  * </div>
+ */
+/**
+ * Main colors
+ */
+/**
+ * Light and Dark colors
+ */
+/**
+ * Grey colors
+ */
+/**
+ * Contextual colors
+ */
+/**
+ * Responsive breakpoints
+ */
+/**
+ * Positioning
+ */
+/**
+ * Spacing
+ */
+/**
+ * Border
+ */
+/**
+ * Border Radius
  */
 @font-face {
   font-family: "Roboto";

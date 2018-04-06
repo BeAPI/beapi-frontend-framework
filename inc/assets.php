@@ -56,7 +56,7 @@ class Assets implements Service{
 
 		// Async and footer
 		$file = ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) ? $this->get_min_file( 'js' ) : 'app.js';
-		$assets->register_script( 'scripts', 'assets/' . $file, $scripts_dependencies, $theme->get( 'Version' ), true );
+		$assets->register_script( 'scripts', 'dist/assets/' . $file, $scripts_dependencies, $theme->get( 'Version' ), true );
 
 		// CSS
 		wp_register_style( 'theme-style', get_stylesheet_uri(), [], $theme->get( 'Version' ) );

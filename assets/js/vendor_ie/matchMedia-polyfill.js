@@ -1,6 +1,6 @@
 /*! matchMedia() polyfill - Test a CSS media type/query in JS. Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas, David Knight. MIT license */
 
-window.matchMedia || (window.matchMedia = function() {
+window.matchMedia || (window.matchMedia = function () {
     "use strict";
 
     // For browsers that support matchMedium api such as IE 9 and webkit
@@ -8,24 +8,24 @@ window.matchMedia || (window.matchMedia = function() {
 
     // For those that don't support matchMedium
     if (!styleMedia) {
-        var style       = document.createElement('style'),
-            script      = document.getElementsByTagName('script')[0],
-            info        = null;
+        var style = document.createElement('style'),
+            script = document.getElementsByTagName('script')[0],
+            info = null;
 
-        style.type  = 'text/css';
-        style.id    = 'matchmediajs-test';
+        style.type = 'text/css';
+        style.id = 'matchmediajs-test';
 
         if (!script) {
-          document.head.appendChild(style);
+            document.head.appendChild(style);
         } else {
-          script.parentNode.insertBefore(style, script);
+            script.parentNode.insertBefore(style, script);
         }
 
         // 'style.currentStyle' is used by IE <= 8 and 'window.getComputedStyle' for all other browsers
         info = ('getComputedStyle' in window) && window.getComputedStyle(style, null) || style.currentStyle;
 
         styleMedia = {
-            matchMedium: function(media) {
+            matchMedium: function (media) {
                 var text = '@media ' + media + '{ #matchmediajs-test { width: 1px; } }';
 
                 // 'style.styleSheet' is used by IE <= 8 and 'style.textContent' for all other browsers
@@ -41,7 +41,7 @@ window.matchMedia || (window.matchMedia = function() {
         };
     }
 
-    return function(media) {
+    return function (media) {
         return {
             matches: styleMedia.matchMedium(media || 'all'),
             media: media || 'all'

@@ -13,14 +13,14 @@ class ButtonLink {
    * Bind button link behavior on targeted elements
    * @param {string} selector
    */
-  static bind (selector) {
+  static bind(selector) {
     document.querySelectorAll(selector).forEach(element => new ButtonLink(element))
   }
 
   /**
    * @param {HTMLElement} element
    */
-  constructor (element) {
+  constructor(element) {
     this.element = element
     this.cntrlIsPressed = false
 
@@ -31,7 +31,7 @@ class ButtonLink {
   /**
    * @param {Object} e
    */
-  keyDown (e) {
+  keyDown(e) {
     if (e.which === 17) {
       this.cntrlIsPressed = true
       this.addEventListenerOnce(document, 'keyup', this.keyUp.bind(this))
@@ -41,7 +41,7 @@ class ButtonLink {
   /**
    * @param {Object} e
    */
-  keyUp (e) {
+  keyUp(e) {
     this.cntrlIsPressed = false
   }
 
@@ -50,7 +50,7 @@ class ButtonLink {
    * @param {Object} event
    * @param {function} fn
    */
-  addEventListenerOnce (element, event, fn) {
+  addEventListenerOnce(element, event, fn) {
     const func = () => {
       element.removeEventListener(event, func)
       fn()
@@ -61,7 +61,7 @@ class ButtonLink {
   /**
    * @param {Object} e
    */
-  clickHandler (e) {
+  clickHandler(e) {
     const download = this.element.getAttribute('data-target') === 'download'
     const isBlank = this.element.getAttribute('data-target') === '_blank'
     const href = this.element.getAttribute('data-href')
@@ -81,7 +81,7 @@ class ButtonLink {
    * @param {String} href
    * @param {String} filename
    */
-  createLink (href, filename) {
+  createLink(href, filename) {
     const link = document.createElement('a')
     link.href = href
     link.target = '_blank'

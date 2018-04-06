@@ -2,7 +2,7 @@ import $ from 'jquery'
 import 'superfish'
 
 class Menu {
-  constructor () {
+  constructor() {
     // Elements to handle toggle menu
     this.menuBody = document.body
     this.menu = document.querySelector('#menu')
@@ -13,7 +13,7 @@ class Menu {
     // Resize breakpoint
     this.resizeBreakpoint = window.matchMedia('(min-width: 1024px)')
   }
-  init () {
+  init() {
     // Events to handle toggle menu
     this.menuOpen.addEventListener('click', this.openMenu.bind(this), false)
     this.menuClose.addEventListener('click', this.closeMenu.bind(this), false)
@@ -28,7 +28,7 @@ class Menu {
     // Event breakpoint
     this.resizeBreakpoint.addListener(this.menuResizing.bind(this))
   }
-  sfMenuInit () {
+  sfMenuInit() {
     // Sf menu
     $('.sf-menu').superfish()
   }
@@ -36,7 +36,7 @@ class Menu {
    * Open menu
    * @param {event} e
    */
-  openMenu (e) {
+  openMenu(e) {
     if (!this.menuBody.classList.contains(this.activeClass)) {
       this.menuBody.classList.add(this.activeClass)
     }
@@ -45,7 +45,7 @@ class Menu {
    * Close menu
    * @param {event} e
    */
-  closeMenu (e) {
+  closeMenu(e) {
     if (this.menuBody.classList.contains(this.activeClass)) {
       this.menuBody.classList.remove(this.activeClass)
     }

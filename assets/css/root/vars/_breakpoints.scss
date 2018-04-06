@@ -1,0 +1,17 @@
+/**
+ * Responsive breakpoints
+ */
+
+$breakpoints: (
+    xsm: em(480),
+    sm: em(768),
+    md: em(1024),
+    lg: em(1260),
+    xlg: em(1440)
+);
+
+@mixin breakpoints($breakpoint) {
+    @media screen and (min-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+        @content;
+    }
+}

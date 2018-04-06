@@ -1,19 +1,20 @@
 /* Main Layout
 ----------------------------------------------------------------------------------------------------*/
 .container {
-	@include container;
 	padding: 0 10px;
-	@media screen and (min-width: $desktop-small) {
+
+	@include container;
+	@include breakpoints(md) {
 		padding: 0;
 	}
 }
 .content {
-	@media screen and (min-width: $desktop-small) {
+	@include breakpoints(md) {
 		@include span(9);
 	}
 }
 .sidebar {
-	@media screen and (min-width: $desktop-small) {
+	@include breakpoints(md) {
 		@include span(3 last);
 	}
 }

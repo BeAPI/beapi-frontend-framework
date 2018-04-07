@@ -2,14 +2,29 @@
 
 namespace BEA\Theme\Framework;
 
-
+/**
+ * Class Menu
+ *
+ * @package BEA\Theme\Framework
+ */
 class Menu implements Service {
-	public function register() {
+	/**
+	 * @param Service_Container $container
+	 */
+	public function register( Service_Container $container ) {}
+
+	/**
+	 * @param Service_Container $container
+	 */
+	public function boot( Service_Container $container ) {
 		add_theme_support( 'menus' );
 
 		$this->register_menus();
 	}
 
+	/**
+	 * @return string
+	 */
 	public function get_service_name() {
 		return 'menu';
 	}

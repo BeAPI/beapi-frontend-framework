@@ -2,7 +2,11 @@
 
 namespace BEA\Theme\Framework;
 
-
+/**
+ * Class Acf
+ *
+ * @package BEA\Theme\Framework
+ */
 class Acf implements Service {
 
 	/**
@@ -16,21 +20,29 @@ class Acf implements Service {
 	private $path = 'assets/acf/php/';
 
 	/**
-	 * @inheritdoc
+	 * @param Service_Container $container
 	 */
-	public function register() {
+	public function boot( Service_Container $container ) {
 		add_action( 'template_redirect', [ $this, 'warning' ], 0 );
 		add_action( 'init', [ $this, 'init' ], 0 );
 		add_action( 'init', [ $this, 'init_acf' ] );
 	}
 
 	/**
-	 * @inheritdoc
+	 * @param Service_Container $container
+	 */
+	public function register( Service_Container $container ) {}
+
+	/**
+	 * @return string
 	 */
 	public function get_service_name() {
 		return 'acf';
 	}
 
+	/**
+	 * Show warning message if ACF plugin not activate
+	 */
 	public function warning() {
 		if ( function_exists( 'get_field' ) ) {
 			return;
@@ -39,6 +51,9 @@ class Acf implements Service {
 		wp_die( sprintf( __( 'This theme can\'t work without ACF plugin. <a href="%s">Please login to admin</a>, and activate it !', 'framework-textdomain' ), wp_login_url() ) );
 	}
 
+	/**
+	 * @param $files
+	 */
 	public function register_files( $files ) {
 		foreach ( $files as $file ) {
 			if ( empty( $file ) ) {
@@ -48,14 +63,23 @@ class Acf implements Service {
 		}
 	}
 
+	/**
+	 * @param $filename
+	 */
 	private function register_file( $filename ) {
 		$this->files[ $filename ] = $filename;
 	}
 
+	/**
+	 * @param $path
+	 */
 	public function set_path( $path ) {
 		$this->path = (string) $path;
 	}
 
+	/**
+	 * Load fields and add pages
+	 */
 	public function init() {
 		/**
 		 * Register ACF Files and Pages/Subpages
@@ -75,6 +99,11 @@ class Acf implements Service {
 		 */
 	}
 
+	/**
+	 * @param $parameters
+	 *
+	 * @return bool
+	 */
 	public function acf_add_options_page( $parameters ) {
 		/**
 		 * Add Option Page
@@ -87,6 +116,9 @@ class Acf implements Service {
 
 	}
 
+	/**
+	 * Load ACF files previously registered
+	 */
 	public function init_acf() {
 		$files = $this->get_files();
 
@@ -103,10 +135,18 @@ class Acf implements Service {
 		}
 	}
 
+	/**
+	 * @return array
+	 */
 	public function get_files() {
 		return $this->files;
 	}
 
+	/**
+	 * @param $parameters
+	 *
+	 * @return bool
+	 */
 	public function acf_add_options_sub_page( $parameters ) {
 		/**
 		 * Add Option Subpage

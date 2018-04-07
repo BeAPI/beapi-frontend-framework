@@ -2,7 +2,11 @@
 
 namespace BEA\Theme\Framework;
 
-
+/**
+ * Class Assets_JS_Async
+ *
+ * @package BEA\Theme\Framework
+ */
 class Assets_JS_Async implements Service {
 
 	/**
@@ -12,9 +16,14 @@ class Assets_JS_Async implements Service {
 	private $js_handlers = [ 'scripts' => 'async' ];
 
 	/**
-	 * @inheritdoc
+	 * @param Service_Container $container
 	 */
-	public function register() {
+	public function register( Service_Container $container ) {}
+
+	/**
+	 * @param Service_Container $container
+	 */
+	public function boot( Service_Container $container ) {
 		if ( current_theme_supports( 'async-js' ) && ! is_admin() ) {
 			add_filter( 'script_loader_tag', array( $this, 'script_loader_tag' ), 20, 2 );
 		}
@@ -27,7 +36,7 @@ class Assets_JS_Async implements Service {
 	}
 
 	/**
-	 * @inheritdoc
+	 * @return string
 	 */
 	public function get_service_name() {
 		return 'assets-js-async';

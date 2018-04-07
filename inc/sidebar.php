@@ -2,12 +2,27 @@
 
 namespace BEA\Theme\Framework;
 
-
+/**
+ * Class Sidebar
+ *
+ * @package BEA\Theme\Framework
+ */
 class Sidebar implements Service {
-	public function register() {
+	/**
+	 * @param Service_Container $container
+	 */
+	public function register( Service_Container $container ) {}
+
+	/**
+	 * @param Service_Container $container
+	 */
+	public function boot( Service_Container $container ) {
 		$this->register_sidebars();
 	}
 
+	/**
+	 * @return string
+	 */
 	public function get_service_name() {
 		return 'sidebar';
 	}

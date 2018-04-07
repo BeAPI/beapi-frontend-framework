@@ -4,9 +4,29 @@ namespace BEA\Theme\Framework;
 
 use BEA\Theme\Framework\Tools\Assets as Assets_Tools;
 
+/**
+ * Class Assets
+ *
+ * @package BEA\Theme\Framework
+ */
 class Assets implements Service{
-	public function register() {
 
+	/**
+	 * @var \BEA\Theme\Framework\Tools\Assets
+	 */
+	private $assets_tools;
+
+	/**
+	 * @param Service_Container $container
+	 */
+	public function register( Service_Container $container ) {
+		$this->assets_tools = new Assets_Tools();
+	}
+
+	/**
+	 * @param Service_Container $container
+	 */
+	public function boot( Service_Container $container ) {
 		/**
 		 * Add hooks for the scripts and styles to hook on
 		 */
@@ -16,6 +36,9 @@ class Assets implements Service{
 		add_filter( 'stylesheet_uri', [ $this, 'stylesheet_uri' ] );
 	}
 
+	/**
+	 * @return string
+	 */
 	public function get_service_name() {
 		return 'assets';
 	}
@@ -28,35 +51,31 @@ class Assets implements Service{
 			return;
 		}
 		$theme = wp_get_theme();
-		/**
-		 * Assets handler
-		 */
-		$assets = new Assets_Tools();
 
 		// Js theme
 		// Theme js dependencies
 		$scripts_dependencies = array( 'jquery' );
 
-		$assets->register_script( 'matchmedia-polyfill', 'assets/js/vendor_ie/matchmedia-polyfill.js', [], '1', false );
+		$this->assets_tools->register_script( 'matchmedia-polyfill', 'assets/js/vendor_ie/matchmedia-polyfill.js', [], '1', false );
 		wp_script_add_data( 'matchmedia-polyfill', 'conditional', 'lte IE 9' );
 
-		$assets->register_script( 'matchMedia-addListener', 'assets/js/vendor_ie/matchMedia.addListener.js', [], '1', false );
+		$this->assets_tools->register_script( 'matchMedia-addListener', 'assets/js/vendor_ie/matchMedia.addListener.js', [], '1', false );
 		wp_script_add_data( 'matchmedia-addListener', 'conditional', 'lte IE 9' );
 
-		$assets->register_script( 'placeholders', 'assets/js/vendor_ie/placeholders.min.js', [], '1', false );
+		$this->assets_tools->register_script( 'placeholders', 'assets/js/vendor_ie/placeholders.min.js', [], '1', false );
 		wp_script_add_data( 'placeholders', 'conditional', 'lte IE 9' );
 
-		$assets->register_script( 'html5shiv', 'assets/js/vendor_ie/html5shiv.min.js', [], '1', false );
+		$this->assets_tools->register_script( 'html5shiv', 'assets/js/vendor_ie/html5shiv.min.js', [], '1', false );
 		wp_script_add_data( 'html5shiv', 'conditional', 'lt IE 9' );
 
-		$assets->register_script( 'selectivizr', 'assets/js/vendor_ie/selectivizr.js', [], '1', false );
+		$this->assets_tools->register_script( 'selectivizr', 'assets/js/vendor_ie/selectivizr.js', [], '1', false );
 		wp_script_add_data( 'selectivizr', 'conditional', 'lte IE 8' );
 
-		$assets->register_script( 'modernizr', 'assets/js/vendor_async/modernizr.custom.min.js', [], '1', false );
+		$this->assets_tools->register_script( 'modernizr', 'assets/js/vendor_async/modernizr.custom.min.js', [], '1', false );
 
 		// Async and footer
 		$file = ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) ? $this->get_min_file( 'js' ) : 'app.js';
-		$assets->register_script( 'scripts', 'dist/assets/' . $file, $scripts_dependencies, $theme->get( 'Version' ), true );
+		$this->assets_tools->register_script( 'scripts', 'dist/assets/' . $file, $scripts_dependencies, $theme->get( 'Version' ), true );
 
 		// CSS
 		wp_register_style( 'theme-style', get_stylesheet_uri(), [], $theme->get( 'Version' ) );
@@ -64,38 +83,25 @@ class Assets implements Service{
 
 	/**
 	 * Enqueue the scripts
-	 *
-	 *
 	 */
 	public function enqueue_scripts() {
-		/**
-		 * Assets handler
-		 */
-		$assets = new Assets_Tools();
-
 		// JS
-		$assets->enqueue_script( 'matchmedia-polyfill' );
-		$assets->enqueue_script( 'matchmedia-addListener' );
-		$assets->enqueue_script( 'placeholders' );
-		$assets->enqueue_script( 'html5shiv' );
-		$assets->enqueue_script( 'selectivizr' );
-		$assets->enqueue_script( 'modernizr' );
-		$assets->enqueue_script( 'scripts' );
+		$this->assets_tools->enqueue_script( 'matchmedia-polyfill' );
+		$this->assets_tools->enqueue_script( 'matchmedia-addListener' );
+		$this->assets_tools->enqueue_script( 'placeholders' );
+		$this->assets_tools->enqueue_script( 'html5shiv' );
+		$this->assets_tools->enqueue_script( 'selectivizr' );
+		$this->assets_tools->enqueue_script( 'modernizr' );
+		$this->assets_tools->enqueue_script( 'scripts' );
 	}
 
 	/**
 	 * Enqueue the styles
-	 *
-	 *
 	 */
 	public function enqueue_styles() {
-		/**
-		 * Assets handler
-		 */
-		$assets = new Assets_Tools();
 
 		// CSS
-		$assets->enqueue_style( 'theme-style' );
+		$this->assets_tools->enqueue_style( 'theme-style' );
 	}
 
 	/**

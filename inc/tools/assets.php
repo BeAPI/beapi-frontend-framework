@@ -2,6 +2,11 @@
 
 namespace BEA\Theme\Framework\Tools;
 
+/**
+ * Class Assets
+ *
+ * @package BEA\Theme\Framework\Tools
+ */
 class Assets {
 
 	/**
@@ -20,6 +25,9 @@ class Assets {
 		return \wp_register_script( $handle, \get_theme_file_uri( $src ), $deps, $ver, $in_footer );
 	}
 
+	/**
+	 * @param $handle
+	 */
 	public function enqueue_script( $handle ) {
 		\wp_enqueue_script( $handle );
 	}
@@ -40,6 +48,9 @@ class Assets {
 		return \wp_register_style( $handle, \get_theme_file_uri( $src ), $deps, $ver, $media );
 	}
 
+	/**
+	 * @param $handle
+	 */
 	public function enqueue_style( $handle ) {
 		\wp_enqueue_style( $handle );
 	}

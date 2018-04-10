@@ -15,7 +15,7 @@
     "appicon": "node tasks/favicon.js --appicon",
     "composerjs": "cd composerjs && npm install && node app.js",
     "bump": "node tasks/style-version.js",
-    "livingcss": "cd livingcss && npm install && gulp livingcss"
+    "livingcss": "cd livingcss && npm install && gulp livingcss && gulp sass"
   },
   "license": "GPL-2.0",
   "devDependencies": {

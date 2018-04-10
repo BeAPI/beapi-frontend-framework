@@ -1,0 +1,12 @@
+/**
+ * @function set-textcolor-from-lightness-backgroundcolor($color)
+ * Define text color from the background color lightness
+ */
+
+@function set-textcolor-from-lightness-backgroundcolor($color) {
+    @if (lightness($color) > 50) {
+      @return $darkcolor;
+    } @else {
+        @return $lightcolor;
+    }
+}

@@ -8,7 +8,7 @@
     height: 100%;
     .livingcss__header-title-container {
         a {
-            color: $darkcolor;
+            color: set-textcolor-from-lightness-backgroundcolor($maincolor);
             text-decoration: none;
         }
         margin-bottom: $base-spacing * 2;
@@ -16,6 +16,7 @@
             display: block;
             width: 100px;
             height: 100px;
+            fill: set-textcolor-from-lightness-backgroundcolor($maincolor);
         }
         .livingcss__header-title {
             font-size: 22px;
@@ -33,7 +34,7 @@
     .livingcss__nav-link {
         display: block;
         padding: 0 5px;
-        color: $darkcolor;
+        color: set-textcolor-from-lightness-backgroundcolor($maincolor);
         position: relative;
         text-decoration: none;
         &:after {
@@ -51,7 +52,7 @@
         }
         &--active {
             padding: 2px 5px;
-            background: #000;
+            background: $darkcolor;
             color: $lightcolor;
             @include hover {
                 &:after {

@@ -2,8 +2,14 @@
 
 namespace BEA\Theme\Framework\Tools;
 
+use BEA\Theme\Framework\Service_Container;
 use BEA\Theme\Framework\Service;
 
+/**
+ * Class Body_Class
+ *
+ * @package BEA\Theme\Framework\Tools
+ */
 class Body_Class implements Service {
 	/**
 	 * @var array
@@ -18,10 +24,21 @@ class Body_Class implements Service {
 	 */
 	private $unwanted_classes = [];
 
-	public function register() {
+	/**
+	 * @param Service_Container $container
+	 */
+	public function register( Service_Container $container ) {}
+
+	/**
+	 * @param Service_Container $container
+	 */
+	public function boot( Service_Container $container ) {
 		add_filter( 'body_class', array( $this, 'body_class' ) );
 	}
 
+	/**
+	 * @return string
+	 */
 	public function get_service_name() {
 		return 'body-class';
 	}
@@ -49,7 +66,6 @@ class Body_Class implements Service {
 	}
 
 	/**
-	 *
 	 *
 	 * @param $classes
 	 *

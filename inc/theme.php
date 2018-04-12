@@ -6,43 +6,32 @@ namespace BEA\Theme\Framework;
 class Theme implements Service {
 
 	/**
-	 * The registered services.
-	 *
-	 * @var array
+	 * @param Service_Container $container
 	 */
-	private $services = [];
+	public function register( Service_Container $container ) {}
 
 	/**
-	 * The services container for quick access.
-	 *
-	 * @var array
+	 * @param Service_Container $container
 	 */
-	private $services_container = [];
-
-	/**
-	 * @inheritdoc
-	 */
-	public function register() {
+	public function boot( Service_Container $container ) {
 		\add_action( 'after_setup_theme', [ $this, 'after_setup_theme' ] );
 	}
 
 	/**
-	 * @inheritdoc
+	 * @return string
 	 */
 	public function get_service_name() {
 		return 'theme';
 	}
 
+	/**
+	 * After setup theme
+	 */
 	public function after_setup_theme() {
 		/**
 		 * Init the supports.
 		 */
 		$this->add_theme_supports();
-
-		/**
-		 * Register all the Services.
-		 */
-		$this->register_services();
 
 		/**
 		 * Load translations.
@@ -63,76 +52,11 @@ class Theme implements Service {
 		add_theme_support( 'yoast-seo-breadcrumbs' );
 	}
 
+	/**
+	 * i18n
+	 */
 	private function i18n() {
 		// Load theme texdomain
 		load_theme_textdomain( 'framework-textdomain', \get_theme_file_path( '/languages' ) );
-	}
-
-	/**
-	 * Instantiate a single service.
-	 *
-	 * @param string $class Service class to instantiate.
-	 *
-	 * @return Service
-	 */
-	private function instantiate_service( $class ) {
-		/**
-		 * @var $service Service
-		 */
-		$service = new $class();
-		$this->services_container[ $service->get_service_name() ] = $service;
-
-		return $this->services_container[ $service->get_service_name() ];
-	}
-
-	/**
-	 * Load all services.
-	 */
-	public function register_services() {
-		$services = array_unique( $this->get_services() );
-		$services = array_map( [ $this, 'instantiate_service' ], $services );
-		array_walk( $services, function ( Service $service ) {
-			$service->register();
-		} );
-	}
-
-	/**
-	 * Get a service's instance
-	 *
-	 * @param string $name the service name
-	 *
-	 * @return Service|bool The service instance or false if service not found
-	 */
-	public function get_service( $name ) {
-		return isset( $this->services_container[ $name ] ) ? $this->services_container[ $name ] : false;
-	}
-
-	/**
-	 * Get the list of services to register.
-	 *
-	 * @since 0.1.0
-	 *
-	 * @return array[string] Array of fully qualified class names.
-	 */
-	private function get_services() {
-		return $this->services;
-	}
-
-	/**
-	 * Register a service
-	 *
-	 * @param string $service
-	 *
-	 * @return bool
-	 * @author Clément Boirie
-	 */
-	public function register_service( string $service ) {
-		if ( ! class_exists( $service ) || ! in_array( Service::class, class_implements( $service ) ) ) {
-			return false;
-		}
-
-		$this->services[] = $service;
-
-		return true;
 	}
 }

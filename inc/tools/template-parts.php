@@ -2,9 +2,14 @@
 
 namespace BEA\Theme\Framework\Tools;
 
-
 use BEA\Theme\Framework\Service;
+use BEA\Theme\Framework\Service_Container;
 
+/**
+ * Class Template_Parts
+ *
+ * @package BEA\Theme\Framework\Tools
+ */
 class Template_Parts implements Service {
 	/**
 	 * Vars to store
@@ -14,8 +19,19 @@ class Template_Parts implements Service {
 	 */
 	private $vars = array();
 
-	public function register() {}
+	/**
+	 * @param Service_Container $container
+	 */
+	public function register( Service_Container $container ) {}
 
+	/**
+	 * @param Service_Container $container
+	 */
+	public function boot( Service_Container $container ) {}
+
+	/**
+	 * @return string
+	 */
 	public function get_service_name() {
 		return 'template-parts';
 	}

@@ -2,7 +2,11 @@
 
 namespace BEA\Theme\Framework;
 
-
+/**
+ * Class Assets_CSS_Async
+ *
+ * @package BEA\Theme\Framework
+ */
 class Assets_CSS_Async implements Service {
 
 	/**
@@ -12,9 +16,14 @@ class Assets_CSS_Async implements Service {
 	private $css_handlers = [ 'theme-style' => true ];
 
 	/**
-	 * @inheritdoc
+	 * @param Service_Container $container
 	 */
-	public function register() {
+	public function register( Service_Container $container ) {}
+
+	/**
+	 * @param Service_Container $container
+	 */
+	public function boot( Service_Container $container ) {
 		if ( current_theme_supports( 'async-css' ) && ! is_admin() ) {
 			add_filter( 'style_loader_tag', array( $this, 'style_loader_tag' ), 20, 4 );
 			add_action( 'wp_head', array( $this, 'load_css' ), 0 );
@@ -23,12 +32,15 @@ class Assets_CSS_Async implements Service {
 	}
 
 	/**
-	 * @inheritdoc
+	 * @return string
 	 */
 	public function get_service_name() {
 		return 'assets-css-async';
 	}
 
+	/**
+	 * @param $handler
+	 */
 	public function add_handler( $handler ) {
 		$this->css_handlers[ $handler ] = true;
 	}

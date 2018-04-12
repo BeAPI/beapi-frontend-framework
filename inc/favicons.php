@@ -2,6 +2,11 @@
 
 namespace BEA\Theme\Framework;
 
+/**
+ * Class Favicons
+ *
+ * @package BEA\Theme\Framework
+ */
 class Favicons implements Service {
 
 	/**
@@ -11,14 +16,28 @@ class Favicons implements Service {
 	 */
 	private $path_suffix = '/assets/img/favicons/';
 
-	public function register() {
+	/**
+	 * @param Service_Container $container
+	 */
+	public function register( Service_Container $container ) {}
+
+	/**
+	 * @param Service_Container $container
+	 */
+	public function boot( Service_Container $container ) {
 		add_action( 'wp_head', [ $this, 'the_favicons' ], 25 );
 	}
 
+	/**
+	 * @return string
+	 */
 	public function get_service_name() {
 		return 'favicons';
 	}
 
+	/**
+	 * @param $suffix
+	 */
 	public function set_path_suffix( $suffix ) {
 		$this->path_suffix = (string) $suffix;
 	}

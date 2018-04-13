@@ -184,11 +184,16 @@ Something like this:
    <picture>
         <!--[if IE 9]><video style="display: none"><![endif]-->
         <source
-            data-srcset="img-mobile, img-mobile 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" media="(max-width: 375px)" />
+            srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            data-srcset="img-mobile, img-mobile 2x"
+            media="(max-width: 375px)" />
         <source
-                data-srcset="img-tablet, img-tablet 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" media="(max-width: 1024px)" />
+            srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            data-srcset="img-tablet, img-tablet 2x"
+            media="(max-width: 1024px)" />
         <source
-                data-srcset="img-desktop, img-desktop 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+            srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            data-srcset="img-desktop, img-desktop 2x" />
         <!--[if IE 9]></video><![endif]-->
         <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" alt="image with artdirection"/>
     </picture>

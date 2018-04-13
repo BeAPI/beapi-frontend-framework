@@ -9452,6 +9452,9 @@
         margin-bottom: 20px;
         margin-left: auto;
         margin-right: auto; }
+      .entry__item .entry__media, .entry__card .entry__media {
+        float: left;
+        margin-right: 20px; }
     .entry__card {
       padding: 20px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); }
@@ -9521,10 +9524,13 @@
   .page__header {
     margin-bottom: 20px;
     padding: 10px; }
+    .page__header .container {
+      position: relative;
+      z-index: 2; }
     .page__header .page__title,
     .page__header .page__date,
     .page__header p {
-      color: #fff; }
+      color: #333; }
   
   /* Page 404 css
   -------------------------------------------------------------- */
@@ -9569,16 +9575,13 @@
       display: none; }
     .menu-fastaccess{
       display: block; }
+    .entry__item .entry__media ~ .entry__summary, .entry__card .entry__media ~ .entry__summary{
+      margin-left: 320px; }
     .page__header{
       padding: 100px 0; } }
   @media screen and (min-width: 48em){
     .entry__item, .entry__card{
       margin-bottom: 40px; }
-    .entry__item .entry__media, .entry__card .entry__media{
-      float: left;
-      margin-right: 20px; }
-    .entry__item .entry__media ~ .entry__summary, .entry__card .entry__media ~ .entry__summary{
-      margin-left: 320px; }
     .entry__content .alignright,
         .entry__content .alignleft{
       max-width: 100%; } }

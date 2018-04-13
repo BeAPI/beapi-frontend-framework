@@ -76,10 +76,10 @@
 			margin-right: auto;
 		}
 		#{$parent}__media {
-			@include breakpoints(sm) {
-				@include align;
+			@include align;
+			@include breakpoints(md) {
 				&~#{$parent}__summary {
-					margin-left: 320px; // = image width
+					margin-left: 320px; // = image width + gutter
 				}
 			}
 		}

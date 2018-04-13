@@ -3,7 +3,7 @@
 ##  What is it ?
 BeAPI FrontEnd Framework (BFF) is an open source framework for WordPress stacks. Mobile-first projects with the latest useful tools for the Frontend Development like Webpack 3, LivingCSS, SASS, Critical CSS, Favicons generation and custom tools like ComposerJS.
 
-##  Installation
+##  Requirements
 You need to work in a wordpress environnement in order to make the BFF work with webpack for local dev. To do that you need to install [Advanced Responsive Images](https://github.com/asadowski10/advanced-responsive-images) in you're plugin folder.
 
 ```git clone https://github.com/asadowski10/advanced-responsive-images.git```
@@ -180,6 +180,7 @@ WordPress native thumbnails are not enough for us. We want to build images:
 
 Something like this:
 
+```
    <picture>
         <!--[if IE 9]><video style="display: none"><![endif]-->
         <source
@@ -191,6 +192,7 @@ Something like this:
         <!--[if IE 9]></video><![endif]-->
         <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" alt="image with artdirection"/>
     </picture>
+```
 
 So with the [Advanced Responsive Images](https://github.com/asadowski10/advanced-responsive-images) plugin we can manage a `picture` tag with different file configuration.
 

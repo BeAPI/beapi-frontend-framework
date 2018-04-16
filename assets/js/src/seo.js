@@ -23,7 +23,7 @@ class SeoLink {
   }
 
   handleClick() {
-    const url = this.element.querySelector().getAttribute('href')
+    const url = this.element.querySelector('a').getAttribute('href')
     window.open(url, '_self')
   }
 }

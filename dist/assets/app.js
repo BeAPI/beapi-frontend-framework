@@ -11093,7 +11093,13 @@ menu.sfMenuInit()
 
 __WEBPACK_IMPORTED_MODULE_5__src_button_href__["a" /* default */].bind('button[data-href]')
 
-const selects = ['.gform_wrapper select:not([multiple])']
+const selects = [
+  '.gform_wrapper select:not([multiple])',
+  '.gform_wrapper select:not([multiple])',
+  '.gform_wrapper select:not([multiple])',
+  '.gform_wrapper select:not([multiple])',
+  '.gform_wrapper select:not([multiple])',
+]
 selects.forEach(el => __WEBPACK_IMPORTED_MODULE_6__src_select__["a" /* default */].bind(el))
 
 __WEBPACK_IMPORTED_MODULE_7__src_seo__["a" /* default */].bind('[data-seo]')
@@ -11113,6 +11119,7 @@ __WEBPACK_IMPORTED_MODULE_3_lazysizes_plugins_bgset_ls_bgset___default.a.customM
 let __svg__ = { filename: __webpack_require__.p +"/assets/icons/icons.svg" }
 
 __webpack_require__(13)(__svg__)
+
 
 /***/ }),
 /* 6 */
@@ -12859,7 +12866,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 
 
 class Menu {
-  constructor () {
+  constructor() {
     // Elements to handle toggle menu
     this.menuBody = document.body
     this.menu = document.querySelector('#menu')
@@ -12870,7 +12877,7 @@ class Menu {
     // Resize breakpoint
     this.resizeBreakpoint = window.matchMedia('(min-width: 1024px)')
   }
-  init () {
+  init() {
     // Events to handle toggle menu
     this.menuOpen.addEventListener('click', this.openMenu.bind(this), false)
     this.menuClose.addEventListener('click', this.closeMenu.bind(this), false)
@@ -12885,7 +12892,7 @@ class Menu {
     // Event breakpoint
     this.resizeBreakpoint.addListener(this.menuResizing.bind(this))
   }
-  sfMenuInit () {
+  sfMenuInit() {
     // Sf menu
     __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.sf-menu').superfish()
   }
@@ -12893,7 +12900,7 @@ class Menu {
    * Open menu
    * @param {event} e
    */
-  openMenu (e) {
+  openMenu(e) {
     if (!this.menuBody.classList.contains(this.activeClass)) {
       this.menuBody.classList.add(this.activeClass)
     }
@@ -12902,7 +12909,7 @@ class Menu {
    * Close menu
    * @param {event} e
    */
-  closeMenu (e) {
+  closeMenu(e) {
     if (this.menuBody.classList.contains(this.activeClass)) {
       this.menuBody.classList.remove(this.activeClass)
     }
@@ -13227,14 +13234,14 @@ class ButtonLink {
    * Bind button link behavior on targeted elements
    * @param {string} selector
    */
-  static bind (selector) {
+  static bind(selector) {
     document.querySelectorAll(selector).forEach(element => new ButtonLink(element))
   }
 
   /**
    * @param {HTMLElement} element
    */
-  constructor (element) {
+  constructor(element) {
     this.element = element
     this.cntrlIsPressed = false
 
@@ -13245,7 +13252,7 @@ class ButtonLink {
   /**
    * @param {Object} e
    */
-  keyDown (e) {
+  keyDown(e) {
     if (e.which === 17) {
       this.cntrlIsPressed = true
       this.addEventListenerOnce(document, 'keyup', this.keyUp.bind(this))
@@ -13255,7 +13262,7 @@ class ButtonLink {
   /**
    * @param {Object} e
    */
-  keyUp (e) {
+  keyUp(e) {
     this.cntrlIsPressed = false
   }
 
@@ -13264,7 +13271,7 @@ class ButtonLink {
    * @param {Object} event
    * @param {function} fn
    */
-  addEventListenerOnce (element, event, fn) {
+  addEventListenerOnce(element, event, fn) {
     const func = () => {
       element.removeEventListener(event, func)
       fn()
@@ -13275,7 +13282,7 @@ class ButtonLink {
   /**
    * @param {Object} e
    */
-  clickHandler (e) {
+  clickHandler(e) {
     const download = this.element.getAttribute('data-target') === 'download'
     const isBlank = this.element.getAttribute('data-target') === '_blank'
     const href = this.element.getAttribute('data-href')
@@ -13295,7 +13302,7 @@ class ButtonLink {
    * @param {String} href
    * @param {String} filename
    */
-  createLink (href, filename) {
+  createLink(href, filename) {
     const link = document.createElement('a')
     link.href = href
     link.target = '_blank'
@@ -13326,25 +13333,26 @@ class Select {
    * Bind select that has to be wrapped
    * @param {string} selector
    */
-  static bind (selector) {
+  static bind(selector) {
     document.querySelectorAll(selector).forEach(element => new Select(element))
   }
 
   /**
    * @param {HTMLElement} element
    */
-  constructor (element) {
+  constructor(element) {
     this.element = element
     this.init()
   }
 
-  init () {
+  init() {
     const inner = this.element.outerHTML
     this.element.outerHTML = `<div class="select--custom">${inner}</div>`
   }
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Select);
+
 
 /***/ }),
 /* 12 */
@@ -13365,25 +13373,26 @@ class SeoLink {
    * Spread link of a content to his top level element
    * @param {string} selector
    */
-  static bind (selector) {
+  static bind(selector) {
     document.querySelectorAll(selector).forEach(element => new SeoLink(element))
   }
 
   /**
    * @param {HTMLElement} element
    */
-  constructor (element) {
+  constructor(element) {
     this.element = element
     this.element.addEventListener('click', this.handleClick.bind(this), false)
   }
 
-  handleClick () {
+  handleClick() {
     const url = this.element.querySelector().getAttribute('href')
     window.open(url, '_self')
   }
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (SeoLink);
+
 
 /***/ }),
 /* 13 */

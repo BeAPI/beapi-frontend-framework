@@ -36,7 +36,20 @@ lazySizesBgset.customMedia = {}
 
 let __svg__ = {
   path: '../img/icons/*.svg', // entry
-  name: '/assets/icons/icons.svg' // output
+  name: '/assets/icons/icons.svg', // output
 }
 
 require('./vendor/svgxhr')(__svg__)
+
+if (window.location.hostname === 'localhost') {
+  let __svg__ = {
+    path: '../img/icons/*.svg', // entry
+    name: '../../dist/assets/icons/icons.svg', // output
+  }
+
+  const asyncCall = async () => {
+    await require('webpack-svgstore-plugin/src/helpers/svgxhr')(__svg__)
+  }
+
+  asyncCall()
+}

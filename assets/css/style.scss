@@ -1,26 +1,34 @@
-//Main sass config files
+/**
+ * Main sass config files
+ */
 @import "root/url-config";
 
-// Load Susy with includePaths in tasks/sass.js
-//http://susydocs.oddbird.net/en/latest/
+/**
+ * Load Susy with includePaths in tasks/sass.js
+ * http://susydocs.oddbird.net/en/latest/
+ */
 @import "root/susy/sass/susy";
 
 @import "root/variables";
 @import "root/mixins";
 
-//@font-face first !
+/**
+ * Root styles
+ * @font-face first !
+ */
 @import "root/fonts";
 @import "root/normalize";
 @import "root/box-sizing";
 @import "root/cssloading";
 
-//Vendor for external librairies (Slick etc.)
+/**
+ * Vendor for external librairies (Slick etc.)
+ */
 //@import "vendor/libname";
 
-//Plugins for WordPress plugin custom css (Mailpoet, WPForms etc.)
-//@import "plugin/pluginname";
-
-//Main websites components
+/**
+ * Components
+ */
 @import "components/svg-icons";
 @import "components/text";
 @import "components/img";
@@ -29,7 +37,14 @@
 @import "components/messages";
 @import "components/seo";
 
-//Main websites patterns
+/**
+ * Plugins for WordPress plugin custom css (Mailpoet, WPForms etc.)
+ */
+//@import "plugin/pluginname";
+
+/**
+ * Patterns
+ */
 @import "patterns/lazyload";
 @import "patterns/utilities";
 @import "patterns/layout";
@@ -42,7 +57,9 @@
 @import "patterns/entries";
 @import "patterns/searchform";
 
-//Pages
+/**
+ * Pages
+ */
 @import "pages/default";
 @import "pages/404";
 @import "pages/home";

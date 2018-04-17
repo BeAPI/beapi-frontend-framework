@@ -14,7 +14,7 @@ class Theme implements Service {
 	 * @param Service_Container $container
 	 */
 	public function boot( Service_Container $container ) {
-		\add_action( 'after_setup_theme', [ $this, 'after_setup_theme' ] );
+		\add_action( 'after_setup_theme', [ $this, 'after_setup_theme' ], 30 );
 	}
 
 	/**

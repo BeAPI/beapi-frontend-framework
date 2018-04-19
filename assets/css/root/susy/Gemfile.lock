@@ -1,13 +1,13 @@
 PATH
   remote: .
   specs:
-    susy (2.2.11)
+    susy (2.2.13)
       sass (>= 3.3.0, < 3.5)
 
 GEM
   remote: http://rubygems.org/
   specs:
-    sass (3.4.20)
+    sass (3.4.25)
 
 PLATFORMS
   ruby
@@ -16,4 +16,4 @@ DEPENDENCIES
   susy!
 
 BUNDLED WITH
-   1.10.6
+   1.15.4

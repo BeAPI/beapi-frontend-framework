@@ -1,67 +1,45 @@
 {
-  "_args": [
-    [
-      {
-        "name": "susy",
-        "raw": "susy",
-        "rawSpec": "",
-        "scope": null,
-        "spec": "latest",
-        "type": "tag"
-      },
-      "/Users/nicolasfiascaro/Git/beapi-frontend-framework"
-    ]
-  ],
-  "_from": "susy@latest",
-  "_id": "susy@2.2.12",
-  "_inCache": true,
-  "_installable": true,
+  "_from": "susy@2.2.14",
+  "_id": "susy@2.2.14",
+  "_inBundle": false,
+  "_integrity": "sha512-4I7Cb4Cjw2TF6ZEMxT8W9/Ap35Kn/r6y3LIO+NzaMRBxfbmT+w2KvbrANG/JCqJjlPgqvwLfLF9vmndSMGZuLg==",
   "_location": "/susy",
-  "_nodeVersion": "5.1.0",
-  "_npmUser": {
-    "email": "miriam@oddbird.net",
-    "name": "mirisuzanne"
-  },
-  "_npmVersion": "3.3.12",
   "_phantomChildren": {},
   "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "susy@2.2.14",
     "name": "susy",
-    "raw": "susy",
-    "rawSpec": "",
-    "scope": null,
-    "spec": "latest",
-    "type": "tag"
+    "escapedName": "susy",
+    "rawSpec": "2.2.14",
+    "saveSpec": null,
+    "fetchSpec": "2.2.14"
   },
   "_requiredBy": [
-    "#DEV:/"
+    "#DEV:/",
+    "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/susy/-/susy-2.2.12.tgz",
-  "_shasum": "644c2441ed00d293287e8d49a016dbf919215953",
-  "_shrinkwrap": null,
-  "_spec": "susy",
-  "_where": "/Users/nicolasfiascaro/Git/beapi-frontend-framework",
+  "_resolved": "https://registry.npmjs.org/susy/-/susy-2.2.14.tgz",
+  "_shasum": "4551690ff063dd2049197dd8885bae5341a969f8",
+  "_spec": "susy@2.2.14",
+  "_where": "/Users/nicolasfiascaro/Local Sites/elementor/app/public/wp-content/themes/beapi-frontend-framework",
   "author": {
-    "email": "miriam@oddbird.net",
-    "name": "Miriam Eric Suzanne"
+    "name": "Miriam Eric Suzanne",
+    "email": "miriam@oddbird.net"
   },
   "bugs": {
     "url": "https://github.com/oddbird/susy/issues"
   },
-  "dependencies": {},
+  "bundleDependencies": false,
+  "deprecated": false,
   "description": "Sass power-tools for web layout.",
   "devDependencies": {
-    "sass-true": "^2.0.3"
-  },
-  "directories": {},
-  "dist": {
-    "shasum": "644c2441ed00d293287e8d49a016dbf919215953",
-    "tarball": "https://registry.npmjs.org/susy/-/susy-2.2.12.tgz"
+    "sass-true": "2.0.3"
   },
   "eyeglass": {
     "exports": "eyeglass-exports.js",
     "needs": "*"
   },
-  "gitHead": "6c10e82e69d3cb03a487c99bb752485a25a58113",
   "homepage": "https://github.com/oddbird/susy#readme",
   "keywords": [
     "layout",
@@ -74,15 +52,7 @@
   ],
   "license": "BSD-3-Clause",
   "main": "sass/_susy.scss",
-  "maintainers": [
-    {
-      "email": "miriam@miriamsuzanne.com",
-      "name": "mirisuzanne"
-    }
-  ],
   "name": "susy",
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git://github.com/oddbird/susy.git"
@@ -90,5 +60,5 @@
   "scripts": {
     "test": "rake test"
   },
-  "version": "2.2.12"
+  "version": "2.2.14"
 }

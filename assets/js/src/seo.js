@@ -11,7 +11,7 @@ class SeoLink {
    * @param {string} selector
    */
   static bind(selector) {
-    document.querySelectorAll(selector).forEach(element => new SeoLink(element))
+    ;[].forEach.call(document.querySelectorAll(selector), element => new SeoLink(element))
   }
 
   /**

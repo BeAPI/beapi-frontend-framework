@@ -14,7 +14,7 @@ class ButtonLink {
    * @param {string} selector
    */
   static bind(selector) {
-    document.querySelectorAll(selector).forEach(element => new ButtonLink(element))
+    ;[].forEach.call(document.querySelectorAll(selector), element => new ButtonLink(element))
   }
 
   /**

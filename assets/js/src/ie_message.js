@@ -5,6 +5,6 @@
 import '../polyfill/forEach'
 
 const ieUiMessage = document.querySelectorAll('.message__browserhappy')
-ieUiMessage.forEach(el => {
+;[].forEach.call(ieUiMessage, el => {
   el.querySelector('button').addEventListener('click', () => (el.style.display = 'none'))
 })

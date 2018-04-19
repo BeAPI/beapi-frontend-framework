@@ -10,7 +10,7 @@ class Select {
    * @param {string} selector
    */
   static bind(selector) {
-    document.querySelectorAll(selector).forEach(element => new Select(element))
+    ;[].forEach.call(document.querySelectorAll(selector), element => new Select(element))
   }
 
   /**

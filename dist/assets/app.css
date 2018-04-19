@@ -1,5 +1,12 @@
 @charset "UTF-8";
 /**
+ * Main sass config files
+ */
+/**
+ * Load Susy with includePaths in tasks/sass.js
+ * http://susydocs.oddbird.net/en/latest/
+ */
+/**
  * Susy layout
  * Go to _layouts.scss for example
  */
@@ -52,6 +59,10 @@
  */
 /**
  * Border Radius
+ */
+/**
+ * Root styles
+ * @font-face first !
  */
 @font-face {
   font-family: "Roboto";
@@ -497,6 +508,12 @@ html {
   height: 0;
   visibility: hidden; }
 
+/**
+ * Vendor for external librairies (Slick etc.)
+ */
+/**
+ * Components
+ */
 /**
  * @section Icons
  * @page index
@@ -1309,6 +1326,12 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
 [data-seo]:hover, [data-seo]:active, [data-seo]:focus {
   cursor: pointer; }
 
+/**
+ * Plugins for WordPress plugin custom css (Mailpoet, WPForms etc.)
+ */
+/**
+ * Patterns
+ */
 .lazyload,
 .lazyloading {
   opacity: 0;
@@ -1824,6 +1847,9 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     .searchform__submit .icon {
       vertical-align: -15%; }
 
+/**
+ * Pages
+ */
 /* Page default css
 -------------------------------------------------------------- */
 .page__header {

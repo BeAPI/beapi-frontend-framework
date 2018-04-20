@@ -11133,9 +11133,10 @@ __WEBPACK_IMPORTED_MODULE_2_lazysizes___default.a.customMedia = {}
  */
 __WEBPACK_IMPORTED_MODULE_3_lazysizes_plugins_bgset_ls_bgset___default.a.customMedia = {}
 
-let __svg__ = { filename: __webpack_require__.p +"/assets/icons/icons.svg" }
+let __svg__ = { filename: __webpack_require__.p +"/icons/icons.svg" }
 
 __webpack_require__(13)(__svg__)
+
 
 /***/ }),
 /* 6 */

@@ -36,7 +36,7 @@ lazySizesBgset.customMedia = {}
 
 let __svg__ = {
   path: '../img/icons/*.svg', // entry
-  name: '/assets/icons/icons.svg' // output
+  name: '/icons/icons.svg', // output
 }
 
 require('./vendor/svgxhr')(__svg__)

@@ -3,7 +3,7 @@
 const favicons = require('favicons')
 const fs = require('fs')
 const mkdirp = require('mkdirp')
-const faviconPath = 'assets/img/favicons/'
+const faviconPath = 'src/img/favicons/'
 const faviconSource = faviconPath + 'favicon_src.png'
 const appiconSource = faviconPath + 'appicon_src.png'
 const appicon = process.argv.indexOf('--appicon') === -1

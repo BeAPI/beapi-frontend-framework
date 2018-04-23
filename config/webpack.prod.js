@@ -10,25 +10,25 @@ webpackBase.plugins.push(
   new CleanWebpackPlugin(['dist/assets'], {
     root: path.resolve('./'),
     verbose: true,
-    dry: false
+    dry: false,
   }),
   new ExtractTextPlugin({
     filename: '[name].[contenthash:8].min.css',
-    allChunks: true
+    allChunks: true,
   }),
   new OptimizeCssAssetsPlugin({
     assetNameRegExp: /\.min\.css$/,
     cssProcessorOptions: {
       discardComments: {
-        removeAll: true
-      }
-    }
+        removeAll: true,
+      },
+    },
   }),
   new UglifyJsPlugin({
-    sourceMap: true
+    sourceMap: true,
   }),
   new ManifestPlugin({
-    fileName: 'assets.json'
+    fileName: 'assets.json',
   })
 )
 

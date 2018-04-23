@@ -4,7 +4,7 @@ const webpackBase = require('./webpack.base')
 webpackBase.plugins.push(
   new ExtractTextPlugin({
     filename: '[name].css',
-    allChunks: true
+    allChunks: true,
   })
 )
 

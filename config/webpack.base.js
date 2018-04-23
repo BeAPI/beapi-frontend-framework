@@ -14,7 +14,7 @@ let webpackBase = {
   output: {
     path: config.assets_path,
     publicPath: config.assets_public_path,
-    filename: config.dev ? '[name].js' : '[name].[chunkhash:8].min.js'
+    filename: config.dev ? '[name].js' : '[name].[chunkhash:8].min.js',
   },
   module: {
     rules: [
@@ -23,28 +23,30 @@ let webpackBase = {
         exclude: /(node_modules|bower_components)/,
         include: root,
         enforce: 'pre',
-        use: [{
-          loader: 'babel-loader',
-          options: {
-            babelrc: true
-          }
-        },
-        {
-          loader: 'eslint-loader'
-        }]
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              babelrc: true,
+            },
+          },
+          {
+            loader: 'eslint-loader',
+          },
+        ],
       },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: [...cssLoaders, 'resolve-url-loader']
-        })
+          use: [...cssLoaders, 'resolve-url-loader'],
+        }),
       },
       {
         test: /\.(sass|scss)$/,
         use: ExtractTextPlugin.extract({
-          use: [...cssLoaders, 'sass-loader']
-        })
+          use: [...cssLoaders, 'sass-loader'],
+        }),
       },
       {
         test: /\.(woff2?|woff|eot|ttf|otf|mp3|wav)(\?.*)?$/,
@@ -52,9 +54,9 @@ let webpackBase = {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: './fonts/'
-          }
-        }
+            outputPath: './fonts/',
+          },
+        },
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/,
@@ -65,56 +67,60 @@ let webpackBase = {
             options: {
               mozjpeg: {
                 progressive: true,
-                quality: 65
+                quality: 65,
               },
               pngquant: {
                 quality: '65-90',
-                speed: 4
+                speed: 4,
               },
               gifsicle: {
-                interlaced: false
+                interlaced: false,
               },
               webp: {
-                quality: 75
-              }
-            }
-          }
-        ]
-      }
-    ]
+                quality: 75,
+              },
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new webpack.ProvidePlugin({
       $: 'jquery',
-      jQuery: 'jquery'
+      jQuery: 'jquery',
     }),
     new CopyWebpackPlugin([
       {
-        from: 'assets/fonts/',
-        to: 'fonts/'
+        from: 'src/fonts/',
+        to: 'fonts/',
       },
       {
-        from: 'assets/img/bg-sample/',
-        to: 'img/bg-sample/'
+        from: 'src/img/bg-sample/',
+        to: 'img/bg-sample/',
       },
       {
-        from: 'assets/img/sample/',
-        to: 'img/sample/'
-      }
+        from: 'src/img/sample/',
+        to: 'img/sample/',
+      },
     ]),
-    new SvgStore(path.resolve(__dirname, './../assets/img/icons/*.svg'), path.resolve(__dirname, './../dist/assets/icons/'), {
-      name: 'icons',
-      prefix: 'icon-',
-      chunk: 'svg',
-      svgoOptions: {
-        plugins: [
-          {
-            removeTitle: true
-          }
-        ]
+    new SvgStore(
+      path.resolve(__dirname, './../src/img/icons/*.svg'),
+      path.resolve(__dirname, './../dist/assets/icons/'),
+      {
+        name: 'icons',
+        prefix: 'icon-',
+        chunk: 'svg',
+        svgoOptions: {
+          plugins: [
+            {
+              removeTitle: true,
+            },
+          ],
+        },
       }
-    })
-  ]
+    ),
+  ],
 }
 
 module.exports = webpackBase

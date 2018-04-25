@@ -68,10 +68,7 @@ You can also generate favicons from the sources files in `src/img/favicons/` by 
 ```
 $ npm run favicon
 ```
- You can also generate appicons :
-```
-$ npm run appicon
-```
+
 ### Bump of WordPress theme version
 To prevent WordPress and/or browsers cache issues, you can update the version of `style.css` in the theme's root. There are 3 kinds of update available : `patch`, `minor` or `major`.
 ```

@@ -14,7 +14,7 @@ class Favicons implements Service {
 	 *
 	 * @var string
 	 */
-	private $path_suffix = '/assets/img/favicons/';
+	private $path_suffix = '/dist/assets/img/favicons/';
 
 	/**
 	 * @param Service_Container $container

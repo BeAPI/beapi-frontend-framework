@@ -7,6 +7,6 @@
         document.documentElement.classList.remove('fonts-loading');
     } else {
         // load script with font observing logic
-        loadJS('<?php echo get_theme_file_uri( '/assets/js/vendor_async/fonts-css-async.js' );?>');
+        loadJS('<?php echo get_theme_file_uri( '/src/js/vendor_async/fonts-css-async.js' );?>');
     }
 </script>

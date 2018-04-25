@@ -64,7 +64,7 @@ $ npm run prod -- -t minor
 For example, if you have a 1.2.1 theme version, it will be bumped to 1.3.0. You can replace `minor` by `patch` or `major`.
 
 ### Favicons and appicons generation
-You can also generate favicons from the sources files in `src/img/favicons/` by using :
+You can also generate appicons and favicons from the sources files in `src/img/favicons/` by using :
 ```
 $ npm run favicon
 ```

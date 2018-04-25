@@ -8,7 +8,7 @@ You need to work in a wordpress environnement in order to make the BFF work with
 
 ```git clone https://github.com/asadowski10/advanced-responsive-images.git```
 
-With this plugin you can manage thumbnails with the `<picture>` tag through differents configurations located in `assets/conf-img`. For more details go to the [Responsive images section](#responsive-images)
+With this plugin you can manage thumbnails with the `<picture>` tag through differents configurations located in `src/conf-img`. For more details go to the [Responsive images section](#responsive-images)
 
 ##  Installation
 You have to install [Webpack](https://webpack.js.org/) and [Concurrently](https://www.npmjs.com/package/concurrently) globaly.
@@ -64,7 +64,7 @@ $ npm run prod -- -t minor
 For example, if you have a 1.2.1 theme version, it will be bumped to 1.3.0. You can replace `minor` by `patch` or `major`.
 
 ### Favicons and appicons generation
-You can also generate favicons from the sources files in `assets/img/favicons/` by using :
+You can also generate favicons from the sources files in `src/img/favicons/` by using :
 ```
 $ npm run favicon
 ```
@@ -140,7 +140,7 @@ CSS partials are classified and saved in 6 mains folders
 * *components*. The basics like button forms elements etc. It's where you can defined you root's styles for button input headings etc.
 * *patterns*. it's related to your modules. It's where you defined the basics for your module.
 * *pages*. a css file for each pages. very useful for change module behavior in a specific context.
-* All those parts are referenced in *assets/css/style.scss*. Don't forget to add your files here in the correct order.
+* All those parts are referenced in *src/css/style.scss*. Don't forget to add your files here in the correct order.
 
 ### JS Guideline ###
 
@@ -204,7 +204,7 @@ So with the [Advanced Responsive Images](https://github.com/asadowski10/advanced
 * provide a 2x img with "x" descriptor. perfect for thumbnails. ( srcset="my_image, my_image-HD 2x" )
 * provide a range of image depend on viewport with "w" descriptor. ( srcset="my_image-mobile 480w, my_image-tablet 768w, etc." )
 
-You can define image sizes in *assets/conf-img/images-sizes.json* for example, a 100x100px cropped image:
+You can define image sizes in *src/conf-img/images-sizes.json* for example, a 100x100px cropped image:
 
     "img-100-100":
         {
@@ -213,8 +213,9 @@ You can define image sizes in *assets/conf-img/images-sizes.json* for example, a
             "crop":true
         }
 
-And when your image sizes are made you have to pass them in a *assets/conf-img/images-locations.json* like this :
+And when your image sizes are made you have to pass them in a *src/conf-img/images-locations.json* like this :
 
+```
    "entry-img-01": [
       {
         "srcsets": [
@@ -235,10 +236,11 @@ And when your image sizes are made you have to pass them in a *assets/conf-img/i
         "img_base": "img-300-200"
       }
     ]
+```
 
 `default_img` is used for default image if no image are provoded in WordPress Admin. `img_base` is used as fallback for older browser.
 
-Now you have to build you're picture template in `assets/conf-img/tpl`. `default-picture.tpl` is the main `<picture>` container. In this tpl we can see the reference for the sources we want, for example in `entry-img-01.tpl` we want a square image under 1024px viewport, displayed in normal or 2x resolution, for bigger screen a landscape image:
+Now you have to build you're picture template in `src/conf-img/tpl`. `default-picture.tpl` is the main `<picture>` container. In this tpl we can see the reference for the sources we want, for example in `entry-img-01.tpl` we want a square image under 1024px viewport, displayed in normal or 2x resolution, for bigger screen a landscape image:
 
     <source data-srcset="%%img-100-100%%, %%img-200-200%% 2x" media="(max-width: 1024px)" %%srcset%% />
     <source data-srcset="%%img-300-200%%, %%img-600-400%% 2x" %%srcset%% />

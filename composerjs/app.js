@@ -4,9 +4,9 @@ const fuzzy = require('fuzzy')
 const Promise = require('promise')
 const download = require('download-file')
 const reqUrl = {
-  'scss': 'https://api.github.com/repos/BeAPI/bff-components/contents/scss',
-  'js': 'https://api.github.com/repos/BeAPI/bff-components/contents/js',
-  'html': 'https://api.github.com/repos/BeAPI/bff-components/contents/html'
+  scss: 'https://api.github.com/repos/BeAPI/bff-components/contents/scss',
+  js: 'https://api.github.com/repos/BeAPI/bff-components/contents/js',
+  html: 'https://api.github.com/repos/BeAPI/bff-components/contents/html',
 }
 let files = []
 let fileOpts = {}
@@ -16,66 +16,77 @@ console.log('Hi, welcome to composerjs')
 // Init autocomplete prompt type
 inquirer.registerPrompt('autocomplete', require('inquirer-autocomplete-prompt'))
 
-inquirer.prompt({
-  type: 'list',
-  name: 'req',
-  message: 'What kind of snippet do you need?',
-  choices: ['scss', 'js', 'html']
-}).then(data => {
-  fileOpts.ext = data.req
-  axios.get(reqUrl[data.req]).then(res => {
-    files = res.data.map(file => file.name)
-    inquirer.prompt({
-      type: 'autocomplete',
-      name: 'file',
-      message: 'Which file you need to download ?',
-      source: searchFiles
-    }).then(data => {
-      fileOpts.name = data.file
-      let dirPath = setDirPath(fileOpts.ext)
-      axios.get(reqUrl[fileOpts.ext]).then(res => {
-        let remoteFile = res.data.find(f => f.name === fileOpts.name)
-        fileOpts.downloadUrl = remoteFile.download_url
-        inquirer.prompt({
-          type: 'list',
-          name: 'path',
-          message: 'Where should I put the downloaded file ?',
-          choices: dirPath
-        }).then(data => {
-          fileOpts.path = data.path
-          let downloadOpts = {
-            directory: fileOpts.path,
-            filename: fileOpts.name
-          }
-          download(fileOpts.downloadUrl, downloadOpts, err => {
-            if (err) {
-              throw err
-            }
-            console.log('\n\nYour snippet was download successfully 😃\n')
-            printImportToConsole()
-            console.log('\n')
-          })
-        })
-      })
-    })
-  }).catch(error => {
-    console.log(error)
+inquirer
+  .prompt({
+    type: 'list',
+    name: 'req',
+    message: 'What kind of snippet do you need?',
+    choices: ['scss', 'js', 'html'],
   })
-})
+  .then(data => {
+    fileOpts.ext = data.req
+    axios
+      .get(reqUrl[data.req])
+      .then(res => {
+        files = res.data.map(file => file.name)
+        inquirer
+          .prompt({
+            type: 'autocomplete',
+            name: 'file',
+            message: 'Which file you need to download ?',
+            source: searchFiles,
+          })
+          .then(data => {
+            fileOpts.name = data.file
+            let dirPath = setDirPath(fileOpts.ext)
+            axios.get(reqUrl[fileOpts.ext]).then(res => {
+              let remoteFile = res.data.find(f => f.name === fileOpts.name)
+              fileOpts.downloadUrl = remoteFile.download_url
+              inquirer
+                .prompt({
+                  type: 'list',
+                  name: 'path',
+                  message: 'Where should I put the downloaded file ?',
+                  choices: dirPath,
+                })
+                .then(data => {
+                  fileOpts.path = data.path
+                  let downloadOpts = {
+                    directory: fileOpts.path,
+                    filename: fileOpts.name,
+                  }
+                  download(fileOpts.downloadUrl, downloadOpts, err => {
+                    if (err) {
+                      throw err
+                    }
+                    console.log('\n\nYour snippet was download successfully 😃\n')
+                    printImportToConsole()
+                    console.log('\n')
+                  })
+                })
+            })
+          })
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  })
 
 /**
  * FuzzySort to search file in prompt
  * @param {array} answers
  * @param {*} input
  */
-function searchFiles (answers, input) {
+function searchFiles(answers, input) {
   input = input || ''
   return new Promise(resolve => {
     setTimeout(() => {
       let fuzzyResult = fuzzy.filter(input, files)
-      resolve(fuzzyResult.map(el => {
-        return el.original
-      }))
+      resolve(
+        fuzzyResult.map(el => {
+          return el.original
+        })
+      )
     }, 100)
   })
 }
@@ -85,11 +96,17 @@ function searchFiles (answers, input) {
  * @param {string} ext
  * @return {array}
  */
-function setDirPath (ext) {
+function setDirPath(ext) {
   if (ext === 'scss') {
-    return ['../assets/css/patterns/', '../assets/css/components/', '../assets/css/pages/', '../assets/css/plugins/', '../assets/css/root/']
+    return [
+      '../src/css/patterns/',
+      '../src/css/components/',
+      '../src/css/pages/',
+      '../src/css/plugins/',
+      '../src/css/root/',
+    ]
   } else if (ext === 'js') {
-    return ['../assets/js/src/', '../assets/js/vendor', '../assets/js/vendor_async']
+    return ['../src/js/src/', '../src/js/vendor', '../src/js/vendor_async']
   } else if (ext === 'html') {
     return ['../dist', '../dist/blocks', '../dist/plugins', '../dist/widgets']
   }
@@ -98,7 +115,7 @@ function setDirPath (ext) {
 /**
  * Print import details to the console
  */
-function printImportToConsole () {
+function printImportToConsole() {
   if (fileOpts.ext === 'scss') {
     let sassPath = formatSassPath()
     let sassFileName = formatSassFileName()
@@ -107,7 +124,7 @@ function printImportToConsole () {
   } else if (fileOpts.ext === 'js') {
     console.log('You can require your script where you need it')
   } else if (fileOpts === 'html') {
-    console.log('You can include your php files with <?php include \'\' ?>')
+    console.log("You can include your php files with <?php include '' ?>")
   }
 }
 
@@ -115,7 +132,7 @@ function printImportToConsole () {
  * Format sass path for default style.css file
  * @return {string}
  */
-function formatSassPath () {
+function formatSassPath() {
   let path = fileOpts.path
   path = path.split('/')
   return `${path[path.length - 2]}/`
@@ -125,7 +142,7 @@ function formatSassPath () {
  * Remove _ and extension form sass file name
  * @return {string}
  */
-function formatSassFileName () {
+function formatSassFileName() {
   let fileName = fileOpts.name
   if (fileName[0] === '_') {
     fileName = fileName.substr(1)

@@ -33,7 +33,7 @@
 				document.documentElement.classList.remove('fonts-loading');
 			} else {
 				// load script with font observing logic
-				loadJS('../assets/js/vendor_async/fonts-css-async.js');
+				loadJS('../src/js/vendor_async/fonts-css-async.js');
 			}
 		</script>
 		<script src="assets/app.js" async defer></script>

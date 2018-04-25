@@ -1,7 +1,7 @@
 /**
  * Main scripts file
  */
-import 'picturefill'
+import './polyfill/picturefill'
 import './polyfill/forEach'
 import lazySizes from 'lazysizes'
 import lazySizesBgset from 'lazysizes/plugins/bgset/ls.bgset'
@@ -34,9 +34,15 @@ lazySizes.customMedia = {}
  */
 lazySizesBgset.customMedia = {}
 
-let __svg__ = {
-  path: '../img/icons/*.svg', // entry
-  name: '/icons/icons.svg', // output
-}
+/**
+ * Load SVG sprite only in our dist folder
+ */
+const distPath = window.location.pathname
 
-require('./vendor/svgxhr')(__svg__)
+if (distPath.match('/dist/').length === 1) {
+  let __svg__ = {
+    path: '../img/icons/*.svg', // entry
+    name: '../icons/icons.svg', // output
+  }
+  require('./vendor/svgxhr')(__svg__)
+}

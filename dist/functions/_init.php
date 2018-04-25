@@ -1,13 +1,13 @@
 <?php
 require dirname( __FILE__ ) . '/url.php';
 
-define( 'ARI_JSON_DIR', dirname( __FILE__ ) . '/../../assets/conf-img/' );
+define( 'ARI_JSON_DIR', dirname( __FILE__ ) . '/../../src/conf-img/' );
 define( 'ARI_MODE', 'picture_lazyload' );
 define( 'ARI_CONTEXT', 'front' );
 define( 'ARI_PIXEL', 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' );
 
-define( 'BEA_IMG_SAMPLE_URL', get_full_url( $_SERVER, true ) . '../assets/img/sample/' );
-define( 'BEA_IMG_SAMPLE_DIR', dirname( __FILE__ ) . '/../../assets/img/sample/' );
+define( 'BEA_IMG_SAMPLE_URL', get_full_url( $_SERVER, true ) . '../src/img/sample/' );
+define( 'BEA_IMG_SAMPLE_DIR', dirname( __FILE__ ) . '/../../src/img/sample/' );
 
 require dirname( __FILE__ ) . '/compat.php';
 require dirname( __FILE__ ) . '/post-thumbnail.php';

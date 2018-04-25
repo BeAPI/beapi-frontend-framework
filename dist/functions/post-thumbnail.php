@@ -1,6 +1,6 @@
 <?php
 /**
- * Version 3.0.1
+ * Version 3.0.2
  *
  */
 
@@ -16,7 +16,7 @@ function has_post_thumbnail( $return_value = true ) {
 }
 
 /**
- * Get random image from assets/samples folder, emulate WP function with image location context
+ * Get random image from src/samples folder, emulate WP function with image location context
  *
  * @global $bea_image
  *

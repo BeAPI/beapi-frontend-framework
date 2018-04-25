@@ -1,6 +1,6 @@
 <?php $class = 'archive'; ?>
 <?php include 'header.php'; ?>
-    <header class="page__header lazyload" data-bgset="../assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | ../assets/img/bg-sample/bg_img-desktop-01.jpg">
+    <header class="page__header lazyload" data-bgset="assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg">
 		<div class="container">
             <h1 class="page__title">Two basic styles of archive list</h1>
             <p>You can add WP-pagenavi or FacetWP plugin markup for pagination, from composerjs</p>

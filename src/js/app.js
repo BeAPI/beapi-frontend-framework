@@ -10,6 +10,7 @@ import Menu from './src/menu'
 import ButtonLink from './src/button-href'
 import Select from './src/select'
 import SeoLink from './src/seo'
+import AccessibilityTests from './src/accessibility-tests'
 
 const menu = new Menu()
 menu.init()
@@ -35,11 +36,16 @@ lazySizes.customMedia = {}
 lazySizesBgset.customMedia = {}
 
 /**
- * Load SVG sprite only in our dist folder
+ * Load SVG sprite and automate a11y tests only in our dist folder
  */
 const distPath = window.location.pathname
 
 if (distPath.match('/dist/').length === 1) {
+  //a11y
+  const accessibilityTests = new AccessibilityTests()
+  accessibilityTests.init()
+
+  //SVG
   let __svg__ = {
     path: '../img/icons/*.svg', // entry
     name: '../icons/icons.svg', // output

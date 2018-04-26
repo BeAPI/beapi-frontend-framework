@@ -2,9 +2,6 @@
 require( dirname( __FILE__ ) . '/functions/_init.php' );
 ?>
 <!doctype html>
-<!--[if lt IE 7 ]> <html class="no-js ie lte-ie9 lte-ie8 lte-ie7 ie6" lang="fr"> <![endif]-->
-<!--[if IE 7 ]>    <html class="no-js ie lte-ie9 lte-ie8 lte-ie7 ie7" lang="fr"> <![endif]-->
-<!--[if IE 8 ]>    <html class="no-js ie lte-ie9 lte-ie8 ie8" lang="fr"> <![endif]-->
 <!--[if IE 9 ]> <html class="no-js ie lte-ie9 ie9" lang="fr"> <![endif]-->
 <!--[if !(IE)]><! -->
 <html class="fonts-loading no-js" lang="fr"><!--<![endif]-->
@@ -89,7 +86,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<script type="text/javascript" src="../src/js/vendor_async/jquery.js"></script>
 
 	</head>
-	<body itemscope itemtype="http://schema.org/WebPage" class="<?php echo $class; ?>">
+	<body class="<?php echo $class; ?>">
 		<!--[if lte IE 9]>
 			<div class="message message__browserhappy">
 				<p>
@@ -129,6 +126,11 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 							<svg class="header__icon icon" aria-hidden="true" role="img">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
 							</svg>
+							<?php if ( $class == 'home' ) :?>
+								<h1 class="header__title visuallyhidden">BeAPI FrontEnd Framework</h1>
+							<?php else: ?>
+								<div class="header__title visuallyhidden">BeAPI FrontEnd Framework</div>
+							<?php endif; ?>
 						</a>
 					</div>
 					<nav id="menu" class="menu" role="navigation" tabindex="-1" aria-label="Navigation Principal">
@@ -144,11 +146,6 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 							<li class="menu-item"><a href="04-page-404.php">Page 404</a></li>
 						</ul>
 					</nav>
-					<?php if ( $class == 'home' ) :?>
-						<h1 class="header__title visuallyhidden"><a href="01-home.php">BeAPI FrontEnd Framework</a></h1>
-					<?php else: ?>
-						<div class="header__title visuallyhidden"><a href="01-home.php">BeAPI FrontEnd Framework</a></div>
-					<?php endif; ?>
 				</div>
 			</header>
 			<main id="main__content" class="main__content" role="main" tabindex="-1" aria-label="Contenu Principal">

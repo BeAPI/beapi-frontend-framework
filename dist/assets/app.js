@@ -11146,7 +11146,7 @@ if (distPath.match('/dist/').length === 1) {
   accessibilityTests.init()
 
   // SVG
-  let __svg__ = { filename: __webpack_require__.p +"../icons/icons.svg" }
+  let __svg__ = { filename: __webpack_require__.p +"../assets/icons/icons.svg" }
   __webpack_require__(16)(__svg__)
 }
 

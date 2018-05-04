@@ -22,7 +22,7 @@ let webpackBase = {
       {
         test: /\.pug$/,
         include: path.join(__dirname, 'src'),
-        use: ['pug-html-loader'],
+        use: ['pug-loader'],
       },
       {
         test: /\.js$/,
@@ -60,7 +60,7 @@ let webpackBase = {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: './assets/fonts/',
+            outputPath: './fonts/',
           },
         },
       },
@@ -99,20 +99,20 @@ let webpackBase = {
     new CopyWebpackPlugin([
       {
         from: 'src/templates/',
-        to: '',
+        to: '..',
         ignore: ['*.pug'],
       },
       {
         from: 'src/fonts/',
-        to: 'assets/fonts/',
+        to: 'fonts/',
       },
       {
         from: 'src/img/bg-sample/',
-        to: 'assets/img/bg-sample/',
+        to: 'img/bg-sample/',
       },
       {
         from: 'src/img/sample/',
-        to: 'assets/img/sample/',
+        to: 'img/sample/',
       },
     ]),
     new SvgStore(

@@ -4,7 +4,7 @@ module.exports = {
   entry: {
     app: ['./src/css/style.scss', './src/js/app.js'],
   },
-  assets_path: path.resolve(__dirname, './../dist/'),
+  assets_path: path.resolve(__dirname, './../dist/assets'),
   assets_public_path: '/src/',
   port: 9090,
   dev: process.env.NODE_ENV === 'dev',

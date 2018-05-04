@@ -48,7 +48,7 @@ if (distPath.match('/dist/').length === 1) {
   // SVG
   let __svg__ = {
     path: '../img/icons/*.svg', // entry
-    name: '../dist/assets/icons/icons.svg', // output
+    name: '../assets/icons/icons.svg', // output
   }
   require('./vendor/svgxhr')(__svg__)
 }

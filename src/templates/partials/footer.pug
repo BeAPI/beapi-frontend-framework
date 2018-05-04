@@ -1,0 +1,26 @@
+footer#footer.footer(role="contentinfo")
+    div.container
+        p Follow us:
+        a.button.button--circle(href="https://www.facebook.com/beapi.agency/?ref=bookmarks")
+            span.visuallyhidden On Facebook
+            +svg-icon('facebook')(class="icon icon-facebook")
+        a.button.button--circle(href="https://twitter.com/be_api")
+            span.visuallyhidden On Twitter
+            +svg-icon('twitter')(class="icon icon-twitter")
+        a.button.button--circle(href="https://www.instagram.com/agencebeapi/")
+            span.visuallyhidden On Instagram
+            +svg-icon('instagram')(class="icon icon-instagram")
+
+
+script.
+    // inline loadJS
+    function loadJS(e,t){"use strict";var n=window.document.getElementsByTagName("script")[0],o=window.document.createElement("script");return o.src=e,o.async=!0,n.parentNode.insertBefore(o,n),t&&"function"==typeof t&&(o.onload=t),o}
+    // then load your JS
+    if (sessionStorage.getItem('fonts-loaded')) {
+        // fonts cached, add class to document
+        document.documentElement.classList.remove('fonts-loading');
+    } else {
+        // load script with font observing logic
+        loadJS('../src/js/vendor_async/fonts-css-async.js');
+    }
+script(src="assets/app.js" async defer)

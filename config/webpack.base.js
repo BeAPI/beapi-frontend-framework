@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const SvgStore = require('webpack-svgstore-plugin')
 const cssLoaders = require('./css-loader.js')
+const htmlRender = require('./html-render.js')('./../src/templates/pages')
 
 let root = path.resolve(__dirname)
 
@@ -18,6 +19,11 @@ let webpackBase = {
   },
   module: {
     rules: [
+      {
+        test: /\.pug$/,
+        include: path.join(__dirname, 'src'),
+        use: ['pug-html-loader'],
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
@@ -93,7 +99,8 @@ let webpackBase = {
     new CopyWebpackPlugin([
       {
         from: 'src/templates/',
-        to: '..'
+        to: '..',
+        ignore: ['*.pug'],
       },
       {
         from: 'src/fonts/',
@@ -124,7 +131,7 @@ let webpackBase = {
         },
       }
     ),
-  ],
+  ].concat(htmlRender),
 }
 
 module.exports = webpackBase

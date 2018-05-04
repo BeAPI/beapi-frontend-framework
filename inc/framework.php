@@ -18,15 +18,15 @@ class Framework {
 	 */
 	protected static $services = [
 		// Services
-		\BEA\Theme\Framework\Theme::class,
-		\BEA\Theme\Framework\Assets::class,
-		\BEA\Theme\Framework\Assets_CSS_Async::class,
-		\BEA\Theme\Framework\Assets_JS_Async::class,
-		\BEA\Theme\Framework\SVG::class,
-		\BEA\Theme\Framework\Favicons::class,
-		\BEA\Theme\Framework\Acf::class,
-		\BEA\Theme\Framework\Sidebar::class,
-		\BEA\Theme\Framework\Menu::class,
+		\BEA\Theme\Framework\Services\Theme::class,
+		\BEA\Theme\Framework\Services\Assets::class,
+		\BEA\Theme\Framework\Services\Assets_CSS_Async::class,
+		\BEA\Theme\Framework\Services\Assets_JS_Async::class,
+		\BEA\Theme\Framework\Services\SVG::class,
+		\BEA\Theme\Framework\Services\Favicons::class,
+		\BEA\Theme\Framework\Services\Acf::class,
+		\BEA\Theme\Framework\Services\Sidebar::class,
+		\BEA\Theme\Framework\Services\Menu::class,
 
 		// Services as Tools
 		\BEA\Theme\Framework\Tools\Body_Class::class,

@@ -92,6 +92,10 @@ let webpackBase = {
     }),
     new CopyWebpackPlugin([
       {
+        from: 'src/templates/',
+        to: '..'
+      },
+      {
         from: 'src/fonts/',
         to: 'fonts/',
       },

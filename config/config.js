@@ -8,5 +8,12 @@ module.exports = {
   assets_public_path: '/src/',
   port: 9090,
   dev: process.env.NODE_ENV === 'dev',
-  refresh: ['dist/**/*.php', 'src/**/*.scss', 'dist/assets/*.js', 'src/img/icons/', 'src/img/icons/*.svg'],
+  refresh: [
+    'dist/**/*.php',
+    'dist/**/*.html',
+    'src/**/*.scss',
+    'dist/assets/*.js',
+    'src/img/icons/',
+    'src/img/icons/*.svg',
+  ],
 }

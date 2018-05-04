@@ -41,11 +41,11 @@ lazySizesBgset.customMedia = {}
 const distPath = window.location.pathname
 
 if (distPath.match('/dist/').length === 1) {
-  //a11y
+  // a11y
   const accessibilityTests = new AccessibilityTests()
   accessibilityTests.init()
 
-  //SVG
+  // SVG
   let __svg__ = {
     path: '../img/icons/*.svg', // entry
     name: '../icons/icons.svg', // output

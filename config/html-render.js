@@ -13,7 +13,10 @@ module.exports = function(templateDir) {
 
     return new HtmlWebpackPlugin({
       filename: `../${name}.html`,
-      template: '!!pug-loader!' + path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
+      template: '!!pug-loader?pretty=true!' + path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
+      minify: {
+        collapseWhitespace: false,
+      },
     })
   })
 }

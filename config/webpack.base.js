@@ -60,7 +60,7 @@ let webpackBase = {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: './fonts/',
+            outputPath: './assets/fonts/',
           },
         },
       },
@@ -99,20 +99,20 @@ let webpackBase = {
     new CopyWebpackPlugin([
       {
         from: 'src/templates/',
-        to: '..',
+        to: '',
         ignore: ['*.pug'],
       },
       {
         from: 'src/fonts/',
-        to: 'fonts/',
+        to: 'assets/fonts/',
       },
       {
         from: 'src/img/bg-sample/',
-        to: 'img/bg-sample/',
+        to: 'assets/img/bg-sample/',
       },
       {
         from: 'src/img/sample/',
-        to: 'img/sample/',
+        to: 'assets/img/sample/',
       },
     ]),
     new SvgStore(

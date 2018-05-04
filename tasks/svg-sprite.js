@@ -4,7 +4,7 @@ const path = require('path')
 const SVGO = require('svgo')
 
 const srcIcons = './src/img/icons'
-const distSvg = './dist/icons/icons.svg'
+const distSvg = './dist/assets/icons/icons.svg'
 const prefix = 'icon'
 const sprites = svgstore({
   copyAttrs: true,

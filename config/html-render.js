@@ -12,11 +12,9 @@ module.exports = function(templateDir) {
     const extension = parts[1]
 
     return new HtmlWebpackPlugin({
+      inject: false,
       filename: `../${name}.html`,
-      template: '!!pug-loader?pretty=true!' + path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
-      minify: {
-        collapseWhitespace: false,
-      },
+      template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
     })
   })
 }

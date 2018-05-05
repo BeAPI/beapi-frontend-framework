@@ -11,16 +11,5 @@ footer#footer.footer(role="contentinfo")
             span.visuallyhidden On Instagram
             +svg-icon('instagram')(class="icon icon-instagram")
 
-
-script.
-    // inline loadJS
-    function loadJS(e,t){"use strict";var n=window.document.getElementsByTagName("script")[0],o=window.document.createElement("script");return o.src=e,o.async=!0,n.parentNode.insertBefore(o,n),t&&"function"==typeof t&&(o.onload=t),o}
-    // then load your JS
-    if (sessionStorage.getItem('fonts-loaded')) {
-        // fonts cached, add class to document
-        document.documentElement.classList.remove('fonts-loading');
-    } else {
-        // load script with font observing logic
-        loadJS('../src/js/vendor_async/fonts-css-async.js');
-    }
-script(src="assets/app.js" async defer)
+include ../../../dist/assets/icons/icons.svg
+include _footer-scripts.pug

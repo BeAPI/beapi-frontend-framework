@@ -72,7 +72,7 @@
 <!-- jQuery from official WordPress Core-->
 <script type="text/javascript" src="../src/js/vendor_async/jquery.js"></script>
   </head>
-  <body class="home"><!--[if lte IE 9]>
+  <body class="archive"><!--[if lte IE 9]>
 <div class="message message__browserhappy">
 <p>
     <You>are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</You></p>
@@ -126,18 +126,103 @@
       </header>
     </div>
     <main class="main__content" id="main__content" role="main" tabindex="-1" aria-label="Contenu Principal">
-      <article class="entry">
+      <header class="page__header lazyload" data-bgset="assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg">
         <div class="container">
-          <header class="entry__header">
-            <h1 class="entry__title">Welcome to the BFF</h1>
-          </header>
-          <section class="entry__content">
-            <p>This a starter theme so it's empty. <br> Minimum pages are listed in the menu above. It's a base that you have to custom on your need.</p>
-            <p>You can use <a href="https://github.com/BeAPI/beapi-frontend-framework/#composer-js">Composer JS</a> in order to add <a href="https://github.com/BeAPI/bff-components" target="_blank" title="See components">well known components</a> (html, css or js) like comments, widgets, plugins etc.</p>
-            <h2>🦄 Happy Coding ! 🦄</h2>
-          </section>
+          <h1 class="page__title">Two basic styles of archive list</h1>
+          <p>You can add WP-pagenavi or FacetWP plugin markup for pagination, from composerjs</p></p>
         </div>
-      </article>
+      </header>
+      <div class="page__content">
+        <div class="container">
+          <h2 class="entry__title">An example of entry list</h2>
+          <div class="entry__loop">
+<!-- Entry summary sample for loop-->
+<article class="entry__item">
+  <div class="entry__media"></div>
+  <!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?>-->
+  <div class="entry__summary">
+    <h2 class="entry__title"><a href="#">There is a post + a 20 words lorem ipsum excerpt</a></h2>
+    <div class="entry__date">Publié le <time datetime="2015-06-30">06/30/2015</time></div>
+    <div class="entry__excerpt">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+    </div>
+    <div class="entry__more"><a class="entry__link button" href="02-page-default.php">Read more            </a></div>
+  </div>
+</article>
+<!-- Entry summary sample for loop-->
+<article class="entry__item">
+  <div class="entry__media"></div>
+  <!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?>-->
+  <div class="entry__summary">
+    <h2 class="entry__title"><a href="#">There is a post + a 20 words lorem ipsum excerpt</a></h2>
+    <div class="entry__date">Publié le <time datetime="2015-06-30">06/30/2015</time></div>
+    <div class="entry__excerpt">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+    </div>
+    <div class="entry__more"><a class="entry__link button" href="02-page-default.php">Read more            </a></div>
+  </div>
+</article>
+<!-- Entry summary sample for loop-->
+<article class="entry__item">
+  <div class="entry__media"></div>
+  <!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?>-->
+  <div class="entry__summary">
+    <h2 class="entry__title"><a href="#">There is a post + a 20 words lorem ipsum excerpt</a></h2>
+    <div class="entry__date">Publié le <time datetime="2015-06-30">06/30/2015</time></div>
+    <div class="entry__excerpt">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+    </div>
+    <div class="entry__more"><a class="entry__link button" href="02-page-default.php">Read more            </a></div>
+  </div>
+</article>
+          </div>
+          <h2 class="entry__title">An example of entry "card" list</h2>
+          <div class="entry__loop">
+<!-- Entry summary sample for loop-->
+<article class="entry__card" data-seo>
+  <div class="entry__media">
+    <!-- <?php echo get_the_post_thumbnail( 0, "thumbnail", array( "data-location" => "entry-img-01", "class" => "entry__img", "alt" => "#" ) ); ?>-->
+  </div>
+  <div class="entry__summary">
+    <h2 class="entry__title"><a href="02-page-default.php">There is a post + a 20 words lorem ipsum excerpt</a></h2>
+    <div class="entry__date">Publié le <time datetime="2015-06-30">06/30/2015</time></div>
+    <div class="entry__excerpt">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+    </div>
+    <div class="entry__more"><span class="button">Readmore</span></div>
+  </div>
+</article>
+<!-- Entry summary sample for loop-->
+<article class="entry__card" data-seo>
+  <div class="entry__media">
+    <!-- <?php echo get_the_post_thumbnail( 0, "thumbnail", array( "data-location" => "entry-img-01", "class" => "entry__img", "alt" => "#" ) ); ?>-->
+  </div>
+  <div class="entry__summary">
+    <h2 class="entry__title"><a href="02-page-default.php">There is a post + a 20 words lorem ipsum excerpt</a></h2>
+    <div class="entry__date">Publié le <time datetime="2015-06-30">06/30/2015</time></div>
+    <div class="entry__excerpt">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+    </div>
+    <div class="entry__more"><span class="button">Readmore</span></div>
+  </div>
+</article>
+<!-- Entry summary sample for loop-->
+<article class="entry__card" data-seo>
+  <div class="entry__media">
+    <!-- <?php echo get_the_post_thumbnail( 0, "thumbnail", array( "data-location" => "entry-img-01", "class" => "entry__img", "alt" => "#" ) ); ?>-->
+  </div>
+  <div class="entry__summary">
+    <h2 class="entry__title"><a href="02-page-default.php">There is a post + a 20 words lorem ipsum excerpt</a></h2>
+    <div class="entry__date">Publié le <time datetime="2015-06-30">06/30/2015</time></div>
+    <div class="entry__excerpt">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+    </div>
+    <div class="entry__more"><span class="button">Readmore</span></div>
+  </div>
+</article>
+          </div>
+        </div>
+      </div>
     </main>
     <footer class="footer" id="footer" role="contentinfo">
       <div class="container">

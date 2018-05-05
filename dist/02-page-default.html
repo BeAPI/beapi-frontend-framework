@@ -72,7 +72,7 @@
 <!-- jQuery from official WordPress Core-->
 <script type="text/javascript" src="../src/js/vendor_async/jquery.js"></script>
   </head>
-  <body class="home"><!--[if lte IE 9]>
+  <body class="page"><!--[if lte IE 9]>
 <div class="message message__browserhappy">
 <p>
     <You>are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</You></p>
@@ -126,16 +126,135 @@
       </header>
     </div>
     <main class="main__content" id="main__content" role="main" tabindex="-1" aria-label="Contenu Principal">
+      <header class="page__header lazyload" data-bgset="assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg">
+        <div class="container">
+          <h1 class="page__title">Titre de la page par défaut, avec sidebar</h1>
+          <div class="page__date">Publié le <time datetime="2015-06-30">06/30/2015</time></div>
+        </div>
+      </header>
       <article class="entry">
         <div class="container">
-          <header class="entry__header">
-            <h1 class="entry__title">Welcome to the BFF</h1>
-          </header>
-          <section class="entry__content">
-            <p>This a starter theme so it's empty. <br> Minimum pages are listed in the menu above. It's a base that you have to custom on your need.</p>
-            <p>You can use <a href="https://github.com/BeAPI/beapi-frontend-framework/#composer-js">Composer JS</a> in order to add <a href="https://github.com/BeAPI/bff-components" target="_blank" title="See components">well known components</a> (html, css or js) like comments, widgets, plugins etc.</p>
-            <h2>🦄 Happy Coding ! 🦄</h2>
-          </section>
+          <div class="content">
+            <section class="entry__content">
+              <h2>Image with link to a bigger size using a lightbox</h2>
+              <p><a href="../assets/img/sample/beapi_theme-img-2.jpg"><img align="right" alt="#" src="http://placehold.it/150x150" class="alignright"></a> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat. <span id="more-317"></span></p>
+              <blockquote>
+                <p>« Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat. »</p>
+              </blockquote>
+              <p>
+                <cite>« Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat. »</cite>
+              </p>
+              <h1>Level 1 Heading</h1>
+              <h2>Level 2 Heading</h2>
+              <h3>Level 3 Heading</h3>
+              <h4>Level 4 Heading</h4>
+              <h5>Level 5 Heading</h5>
+              <h6>Level 6 Heading</h6>
+              <h3>Image with a caption text</h3>
+              <div class="wp-caption alignnone" style="width: 150px;"><a href="http://placehold.it/500x500" rel="attachment"><img width="150" height="150" alt="#" src="http://placehold.it/150x150" title="#"></a>
+                <p class="wp-caption-text">This is an image with a caption text</p>
+              </div>
+              <h2>A table</h2>
+              <table>
+                <tbody>
+                  <tr>
+                    <th>Employee</th>
+                    <th class="views" colspan="2">Salary</th>
+                  </tr>
+                  <tr>
+                    <td><a href="http://john.do/">John Saddington</a></td>
+                    <td>$1</td>
+                    <td>Because that’s all Steve Job’ needed for a salary.</td>
+                  </tr>
+                  <tr>
+                    <td><a href="http://tommcfarlin.com/">Tom McFarlin</a></td>
+                    <td>$100K</td>
+                    <td>For all the blogging he does.</td>
+                  </tr>
+                  <tr>
+                    <td><a href="http://jarederickson.com/">Jared Erickson</a></td>
+                    <td>$100M</td>
+                    <td>Pictures are worth a thousand words, right? So Tom x 1,000.</td>
+                  </tr>
+                  <tr>
+                    <td><a href="http://chrisam.es/">Chris Ames</a></td>
+                    <td>$100B</td>
+                    <td>With hair like that?! Enough said…</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>An Unordered List</h3>
+              <ul>
+                <li>Vestibulum in mauris semper tortor interdum ultrices.</li>
+                <li>Sed vel lorem et justo laoreet bibendum. Donec dictum.</li>
+                <li>Etiam massa libero, lacinia at, commodo in, tincidunt a, purus.</li>
+                <li>Praesent volutpat eros quis enim blandit tincidunt.</li>
+                <li>Aenean eu libero nec lectus ultricies laoreet. Donec rutrum, nisi vel egestas ultrices, ipsum urna sagittis libero, vitae vestibulum dui dolor vel velit.</li>
+              </ul>
+              <h3>Image with no alignment</h3>
+              <p><img alt="#" src="http://placehold.it/150x150"></p><img class="alignleft" align="left" alt="#" src="http://placehold.it/150x150">
+              <h3>An Ordered List with left align image</h3>
+              <ol>
+                <li>Vestibulum in mauris semper tortor interdum ultrices.</li>
+                <li>Sed vel lorem et justo laoreet bibendum. Donec dictum.</li>
+                <li>Etiam massa libero, lacinia at, commodo in, tincidunt a, purus.</li>
+                <li>Praesent volutpat eros quis enim blandit tincidunt.</li>
+                <li>Aenean eu libero nec lectus ultricies laoreet. Donec rutrum, nisi vel egestas ultrices, ipsum urna sagittis libero, vitae vestibulum dui dolor vel velit.</li>
+              </ol><img class="alignleft" align="left" alt="#" src="http://placehold.it/150x150">
+              <h3>An Unordered List with left align image</h3>
+              <ul>
+                <li>Vestibulum in mauris semper tortor interdum ultrices.</li>
+                <li>Sed vel lorem et justo laoreet bibendum. Donec dictum.</li>
+                <li>Etiam massa libero, lacinia at, commodo in, tincidunt a, purus.</li>
+                <li>Praesent volutpat eros quis enim blandit tincidunt.</li>
+                <li>Aenean eu libero nec lectus ultricies laoreet. Donec rutrum, nisi vel egestas ultrices, ipsum urna sagittis libero, vitae vestibulum dui dolor vel velit.</li>
+              </ul>
+              <div class="gallery galleryid-1 gallery-columns-4 gallery-size-thumbnail" id="gallery-1">
+                <dl class="gallery-item">
+                  <dt class="gallery-icon"><a href="#" title="#"><img class="attachment-thumbnail" width="150" height="150" src="http://placehold.it/150x150" alt="#"></a></dt>
+                  <dd class="wp-caption-text gallery-caption">mdhbfldksb</dd>
+                </dl>
+                <dl class="gallery-item">
+                  <dt class="gallery-icon"><a href="#" title="#"><img class="attachment-thumbnail" width="150" height="150" src="http://placehold.it/150x150" alt="#"></a></dt>
+                  <dd class="wp-caption-text gallery-caption">mdhbfldksb</dd>
+                </dl>
+                <dl class="gallery-item">
+                  <dt class="gallery-icon"><a href="#" title="#"><img class="attachment-thumbnail" width="150" height="150" src="http://placehold.it/150x150" alt="#"></a></dt>
+                </dl>
+                <dl class="gallery-item">
+                  <dt class="gallery-icon"><a href="#" title="#"><img class="attachment-thumbnail" width="150" height="150" src="http://placehold.it/150x150" alt="#"></a></dt>
+                  <dd class="wp-caption-text gallery-caption">mdhbfldksb</dd>
+                </dl>
+                <dl class="gallery-item">
+                  <dt class="gallery-icon"><a href="#" title="#"><img class="attachment-thumbnail" width="150" height="150" src="http://placehold.it/150x150" alt="#"></a></dt>
+                  <dd class="wp-caption-text gallery-caption">mdhbfldksb</dd>
+                </dl><br style="clear: both;">
+              </div>
+              <div class="message message--error">
+                <h4>Error box</h4>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.</p>
+              </div>
+              <div class="message message--success">
+                <h4>Success box</h4>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.</p>
+              </div>
+              <div class="message message--info">
+                <h4>Info box</h4>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.</p>
+              </div>
+              <div class="message message--notice">
+                <h4>Notice box</h4>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.</p>
+              </div>
+              <!-- Button href demo-->
+              <button class="button button--rounded" type="button" data-href="https://beapi.fr/">Button w/o blank</button>
+              <button class="button button--bordered" type="button" data-href="https://beapi.fr/" data-target="_blank">Button w/ blank</button>
+              <button class="button button--revert" type="button" data-href="../assets/pdf/sample.pdf" data-target="download" data-filename="sample.pdf">Button download</button>
+            </section>
+          </div>
+          <div class="sidebar">
+            <!-- You can add widget sample (html/css) from composerjs here-->
+          </div>
         </div>
       </article>
     </main>

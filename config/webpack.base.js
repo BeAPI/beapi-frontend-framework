@@ -21,8 +21,12 @@ let webpackBase = {
     rules: [
       {
         test: /\.pug$/,
-        include: path.join(__dirname, 'src'),
-        use: ['pug-loader'],
+        use: {
+          loader: 'pug-loader',
+          options: {
+            pretty: true,
+          },
+        },
       },
       {
         test: /\.js$/,

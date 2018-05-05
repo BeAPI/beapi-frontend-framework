@@ -72,7 +72,7 @@
 <!-- jQuery from official WordPress Core-->
 <script type="text/javascript" src="../src/js/vendor_async/jquery.js"></script>
   </head>
-  <body class="home"><!--[if lte IE 9]>
+  <body class="error-404"><!--[if lte IE 9]>
 <div class="message message__browserhappy">
 <p>
     <You>are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</You></p>
@@ -128,13 +128,25 @@
     <main class="main__content" id="main__content" role="main" tabindex="-1" aria-label="Contenu Principal">
       <article class="entry">
         <div class="container">
-          <header class="entry__header">
-            <h1 class="entry__title">Welcome to the BFF</h1>
-          </header>
+          <h1 class="entry__title">Erreur 404</h1>
           <section class="entry__content">
-            <p>This a starter theme so it's empty. <br> Minimum pages are listed in the menu above. It's a base that you have to custom on your need.</p>
-            <p>You can use <a href="https://github.com/BeAPI/beapi-frontend-framework/#composer-js">Composer JS</a> in order to add <a href="https://github.com/BeAPI/bff-components" target="_blank" title="See components">well known components</a> (html, css or js) like comments, widgets, plugins etc.</p>
-            <h2>🦄 Happy Coding ! 🦄</h2>
+            <p>Désolé mais la page que vous recherchez n'existe plus.</p>
+            <p>Vous pouvez effectuer une recherche :</p></p>
+            <div class="searchform" id="searchform" tabindex="-1">
+              <form role="form" method="get" action="#">
+                <div class="form__row">
+                  <label for="search">Recherchez</label>
+                </div>
+                <div class="form__row">
+                  <input class="searchform__field" id="search" type="search" name="s" placeholder="Entrez un mot clé" aria-required="true" required="required">
+                  <button class="searchform__submit" id="searchsubmit" type="submit" name="submit"><span class="visuallyhidden">Lancer la recherche</span>
+                    <svg class="icon icon-search" aria-hidden="true" role="img">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-search"></use>
+                    </svg>
+                  </button>
+                </div>
+              </form>
+            </div>
           </section>
         </div>
       </article>

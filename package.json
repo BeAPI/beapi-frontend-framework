@@ -51,7 +51,7 @@
     "postcss-loader": "^1.0.0",
     "prettier-eslint": "^8.8.1",
     "pug-html-loader": "^1.1.5",
-    "pug-loader": "^2.4.0",
+    "pug-loader": "https://github.com/pugjs/pug-loader/tarball/master",
     "resolve-url-loader": "^2.1.0",
     "sass-loader": "^6.0.6",
     "shelljs": "^0.8.1",

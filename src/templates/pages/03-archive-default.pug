@@ -1,0 +1,34 @@
+include ../mixins/svg-icon.pug
+
+doctype html
+html.fonts-loading.no-js(lang='fr')
+    head
+        title BeAPI FrontEnd Framework | The WordPress BFF
+        include ../partials/_head-meta
+        include ../partials/_head-favicon
+        include ../partials/_head-assets
+
+    body.archive
+        include ../partials/_header.pug
+
+        main#main__content.main__content(role="main" tabindex="-1" aria-label="Contenu Principal")
+            header.page__header.lazyload(data-bgset="assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg")
+                .container
+                    h1.page__title Two basic styles of archive list
+                    p You can add WP-pagenavi or FacetWP plugin markup for pagination, from composerjs</p>
+
+            .page__content
+                .container
+                    h2.entry__title An example of entry list
+                    .entry__loop
+                        include ../partials/_entry-summary.pug
+                        include ../partials/_entry-summary.pug
+                        include ../partials/_entry-summary.pug
+
+                    h2.entry__title An example of entry "card" list
+                    .entry__loop
+                        include ../partials/_entry-summary--seo.pug
+                        include ../partials/_entry-summary--seo.pug
+                        include ../partials/_entry-summary--seo.pug
+
+        include ../partials/_footer.pug

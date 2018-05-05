@@ -1,6 +1,9 @@
 <?php
 
-namespace BEA\Theme\Framework;
+namespace BEA\Theme\Framework\Services;
+
+use BEA\Theme\Framework\Service;
+use BEA\Theme\Framework\Service_Container;
 
 /**
  * Class Favicons
@@ -48,7 +51,7 @@ class Favicons implements Service {
 	 * @author Maxime CULEA
 	 */
 	public function the_favicons() {
-		$favicons  = array();
+		$favicons  = [];
 		$base_path = \get_theme_file_path( $this->path_suffix );
 		$base_url  = \get_theme_file_uri( $this->path_suffix );
 
@@ -56,9 +59,9 @@ class Favicons implements Service {
 		$favicons[] = '<meta name="theme-color" content="#ffffff">';
 		$favicons[] = '<meta name="application-name" content="BFF">';
 
-		$favicons_atts = array(
-			array(
-				'sizes'         => array(
+		$favicons_atts = [
+			[
+				'sizes'         => [
 					'57x57',
 					'60x60',
 					'72x72',
@@ -68,13 +71,13 @@ class Favicons implements Service {
 					'144x144',
 					'152x152',
 					'180x180',
-				),
+				],
 				'rel'           => 'apple-touch-icon',
 				'type'          => '',
 				'filename_base' => 'apple-touch-icon',
 				'file_type'     => 'png',
-			),
-		);
+			],
+		];
 
 		$favicons = $this->generate_favicons( $favicons, $favicons_atts, $base_path, $base_url );
 
@@ -83,17 +86,17 @@ class Favicons implements Service {
 		$favicons[] = '<meta name="apple-mobile-web-app-title" content="BFF">';
 
 
-		$favicons_atts = array(
-			array(
-				'sizes'         => array(
+		$favicons_atts = [
+			[
+				'sizes'         => [
 					'228x228',
-				),
+				],
 				'rel'           => 'icon',
 				'type'          => 'image/png',
 				'filename_base' => 'coast',
 				'file_type'     => 'png',
-			),
-		);
+			],
+		];
 
 		$favicons   = $this->generate_favicons( $favicons, $favicons_atts, $base_path, $base_url );
 		$favicons[] = '<meta name="msapplication-TileColor" content="#ffffff">';
@@ -109,18 +112,18 @@ class Favicons implements Service {
 		}
 
 		$favicons[]    = '<!-- Standard favicons from /assets/img/favicons/index_sd.html -->';
-		$favicons_atts = array(
-			array(
-				'sizes'         => array(
+		$favicons_atts = [
+			[
+				'sizes'         => [
 					'16x16',
 					'32x32',
-				),
+				],
 				'rel'           => 'icon',
 				'type'          => 'image/png',
 				'filename_base' => 'favicon',
 				'file_type'     => 'png',
-			),
-		);
+			],
+		];
 		$favicons      = $this->generate_favicons( $favicons, $favicons_atts, $base_path, $base_url );
 
 
@@ -172,7 +175,7 @@ class Favicons implements Service {
 				$size = sprintf( ' sizes="%s"', esc_attr( $size ) );
 				$href = sprintf( ' href="%s"', esc_url( $url ) );
 
-				$favicon = vsprintf( '<link %s%s%s%s>', array( $rel_attr, $type_attr, $size, $href ) );
+				$favicon = vsprintf( '<link %s%s%s%s>', [ $rel_attr, $type_attr, $size, $href ] );
 				if ( ! empty( $favicon ) ) {
 					$favicons[] = $favicon;
 				}

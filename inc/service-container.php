@@ -59,7 +59,7 @@ class Service_Container {
 	 * @return bool
 	 * @author Clément Boirie
 	 */
-	public function register_service( string $service ) {
+	public function register_service( $service ) {
 		if ( ! class_exists( $service ) || ! in_array( Service::class, class_implements( $service ) ) ) {
 			return false;
 		}

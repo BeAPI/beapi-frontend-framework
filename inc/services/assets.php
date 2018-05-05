@@ -1,7 +1,9 @@
 <?php
 
-namespace BEA\Theme\Framework;
+namespace BEA\Theme\Framework\Services;
 
+use BEA\Theme\Framework\Service;
+use BEA\Theme\Framework\Service_Container;
 use BEA\Theme\Framework\Tools\Assets as Assets_Tools;
 
 /**
@@ -54,7 +56,7 @@ class Assets implements Service{
 
 		// Js theme
 		// Theme js dependencies
-		$scripts_dependencies = array( 'jquery' );
+		$scripts_dependencies = [ 'jquery' ];
 
 		$this->assets_tools->register_script( 'matchmedia-polyfill', 'src/js/vendor_ie/matchmedia-polyfill.js', [], '1', false );
 		wp_script_add_data( 'matchmedia-polyfill', 'conditional', 'lte IE 9' );

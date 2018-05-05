@@ -33,7 +33,7 @@ class Body_Class implements Service {
 	 * @param Service_Container $container
 	 */
 	public function boot( Service_Container $container ) {
-		add_filter( 'body_class', array( $this, 'body_class' ) );
+		add_filter( 'body_class', [ $this, 'body_class' ] );
 	}
 
 	/**

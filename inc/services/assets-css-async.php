@@ -1,6 +1,9 @@
 <?php
 
-namespace BEA\Theme\Framework;
+namespace BEA\Theme\Framework\Services;
+
+use BEA\Theme\Framework\Service;
+use BEA\Theme\Framework\Service_Container;
 
 /**
  * Class Assets_CSS_Async
@@ -25,9 +28,9 @@ class Assets_CSS_Async implements Service {
 	 */
 	public function boot( Service_Container $container ) {
 		if ( current_theme_supports( 'async-css' ) && ! is_admin() ) {
-			add_filter( 'style_loader_tag', array( $this, 'style_loader_tag' ), 20, 4 );
-			add_action( 'wp_head', array( $this, 'load_css' ), 0 );
-			add_action( 'wp_footer', array( $this, 'load_js' ), 0 );
+			add_filter( 'style_loader_tag', [ $this, 'style_loader_tag' ], 20, 4 );
+			add_action( 'wp_head', [ $this, 'load_css' ], 0 );
+			add_action( 'wp_footer', [ $this, 'load_js' ], 0 );
 		}
 	}
 

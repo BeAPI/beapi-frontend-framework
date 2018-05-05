@@ -52,7 +52,7 @@ class Autoloader {
 	 *
 	 * @var array
 	 */
-	protected $prefixes = array();
+	protected $prefixes = [];
 
 	/**
 	 * Register loader with SPL autoloader stack.
@@ -60,7 +60,7 @@ class Autoloader {
 	 * @return void
 	 */
 	public function register() {
-		spl_autoload_register( array( $this, 'loadClass' ) );
+		spl_autoload_register( [ $this, 'loadClass' ] );
 	}
 
 	/**
@@ -84,7 +84,7 @@ class Autoloader {
 
 		// initialize the namespace prefix array
 		if ( isset( $this->prefixes[ $prefix ] ) === false ) {
-			$this->prefixes[ $prefix ] = array();
+			$this->prefixes[ $prefix ] = [];
 		}
 
 		// retain the base directory for the namespace prefix
@@ -154,7 +154,7 @@ class Autoloader {
 			// replace namespace separators with directory separators
 			// in the relative class name, append with .php
 			$file = $base_dir
-			        . strtolower( str_replace( array( '\\', '_' ), array( '/', '-' ), $relative_class ) )
+			        . strtolower( str_replace( [ '\\', '_' ], [ '/', '-' ], $relative_class ) )
 			        . '.php';
 
 			// if the mapped file exists, require it

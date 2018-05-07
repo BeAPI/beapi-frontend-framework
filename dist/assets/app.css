@@ -1269,7 +1269,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   .button--revert {
     border-color: #fff;
     background-color: #fff;
-    color: #F1E25B; }
+    color: #000; }
   .button--round {
     border-radius: 5px; }
   .button--circle {
@@ -1626,7 +1626,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
         text-decoration: none;
         z-index: 2;
         padding: 10px;
-        color: #fff;
+        color: #000;
         background-color: #F1E25B; }
 
 /**

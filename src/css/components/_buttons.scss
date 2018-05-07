@@ -73,7 +73,7 @@ $all-button-inputs : $all-buttons;
 @mixin button--revert {
 	border-color: $lightcolor;
 	background-color: $lightcolor;
-	color: $maincolor;
+	color: $darkcolor;
 }
 
 #{$all-button-inputs} {

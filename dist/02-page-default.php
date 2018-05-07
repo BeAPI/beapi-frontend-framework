@@ -130,47 +130,7 @@
 							Aenean eu libero nec lectus ultricies laoreet. Donec rutrum, nisi vel egestas ultrices, ipsum urna sagittis libero, vitae vestibulum dui dolor vel velit.
 						</li>
 					</ul>
-					<div id="gallery-1" class="gallery galleryid-1 gallery-columns-4 gallery-size-thumbnail">
-						<dl class="gallery-item">
-							<dt class="gallery-icon">
-								<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
-							</dt>
-							<dd class="wp-caption-text gallery-caption">
-							mdhbfldksb
-							</dd>
-						</dl>
-						<dl class="gallery-item">
-							<dt class="gallery-icon">
-								<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
-							</dt>
-							<dd class="wp-caption-text gallery-caption">
-							mdhbfldksb
-							</dd>
-						</dl>
-						<dl class="gallery-item">
-							<dt class="gallery-icon">
-								<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
-							</dt>
-						</dl>
-						<dl class="gallery-item">
-							<dt class="gallery-icon">
-								<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
-							</dt>
-							<dd class="wp-caption-text gallery-caption">
-							mdhbfldksb
-							</dd>
-						</dl>
-						<dl class="gallery-item">
-							<dt class="gallery-icon">
-								<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
-							</dt>
-							<dd class="wp-caption-text gallery-caption">
-							mdhbfldksb
-							</dd>
-						</dl>
-
-						<br style="clear: both;">
-					</div>
+					<?php include 'blocks/wp_gallery.php'; ?>
 					<div class="message message--error">
 						<h4>Error box</h4>
 						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.</p>

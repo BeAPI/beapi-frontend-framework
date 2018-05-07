@@ -1,20 +1,20 @@
 <?php $class = 'page'; ?>
 <?php include 'header.php'; ?>
-	<header class="page__header lazyload" data-bgset="assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg">
+	<div class="page__header lazyload" data-bgset="assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg">
 		<div class="container">
 			<h1 class="page__title">Titre de la page par défaut, avec sidebar</h1>
 			<div class="page__date">
 				Publié le <time datetime="2015-06-30">06/30/2015</time>
 			</div>
 		</div>
-	</header>
+	</div>
 	<article class="entry">
 		<div class="container">
 			<div class="content">
 				<section class="entry__content">
 					<h2>Image with link to a bigger size using a lightbox</h2>
 					<p>
-						<a href="../assets/img/sample/beapi_theme-img-2.jpg"><img align="right" alt="#" src="http://placehold.it/150x150" class="alignright"></a>
+						<a href="../assets/img/sample/beapi_theme-img-2.jpg"><img  alt="#" src="http://placehold.it/150x150" class="alignright"></a>
 						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat. <span id="more-317"></span>
 					</p>
 					<blockquote>
@@ -89,7 +89,7 @@
 					<h3>Image with no alignment</h3>
 					<p><img alt="#" src="http://placehold.it/150x150">
 					</p>
-					<img align="left" alt="#" src="http://placehold.it/150x150" class="alignleft" />
+					<img  alt="#" src="http://placehold.it/150x150" class="alignleft" />
 
 					<h3>An Ordered List with left align image</h3>
 
@@ -110,7 +110,7 @@
 							Aenean eu libero nec lectus ultricies laoreet. Donec rutrum, nisi vel egestas ultrices, ipsum urna sagittis libero, vitae vestibulum dui dolor vel velit.
 						</li>
 					</ol>
-					<img align="left" alt="#" src="http://placehold.it/150x150" class="alignleft" />
+					<img  alt="#" src="http://placehold.it/150x150" class="alignleft" />
 					<h3>An Unordered List with left align image</h3>
 
 					<ul>
@@ -130,47 +130,7 @@
 							Aenean eu libero nec lectus ultricies laoreet. Donec rutrum, nisi vel egestas ultrices, ipsum urna sagittis libero, vitae vestibulum dui dolor vel velit.
 						</li>
 					</ul>
-					<div id="gallery-1" class="gallery galleryid-1 gallery-columns-4 gallery-size-thumbnail">
-						<dl class="gallery-item">
-							<dt class="gallery-icon">
-								<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
-							</dt>
-							<dd class="wp-caption-text gallery-caption">
-							mdhbfldksb
-							</dd>
-						</dl>
-						<dl class="gallery-item">
-							<dt class="gallery-icon">
-								<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
-							</dt>
-							<dd class="wp-caption-text gallery-caption">
-							mdhbfldksb
-							</dd>
-						</dl>
-						<dl class="gallery-item">
-							<dt class="gallery-icon">
-								<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
-							</dt>
-						</dl>
-						<dl class="gallery-item">
-							<dt class="gallery-icon">
-								<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
-							</dt>
-							<dd class="wp-caption-text gallery-caption">
-							mdhbfldksb
-							</dd>
-						</dl>
-						<dl class="gallery-item">
-							<dt class="gallery-icon">
-								<a href="#" title="#"><img width="150" height="150" src="http://placehold.it/150x150" class="attachment-thumbnail" alt="#" title="#"></a>
-							</dt>
-							<dd class="wp-caption-text gallery-caption">
-							mdhbfldksb
-							</dd>
-						</dl>
-
-						<br style="clear: both;">
-					</div>
+					<?php include 'blocks/wp_gallery.php'; ?>
 					<div class="message message--error">
 						<h4>Error box</h4>
 						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.</p>

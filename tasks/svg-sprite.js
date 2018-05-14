@@ -23,5 +23,7 @@ module.exports = () => {
     })
 
     fs.writeFileSync(distSvg, sprites)
+
+    console.log('\x1b[32m', '🤘 SVG Sprite has been generated !')
   })
 }

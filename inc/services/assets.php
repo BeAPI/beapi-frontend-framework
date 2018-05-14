@@ -115,7 +115,7 @@ class Assets implements Service{
 	 * @author Nicolas Juen
 	 */
 	public function stylesheet_uri( $stylesheet_uri ) {
-		if ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) {
+		if ( ! defined( 'WP_ENV' ) || 'space' !== WP_ENV ) {
 			$file = $this->get_min_file( 'css' );
 			if ( ! empty( $file ) && file_exists( \get_theme_file_path( '/dist/assets/' . $file ) ) ) {
 				return \get_theme_file_uri( '/dist/assets/' . $file );

@@ -92,8 +92,16 @@ let webpackBase = {
     }),
     new CopyWebpackPlugin([
       {
+        from: 'assets/js/vendor_async',
+        to: 'js/vendor_async',
+      },
+      {
+        from: 'assets/js/vendor_ie',
+        to: 'js/vendor_ie',
+      },
+      {
         from: 'src/templates/',
-        to: '..'
+        to: '..',
       },
       {
         from: 'src/fonts/',

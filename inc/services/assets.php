@@ -76,7 +76,7 @@ class Assets implements Service{
 		$this->assets_tools->register_script( 'modernizr', 'src/js/vendor_async/modernizr.custom.min.js', [], '1', false );
 
 		// Async and footer
-		$file = ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) ? $this->get_min_file( 'js' ) : 'app.js';
+		$file = ( ! defined( 'WP_ENV' ) || 'space' !== WP_ENV ) ? $this->get_min_file( 'js' ) : 'app.js';
 		$this->assets_tools->register_script( 'scripts', 'dist/assets/' . $file, $scripts_dependencies, $theme->get( 'Version' ), true );
 
 		// CSS
@@ -115,7 +115,7 @@ class Assets implements Service{
 	 * @author Nicolas Juen
 	 */
 	public function stylesheet_uri( $stylesheet_uri ) {
-		if ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) {
+		if ( ! defined( 'WP_ENV' ) || 'space' !== WP_ENV ) {
 			$file = $this->get_min_file( 'css' );
 			if ( ! empty( $file ) && file_exists( \get_theme_file_path( '/dist/assets/' . $file ) ) ) {
 				return \get_theme_file_uri( '/dist/assets/' . $file );

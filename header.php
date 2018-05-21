@@ -24,7 +24,7 @@
 
     <?php wp_head(); ?>
 </head>
-<body itemscope itemtype="http://schema.org/WebPage" <?php body_class(); ?>>
+<body <?php body_class(); ?>>
 	<!--[if lte IE 9]>
 		<div class="message message__browserhappy">
 			<p>

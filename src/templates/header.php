@@ -2,7 +2,7 @@
 require( dirname( __FILE__ ) . '/functions/_init.php' );
 ?>
 <!doctype html>
-<!--[if IE 9 ]> <html class="no-js ie lte-ie9 ie9" lang="fr"> <![endif]-->
+<!--[if lte IE 9 ]> <html class="no-js ie lte-ie9 ie9" lang="fr"> <![endif]-->
 <!--[if !(IE)]><! -->
 <html class="fonts-loading no-js" lang="fr"><!--<![endif]-->
 	<head>

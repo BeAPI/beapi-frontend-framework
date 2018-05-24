@@ -13259,10 +13259,14 @@ class ButtonLink {
   constructor(dataset) {
     this.dataset = dataset
     this.cntrlIsPressed = false
+    this.keyCode = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? 91 : 17
 
     this.clickHandler = this.clickHandler.bind(this)
+    this.keyDown = this.keyDown.bind(this)
+    this.keyUp = this.keyUp.bind(this)
 
-    // document.addEventListener('keydown', this.keyDown.bind(this))
+    document.addEventListener('keydown', this.keyDown)
+    document.addEventListener('keyup', this.keyUp)
     document.addEventListener('click', this.clickHandler)
   }
 
@@ -13270,16 +13274,19 @@ class ButtonLink {
    * @param {Object} e
    */
   keyDown(e) {
-    if (e.which === 17) {
-      this.cntrlIsPressed = true
-      this.addEventListenerOnce(document, 'keyup', this.keyUp.bind(this))
+    if (e.which !== this.keyCode) {
+      return false
     }
+    this.cntrlIsPressed = true
   }
 
   /**
    * @param {Object} e
    */
   keyUp(e) {
+    if (e.which !== this.keyCode) {
+      return false
+    }
     this.cntrlIsPressed = false
   }
 

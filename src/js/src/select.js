@@ -28,3 +28,6 @@ class Select {
 }
 
 export default Select
+
+const selects = ['.gform_wrapper select:not([multiple])']
+selects.forEach(el => Select.bind(el))

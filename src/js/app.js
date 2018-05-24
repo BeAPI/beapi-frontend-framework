@@ -6,22 +6,11 @@ import './polyfill/forEach'
 import lazySizes from 'lazysizes'
 import lazySizesBgset from 'lazysizes/plugins/bgset/ls.bgset'
 
-import Menu from './src/menu'
-import ButtonLink from './src/button-href'
-import Select from './src/select'
-import SeoLink from './src/seo'
+import './src/menu'
+import './src/button-href'
+import './src/select'
+import './src/seo'
 import AccessibilityTests from './src/accessibility-tests'
-
-const menu = new Menu()
-menu.init()
-menu.sfMenuInit()
-
-ButtonLink.bind('button[data-href]')
-
-const selects = ['.gform_wrapper select:not([multiple])']
-selects.forEach(el => Select.bind(el))
-
-SeoLink.bind('[data-seo]')
 
 /**
  * LazySizes configuration

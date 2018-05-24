@@ -10,22 +10,16 @@ import '../polyfill/forEach'
 
 class ButtonLink {
   /**
-   * Bind button link behavior on targeted elements
-   * @param {string} selector
+   * @param {string} dataset
    */
-  static bind(selector) {
-    ;[].forEach.call(document.querySelectorAll(selector), element => new ButtonLink(element))
-  }
-
-  /**
-   * @param {HTMLElement} element
-   */
-  constructor(element) {
-    this.element = element
+  constructor(dataset) {
+    this.dataset = dataset
     this.cntrlIsPressed = false
 
-    document.addEventListener('keydown', this.keyDown.bind(this))
-    this.element.addEventListener('click', this.clickHandler.bind(this))
+    this.clickHandler = this.clickHandler.bind(this)
+
+    // document.addEventListener('keydown', this.keyDown.bind(this))
+    document.addEventListener('click', this.clickHandler)
   }
 
   /**
@@ -46,26 +40,17 @@ class ButtonLink {
   }
 
   /**
-   * @param {HTMLElement} element
-   * @param {Object} event
-   * @param {function} fn
-   */
-  addEventListenerOnce(element, event, fn) {
-    const func = () => {
-      element.removeEventListener(event, func)
-      fn()
-    }
-    element.addEventListener(event, func)
-  }
-
-  /**
    * @param {Object} e
    */
   clickHandler(e) {
-    const download = this.element.getAttribute('data-target') === 'download'
-    const isBlank = this.element.getAttribute('data-target') === '_blank'
-    const href = this.element.getAttribute('data-href')
-    const filename = this.element.getAttribute('data-filename')
+    const target = e.target
+    if (target.tagName !== 'BUTTON' || !target.dataset.hasOwnProperty(this.dataset)) {
+      return false
+    }
+    const download = target.getAttribute('data-target') === 'download'
+    const isBlank = target.getAttribute('data-target') === '_blank'
+    const href = target.getAttribute('data-href')
+    const filename = target.getAttribute('data-filename')
     if (download) {
       this.createLink(href, filename)
     } else {
@@ -93,3 +78,5 @@ class ButtonLink {
 }
 
 export default ButtonLink
+
+new ButtonLink('href')

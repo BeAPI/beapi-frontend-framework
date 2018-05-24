@@ -29,3 +29,5 @@ class SeoLink {
 }
 
 export default SeoLink
+
+SeoLink.bind('[data-seo]')

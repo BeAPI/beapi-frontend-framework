@@ -104,6 +104,7 @@ function setDirPath(ext) {
       '../src/css/pages/',
       '../src/css/plugins/',
       '../src/css/root/',
+      '../src/css/vendor/',
     ]
   } else if (ext === 'js') {
     return ['../src/js/src/', '../src/js/vendor', '../src/js/vendor_async']

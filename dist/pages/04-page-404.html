@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="fonts-loading no-js" lang="fr">
+  <head>
+    <title>BeAPI FrontEnd Framework | The WordPress BFF</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="initial-scale=1.0">
+<meta name="viewport" content="initial-scale=1.0">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<!-- Web App favicons from /assets/img/favicons/index_hd.html-->
+<link rel="manifest" href="assets/img/favicons/manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#ffffff">
+<meta name="application-name" content="BFF">
+<link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon-180x180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="BFF">
+<link rel="icon" type="image/png" sizes="228x228" href="assets/img/favicons/coast-228x228.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="assets/img/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="assets/img/favicons/browserconfig.xml">
+<link rel="yandex-tableau-widget" href="assets/img/favicons/yandex-browser-manifest.json">
+<!-- Standard favicons from /assets/img/favicons/index_sd.html-->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+<link rel="shortcut icon" href="assets/img/favicons/favicon.ico"><!--[if lte IE 9]>
+<script type="text/javascript" src="../src/js/vendor_ie/matchmedia-polyfill.js"></script>
+<script type="text/javascript" src="../src/js/vendor_ie/matchMedia.addListener.js"></script>
+<script type="text/javascript" src="../src/js/vendor_ie/placeholders.min.js"></script>
+<![endif]-->
+<!--[if lt IE 9]>
+<script type="text/javascript" src="../src/js/vendor_ie/html5shiv.min.js"></script>
+<![endif]-->
+<!--[if lte IE 8]>
+<script type="text/javascript" src="../src/js/vendor_ie/selectivizr.js"></script>
+<![endif]-->
+<style type="text/css">
+  .cssloading__overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      opacity: 1;
+      z-index: 10001;
+      transition: opacity .25s ease, z-index .25s ease .5s, width .25s ease .5s, height .25s ease .25s, visibility .25s ease .25s;
+  }
+  
+</style>
+<link rel="preload" href="assets/app.css" as="style" onload="this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="assets/app.css">
+</noscript>
+<script>
+  /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+  !function(a){"use strict";var b=function(b,c,d){function e(a){return h.body?a():void setTimeout(function(){e(a)})}function f(){i.addEventListener&&i.removeEventListener("load",f),i.media=d||"all"}var g,h=a.document,i=h.createElement("link");if(c)g=c;else{var j=(h.body||h.getElementsByTagName("head")[0]).childNodes;g=j[j.length-1]}var k=h.styleSheets;i.rel="stylesheet",i.href=b,i.media="only x",e(function(){g.parentNode.insertBefore(i,c?g:g.nextSibling)});var l=function(a){for(var b=i.href,c=k.length;c--;)if(k[c].href===b)return a();setTimeout(function(){l(a)})};return i.addEventListener&&i.addEventListener("load",f),i.onloadcssdefined=l,l(f),i};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);
+  /*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+  !function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(b){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);
+  
+</script>
+<!-- Modernizr Custom (JS + SVG detection)-->
+<script type="text/javascript" src="../src/js/vendor_async/modernizr.custom.min.js"></script>
+<!-- jQuery from official WordPress Core-->
+<script type="text/javascript" src="../src/js/vendor_async/jquery.js"></script>
+  </head>
+  <body class="error-404"><!--[if lte IE 9]>
+<div class="message message__browserhappy">
+<p>
+    <You>are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</You></p>
+<p>
+<button><span class="button-icon icon-close"></span>&nbsp;Close</button>
+</p>
+</div>
+<![endif]-->
+    <div class="cssloading__overlay"></div>
+    <div id="main">
+      <ul class="menu-fastaccess">
+        <li class="menu-fastaccess__item"><a href="#main__content">Accès direct au contenu</a></li>
+        <li class="menu-fastaccess__item"><a href="#searchform">Accès direct à la recherche</a></li>
+        <li class="menu-fastaccess__item"><a href="#menu">Accès direct au menu</a></li>
+      </ul>
+      <div class="menu-trigger" id="js-menu-trigger">
+        <button class="menu-trigger__open" id="js-menu-open" type="button">
+          <svg class="icon icon-menu" aria-hidden="true" role="img">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-menu"></use>
+          </svg>
+          <Menu></Menu>
+        </button>
+        <button class="menu-trigger__close" id="js-menu-close" type="button">
+          <svg class="icon icon-close" aria-hidden="true" role="img">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+          </svg>
+          <Fermer></Fermer>
+        </button>
+      </div>
+      <header class="header" id="header" role="banner">
+        <div class="container">
+          <div class="header__logo"><a class="header__logo-link" href="01-home.php">
+              <svg class="header__icon icon-close" aria-hidden="true" role="img">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
+              </svg><?php if ( $class == 'home' ) :?>
+              <h1 class="header__title visuallyhidden">BeAPI FrontEnd Framework</h1><?php else: ?>
+              <div class="header__title visuallyhidden">BeAPI FrontEnd Framework</div><?php endif; ?></a></div>
+          <nav class="menu" id="menu" role="navigation" tabindex="-1" aria-label="Navigation Principal">
+            <ul class="menu__list sf-menu">
+              <li class="menu-item current-menu-item menu-item-has-children"><a href="01-home.php">Home</a>
+                <ul class="sub-menu">
+                  <li class="menu-item"><a href="../livingcss/html/index.html">Living CSS</a></li>
+                </ul>
+              </li>
+              <li class="menu-item"><a href="02-page-default.php">Page default</a></li>
+              <li class="menu-item"><a href="03-archive-default.php">Archive default</a></li>
+              <li class="menu-item"><a href="04-page-404.php">Page 404</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </div>
+    <main class="main__content" id="main__content" role="main" tabindex="-1" aria-label="Contenu Principal">
+      <article class="entry">
+        <div class="container">
+          <h1 class="entry__title">Erreur 404</h1>
+          <section class="entry__content">
+            <p>Désolé mais la page que vous recherchez n'existe plus.</p>
+            <p>Vous pouvez effectuer une recherche :</p></p>
+            <div class="searchform" id="searchform" tabindex="-1">
+              <form role="form" method="get" action="#">
+                <div class="form__row">
+                  <label for="search">Recherchez</label>
+                </div>
+                <div class="form__row">
+                  <input class="searchform__field" id="search" type="search" name="s" placeholder="Entrez un mot clé" aria-required="true" required="required">
+                  <button class="searchform__submit" id="searchsubmit" type="submit" name="submit"><span class="visuallyhidden">Lancer la recherche</span>
+                    <svg class="icon icon-search" aria-hidden="true" role="img">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-search"></use>
+                    </svg>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
+      </article>
+    </main>
+    <footer class="footer" id="footer" role="contentinfo">
+      <div class="container">
+        <p>Follow us:</p><a class="button button--circle" href="https://www.facebook.com/beapi.agency/?ref=bookmarks"><span class="visuallyhidden">On Facebook</span>
+              <svg class="icon icon-facebook" aria-hidden="true" role="img">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook"></use>
+              </svg></a><a class="button button--circle" href="https://twitter.com/be_api"><span class="visuallyhidden">On Twitter</span>
+              <svg class="icon icon-twitter" aria-hidden="true" role="img">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter"></use>
+              </svg></a><a class="button button--circle" href="https://www.instagram.com/agencebeapi/"><span class="visuallyhidden">On Instagram</span>
+              <svg class="icon icon-instagram" aria-hidden="true" role="img">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-instagram"></use>
+              </svg></a>
+      </div>
+    </footer>
+<script>
+  // inline loadJS
+  function loadJS(e,t){"use strict";var n=window.document.getElementsByTagName("script")[0],o=window.document.createElement("script");return o.src=e,o.async=!0,n.parentNode.insertBefore(o,n),t&&"function"==typeof t&&(o.onload=t),o}
+  // then load your JS
+  if (sessionStorage.getItem('fonts-loaded')) {
+      // fonts cached, add class to document
+      document.documentElement.classList.remove('fonts-loading');
+  } else {
+      // load script with font observing logic
+      loadJS('../src/js/vendor_async/fonts-css-async.js');
+  }
+</script>
+<script src="assets/app.js" async defer></script>
+  </body>
+</html>

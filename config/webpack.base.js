@@ -5,7 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const SvgStore = require('webpack-svgstore-plugin')
 const cssLoaders = require('./css-loader.js')
-const htmlRender = require('./html-render.js')('./../src/templates/pages')
+const htmlRender = require('./html-render.js')('./../src/templates/', ['pages', 'partials'])
 
 let root = path.resolve(__dirname)
 

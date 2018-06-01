@@ -1,0 +1,51 @@
+<!--[if lte IE 9]>
+<div class="message message__browserhappy">
+<p>
+<You>are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</You></p>
+<p>
+<button><span class="button-icon icon-close"></span>&nbsp;Close</button>
+</p>
+</div>
+<![endif]-->
+<div class="cssloading__overlay"></div>
+<div id="main">
+  <ul class="menu-fastaccess">
+    <li class="menu-fastaccess__item"><a href="#main__content">Accès direct au contenu</a></li>
+    <li class="menu-fastaccess__item"><a href="#searchform">Accès direct à la recherche</a></li>
+    <li class="menu-fastaccess__item"><a href="#menu">Accès direct au menu</a></li>
+  </ul>
+  <div class="menu-trigger" id="js-menu-trigger">
+    <button class="menu-trigger__open" id="js-menu-open" type="button">
+      <svg class="icon icon-menu" aria-hidden="true" role="img">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-menu"></use>
+      </svg><span>Menu</span>
+    </button>
+    <button class="menu-trigger__close" id="js-menu-close" type="button">
+      <svg class="icon icon-close" aria-hidden="true" role="img">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+      </svg><span>Fermer</span>
+    </button>
+  </div>
+  <header class="header" id="header" role="banner">
+    <div class="container">
+      <div class="header__logo"><a class="header__logo-link" href="01-home.php">
+          <svg class="header__icon icon-close" aria-hidden="true" role="img">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
+          </svg><?php if ( $class == 'home' ) :?>
+          <h1 class="header__title visuallyhidden">BeAPI FrontEnd Framework</h1><?php else: ?>
+          <div class="header__title visuallyhidden">BeAPI FrontEnd Framework</div><?php endif; ?></a></div>
+      <nav class="menu" id="menu" role="navigation" tabindex="-1" aria-label="Navigation Principal">
+        <ul class="menu__list sf-menu">
+          <li class="menu-item current-menu-item menu-item-has-children"><a href="01-home.php">Home</a>
+            <ul class="sub-menu">
+              <li class="menu-item"><a href="../livingcss/html/index.html">Living CSS</a></li>
+            </ul>
+          </li>
+          <li class="menu-item"><a href="02-page-default.php">Page default</a></li>
+          <li class="menu-item"><a href="03-archive-default.php">Archive default</a></li>
+          <li class="menu-item"><a href="04-page-404.php">Page 404</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>

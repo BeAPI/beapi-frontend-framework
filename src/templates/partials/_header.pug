@@ -1,3 +1,5 @@
+include ../mixins/svg-icon.pug
+
 <!--[if lte IE 9]>
     <div class="message message__browserhappy">
         <p>
@@ -20,10 +22,10 @@ div#main
     div#js-menu-trigger.menu-trigger
         button#js-menu-open.menu-trigger__open(type="button")
             +svg-icon('menu')(class="icon icon-menu")
-            Menu
+            span Menu
         button#js-menu-close.menu-trigger__close(type="button")
             +svg-icon('close')(class="icon icon-close")
-            Fermer
+            span Fermer
     header#header.header(role="banner")
         div.container
             div.header__logo

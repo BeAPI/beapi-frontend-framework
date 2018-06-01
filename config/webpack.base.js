@@ -25,6 +25,7 @@ let webpackBase = {
           loader: 'pug-loader',
           options: {
             pretty: true,
+            self: true,
           },
         },
       },

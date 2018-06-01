@@ -1,8 +1,12 @@
-
+<head><link href="/src/app.css" rel="stylesheet"></head>
 <!-- Entry summary sample for loop-->
 <article class="entry__card" data-seo>
   <div class="entry__media">
-    <!-- <?php echo get_the_post_thumbnail( 0, "thumbnail", array( "data-location" => "entry-img-01", "class" => "entry__img", "alt" => "#" ) ); ?>-->
+    <noscript><img class="lazyload entry__img" src="assets/img/sample/beapi_theme-img-2.jpg" alt="#"></noscript>
+    <picture><!--[if IE 9]><video style="display: none"><![endif]-->
+      <source data-srcset="assets/img/sample/beapi_theme-img-2-300-200.jpg, assets/img/sample/beapi_theme-img-2-600-400.jpg 2x" data-location="entry-img-01">
+      <source data-srcset="assets/img/sample/beapi_theme-img-2-100-100.jpg, assets/img/sample/beapi_theme-img-2-200-200.jpg 2x" media="(max-width: 1024px)" data-location="entry-img-01"><!--[if IE 9]></video><![endif]--><img class="lazyload entry__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="#">
+    </picture>
   </div>
   <div class="entry__summary">
     <h2 class="entry__title"><a href="02-page-default.php">There is a post + a 20 words lorem ipsum excerpt</a></h2>
@@ -12,4 +16,4 @@
     </div>
     <div class="entry__more"><span class="button">Readmore</span></div>
   </div>
-</article>
+</article><script type="text/javascript" src="/src/app.js"></script>

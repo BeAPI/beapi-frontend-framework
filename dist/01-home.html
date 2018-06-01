@@ -71,7 +71,7 @@
 <script type="text/javascript" src="../src/js/vendor_async/modernizr.custom.min.js"></script>
 <!-- jQuery from official WordPress Core-->
 <script type="text/javascript" src="../src/js/vendor_async/jquery.js"></script>
-  </head>
+  <link href="/src/app.css" rel="stylesheet"></head>
   <body class="home"><!--[if lte IE 9]>
 <div class="message message__browserhappy">
 <p>
@@ -133,6 +133,11 @@
             <p>This a starter theme so it's empty. <br> Minimum pages are listed in the menu above. It's a base that you have to custom on your need.</p>
             <p>You can use <a href="https://github.com/BeAPI/beapi-frontend-framework/#composer-js">Composer JS</a> in order to add <a href="https://github.com/BeAPI/bff-components" target="_blank" title="See components">well known components</a> (html, css or js) like comments, widgets, plugins etc.</p>
             <h2>🦄 Happy Coding ! 🦄</h2>
+                <noscript><img class="lazyload" src="assets/img/sample/base_theme-img-1.png" alt=""></noscript>
+                <picture><!--[if IE 9]><video style="display: none"><![endif]-->
+                      <source data-srcset="assets/img/sample/base_theme-img-1-300-200.png, assets/img/sample/base_theme-img-1-600-400.png 2x" data-location="entry-img-01">
+                      <source data-srcset="assets/img/sample/base_theme-img-1-100-100.png, assets/img/sample/base_theme-img-1-200-200.png 2x" media="(max-width: 1024px)" data-location="entry-img-01"><!--[if IE 9]></video><![endif]--><img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+                </picture>
           </section>
         </div>
       </article>
@@ -164,5 +169,5 @@
   }
 </script>
 <script src="assets/app.js" async defer></script>
-  </body>
+  <script type="text/javascript" src="/src/app.js"></script></body>
 </html>

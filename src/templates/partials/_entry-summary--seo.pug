@@ -1,7 +1,9 @@
+include ../mixins/mixins.pug
+
 // Entry summary sample for loop
 article.entry__card(data-seo)
 	.entry__media
-		// <?php echo get_the_post_thumbnail( 0, "thumbnail", array( "data-location" => "entry-img-01", "class" => "entry__img", "alt" => "#" ) ); ?>
+		+bea-img("beapi_theme-img-2.jpg", "entry-img-01", "entry__img", "#")
 	.entry__summary
 		h2.entry__title
 			a(href="02-page-default.php") There is a post + a 20 words lorem ipsum excerpt

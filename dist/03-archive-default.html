@@ -71,7 +71,7 @@
 <script type="text/javascript" src="../src/js/vendor_async/modernizr.custom.min.js"></script>
 <!-- jQuery from official WordPress Core-->
 <script type="text/javascript" src="../src/js/vendor_async/jquery.js"></script>
-  </head>
+  <link href="/src/app.css" rel="stylesheet"></head>
   <body class="archive"><!--[if lte IE 9]>
 <div class="message message__browserhappy">
 <p>
@@ -134,90 +134,117 @@
         <div class="container">
           <h2 class="entry__title">An example of entry list</h2>
           <div class="entry__loop">
-<!-- Entry summary sample for loop-->
-<article class="entry__item">
-  <div class="entry__media"></div>
-  <!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?>-->
-  <div class="entry__summary">
-    <h2 class="entry__title"><a href="#">There is a post + a 20 words lorem ipsum excerpt</a></h2>
-    <div class="entry__date">Publié le <time datetime="2015-06-30">06/30/2015</time></div>
-    <div class="entry__excerpt">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
-    </div>
-    <div class="entry__more"><a class="entry__link button" href="02-page-default.php">Read more            </a></div>
-  </div>
-</article>
-<!-- Entry summary sample for loop-->
-<article class="entry__item">
-  <div class="entry__media"></div>
-  <!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?>-->
-  <div class="entry__summary">
-    <h2 class="entry__title"><a href="#">There is a post + a 20 words lorem ipsum excerpt</a></h2>
-    <div class="entry__date">Publié le <time datetime="2015-06-30">06/30/2015</time></div>
-    <div class="entry__excerpt">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
-    </div>
-    <div class="entry__more"><a class="entry__link button" href="02-page-default.php">Read more            </a></div>
-  </div>
-</article>
-<!-- Entry summary sample for loop-->
-<article class="entry__item">
-  <div class="entry__media"></div>
-  <!-- <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'entry__img', 'alt' => '#' ) ); ?>-->
-  <div class="entry__summary">
-    <h2 class="entry__title"><a href="#">There is a post + a 20 words lorem ipsum excerpt</a></h2>
-    <div class="entry__date">Publié le <time datetime="2015-06-30">06/30/2015</time></div>
-    <div class="entry__excerpt">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
-    </div>
-    <div class="entry__more"><a class="entry__link button" href="02-page-default.php">Read more            </a></div>
-  </div>
-</article>
+            <!-- Entry summary sample for loop-->
+            <article class="entry__item">
+              <div class="entry__media">
+                            <noscript><img class="lazyload entry__img" src="assets/img/sample/base_theme-img-1.png" alt="#"></noscript>
+                            <picture><!--[if IE 9]><video style="display: none"><![endif]-->
+                                          <source data-srcset="assets/img/sample/base_theme-img-1-300-200.png, assets/img/sample/base_theme-img-1-600-400.png 2x" data-location="entry-img-01">
+                                          <source data-srcset="assets/img/sample/base_theme-img-1-100-100.png, assets/img/sample/base_theme-img-1-200-200.png 2x" media="(max-width: 1024px)" data-location="entry-img-01"><!--[if IE 9]></video><![endif]--><img class="lazyload entry__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="#">
+                            </picture>
+              </div>
+              <div class="entry__summary">
+                <h2 class="entry__title"><a href="#">There is a post + a 20 words lorem ipsum excerpt</a></h2>
+                <div class="entry__date">Publié le <time datetime="2015-06-30">06/30/2015</time></div>
+                <div class="entry__excerpt">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+                </div>
+                <div class="entry__more"><a class="entry__link button" href="02-page-default.php">Read more</a></div>
+              </div>
+            </article>
+            <!-- Entry summary sample for loop-->
+            <article class="entry__item">
+              <div class="entry__media">
+                            <noscript><img class="lazyload entry__img" src="assets/img/sample/base_theme-img-1.png" alt="#"></noscript>
+                            <picture><!--[if IE 9]><video style="display: none"><![endif]-->
+                                          <source data-srcset="assets/img/sample/base_theme-img-1-300-200.png, assets/img/sample/base_theme-img-1-600-400.png 2x" data-location="entry-img-01">
+                                          <source data-srcset="assets/img/sample/base_theme-img-1-100-100.png, assets/img/sample/base_theme-img-1-200-200.png 2x" media="(max-width: 1024px)" data-location="entry-img-01"><!--[if IE 9]></video><![endif]--><img class="lazyload entry__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="#">
+                            </picture>
+              </div>
+              <div class="entry__summary">
+                <h2 class="entry__title"><a href="#">There is a post + a 20 words lorem ipsum excerpt</a></h2>
+                <div class="entry__date">Publié le <time datetime="2015-06-30">06/30/2015</time></div>
+                <div class="entry__excerpt">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+                </div>
+                <div class="entry__more"><a class="entry__link button" href="02-page-default.php">Read more</a></div>
+              </div>
+            </article>
+            <!-- Entry summary sample for loop-->
+            <article class="entry__item">
+              <div class="entry__media">
+                            <noscript><img class="lazyload entry__img" src="assets/img/sample/base_theme-img-1.png" alt="#"></noscript>
+                            <picture><!--[if IE 9]><video style="display: none"><![endif]-->
+                                          <source data-srcset="assets/img/sample/base_theme-img-1-300-200.png, assets/img/sample/base_theme-img-1-600-400.png 2x" data-location="entry-img-01">
+                                          <source data-srcset="assets/img/sample/base_theme-img-1-100-100.png, assets/img/sample/base_theme-img-1-200-200.png 2x" media="(max-width: 1024px)" data-location="entry-img-01"><!--[if IE 9]></video><![endif]--><img class="lazyload entry__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="#">
+                            </picture>
+              </div>
+              <div class="entry__summary">
+                <h2 class="entry__title"><a href="#">There is a post + a 20 words lorem ipsum excerpt</a></h2>
+                <div class="entry__date">Publié le <time datetime="2015-06-30">06/30/2015</time></div>
+                <div class="entry__excerpt">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+                </div>
+                <div class="entry__more"><a class="entry__link button" href="02-page-default.php">Read more</a></div>
+              </div>
+            </article>
           </div>
           <h2 class="entry__title">An example of entry "card" list</h2>
           <div class="entry__loop">
-<!-- Entry summary sample for loop-->
-<article class="entry__card" data-seo>
-  <div class="entry__media">
-    <!-- <?php echo get_the_post_thumbnail( 0, "thumbnail", array( "data-location" => "entry-img-01", "class" => "entry__img", "alt" => "#" ) ); ?>-->
-  </div>
-  <div class="entry__summary">
-    <h2 class="entry__title"><a href="02-page-default.php">There is a post + a 20 words lorem ipsum excerpt</a></h2>
-    <div class="entry__date">Publié le <time datetime="2015-06-30">06/30/2015</time></div>
-    <div class="entry__excerpt">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
-    </div>
-    <div class="entry__more"><span class="button">Readmore</span></div>
-  </div>
-</article>
-<!-- Entry summary sample for loop-->
-<article class="entry__card" data-seo>
-  <div class="entry__media">
-    <!-- <?php echo get_the_post_thumbnail( 0, "thumbnail", array( "data-location" => "entry-img-01", "class" => "entry__img", "alt" => "#" ) ); ?>-->
-  </div>
-  <div class="entry__summary">
-    <h2 class="entry__title"><a href="02-page-default.php">There is a post + a 20 words lorem ipsum excerpt</a></h2>
-    <div class="entry__date">Publié le <time datetime="2015-06-30">06/30/2015</time></div>
-    <div class="entry__excerpt">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
-    </div>
-    <div class="entry__more"><span class="button">Readmore</span></div>
-  </div>
-</article>
-<!-- Entry summary sample for loop-->
-<article class="entry__card" data-seo>
-  <div class="entry__media">
-    <!-- <?php echo get_the_post_thumbnail( 0, "thumbnail", array( "data-location" => "entry-img-01", "class" => "entry__img", "alt" => "#" ) ); ?>-->
-  </div>
-  <div class="entry__summary">
-    <h2 class="entry__title"><a href="02-page-default.php">There is a post + a 20 words lorem ipsum excerpt</a></h2>
-    <div class="entry__date">Publié le <time datetime="2015-06-30">06/30/2015</time></div>
-    <div class="entry__excerpt">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
-    </div>
-    <div class="entry__more"><span class="button">Readmore</span></div>
-  </div>
-</article>
+            <!-- Entry summary sample for loop-->
+            <article class="entry__card" data-seo>
+              <div class="entry__media">
+                            <noscript><img class="lazyload entry__img" src="assets/img/sample/beapi_theme-img-2.jpg" alt="#"></noscript>
+                            <picture><!--[if IE 9]><video style="display: none"><![endif]-->
+                                          <source data-srcset="assets/img/sample/beapi_theme-img-2-300-200.jpg, assets/img/sample/beapi_theme-img-2-600-400.jpg 2x" data-location="entry-img-01">
+                                          <source data-srcset="assets/img/sample/beapi_theme-img-2-100-100.jpg, assets/img/sample/beapi_theme-img-2-200-200.jpg 2x" media="(max-width: 1024px)" data-location="entry-img-01"><!--[if IE 9]></video><![endif]--><img class="lazyload entry__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="#">
+                            </picture>
+              </div>
+              <div class="entry__summary">
+                <h2 class="entry__title"><a href="02-page-default.php">There is a post + a 20 words lorem ipsum excerpt</a></h2>
+                <div class="entry__date">Publié le <time datetime="2015-06-30">06/30/2015</time></div>
+                <div class="entry__excerpt">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+                </div>
+                <div class="entry__more"><span class="button">Readmore</span></div>
+              </div>
+            </article>
+            <!-- Entry summary sample for loop-->
+            <article class="entry__card" data-seo>
+              <div class="entry__media">
+                            <noscript><img class="lazyload entry__img" src="assets/img/sample/beapi_theme-img-2.jpg" alt="#"></noscript>
+                            <picture><!--[if IE 9]><video style="display: none"><![endif]-->
+                                          <source data-srcset="assets/img/sample/beapi_theme-img-2-300-200.jpg, assets/img/sample/beapi_theme-img-2-600-400.jpg 2x" data-location="entry-img-01">
+                                          <source data-srcset="assets/img/sample/beapi_theme-img-2-100-100.jpg, assets/img/sample/beapi_theme-img-2-200-200.jpg 2x" media="(max-width: 1024px)" data-location="entry-img-01"><!--[if IE 9]></video><![endif]--><img class="lazyload entry__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="#">
+                            </picture>
+              </div>
+              <div class="entry__summary">
+                <h2 class="entry__title"><a href="02-page-default.php">There is a post + a 20 words lorem ipsum excerpt</a></h2>
+                <div class="entry__date">Publié le <time datetime="2015-06-30">06/30/2015</time></div>
+                <div class="entry__excerpt">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+                </div>
+                <div class="entry__more"><span class="button">Readmore</span></div>
+              </div>
+            </article>
+            <!-- Entry summary sample for loop-->
+            <article class="entry__card" data-seo>
+              <div class="entry__media">
+                            <noscript><img class="lazyload entry__img" src="assets/img/sample/beapi_theme-img-2.jpg" alt="#"></noscript>
+                            <picture><!--[if IE 9]><video style="display: none"><![endif]-->
+                                          <source data-srcset="assets/img/sample/beapi_theme-img-2-300-200.jpg, assets/img/sample/beapi_theme-img-2-600-400.jpg 2x" data-location="entry-img-01">
+                                          <source data-srcset="assets/img/sample/beapi_theme-img-2-100-100.jpg, assets/img/sample/beapi_theme-img-2-200-200.jpg 2x" media="(max-width: 1024px)" data-location="entry-img-01"><!--[if IE 9]></video><![endif]--><img class="lazyload entry__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="#">
+                            </picture>
+              </div>
+              <div class="entry__summary">
+                <h2 class="entry__title"><a href="02-page-default.php">There is a post + a 20 words lorem ipsum excerpt</a></h2>
+                <div class="entry__date">Publié le <time datetime="2015-06-30">06/30/2015</time></div>
+                <div class="entry__excerpt">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
+                </div>
+                <div class="entry__more"><span class="button">Readmore</span></div>
+              </div>
+            </article>
           </div>
         </div>
       </div>
@@ -249,5 +276,5 @@
   }
 </script>
 <script src="assets/app.js" async defer></script>
-  </body>
+  <script type="text/javascript" src="/src/app.js"></script></body>
 </html>

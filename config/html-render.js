@@ -1,9 +1,11 @@
 const fs = require('fs')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const imagesSizes = require('./image-sizes')
 const flatten = array => [].concat(...array)
 
 module.exports = function(templateDir, folders) {
+  const imagesDatas = imagesSizes()
   let templateFiles = []
 
   folders.map(folder => {
@@ -24,9 +26,10 @@ module.exports = function(templateDir, folders) {
       const filename = name.includes('pages/') ? name.replace('pages/', '') : name
 
       return new HtmlWebpackPlugin({
-        inject: false,
+        inject: true,
         filename: `../${filename}.html`,
         template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
+        imagesDatas,
       })
     })
 }

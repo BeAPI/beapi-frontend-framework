@@ -1,0 +1,12 @@
+mixin source-img(image, dataLocation)
+    - var imageExtension = image.match(/\.[^/.]+$/)[0]
+    - var datas = self.htmlWebpackPlugin.options.imagesDatas[dataLocation]
+
+    each media in datas.medias.mediasList
+        - var croppedImage = image.replace(/\.[^/.]+$/, '') + datas.medias[media][0].replace('img', '') + imageExtension
+        - var croppedRetinaImage = image.replace(/\.[^/.]+$/, '') + datas.medias[media][1].replace('img', '') + imageExtension
+
+        if media === '*'
+            source(data-srcset=croppedImage + ", " + croppedRetinaImage + " 2x" data-location=dataLocation)
+        else
+            source(data-srcset=croppedImage + ", " + croppedRetinaImage + " 2x" media=media data-location=dataLocation)

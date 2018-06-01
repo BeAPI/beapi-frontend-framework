@@ -10,8 +10,8 @@ include ../mixins/svg-icon.pug
         </p>
     </div>
 <![endif]-->
-div.cssloading__overlay
-div#main
+.cssloading__overlay
+#main
     ul.menu-fastaccess
         li.menu-fastaccess__item
             a(href="#main__content") Accès direct au contenu
@@ -19,7 +19,7 @@ div#main
             a(href="#searchform") Accès direct à la recherche
         li.menu-fastaccess__item
             a(href="#menu") Accès direct au menu
-    div#js-menu-trigger.menu-trigger
+    #js-menu-trigger.menu-trigger
         button#js-menu-open.menu-trigger__open(type="button")
             +svg-icon('menu')(class="icon icon-menu")
             span Menu
@@ -27,14 +27,14 @@ div#main
             +svg-icon('close')(class="icon icon-close")
             span Fermer
     header#header.header(role="banner")
-        div.container
-            div.header__logo
+        .container
+            .header__logo
                 a.header__logo-link(href="01-home.php")
                     +svg-icon('logo-beapi')(class="header__icon icon-close")
                     <?php if ( $class == 'home' ) :?>
                         h1.header__title.visuallyhidden BeAPI FrontEnd Framework
                     <?php else: ?>
-                        div.header__title.visuallyhidden BeAPI FrontEnd Framework
+                        .header__title.visuallyhidden BeAPI FrontEnd Framework
                     <?php endif; ?>
             nav#menu.menu(role="navigation" tabindex="-1" aria-label="Navigation Principal")
                 ul.menu__list.sf-menu

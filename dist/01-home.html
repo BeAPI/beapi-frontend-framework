@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+<!-- Partials-->
+<!-- Components--><!DOCTYPE html>
 <html class="fonts-loading no-js" lang="fr">
   <head>
     <title>BeAPI FrontEnd Framework | The WordPress BFF</title>
@@ -74,11 +76,8 @@
   <link href="/src/app.css" rel="stylesheet"></head>
   <body class="home"><!--[if lte IE 9]>
 <div class="message message__browserhappy">
-<p>
-    <You>are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</You></p>
-<p>
-<button><span class="button-icon icon-close"></span>&nbsp;Close</button>
-</p>
+<p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</p>
+<p><button><span class="button-icon icon-close"></span>&nbsp;Close</button></p>
 </div>
 <![endif]-->
     <div class="cssloading__overlay"></div>
@@ -90,34 +89,33 @@
       </ul>
       <div class="menu-trigger" id="js-menu-trigger">
         <button class="menu-trigger__open" id="js-menu-open" type="button">
-              <svg class="icon icon-menu" aria-hidden="true" role="img">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-menu"></use>
-              </svg><span>Menu</span>
+          <svg class="icon icon-menu" aria-hidden="true" role="img">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-menu"></use>
+          </svg><span>Menu</span>
         </button>
         <button class="menu-trigger__close" id="js-menu-close" type="button">
-              <svg class="icon icon-close" aria-hidden="true" role="img">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
-              </svg><span>Fermer</span>
+          <svg class="icon icon-close" aria-hidden="true" role="img">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+          </svg><span>Fermer</span>
         </button>
       </div>
       <header class="header" id="header" role="banner">
         <div class="container">
-          <div class="header__logo"><a class="header__logo-link" href="01-home.php">
-                  <svg class="header__icon icon-close" aria-hidden="true" role="img">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
-                  </svg><?php if ( $class == 'home' ) :?>
-              <h1 class="header__title visuallyhidden">BeAPI FrontEnd Framework</h1><?php else: ?>
-              <div class="header__title visuallyhidden">BeAPI FrontEnd Framework</div><?php endif; ?></a></div>
+          <div class="header__logo"><a class="header__logo-link" href="01-home.html">
+              <svg class="header__icon icon-close" aria-hidden="true" role="img">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
+              </svg>
+              <h1 class="header__title visuallyhidden">BeAPI FrontEnd Framework</h1></a></div>
           <nav class="menu" id="menu" role="navigation" tabindex="-1" aria-label="Navigation Principal">
             <ul class="menu__list sf-menu">
-              <li class="menu-item current-menu-item menu-item-has-children"><a href="01-home.php">Home</a>
+              <li class="menu-item current-menu-item menu-item-has-children"><a href="01-home.html">Home</a>
                 <ul class="sub-menu">
                   <li class="menu-item"><a href="../livingcss/html/index.html">Living CSS</a></li>
                 </ul>
               </li>
-              <li class="menu-item"><a href="02-page-default.php">Page default</a></li>
-              <li class="menu-item"><a href="03-archive-default.php">Archive default</a></li>
-              <li class="menu-item"><a href="04-page-404.php">Page 404</a></li>
+              <li class="menu-item"><a href="02-page-default.html">Page default</a></li>
+              <li class="menu-item"><a href="03-archive-default.html">Archive default</a></li>
+              <li class="menu-item"><a href="04-page-404.html">Page 404</a></li>
             </ul>
           </nav>
         </div>
@@ -133,15 +131,17 @@
             <p>This a starter theme so it's empty. <br> Minimum pages are listed in the menu above. It's a base that you have to custom on your need.</p>
             <p>You can use <a href="https://github.com/BeAPI/beapi-frontend-framework/#composer-js">Composer JS</a> in order to add <a href="https://github.com/BeAPI/bff-components" target="_blank" title="See components">well known components</a> (html, css or js) like comments, widgets, plugins etc.</p>
             <h2>🦄 Happy Coding ! 🦄</h2>
-                <noscript><img class="lazyload" src="assets/img/sample/base_theme-img-1.png" alt=""></noscript>
-                <picture><!--[if IE 9]><video style="display: none"><![endif]-->
-                      <source data-srcset="assets/img/sample/base_theme-img-1-300-200.png, assets/img/sample/base_theme-img-1-600-400.png 2x" data-location="entry-img-01">
-                      <source data-srcset="assets/img/sample/base_theme-img-1-100-100.png, assets/img/sample/base_theme-img-1-200-200.png 2x" media="(max-width: 1024px)" data-location="entry-img-01"><!--[if IE 9]></video><![endif]--><img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
-                </picture>
+            <noscript><img class="lazyload" src="assets/img/sample/base_theme-img-1.png" alt=""></noscript>
+            <picture><!--[if IE 9]><video style="display: none"><![endif]-->
+              <source data-srcset="assets/img/sample/base_theme-img-1-300-200.png, assets/img/sample/base_theme-img-1-600-400.png 2x" data-location="entry-img-01">
+              <source data-srcset="assets/img/sample/base_theme-img-1-100-100.png, assets/img/sample/base_theme-img-1-200-200.png 2x" media="(max-width: 1024px)" data-location="entry-img-01"><!--[if IE 9]></video><![endif]--><img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+            </picture>
           </section>
         </div>
       </article>
     </main>
+    <!-- Partials-->
+    <!-- Components-->
     <footer class="footer" id="footer" role="contentinfo">
       <div class="container">
         <p>Follow us:</p><a class="button button--circle" href="https://www.facebook.com/beapi.agency/?ref=bookmarks"><span class="visuallyhidden">On Facebook</span>

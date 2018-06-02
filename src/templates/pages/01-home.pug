@@ -2,14 +2,10 @@ include ../mixins/mixins.pug
 
 doctype html
 html.fonts-loading.no-js(lang='fr')
-    head
-        title BeAPI FrontEnd Framework | The WordPress BFF
-        include ../partials/_head-meta
-        include ../partials/_head-favicon
-        include ../partials/_head-assets
+    +head('BeAPI FrontEnd Framework | The WordPress BFF')
 
     body.home
-        include ../partials/_header.pug
+        +header(true)
 
         main#main__content.main__content(role="main" tabindex="-1" aria-label="Contenu Principal")
             article.entry

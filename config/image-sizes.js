@@ -4,6 +4,10 @@ const imageDirectory = './src/img/sample/'
 const imageDestDirectory = './dist/assets/img/sample/'
 let dataLocation = {}
 
+/**
+ * Add width and height datas from TPL sources files in conf-img
+ * @param {object} dataLocation The object that contains all image sizes and image locations listed in conf-img
+ */
 const addSizesMedia = dataLocation => {
   Object.keys(dataLocation).map(key => {
     dataLocation[key].medias = {}
@@ -58,6 +62,10 @@ const addSizesMedia = dataLocation => {
   return dataLocation
 }
 
+/**
+ * Generate Cropped Image with images locations and images sizes list in conf-img
+ * @param {object} dataLocation The object that contains all image sizes and image locations listed in conf-img
+ */
 const generateCroppedImages = dataLocation => {
   let imageFiles = []
 

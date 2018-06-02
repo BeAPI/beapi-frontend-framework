@@ -1,13 +1,9 @@
 doctype html
 html.fonts-loading.no-js(lang='fr')
-    head
-        title BeAPI FrontEnd Framework | The WordPress BFF
-        include ../partials/_head-meta
-        include ../partials/_head-favicon
-        include ../partials/_head-assets
+    +head('BeAPI FrontEnd Framework | 404')
 
     body.error-404
-        include ../partials/_header.pug
+        +header(false)
 
         main#main__content.main__content(role="main" tabindex="-1" aria-label="Contenu Principal")
             article.entry

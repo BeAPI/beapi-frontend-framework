@@ -1,13 +1,9 @@
 doctype html
 html.fonts-loading.no-js(lang='fr')
-    head
-        title BeAPI FrontEnd Framework | The WordPress BFF
-        include ../partials/_head-meta
-        include ../partials/_head-favicon
-        include ../partials/_head-assets
+    +head('BeAPI FrontEnd Framework | Page')
 
     body.page
-        include ../partials/_header.pug
+        +header(false)
 
         main#main__content.main__content(role="main" tabindex="-1" aria-label="Contenu Principal")
             header.page__header.lazyload(data-bgset="assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg")

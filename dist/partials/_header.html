@@ -1,10 +1,9 @@
-<head><link href="/src/app.css" rel="stylesheet"></head><!--[if lte IE 9]>
+<head><link href="/src/app.css" rel="stylesheet"></head>
+<!-- Partials-->
+<!-- Components--><!--[if lte IE 9]>
 <div class="message message__browserhappy">
-<p>
-<You>are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</You></p>
-<p>
-<button><span class="button-icon icon-close"></span>&nbsp;Close</button>
-</p>
+<p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</p>
+<p><button><span class="button-icon icon-close"></span>&nbsp;Close</button></p>
 </div>
 <![endif]-->
 <div class="cssloading__overlay"></div>
@@ -28,22 +27,21 @@
   </div>
   <header class="header" id="header" role="banner">
     <div class="container">
-      <div class="header__logo"><a class="header__logo-link" href="01-home.php">
+      <div class="header__logo"><a class="header__logo-link" href="01-home.html">
           <svg class="header__icon icon-close" aria-hidden="true" role="img">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
-          </svg><?php if ( $class == 'home' ) :?>
-          <h1 class="header__title visuallyhidden">BeAPI FrontEnd Framework</h1><?php else: ?>
-          <div class="header__title visuallyhidden">BeAPI FrontEnd Framework</div><?php endif; ?></a></div>
+          </svg>
+          <div class="header__title visuallyhidden">BeAPI FrontEnd Framework</div></a></div>
       <nav class="menu" id="menu" role="navigation" tabindex="-1" aria-label="Navigation Principal">
         <ul class="menu__list sf-menu">
-          <li class="menu-item current-menu-item menu-item-has-children"><a href="01-home.php">Home</a>
+          <li class="menu-item current-menu-item menu-item-has-children"><a href="01-home.html">Home</a>
             <ul class="sub-menu">
               <li class="menu-item"><a href="../livingcss/html/index.html">Living CSS</a></li>
             </ul>
           </li>
-          <li class="menu-item"><a href="02-page-default.php">Page default</a></li>
-          <li class="menu-item"><a href="03-archive-default.php">Archive default</a></li>
-          <li class="menu-item"><a href="04-page-404.php">Page 404</a></li>
+          <li class="menu-item"><a href="02-page-default.html">Page default</a></li>
+          <li class="menu-item"><a href="03-archive-default.html">Archive default</a></li>
+          <li class="menu-item"><a href="04-page-404.html">Page 404</a></li>
         </ul>
       </nav>
     </div>

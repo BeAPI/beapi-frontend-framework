@@ -83,19 +83,23 @@ const generateCroppedImages = dataLocation => {
           const imageExtension = filename.match(/\.[^/.]+$/)[0]
           const dstFilename = filename.replace(/\.[^/.]+$/, '') + size.replace('img', '') + imageExtension
 
-          im.crop(
-            {
-              srcPath: imageFile,
-              dstPath: imageDestDirectory + dstFilename,
-              width: dataLocation[key][size]['width'],
-              height: dataLocation[key][size]['height'],
-              quality: 1,
-              gravity: 'Center',
-            },
-            function() {
-              console.log('\x1b[32m\x1b[1m', '🦄 Cropping ' + dstFilename)
+          fs.access(imageDestDirectory + dstFilename, fs.constants.F_OK, err => {
+            if (err) {
+              im.crop(
+                {
+                  srcPath: imageFile,
+                  dstPath: imageDestDirectory + dstFilename,
+                  width: dataLocation[key][size]['width'],
+                  height: dataLocation[key][size]['height'],
+                  quality: 1,
+                  gravity: 'Center',
+                },
+                function() {
+                  console.log('\x1b[32m\x1b[1m', '🦄 Cropping ' + dstFilename)
+                }
+              )
             }
-          )
+          })
         })
     })
   })

@@ -12,12 +12,4 @@ module.exports = {
     contentBase: path.resolve('./dist/'),
     overlay: true,
   },
-  refresh: [
-    'dist/**/*.php',
-    'dist/**/*.html',
-    'src/**/*.scss',
-    'dist/assets/*.js',
-    'src/img/icons/',
-    'src/img/icons/*.svg',
-  ],
 }

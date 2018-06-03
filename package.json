@@ -7,7 +7,7 @@
     "url": "https://github.com/BeAPI/beapi-frontend-framework"
   },
   "scripts": {
-    "start": "NODE_ENV=dev webpack-dev-server --hot --inline --watch --open --config config/webpack.dev.js",
+    "start": "NODE_ENV=dev webpack-dev-server --hot --inline --watch --config config/browser-sync.js",
     "dev": "NODE_ENV=dev webpack --watch --config config/webpack.dev.js",
     "prod": "webpack --config config/webpack.prod.js && npm run favicon && NODE_ENV=dev webpack --config config/webpack.dev.js",
     "build": "npm run prod && node tasks/critical-css.js && node tasks/style-version.js && cd livingcss && npm install && gulp livingcss",

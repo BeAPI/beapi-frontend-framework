@@ -26,7 +26,8 @@ module.exports = function(templateDir, folders) {
       const filename = name.includes('pages/') ? name.replace('pages/', '') : name
 
       return new HtmlWebpackPlugin({
-        inject: true,
+        alwaysWriteToDisk: true,
+        inject: false,
         filename: `../${filename}.html`,
         template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
         imagesDatas,

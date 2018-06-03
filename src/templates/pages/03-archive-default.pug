@@ -1,3 +1,5 @@
+include ../mixins/mixins.pug
+
 doctype html
 html.fonts-loading.no-js(lang='fr')
     +head('BeAPI FrontEnd Framework | Archive')
@@ -15,14 +17,16 @@ html.fonts-loading.no-js(lang='fr')
                 .container
                     h2.entry__title An example of entry list
                     .entry__loop
-                        include ../partials/_entry-summary.pug
-                        include ../partials/_entry-summary.pug
-                        include ../partials/_entry-summary.pug
+                        - var n = 0
+                        while n < 3
+                            - n++
+                            include ../partials/_entry-summary.pug
 
                     h2.entry__title An example of entry "card" list
                     .entry__loop
-                        include ../partials/_entry-summary--seo.pug
-                        include ../partials/_entry-summary--seo.pug
-                        include ../partials/_entry-summary--seo.pug
+                        - var n = 0
+                        while n < 3
+                            - n++
+                            include ../partials/_entry-summary--seo.pug
 
         include ../partials/_footer.pug

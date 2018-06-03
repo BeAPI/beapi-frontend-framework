@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const config = require('./config')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 const SvgStore = require('webpack-svgstore-plugin')
 const cssLoaders = require('./css-loader.js')
 const htmlRender = require('./html-render.js')('./../src/templates/', ['pages', 'partials'])
@@ -13,10 +14,11 @@ let webpackBase = {
   devtool: config.dev ? 'source-map' : false,
   entry: config.entry,
   output: {
-    path: config.assets_path,
-    publicPath: config.assets_public_path,
+    path: config.assetsPath,
+    publicPath: config.assetsPublicPath,
     filename: config.dev ? '[name].js' : '[name].[chunkhash:8].min.js',
   },
+  devServer: config.devServer,
   module: {
     rules: [
       {
@@ -55,9 +57,12 @@ let webpackBase = {
       },
       {
         test: /\.(sass|scss)$/,
-        use: ExtractTextPlugin.extract({
-          use: [...cssLoaders, 'sass-loader'],
-        }),
+        use: ['css-hot-loader'].concat(
+          ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [...cssLoaders, 'sass-loader'],
+          })
+        ),
       },
       {
         test: /\.(woff2?|woff|eot|ttf|otf|mp3|wav)(\?.*)?$/,
@@ -103,9 +108,8 @@ let webpackBase = {
     }),
     new CopyWebpackPlugin([
       {
-        from: 'src/templates/',
-        to: '..',
-        ignore: ['*.pug'],
+        from: 'src/js/vendor_async/',
+        to: 'js/vendor_async/',
       },
       {
         from: 'src/fonts/',
@@ -136,6 +140,7 @@ let webpackBase = {
         },
       }
     ),
+    new HtmlWebpackHarddiskPlugin(),
   ].concat(htmlRender),
 }
 

@@ -1,5 +1,6 @@
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const webpackDev = require('./webpack.dev')
+const svgSprite = require('./../tasks/svg-sprite')
 
 webpackDev.plugins.push(
   new BrowserSyncPlugin(
@@ -9,9 +10,12 @@ webpackDev.plugins.push(
       proxy: 'http://localhost:8080/',
       files: [
         {
-          match: ['src/**/*.pug'],
+          match: ['src/**/*.svg', 'src/**/*.pug'],
           fn: function(event, file) {
             if (event === 'change') {
+              if (file.includes('.svg')) {
+                svgSprite()
+              }
               const bs = require('browser-sync').get('bs-webpack-plugin')
               setTimeout(() => {
                 bs.reload()

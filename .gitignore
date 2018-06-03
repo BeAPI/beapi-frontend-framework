@@ -60,9 +60,8 @@ bower_components/
 src/img/sample/cache
 dist/assets/img/sample/cache
 
-### Fabricator styleguide ###
-styleguide/dist
-styleguide/node_modules
+### BFF ###
+dist/
 
 
 ### Mac OSX

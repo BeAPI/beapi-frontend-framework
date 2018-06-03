@@ -112,6 +112,10 @@ let webpackBase = {
         to: 'js/vendor_async/',
       },
       {
+        from: 'src/icons/',
+        to: 'icons/',
+      },
+      {
         from: 'src/fonts/',
         to: 'fonts/',
       },

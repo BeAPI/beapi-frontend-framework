@@ -7,10 +7,11 @@
     "url": "https://github.com/BeAPI/beapi-frontend-framework"
   },
   "scripts": {
+    "clean": "rm -rf dist/ && node tasks/svg-sprite.js",
     "start": "NODE_ENV=dev webpack-dev-server --hot --inline --watch --config config/browser-sync.js",
-    "dev": "NODE_ENV=dev webpack --watch --config config/webpack.dev.js",
-    "prod": "webpack --config config/webpack.prod.js && npm run favicon && NODE_ENV=dev webpack --config config/webpack.dev.js",
-    "build": "npm run prod && node tasks/critical-css.js && node tasks/style-version.js && cd livingcss && npm install && gulp livingcss",
+    "build:dev": "npm run clean && NODE_ENV=dev webpack --config config/webpack.dev.js",
+    "build:prod": "npm run clean && webpack --config config/webpack.prod.js && npm run favicon && node tasks/critical-css.js && node tasks/style-version.js",
+    "build": "npm run clean && NODE_ENV=dev webpack --config config/webpack.dev.js && webpack --config config/webpack.prod.js && npm run favicon && node tasks/critical-css.js && node tasks/style-version.js",
     "favicon": "node tasks/favicon.js && node tasks/favicon.js --appicon",
     "composerjs": "cd composerjs && npm install && node app.js",
     "bump": "node tasks/style-version.js",

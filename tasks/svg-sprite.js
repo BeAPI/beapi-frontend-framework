@@ -4,11 +4,11 @@ const path = require('path')
 const SVGO = require('svgo')
 
 const srcIcons = './src/img/icons'
-const distSvg = './dist/assets/icons/icons.svg'
+const distSvg = './src/icons/icons.svg'
 const prefix = 'icon'
 const sprites = svgstore({
   copyAttrs: true,
-  inline: true
+  inline: true,
 })
 const svgo = new SVGO()
 

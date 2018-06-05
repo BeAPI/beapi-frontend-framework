@@ -92,9 +92,9 @@
 	}
 }
 //fullwidth row
-@mixin row--fullwidth {
+@mixin row--fullwidth($position: relative) {
 	z-index: $zindex;
-	position: relative;
+	position: $position;
 	width: 100vw;
 	left: 50%;
 	transform: translateX(-50%) translateY(0);

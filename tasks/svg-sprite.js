@@ -63,13 +63,15 @@ const optimizeIcons = async src => {
   fs.readdir(src, (err, files) => {
     if (err) throw err
     files.forEach(file => {
-      const filepath = `${src}/${file}`
-      fs.readFile(filepath, 'utf8', (err, data) => {
-        if (err) throw err
-        svgo.optimize(data, { path: filepath }).then(result => {
-          fs.writeFileSync(filepath, result.data)
+      if (path.extname(file) === '.svg') {
+        const filepath = `${src}/${file}`
+        fs.readFile(filepath, 'utf8', (err, data) => {
+          if (err) throw err
+          svgo.optimize(data, { path: filepath }).then(result => {
+            fs.writeFileSync(filepath, result.data)
+          })
         })
-      })
+      }
     })
   })
 }

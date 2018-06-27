@@ -2,7 +2,7 @@
 require( dirname( __FILE__ ) . '/functions/_init.php' );
 ?>
 <!doctype html>
-<!--[if IE 9 ]> <html class="no-js ie lte-ie9 ie9" lang="fr"> <![endif]-->
+<!--[if lte IE 9 ]> <html class="no-js ie lte-ie9 ie9" lang="fr"> <![endif]-->
 <!--[if !(IE)]><! -->
 <html class="fonts-loading no-js" lang="fr"><!--<![endif]-->
 	<head>
@@ -42,15 +42,15 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<link rel="shortcut icon" href="assets/img/favicons/favicon.ico">
 
 		<!--[if lte IE 9]>
-			<script type="text/javascript" src="../src/js/vendor_ie/matchmedia-polyfill.js"></script>
-			<script type="text/javascript" src="../src/js/vendor_ie/matchMedia.addListener.js"></script>
-			<script type="text/javascript" src="../src/js/vendor_ie/placeholders.min.js"></script>
+			<script type="text/javascript" src="assets/js/vendor_ie/matchmedia-polyfill.js"></script>
+			<script type="text/javascript" src="assets/js/vendor_ie/matchMedia.addListener.js"></script>
+			<script type="text/javascript" src="assets/js/vendor_ie/placeholders.min.js"></script>
 		<![endif]-->
 		<!--[if lt IE 9]>
-			<script type="text/javascript" src="../src/js/vendor_ie/html5shiv.min.js"></script>
+			<script type="text/javascript" src="assets/js/vendor_ie/html5shiv.min.js"></script>
 		<![endif]-->
 		<!--[if lte IE 8]>
-			<script type="text/javascript" src="../src/js/vendor_ie/selectivizr.js"></script>
+			<script type="text/javascript" src="assets/js/vendor_ie/selectivizr.js"></script>
 		<![endif]-->
 
 		<style>
@@ -80,10 +80,10 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		</script>
 
 		<!-- Modernizr Custom (JS + SVG detection) -->
-		<script type="text/javascript" src="../src/js/vendor_async/modernizr.custom.min.js"></script>
+		<script type="text/javascript" src="assets/js/vendor_async/modernizr.custom.min.js"></script>
 
 		<!-- jQuery from official WordPress Core -->
-		<script type="text/javascript" src="../src/js/vendor_async/jquery.js"></script>
+		<script type="text/javascript" src="assets/js/vendor_async/jquery.js"></script>
 
 	</head>
 	<body class="<?php echo $class; ?>">

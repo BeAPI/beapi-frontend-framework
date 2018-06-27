@@ -24,20 +24,6 @@ lazySizes.customMedia = {}
  */
 lazySizesBgset.customMedia = {}
 
-/**
- * Load SVG sprite and automate a11y tests only in our dist folder
- */
-const distPath = window.location.pathname
-
-if (distPath.match('/dist/').length === 1) {
-  // a11y
-  const accessibilityTests = new AccessibilityTests()
-  accessibilityTests.init()
-
-  // SVG
-  let __svg__ = {
-    path: '../img/icons/*.svg', // entry
-    name: '../icons/icons.svg', // output
-  }
-  require('./vendor/svgxhr')(__svg__)
-}
+// a11y
+const accessibilityTests = new AccessibilityTests()
+accessibilityTests.init()

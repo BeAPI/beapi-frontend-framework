@@ -3,6 +3,7 @@ const fs = require('fs')
 const path = require('path')
 const SVGO = require('svgo')
 const ora = require('ora')
+const cheerio = require('cheerio')
 
 const svgoPlugins = [
   { cleanupAttrs: true },
@@ -44,7 +45,7 @@ const icons = [
   {
     id: 'Icons front',
     src: './src/img/icons',
-    dist: './dist/assets/img/icons',
+    dist: './dist/icons',
     filename: 'icons.svg',
     prefix: 'icon',
   },
@@ -86,7 +87,9 @@ const generateSprite = async (src, dist, name, prefix) => {
         sprites.add(`${prefix}-${filename}`, fs.readFileSync(`${src}/${file}`, 'utf8'))
       }
     })
-    fs.writeFileSync(`${dist}/${name}`, sprites)
+    const $ = cheerio.load(sprites.toString({ inline: true }))
+    const svg = $('svg').attr('id', 'svg-sprite')
+    fs.writeFileSync(`${dist}/${name}`, svg)
   })
 }
 

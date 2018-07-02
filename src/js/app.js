@@ -24,6 +24,12 @@ lazySizes.customMedia = {}
  */
 lazySizesBgset.customMedia = {}
 
-// a11y
-const accessibilityTests = new AccessibilityTests()
-accessibilityTests.init()
+/**
+ * Dev mode only
+ */
+const distPath = window.location.pathname
+if (distPath.match('/dist/').length === 1) {
+  // a11y
+  const accessibilityTests = new AccessibilityTests()
+  accessibilityTests.init()
+}

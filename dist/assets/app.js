@@ -60,51 +60,79 @@
 /******/ 	__webpack_require__.p = "/src/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-// ECMA-262, Edition 5, 15.4.4.18
-// Référence: http://es5.github.io/#x15.4.4.18
+"use strict";
+
+
 if (!Array.prototype.forEach) {
-  Array.prototype.forEach = function (callback /*, thisArg */) {
-    var T, k
+  Array.prototype.forEach = function (callback) {
+    var T, k;
 
     if (this == null) {
-      throw new TypeError(' this vaut null ou n est pas défini')
+      throw new TypeError(' this vaut null ou n est pas défini');
     }
 
-    var O = Object(this)
-    var len = O.length >>> 0
+    var O = Object(this);
+    var len = O.length >>> 0;
 
     if (typeof callback !== 'function') {
-      throw new TypeError(callback + ' n est pas une fonction')
+      throw new TypeError(callback + ' n est pas une fonction');
     }
 
     if (arguments.length > 1) {
-      T = arguments[1]
+      T = arguments[1];
     }
 
-    k = 0
+    k = 0;
 
     while (k < len) {
-      var kValue
+      var kValue;
 
       if (k in O) {
-        kValue = O[k]
-        callback.call(T, kValue, k, O)
+        kValue = O[k];
+        callback.call(T, kValue, k, O);
       }
-      k++
+      k++;
     }
-  }
+  };
 }
-
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+module.exports = function(module) {
+	if(!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports) {
 
 (function(window, factory) {
@@ -806,7 +834,7 @@ if (!Array.prototype.forEach) {
 
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -11066,104 +11094,85 @@ return jQuery;
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(4);
-module.exports = __webpack_require__(5);
+__webpack_require__(5);
+module.exports = __webpack_require__(6);
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 5 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfill_picturefill__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfill_picturefill___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__polyfill_picturefill__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__polyfill_forEach__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__polyfill_forEach___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__polyfill_forEach__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lazysizes__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lazysizes___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_lazysizes__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lazysizes_plugins_bgset_ls_bgset__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lazysizes_plugins_bgset_ls_bgset___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_lazysizes_plugins_bgset_ls_bgset__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__src_menu__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__src_button_href__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__src_select__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__src_seo__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__src_accessibility_tests__ = __webpack_require__(13);
-/**
- * Main scripts file
- */
-
-
-
-
-
-
-
-
-
-
-
-/**
- * LazySizes configuration
- * https://github.com/aFarkas/lazysizes/#js-api---options
- */
-__WEBPACK_IMPORTED_MODULE_2_lazysizes___default.a.customMedia = {}
-
-/**
- * LazySizesBgset configuration
- * https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/bgset#lazysizes-bgset-extension---responsive-background-images
- */
-__WEBPACK_IMPORTED_MODULE_3_lazysizes_plugins_bgset_ls_bgset___default.a.customMedia = {}
-
-/**
- * Load SVG sprite and automate a11y tests only in our dist folder
- */
-const distPath = window.location.pathname
-
-if (distPath.match('/dist/').length === 1) {
-  // a11y
-  const accessibilityTests = new __WEBPACK_IMPORTED_MODULE_8__src_accessibility_tests__["a" /* default */]()
-  accessibilityTests.init()
-
-  // SVG
-  let __svg__ = { filename: __webpack_require__.p +"../icons/icons.svg" }
-  __webpack_require__(16)(__svg__)
-}
-
-
-/***/ }),
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
- * https://scottjehl.github.io/picturefill/
- * Copyright (c) 2016 https://github.com/scottjehl/picturefill/blob/master/Authors.txt; Licensed MIT
- */
-/*! Gecko-Picture - v1.0
- * https://github.com/scottjehl/picturefill/tree/3.0/src/plugins/gecko-picture
- * Firefox's early picture implementation (prior to FF41) is static and does
- * not react to viewport changes. This tiny module fixes this.
- */
+"use strict";
+
+
+__webpack_require__(7);
+
+__webpack_require__(0);
+
+var _lazysizes = __webpack_require__(2);
+
+var _lazysizes2 = _interopRequireDefault(_lazysizes);
+
+var _ls = __webpack_require__(8);
+
+var _ls2 = _interopRequireDefault(_ls);
+
+__webpack_require__(9);
+
+__webpack_require__(11);
+
+__webpack_require__(12);
+
+__webpack_require__(13);
+
+var _accessibilityTests = __webpack_require__(14);
+
+var _accessibilityTests2 = _interopRequireDefault(_accessibilityTests);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_lazysizes2.default.customMedia = {};
+
+_ls2.default.customMedia = {};
+
+var distPath = window.location.pathname;
+
+if (distPath.match('/dist/').length === 1) {
+  var accessibilityTests = new _accessibilityTests2.default();
+  accessibilityTests.init();
+
+  var __svg__ = { filename: __webpack_require__.p +"../icons/icons.svg" };
+  __webpack_require__(16)(__svg__);
+}
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_RESULT__;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 (function (window) {
-	/*jshint eqnull:true */
 	var ua = navigator.userAgent;
 
-	if (window.HTMLPictureElement && ((/ecko/).test(ua) && ua.match(/rv\:(\d+)/) && RegExp.$1 < 45)) {
-		addEventListener("resize", (function () {
+	if (window.HTMLPictureElement && /ecko/.test(ua) && ua.match(/rv\:(\d+)/) && RegExp.$1 < 45) {
+		addEventListener("resize", function () {
 			var timer;
 
 			var dummySrc = document.createElement("source");
 
-			var fixRespimg = function (img) {
+			var fixRespimg = function fixRespimg(img) {
 				var source, sizes;
 				var picture = img.parentNode;
 
@@ -11184,19 +11193,19 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 				}
 			};
 
-			var findPictureImgs = function () {
+			var findPictureImgs = function findPictureImgs() {
 				var i;
 				var imgs = document.querySelectorAll("picture > img, img[srcset][sizes]");
 				for (i = 0; i < imgs.length; i++) {
 					fixRespimg(imgs[i]);
 				}
 			};
-			var onResize = function () {
+			var onResize = function onResize() {
 				clearTimeout(timer);
 				timer = setTimeout(findPictureImgs, 99);
 			};
 			var mq = window.matchMedia && matchMedia("(orientation: landscape)");
-			var init = function () {
+			var init = function init() {
 				onResize();
 
 				if (mq && mq.addListener) {
@@ -11213,28 +11222,20 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 			}
 
 			return onResize;
-		})());
+		}());
 	}
 })(window);
 
-/*! Picturefill - v3.0.2
- * http://scottjehl.github.io/picturefill
- * Copyright (c) 2015 https://github.com/scottjehl/picturefill/blob/master/Authors.txt;
- *  License: MIT
- */
-
 (function (window, document, undefined) {
-	// Enable strict mode
 	"use strict";
 
-	// HTML shim|v it for old IE (IE9 will still need the HTML video tag workaround)
 	document.createElement("picture");
 
 	var warn, eminpx, alwaysCheckWDescriptor, evalId;
-	// local object for method references and testing exposure
+
 	var pf = {};
 	var isSupportTestReady = false;
-	var noop = function () { };
+	var noop = function noop() {};
 	var image = document.createElement("img");
 	var getImgAttr = image.getAttribute;
 	var setImgAttr = image.setAttribute;
@@ -11242,23 +11243,18 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 	var docElem = document.documentElement;
 	var types = {};
 	var cfg = {
-		//resource selection:
 		algorithm: ""
 	};
 	var srcAttr = "data-pfsrc";
 	var srcsetAttr = srcAttr + "set";
-	// ua sniffing is done for undetectable img loading features,
-	// to do some non crucial perf optimizations
+
 	var ua = navigator.userAgent;
-	var supportAbort = (/rident/).test(ua) || ((/ecko/).test(ua) && ua.match(/rv\:(\d+)/) && RegExp.$1 > 35);
+	var supportAbort = /rident/.test(ua) || /ecko/.test(ua) && ua.match(/rv\:(\d+)/) && RegExp.$1 > 35;
 	var curSrcProp = "currentSrc";
 	var regWDesc = /\s+\+?\d+(e\d+)?w/;
 	var regSize = /(\([^)]+\))?\s*(.+)/;
 	var setOptions = window.picturefillCFG;
-	/**
-	 * Shortcut property for https://w3c.github.io/webappsec/specs/mixedcontent/#restricts-mixed-content ( for easy overriding in tests )
-	 */
-	// baseStyle also used by getEmValue (i.e.: width: 1em is important)
+
 	var baseStyle = "position:absolute;left:0;visibility:hidden;display:block;padding:0;border:none;font-size:1em;width:1em;overflow:hidden;clip:rect(0px, 0px, 0px, 0px)";
 	var fsCss = "font-size:100%!important;";
 	var isVwDirty = true;
@@ -11271,29 +11267,17 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		"in": 96
 	};
 	var anchor = document.createElement("a");
-	/**
-	 * alreadyRun flag used for setOptions. is it true setOptions will reevaluate
-	 * @type {boolean}
-	 */
+
 	var alreadyRun = false;
 
-	// Reusable, non-"g" Regexes
-
-	// (Don't use \s, to avoid matching non-breaking space.)
 	var regexLeadingSpaces = /^[ \t\n\r\u000c]+/,
-		regexLeadingCommasOrSpaces = /^[, \t\n\r\u000c]+/,
-		regexLeadingNotSpaces = /^[^ \t\n\r\u000c]+/,
-		regexTrailingCommas = /[,]+$/,
-		regexNonNegativeInteger = /^\d+$/,
+	    regexLeadingCommasOrSpaces = /^[, \t\n\r\u000c]+/,
+	    regexLeadingNotSpaces = /^[^ \t\n\r\u000c]+/,
+	    regexTrailingCommas = /[,]+$/,
+	    regexNonNegativeInteger = /^\d+$/,
+	    regexFloatingPoint = /^-?(?:[0-9]+|[0-9]*\.[0-9]+)(?:[eE][+-]?[0-9]+)?$/;
 
-		// ( Positive or negative or unsigned integers or decimals, without or without exponents.
-		// Must include at least one digit.
-		// According to spec tests any decimal point must be followed by a digit.
-		// No leading plus sign is allowed.)
-		// https://html.spec.whatwg.org/multipage/infrastructure.html#valid-floating-point-number
-		regexFloatingPoint = /^-?(?:[0-9]+|[0-9]*\.[0-9]+)(?:[eE][+-]?[0-9]+)?$/;
-
-	var on = function (obj, evt, fn, capture) {
+	var on = function on(obj, evt, fn, capture) {
 		if (obj.addEventListener) {
 			obj.addEventListener(evt, fn, capture || false);
 		} else if (obj.attachEvent) {
@@ -11301,11 +11285,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		}
 	};
 
-	/**
-	 * simple memoize function:
-	 */
-
-	var memoize = function (fn) {
+	var memoize = function memoize(fn) {
 		var cache = {};
 		return function (input) {
 			if (!(input in cache)) {
@@ -11315,30 +11295,17 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		};
 	};
 
-	// UTILITY FUNCTIONS
-
-	// Manual is faster than RegEx
-	// http://jsperf.com/whitespace-character/5
 	function isSpace(c) {
-		return (c === "\u0020" || // space
-			c === "\u0009" || // horizontal tab
-			c === "\u000A" || // new line
-			c === "\u000C" || // form feed
-			c === "\u000D");  // carriage return
+		return c === " " || c === "\t" || c === "\n" || c === "\f" || c === "\r";
 	}
 
-	/**
-	 * gets a mediaquery and returns a boolean or gets a css length and returns a number
-	 * @param css mediaqueries or css length
-	 * @returns {boolean|number}
-	 *
-	 * based on: https://gist.github.com/jonathantneal/db4f77009b155f083738
-	 */
-	var evalCSS = (function () {
+	var evalCSS = function () {
 
 		var regLength = /^([\d\.]+)(em|vw|px)$/;
-		var replace = function () {
-			var args = arguments, index = 0, string = args[0];
+		var replace = function replace() {
+			var args = arguments,
+			    index = 0,
+			    string = args[0];
 			while (++index in args) {
 				string = string.replace(args[index], args[++index]);
 			}
@@ -11347,27 +11314,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 
 		var buildStr = memoize(function (css) {
 
-			return "return " + replace((css || "").toLowerCase(),
-				// interpret `and`
-				/\band\b/g, "&&",
-
-				// interpret `,`
-				/,/g, "||",
-
-				// interpret `min-` as >=
-				/min-([a-z-\s]+):/g, "e.$1>=",
-
-				// interpret `max-` as <=
-				/max-([a-z-\s]+):/g, "e.$1<=",
-
-				//calc value
-				/calc([^)]+)/g, "($1)",
-
-				// interpret css values
-				/(\d+[\.]*[\d]*)([a-z]+)/g, "($1 * e.$2)",
-				//make eval less evil
-				/^(?!(e.[a-z]|[0-9\.&=|><\+\-\*\(\)\/])).*/ig, ""
-			) + ";";
+			return "return " + replace((css || "").toLowerCase(), /\band\b/g, "&&", /,/g, "||", /min-([a-z-\s]+):/g, "e.$1>=", /max-([a-z-\s]+):/g, "e.$1<=", /calc([^)]+)/g, "($1)", /(\d+[\.]*[\d]*)([a-z]+)/g, "($1 * e.$2)", /^(?!(e.[a-z]|[0-9\.&=|><\+\-\*\(\)\/])).*/ig, "") + ";";
 		});
 
 		return function (css, length) {
@@ -11377,19 +11324,17 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 				if (length && (parsedLength = css.match(regLength))) {
 					cssCache[css] = parsedLength[1] * units[parsedLength[2]];
 				} else {
-					/*jshint evil:true */
 					try {
 						cssCache[css] = new Function("e", buildStr(css))(units);
-					} catch (e) { }
-					/*jshint evil:false */
+					} catch (e) {}
 				}
 			}
 			return cssCache[css];
 		};
-	})();
+	}();
 
-	var setResolution = function (candidate, sizesattr) {
-		if (candidate.w) { // h = means height: || descriptor.type === 'h' do not handle yet...
+	var setResolution = function setResolution(candidate, sizesattr) {
+		if (candidate.w) {
 			candidate.cWidth = pf.calcListLength(sizesattr || "100vw");
 			candidate.res = candidate.w / candidate.cWidth;
 		} else {
@@ -11398,13 +11343,11 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		return candidate;
 	};
 
-	/**
-	 *
-	 * @param opt
-	 */
-	var picturefill = function (opt) {
+	var picturefill = function picturefill(opt) {
 
-		if (!isSupportTestReady) { return; }
+		if (!isSupportTestReady) {
+			return;
+		}
 
 		var elements, i, plen;
 
@@ -11419,14 +11362,13 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 			}
 		}
 
-		elements = options.elements || pf.qsa((options.context || document), (options.reevaluate || options.reselect) ? pf.sel : pf.selShort);
+		elements = options.elements || pf.qsa(options.context || document, options.reevaluate || options.reselect ? pf.sel : pf.selShort);
 
-		if ((plen = elements.length)) {
+		if (plen = elements.length) {
 
 			pf.setupRun(options);
 			alreadyRun = true;
 
-			// Loop through all elements
 			for (i = 0; i < plen; i++) {
 				pf.fillImg(elements[i], options);
 			}
@@ -11435,30 +11377,19 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		}
 	};
 
-	/**
-	 * outputs a warning for the developer
-	 * @param {message}
-	 * @type {Function}
-	 */
-	warn = (window.console && console.warn) ?
-		function (message) {
-			console.warn(message);
-		} :
-		noop
-		;
+	warn = window.console && console.warn ? function (message) {
+		console.warn(message);
+	} : noop;
 
 	if (!(curSrcProp in image)) {
 		curSrcProp = "src";
 	}
 
-	// Add support for standard mime types.
 	types["image/jpeg"] = true;
 	types["image/gif"] = true;
 	types["image/png"] = true;
 
 	function detectTypeSupport(type, typeUri) {
-		// based on Modernizr's lossless img-webp test
-		// note: asynchronous
 		var image = new window.Image();
 		image.onerror = function () {
 			types[type] = false;
@@ -11472,12 +11403,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		return "pending";
 	}
 
-	// test svg support
 	types["image/svg+xml"] = document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image", "1.1");
 
-	/**
-	 * updates the internal vW property with the current viewport width in px
-	 */
 	function updateMetrics() {
 
 		isVwDirty = false;
@@ -11502,7 +11429,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 	function chooseLowRes(lowerValue, higherValue, dprValue, isCached) {
 		var bonusFactor, tooMuch, bonus, meanDensity;
 
-		//experimental
 		if (cfg.algorithm === "saveData") {
 			if (lowerValue > 2.7) {
 				meanDensity = dprValue + 1;
@@ -11519,9 +11445,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 				meanDensity = lowerValue + bonus;
 			}
 		} else {
-			meanDensity = (dprValue > 1) ?
-				Math.sqrt(lowerValue * higherValue) :
-				lowerValue;
+			meanDensity = dprValue > 1 ? Math.sqrt(lowerValue * higherValue) : lowerValue;
 		}
 
 		return meanDensity > dprValue;
@@ -11584,9 +11508,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 	function getAllSourceElements(picture, candidates) {
 		var i, len, source, srcset;
 
-		// SPEC mismatch intended for size and perf:
-		// actually only source elements preceding the img should be used
-		// also note: don't use qsa here, because IE8 sometimes doesn't like source as the key part in a selector
 		var sources = picture.getElementsByTagName("source");
 
 		for (i = 0, len = sources.length; i < len; i++) {
@@ -11594,7 +11515,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 			source[pf.ns] = true;
 			srcset = source.getAttribute("srcset");
 
-			// if source does not have a srcset attribute, skip
 			if (srcset) {
 				candidates.push({
 					srcset: srcset,
@@ -11606,26 +11526,11 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		}
 	}
 
-	/**
-	 * Srcset Parser
-	 * By Alex Bell |  MIT License
-	 *
-	 * @returns Array [{url: _, d: _, w: _, h:_, set:_(????)}, ...]
-	 *
-	 * Based super duper closely on the reference algorithm at:
-	 * https://html.spec.whatwg.org/multipage/embedded-content.html#parse-a-srcset-attribute
-	 */
-
-	// 1. Let input be the value passed to this algorithm.
-	// (TO-DO : Explain what "set" argument is here. Maybe choose a more
-	// descriptive & more searchable name.  Since passing the "set" in really has
-	// nothing to do with parsing proper, I would prefer this assignment eventually
-	// go in an external fn.)
 	function parseSrcset(input, set) {
 
 		function collectCharacters(regEx) {
 			var chars,
-				match = regEx.exec(input.substring(pos));
+			    match = regEx.exec(input.substring(pos));
 			if (match) {
 				chars = match[0];
 				pos += chars.length;
@@ -11634,40 +11539,27 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		}
 
 		var inputLength = input.length,
-			url,
-			descriptors,
-			currentDescriptor,
-			state,
-			c,
+		    url,
+		    descriptors,
+		    currentDescriptor,
+		    state,
+		    c,
+		    pos = 0,
+		    candidates = [];
 
-			// 2. Let position be a pointer into input, initially pointing at the start
-			//    of the string.
-			pos = 0,
-
-			// 3. Let candidates be an initially empty source set.
-			candidates = [];
-
-		/**
-		* Adds descriptor properties to a candidate, pushes to the candidates array
-		* @return undefined
-		*/
-		// (Declared outside of the while loop so that it's only created once.
-		// (This fn is defined before it is used, in order to pass JSHINT.
-		// Unfortunately this breaks the sequencing of the spec comments. :/ )
 		function parseDescriptors() {
-
-			// 9. Descriptor parser: Let error be no.
 			var pError = false,
+			    w,
+			    d,
+			    h,
+			    i,
+			    candidate = {},
+			    desc,
+			    lastChar,
+			    value,
+			    intVal,
+			    floatVal;
 
-				// 10. Let width be absent.
-				// 11. Let density be absent.
-				// 12. Let future-compat-h be absent. (We're implementing it now as h)
-				w, d, h, i,
-				candidate = {},
-				desc, lastChar, value, intVal, floatVal;
-
-			// 13. For each descriptor in descriptors, run the appropriate set of steps
-			// from the following list:
 			for (i = 0; i < descriptors.length; i++) {
 				desc = descriptors[i];
 
@@ -11676,109 +11568,80 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 				intVal = parseInt(value, 10);
 				floatVal = parseFloat(value);
 
-				// If the descriptor consists of a valid non-negative integer followed by
-				// a U+0077 LATIN SMALL LETTER W character
-				if (regexNonNegativeInteger.test(value) && (lastChar === "w")) {
+				if (regexNonNegativeInteger.test(value) && lastChar === "w") {
+					if (w || d) {
+						pError = true;
+					}
 
-					// If width and density are not both absent, then let error be yes.
-					if (w || d) { pError = true; }
+					if (intVal === 0) {
+						pError = true;
+					} else {
+						w = intVal;
+					}
+				} else if (regexFloatingPoint.test(value) && lastChar === "x") {
+					if (w || d || h) {
+						pError = true;
+					}
 
-					// Apply the rules for parsing non-negative integers to the descriptor.
-					// If the result is zero, let error be yes.
-					// Otherwise, let width be the result.
-					if (intVal === 0) { pError = true; } else { w = intVal; }
+					if (floatVal < 0) {
+						pError = true;
+					} else {
+						d = floatVal;
+					}
+				} else if (regexNonNegativeInteger.test(value) && lastChar === "h") {
+					if (h || d) {
+						pError = true;
+					}
 
-					// If the descriptor consists of a valid floating-point number followed by
-					// a U+0078 LATIN SMALL LETTER X character
-				} else if (regexFloatingPoint.test(value) && (lastChar === "x")) {
-
-					// If width, density and future-compat-h are not all absent, then let error
-					// be yes.
-					if (w || d || h) { pError = true; }
-
-					// Apply the rules for parsing floating-point number values to the descriptor.
-					// If the result is less than zero, let error be yes. Otherwise, let density
-					// be the result.
-					if (floatVal < 0) { pError = true; } else { d = floatVal; }
-
-					// If the descriptor consists of a valid non-negative integer followed by
-					// a U+0068 LATIN SMALL LETTER H character
-				} else if (regexNonNegativeInteger.test(value) && (lastChar === "h")) {
-
-					// If height and density are not both absent, then let error be yes.
-					if (h || d) { pError = true; }
-
-					// Apply the rules for parsing non-negative integers to the descriptor.
-					// If the result is zero, let error be yes. Otherwise, let future-compat-h
-					// be the result.
-					if (intVal === 0) { pError = true; } else { h = intVal; }
-
-					// Anything else, Let error be yes.
-				} else { pError = true; }
-			} // (close step 13 for loop)
-
-			// 15. If error is still no, then append a new image source to candidates whose
-			// URL is url, associated with a width width if not absent and a pixel
-			// density density if not absent. Otherwise, there is a parse error.
+					if (intVal === 0) {
+						pError = true;
+					} else {
+						h = intVal;
+					}
+				} else {
+					pError = true;
+				}
+			}
 			if (!pError) {
 				candidate.url = url;
 
-				if (w) { candidate.w = w; }
-				if (d) { candidate.d = d; }
-				if (h) { candidate.h = h; }
-				if (!h && !d && !w) { candidate.d = 1; }
-				if (candidate.d === 1) { set.has1x = true; }
+				if (w) {
+					candidate.w = w;
+				}
+				if (d) {
+					candidate.d = d;
+				}
+				if (h) {
+					candidate.h = h;
+				}
+				if (!h && !d && !w) {
+					candidate.d = 1;
+				}
+				if (candidate.d === 1) {
+					set.has1x = true;
+				}
 				candidate.set = set;
 
 				candidates.push(candidate);
 			}
-		} // (close parseDescriptors fn)
-
-		/**
-		* Tokenizes descriptor properties prior to parsing
-		* Returns undefined.
-		* (Again, this fn is defined before it is used, in order to pass JSHINT.
-		* Unfortunately this breaks the logical sequencing of the spec comments. :/ )
-		*/
+		}
 		function tokenize() {
-
-			// 8.1. Descriptor tokeniser: Skip whitespace
 			collectCharacters(regexLeadingSpaces);
 
-			// 8.2. Let current descriptor be the empty string.
 			currentDescriptor = "";
 
-			// 8.3. Let state be in descriptor.
 			state = "in descriptor";
 
 			while (true) {
-
-				// 8.4. Let c be the character at position.
 				c = input.charAt(pos);
 
-				//  Do the following depending on the value of state.
-				//  For the purpose of this step, "EOF" is a special character representing
-				//  that position is past the end of input.
-
-				// In descriptor
 				if (state === "in descriptor") {
-					// Do the following, depending on the value of c:
-
-					// Space character
-					// If current descriptor is not empty, append current descriptor to
-					// descriptors and let current descriptor be the empty string.
-					// Set state to after descriptor.
 					if (isSpace(c)) {
 						if (currentDescriptor) {
 							descriptors.push(currentDescriptor);
 							currentDescriptor = "";
 							state = "after descriptor";
 						}
-
-						// U+002C COMMA (,)
-						// Advance position to the next character in input. If current descriptor
-						// is not empty, append current descriptor to descriptors. Jump to the step
-						// labeled descriptor parser.
 					} else if (c === ",") {
 						pos += 1;
 						if (currentDescriptor) {
@@ -11786,157 +11649,67 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 						}
 						parseDescriptors();
 						return;
-
-						// U+0028 LEFT PARENTHESIS (()
-						// Append c to current descriptor. Set state to in parens.
-					} else if (c === "\u0028") {
+					} else if (c === "(") {
 						currentDescriptor = currentDescriptor + c;
 						state = "in parens";
-
-						// EOF
-						// If current descriptor is not empty, append current descriptor to
-						// descriptors. Jump to the step labeled descriptor parser.
 					} else if (c === "") {
 						if (currentDescriptor) {
 							descriptors.push(currentDescriptor);
 						}
 						parseDescriptors();
 						return;
-
-						// Anything else
-						// Append c to current descriptor.
 					} else {
 						currentDescriptor = currentDescriptor + c;
 					}
-					// (end "in descriptor"
-
-					// In parens
 				} else if (state === "in parens") {
-
-					// U+0029 RIGHT PARENTHESIS ())
-					// Append c to current descriptor. Set state to in descriptor.
 					if (c === ")") {
 						currentDescriptor = currentDescriptor + c;
 						state = "in descriptor";
-
-						// EOF
-						// Append current descriptor to descriptors. Jump to the step labeled
-						// descriptor parser.
 					} else if (c === "") {
 						descriptors.push(currentDescriptor);
 						parseDescriptors();
 						return;
-
-						// Anything else
-						// Append c to current descriptor.
 					} else {
 						currentDescriptor = currentDescriptor + c;
 					}
-
-					// After descriptor
 				} else if (state === "after descriptor") {
-
-					// Do the following, depending on the value of c:
-					// Space character: Stay in this state.
-					if (isSpace(c)) {
-
-						// EOF: Jump to the step labeled descriptor parser.
-					} else if (c === "") {
+					if (isSpace(c)) {} else if (c === "") {
 						parseDescriptors();
 						return;
-
-						// Anything else
-						// Set state to in descriptor. Set position to the previous character in input.
 					} else {
 						state = "in descriptor";
 						pos -= 1;
-
 					}
 				}
 
-				// Advance position to the next character in input.
 				pos += 1;
-
-				// Repeat this step.
-			} // (close while true loop)
+			}
 		}
 
-		// 4. Splitting loop: Collect a sequence of characters that are space
-		//    characters or U+002C COMMA characters. If any U+002C COMMA characters
-		//    were collected, that is a parse error.
 		while (true) {
 			collectCharacters(regexLeadingCommasOrSpaces);
 
-			// 5. If position is past the end of input, return candidates and abort these steps.
 			if (pos >= inputLength) {
-				return candidates; // (we're done, this is the sole return path)
+				return candidates;
 			}
 
-			// 6. Collect a sequence of characters that are not space characters,
-			//    and let that be url.
 			url = collectCharacters(regexLeadingNotSpaces);
 
-			// 7. Let descriptors be a new empty list.
 			descriptors = [];
 
-			// 8. If url ends with a U+002C COMMA character (,), follow these substeps:
-			//		(1). Remove all trailing U+002C COMMA characters from url. If this removed
-			//         more than one character, that is a parse error.
 			if (url.slice(-1) === ",") {
 				url = url.replace(regexTrailingCommas, "");
-				// (Jump ahead to step 9 to skip tokenization and just push the candidate).
-				parseDescriptors();
 
-				//	Otherwise, follow these substeps:
+				parseDescriptors();
 			} else {
 				tokenize();
-			} // (close else of step 8)
-
-			// 16. Return to the step labeled splitting loop.
-		} // (Close of big while loop.)
+			}
+		}
 	}
 
-	/*
-	 * Sizes Parser
-	 *
-	 * By Alex Bell |  MIT License
-	 *
-	 * Non-strict but accurate and lightweight JS Parser for the string value <img sizes="here">
-	 *
-	 * Reference algorithm at:
-	 * https://html.spec.whatwg.org/multipage/embedded-content.html#parse-a-sizes-attribute
-	 *
-	 * Most comments are copied in directly from the spec
-	 * (except for comments in parens).
-	 *
-	 * Grammar is:
-	 * <source-size-list> = <source-size># [ , <source-size-value> ]? | <source-size-value>
-	 * <source-size> = <media-condition> <source-size-value>
-	 * <source-size-value> = <length>
-	 * http://www.w3.org/html/wg/drafts/html/master/embedded-content.html#attr-img-sizes
-	 *
-	 * E.g. "(max-width: 30em) 100vw, (max-width: 50em) 70vw, 100vw"
-	 * or "(min-width: 30em), calc(30vw - 15px)" or just "30vw"
-	 *
-	 * Returns the first valid <css-length> with a media condition that evaluates to true,
-	 * or "100vw" if all valid media conditions evaluate to false.
-	 *
-	 */
-
 	function parseSizes(strValue) {
-
-		// (Percentage CSS lengths are not allowed in this case, to avoid confusion:
-		// https://html.spec.whatwg.org/multipage/embedded-content.html#valid-source-size-list
-		// CSS allows a single optional plus or minus sign:
-		// http://www.w3.org/TR/CSS2/syndata.html#numbers
-		// CSS is ASCII case-insensitive:
-		// http://www.w3.org/TR/CSS2/syndata.html#characters )
-		// Spec allows exponential notation for <number> type:
-		// http://dev.w3.org/csswg/css-values/#numbers
 		var regexCssLengthWithUnits = /^(?:[+-]?[0-9]+|[0-9]*\.[0-9]+)(?:[eE][+-]?[0-9]+)?(?:ch|cm|em|ex|in|mm|pc|pt|px|rem|vh|vmin|vmax|vw)$/i;
 
-		// (This is a quick and lenient test. Because of optional unlimited-depth internal
-		// grouping parens and strict spacing rules, this could get very complicated.)
 		var regexCssCalc = /^calc\((?:[0-9a-z \.\+\-\*\/\(\)]+)\)$/i;
 
 		var i;
@@ -11946,13 +11719,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		var lastComponentValue;
 		var size;
 
-		// UTILITY FUNCTIONS
-
-		//  (Toy CSS parser. The goals here are:
-		//  1) expansive test coverage without the weight of a full CSS parser.
-		//  2) Avoiding regex wherever convenient.
-		//  Quick tests: http://jsfiddle.net/gtntL4gr/3/
-		//  Returns an array of arrays.)
 		function parseComponentValues(str) {
 			var chrctr;
 			var component = "";
@@ -11976,29 +11742,25 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 				}
 			}
 
-			// (Loop forwards from the beginning of the string.)
 			while (true) {
 				chrctr = str.charAt(pos);
 
-				if (chrctr === "") { // ( End of string reached.)
+				if (chrctr === "") {
 					pushComponent();
 					pushComponentArray();
 					return listArray;
 				} else if (inComment) {
-					if ((chrctr === "*") && (str[pos + 1] === "/")) { // (At end of a comment.)
+					if (chrctr === "*" && str[pos + 1] === "/") {
 						inComment = false;
 						pos += 2;
 						pushComponent();
 						continue;
 					} else {
-						pos += 1; // (Skip all characters inside comments.)
+						pos += 1;
 						continue;
 					}
 				} else if (isSpace(chrctr)) {
-					// (If previous character in loop was also a space, or if
-					// at the beginning of the string, do not add space char to
-					// component.)
-					if ((str.charAt(pos - 1) && isSpace(str.charAt(pos - 1))) || !component) {
+					if (str.charAt(pos - 1) && isSpace(str.charAt(pos - 1)) || !component) {
 						pos += 1;
 						continue;
 					} else if (parenDepth === 0) {
@@ -12006,7 +11768,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 						pos += 1;
 						continue;
 					} else {
-						// (Replace any space character with a plain space for legibility.)
 						chrctr = " ";
 					}
 				} else if (chrctr === "(") {
@@ -12018,7 +11779,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 					pushComponentArray();
 					pos += 1;
 					continue;
-				} else if ((chrctr === "/") && (str.charAt(pos + 1) === "*")) {
+				} else if (chrctr === "/" && str.charAt(pos + 1) === "*") {
 					inComment = true;
 					pos += 2;
 					continue;
@@ -12030,41 +11791,25 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		}
 
 		function isValidNonNegativeSourceSizeValue(s) {
-			if (regexCssLengthWithUnits.test(s) && (parseFloat(s) >= 0)) { return true; }
-			if (regexCssCalc.test(s)) { return true; }
-			// ( http://www.w3.org/TR/CSS2/syndata.html#numbers says:
-			// "-0 is equivalent to 0 and is not a negative number." which means that
-			// unitless zero and unitless negative zero must be accepted as special cases.)
-			if ((s === "0") || (s === "-0") || (s === "+0")) { return true; }
+			if (regexCssLengthWithUnits.test(s) && parseFloat(s) >= 0) {
+				return true;
+			}
+			if (regexCssCalc.test(s)) {
+				return true;
+			}
+
+			if (s === "0" || s === "-0" || s === "+0") {
+				return true;
+			}
 			return false;
 		}
-
-		// When asked to parse a sizes attribute from an element, parse a
-		// comma-separated list of component values from the value of the element's
-		// sizes attribute (or the empty string, if the attribute is absent), and let
-		// unparsed sizes list be the result.
-		// http://dev.w3.org/csswg/css-syntax/#parse-comma-separated-list-of-component-values
 
 		unparsedSizesList = parseComponentValues(strValue);
 		unparsedSizesListLength = unparsedSizesList.length;
 
-		// For each unparsed size in unparsed sizes list:
 		for (i = 0; i < unparsedSizesListLength; i++) {
 			unparsedSize = unparsedSizesList[i];
 
-			// 1. Remove all consecutive <whitespace-token>s from the end of unparsed size.
-			// ( parseComponentValues() already omits spaces outside of parens. )
-
-			// If unparsed size is now empty, that is a parse error; continue to the next
-			// iteration of this algorithm.
-			// ( parseComponentValues() won't push an empty array. )
-
-			// 2. If the last component value in unparsed size is a valid non-negative
-			// <source-size-value>, let size be its value and remove the component value
-			// from unparsed size. Any CSS function other than the calc() function is
-			// invalid. Otherwise, there is a parse error; continue to the next iteration
-			// of this algorithm.
-			// http://dev.w3.org/csswg/css-syntax/#parse-component-value
 			lastComponentValue = unparsedSize[unparsedSize.length - 1];
 
 			if (isValidNonNegativeSourceSizeValue(lastComponentValue)) {
@@ -12074,45 +11819,27 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 				continue;
 			}
 
-			// 3. Remove all consecutive <whitespace-token>s from the end of unparsed
-			// size. If unparsed size is now empty, return size and exit this algorithm.
-			// If this was not the last item in unparsed sizes list, that is a parse error.
 			if (unparsedSize.length === 0) {
 				return size;
 			}
 
-			// 4. Parse the remaining component values in unparsed size as a
-			// <media-condition>. If it does not parse correctly, or it does parse
-			// correctly but the <media-condition> evaluates to false, continue to the
-			// next iteration of this algorithm.
-			// (Parsing all possible compound media conditions in JS is heavy, complicated,
-			// and the payoff is unclear. Is there ever an situation where the
-			// media condition parses incorrectly but still somehow evaluates to true?
-			// Can we just rely on the browser/polyfill to do it?)
 			unparsedSize = unparsedSize.join(" ");
-			if (!(pf.matchesMedia(unparsedSize))) {
+			if (!pf.matchesMedia(unparsedSize)) {
 				continue;
 			}
 
-			// 5. Return size and exit this algorithm.
 			return size;
 		}
 
-		// If the above algorithm exhausts unparsed sizes list without returning a
-		// size value, return 100vw.
 		return "100vw";
 	}
 
-	// namespace
 	pf.ns = ("pf" + new Date().getTime()).substr(0, 9);
 
-	// srcset support test
 	pf.supSrcset = "srcset" in image;
 	pf.supSizes = "sizes" in image;
 	pf.supPicture = !!window.HTMLPictureElement;
 
-	// UC browser does claim to support srcset and picture, but not sizes,
-	// this extended test reveals the browser does support nothing
 	if (pf.supSrcset && pf.supPicture && !pf.supSizes) {
 		(function (image2) {
 			image.srcset = "data:,a";
@@ -12122,14 +11849,13 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		})(document.createElement("img"));
 	}
 
-	// Safari9 has basic support for sizes, but does't expose the `sizes` idl attribute
 	if (pf.supSrcset && !pf.supSizes) {
 
 		(function () {
 			var width2 = "data:image/gif;base64,R0lGODlhAgABAPAAAP///wAAACH5BAAAAAAALAAAAAACAAEAAAICBAoAOw==";
 			var width1 = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
 			var img = document.createElement("img");
-			var test = function () {
+			var test = function test() {
 				var width = img.width;
 
 				if (width === 2) {
@@ -12139,7 +11865,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 				alwaysCheckWDescriptor = pf.supSrcset && !pf.supSizes;
 
 				isSupportTestReady = true;
-				// force async
+
 				setTimeout(picturefill);
 			};
 
@@ -12150,59 +11876,34 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 			img.srcset = width1 + " 1w," + width2 + " 9w";
 			img.src = width1;
 		})();
-
 	} else {
 		isSupportTestReady = true;
 	}
 
-	// using pf.qsa instead of dom traversing does scale much better,
-	// especially on sites mixing responsive and non-responsive images
 	pf.selShort = "picture>img,img[srcset]";
 	pf.sel = pf.selShort;
 	pf.cfg = cfg;
 
-	/**
-	 * Shortcut property for `devicePixelRatio` ( for easy overriding in tests )
-	 */
-	pf.DPR = (DPR || 1);
+	pf.DPR = DPR || 1;
 	pf.u = units;
 
-	// container of supported mime types that one might need to qualify before using
 	pf.types = types;
 
 	pf.setSize = noop;
-
-	/**
-	 * Gets a string and returns the absolute URL
-	 * @param src
-	 * @returns {String} absolute URL
-	 */
 
 	pf.makeUrl = memoize(function (src) {
 		anchor.href = src;
 		return anchor.href;
 	});
 
-	/**
-	 * Gets a DOM element or document and a selctor and returns the found matches
-	 * Can be extended with jQuery/Sizzle for IE7 support
-	 * @param context
-	 * @param sel
-	 * @returns {NodeList|Array}
-	 */
 	pf.qsa = function (context, sel) {
-		return ("querySelector" in context) ? context.querySelectorAll(sel) : [];
+		return "querySelector" in context ? context.querySelectorAll(sel) : [];
 	};
 
-	/**
-	 * Shortcut method for matchMedia ( for easy overriding in tests )
-	 * wether native or pf.mMQ is used will be decided lazy on first call
-	 * @returns {boolean}
-	 */
 	pf.matchesMedia = function () {
 		if (window.matchMedia && (matchMedia("(min-width: 0.1em)") || {}).matches) {
 			pf.matchesMedia = function (media) {
-				return !media || (matchMedia(media).matches);
+				return !media || matchMedia(media).matches;
 			};
 		} else {
 			pf.matchesMedia = pf.mMQ;
@@ -12211,25 +11912,10 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		return pf.matchesMedia.apply(this, arguments);
 	};
 
-	/**
-	 * A simplified matchMedia implementation for IE8 and IE9
-	 * handles only min-width/max-width with px or em values
-	 * @param media
-	 * @returns {boolean}
-	 */
 	pf.mMQ = function (media) {
 		return media ? evalCSS(media) : true;
 	};
 
-	/**
-	 * Returns the calculated length in css pixel from the given sourceSizeValue
-	 * http://dev.w3.org/csswg/css-values-3/#length-value
-	 * intended Spec mismatches:
-	 * * Does not check for invalid use of CSS functions
-	 * * Does handle a computed length of 0 the same as a negative and therefore invalid value
-	 * @param sourceSizeValue
-	 * @returns {Number}
-	 */
 	pf.calcLength = function (sourceSizeValue) {
 
 		var value = evalCSS(sourceSizeValue, true) || false;
@@ -12240,19 +11926,10 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		return value;
 	};
 
-	/**
-	 * Takes a type string and checks if its supported
-	 */
-
 	pf.supportsType = function (type) {
-		return (type) ? types[type] : true;
+		return type ? types[type] : true;
 	};
 
-	/**
-	 * Parses a sourceSize into mediaCondition (media) and sourceSizeValue (length)
-	 * @param sourceSizeStr
-	 * @returns {*}
-	 */
 	pf.parseSize = memoize(function (sourceSizeStr) {
 		var match = (sourceSizeStr || "").match(regSize);
 		return {
@@ -12268,22 +11945,15 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		return set.cands;
 	};
 
-	/**
-	 * returns 1em in css px for html/body default size
-	 * function taken from respondjs
-	 * @returns {*|number}
-	 */
 	pf.getEmValue = function () {
 		var body;
 		if (!eminpx && (body = document.body)) {
 			var div = document.createElement("div"),
-				originalHTMLCSS = docElem.style.cssText,
-				originalBodyCSS = body.style.cssText;
+			    originalHTMLCSS = docElem.style.cssText,
+			    originalBodyCSS = body.style.cssText;
 
 			div.style.cssText = baseStyle;
 
-			// 1em in a media query is the value of the default font size of the browser
-			// reset docElem and body to ensure the correct value is returned
 			docElem.style.cssText = fsCss;
 			body.style.cssText = fsCss;
 
@@ -12291,24 +11961,15 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 			eminpx = div.offsetWidth;
 			body.removeChild(div);
 
-			//also update eminpx before returning
 			eminpx = parseFloat(eminpx, 10);
 
-			// restore the original values
 			docElem.style.cssText = originalHTMLCSS;
 			body.style.cssText = originalBodyCSS;
-
 		}
 		return eminpx || 16;
 	};
 
-	/**
-	 * Takes a string of sizes and returns the width in pixels as a number
-	 */
 	pf.calcListLength = function (sourceSizeListStr) {
-		// Split up source size list, ie ( max-width: 30em ) 100%, ( max-width: 50em ) 50%, 33%
-		//
-		//                           or (min-width:30em) calc(30% - 15px)
 		if (!(sourceSizeListStr in sizeLengthCache) || cfg.uT) {
 			var winningLength = pf.calcLength(parseSizes(sourceSizeListStr));
 
@@ -12318,16 +11979,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		return sizeLengthCache[sourceSizeListStr];
 	};
 
-	/**
-	 * Takes a candidate object with a srcset property in the form of url/
-	 * ex. "images/pic-medium.png 1x, images/pic-medium-2x.png 2x" or
-	 *     "images/pic-medium.png 400w, images/pic-medium-2x.png 800w" or
-	 *     "images/pic-small.png"
-	 * Get an array of image candidates in the form of
-	 *      {url: "/foo/bar.png", resolution: 1}
-	 * where resolution is http://dev.w3.org/csswg/css-values-3/#resolution-value
-	 * If sizes is specified, res is calculated
-	 */
 	pf.setRes = function (set) {
 		var candidates;
 		if (set) {
@@ -12344,16 +11995,10 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 	pf.setRes.res = setResolution;
 
 	pf.applySetCandidate = function (candidates, img) {
-		if (!candidates.length) { return; }
-		var candidate,
-			i,
-			j,
-			length,
-			bestCandidate,
-			curSrc,
-			curCan,
-			candidateSrc,
-			abortCurSrc;
+		if (!candidates.length) {
+			return;
+		}
+		var candidate, i, j, length, bestCandidate, curSrc, curCan, candidateSrc, abortCurSrc;
 
 		var imageData = img[pf.ns];
 		var dpr = pf.DPR;
@@ -12362,18 +12007,12 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 
 		curCan = imageData.curCan || setSrcToCur(img, curSrc, candidates[0].set);
 
-		// if we have a current source, we might either become lazy or give this source some advantage
 		if (curCan && curCan.set === candidates[0].set) {
-
-			// if browser can abort image request and the image has a higher pixel density than needed
-			// and this image isn't downloaded yet, we skip next part and try to save bandwidth
-			abortCurSrc = (supportAbort && !img.complete && curCan.res - 0.1 > dpr);
+			abortCurSrc = supportAbort && !img.complete && curCan.res - 0.1 > dpr;
 
 			if (!abortCurSrc) {
 				curCan.cached = true;
 
-				// if current candidate is "best", "better" or "okay",
-				// set it to bestCandidate
 				if (curCan.res >= dpr) {
 					bestCandidate = curCan;
 				}
@@ -12392,14 +12031,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 				if (candidate.res >= dpr) {
 					j = i - 1;
 
-					// we have found the perfect candidate,
-					// but let's improve this a little bit with some assumptions ;-)
-					if (candidates[j] &&
-						(abortCurSrc || curSrc !== pf.makeUrl(candidate.url)) &&
-						chooseLowRes(candidates[j].res, candidate.res, dpr, candidates[j].cached)) {
+					if (candidates[j] && (abortCurSrc || curSrc !== pf.makeUrl(candidate.url)) && chooseLowRes(candidates[j].res, candidate.res, dpr, candidates[j].cached)) {
 
 						bestCandidate = candidates[j];
-
 					} else {
 						bestCandidate = candidate;
 					}
@@ -12426,13 +12060,10 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		var origWidth;
 		img.src = bestCandidate.url;
 
-		// although this is a specific Safari issue, we don't want to take too much different code paths
 		if (bestCandidate.set.type === "image/svg+xml") {
 			origWidth = img.style.width;
-			img.style.width = (img.offsetWidth + 1) + "px";
+			img.style.width = img.offsetWidth + 1 + "px";
 
-			// next line only should trigger a repaint
-			// if... is only done to trick dead code removal
 			if (img.offsetWidth + 1) {
 				img.style.width = origWidth;
 			}
@@ -12500,7 +12131,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 
 			isWDescripor = (alwaysCheckWDescriptor || imageData.src) && regWDesc.test(imageData.srcset || "");
 
-			// add normal src as candidate, if source has no w descriptor
 			if (!isWDescripor && imageData.src && !getCandidateForSrc(imageData.src, imageSet) && !imageSet.has1x) {
 				imageSet.srcset += ", " + imageData.src;
 				imageSet.cands.push({
@@ -12509,7 +12139,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 					set: imageSet
 				});
 			}
-
 		} else if (imageData.src) {
 			imageData.sets.push({
 				srcset: imageData.src,
@@ -12520,9 +12149,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		imageData.curCan = null;
 		imageData.curSrc = undefined;
 
-		// if img has picture or the srcset was removed or has a srcset and does not support srcset at all
-		// or has a w descriptor (and does not support sizes) set support to false to evaluate
-		imageData.supported = !(hasPicture || (imageSet && !pf.supSrcset) || (isWDescripor && !pf.supSizes));
+		imageData.supported = !(hasPicture || imageSet && !pf.supSrcset || isWDescripor && !pf.supSizes);
 
 		if (srcsetParsed && pf.supSrcset && !imageData.supported) {
 			if (srcsetAttribute) {
@@ -12533,7 +12160,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 			}
 		}
 
-		if (imageData.supported && !imageData.srcset && ((!imageData.src && element.src) || element.src !== pf.makeUrl(imageData.src))) {
+		if (imageData.supported && !imageData.srcset && (!imageData.src && element.src || element.src !== pf.makeUrl(imageData.src))) {
 			if (imageData.src === null) {
 				element.removeAttribute("src");
 			} else {
@@ -12548,16 +12175,12 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		var imageData;
 		var extreme = options.reselect || options.reevaluate;
 
-		// expando for caching data on the img
 		if (!element[pf.ns]) {
 			element[pf.ns] = {};
 		}
 
 		imageData = element[pf.ns];
 
-		// if the element has already been evaluated, skip it
-		// unless `options.reevaluate` is set to true ( this, for example,
-		// is set to true when running `picturefill` on `resize` ).
 		if (!extreme && imageData.evaled === evalId) {
 			return;
 		}
@@ -12574,23 +12197,20 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 	};
 
 	pf.setupRun = function () {
-		if (!alreadyRun || isVwDirty || (DPR !== window.devicePixelRatio)) {
+		if (!alreadyRun || isVwDirty || DPR !== window.devicePixelRatio) {
 			updateMetrics();
 		}
 	};
 
-	// If picture is supported, well, that's awesome.
 	if (pf.supPicture) {
 		picturefill = noop;
 		pf.fillImg = noop;
 	} else {
-
-		// Set up picture polyfill by polling the document
 		(function () {
 			var isDomReady;
 			var regReady = window.attachEvent ? /d$|^c/ : /d$|^c|^i/;
 
-			var run = function () {
+			var run = function run() {
 				var readyState = document.readyState || "";
 
 				timerId = setTimeout(run, readyState === "loading" ? 200 : 999);
@@ -12600,18 +12220,15 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 					if (isDomReady) {
 						clearTimeout(timerId);
 					}
-
 				}
 			};
 
 			var timerId = setTimeout(run, document.body ? 9 : 99);
 
-			// Also attach picturefill on resize and readystatechange
-			// http://modernjavascript.blogspot.com/2013/08/building-better-debounce.html
-			var debounce = function (func, wait) {
+			var debounce = function debounce(func, wait) {
 				var timeout, timestamp;
-				var later = function () {
-					var last = (new Date()) - timestamp;
+				var later = function later() {
+					var last = new Date() - timestamp;
 
 					if (last < wait) {
 						timeout = setTimeout(later, wait - last);
@@ -12630,7 +12247,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 				};
 			};
 			var lastClientWidth = docElem.clientHeight;
-			var onResize = function () {
+			var onResize = function onResize() {
 				isVwDirty = Math.max(window.innerWidth || 0, docElem.clientWidth) !== units.width || docElem.clientHeight !== lastClientWidth;
 				lastClientWidth = docElem.clientHeight;
 				if (isVwDirty) {
@@ -12644,16 +12261,15 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 	}
 
 	pf.picturefill = picturefill;
-	//use this internally for easy monkey patching/performance testing
+
 	pf.fillImgs = picturefill;
 	pf.teardownRun = noop;
 
-	/* expose methods for testing */
 	picturefill._ = pf;
 
 	window.picturefillCFG = {
 		pf: pf,
-		push: function (args) {
+		push: function push(args) {
 			var name = args.shift();
 			if (typeof pf[name] === "function") {
 				pf[name].apply(pf, args);
@@ -12670,28 +12286,25 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 		window.picturefillCFG.push(setOptions.shift());
 	}
 
-	/* expose picturefill */
 	window.picturefill = picturefill;
 
-	/* expose picturefill */
-	if (typeof module === "object" && typeof module.exports === "object") {
-		// CommonJS, just export
+	if (( false ? "undefined" : _typeof(module)) === "object" && _typeof(module.exports) === "object") {
 		module.exports = picturefill;
 	} else if (true) {
-		// AMD support
-		!(__WEBPACK_AMD_DEFINE_RESULT__ = (function () { return picturefill; }).call(exports, __webpack_require__, exports, module),
+		!(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+			return picturefill;
+		}).call(exports, __webpack_require__, exports, module),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	}
 
-	// IE8 evals this sync, so it must be the last thing we do
 	if (!pf.supPicture) {
 		types["image/webp"] = detectTypeSupport("image/webp", "data:image/webp;base64,UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAABBxAR/Q9ERP8DAABWUDggGAAAADABAJ0BKgEAAQADADQlpAADcAD++/1QAA==");
 	}
-
 })(window, document);
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)(module)))
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function(window, factory) {
@@ -12703,7 +12316,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 	factory = factory.bind(null, window, window.document);
 
 	if(typeof module == 'object' && module.exports){
-		factory(__webpack_require__(1));
+		factory(__webpack_require__(2));
 	} else if(window.lazySizes) {
 		globalInstall();
 	} else {
@@ -12872,86 +12485,102 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 
 
 /***/ }),
-/* 8 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superfish__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superfish___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_superfish__);
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-class Menu {
-  constructor() {
-    // Elements to handle toggle menu
-    this.menuBody = document.body
-    this.menu = document.querySelector('#menu')
-    this.menuOpen = document.getElementById('js-menu-open')
-    this.menuClose = document.getElementById('js-menu-close')
-    this.buttonContainer = document.getElementById('js-menu-trigger')
-    this.activeClass = 'menu-mobile--active'
-    // Resize breakpoint
-    this.resizeBreakpoint = window.matchMedia('(min-width: 1024px)')
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = __webpack_require__(3);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+__webpack_require__(10);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Menu = function () {
+  function Menu() {
+    _classCallCheck(this, Menu);
+
+    this.menuBody = document.body;
+    this.menu = document.querySelector('#menu');
+    this.menuOpen = document.getElementById('js-menu-open');
+    this.menuClose = document.getElementById('js-menu-close');
+    this.buttonContainer = document.getElementById('js-menu-trigger');
+    this.activeClass = 'menu-mobile--active';
+
+    this.resizeBreakpoint = window.matchMedia('(min-width: 1024px)');
   }
-  init() {
-    // Events to handle toggle menu
-    this.menuOpen.addEventListener('click', this.openMenu.bind(this), false)
-    this.menuClose.addEventListener('click', this.closeMenu.bind(this), false)
-    // Detect if clicked outside menu
-    document.addEventListener('click', event => {
-      const menu = this.menu.contains(event.target)
-      const buttonContainer = this.buttonContainer.contains(event.target)
-      if (!menu && !buttonContainer) {
-        this.closeMenu()
+
+  _createClass(Menu, [{
+    key: 'init',
+    value: function init() {
+      var _this = this;
+
+      this.menuOpen.addEventListener('click', this.openMenu.bind(this), false);
+      this.menuClose.addEventListener('click', this.closeMenu.bind(this), false);
+
+      document.addEventListener('click', function (event) {
+        var menu = _this.menu.contains(event.target);
+        var buttonContainer = _this.buttonContainer.contains(event.target);
+        if (!menu && !buttonContainer) {
+          _this.closeMenu();
+        }
+      });
+
+      this.resizeBreakpoint.addListener(this.menuResizing.bind(this));
+    }
+  }, {
+    key: 'sfMenuInit',
+    value: function sfMenuInit() {
+      (0, _jquery2.default)('.sf-menu').superfish();
+    }
+  }, {
+    key: 'openMenu',
+    value: function openMenu(e) {
+      if (!this.menuBody.classList.contains(this.activeClass)) {
+        this.menuBody.classList.add(this.activeClass);
       }
-    })
-    // Event breakpoint
-    this.resizeBreakpoint.addListener(this.menuResizing.bind(this))
-  }
-  sfMenuInit() {
-    // Sf menu
-    __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.sf-menu').superfish()
-  }
-  /**
-   * Open menu
-   * @param {event} e
-   */
-  openMenu(e) {
-    if (!this.menuBody.classList.contains(this.activeClass)) {
-      this.menuBody.classList.add(this.activeClass)
     }
-  }
-  /**
-   * Close menu
-   * @param {event} e
-   */
-  closeMenu(e) {
-    if (this.menuBody.classList.contains(this.activeClass)) {
-      this.menuBody.classList.remove(this.activeClass)
+  }, {
+    key: 'closeMenu',
+    value: function closeMenu(e) {
+      if (this.menuBody.classList.contains(this.activeClass)) {
+        this.menuBody.classList.remove(this.activeClass);
+      }
     }
-  }
-  /**
-   * Remove menu-mobile active class if breakpoint reach desktop
-   * @param {*} mediaQuery
-   */
-  menuResizing(mediaQuery = this.resizeBreakpoint) {
-    if (mediaQuery.matches && this.menuBody.classList) {
-      this.menuBody.classList.remove(this.activeClass)
+  }, {
+    key: 'menuResizing',
+    value: function menuResizing() {
+      var mediaQuery = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.resizeBreakpoint;
+
+      if (mediaQuery.matches && this.menuBody.classList) {
+        this.menuBody.classList.remove(this.activeClass);
+      }
     }
-  }
-}
+  }]);
 
-/* unused harmony default export */ var _unused_webpack_default_export = (Menu);
+  return Menu;
+}();
 
-const menu = new Menu()
-menu.init()
-menu.sfMenuInit()
+exports.default = Menu;
 
+
+var menu = new Menu();
+menu.init();
+menu.sfMenuInit();
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/*
@@ -13233,218 +12862,249 @@ menu.sfMenuInit()
 
 })(jQuery, window);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ }),
-/* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfill_forEach__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfill_forEach___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__polyfill_forEach__);
-/**
- * Handle button href with classic link, target blank and download file
- * Warning : download file has different behavior according to used browser
- * Chrome & Edge : ✅
- * Firefox : only same origin file or it will open new tab
- * IE 10-11 : will open new tab
- */
-
-
-
-class ButtonLink {
-  /**
-   * @param {string} dataset
-   */
-  constructor(dataset) {
-    this.dataset = dataset
-    this.cntrlIsPressed = false
-    this.keyCode = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? 91 : 17
-
-    this.clickHandler = this.clickHandler.bind(this)
-    this.keyDown = this.keyDown.bind(this)
-    this.keyUp = this.keyUp.bind(this)
-
-    document.addEventListener('keydown', this.keyDown)
-    document.addEventListener('keyup', this.keyUp)
-    document.addEventListener('click', this.clickHandler)
-  }
-
-  /**
-   * @param {Object} e
-   */
-  keyDown(e) {
-    if (e.which !== this.keyCode) {
-      return false
-    }
-    this.cntrlIsPressed = true
-  }
-
-  /**
-   * @param {Object} e
-   */
-  keyUp(e) {
-    if (e.which !== this.keyCode) {
-      return false
-    }
-    this.cntrlIsPressed = false
-  }
-
-  /**
-   * @param {Object} e
-   */
-  clickHandler(e) {
-    const target = e.target
-    if (target.tagName !== 'BUTTON' || !target.dataset.hasOwnProperty(this.dataset)) {
-      return false
-    }
-    const download = target.getAttribute('data-target') === 'download'
-    const isBlank = target.getAttribute('data-target') === '_blank'
-    const href = target.getAttribute('data-href')
-    const filename = target.getAttribute('data-filename')
-    if (download) {
-      this.createLink(href, filename)
-    } else {
-      if (isBlank || e.which === 2 || this.cntrlIsPressed) {
-        window.open(href, '_blank')
-      } else if (e.which === 1) {
-        window.location.href = href
-      }
-    }
-  }
-
-  /**
-   * @param {String} href
-   * @param {String} filename
-   */
-  createLink(href, filename) {
-    const link = document.createElement('a')
-    link.href = href
-    link.target = '_blank'
-    link.download = filename
-    document.body.appendChild(link)
-    link.click()
-    link.remove()
-  }
-}
-
-/* unused harmony default export */ var _unused_webpack_default_export = (ButtonLink);
-
-new ButtonLink('href')
-
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
 /* 11 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfill_forEach__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfill_forEach___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__polyfill_forEach__);
-/**
- * Wrapper for select
- */
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-class Select {
-  /**
-   * Bind select that has to be wrapped
-   * @param {string} selector
-   */
-  static bind(selector) {
-    ;[].forEach.call(document.querySelectorAll(selector), element => new Select(element))
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+__webpack_require__(0);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var ButtonLink = function () {
+  function ButtonLink(dataset) {
+    _classCallCheck(this, ButtonLink);
+
+    this.dataset = dataset;
+    this.cntrlIsPressed = false;
+    this.keyCode = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? 91 : 17;
+
+    this.clickHandler = this.clickHandler.bind(this);
+    this.keyDown = this.keyDown.bind(this);
+    this.keyUp = this.keyUp.bind(this);
+
+    document.addEventListener('keydown', this.keyDown);
+    document.addEventListener('keyup', this.keyUp);
+    document.addEventListener('click', this.clickHandler);
   }
 
-  /**
-   * @param {HTMLElement} element
-   */
-  constructor(element) {
-    this.element = element
-    this.init()
-  }
+  _createClass(ButtonLink, [{
+    key: 'keyDown',
+    value: function keyDown(e) {
+      if (e.which !== this.keyCode) {
+        return false;
+      }
+      this.cntrlIsPressed = true;
+    }
+  }, {
+    key: 'keyUp',
+    value: function keyUp(e) {
+      if (e.which !== this.keyCode) {
+        return false;
+      }
+      this.cntrlIsPressed = false;
+    }
+  }, {
+    key: 'clickHandler',
+    value: function clickHandler(e) {
+      var target = e.target;
+      if (target.tagName !== 'BUTTON' || !target.dataset.hasOwnProperty(this.dataset)) {
+        return false;
+      }
+      var download = target.getAttribute('data-target') === 'download';
+      var isBlank = target.getAttribute('data-target') === '_blank';
+      var href = target.getAttribute('data-href');
+      var filename = target.getAttribute('data-filename');
+      if (download) {
+        this.createLink(href, filename);
+      } else {
+        if (isBlank || e.which === 2 || this.cntrlIsPressed) {
+          window.open(href, '_blank');
+        } else if (e.which === 1) {
+          window.location.href = href;
+        }
+      }
+    }
+  }, {
+    key: 'createLink',
+    value: function createLink(href, filename) {
+      var link = document.createElement('a');
+      link.href = href;
+      link.target = '_blank';
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    }
+  }]);
 
-  init() {
-    const inner = this.element.outerHTML
-    this.element.outerHTML = `<div class="select--custom">${inner}</div>`
-  }
-}
+  return ButtonLink;
+}();
 
-/* unused harmony default export */ var _unused_webpack_default_export = (Select);
+exports.default = ButtonLink;
 
-const selects = ['.gform_wrapper select:not([multiple])']
-selects.forEach(el => Select.bind(el))
 
+new ButtonLink('href');
 
 /***/ }),
 /* 12 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfill_forEach__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfill_forEach___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__polyfill_forEach__);
-/**
- * Enable full area link on card like items using a link.
- * Only one link on the title
- */
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-class SeoLink {
-  /**
-   * Spread link of a content to his top level element
-   * @param {string} selector
-   */
-  static bind(selector) {
-    ;[].forEach.call(document.querySelectorAll(selector), element => new SeoLink(element))
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+__webpack_require__(0);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Select = function () {
+  _createClass(Select, null, [{
+    key: 'bind',
+    value: function bind(selector) {
+      ;[].forEach.call(document.querySelectorAll(selector), function (element) {
+        return new Select(element);
+      });
+    }
+  }]);
+
+  function Select(element) {
+    _classCallCheck(this, Select);
+
+    this.element = element;
+    this.init();
   }
 
-  /**
-   * @param {HTMLElement} element
-   */
-  constructor(element) {
-    this.element = element
-    this.element.addEventListener('click', this.handleClick.bind(this), false)
-  }
+  _createClass(Select, [{
+    key: 'init',
+    value: function init() {
+      var inner = this.element.outerHTML;
+      this.element.outerHTML = '<div class="select--custom">' + inner + '</div>';
+    }
+  }]);
 
-  handleClick() {
-    const url = this.element.querySelector('a').getAttribute('href')
-    window.open(url, '_self')
-  }
-}
+  return Select;
+}();
 
-/* unused harmony default export */ var _unused_webpack_default_export = (SeoLink);
+exports.default = Select;
 
-SeoLink.bind('[data-seo]')
 
+var selects = ['.gform_wrapper select:not([multiple])'];
+selects.forEach(function (el) {
+  return Select.bind(el);
+});
 
 /***/ }),
 /* 13 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axe_core__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axe_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axe_core__);
 
 
-class AccessibilityTests {
-  constructor() {
-    this.rules = ['wcag2a', 'wcag2aa']
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+__webpack_require__(0);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var SeoLink = function () {
+  _createClass(SeoLink, null, [{
+    key: 'bind',
+    value: function bind(selector) {
+      ;[].forEach.call(document.querySelectorAll(selector), function (element) {
+        return new SeoLink(element);
+      });
+    }
+  }]);
+
+  function SeoLink(element) {
+    _classCallCheck(this, SeoLink);
+
+    this.element = element;
+    this.element.addEventListener('click', this.handleClick.bind(this), false);
   }
 
-  init() {
-    __WEBPACK_IMPORTED_MODULE_0_axe_core___default.a.getRules(this.rules)
-    __WEBPACK_IMPORTED_MODULE_0_axe_core___default.a.run(document, (err, results) => {
-      if (err) throw err
-      console.log(results.violations)
-    })
-  }
-}
+  _createClass(SeoLink, [{
+    key: 'handleClick',
+    value: function handleClick() {
+      var url = this.element.querySelector('a').getAttribute('href');
+      window.open(url, '_self');
+    }
+  }]);
 
-/* harmony default export */ __webpack_exports__["a"] = (AccessibilityTests);
+  return SeoLink;
+}();
 
+exports.default = SeoLink;
+
+
+SeoLink.bind('[data-seo]');
 
 /***/ }),
 /* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _axeCore = __webpack_require__(15);
+
+var _axeCore2 = _interopRequireDefault(_axeCore);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var AccessibilityTests = function () {
+  function AccessibilityTests() {
+    _classCallCheck(this, AccessibilityTests);
+
+    this.rules = ['wcag2a', 'wcag2aa'];
+  }
+
+  _createClass(AccessibilityTests, [{
+    key: 'init',
+    value: function init() {
+      _axeCore2.default.getRules(this.rules);
+      _axeCore2.default.run(document, function (err, results) {
+        if (err) throw err;
+        console.log(results.violations);
+      });
+    }
+  }]);
+
+  return AccessibilityTests;
+}();
+
+exports.default = AccessibilityTests;
+
+/***/ }),
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! aXe v3.0.2
@@ -24321,92 +23981,53 @@ class AccessibilityTests {
     }()
   });
 })(typeof window === 'object' ? window : this);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)(module)))
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports) {
-
-module.exports = function(module) {
-	if(!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if(!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)(module)))
 
 /***/ }),
 /* 16 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-/**
- * Load svg via ajax
- * @param  {string} url path to svg sprite
- * @generator: webpack-svgstore-plugin
- * @see: https://www.npmjs.com/package/webpack-svgstore-plugin
- * @return {[type]}     [description]
- */
-var svgXHR = function(options) {
-  var url = false
-  var baseUrl = undefined
+"use strict";
 
-  options && options.filename ? (url = options.filename) : null
 
-  if (!url) return false
-  var _ajax = new XMLHttpRequest()
-  var _fullPath
+var svgXHR = function svgXHR(options) {
+  var url = false;
+  var baseUrl = undefined;
+
+  options && options.filename ? url = options.filename : null;
+
+  if (!url) return false;
+  var _ajax = new XMLHttpRequest();
+  var _fullPath;
 
   if (typeof XDomainRequest !== 'undefined') {
-    _ajax = new XDomainRequest()
+    _ajax = new XDomainRequest();
   }
 
   if (typeof baseUrl === 'undefined') {
     if (typeof window.baseUrl !== 'undefined') {
-      baseUrl = window.baseUrl
+      baseUrl = window.baseUrl;
     } else {
-      baseUrl =
-        window.location.protocol +
-        '//' +
-        window.location.hostname +
-        (window.location.port ? ':' + window.location.port : '') +
-        window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) +
-        '/'
+      baseUrl = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) + '/';
     }
   }
 
-  _fullPath = (baseUrl + '/' + url).replace(/([^:]\/)\/+/g, '$1')
-  _ajax.open('GET', _fullPath, true)
-  _ajax.onprogress = function() {}
-  _ajax.onload = function() {
+  _fullPath = (baseUrl + '/' + url).replace(/([^:]\/)\/+/g, '$1');
+  _ajax.open('GET', _fullPath, true);
+  _ajax.onprogress = function () {};
+  _ajax.onload = function () {
     if (!_ajax.responseText || _ajax.responseText.substr(0, 4) !== '<svg') {
-      throw Error('Invalid SVG Response')
+      throw Error('Invalid SVG Response');
     }
 
     if (_ajax.status < 200 || _ajax.status >= 300) {
-      return
+      return;
     }
-  }
-  _ajax.send()
-}
+  };
+  _ajax.send();
+};
 
-module.exports = svgXHR
-
+module.exports = svgXHR;
 
 /***/ })
 /******/ ]);

@@ -6,6 +6,7 @@ module.exports = {
   ],
   "rules": {
     "semi": [2, "never"],
+    "no-new": 0,
     "prettier/prettier": [
       "error",
       {

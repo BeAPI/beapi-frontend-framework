@@ -92,11 +92,11 @@ let webpackBase = {
     }),
     new CopyWebpackPlugin([
       {
-        from: 'assets/js/vendor_async',
+        from: 'src/js/vendor_async',
         to: 'js/vendor_async',
       },
       {
-        from: 'assets/js/vendor_ie',
+        from: 'src/js/vendor_ie',
         to: 'js/vendor_ie',
       },
       {
@@ -118,7 +118,7 @@ let webpackBase = {
     ]),
     new SvgStore(
       path.resolve(__dirname, './../src/img/icons/*.svg'),
-      path.resolve(__dirname, './../dist/assets/icons/'),
+      path.resolve(__dirname, './../dist/assets/img/icons/'),
       {
         name: 'icons',
         prefix: 'icon-',

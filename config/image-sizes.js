@@ -1,7 +1,8 @@
 const fs = require('fs')
 const im = require('imagemagick')
-const imageDirectory = './src/img/sample/'
-const imageDestDirectory = './dist/assets/img/sample/'
+const sizeOf = require('image-size')
+const IMAGE_DIR = './src/img/sample/'
+const IMAGE_DST_DIR = './dist/assets/img/sample/'
 let dataLocation = {}
 
 /**
@@ -24,12 +25,13 @@ const addSizesMedia = dataLocation => {
         .replace('/>', '')
     }
 
-    let mediasList = ['*']
+    let mediasList = []
 
     /**
      * Map <source /> per *.tpl files
      */
-    sources.reverse().map(source => {
+
+    sources.map(source => {
       let media = '*'
 
       if (source.includes('media')) {
@@ -37,9 +39,9 @@ const addSizesMedia = dataLocation => {
           .match(/media=.*"/gm)[0]
           .replace('media="', '')
           .replace('"', '')
-
-        mediasList.push(media)
       }
+
+      mediasList.push(media)
 
       /**
        * Add mediasList Array
@@ -69,32 +71,44 @@ const addSizesMedia = dataLocation => {
  */
 const generateCroppedImages = dataLocation => {
   let imageFiles = fs
-    .readdirSync(imageDirectory)
+    .readdirSync(IMAGE_DIR)
     .filter(file => /\.(png|jpe?g|gif)$/.test(file))
-    .map(file => imageDirectory + file)
+    .map(file => IMAGE_DIR + file)
 
   imageFiles.forEach(imageFile => {
     Object.keys(dataLocation).forEach(key => {
       Object.keys(dataLocation[key])
         .filter(size => size !== 'medias')
         .map(size => {
-          const filename = imageFile.replace(imageDirectory, '')
+          const filename = imageFile.replace(IMAGE_DIR, '')
           const imageExtension = filename.match(/\.[^/.]+$/)[0]
           const dstFilename = filename.replace(/\.[^/.]+$/, '') + size.replace('img', '') + imageExtension
 
-          fs.access(imageDestDirectory + dstFilename, fs.constants.F_OK, err => {
+          fs.access(IMAGE_DST_DIR + dstFilename, fs.constants.F_OK, err => {
             if (err) {
+              const dimensions = sizeOf(imageFile)
+              const width =
+                dataLocation[key][size]['width'] > dimensions.width
+                  ? dimensions.width
+                  : dataLocation[key][size]['width']
+              const height =
+                dataLocation[key][size]['height'] > dimensions.height
+                  ? dimensions.height
+                  : dataLocation[key][size]['height']
+
               im.crop(
                 {
                   srcPath: imageFile,
-                  dstPath: imageDestDirectory + dstFilename,
-                  width: dataLocation[key][size]['width'],
-                  height: dataLocation[key][size]['height'],
+                  dstPath: IMAGE_DST_DIR + dstFilename,
+                  width,
+                  height,
+                  strip: false,
+                  resizeStyle: 'aspectfit',
                   quality: 1,
                   gravity: 'Center',
                 },
                 function() {
-                  console.log('\x1b[32m\x1b[1m', '🦄 Cropping ' + dstFilename)
+                  console.log('\x1b[32m\x1b[1m', '✂️ Cropping ' + dstFilename)
                 }
               )
             }

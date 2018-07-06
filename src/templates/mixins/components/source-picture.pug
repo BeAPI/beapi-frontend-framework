@@ -1,5 +1,5 @@
 mixin source-img(image, dataLocation)
-    - var imageExtension = image.match(/\.[^/.]+$/)[0]
+    - var imageExtension = image.match(/\.[^/.]+$/) ? image.match(/\.[^/.]+$/)[0] : '.png'
     - var datas = self.htmlWebpackPlugin.options.imagesDatas[dataLocation]
 
     each media in datas.medias.mediasList

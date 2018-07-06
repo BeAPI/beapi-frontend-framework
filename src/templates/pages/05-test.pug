@@ -1,0 +1,27 @@
+include ../mixins/mixins.pug
+
+doctype html
+html.fonts-loading.no-js(lang='fr')
+    +head('BeAPI FrontEnd Framework | The WordPress BFF')
+
+    body.home
+        +header()
+
+        main#main__content.main__content(role="main" tabindex="-1" aria-label="Contenu Principal")
+            article.entry
+                .container
+                    header.entry__header
+                        h1.entry__title Test Crop
+                    section.entry__content
+                        h2 Square
+                        pre max-width: 768px : "100-100, 200-200 2x"
+                        pre * : "200-200, 400-400 2x"
+                        +bea-img('wallpaper', 'square')
+
+                        h2 Image to small for Square Crop
+                        pre max-width: 768px : "100-100, 200-200 2x"
+                        pre * : "200-200, 400-400 2x"
+                        +bea-img('wallpaper-small', 'square')
+
+        include ../partials/_footer.pug
+

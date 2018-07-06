@@ -5,8 +5,10 @@ mixin source-img(image, dataLocation)
     each media in datas.medias.mediasList
         - var croppedImage = image.replace(/\.[^/.]+$/, '') + datas.medias[media][0].replace('img', '') + imageExtension
         - var croppedRetinaImage = image.replace(/\.[^/.]+$/, '') + datas.medias[media][1].replace('img', '') + imageExtension
+        - var dataSrcset = `${croppedImage}, ${croppedRetinaImage} 2x`
+        - var srcset = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
 
         if media === '*'
-            source(data-srcset=`${croppedImage}, ${croppedRetinaImage} 2x` data-location=dataLocation)
+            source(data-srcset=dataSrcset srcset=srcset data-location=dataLocation)
         else
-            source(data-srcset=`${croppedImage}, ${croppedRetinaImage} 2x` media=media data-location=dataLocation)
+            source(data-srcset=dataSrcset srcset=srcset media=media data-location=dataLocation)

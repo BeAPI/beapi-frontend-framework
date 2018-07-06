@@ -14,6 +14,7 @@ const addSizesMedia = dataLocation => {
 
     const templateFile = fs.readFileSync('./src/conf-img/tpl/' + key + '.tpl', 'utf8')
     let sources = templateFile.split('<source')
+
     sources.splice(0, 1)
 
     for (let i = 0; i < sources.length; i++) {
@@ -28,7 +29,7 @@ const addSizesMedia = dataLocation => {
     /**
      * Map <source /> per *.tpl files
      */
-    sources.map(source => {
+    sources.reverse().map(source => {
       let media = '*'
 
       if (source.includes('media')) {
@@ -67,15 +68,13 @@ const addSizesMedia = dataLocation => {
  * @param {object} dataLocation The object that contains all image sizes and image locations listed in conf-img
  */
 const generateCroppedImages = dataLocation => {
-  let imageFiles = []
-
-  fs
+  let imageFiles = fs
     .readdirSync(imageDirectory)
     .filter(file => /\.(png|jpe?g|gif)$/.test(file))
-    .map(file => imageFiles.push(imageDirectory + file))
+    .map(file => imageDirectory + file)
 
-  imageFiles.map(imageFile => {
-    Object.keys(dataLocation).map(key => {
+  imageFiles.forEach(imageFile => {
+    Object.keys(dataLocation).forEach(key => {
       Object.keys(dataLocation[key])
         .filter(size => size !== 'medias')
         .map(size => {

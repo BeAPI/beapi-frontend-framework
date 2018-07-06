@@ -6,8 +6,6 @@
  * IE 10-11 : will open new tab
  */
 
-import '../polyfill/forEach'
-
 class ButtonLink {
   /**
    * @param {string} dataset

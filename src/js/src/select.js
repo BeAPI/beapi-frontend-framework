@@ -1,9 +1,6 @@
 /**
  * Wrapper for select
  */
-
-import '../polyfill/forEach'
-
 class Select {
   /**
    * Bind select that has to be wrapped
@@ -30,4 +27,4 @@ class Select {
 export default Select
 
 const selects = ['.gform_wrapper select:not([multiple])']
-selects.forEach(el => Select.bind(el))
+;[].forEach.call(selects, el => Select.bind(el))

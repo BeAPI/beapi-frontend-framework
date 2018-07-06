@@ -60,51 +60,11 @@
 /******/ 	__webpack_require__.p = "/src/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-if (!Array.prototype.forEach) {
-  Array.prototype.forEach = function (callback) {
-    var T, k;
-
-    if (this == null) {
-      throw new TypeError(' this vaut null ou n est pas défini');
-    }
-
-    var O = Object(this);
-    var len = O.length >>> 0;
-
-    if (typeof callback !== 'function') {
-      throw new TypeError(callback + ' n est pas une fonction');
-    }
-
-    if (arguments.length > 1) {
-      T = arguments[1];
-    }
-
-    k = 0;
-
-    while (k < len) {
-      var kValue;
-
-      if (k in O) {
-        kValue = O[k];
-        callback.call(T, kValue, k, O);
-      }
-      k++;
-    }
-  };
-}
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -132,7 +92,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 2 */
+/* 1 */
 /***/ (function(module, exports) {
 
 (function(window, factory) {
@@ -834,7 +794,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 3 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -11094,31 +11054,31 @@ return jQuery;
 
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(5);
-module.exports = __webpack_require__(6);
+__webpack_require__(4);
+module.exports = __webpack_require__(5);
 
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+__webpack_require__(6);
+
 __webpack_require__(7);
 
-__webpack_require__(0);
-
-var _lazysizes = __webpack_require__(2);
+var _lazysizes = __webpack_require__(1);
 
 var _lazysizes2 = _interopRequireDefault(_lazysizes);
 
@@ -11155,7 +11115,7 @@ if (distPath.match('/dist/').length === 1) {
 }
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12301,7 +12261,47 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		types["image/webp"] = detectTypeSupport("image/webp", "data:image/webp;base64,UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAABBxAR/Q9ERP8DAABWUDggGAAAADABAJ0BKgEAAQADADQlpAADcAD++/1QAA==");
 	}
 })(window, document);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)(module)))
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+if (!Array.prototype.forEach) {
+  Array.prototype.forEach = function (callback) {
+    var T, k;
+
+    if (this == null) {
+      throw new TypeError(' this vaut null ou n est pas défini');
+    }
+
+    var O = Object(this);
+    var len = O.length >>> 0;
+
+    if (typeof callback !== 'function') {
+      throw new TypeError(callback + ' n est pas une fonction');
+    }
+
+    if (arguments.length > 1) {
+      T = arguments[1];
+    }
+
+    k = 0;
+
+    while (k < len) {
+      var kValue;
+
+      if (k in O) {
+        kValue = O[k];
+        callback.call(T, kValue, k, O);
+      }
+      k++;
+    }
+  };
+}
 
 /***/ }),
 /* 8 */
@@ -12316,7 +12316,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	factory = factory.bind(null, window, window.document);
 
 	if(typeof module == 'object' && module.exports){
-		factory(__webpack_require__(2));
+		factory(__webpack_require__(1));
 	} else if(window.lazySizes) {
 		globalInstall();
 	} else {
@@ -12497,7 +12497,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _jquery = __webpack_require__(3);
+var _jquery = __webpack_require__(2);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -12862,7 +12862,7 @@ menu.sfMenuInit();
 
 })(jQuery, window);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 11 */
@@ -12876,8 +12876,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-__webpack_require__(0);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -12969,8 +12967,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(0);
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Select = function () {
@@ -13004,8 +13000,7 @@ var Select = function () {
 exports.default = Select;
 
 
-var selects = ['.gform_wrapper select:not([multiple])'];
-selects.forEach(function (el) {
+var selects = ['.gform_wrapper select:not([multiple])'];[].forEach.call(selects, function (el) {
   return Select.bind(el);
 });
 
@@ -13021,8 +13016,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-__webpack_require__(0);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -13091,6 +13084,7 @@ var AccessibilityTests = function () {
     key: 'init',
     value: function init() {
       _axeCore2.default.getRules(this.rules);
+      window.scroll(0, 0);
       _axeCore2.default.run(document, function (err, results) {
         if (err) throw err;
         console.log(results.violations);
@@ -23981,7 +23975,7 @@ exports.default = AccessibilityTests;
     }()
   });
 })(typeof window === 'object' ? window : this);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)(module)))
 
 /***/ }),
 /* 16 */

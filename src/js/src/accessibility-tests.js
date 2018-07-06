@@ -7,6 +7,7 @@ class AccessibilityTests {
 
   init() {
     axe.getRules(this.rules)
+    window.scroll(0, 0)
     axe.run(document, (err, results) => {
       if (err) throw err
       console.log(results.violations)

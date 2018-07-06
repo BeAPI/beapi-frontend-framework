@@ -116,7 +116,7 @@ let webpackBase = {
     ]),
     new SvgStore(
       path.resolve(__dirname, './../src/img/icons/*.svg'),
-      path.resolve(__dirname, './../dist/assets/icons/'),
+      path.resolve(__dirname, './../dist/assets/img/icons/'),
       {
         name: 'icons',
         prefix: 'icon-',

@@ -58,22 +58,22 @@ class Assets implements Service{
 		// Theme js dependencies
 		$scripts_dependencies = [ 'jquery' ];
 
-		$this->assets_tools->register_script( 'matchmedia-polyfill', 'src/js/vendor_ie/matchmedia-polyfill.js', [], '1', false );
+		$this->assets_tools->register_script( 'matchmedia-polyfill', 'dist/assets/js/vendor_ie/matchmedia-polyfill.js', [], '1', false );
 		wp_script_add_data( 'matchmedia-polyfill', 'conditional', 'lte IE 9' );
 
-		$this->assets_tools->register_script( 'matchMedia-addListener', 'src/js/vendor_ie/matchMedia.addListener.js', [], '1', false );
+		$this->assets_tools->register_script( 'matchMedia-addListener', 'dist/assets/js/vendor_ie/matchMedia.addListener.js', [], '1', false );
 		wp_script_add_data( 'matchmedia-addListener', 'conditional', 'lte IE 9' );
 
-		$this->assets_tools->register_script( 'placeholders', 'src/js/vendor_ie/placeholders.min.js', [], '1', false );
+		$this->assets_tools->register_script( 'placeholders', 'dist/assets/js/vendor_ie/placeholders.min.js', [], '1', false );
 		wp_script_add_data( 'placeholders', 'conditional', 'lte IE 9' );
 
-		$this->assets_tools->register_script( 'html5shiv', 'src/js/vendor_ie/html5shiv.min.js', [], '1', false );
+		$this->assets_tools->register_script( 'html5shiv', 'dist/assets/js/vendor_ie/html5shiv.min.js', [], '1', false );
 		wp_script_add_data( 'html5shiv', 'conditional', 'lt IE 9' );
 
-		$this->assets_tools->register_script( 'selectivizr', 'src/js/vendor_ie/selectivizr.js', [], '1', false );
+		$this->assets_tools->register_script( 'selectivizr', 'dist/assets/js/vendor_ie/selectivizr.js', [], '1', false );
 		wp_script_add_data( 'selectivizr', 'conditional', 'lte IE 8' );
 
-		$this->assets_tools->register_script( 'modernizr', 'src/js/vendor_async/modernizr.custom.min.js', [], '1', false );
+		$this->assets_tools->register_script( 'modernizr', 'dist/assets/js/vendor_async/modernizr.custom.min.js', [], '1', false );
 
 		// Async and footer
 		$file = ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) ? $this->get_min_file( 'js' ) : 'app.js';

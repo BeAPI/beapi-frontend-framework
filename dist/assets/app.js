@@ -11105,13 +11105,9 @@ _lazysizes2.default.customMedia = {};
 _ls2.default.customMedia = {};
 
 var distPath = window.location.pathname;
-
 if (distPath.match('/dist/').length === 1) {
   var accessibilityTests = new _accessibilityTests2.default();
   accessibilityTests.init();
-
-  var __svg__ = { filename: __webpack_require__.p +"../icons/icons.svg" };
-  __webpack_require__(16)(__svg__);
 }
 
 /***/ }),
@@ -23976,52 +23972,6 @@ exports.default = AccessibilityTests;
   });
 })(typeof window === 'object' ? window : this);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)(module)))
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var svgXHR = function svgXHR(options) {
-  var url = false;
-  var baseUrl = undefined;
-
-  options && options.filename ? url = options.filename : null;
-
-  if (!url) return false;
-  var _ajax = new XMLHttpRequest();
-  var _fullPath;
-
-  if (typeof XDomainRequest !== 'undefined') {
-    _ajax = new XDomainRequest();
-  }
-
-  if (typeof baseUrl === 'undefined') {
-    if (typeof window.baseUrl !== 'undefined') {
-      baseUrl = window.baseUrl;
-    } else {
-      baseUrl = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) + '/';
-    }
-  }
-
-  _fullPath = (baseUrl + '/' + url).replace(/([^:]\/)\/+/g, '$1');
-  _ajax.open('GET', _fullPath, true);
-  _ajax.onprogress = function () {};
-  _ajax.onload = function () {
-    if (!_ajax.responseText || _ajax.responseText.substr(0, 4) !== '<svg') {
-      throw Error('Invalid SVG Response');
-    }
-
-    if (_ajax.status < 200 || _ajax.status >= 300) {
-      return;
-    }
-  };
-  _ajax.send();
-};
-
-module.exports = svgXHR;
 
 /***/ })
 /******/ ]);

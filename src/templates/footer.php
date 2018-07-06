@@ -24,7 +24,7 @@
 			</footer>
 		</div><!-- Main -->
 
-		<?php require 'icons/icons.svg'; ?>
+		<?php require 'assets/img/icons/icons.svg'; ?>
 		<script>
 			// inline loadJS
 			function loadJS(e,t){"use strict";var n=window.document.getElementsByTagName("script")[0],o=window.document.createElement("script");return o.src=e,o.async=!0,n.parentNode.insertBefore(o,n),t&&"function"==typeof t&&(o.onload=t),o}
@@ -34,7 +34,7 @@
 				document.documentElement.classList.remove('fonts-loading');
 			} else {
 				// load script with font observing logic
-				loadJS('../src/js/vendor_async/fonts-css-async.js');
+				loadJS('assets/js/vendor_async/fonts-css-async.js');
 			}
 		</script>
 		<script src="assets/app.js" async defer></script>

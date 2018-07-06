@@ -1,7 +1,6 @@
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const webpackDev = require('./webpack.dev')
 const config = require('./config')
-const svgSprite = require('./../tasks/svg-sprite')
 
 webpackDev.plugins.push(
   new BrowserSyncPlugin(
@@ -19,13 +18,7 @@ webpackDev.plugins.push(
               const bs = require('browser-sync').get('bs-webpack-plugin')
               bs.stream({ once: true })
 
-              if (file.indexOf('.svg') >= 0) {
-                svgSprite()
-
-                setTimeout(function() {
-                  bs.reload()
-                }, 3000)
-              } else if (file.indexOf('.scss') >= 0) {
+              if (file.indexOf('.scss') >= 0) {
                 setTimeout(function() {
                   bs.reload()
                 }, 3000)

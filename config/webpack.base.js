@@ -4,11 +4,9 @@ const config = require('./config')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
-const WebpackOnBuildPlugin = require('on-build-webpack')
 const SvgStore = require('webpack-svgstore-plugin')
 const cssLoaders = require('./css-loader.js')
 const htmlRender = require('./html-render.js')('./../src/templates/', ['pages', 'partials'])
-const imagesSizes = require('./image-sizes')
 
 let root = path.resolve(__dirname)
 
@@ -152,9 +150,6 @@ let webpackBase = {
       }
     ),
     new HtmlWebpackHarddiskPlugin(),
-    new WebpackOnBuildPlugin(function() {
-      imagesSizes()
-    }),
   ].concat(htmlRender),
 }
 

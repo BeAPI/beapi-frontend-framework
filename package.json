@@ -8,7 +8,7 @@
   },
   "scripts": {
     "clean": "rm -rf dist/ && npm run favicon",
-    "start": "NODE_ENV=dev webpack-dev-server --hot --inline --watch --config config/browser-sync.js",
+    "start": "npm run build:dev && NODE_ENV=dev webpack-dev-server --hot --inline --watch --config config/browser-sync.js",
     "build:dev": "npm run clean && NODE_ENV=dev webpack --config config/webpack.dev.js",
     "build:prod": "npm run clean && webpack --config config/webpack.prod.js && npm run favicon && node tasks/critical-css.js && node tasks/style-version.js",
     "build": "npm run clean && NODE_ENV=dev webpack --config config/webpack.dev.js && webpack --config config/webpack.prod.js && npm run favicon && node tasks/critical-css.js && node tasks/style-version.js",

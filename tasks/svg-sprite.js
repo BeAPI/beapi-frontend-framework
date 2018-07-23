@@ -48,6 +48,7 @@ const icons = [
     dist: './dist/assets/img/icons',
     filename: 'icons.svg',
     prefix: 'icon',
+    optimize: true,
   },
 ]
 
@@ -57,7 +58,10 @@ const createDir = async dir => {
   }
 }
 
-const optimizeIcons = async src => {
+const optimizeIcons = async (src, optimize) => {
+  if (!optimize) {
+    return false
+  }
   const svgo = new SVGO({
     plugins: svgoPlugins,
   })
@@ -103,7 +107,7 @@ const init = async () => {
   asyncForEach(icons, async icon => {
     const spinner = ora(`Generation SVG sprite for ${icon.id}`).start()
     await createDir(icon.dist)
-    await optimizeIcons(icon.src)
+    await optimizeIcons(icon.src, icon.optimize)
     await generateSprite(icon.src, icon.dist, icon.filename, icon.prefix)
     spinner.succeed(`Sprite for ${icon.id} has been generated in ${`${icon.dist}/${icon.filename}`}`)
   })

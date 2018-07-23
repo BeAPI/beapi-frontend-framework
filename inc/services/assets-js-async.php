@@ -14,6 +14,7 @@ class Assets_JS_Async implements Service {
 
 	/**
 	 * JS handlers for the script.
+	 *
 	 * @var array : the script styles to async load
 	 */
 	private $js_handlers = [ 'scripts' => 'async' ];
@@ -21,21 +22,19 @@ class Assets_JS_Async implements Service {
 	/**
 	 * @param Service_Container $container
 	 */
-	public function register( Service_Container $container ) {}
-
-	/**
-	 * @param Service_Container $container
-	 */
-	public function boot( Service_Container $container ) {
-		if ( current_theme_supports( 'async-js' ) && ! is_admin() ) {
-			add_filter( 'script_loader_tag', array( $this, 'script_loader_tag' ), 20, 2 );
-		}
-
+	public function register( Service_Container $container ) {
 		/**
 		 * Example
 		 *
 		 * $this->add_handler( 'scripts', 'async defer' );
 		 */
+	}
+
+	/**
+	 * @param Service_Container $container
+	 */
+	public function boot( Service_Container $container ) {
+		add_filter( 'script_loader_tag', array( $this, 'script_loader_tag' ), 20, 2 );
 	}
 
 	/**
@@ -55,17 +54,21 @@ class Assets_JS_Async implements Service {
 	/**
 	 * Replace default generated WP Link Tag
 	 *
-	 * @param string $html The link tag for the enqueued script.
+	 * @param string $html   The link tag for the enqueued script.
 	 * @param string $handle The script's registered handle.
 	 *
 	 * @return string
 	 * @author Nicolas JUEN
 	 */
 	public function script_loader_tag( $html, $handle ) {
+		if ( ! current_theme_supports( 'async-js' ) || is_admin() ) {
+			return $html;
+		}
+
 		if ( ! isset( $this->js_handlers[ $handle ] ) ) {
 			return $html;
 		}
 
-		return  str_replace( ' src', sprintf( ' %s src', $this->js_handlers[ $handle ] ), $html );
+		return str_replace( ' src', sprintf( ' %s src', $this->js_handlers[ $handle ] ), $html );
 	}
 }

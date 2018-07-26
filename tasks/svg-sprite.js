@@ -1,6 +1,6 @@
-const svgstore = require('svgstore')
 const fs = require('fs')
 const path = require('path')
+const svgstore = require('svgstore')
 const SVGO = require('svgo')
 const ora = require('ora')
 const cheerio = require('cheerio')
@@ -19,7 +19,6 @@ const svgoPlugins = [
   { removeHiddenElems: true },
   { removeEmptyText: true },
   { removeEmptyContainers: true },
-  { removeViewBox: false },
   { cleanupEnableBackground: true },
   { convertStyleToAttrs: true },
   { convertColors: true },
@@ -38,17 +37,24 @@ const svgoPlugins = [
   { mergePaths: true },
   { convertShapeToPath: true },
   { sortAttrs: true },
-  { removeDimensions: true },
-  { removeAttrs: { attrs: '(stroke|fill)' } },
+  { removeDimensions: false },
 ]
 const icons = [
   {
     id: 'Icons front',
     src: './src/img/icons',
-    dist: './dist/assets/img/icons',
+    dist: './src/icons',
     filename: 'icons.svg',
     prefix: 'icon',
     optimize: true,
+  },
+  {
+    id: 'Pictos front',
+    src: './src/img/pictos',
+    dist: './src/icons',
+    filename: 'pictos.svg',
+    prefix: 'icon',
+    optimize: false,
   },
 ]
 
@@ -62,6 +68,7 @@ const optimizeIcons = async (src, optimize) => {
   if (!optimize) {
     return false
   }
+
   const svgo = new SVGO({
     plugins: svgoPlugins,
   })
@@ -92,7 +99,7 @@ const generateSprite = async (src, dist, name, prefix) => {
       }
     })
     const $ = cheerio.load(sprites.toString({ inline: true }))
-    const svg = $('svg').attr('id', 'svg-sprite')
+    const svg = $('svg').addClass('svg-sprite')
     fs.writeFileSync(`${dist}/${name}`, svg)
   })
 }

@@ -106,6 +106,10 @@ let webpackBase = {
         to: 'fonts/',
       },
       {
+        from: 'src/img/icons/',
+        to: 'img/icons/',
+      },
+      {
         from: 'src/img/bg-sample/',
         to: 'img/bg-sample/',
       },

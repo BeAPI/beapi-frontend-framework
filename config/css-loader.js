@@ -9,7 +9,7 @@ module.exports = [
   {
     loader: 'postcss-loader',
     options: {
-      plugins: loader => [require('css-mqpacker')(), require('autoprefixer')()],
+      plugins: loader => [require('autoprefixer')()],
     },
   },
 ]

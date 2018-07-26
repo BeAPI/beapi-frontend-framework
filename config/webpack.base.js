@@ -34,8 +34,6 @@ let webpackBase = {
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        include: root,
-        enforce: 'pre',
         use: [
           {
             loader: 'babel-loader',
@@ -123,6 +121,10 @@ let webpackBase = {
       {
         from: 'src/fonts/',
         to: 'fonts/',
+      },
+      {
+        from: 'src/img/icons/',
+        to: 'img/icons/',
       },
       {
         from: 'src/img/bg-sample/',

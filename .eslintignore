@@ -1,3 +1,4 @@
-assets/js/vendor/*.js
-assets/js/vendor_async/*.js
-assets/js/vendor_ie/*.js
+src/js/vendor/*.js
+src/js/vendor_async/*.js
+src/js/vendor_ie/*.js
+src/js/polyfill/*.js

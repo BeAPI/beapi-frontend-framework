@@ -1,157 +1,150 @@
-include ../mixins/mixins.pug
+extends ../layout/layout.pug
 
-doctype html
-html.fonts-loading.no-js(lang='fr')
-    +head('BeAPI FrontEnd Framework | Page')
+block vars
+    - var bodyClass='page'
 
-    body.page
-        +header(false)
+block content
+    header.page__header.lazyload(data-bgset="assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg")
+        .container
+            h1.page__title Titre de la page par défaut, avec sidebar
+            .page__date Publié le <time datetime="2015-06-30">06/30/2015</time>
+    article.entry
+        .container
+            .content
+                section.entry__content
+                    h2 Image with link to a bigger size using a lightbox
+                    p <a href="../assets/img/sample/beapi_theme-img-2.jpg"><img align="right" alt="#" src="http://placehold.it/150x150" class="alignright"></a> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat. <span id="more-317"></span>
 
-        main#main__content.main__content(role="main" tabindex="-1" aria-label="Contenu Principal")
-            header.page__header.lazyload(data-bgset="assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg")
-                .container
-                    h1.page__title Titre de la page par défaut, avec sidebar
-                    .page__date Publié le <time datetime="2015-06-30">06/30/2015</time>
-            article.entry
-                .container
-                    .content
-                        section.entry__content
-                            h2 Image with link to a bigger size using a lightbox
-                            p <a href="../assets/img/sample/beapi_theme-img-2.jpg"><img align="right" alt="#" src="http://placehold.it/150x150" class="alignright"></a> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat. <span id="more-317"></span>
+                    blockquote
+                        p « Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat. »
 
-                            blockquote
-                                p « Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat. »
+                    p
+                        cite « Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat. »
 
-                            p
-                                cite « Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat. »
+                    h1 Level 1 Heading
+                    h2 Level 2 Heading
+                    h3 Level 3 Heading
+                    h4 Level 4 Heading
+                    h5 Level 5 Heading
+                    h6 Level 6 Heading
 
-                            h1 Level 1 Heading
-                            h2 Level 2 Heading
-                            h3 Level 3 Heading
-                            h4 Level 4 Heading
-                            h5 Level 5 Heading
-                            h6 Level 6 Heading
+                    h3 Image with a caption text
+                    .wp-caption.alignnone(style="width: 150px;")
+                        a(href="http://placehold.it/500x500" rel="attachment")
+                            img(width="150" height="150" alt="#" src="http://placehold.it/150x150" title="#")
+                        p.wp-caption-text This is an image with a caption text
 
-                            h3 Image with a caption text
-                            .wp-caption.alignnone(style="width: 150px;")
-                                a(href="http://placehold.it/500x500" rel="attachment")
-                                    img(width="150" height="150" alt="#" src="http://placehold.it/150x150" title="#")
-                                p.wp-caption-text This is an image with a caption text
+                    h2 A table
 
-                            h2 A table
+                    table
+                        tbody
+                            tr
+                                th Employee
+                                th.views(colspan="2") Salary
+                            tr
+                                td
+                                    a(href="http://john.do/") John Saddington
+                                td $1
+                                td Because that’s all Steve Job’ needed for a salary.
+                            tr
+                                td
+                                    a(href="http://tommcfarlin.com/") Tom McFarlin
+                                td $100K
+                                td For all the blogging he does.
+                            tr
+                                td
+                                    a(href="http://jarederickson.com/") Jared Erickson
+                                td $100M
+                                td Pictures are worth a thousand words, right? So Tom x 1,000.
+                            tr
+                                td
+                                    a(href="http://chrisam.es/") Chris Ames
+                                td $100B
+                                td With hair like that?! Enough said…
+                    h3 An Unordered List
+                    ul
+                        li Vestibulum in mauris semper tortor interdum ultrices.
+                        li Sed vel lorem et justo laoreet bibendum. Donec dictum.
+                        li Etiam massa libero, lacinia at, commodo in, tincidunt a, purus.
+                        li Praesent volutpat eros quis enim blandit tincidunt.
+                        li Aenean eu libero nec lectus ultricies laoreet. Donec rutrum, nisi vel egestas ultrices, ipsum urna sagittis libero, vitae vestibulum dui dolor vel velit.
+                    
+                    h3 Image with no alignment
+                    p
+                        img(alt="#" src="http://placehold.it/150x150")
 
-                            table
-                                tbody
-                                    tr
-                                        th Employee
-                                        th.views(colspan="2") Salary
-                                    tr
-                                        td
-                                            a(href="http://john.do/") John Saddington
-                                        td $1
-                                        td Because that’s all Steve Job’ needed for a salary.
-                                    tr
-                                        td
-                                            a(href="http://tommcfarlin.com/") Tom McFarlin
-                                        td $100K
-                                        td For all the blogging he does.
-                                    tr
-                                        td
-                                            a(href="http://jarederickson.com/") Jared Erickson
-                                        td $100M
-                                        td Pictures are worth a thousand words, right? So Tom x 1,000.
-                                    tr
-                                        td
-                                            a(href="http://chrisam.es/") Chris Ames
-                                        td $100B
-                                        td With hair like that?! Enough said…
-                            h3 An Unordered List
-                            ul
-                                li Vestibulum in mauris semper tortor interdum ultrices.
-                                li Sed vel lorem et justo laoreet bibendum. Donec dictum.
-                                li Etiam massa libero, lacinia at, commodo in, tincidunt a, purus.
-                                li Praesent volutpat eros quis enim blandit tincidunt.
-                                li Aenean eu libero nec lectus ultricies laoreet. Donec rutrum, nisi vel egestas ultrices, ipsum urna sagittis libero, vitae vestibulum dui dolor vel velit.
-                            
-                            h3 Image with no alignment
-                            p
-                                img(alt="#" src="http://placehold.it/150x150")
+                    img.alignleft(align="left" alt="#" src="http://placehold.it/150x150")
 
-                            img.alignleft(align="left" alt="#" src="http://placehold.it/150x150")
+                    h3 An Ordered List with left align image
 
-                            h3 An Ordered List with left align image
+                    ol
+                        li Vestibulum in mauris semper tortor interdum ultrices.
+                        li Sed vel lorem et justo laoreet bibendum. Donec dictum.
+                        li Etiam massa libero, lacinia at, commodo in, tincidunt a, purus.
+                        li Praesent volutpat eros quis enim blandit tincidunt.
+                        li Aenean eu libero nec lectus ultricies laoreet. Donec rutrum, nisi vel egestas ultrices, ipsum urna sagittis libero, vitae vestibulum dui dolor vel velit.
 
-                            ol
-                                li Vestibulum in mauris semper tortor interdum ultrices.
-                                li Sed vel lorem et justo laoreet bibendum. Donec dictum.
-                                li Etiam massa libero, lacinia at, commodo in, tincidunt a, purus.
-                                li Praesent volutpat eros quis enim blandit tincidunt.
-                                li Aenean eu libero nec lectus ultricies laoreet. Donec rutrum, nisi vel egestas ultrices, ipsum urna sagittis libero, vitae vestibulum dui dolor vel velit.
+                    img.alignleft(align="left" alt="#" src="http://placehold.it/150x150")
+                    
+                    h3 An Unordered List with left align image
 
-                            img.alignleft(align="left" alt="#" src="http://placehold.it/150x150")
-                            
-                            h3 An Unordered List with left align image
+                    ul
+                        li Vestibulum in mauris semper tortor interdum ultrices.
+                        li Sed vel lorem et justo laoreet bibendum. Donec dictum.
+                        li Etiam massa libero, lacinia at, commodo in, tincidunt a, purus.
+                        li Praesent volutpat eros quis enim blandit tincidunt.
+                        li Aenean eu libero nec lectus ultricies laoreet. Donec rutrum, nisi vel egestas ultrices, ipsum urna sagittis libero, vitae vestibulum dui dolor vel velit.
 
-                            ul
-                                li Vestibulum in mauris semper tortor interdum ultrices.
-                                li Sed vel lorem et justo laoreet bibendum. Donec dictum.
-                                li Etiam massa libero, lacinia at, commodo in, tincidunt a, purus.
-                                li Praesent volutpat eros quis enim blandit tincidunt.
-                                li Aenean eu libero nec lectus ultricies laoreet. Donec rutrum, nisi vel egestas ultrices, ipsum urna sagittis libero, vitae vestibulum dui dolor vel velit.
+                    #gallery-1.gallery.galleryid-1.gallery-columns-4.gallery-size-thumbnail
+                        dl.gallery-item
+                            dt.gallery-icon
+                                a(href="#" title="#")
+                                    img.attachment-thumbnail(width="150" height="150" src="http://placehold.it/150x150" class="" alt="#")
+                            dd.wp-caption-text.gallery-caption mdhbfldksb
+                        dl.gallery-item
+                            dt.gallery-icon
+                                a(href="#" title="#")
+                                    img.attachment-thumbnail(width="150" height="150" src="http://placehold.it/150x150" alt="#")
+                            dd.wp-caption-text.gallery-caption mdhbfldksb
+                        dl.gallery-item
+                            dt.gallery-icon
+                                a(href="#" title="#")
+                                    img.attachment-thumbnail(width="150" height="150" src="http://placehold.it/150x150" alt="#")
+                        dl.gallery-item
+                            dt.gallery-icon
+                                a(href="#" title="#")
+                                    img.attachment-thumbnail(width="150" height="150" src="http://placehold.it/150x150" alt="#")
+                            dd.wp-caption-text.gallery-caption mdhbfldksb
+                        dl.gallery-item
+                            dt.gallery-icon
+                                a(href="#" title="#")
+                                    img.attachment-thumbnail(width="150" height="150" src="http://placehold.it/150x150" alt="#")
+                            dd.wp-caption-text.gallery-caption mdhbfldksb
 
-                            #gallery-1.gallery.galleryid-1.gallery-columns-4.gallery-size-thumbnail
-                                dl.gallery-item
-                                    dt.gallery-icon
-                                        a(href="#" title="#")
-                                            img.attachment-thumbnail(width="150" height="150" src="http://placehold.it/150x150" class="" alt="#")
-                                    dd.wp-caption-text.gallery-caption mdhbfldksb
-                                dl.gallery-item
-                                    dt.gallery-icon
-                                        a(href="#" title="#")
-                                            img.attachment-thumbnail(width="150" height="150" src="http://placehold.it/150x150" alt="#")
-                                    dd.wp-caption-text.gallery-caption mdhbfldksb
-                                dl.gallery-item
-                                    dt.gallery-icon
-                                        a(href="#" title="#")
-                                            img.attachment-thumbnail(width="150" height="150" src="http://placehold.it/150x150" alt="#")
-                                dl.gallery-item
-                                    dt.gallery-icon
-                                        a(href="#" title="#")
-                                            img.attachment-thumbnail(width="150" height="150" src="http://placehold.it/150x150" alt="#")
-                                    dd.wp-caption-text.gallery-caption mdhbfldksb
-                                dl.gallery-item
-                                    dt.gallery-icon
-                                        a(href="#" title="#")
-                                            img.attachment-thumbnail(width="150" height="150" src="http://placehold.it/150x150" alt="#")
-                                    dd.wp-caption-text.gallery-caption mdhbfldksb
+                        br(style="clear: both;")
 
-                                br(style="clear: both;")
+                    .message.message--error
+                        h4 Error box
+                        p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.
 
-                            .message.message--error
-                                h4 Error box
-                                p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.
+                    .message.message--success
+                        h4 Success box
+                        p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.
 
-                            .message.message--success
-                                h4 Success box
-                                p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.
+                    .message.message--info
+                        h4 Info box
+                        p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.
 
-                            .message.message--info
-                                h4 Info box
-                                p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.
+                    .message.message--notice
+                        h4 Notice box
+                        p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.
 
-                            .message.message--notice
-                                h4 Notice box
-                                p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla. Sed convallis orci. Duis libero orci, pretium a, <a href="#">convallis quis</a>, pellentesque a, dolor. Curabitur vitae nisi non dolor vestibulum consequat.
+                    // Button href demo
+                    button.button.button--rounded(type="button" data-href="https://beapi.fr/") Button w/o blank
 
-                            // Button href demo
-                            button.button.button--rounded(type="button" data-href="https://beapi.fr/") Button w/o blank
+                    button.button.button--bordered(type="button" data-href="https://beapi.fr/" data-target="_blank") Button w/ blank
 
-                            button.button.button--bordered(type="button" data-href="https://beapi.fr/" data-target="_blank") Button w/ blank
+                    button.button.button--revert(type="button" data-href="../assets/pdf/sample.pdf" data-target="download" data-filename="sample.pdf") Button download
 
-                            button.button.button--revert(type="button" data-href="../assets/pdf/sample.pdf" data-target="download" data-filename="sample.pdf") Button download
-
-                    .sidebar
-                        // You can add widget sample (html/css) from composerjs here
-
-        include ../partials/_footer.pug
-
+            .sidebar
+                // You can add widget sample (html/css) from composerjs here

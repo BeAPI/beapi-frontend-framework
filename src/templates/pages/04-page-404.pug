@@ -1,19 +1,13 @@
-include ../mixins/mixins.pug
+extends ../layout/layout.pug
 
-doctype html
-html.fonts-loading.no-js(lang='fr')
-    +head('BeAPI FrontEnd Framework | 404')
+block vars
+    - var bodyClass='error-404'
 
-    body.error-404
-        +header(false)
-
-        main#main__content.main__content(role="main" tabindex="-1" aria-label="Contenu Principal")
-            article.entry
-                .container
-                    h1.entry__title Erreur 404
-                    section.entry__content
-                        p Désolé mais la page que vous recherchez n'existe plus.
-                        p Vous pouvez effectuer une recherche :</p>
-                        include ../partials/_searchform.pug
-
-        include ../partials/_footer.pug
+block content
+    article.entry
+        .container
+            h1.entry__title Erreur 404
+            section.entry__content
+                p Désolé mais la page que vous recherchez n'existe plus.
+                p Vous pouvez effectuer une recherche :</p>
+                include ../partials/_searchform.pug

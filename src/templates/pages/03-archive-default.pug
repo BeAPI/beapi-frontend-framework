@@ -2,25 +2,12 @@ extends ../layout/layout.pug
 
 block vars
     - var bodyClass='archive'
+     - var pageHeader = {title: 'Ceci est une page d\'archive', date: 'Publié le 07/27/2018', image: 'assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg'}
 
 block content
-    header.page__header.lazyload(data-bgset="assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg")
-        .container
-            h1.page__title Two basic styles of archive list
-            p You can add WP-pagenavi or FacetWP plugin markup for pagination, from composerjs</p>
+    +page-header(pageHeader.title, pageHeader.date, pageHeader.image)
 
     .page__content
         .container
-            h2.entry__title An example of entry list
-            .entry__loop
-                - var n = 0
-                while n < 3
-                    - n++
-                    include ../partials/_entry-summary.pug
-
-            h2.entry__title An example of entry "card" list
-            .entry__loop
-                - var n = 0
-                while n < 3
-                    - n++
-                    include ../partials/_entry-summary--seo.pug
+            +post-list('an example of entry list', 4)
+            +post-list('a seo entry list', 4, true)

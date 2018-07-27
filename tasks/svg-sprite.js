@@ -47,15 +47,7 @@ const icons = [
     filename: 'icons.svg',
     prefix: 'icon',
     optimize: true,
-  },
-  {
-    id: 'Pictos front',
-    src: './src/img/pictos',
-    dist: './src/icons',
-    filename: 'pictos.svg',
-    prefix: 'icon',
-    optimize: false,
-  },
+  }
 ]
 
 const createDir = async dir => {

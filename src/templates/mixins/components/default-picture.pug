@@ -1,5 +1,5 @@
 mixin bea-img(image, dataLocation, className, alt)
-    - image = 'assets/img/sample/' + image
+    - image = image.length > 0 ? 'assets/img/sample/' + image : 'assets/img/sample/default.png'
     - className = typeof className === 'undefined' ? 'lazyload' : 'lazyload ' + className
     - alt = typeof alt === 'undefined' ? '' : alt
 

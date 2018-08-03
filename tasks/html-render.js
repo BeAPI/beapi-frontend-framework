@@ -3,17 +3,23 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const imagesSizes = require('./../tasks/image-sizes')
 const flatten = array => [].concat(...array)
+const walkSync = (dir, filelist = []) => {
+  fs.readdirSync(dir).forEach(file => {
+    filelist = fs.statSync(path.join(dir, file)).isDirectory()
+      ? walkSync(path.join(dir, file), filelist)
+      : filelist.concat(path.join(dir, file).split('templates/')[1])
+  })
+  return filelist
+}
 
 module.exports = function(templateDir, folders) {
   const imagesDatas = imagesSizes()
   let templateFiles = []
 
   folders.map(folder => {
-    let files = fs.readdirSync(path.resolve(__dirname, templateDir + folder))
+    const dir = path.resolve(__dirname, templateDir + folder)
 
-    files = files.map(file => folder + '/' + file)
-
-    templateFiles.push(files)
+    templateFiles.push(walkSync(dir))
   })
 
   return flatten(templateFiles)

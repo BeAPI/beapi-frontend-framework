@@ -39,9 +39,9 @@ let webpackBase = {
               babelrc: true,
             },
           },
-          // {
-          //   loader: 'eslint-loader',
-          // },
+          {
+            loader: 'eslint-loader',
+          },
         ],
       },
       {

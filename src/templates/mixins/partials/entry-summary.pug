@@ -1,0 +1,33 @@
+mixin entry-summary(seo)
+    if (seo)
+        // Entry summary sample for loop
+        article.entry__item
+            .entry__media
+                +bea-img("base_theme-img-1.png", "entry-img-01", "entry__img", "#")
+            .entry__summary
+                h2.entry__title
+                    a(href="#") There is a post + a 20 words lorem ipsum excerpt
+
+                .entry__date Publié le <time datetime="2015-06-30">06/30/2015</time>
+
+                .entry__excerpt
+                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.
+
+                .entry__more
+                    a.entry__link.button(href="02-page-default.html") Read more
+    else
+        // Entry summary sample for loop
+        article.entry__card(data-seo)
+            .entry__media
+                +bea-img("beapi_theme-img-2.jpg", "entry-img-01", "entry__img", "#")
+            .entry__summary
+                h2.entry__title
+                    a(href="02-page-default.html") There is a post + a 20 words lorem ipsum excerpt
+
+                .entry__date Publié le <time datetime="2015-06-30">06/30/2015</time>
+
+                .entry__excerpt
+                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.
+
+                .entry__more
+                    span.button Readmore

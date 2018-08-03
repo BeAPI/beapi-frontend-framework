@@ -6,7 +6,7 @@ const download = require('download-file')
 const reqUrl = {
   scss: 'https://api.github.com/repos/BeAPI/bff-components/contents/scss',
   js: 'https://api.github.com/repos/BeAPI/bff-components/contents/js',
-  html: 'https://api.github.com/repos/BeAPI/bff-components/contents/html',
+  pug: 'https://api.github.com/repos/BeAPI/bff-components/contents/pug',
 }
 let files = []
 let fileOpts = {}
@@ -21,7 +21,7 @@ inquirer
     type: 'list',
     name: 'req',
     message: 'What kind of snippet do you need?',
-    choices: ['scss', 'js', 'html'],
+    choices: ['scss', 'js', 'pug'],
   })
   .then(data => {
     fileOpts.ext = data.req
@@ -108,8 +108,8 @@ function setDirPath(ext) {
     ]
   } else if (ext === 'js') {
     return ['../src/js/src/', '../src/js/vendor', '../src/js/vendor_async']
-  } else if (ext === 'html') {
-    return ['../dist', '../dist/blocks', '../dist/plugins', '../dist/widgets']
+  } else if (ext === 'pug') {
+    return ['../src/templates/mixins', '../src/templates/pages', '../src/templates/partials']
   }
 }
 
@@ -124,7 +124,7 @@ function printImportToConsole() {
     console.log(`@import "${sassPath}${sassFileName}"`)
   } else if (fileOpts.ext === 'js') {
     console.log('You can require your script where you need it')
-  } else if (fileOpts === 'html') {
+  } else if (fileOpts === 'pug') {
     console.log("You can include your php files with <?php include '' ?>")
   }
 }

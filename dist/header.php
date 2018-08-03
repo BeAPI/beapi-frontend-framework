@@ -137,9 +137,6 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 						<ul class="menu__list sf-menu">
 							<li class="menu-item current-menu-item menu-item-has-children">
 								<a href="01-home.php">Home</a>
-								<ul class="sub-menu">
-									<li class="menu-item"><a href="../livingcss/html/index.html">Living CSS</a></li>
-								</ul>
 							</li>
 							<li class="menu-item"><a href="02-page-default.php">Page default</a></li>
 							<li class="menu-item"><a href="03-archive-default.php">Archive default</a></li>

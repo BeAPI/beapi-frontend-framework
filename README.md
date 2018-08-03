@@ -1,7 +1,7 @@
 
 #  BeAPI FrontEnd Framework
 ##  What is it ?
-BeAPI FrontEnd Framework (BFF) is an open source framework for WordPress stacks. Mobile-first projects with the latest useful tools for the Frontend Development like Webpack 3, LivingCSS, SASS, Critical CSS, Favicons generation and custom tools like ComposerJS.
+BeAPI FrontEnd Framework (BFF) is an open source framework for WordPress stacks. Mobile-first projects with the latest useful tools for the Frontend Development like Webpack 3, SASS, Critical CSS, Favicons generation and custom tools like ComposerJS.
 
 ##  Requirements
 You need to work in a wordpress environnement in order to make the BFF work with webpack for local dev. To do that you need to install [Advanced Responsive Images](https://github.com/asadowski10/advanced-responsive-images) in you're plugin folder.
@@ -162,12 +162,6 @@ We are using ESLint coding Standard : https://github.com/standard/standard
 
 In order to keep a lightweight stack, you can add extra components that are used most of the time in Web dev. You have to use [composerjs](composerjs)
 
-### LivingCSS / Styleguide ###
-
-SASS file are commented in order to generate a living styleguide using `npm run livingcss`
-It is also available at `your_local_url/livingcss/html/` and watched by `gulp serve`
-For more details look at : https://github.com/straker/livingcss
-
 ### Responsive images ###
 
 WordPress native thumbnails are not enough for us. We want to build images:
@@ -255,4 +249,4 @@ We add Lazyload support too! We use [Lazysize](https://github.com/aFarkas/lazysi
 
 If you don't want this feature you still can set BEA_LAZYSIZE to false in /functions/class-bea-images.php. it will turn the markup to basic img tag with srcset.
 
-Lazysize is also used for displaying background image in different sizes for differents viewports. Look at the Lazysize bgset documentation and the `page__header` or `hero` pattern in the LivingCSS.
+Lazysize is also used for displaying background image in different sizes for differents viewports. Look at the Lazysize bgset documentation and the `page__header` or `hero` pattern.

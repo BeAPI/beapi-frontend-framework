@@ -1,10 +1,7 @@
-const path = require('path')
-const webpack = require('webpack')
 const config = require('./config')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
-const SvgStore = require('webpack-svgstore-plugin')
 const cssLoaders = require('./css-loader.js')
 const htmlRender = require('./../tasks/html-render.js')('./../src/templates/', ['pages', 'partials'])
 
@@ -103,10 +100,6 @@ let webpackBase = {
     ],
   },
   plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-    }),
     new CopyWebpackPlugin([
       {
         from: 'src/js/vendor_async',
@@ -141,22 +134,6 @@ let webpackBase = {
         to: 'img/sample/',
       },
     ]),
-    new SvgStore(
-      path.resolve(__dirname, './../src/img/icons/*.svg'),
-      path.resolve(__dirname, './../dist/assets/img/icons/'),
-      {
-        name: 'icons',
-        prefix: 'icon-',
-        chunk: 'svg',
-        svgoOptions: {
-          plugins: [
-            {
-              removeTitle: true,
-            },
-          ],
-        },
-      }
-    ),
     new HtmlWebpackHarddiskPlugin(),
   ].concat(htmlRender),
 }

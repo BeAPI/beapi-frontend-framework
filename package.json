@@ -8,7 +8,7 @@
   },
   "scripts": {
     "clean": "rm -rf dist/ && npm run favicon",
-    "start": "npm run svgicons && NODE_ENV=dev node --max_old_space_size=8192 node_modules/.bin/webpack-dev-server --hot --inline --progress --watch --config config/browser-sync.js",
+    "start": "npm run icons && NODE_ENV=dev node --max_old_space_size=8192 node_modules/.bin/webpack-dev-server --hot --inline --progress --watch --config config/browser-sync.js",
     "build:dev": "npm run clean && NODE_ENV=dev node node_modules/.bin/webpack --config config/webpack.dev.js",
     "build:prod": "npm run clean && node node_modules/.bin/webpack --config config/webpack.prod.js && node tasks/critical-css.js && node tasks/style-version.js",
     "build": "npm run clean && NODE_ENV=dev node node_modules/.bin/webpack --config config/webpack.dev.js && node node_modules/.bin/webpack --config config/webpack.prod.js && node tasks/critical-css.js && node tasks/style-version.js",

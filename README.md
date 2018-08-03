@@ -21,6 +21,8 @@ Or using Yarn.
 ```
 $ yarn
 ```
+
+You also need imagemagick CLI tools. There are numerous ways to install them. For instance, if you're on OS X you can use Homebrew: `brew install imagemagick`.
 ## 🔧 Configuration
 In the `config` directory, you can find the Webpack configurations files.
 - _browser-sync.js_ — the Browser Sync configuration

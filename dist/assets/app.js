@@ -11050,9 +11050,9 @@ jQuery.nodeName = nodeName;
 // https://github.com/jrburke/requirejs/wiki/Updating-existing-libraries#wiki-anon
 
 if ( true ) {
-	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function() {
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
 		return jQuery;
-	}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 }
 
@@ -12291,9 +12291,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	if (( false ? "undefined" : _typeof(module)) === "object" && _typeof(module.exports) === "object") {
 		module.exports = picturefill;
 	} else if (true) {
-		!(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+		!(__WEBPACK_AMD_DEFINE_RESULT__ = function () {
 			return picturefill;
-		}).call(exports, __webpack_require__, exports, module),
+		}.call(exports, __webpack_require__, exports, module),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	}
 
@@ -13107,7 +13107,7 @@ exports.default = AccessibilityTests;
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! aXe v3.0.2
+/* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! aXe v3.0.1
  * Copyright (c) 2018 Deque Systems, Inc.
  *
  * Your use of this Source Code Form is subject to the terms of the Mozilla Public
@@ -13128,12 +13128,12 @@ exports.default = AccessibilityTests;
     return obj && typeof Symbol === 'function' && obj.constructor === Symbol && obj !== Symbol.prototype ? 'symbol' : typeof obj;
   };
   var axe = axe || {};
-  axe.version = '3.0.2';
+  axe.version = '3.0.1';
   if (true) {
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function() {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
       'use strict';
       return axe;
-    }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
   }
   if (( false ? 'undefined' : _typeof(module)) === 'object' && module.exports && typeof axeFunction.toString === 'function') {
@@ -16905,8 +16905,8 @@ exports.default = AccessibilityTests;
     'use strict';
     var messages = {}, subscribers = {}, errorTypes = Object.freeze([ 'EvalError', 'RangeError', 'ReferenceError', 'SyntaxError', 'TypeError', 'URIError' ]);
     function _getSource() {
-      var application = 'axeAPI', version = '', src;
-      if (typeof axe !== 'undefined' && axe._audit && axe._audit.application) {
+      var application = 'axe', version = '', src;
+      if (typeof axe !== 'undefined' && axe._audit && !axe._audit.application) {
         application = axe._audit.application;
       }
       if (typeof axe !== 'undefined') {
@@ -16918,7 +16918,7 @@ exports.default = AccessibilityTests;
     function verify(postedMessage) {
       if ((typeof postedMessage === 'undefined' ? 'undefined' : _typeof(postedMessage)) === 'object' && typeof postedMessage.uuid === 'string' && postedMessage._respondable === true) {
         var messageSource = _getSource();
-        return postedMessage._source === messageSource || postedMessage._source === 'axeAPI.x.y.z' || messageSource === 'axeAPI.x.y.z';
+        return postedMessage._source === messageSource || postedMessage._source === 'axe.x.y.z' || messageSource === 'axe.x.y.z';
       }
       return false;
     }
@@ -16962,11 +16962,11 @@ exports.default = AccessibilityTests;
         post(source, topic, message, uuid, keepalive, callback);
       };
     }
-    function publish(source, data, keepalive) {
+    function publish(target, data, keepalive) {
       var topic = data.topic;
       var subscriber = subscribers[topic];
       if (subscriber) {
-        var responder = createResponder(source, null, data.uuid);
+        var responder = createResponder(target, null, data.uuid);
         subscriber(data.message, keepalive, responder);
       }
     }
@@ -17392,7 +17392,7 @@ exports.default = AccessibilityTests;
           help: 'Page must have means to bypass repeated blocks'
         },
         checkboxgroup: {
-          description: 'Ensures related <input type="checkbox"> elements have a group and that the group designation is consistent',
+          description: 'Ensures related <input type="checkbox"> elements have a group and that that group designation is consistent',
           help: 'Checkbox inputs with the same name attribute value must be part of a group'
         },
         'color-contrast': {
@@ -19300,8 +19300,7 @@ exports.default = AccessibilityTests;
       id: 'layout-table',
       selector: 'table',
       matches: function matches(node, virtualNode) {
-        var role = (node.getAttribute('role') || '').toLowerCase();
-        return !((role === 'presentation' || role === 'none') && !axe.commons.dom.isFocusable(node)) && !axe.commons.table.isDataTable(node);
+        return !axe.commons.table.isDataTable(node);
       },
       tags: [ 'cat.semantics', 'wcag2a', 'wcag131' ],
       all: [],
@@ -19489,7 +19488,8 @@ exports.default = AccessibilityTests;
       id: 'skip-link',
       selector: 'a[href]',
       matches: function matches(node, virtualNode) {
-        return /^#[^\/!]/.test(node.getAttribute('href'));
+        var href = node.getAttribute('href');
+        return href[0] === '#' && href.length > 1;
       },
       tags: [ 'cat.keyboard', 'best-practice' ],
       all: [],
@@ -19564,7 +19564,7 @@ exports.default = AccessibilityTests;
       id: 'video-caption',
       selector: 'video',
       excludeHidden: false,
-      tags: [ 'cat.text-alternatives', 'wcag2a', 'wcag122', 'section508', 'section508.22.a' ],
+      tags: [ 'cat.text-alternatives', 'wcag2a', 'wcag122', 'wcag123', 'section508', 'section508.22.a' ],
       all: [],
       any: [],
       none: [ 'caption' ]
@@ -20657,7 +20657,7 @@ exports.default = AccessibilityTests;
       evaluate: function evaluate(node, options, virtualNode) {
         var links = axe.utils.querySelectorAll(virtualNode, 'a[href]');
         return links.some(function(vLink) {
-          return /^#[^\/!]/.test(vLink.actualNode.getAttribute('href'));
+          return vLink.actualNode.getAttribute('href')[0] === '#';
         });
       }
     }, {
@@ -21248,8 +21248,7 @@ exports.default = AccessibilityTests;
           type: 'string'
         },
         'aria-labelledby': {
-          type: 'idrefs',
-          values: [ '' ]
+          type: 'idrefs'
         },
         'aria-level': {
           type: 'int'
@@ -22463,9 +22462,6 @@ exports.default = AccessibilityTests;
           return !!(value && doc.getElementById(value));
 
          case 'idrefs':
-          if (attrInfo.values && attrInfo.values.indexOf('') !== -1 && value.trim().length === 0) {
-            return true;
-          }
           list = axe.utils.tokenList(value);
           return list.reduce(function(result, token) {
             return !!(result && doc.getElementById(token));
@@ -23344,15 +23340,9 @@ exports.default = AccessibilityTests;
       };
       dom.shadowElementsFromPoint = function(nodeX, nodeY) {
         var root = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document;
-        var i = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
-        if (i > 999) {
-          throw new Error('Infinite loop detected');
-        }
-        return Array.from(root.elementsFromPoint(nodeX, nodeY)).filter(function(nodes) {
-          return dom.getRootNode(nodes) === root;
-        }).reduce(function(stack, elm) {
+        return root.elementsFromPoint(nodeX, nodeY).reduce(function(stack, elm) {
           if (axe.utils.isShadowRoot(elm)) {
-            var shadowStack = dom.shadowElementsFromPoint(nodeX, nodeY, elm.shadowRoot, i + 1);
+            var shadowStack = dom.shadowElementsFromPoint(nodeX, nodeY, elm.shadowRoot);
             stack = stack.concat(shadowStack);
             if (stack.length && axe.commons.dom.visuallyContains(stack[0], elm)) {
               stack.push(elm);

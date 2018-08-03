@@ -6,9 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 const SvgStore = require('webpack-svgstore-plugin')
 const cssLoaders = require('./css-loader.js')
-const htmlRender = require('./html-render.js')('./../src/templates/', ['pages', 'partials'])
-
-let root = path.resolve(__dirname)
+const htmlRender = require('./../tasks/html-render.js')('./../src/templates/', ['pages', 'partials'])
 
 let webpackBase = {
   devtool: config.dev ? 'source-map' : false,

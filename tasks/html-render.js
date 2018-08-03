@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const imagesSizes = require('./image-sizes')
+const imagesSizes = require('./../tasks/image-sizes')
 const flatten = array => [].concat(...array)
 
 module.exports = function(templateDir, folders) {

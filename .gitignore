@@ -26,9 +26,6 @@ local.properties
 # PDT-specific
 .buildpath
 
-# MacOS
-.DS_Store
-
 ### WordPress ###
 wp-content/uploads/
 wp-content/blogs.dir/
@@ -43,12 +40,14 @@ wp-content/backups/
 sitemap.xml.gz
 .htpasswd
 
+### BeAPI Frontend Framework ###
+dist/
+
 ### SublimeText ###
 *.sublime-project
 *.sublime-workspace
 sftp-config.json
 sftp-config-alt*.json
-
 *.sublime-gulp.cache
 
 ### NodeJS ###
@@ -60,16 +59,11 @@ bower_components/
 src/img/sample/cache
 dist/assets/img/sample/cache
 
-### Fabricator styleguide ###
-styleguide/dist
-styleguide/node_modules
-
-
 ### Mac OSX
 .DS_Store
+
 ### VS Code ###
 .vscode/
-
 
 ### PHPStorm ###
 .idea/

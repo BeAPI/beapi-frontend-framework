@@ -1,0 +1,12 @@
+mixin bea-img(image, dataLocation, className, alt)
+    - image = image.length > 0 ? 'assets/img/sample/' + image : 'assets/img/sample/default.png'
+    - className = typeof className === 'undefined' ? 'lazyload' : 'lazyload ' + className
+    - alt = typeof alt === 'undefined' ? '' : alt
+
+    noscript
+        img(src=image class=className alt=alt)
+    picture
+        <!--[if IE 9]><video style="display: none"><![endif]-->
+        +source-img(image, dataLocation)
+        <!--[if IE 9]></video><![endif]-->
+        img(src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class=className alt=alt)

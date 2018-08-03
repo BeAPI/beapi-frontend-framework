@@ -1,0 +1,3 @@
+mixin button(label)
+    - label = typeof label === 'undefined' ? 'Button' : label
+    button.button(type="button")&attributes(attributes) #{label}

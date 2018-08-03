@@ -1,0 +1,11 @@
+mixin post-list(title, loop, seo)
+    - title = typeof title === 'undefined' ? 'an example of entry list' : title
+    - loop = typeof loop === 'undefined' ? 4 : loop
+    - seo = typeof seo === 'undefined' ? false : seo
+    h2.entry__title #{title}
+    .entry__loop
+    - for (var i = 0; i < loop; i++)
+        if seo
+            include ../../partials/entries/_entry-summary--seo.pug
+        else
+            include ../../partials/entries/_entry-summary.pug

@@ -25,11 +25,11 @@ lazySizes.customMedia = {}
 lazySizesBgset.customMedia = {}
 
 /**
- * Dev mode only
+ * Automate a11y tests only in our dist folder
  */
-const distPath = window.location.pathname
-if (distPath.match('/dist/').length === 1) {
-  // a11y
+
+if (window.location.hostname === 'localhost' || window.location.pathname.includes('/dist/')) {
   const accessibilityTests = new AccessibilityTests()
   accessibilityTests.init()
+  window.scroll(0, 0)
 }

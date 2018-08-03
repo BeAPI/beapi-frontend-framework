@@ -4,15 +4,12 @@ module.exports = {
   entry: {
     app: ['./src/css/style.scss', './src/js/app.js'],
   },
-  assets_path: path.resolve(__dirname, './../dist/assets'),
-  assets_public_path: '/src/',
-  port: 9090,
+  assetsPath: path.resolve('./dist/assets'),
+  assetsPublicPath: 'assets/',
   dev: process.env.NODE_ENV === 'dev',
-  refresh: [
-    'dist/**/*.php',
-    'src/**/*.scss',
-    'dist/assets/*.js',
-    'dist/assets/img/icons/',
-    'dist/assets/img/icons/*.svg',
-  ],
+  devServer: {
+    contentBase: path.resolve('./dist/'),
+    overlay: true,
+    port: 8080,
+  },
 }

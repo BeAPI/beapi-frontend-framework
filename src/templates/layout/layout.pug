@@ -1,0 +1,17 @@
+include ../mixins/mixins.pug
+
+doctype html
+html.fonts-loading.no-js(lang='fr')
+    +head('BeAPI FrontEnd Framework | The WordPress BFF')
+
+    block vars
+        - var bodyClass='test'
+
+    body(class=bodyClass)
+        +header(true)
+
+        main#main__content.main__content(role="main" tabindex="-1" aria-label="Contenu Principal")
+            block content
+
+        include ../partials/footer/_footer.pug
+

@@ -1,0 +1,8 @@
+mixin page-header(title, date, image)
+    - title = typeof title === 'undefined' ? 'Titre de la page par défaut, avec sidebar' : title
+    - date = typeof date === 'undefined' ? '06/30/2015' : date
+    - image = typeof image === 'undefined' ? 'assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg' : image
+    header.page__header.lazyload(data-bgset=image)
+        .container
+            h1.page__title #{title}
+            .page__date Publié le <time datetime=#{date}>#{date}</time>

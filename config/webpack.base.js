@@ -3,21 +3,32 @@ const webpack = require('webpack')
 const config = require('./config')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 const SvgStore = require('webpack-svgstore-plugin')
 const cssLoaders = require('./css-loader.js')
-
-let root = path.resolve(__dirname)
+const htmlRender = require('./../tasks/html-render.js')('./../src/templates/', ['pages', 'partials'])
 
 let webpackBase = {
   devtool: config.dev ? 'source-map' : false,
   entry: config.entry,
   output: {
-    path: config.assets_path,
-    publicPath: config.assets_public_path,
+    path: config.assetsPath,
+    publicPath: config.assetsPublicPath,
     filename: config.dev ? '[name].js' : '[name].[chunkhash:8].min.js',
   },
+  devServer: config.devServer,
   module: {
     rules: [
+      {
+        test: /\.pug$/,
+        use: {
+          loader: 'pug-loader',
+          options: {
+            pretty: true,
+            self: true,
+          },
+        },
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
@@ -42,9 +53,12 @@ let webpackBase = {
       },
       {
         test: /\.(sass|scss)$/,
-        use: ExtractTextPlugin.extract({
-          use: [...cssLoaders, 'sass-loader'],
-        }),
+        use: ['css-hot-loader'].concat(
+          ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [...cssLoaders, 'sass-loader'],
+          })
+        ),
       },
       {
         test: /\.(woff2?|woff|eot|ttf|otf|mp3|wav)(\?.*)?$/,
@@ -59,7 +73,12 @@ let webpackBase = {
       {
         test: /\.(png|jpe?g|gif|svg)$/,
         use: [
-          'file-loader',
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+            },
+          },
           {
             loader: 'image-webpack-loader',
             options: {
@@ -102,8 +121,16 @@ let webpackBase = {
         to: '..',
       },
       {
+        from: 'src/icons/',
+        to: 'icons/',
+      },
+      {
         from: 'src/fonts/',
         to: 'fonts/',
+      },
+      {
+        from: 'src/img/icons/',
+        to: 'img/icons/',
       },
       {
         from: 'src/img/bg-sample/',
@@ -130,7 +157,8 @@ let webpackBase = {
         },
       }
     ),
-  ],
+    new HtmlWebpackHarddiskPlugin(),
+  ].concat(htmlRender),
 }
 
 module.exports = webpackBase

@@ -1,0 +1,8 @@
+mixin head(title)
+    - typeof title === 'undefined' ? 'BeAPI FrontEnd Framework | The WordPress BFF' : title
+
+    head
+        title= title
+        include ../../partials/header/_head-meta
+        include ../../partials/header/_head-favicon
+        include ../../partials/header/_head-assets

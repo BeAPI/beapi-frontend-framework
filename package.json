@@ -15,7 +15,6 @@
     "favicon": "node tasks/favicon.js && node tasks/favicon.js --appicon",
     "icons": "node tasks/svg-sprite.js",
     "composerjs": "cd composerjs && npm install && node app.js",
-    "svgicons": "node tasks/svg-sprite.js",
     "bump": "node tasks/style-version.js",
     "livingcss": "cd livingcss && npm install && gulp livingcss && gulp sass"
   },

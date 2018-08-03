@@ -19,5 +19,8 @@ module.exports = {
   },
   "plugins": [
     "prettier"
-  ]
+  ],
+  "globals": {
+    "jQuery": true
+  }
 };

@@ -1,4 +1,3 @@
-import $ from 'jquery'
 import 'superfish'
 
 class Menu {
@@ -30,7 +29,7 @@ class Menu {
   }
   sfMenuInit() {
     // Sf menu
-    $('.sf-menu').superfish()
+    jQuery('.sf-menu').superfish()
   }
   /**
    * Open menu

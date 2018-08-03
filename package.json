@@ -80,8 +80,6 @@
   },
   "dependencies": {
     "critical": "^0.7.3",
-    "jquery": "^3.3.1",
-    "jquery.placeholder": "^2.0.7",
     "lazysizes": "^4.0.4",
     "picturefill": "3.0.2"
   }

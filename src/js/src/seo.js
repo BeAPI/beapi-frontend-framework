@@ -2,6 +2,9 @@
  * Enable full area link on card like items using a link.
  * Only one link on the title
  */
+
+import '../polyfill/forEach'
+
 class SeoLink {
   /**
    * Spread link of a content to his top level element
@@ -16,10 +19,33 @@ class SeoLink {
    */
   constructor(element) {
     this.element = element
-    this.element.addEventListener('click', this.handleClick.bind(this), false)
+    this.setupTimer = this.setupTimer.bind(this)
+    this.handleClick = this.handleClick.bind(this)
+    this.element.addEventListener('mousedown', this.setupTimer, false)
+    this.element.addEventListener('mouseup', this.handleClick, false)
   }
 
-  handleClick() {
+  /**
+   * Start timer to prevent long press
+   * @param {Event} e
+   */
+  setupTimer(e) {
+    this.start = Date.now()
+    this.startX = e.clientX
+  }
+
+  /**
+   * Listen for a short click on a card
+   * @param {Event} e
+   */
+  handleClick(e) {
+    e.preventDefault()
+    this.end = Date.now()
+    this.endX = e.clientX
+    const timeout = Math.round(this.end - this.start)
+    if (timeout > 600 || Math.abs(this.startX - this.endX) > 100) {
+      return false
+    }
     const url = this.element.querySelector('a').getAttribute('href')
     window.open(url, '_self')
   }

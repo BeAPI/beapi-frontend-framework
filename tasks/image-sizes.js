@@ -1,5 +1,5 @@
 const fs = require('fs')
-const im = require('imagemagick')
+const im = require('@beapi/imagemagick')
 const sizeOf = require('image-size')
 const IMAGE_DIR = './src/img/sample/'
 const IMAGE_DST_DIR = './dist/assets/img/sample/'

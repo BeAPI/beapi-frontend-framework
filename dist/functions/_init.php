@@ -24,9 +24,9 @@ $inc_files = array(
 foreach ( $inc_files as $file ) {
 	$file_path = dirname( __FILE__ ) . '/../../../../plugins/advanced-responsive-images/classes/' . $file . '.php';
 	if ( ! is_file( $file_path ) ) {
-		// die( 'YOU MUST INSTALL ADVANCED RESPONSIVE IMAGES : https://github.com/asadowski10/advanced-responsive-images' );
+		die( 'YOU MUST INSTALL ADVANCED RESPONSIVE IMAGES : https://github.com/asadowski10/advanced-responsive-images' );
 	}
-	// require $file_path;
+	require $file_path;
 }
 
 // All inc files to include.
@@ -42,5 +42,5 @@ $modes = array(
 );
 
 foreach ( $modes as $file ) {
-	// require dirname( __FILE__ ) . '/../../../../plugins/advanced-responsive-images/classes/modes/' . $file . '.php';
+	require dirname( __FILE__ ) . '/../../../../plugins/advanced-responsive-images/classes/modes/' . $file . '.php';
 }

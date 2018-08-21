@@ -21,9 +21,7 @@ function wp_get_attachment_image_src() {}
 /**
  * @ignore
  */
-function esc_attr( $classes ) {
-	return $classes;
-}
+function esc_attr() {}
 
 /**
  * @ignore

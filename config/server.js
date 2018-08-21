@@ -1,6 +1,6 @@
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const webpackDev = require('./webpack.dev')
-const config = require('./config'))
+const config = require('./config')
 
 webpackDev.plugins.push(
   new BrowserSyncPlugin(

@@ -49,7 +49,7 @@
     "file-loader": "^0.11.2",
     "fs": "0.0.1-security",
     "image-webpack-loader": "^3.4.2",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.9.3",
     "optimize-css-assets-webpack-plugin": "^3.0.0",
     "ora": "^2.1.0",
     "penthouse": "^1.4.0",

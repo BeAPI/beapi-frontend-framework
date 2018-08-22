@@ -1,12 +1,11 @@
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const webpackDev = require('./webpack.dev')
 const config = require('./config')
-const host = require('./host')
 
 webpackDev.plugins.push(
   new BrowserSyncPlugin(
     {
-      proxy: 'http://' + host.host + ':' + config.port,
+      proxy: 'http://[::1]:' + config.port,
       watchOptions: {
         ignoreInitial: true,
         ignored: '*.txt',
@@ -40,3 +39,4 @@ webpackDev.plugins.push(
 )
 
 module.exports = webpackDev
+

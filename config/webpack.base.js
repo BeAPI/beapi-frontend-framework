@@ -1,31 +1,23 @@
+const path = require('path')
+const webpack = require('webpack')
 const config = require('./config')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
+const SvgStore = require('webpack-svgstore-plugin')
 const cssLoaders = require('./css-loader.js')
-const htmlRender = require('./../tasks/html-render.js')('./../src/templates/', ['pages', 'partials'])
+
+let root = path.resolve(__dirname)
 
 let webpackBase = {
   devtool: config.dev ? 'source-map' : false,
   entry: config.entry,
   output: {
-    path: config.assetsPath,
-    publicPath: config.assetsPublicPath,
+    path: config.assets_path,
+    publicPath: config.assets_public_path,
     filename: config.dev ? '[name].js' : '[name].[chunkhash:8].min.js',
   },
-  devServer: config.devServer,
   module: {
     rules: [
-      {
-        test: /\.pug$/,
-        use: {
-          loader: 'pug-loader',
-          options: {
-            pretty: true,
-            self: true,
-          },
-        },
-      },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
@@ -36,9 +28,9 @@ let webpackBase = {
               babelrc: true,
             },
           },
-          {
-            loader: 'eslint-loader',
-          },
+          // {
+          //   loader: 'eslint-loader',
+          // },
         ],
       },
       {
@@ -50,12 +42,9 @@ let webpackBase = {
       },
       {
         test: /\.(sass|scss)$/,
-        use: ['css-hot-loader'].concat(
-          ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: [...cssLoaders, 'sass-loader'],
-          })
-        ),
+        use: ExtractTextPlugin.extract({
+          use: [...cssLoaders, 'sass-loader'],
+        }),
       },
       {
         test: /\.(woff2?|woff|eot|ttf|otf|mp3|wav)(\?.*)?$/,
@@ -70,12 +59,7 @@ let webpackBase = {
       {
         test: /\.(png|jpe?g|gif|svg)$/,
         use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-            },
-          },
+          'file-loader',
           {
             loader: 'image-webpack-loader',
             options: {
@@ -100,6 +84,10 @@ let webpackBase = {
     ],
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+    }),
     new CopyWebpackPlugin([
       {
         from: 'src/js/vendor_async',
@@ -114,16 +102,8 @@ let webpackBase = {
         to: '..',
       },
       {
-        from: 'src/icons/',
-        to: 'icons/',
-      },
-      {
         from: 'src/fonts/',
         to: 'fonts/',
-      },
-      {
-        from: 'src/img/icons/',
-        to: 'img/icons/',
       },
       {
         from: 'src/img/bg-sample/',
@@ -134,8 +114,23 @@ let webpackBase = {
         to: 'img/sample/',
       },
     ]),
-    new HtmlWebpackHarddiskPlugin(),
-  ].concat(htmlRender),
+    new SvgStore(
+      path.resolve(__dirname, './../src/img/icons/*.svg'),
+      path.resolve(__dirname, './../dist/assets/img/icons/'),
+      {
+        name: 'icons',
+        prefix: 'icon-',
+        chunk: 'svg',
+        svgoOptions: {
+          plugins: [
+            {
+              removeTitle: true,
+            },
+          ],
+        },
+      }
+    ),
+  ],
 }
 
 module.exports = webpackBase

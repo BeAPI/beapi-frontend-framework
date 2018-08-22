@@ -40,9 +40,6 @@ wp-content/backups/
 sitemap.xml.gz
 .htpasswd
 
-### BeAPI Frontend Framework ###
-dist/
-
 ### SublimeText ###
 *.sublime-project
 *.sublime-workspace
@@ -67,3 +64,9 @@ dist/assets/img/sample/cache
 
 ### PHPStorm ###
 .idea/
+
+### Conf Webpack ###
+config/host.js
+
+### frontend build directory ###
+dist/

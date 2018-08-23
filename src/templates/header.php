@@ -42,7 +42,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<link rel="shortcut icon" href="assets/img/favicons/favicon.ico">
 
 		<!--[if lte IE 9]>
-			<script type="text/javascript" src="assets/js/vendor_ie/matchmedia-polyfill.js"></script>
+			<script type="text/javascript" src="assets/js/vendor_ie/matchMedia-polyfill.js"></script>
 			<script type="text/javascript" src="assets/js/vendor_ie/matchMedia.addListener.js"></script>
 			<script type="text/javascript" src="assets/js/vendor_ie/placeholders.min.js"></script>
 		<![endif]-->

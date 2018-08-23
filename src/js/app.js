@@ -6,6 +6,7 @@ import './polyfill/forEach'
 import lazySizes from 'lazysizes'
 import lazySizesBgset from 'lazysizes/plugins/bgset/ls.bgset'
 
+import './src/ie_message'
 import './src/menu'
 import './src/button-href'
 import './src/select'

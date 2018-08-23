@@ -58,7 +58,7 @@ class Assets implements Service{
 		// Theme js dependencies
 		$scripts_dependencies = [ 'jquery' ];
 
-		$this->assets_tools->register_script( 'matchmedia-polyfill', 'dist/assets/js/vendor_ie/matchmedia-polyfill.js', [], '1', false );
+		$this->assets_tools->register_script( 'matchMedia-polyfill', 'dist/assets/js/vendor_ie/matchMedia-polyfill.js', [], '1', false );
 		wp_script_add_data( 'matchmedia-polyfill', 'conditional', 'lte IE 9' );
 
 		$this->assets_tools->register_script( 'matchMedia-addListener', 'dist/assets/js/vendor_ie/matchMedia.addListener.js', [], '1', false );
@@ -88,8 +88,8 @@ class Assets implements Service{
 	 */
 	public function enqueue_scripts() {
 		// JS
-		$this->assets_tools->enqueue_script( 'matchmedia-polyfill' );
-		$this->assets_tools->enqueue_script( 'matchmedia-addListener' );
+		$this->assets_tools->enqueue_script( 'matchMedia-polyfill' );
+		$this->assets_tools->enqueue_script( 'matchMedia-addListener' );
 		$this->assets_tools->enqueue_script( 'placeholders' );
 		$this->assets_tools->enqueue_script( 'html5shiv' );
 		$this->assets_tools->enqueue_script( 'selectivizr' );

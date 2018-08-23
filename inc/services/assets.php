@@ -59,10 +59,10 @@ class Assets implements Service{
 		$scripts_dependencies = [ 'jquery' ];
 
 		$this->assets_tools->register_script( 'matchMedia-polyfill', 'dist/assets/js/vendor_ie/matchMedia-polyfill.js', [], '1', false );
-		wp_script_add_data( 'matchmedia-polyfill', 'conditional', 'lte IE 9' );
+		wp_script_add_data( 'matchMedia-polyfill', 'conditional', 'lte IE 9' );
 
 		$this->assets_tools->register_script( 'matchMedia-addListener', 'dist/assets/js/vendor_ie/matchMedia.addListener.js', [], '1', false );
-		wp_script_add_data( 'matchmedia-addListener', 'conditional', 'lte IE 9' );
+		wp_script_add_data( 'matchMedia-addListener', 'conditional', 'lte IE 9' );
 
 		$this->assets_tools->register_script( 'placeholders', 'dist/assets/js/vendor_ie/placeholders.min.js', [], '1', false );
 		wp_script_add_data( 'placeholders', 'conditional', 'lte IE 9' );

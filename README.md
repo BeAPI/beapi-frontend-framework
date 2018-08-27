@@ -1,9 +1,20 @@
 
 #  BeAPI FrontEnd Framework
 ##  What is it ?
-BeAPI FrontEnd Framework (BFF) is an open source framework for WordPress stacks. Mobile-first projects with a large useful tools for the Frontend Development like Webpack 3, PUG (Jade), LivingCSS, SASS, Critical CSS, Favicons generation and custom tools like ComposerJS.
+BeAPI FrontEnd Framework (BFF) is an open source framework for WordPress stacks. Mobile-first projects with the latest useful tools for the Frontend Development like Webpack 3, LivingCSS, SASS, Critical CSS, Favicons generation and custom tools like ComposerJS.
 
-## 💻 Installation
+##  Requirements
+You need to work in a wordpress environnement in order to make the BFF work with webpack for local dev. To do that you need to install [Advanced Responsive Images](https://github.com/asadowski10/advanced-responsive-images) in you're plugin folder.
+
+```git clone https://github.com/asadowski10/advanced-responsive-images.git```
+
+With this plugin you can manage thumbnails with the `<picture>` tag through differents configurations located in `src/conf-img`. For more details go to the [Responsive images section](#responsive-images)
+
+##  💻 Installation
+You have to install [Webpack](https://webpack.js.org/) and [Concurrently](https://www.npmjs.com/package/concurrently) globaly.
+
+```$ npm install webpack@3 concurrently -g```
+
 Clone the repository in the WordPress's themes folder. Remove the `.git` folder in order to work with your own repo.
 
 ```
@@ -21,18 +32,16 @@ Or using Yarn.
 ```
 $ yarn
 ```
-
-You also need imagemagick CLI tools. There are numerous ways to install them. For instance, if you're on OS X you can use Homebrew: `brew install imagemagick`.
-## 🔧 Configuration
+##  🔧 Configuration
 In the `config` directory, you can find the Webpack configurations files.
-- _browser-sync.js_ — the Browser Sync configuration
-- _config.js —_ the configuration settings (entries, output, port etc…)
+-   _config.js —_ the configuration settings (entries, output, port etc…)
 - _css-loader.js —_ the common loaders for CSS, SASS and SCSS filetypes
-- _webpack.base.js_ — the basic configuration of Webpack for development and production purpose
+- _server.js_ — the Browser Sync configuration
+- _webpack.base.js_ — the basic configuration of Webpack for development and production purpose.
 - _webpack.dev.js_ — the configuration of Webpack for development purpose
 - _webpack.prod.js_ — the configuration of Webpack for production purpose
 
-## 📦 How to use it ?
+##  📦 How to use it ?
 ### Local Server with Browser Sync
 You can launch a local php server with Browser Sync using :
 ```
@@ -41,16 +50,16 @@ $ npm start
 ### Development purpose
 If you don't need this server you can just compile styles and JS using :
 ```
-$ npm run build:dev
+$ npm run dev
 ```
 ### Production purpose
 For production purpose, you can compile all of your assets by using :
 ```
-$ npm run build:prod
+$ npm run prod
 ```
 If want to bump your WordPress theme version you can add a flag like this :
 ```
-$ npm run build:prod -- -t minor
+$ npm run prod -- -t minor
 ```
 For example, if you have a 1.2.1 theme version, it will be bumped to 1.3.0. You can replace `minor` by `patch` or `major`.
 
@@ -70,12 +79,6 @@ In the case of a multiple themes of a Wordpress project, you can use the previou
 ```
 $ sh build.sh [-t | -type] [patch | minor | major]
 ```
-
-### PUG (Jade) templates ###
-
-We use [PUG](https://pugjs.org/api/getting-started.html) for developping HTML static gabarits. PUG templates are in `src/templates/` path.
-
-See [PUG documentation](https://pugjs.org/api/getting-started.html) for more information.
 
 ### CSS/SASS Guideline ###
 
@@ -193,12 +196,12 @@ Something like this:
     </picture>
 ```
 
-We use [Node Imagemagick](https://github.com/rsms/node-imagemagick) to generate cropped images from `src/img/sample/` to the build.
+So with the [Advanced Responsive Images](https://github.com/asadowski10/advanced-responsive-images) plugin we can manage a `picture` tag with different file configuration.
 
 * provide a 2x img with "x" descriptor. perfect for thumbnails. ( srcset="my_image, my_image-HD 2x" )
 * provide a range of image depend on viewport with "w" descriptor. ( srcset="my_image-mobile 480w, my_image-tablet 768w, etc." )
 
-You can define image sizes in `src/conf-img/images-sizes.json`for example, a 100x100px cropped image:
+You can define image sizes in *src/conf-img/images-sizes.json* for example, a 100x100px cropped image:
 
     "img-100-100":
         {
@@ -207,7 +210,7 @@ You can define image sizes in `src/conf-img/images-sizes.json`for example, a 100
             "crop":true
         }
 
-And when your image sizes are made you have to pass them in a `src/conf-img/images-locations.json` like this :
+And when your image sizes are made you have to pass them in a *src/conf-img/images-locations.json* like this :
 
 ```
    "entry-img-01": [
@@ -240,33 +243,13 @@ Now you have to build you're picture template in `src/conf-img/tpl`. `default-pi
     <source data-srcset="%%img-300-200%%, %%img-600-400%% 2x" %%srcset%% />
 
 
-Now you can use a PUG mixin in your PUG templates.
+Now you can use it in your markup like this:
 
-    +bea-img("beapi_theme-img-2.jpg", "entry-img-01", "entry__img", "My awesome image")
+    <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01' ) ); ?>
 
-* The first parameter is the image filename
-* Second parameter is the data-location name specified in `images-locations.json` file
-* Third parameter is the className.
-* Fourth parameter is the value of the `alt` attribute.
+If you need to add a class to your picture (the lazyload class is added by default):
 
-This PUG example :
-
-    +bea-img("beapi_theme-img-2.jpg", "entry-img-01", "entry__img", "My awesome image")
-
-will generate in HTML :
-
-    <noscript>
-        <img class="lazyload entry__img" src="assets/img/sample/beapi_theme-img-2.jpg" alt="My awesome image">
-    </noscript>
-    <picture>
-        <!--[if IE 9]><video style="display: none"><![endif]-->
-        <source data-srcset="assets/img/sample/beapi_theme-img-2-100-100.jpg, assets/img/sample/beapi_theme-img-2-200-200.jpg 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" media="(max-width: 1024px)" data-location="entry-img-01">
-
-        <source data-srcset="assets/img/sample/beapi_theme-img-2-300-200.jpg, assets/img/sample/beapi_theme-img-2-600-400.jpg 2x" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-location="entry-img-01">
-        <!--[if IE 9]></video><![endif]-->
-
-        <img class="lazyload entry__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="My awesome image">
-    </picture>
+    <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'my_class_name' ) ); ?>
 
 We add Lazyload support too! We use [Lazysize](https://github.com/aFarkas/lazysizes) in addition to picturefill in order to provide responsive image served as fast as possible.
 

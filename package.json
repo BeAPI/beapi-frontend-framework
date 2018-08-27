@@ -10,12 +10,11 @@
     "start": "concurrently \"NODE_ENV=dev webpack --watch --config config/server.js\" \"php -S localhost:9090\" --kill-others",
     "dev": "NODE_ENV=dev webpack --watch --config config/webpack.dev.js",
     "prod": "webpack --config config/webpack.prod.js && npm run favicon && NODE_ENV=dev webpack --config config/webpack.dev.js",
-    "build": "npm run prod && node tasks/critical-css.js && node tasks/style-version.js && node tasks/svg-sprite.js && cd livingcss && npm install && gulp livingcss",
+    "build": "npm run prod && node tasks/critical-css.js && node tasks/style-version.js",
     "favicon": "node tasks/favicon.js && node tasks/favicon.js --appicon",
     "icons": "node tasks/svg-sprite.js",
     "composerjs": "cd composerjs && npm install && node app.js",
-    "bump": "node tasks/style-version.js",
-    "livingcss": "cd livingcss && npm install && gulp livingcss && gulp sass"
+    "bump": "node tasks/style-version.js"
   },
   "license": "GPL-2.0",
   "devDependencies": {

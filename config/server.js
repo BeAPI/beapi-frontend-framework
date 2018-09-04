@@ -6,22 +6,14 @@ webpackDev.plugins.push(
   new BrowserSyncPlugin(
     {
       proxy: 'http://[::1]:' + config.port,
-      watchOptions: {
-        ignoreInitial: true,
-        ignored: '*.txt',
-      },
       files: [
         {
           match: config.refresh,
           fn: function(event, file) {
             if (event === 'change') {
               const bs = require('browser-sync').get('bs-webpack-plugin')
-              bs.stream({ once: true })
-
-              if (file.indexOf('.scss') >= 0) {
-                setTimeout(function() {
-                  bs.reload()
-                }, 3000)
+              if (file.indexOf('.css') >= 0) {
+                bs.reload('*.css')
               } else {
                 bs.reload()
               }
@@ -30,10 +22,11 @@ webpackDev.plugins.push(
         },
       ],
       startPath: '/dist/index.php',
-      notify: false,
+      notify: true,
     },
     {
       reload: false,
+      injectCss: true,
     }
   )
 )

@@ -10,7 +10,7 @@ module.exports = {
   dev: process.env.NODE_ENV === 'dev',
   refresh: [
     'dist/**/*.php',
-    'src/**/*.scss',
+    'dist/assets/app.css',
     'dist/assets/*.js',
     'dist/assets/img/icons/',
     'dist/assets/img/icons/*.svg',

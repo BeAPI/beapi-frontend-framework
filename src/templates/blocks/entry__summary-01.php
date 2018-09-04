@@ -14,7 +14,7 @@
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac fringilla nunc. In hac habitasse platea dictumst. Pellentesque habitant morbi.</p>
 		</div>
 		<div class="entry__more">
-			<button data-href="#" class="entry__more-button">Readmore</a>
+			<button data-href="#" class="entry__more-button">Readmore</button>
 		</div>
 	</div>
 </article>

@@ -4,7 +4,7 @@
 BeAPI FrontEnd Framework (BFF) is an open source framework for WordPress stacks. Mobile-first projects with the latest useful tools for the Frontend Development like Webpack 3, SASS, Critical CSS, Favicons generation and custom tools like ComposerJS.
 
 ##  Requirements
-You need to work in a wordpress environnement in order to make the BFF work with webpack for local dev. To do that you need to install [Advanced Responsive Images](https://github.com/asadowski10/advanced-responsive-images) in you're plugin folder.
+You need to work in a wordpress environnement in order to make the BFF work with webpack for local dev. To do that you need to install [Advanced Responsive Images](https://github.com/asadowski10/advanced-responsive-images) in your plugin folder.
 
 ```git clone https://github.com/asadowski10/advanced-responsive-images.git```
 
@@ -131,7 +131,7 @@ We like to keep our code clean and readable. This is why we skip lines between e
 
 CSS partials are classified and saved in 6 mains folders
 
-* *root*. Where you're define common base. Variables, Mixins, Fonts, Susy library etc.
+* *root*. Where you define common base. Variables, Mixins, Fonts, Susy library etc.
 * *vendor*. It's where external ressources are (jQuery plugins fr example).
 * *plugins*. One file by WordPress plugins (Mailpoet, WPForms etc.). in order to define the base style of plugin in the theme. Make specific style in your patterns or pages.
 * *components*. The basics like button forms elements etc. It's where you can defined you root's styles for button input headings etc.
@@ -235,7 +235,7 @@ And when your image sizes are made you have to pass them in a *src/conf-img/imag
 
 `default_img` is used for default image if no image are provoded in WordPress Admin. `img_base` is used as fallback for older browser.
 
-Now you have to build you're picture template in `src/conf-img/tpl`. `default-picture.tpl` is the main `<picture>` container. In this tpl we can see the reference for the sources we want, for example in `entry-img-01.tpl` we want a square image under 1024px viewport, displayed in normal or 2x resolution, for bigger screen a landscape image:
+Now you have to build your picture template in `src/conf-img/tpl`. `default-picture.tpl` is the main `<picture>` container. In this tpl we can see the reference for the sources we want, for example in `entry-img-01.tpl` we want a square image under 1024px viewport, displayed in normal or 2x resolution, for bigger screen a landscape image:
 
     <source data-srcset="%%img-100-100%%, %%img-200-200%% 2x" media="(max-width: 1024px)" %%srcset%% />
     <source data-srcset="%%img-300-200%%, %%img-600-400%% 2x" %%srcset%% />

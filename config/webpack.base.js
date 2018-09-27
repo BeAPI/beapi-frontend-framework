@@ -1,12 +1,9 @@
 const path = require('path')
-const webpack = require('webpack')
 const config = require('./config')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const SvgStore = require('webpack-svgstore-plugin')
 const cssLoaders = require('./css-loader.js')
-
-let root = path.resolve(__dirname)
 
 let webpackBase = {
   devtool: config.dev ? 'source-map' : false,
@@ -84,10 +81,6 @@ let webpackBase = {
     ],
   },
   plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-    }),
     new CopyWebpackPlugin([
       {
         from: 'src/js/vendor_async',

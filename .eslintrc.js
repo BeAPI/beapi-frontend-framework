@@ -21,6 +21,7 @@ module.exports = {
     "prettier"
   ],
   "globals": {
-    "jQuery": true
+    "jQuery": true,
+    "$": true
   }
 };

@@ -14,8 +14,8 @@
     "bump": "node tasks/style-version.js",
     "start": "npm run icons && concurrently \"NODE_ENV=dev webpack --watch --config config/server.js\" \"php -S localhost:9090\" --kill-others",
     "dev": "NODE_ENV=dev webpack --watch --config config/webpack.dev.js",
-    "prod": "webpack --config config/webpack.prod.js && npm run icons && npm run favicon && NODE_ENV=dev webpack --config config/webpack.dev.js",
-    "build": "npm run prod && npm run critical && node tasks/style-version.js"
+    "prod": "webpack --config config/webpack.prod.js && npm run critical && node tasks/style-version.js",
+    "build": "npm run prod && npm run icons && npm run favicon && NODE_ENV=dev webpack --config config/webpack.dev.js && node tasks/style-version.js"
   },
   "license": "GPL-2.0",
   "devDependencies": {

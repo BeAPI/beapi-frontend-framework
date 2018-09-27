@@ -12,7 +12,7 @@
     "composerjs": "cd composerjs && npm install && node app.js",
     "critical": "node tasks/critical-css.js",
     "bump": "node tasks/style-version.js",
-    "start": "npm run icons && concurrently \"NODE_ENV=dev webpack --watch --config config/server.js\" \"php -S localhost:9090\" --kill-others",
+    "start": "npm run icons && concurrently -k -n \"Webpack,PHP Server\" -p \"[{name}]\" -c \"green, blue\" \"NODE_ENV=dev webpack --watch --config config/server.js\" \"php -S localhost:9090\"",
     "dev": "NODE_ENV=dev webpack --watch --config config/webpack.dev.js",
     "prod": "webpack --config config/webpack.prod.js && npm run critical && node tasks/style-version.js",
     "build": "npm run prod && npm run icons && npm run favicon && NODE_ENV=dev webpack --config config/webpack.dev.js && node tasks/style-version.js"

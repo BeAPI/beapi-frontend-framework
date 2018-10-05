@@ -24,7 +24,7 @@ $ cd name_of_my_theme
 $ mv build.sh ../../../
 $ rm -rf .git
 ```
-Then install dependencies width NPM.
+Then install dependencies with NPM.
 ```
 $ npm install
 ```
@@ -47,19 +47,29 @@ You can launch a local php server with Browser Sync using :
 ```
 $ npm start
 ```
-### Development purpose
-If you don't need this server you can just compile styles and JS using :
+But in order to work correctly you have to run a [build:dev](#development-build) script first (it will generate svg icons sprite)
+### Development purpose with watch
+If you don't need this server you can just compile AND watch styles and scripts (with sourcemap) using :
 ```
-$ npm run dev
+$ npm run watch
+```
+### Development build
+If you want to just build styles and scripts (with sourcemap) use :
+```
+$ npm run build:dev
 ```
 ### Production purpose
 For production purpose, you can compile all of your assets by using :
 ```
-$ npm run prod
+$ npm run build:prod
+```
+If you want to deliver assets for both dev and prod AND run a criticalCSS
+```
+$ npm run build
 ```
 If want to bump your WordPress theme version you can add a flag like this :
 ```
-$ npm run prod -- -t minor
+$ npm run bump -- -t minor
 ```
 For example, if you have a 1.2.1 theme version, it will be bumped to 1.3.0. You can replace `minor` by `patch` or `major`.
 

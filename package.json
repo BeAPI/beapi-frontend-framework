@@ -7,15 +7,16 @@
     "url": "https://github.com/BeAPI/beapi-frontend-framework"
   },
   "scripts": {
+    "composerjs": "cd composerjs && npm install && node app.js",
     "favicon": "node tasks/favicon.js && node tasks/favicon.js --appicon",
     "icons": "node tasks/svg-sprite.js",
-    "composerjs": "cd composerjs && npm install && node app.js",
     "critical": "node tasks/critical-css.js",
     "bump": "node tasks/style-version.js",
-    "start": "npm run icons && concurrently -k -n \"Webpack,PHP Server\" -p \"[{name}]\" -c \"green, blue\" \"NODE_ENV=dev webpack --watch --config config/server.js\" \"php -S localhost:9090\"",
-    "dev": "NODE_ENV=dev webpack --watch --config config/webpack.dev.js",
-    "prod": "webpack --config config/webpack.prod.js && npm run critical && node tasks/style-version.js",
-    "build": "npm run prod && npm run icons && npm run favicon && NODE_ENV=dev webpack --config config/webpack.dev.js && node tasks/style-version.js"
+    "start": "concurrently -k -n \"Webpack,PHP Server\" -p \"[{name}]\" -c \"green, blue\" \"NODE_ENV=dev webpack --watch --config config/server.js\" \"php -S localhost:9090\"",
+    "watch": "NODE_ENV=dev webpack --watch --config config/webpack.dev.js",
+    "build:dev": "NODE_ENV=dev webpack --config config/webpack.dev.js && npm run icons & npm run favicon",
+    "build:prod": "webpack --config config/webpack.prod.js && npm run icons & npm run favicon",
+    "build": "webpack --config config/webpack.prod.js && npm run build:dev && npm run critical"
   },
   "license": "GPL-2.0",
   "devDependencies": {

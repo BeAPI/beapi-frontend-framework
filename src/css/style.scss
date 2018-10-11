@@ -31,7 +31,6 @@
  */
 @import "components/svg-icons";
 @import "components/text";
-@import "components/img";
 @import "components/form";
 @import "components/buttons";
 @import "components/messages";
@@ -57,6 +56,13 @@
 @import "patterns/hero";
 @import "patterns/entries";
 @import "patterns/searchform";
+
+/**
+ * Wordpress
+ */
+@import "wp/img";
+@import "wp/gallery";
+@import "wp/wysiwyg";
 
 /**
  * Pages

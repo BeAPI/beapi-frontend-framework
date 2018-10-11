@@ -1,6 +1,6 @@
 class Iframe {
   constructor() {
-    this.target = document.querySelector('.entry__content')
+    this.target = document.querySelector('.wysiwyg')
   }
   init() {
     if (!this.target) {

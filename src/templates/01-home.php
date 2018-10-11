@@ -4,7 +4,7 @@
 		<div class="container">
 			<div class="hero lazyload" data-bgset="assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg">
 				<div class="container">
-					<h1 class="title">Welcome to the BFF</h1>
+					<h1>Welcome to the BFF</h1>
 				</div>
 			</div>
 			<div class="wysiwyg">

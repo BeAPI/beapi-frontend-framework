@@ -8,7 +8,7 @@
 			</div>
 		</div>
 	</div>
-	<article class="entry">
+	<article class="article">
 		<div class="container">
 			<div class="content">
 				<section class="wysiwyg">

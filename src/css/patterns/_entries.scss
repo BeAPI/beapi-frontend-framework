@@ -14,29 +14,6 @@
 	$parent : &;
 	@include clearfix;
 	/**
-	* An entry title base style. Used by default in single view.  
-	* Redefined in `.entry__item` and `.entry__card`.
-	*
-	* @section Entry Title
-	* @sectionof Entries
-	*
-	* @example
-	*	<h1 class="entry__title">A title</h1>
-	*/
-	&__title {
-		font-weight: 900;
-		text-transform: uppercase;
-		&>a {
-			text-decoration: none;
-			@include hover {
-				text-decoration: underline;
-			}
-		}
-	}
-	&__img {
-		@include img__responsive();
-	}
-	/**
 	* A entry item base style. dataused in an archive/index list
 	*
 	* @section Entry item
@@ -70,7 +47,18 @@
 		@include breakpoints(sm) {
 			margin-bottom: $base-spacing*2;
 		}
+		#{$parent}__title {
+			font-weight: 900;
+			text-transform: uppercase;
+			&>a {
+				text-decoration: none;
+				@include hover {
+					text-decoration: underline;
+				}
+			}
+		}
 		#{$parent}__img {
+			@include img__responsive();
 			margin-bottom: $base-spacing;
 			margin-left: auto;
 			margin-right: auto;

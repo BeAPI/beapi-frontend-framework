@@ -46,8 +46,15 @@ class SeoLink {
     if (timeout > 600 || Math.abs(this.startX - this.endX) > 100) {
       return false
     }
-    const url = this.element.querySelector('a').getAttribute('href')
-    window.open(url, '_self')
+    const link = this.element.querySelector('a')
+    const url = link.getAttribute('href')
+    const target = link.getAttribute('target')
+
+    if (target && target === '_blank') {
+      window.open(url, '_blank')
+    } else {
+      window.open(url, '_self')
+    }
   }
 }
 

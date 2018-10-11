@@ -1,9 +1,9 @@
 <?php $class = 'page'; ?>
 <?php include 'header.php'; ?>
-	<div class="page__header lazyload" data-bgset="assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg">
+	<div class="hero lazyload" data-bgset="assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg">
 		<div class="container">
-			<h1 class="page__title">Titre de la page par défaut, avec sidebar</h1>
-			<div class="page__date">
+			<h1 class="title">Titre de la page par défaut, avec sidebar</h1>
+			<div class="date">
 				Publié le <time datetime="2015-06-30">06/30/2015</time>
 			</div>
 		</div>

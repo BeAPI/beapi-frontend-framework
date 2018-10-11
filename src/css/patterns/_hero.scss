@@ -18,4 +18,11 @@
     @include row__fullwidth;
     padding: $base-spacing 0;
     margin-bottom: $base-spacing;
+    @include breakpoints(md) {
+        padding: 100px 0;
+    }
+    .container {
+        position: relative;
+        z-index: $zindex*4; //vs lazyloading layer
+    }
 }

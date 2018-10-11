@@ -1,23 +1,5 @@
 /* Page default css
 -------------------------------------------------------------- */
 .page {
-    $parent : &;
-
-    &__header {
-        margin-bottom: $base-spacing;
-		padding: $base-spacing / 2;
-
-		@include breakpoints(md) {
-			padding: 100px 0;
-		}
-		.container {
-			position: relative;
-			z-index: $zindex*2; //vs lazyloading layer
-		}
-		#{$parent}__title,
-        #{$parent}__date,
-        p {
-			color: $textcolor;
-		}
-    }
+	$parent : &;
 }

@@ -5,7 +5,7 @@ const config = require('./config')
 webpackDev.plugins.push(
   new BrowserSyncPlugin(
     {
-      proxy: 'http://[::1]:' + config.port,
+      proxy: 'http://localhost:' + config.port,
       files: [
         {
           match: config.refresh,

@@ -24,7 +24,8 @@ $inc_files = array(
 foreach ( $inc_files as $file ) {
 	$file_path = dirname( __FILE__ ) . '/../../../../plugins/advanced-responsive-images/classes/' . $file . '.php';
 	if ( ! is_file( $file_path ) ) {
-		die( 'YOU MUST INSTALL ADVANCED RESPONSIVE IMAGES : https://github.com/asadowski10/advanced-responsive-images' );
+		echo "<script>console.error('YOU MUST INSTALL ADVANCED RESPONSIVE IMAGES : https://github.com/asadowski10/advanced-responsive-images');</script>";
+		return false;
 	}
 	require $file_path;
 }

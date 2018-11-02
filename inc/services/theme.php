@@ -71,6 +71,6 @@ class Theme implements Service {
 	 * editor style
 	 */
 	private function editor_style() {
-		add_editor_style( 'dist/assets/editor-style.css' );
+		get_theme_file_path("dist/assets/editor-style.css");
 	}
 }

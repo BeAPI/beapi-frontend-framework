@@ -43,7 +43,12 @@ In the `config` directory, you can find the Webpack configurations files.
 
 ##  📦 How to use it ?
 ### Local Server with Browser Sync
-You can launch a local php server with Browser Sync using :
+First you need to add this following lines in your hosts files:
+```
+::1 localhost
+```
+
+Then you can launch a local php server with Browser Sync using :
 ```
 $ npm start
 ```

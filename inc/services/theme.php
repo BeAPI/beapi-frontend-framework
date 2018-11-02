@@ -39,6 +39,11 @@ class Theme implements Service {
 		 * Load translations.
 		 */
 		$this->i18n();
+
+		/**
+		 * Load editor style css.
+		 */
+		$this->editor_style();
 	}
 
 	/**
@@ -60,5 +65,12 @@ class Theme implements Service {
 	private function i18n() {
 		// Load theme texdomain
 		load_theme_textdomain( 'framework-textdomain', \get_theme_file_path( '/languages' ) );
+	}
+
+	/**
+	 * editor style
+	 */
+	private function editor_style() {
+		add_editor_style( 'dist/assets/editor-style.css' );
 	}
 }

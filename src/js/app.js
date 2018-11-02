@@ -3,6 +3,7 @@
  */
 import './polyfill/picturefill'
 import './polyfill/forEach'
+import './polyfill/objectfit-polyfill'
 import lazySizes from 'lazysizes'
 import lazySizesBgset from 'lazysizes/plugins/bgset/ls.bgset'
 

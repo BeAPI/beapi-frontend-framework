@@ -10,6 +10,7 @@
 @import "root/susy/sass/susy";
 
 @import "root/mixins";
+@import "root/functions";
 @import "root/variables";
 
 /**
@@ -36,6 +37,7 @@
 @import "components/messages";
 @import "components/seo";
 @import "components/iframe";
+@import "components/object-fit";
 
 /**
  * Plugins for WordPress plugin custom css (Mailpoet, WPForms etc.)

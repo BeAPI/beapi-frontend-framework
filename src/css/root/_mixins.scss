@@ -1,3 +1,15 @@
+/**
+ * 1. Font and Wording
+ * 2. Images
+ * 3. Forms
+ * 4. Miscellaneous
+ */
+
+
+/**
+ * 1. Font and Wording
+ */
+
 // FontFace. GO to root/_fonts.scss to see it in action
 @mixin declare-font-face($font-family, $font-filename, $font-weight : normal, $font-style :normal, $font-stretch : normal){
 	@font-face{
@@ -11,24 +23,43 @@
 	}
 }
 
-// Hover Active Focus pseudo selector mixin
-@mixin hover {
-	&:hover, &:active, &:focus {
-		@content;
+// Word wrap
+@mixin word-wrap($wrap: break-word) {
+	overflow-wrap: $wrap;
+	word-wrap: $wrap;
+
+	@if $wrap == break-word {
+	  word-break: break-all;
+	} @else {
+	  word-break: $wrap;
 	}
 }
+
+/**
+ * 2. Images
+ */
+
 // Image responsive
 @mixin img__responsive($max-width:100%) {
 	display: block;
 	max-width: $max-width;
 	height: auto;
 }
-// Insert content for extra style
-@mixin pseudo__content {
-	content: "";
-	display: block;
-	speak: none;
+
+// Object Fit polyfill
+@mixin object-fit($fit: cover, $position: null) {
+	object-fit: $fit;
+	@if $position {
+		object-position: $position;
+		font-family: 'object-fit: #{$fit}; object-position: #{$position}';
+	} @else {
+		font-family: 'object-fit: #{$fit}';
+	}
 }
+
+/**
+ * 3. Forms
+ */
 
 // Mixin for custom checkbox
 @mixin checkbox--custom($color: $maincolor, $size: 20px, $border-width: 2px) {
@@ -65,6 +96,7 @@
 	}
 }
 
+
 // Custom radio
 @mixin radio--custom() {
 	input[type="radio"] {
@@ -74,6 +106,39 @@
 			}
 		}
 	}
+}
+
+// Appearence for form elements
+@mixin appearance($value) {
+	appearance: $value;
+}
+
+// Customize placeholder
+@mixin placeholder {
+	$placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+	@each $placeholder in $placeholders {
+	  &:#{$placeholder}-placeholder {
+		@content;
+	  }
+	}
+}
+
+/**
+ * 4. Miscellaneous
+ */
+
+// Hover Active Focus pseudo selector mixin
+@mixin hover {
+	&:hover, &:active, &:focus {
+		@content;
+	}
+}
+
+// Insert content for extra style
+@mixin pseudo__content {
+	content: "";
+	display: block;
+	speak: none;
 }
 
 // Card base
@@ -91,6 +156,7 @@
 		margin-left: $base-spacing;
 	}
 }
+
 //fullwidth row
 @mixin row--fullwidth($position: relative) {
 	z-index: $zindex;
@@ -99,79 +165,12 @@
 	left: 50%;
 	transform: translateX(-50%) translateY(0);
 }
-// Bourbon's essentials mixins
-$em-base: 16px !default;
-// Strip units
-@function strip-units($value) {
-	@return ($value / ($value * 0 + 1));
-}
-// PX to EM
-@function em($pxval, $base: $em-base) {
-	@if not unitless($pxval) {
-	  $pxval: strip-units($pxval);
-	}
-	@if not unitless($base) {
-	  $base: strip-units($base);
-	}
-	@return ($pxval / $base) * 1em;
-}
-// PX to REM
-@function rem($pxval) {
-	@if not unitless($pxval) {
-	  $pxval: strip-units($pxval);
-	}
 
-	$base: $em-base;
-	@if not unitless($base) {
-	  $base: strip-units($base);
-	}
-	@return ($pxval / $base) * 1rem;
-}
 // Clearfix
 @mixin clearfix {
 	&::after {
 	  clear: both;
 	  content: "";
 	  display: table;
-	}
-}
-
-// Appearence for form elements
-@mixin appearance($value) {
-	appearance: $value;
-}
-
-// Assign inputs
-@function assign-inputs($inputs, $pseudo: null) {
-	$list: ();
-
-	@each $input in $inputs {
-		$input: unquote($input);
-		$input: if($pseudo, $input + ":" + $pseudo, $input);
-		$list: append($list, $input, comma);
-	}
-
-	@return $list;
-}
-
-// Customize placeholder
-@mixin placeholder {
-	$placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
-	@each $placeholder in $placeholders {
-	  &:#{$placeholder}-placeholder {
-		@content;
-	  }
-	}
-}
-
-// Word wrap
-@mixin word-wrap($wrap: break-word) {
-	overflow-wrap: $wrap;
-	word-wrap: $wrap;
-
-	@if $wrap == break-word {
-	  word-break: break-all;
-	} @else {
-	  word-break: $wrap;
 	}
 }

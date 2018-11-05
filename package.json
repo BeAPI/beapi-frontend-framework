@@ -10,6 +10,7 @@
     "composerjs": "cd composerjs && npm install && node app.js",
     "favicon": "node tasks/favicon.js && node tasks/favicon.js --appicon",
     "icons": "node tasks/svg-sprite.js",
+    "image": "node tasks/image-sizes.js",
     "critical": "node tasks/critical-css.js",
     "bump": "node tasks/style-version.js",
     "start": "npm run icons && concurrently -k -n \"Webpack,PHP Server\" -p \"[{name}]\" -c \"green, blue\" \"NODE_ENV=dev webpack --watch --config config/server.js\" \"php -S localhost:9090\"",

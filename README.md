@@ -43,9 +43,14 @@ In the `config` directory, you can find the Webpack configurations files.
 
 ##  📦 How to use it ?
 ### Local Server with Browser Sync
-First you need to add this following lines in your hosts files:
+First you need to add this following lines in your hosts files :
 ```
 ::1 localhost
+```
+
+You must build the dist folder before lauching the php server :
+```
+$ npm run build:dev
 ```
 
 Then you can launch a local php server with Browser Sync using :
@@ -74,7 +79,7 @@ $ npm run build
 ```
 If want to bump your WordPress theme version you can add a flag like this :
 ```
-$ npm run bump -- -t minor
+$ npm run bump -t minor
 ```
 For example, if you have a 1.2.1 theme version, it will be bumped to 1.3.0. You can replace `minor` by `patch` or `major`.
 

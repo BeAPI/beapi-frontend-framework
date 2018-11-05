@@ -12,7 +12,7 @@
     "icons": "node tasks/svg-sprite.js",
     "critical": "node tasks/critical-css.js",
     "bump": "node tasks/style-version.js",
-    "start": "npm run icons && concurrently -k -n \"Webpack,PHP Server\" -p \"[{name}]\" -c \"green, blue\" \"NODE_ENV=dev webpack --watch --config config/server.js\" \"php -S localhost:9090\"",
+    "start": "concurrently -k -n \"Webpack,PHP Server\" -p \"[{name}]\" -c \"green, blue\" \"NODE_ENV=dev webpack --watch --config config/server.js\" \"php -S localhost:9090\"",
     "watch": "NODE_ENV=dev webpack --watch --config config/webpack.dev.js",
     "build:dev": "NODE_ENV=dev webpack --config config/webpack.dev.js && npm run icons & npm run favicon",
     "build:prod": "webpack --config config/webpack.prod.js && npm run icons & npm run favicon",

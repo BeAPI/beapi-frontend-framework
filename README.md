@@ -43,9 +43,14 @@ In the `config` directory, you can find the Webpack configurations files.
 
 ##  📦 How to use it ?
 ### Local Server with Browser Sync
-First you need to add this following lines in your hosts files:
+First you need to add this following lines in your hosts files :
 ```
 ::1 localhost
+```
+
+You must build the dist folder before lauching the php server :
+```
+$ npm run build:dev
 ```
 
 Then you can launch a local php server with Browser Sync using :
@@ -74,14 +79,29 @@ $ npm run build
 ```
 If want to bump your WordPress theme version you can add a flag like this :
 ```
-$ npm run bump -- -t minor
+$ npm run bump -t minor
 ```
 For example, if you have a 1.2.1 theme version, it will be bumped to 1.3.0. You can replace `minor` by `patch` or `major`.
 
-### Favicons and appicons generation
-You can also generate appicons and favicons from the sources files in `src/img/favicons/` by using :
+### Assets
+Generate appicons and favicons from the sources files in `src/img/favicons/` by using :
 ```
 $ npm run favicon
+```
+
+Generate SVG sprite from the icons files in `src/img/icons/` by using :
+```
+$ npm run icons
+```
+
+Generate critical CSS, you must fill the configuration file `src/css/critical/conf/bea-critical-conf.json` by using :
+```
+$ npm run critical
+```
+
+Generate JSON image sizes and locations (more details in [the Responsive images](#responsive-images) section) by using :
+```
+$ npm run image
 ```
 
 ### Bump of WordPress theme version
@@ -214,7 +234,17 @@ So with the [Advanced Responsive Images](https://github.com/asadowski10/advanced
 * provide a 2x img with "x" descriptor. perfect for thumbnails. ( srcset="my_image, my_image-HD 2x" )
 * provide a range of image depend on viewport with "w" descriptor. ( srcset="my_image-mobile 480w, my_image-tablet 768w, etc." )
 
-You can define image sizes in *src/conf-img/images-sizes.json* for example, a 100x100px cropped image:
+You have to build your picture template in `src/conf-img/tpl`. `default-picture.tpl` is the main `<picture>` container. In this tpl we can see the reference for the sources we want, for example in `entry-img-01.tpl` we want a square image under 1024px viewport, displayed in normal or 2x resolution, for bigger screen a landscape image:
+
+    <source data-srcset="%%img-100-100%%, %%img-200-200%% 2x" media="(max-width: 1024px)" %%srcset%% />
+    <source data-srcset="%%img-300-200%%, %%img-600-400%% 2x" %%srcset%% />
+
+Then run the following command to generate your JSON image locations and sizes :
+```
+$ npm run image
+```
+
+Example of *src/conf-img/images-sizes.json* :
 
     "img-100-100":
         {
@@ -223,7 +253,7 @@ You can define image sizes in *src/conf-img/images-sizes.json* for example, a 10
             "crop":true
         }
 
-And when your image sizes are made you have to pass them in a *src/conf-img/images-locations.json* like this :
+Example of *src/conf-img/images-locations.json* :
 
 ```
    "entry-img-01": [
@@ -250,11 +280,7 @@ And when your image sizes are made you have to pass them in a *src/conf-img/imag
 
 `default_img` is used for default image if no image are provoded in WordPress Admin. `img_base` is used as fallback for older browser.
 
-Now you have to build your picture template in `src/conf-img/tpl`. `default-picture.tpl` is the main `<picture>` container. In this tpl we can see the reference for the sources we want, for example in `entry-img-01.tpl` we want a square image under 1024px viewport, displayed in normal or 2x resolution, for bigger screen a landscape image:
-
-    <source data-srcset="%%img-100-100%%, %%img-200-200%% 2x" media="(max-width: 1024px)" %%srcset%% />
-    <source data-srcset="%%img-300-200%%, %%img-600-400%% 2x" %%srcset%% />
-
+You can use this [Sketch extension](https://github.com/Nkzq/advanced-responsive-images-default) to generate default image according to your *images-locations.json* file. There is a sketch file provided in the *src/img/default* folder.
 
 Now you can use it in your markup like this:
 

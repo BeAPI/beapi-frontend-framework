@@ -4,23 +4,43 @@
       {
         "srcsets": [
           {
+            "srcset": "",
             "size": "img-100-100"
           },
           {
+            "srcset": "2x",
             "size": "img-200-200"
           },
           {
+            "srcset": "",
             "size": "img-300-200"
           },
           {
+            "srcset": "2x",
             "size": "img-600-400"
           }
         ],
-        "default_img": "default-300-200.jpg",
-        "img_base": "img-300-200"
+        "default_img": "default-600-400.jpg",
+        "img_base": "img-600-400"
       }
     ],
     "header-logo": [
+      {
+        "srcsets": [
+          {
+            "srcset": "",
+            "size": "img-100-100"
+          },
+          {
+            "srcset": "2x",
+            "size": "img-200-200"
+          }
+        ],
+        "default_img": "default-200-200.jpg",
+        "img_base": "img-200-200"
+      }
+    ],
+    "square": [
       {
         "srcsets": [
           {
@@ -40,24 +60,8 @@
             "size": "img-400-400"
           }
         ],
-        "default_img": "default-100-100.jpg",
-        "img_base": "img-100-100"
-      }
-    ],
-    "square": [
-      {
-        "srcsets": [
-          {
-            "srcset": "",
-            "size": "img-100-100"
-          },
-          {
-            "srcset": "2x",
-            "size": "img-200-200"
-          }
-        ],
-        "default_img": "default-100-100.jpg",
-        "img_base": "img-100-100"
+        "default_img": "default-400-400.jpg",
+        "img_base": "img-400-400"
       }
     ]
   }

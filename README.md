@@ -83,10 +83,20 @@ $ npm run bump -t minor
 ```
 For example, if you have a 1.2.1 theme version, it will be bumped to 1.3.0. You can replace `minor` by `patch` or `major`.
 
-### Favicons and appicons generation
-You can also generate appicons and favicons from the sources files in `src/img/favicons/` by using :
+### Assets
+Generate appicons and favicons from the sources files in `src/img/favicons/` by using :
 ```
 $ npm run favicon
+```
+
+Generate SVG sprite from the icons files in `src/img/icons/` by using :
+```
+$ npm run favicon
+```
+
+Generate critical CSS, you must fill the configuration file `src/css/critical/conf/bea-critical-conf.json` by using :
+```
+$ npm run critical
 ```
 
 ### Bump of WordPress theme version

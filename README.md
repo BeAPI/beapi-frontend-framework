@@ -91,7 +91,7 @@ $ npm run favicon
 
 Generate SVG sprite from the icons files in `src/img/icons/` by using :
 ```
-$ npm run favicon
+$ npm run icons
 ```
 
 Generate critical CSS, you must fill the configuration file `src/css/critical/conf/bea-critical-conf.json` by using :

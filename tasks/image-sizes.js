@@ -167,7 +167,7 @@ const exportCSV = () => {
       const splitSize = val.size.split('-')
       size.width = `${splitSize[1]}px`
       size.height = `${splitSize[2]}px`
-      size.ratio = size.width / size.height
+      size.ratio = splitSize[1] / splitSize[2]
       CSVObj.sizes.push(size)
     })
   }

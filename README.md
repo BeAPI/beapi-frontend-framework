@@ -101,7 +101,8 @@ $ npm run critical
 
 Generate JSON image sizes and locations (more details in [the Responsive images](#responsive-images) section) by using :
 ```
-$ npm run image
+# you can add csv as argument to generate a CSV file of image locations
+$ npm run image [csv]
 ```
 
 ### Bump of WordPress theme version

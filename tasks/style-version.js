@@ -1,11 +1,9 @@
-'use strict'
+const fs = require('fs')
 
-let fs = require('fs')
+const updateStyle = (content, type) => {
+  const regex = /[V|v]ersion: ([\d(\.)?]{0,})/g
 
-let updateStyle = function(content, type) {
-  let regex = /[V|v]ersion: ([\d(\.)?]{0,})/g
-
-  let nextVersion = content.replace(regex, function(match, gr1) {
+  const nextVersion = content.replace(regex, (match, gr1) => {
     let typeArr = gr1.split('.')
     typeArr = parseIntArr(typeArr)
     if (typeArr.length === 2) {
@@ -28,7 +26,7 @@ let updateStyle = function(content, type) {
   fs.writeFileSync('style.css', nextVersion)
 }
 
-let majorUpdate = function(types) {
+const majorUpdate = types => {
   types[0] += 1
   types[1] = 0
   types[2] = 0
@@ -36,34 +34,38 @@ let majorUpdate = function(types) {
   return types
 }
 
-let minorUpdate = function(types) {
+const minorUpdate = types => {
   types[1] += 1
   types[2] = 0
 
   return types
 }
 
-let patchUpdate = function(types) {
+const patchUpdate = types => {
   types[2] += 1
 
   return types
 }
 
-let parseIntArr = function(arr) {
+const parseIntArr = arr => {
   for (let i = 0; i < arr.length; i++) {
     arr[i] = parseInt(arr[i])
   }
   return arr
 }
 
-let content = fs.readFileSync('style.css', 'utf8')
-let type = 'patch'
-let typeAvailable = ['major', 'minor', 'patch']
-for (let i = 0; i < process.argv.length; i++) {
-  if (process.argv[i] === '-t' || process.argv[i] === '-type') {
-    if (typeAvailable.indexOf(process.argv[i + 1]) > -1) {
-      type = process.argv[i + 1]
+const init = () => {
+  const content = fs.readFileSync('style.css', 'utf8')
+  const typeAvailable = ['major', 'minor', 'patch']
+  let type = 'patch'
+  for (let i = 0; i < process.argv.length; i++) {
+    if (process.argv[i] === '-t' || process.argv[i] === '-type') {
+      if (typeAvailable.indexOf(process.argv[i + 1]) > -1) {
+        type = process.argv[i + 1]
+      }
     }
   }
+  updateStyle(content, type)
 }
-updateStyle(content, type)
+
+init()

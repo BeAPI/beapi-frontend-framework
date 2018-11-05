@@ -1,5 +1,7 @@
 const fs = require('fs')
 const ora = require('ora')
+const Json2csvParser = require('json2csv').Parser
+const fields = ['location', 'sizes.width', 'sizes.height', 'sizes.retina', 'sizes.ratio']
 
 const CONF_IMG_DIR = './src/conf-img'
 const IGNORED_TPL = 'default-picture.tpl'
@@ -7,11 +9,13 @@ const LOCATIONS_FILENAME = 'image-locations.json'
 const SIZES_FILENAME = 'image-sizes.json'
 const DEFAULT_PREFIX_NAME = 'default'
 const DEFAULT_EXT = 'jpg'
+const CSV_ZIP_PATH = `${CONF_IMG_DIR}/images-sizes.csv`
 
 const LOCATIONS = [{}]
 const SIZES_STORE = []
 const SIZES = [{}]
 
+const isExport = process.argv[2] === 'csv'
 let nbLocations = 0
 let nbSizes = 0
 
@@ -97,12 +101,43 @@ const writeSizesJSON = () => {
   createFile(`${CONF_IMG_DIR}/${SIZES_FILENAME}`, JSON.stringify(SIZES, null, 2))
 }
 
+const exportCSV = () => {
+  const CSVInfo = []
+  for (const location in LOCATIONS[0]) {
+    const CSVObj = {
+      location,
+      sizes: [],
+    }
+    CSVInfo.push(CSVObj)
+    const srcsets = LOCATIONS[0][location][0].srcsets
+    srcsets.forEach(val => {
+      const size = {}
+      size.retina = val.srcset === '2x' ? '✓' : '×'
+      const splitSize = val.size.split('-')
+      size.width = splitSize[1]
+      size.height = splitSize[2]
+      size.ratio = size.width / size.height
+      CSVObj.sizes.push(size)
+    })
+  }
+  const json2csvParser = new Json2csvParser({ fields, unwind: 'sizes' })
+  const csv = json2csvParser.parse(CSVInfo)
+  createFile(CSV_ZIP_PATH, csv)
+}
+
 const init = async () => {
   const spinner = ora('Generate image locations and sizes JSON files').start()
   await imageLocationsFromTpl()
   await cleanImageSizes()
   await writeLocationsJSON()
   await writeSizesJSON()
+  if (isExport) {
+    await exportCSV()
+    spinner.succeed(
+      `JSON files successfully generated !\nNumber of locations : ${nbLocations} \nNumber of sizes : ${nbSizes} \nCSV exported`
+    )
+    return
+  }
   spinner.succeed(
     `JSON files successfully generated !\nNumber of locations : ${nbLocations} \nNumber of sizes : ${nbSizes}`
   )

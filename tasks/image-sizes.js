@@ -19,8 +19,18 @@ const isExport = process.argv[2] === 'csv'
 let nbLocations = 0
 let nbSizes = 0
 
+/**
+ * Remove extension template name
+ * @param {string} name
+ * @return {String}
+ */
 const cleanLocationName = name => name.split('.')[0]
 
+/**
+ * Check if srcset is retina
+ * @param {String} src
+ * @return {Array}
+ */
 const isRetina = src => {
   const retina = []
   src.split(',').forEach(val => {
@@ -33,10 +43,36 @@ const isRetina = src => {
   return retina
 }
 
+/**
+ * Generate default location name based on image size
+ * @param {String} size
+ * @return {String}
+ */
 const cleanDefaultName = size => `${size.replace('img', DEFAULT_PREFIX_NAME)}.${DEFAULT_EXT}`
 
+/**
+ * Remove duplicate occurences of an array
+ * @param {Array} a
+ * @return {Array}
+ */
 const uniqueArray = a => a.filter((item, pos, self) => self.indexOf(item) === pos)
 
+/**
+ * Replace all occurences of a string
+ * @param {String} str
+ * @param {String} find
+ * @param {String} replace
+ * @return {String}
+ */
+const replaceAll = (str, find, replace) => {
+  return str.replace(new RegExp(find, 'g'), replace)
+}
+
+/**
+ * Create file if he does not exist
+ * @param {String} filename
+ * @param {String} json
+ */
 const createFile = (filename, json) => {
   fs.open(filename, 'r', (err, fd) => {
     if (err) {
@@ -47,6 +83,9 @@ const createFile = (filename, json) => {
   })
 }
 
+/**
+ * Get image locations informations from tpl files
+ */
 const imageLocationsFromTpl = () => {
   const templates = fs.readdirSync(`${CONF_IMG_DIR}/tpl/`).filter(tpl => tpl !== IGNORED_TPL)
   templates.forEach(tplName => {
@@ -81,6 +120,9 @@ const imageLocationsFromTpl = () => {
   })
 }
 
+/**
+ * Split image sizes into width and height
+ */
 const cleanImageSizes = () => {
   uniqueArray(SIZES_STORE).forEach(size => {
     nbSizes += 1
@@ -93,14 +135,23 @@ const cleanImageSizes = () => {
   })
 }
 
+/**
+ * Write image locations json file
+ */
 const writeLocationsJSON = () => {
   createFile(`${CONF_IMG_DIR}/${LOCATIONS_FILENAME}`, JSON.stringify(LOCATIONS, null, 2))
 }
 
+/**
+ * Write image sizes json file
+ */
 const writeSizesJSON = () => {
   createFile(`${CONF_IMG_DIR}/${SIZES_FILENAME}`, JSON.stringify(SIZES, null, 2))
 }
 
+/**
+ * Export all data as CSV
+ */
 const exportCSV = () => {
   const CSVInfo = []
   for (const location in LOCATIONS[0]) {
@@ -114,17 +165,21 @@ const exportCSV = () => {
       const size = {}
       size.retina = val.srcset === '2x' ? '✓' : '×'
       const splitSize = val.size.split('-')
-      size.width = splitSize[1]
-      size.height = splitSize[2]
+      size.width = `${splitSize[1]}px`
+      size.height = `${splitSize[2]}px`
       size.ratio = size.width / size.height
       CSVObj.sizes.push(size)
     })
   }
   const json2csvParser = new Json2csvParser({ fields, unwind: 'sizes' })
-  const csv = json2csvParser.parse(CSVInfo)
+  let csv = json2csvParser.parse(CSVInfo)
+  csv = replaceAll(csv, 'sizes.', '')
   createFile(CSV_ZIP_PATH, csv)
 }
 
+/**
+ * Init function
+ */
 const init = async () => {
   const spinner = ora('Generate image locations and sizes JSON files').start()
   await imageLocationsFromTpl()

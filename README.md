@@ -169,8 +169,9 @@ CSS partials are classified and saved in 6 mains folders
 
 * *root*. Where you define common base. Variables, Mixins, Fonts, Susy library etc.
 * *vendor*. It's where external ressources are (jQuery plugins fr example).
-* *plugins*. One file by WordPress plugins (Mailpoet, WPForms etc.). in order to define the base style of plugin in the theme. Make specific style in your patterns or pages.
 * *components*. The basics like button forms elements etc. It's where you can defined you root's styles for button input headings etc.
+* *wp-plugins*. One file by WordPress plugins (Mailpoet, WPForms etc.). in order to define the base style of plugin in the theme. Make specific style in your patterns or pages.
+* *wp*. Specific wp related pattern.
 * *patterns*. it's related to your modules. It's where you defined the basics for your module.
 * *pages*. a css file for each pages. very useful for change module behavior in a specific context.
 * All those parts are referenced in *src/css/style.scss*. Don't forget to add your files here in the correct order.

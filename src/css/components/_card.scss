@@ -4,12 +4,9 @@
     border: $base-border;
 
     @if ($flexDirection == row) {
-        .card__thumbnail {
-            flex: 1;
-        }
-
+        .card__thumbnail,
         .card__content {
-            flex: 2;
+            flex-basis: 50%;
         }
 
         .card__img {
@@ -18,12 +15,9 @@
     }
 
     @if ($flexDirection == row-reverse) {
-        .card__thumbnail {
-            flex: 1;
-        }
-
+        .card__thumbnail,
         .card__content {
-            flex: 2;
+            flex-basis: 50%;
         }
 
         .card__img {

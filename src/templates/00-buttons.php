@@ -3,11 +3,14 @@
 	<article class="article">
 		<div class="container">
 			<h2>Buttons</h2>
+			<hr>
 
 			<a href="#" class="button">I'm a link</a>
 			<button type="button" class="button">I'm a button</button>
 
 			<h2>Sizing</h2>
+			<hr>
+
 
 			<h3>Buttons</h3>
 			<button type="button" class="button button--xs">Tiny Button</button>
@@ -26,6 +29,8 @@
 			<a href="#" class="button button--expand button--xs">Expanded tiny Button</a>
 
 			<h2>Colors</h2>
+			<hr>
+
 			<h3>Buttons</h3>
 			<button type="button" class="button">Default Button</button>
 			<button type="button" class="button button--primary">Primary Button</button>
@@ -43,6 +48,8 @@
 			<a href="#" class="button button--info">Info Button</a>
 
 			<h2>Outline style</h2>
+			<hr>
+
 			<h3>Buttons</h3>
 			<button type="button" class="button button--outline">Outline Button</button>
 			<button type="button" class="button button--outline button--primary">Outline Primary Button</button>
@@ -60,6 +67,7 @@
 			<a href="#" class="button button--outline button--info">Outline Info Button</a>
 
 			<h2>Disabled style</h2>
+			<hr>
 			<button type="button" class="button" disabled>Disabled Button</button>
 			<button type="button" class="button button--error" disabled>Disabled Error Button</button>
 			<button type="button" class="button button--warning" disabled>Disabled Warning Button</button>
@@ -67,6 +75,7 @@
 			<button type="button" class="button button--info" disabled>Disabled Info Button</button>
 
 			<h2>Border Radius style</h2>
+			<hr>
 
 			<h3>Buttons</h3>
 			<button type="button" class="button button--round">Rounded Button</button>
@@ -147,9 +156,11 @@
 			</a>
 
 			<h2>Text style</h2>
+			<hr>
 			<button type="button" class="button button--text">Text Style Button</button>
 
 			<h2>Buttons icons</h2>
+			<hr>
 			<a class="button button--icon" href="https://beapi.fr">
 				<span class="visuallyhidden">Be API</span>
 				<svg class="icon icon-logo-beapi" aria-hidden="true" role="img">

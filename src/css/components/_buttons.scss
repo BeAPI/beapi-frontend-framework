@@ -5,7 +5,6 @@
  @mixin button {
 	display: inline-block;
 	vertical-align: middle;
-	margin: 0 0 $base-spacing 0;
 	padding: 8px 12px;
 	background-color: $maingrey;
 	border: 1px solid transparent;

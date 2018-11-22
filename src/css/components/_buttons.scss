@@ -35,6 +35,7 @@
 	width: 100%;
 	margin-left: 0;
 	margin-right: 0;
+	text-align: center;
 }
 
 // Coloring
@@ -48,7 +49,7 @@
 }
 
 // Outline style
-@mixin button--outline($borderColor: $maincolor, $color: $textcolor) {
+@mixin button--outline($borderColor: $maingrey, $color: $textcolor) {
 	background-color: transparent;
 	border-color: $borderColor;
 	color: $color;
@@ -110,6 +111,9 @@
 	&--expand {
 		@include button--expand;
 	}
+	&--primary {
+		@include button--colored($maincolor, $textcolor);
+	}
 	&--error {
 		@include button--colored($errorcolor-2, $errorcolor-1);
 	}
@@ -124,6 +128,10 @@
 	}
 	&--outline {
 		@include button--outline;
+
+		&#{$parent}--primary {
+			@include button--outline($maincolor, $textcolor);
+		}
 
 		&#{$parent}--error {
 			@include button--outline($errorcolor-2, $errorcolor-1);

@@ -1,9 +1,15 @@
 @mixin card($flexDirection: column) {
     display: flex;
-    flex-direction: $flexDirection;
     border: $base-border;
+    flex-direction: $flexDirection;
 
     @if ($flexDirection == row) {
+        flex-direction: column;
+
+        @include breakpoints(sm) {
+            flex-direction: $flexDirection;
+        }
+
         .card__thumbnail,
         .card__content {
             flex-basis: 50%;
@@ -15,6 +21,12 @@
     }
 
     @if ($flexDirection == row-reverse) {
+        flex-direction: column-reverse;
+
+        @include breakpoints(sm) {
+            flex-direction: $flexDirection;
+        }
+
         .card__thumbnail,
         .card__content {
             flex-basis: 50%;
@@ -33,6 +45,7 @@
 
     #{$parent}__img {
         display: block;
+        width: 100%;
         margin: 0 auto;
     }
 

@@ -35,7 +35,7 @@
                     <p class="card__excerpt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.</p>
                 </div>
             </div>
-            <div class="card card--row-reverse">
+            <div class="card card--row card--reverse">
                 <div class="card__thumbnail">
                     <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'card__img', 'alt' => '#' ) ); ?>
                 </div>

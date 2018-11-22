@@ -54,10 +54,10 @@
     // Horizontal card
     &--row {
         @include card(row);
-    }
 
-    // Horizontal card reversed
-    &--row-reverse {
-        @include card(row-reverse);
+        // Horizontal card reversed
+        &#{$parent}--reverse {
+            @include card(row-reverse);
+        }
     }
 }

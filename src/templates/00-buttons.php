@@ -7,6 +7,8 @@
 
 			<a href="#" class="button">I'm a link</a>
 			<button type="button" class="button">I'm a button</button>
+			<input type="button" class="button" value="I'm a button input">
+			<input type="submit" class="button" value="I'm a submit input">
 
 			<h2>Sizing</h2>
 			<hr>

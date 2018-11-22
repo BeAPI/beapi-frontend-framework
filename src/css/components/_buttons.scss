@@ -98,8 +98,6 @@
 
 	@include button;
 
-	margin-bottom: $base-spacing;
-
 	&--xs {
 		@include button--xs;
 	}

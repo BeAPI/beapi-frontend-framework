@@ -55,6 +55,10 @@
     &--row {
         @include card(row);
 
+        &#{$parent}--center {
+            align-items: center;
+        }
+
         // Horizontal card reversed
         &#{$parent}--reverse {
             @include card(row-reverse);

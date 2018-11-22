@@ -44,6 +44,26 @@
                     <p class="card__excerpt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.</p>
                 </div>
             </div>
+
+            <h2>Horizontal Centered</h2>
+            <div class="card card--row card--center">
+                <div class="card__thumbnail">
+                    <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'card__img', 'alt' => '#' ) ); ?>
+                </div>
+                <div class="card__content">
+                    <h2 class="card__title">Super title</h2>
+                    <p class="card__excerpt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.</p>
+                </div>
+            </div>
+            <div class="card card--row card--center card--reverse">
+                <div class="card__thumbnail">
+                    <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'card__img', 'alt' => '#' ) ); ?>
+                </div>
+                <div class="card__content">
+                    <h2 class="card__title">Super title</h2>
+                    <p class="card__excerpt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.</p>
+                </div>
+            </div>
 		</div>
 	</article>
 

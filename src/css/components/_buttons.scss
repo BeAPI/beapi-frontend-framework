@@ -9,6 +9,7 @@
 	background-color: $maingrey;
 	border: 1px solid transparent;
 	color: $textcolor;
+	line-height: 1.5;
 	transition: background-color .3s ease;
 
 	@include hover {

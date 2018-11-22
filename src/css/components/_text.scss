@@ -39,6 +39,7 @@ body {
 a {
 	color: $textcolor;
 	text-decoration: none;
+
 	@include hover {
 		color: $textcolor;
 	}

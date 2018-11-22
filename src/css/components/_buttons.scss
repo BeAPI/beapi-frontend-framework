@@ -1,108 +1,159 @@
 /**
  * Buttons
- *
- * The Button `.button` class can be applied to `<button>`, `<input>`, or `<a>` elements.  
- * Use `.button--round`, `.button--outline`, `.button--revert` class for a specific style.  
- * For SEO purpose use `data-href`, `data-target` and `data-filename` in order to have buttons playing as link.
- *
- * @section Buttons
- * @page components
- *
- * @example
- * <a href="#" class="button">Anchor</a>
- * <input type="submit" class="button--round" value="Input"/>
- * <button type="button" class="button--outline">Button</button>
- * <button type="button" class="button" data-href="https://beapi.fr/">Button as a link</button>
- * <button type="button" class="button" data-href="https://beapi.fr/" data-target="_blank">Button as a link in a new tab</button>
- * <button type="button" class="button" data-href="#pdf_name.pdf" data-target="download" data-filename="pdf_name.pdf">Button as a download link</button>
  */
 
- $buttons-list: 'button',
-'input[type="button"]',
-'input[type="reset"]',
-'input[type="submit"]';
-
-$all-buttons : assign-inputs($buttons-list);
-$all-button-inputs : $all-buttons;
-
-@mixin button {
+ @mixin button {
 	display: inline-block;
-	padding: 10px;
+	vertical-align: middle;
+	margin: 0 0 $base-spacing 0;
+	padding: 8px 12px;
+	background-color: $maingrey;
+	border: 1px solid transparent;
 	color: $textcolor;
-	border: 1px solid $maincolor;
-	background: $maincolor;
-	transition: border-color .25s ease-in-out, background-color .25s ease-in-out, transform .25s ease-in-out;
-	svg {
-		pointer-events: none;
-	}
-	&:hover {
-		color: $textcolor;
-		border-color: darken($maincolor, 5%);
-		background-color: darken($maincolor, 5%);
-		transform: translateY(-1px);
-	}
-	&:focus {
-		outline: none;
-		color: $textcolor;
-		border-color: darken($maincolor, 5%);
-		background-color: darken($maincolor, 5%);
-		transform: translateY(-1px);
-	}
-	&:active {
-		color: $textcolor;
-		border-color: $maincolor;
-		background-color: $maincolor;
-		transform: translateY(1px);
+	transition: background-color .3s ease;
+
+	@include hover {
+		background-color: darken($maingrey, 10%);
 	}
 }
 
-// Modifier mixins
+// Sizing
+@mixin button--xs {
+	font-size: 9px;
+}
+
+@mixin button--sm {
+	font-size: 12px;
+}
+
+@mixin button--lg {
+	font-size: 18px;
+}
+
+@mixin button--expand {
+	display: block;
+	width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+// Coloring
+@mixin button--colored($backgroundColor, $color) {
+	background-color: $backgroundColor;
+	color: $color;
+
+	@include hover {
+		background-color: darken($backgroundColor, 10%);
+	}
+}
+
+// Outline style
+@mixin button--outline($borderColor: $maincolor, $color: $textcolor) {
+	background-color: transparent;
+	border-color: $borderColor;
+	color: $color;
+
+	@include hover {
+		background-color: transparent;
+		border-color: darken($borderColor, 10%);
+	}
+}
+
+// Border Radius
 @mixin button--round {
-	border-radius: 5px;
+	border-radius: $base-border-radius;
 }
 
 @mixin button--circle {
 	border-radius: 50%;
 }
 
-@mixin button--outline {
-	color: $maincolor;
+// State style
+@mixin button--disabled {
+	opacity: 0.3;
+	cursor: not-allowed;
+
+	@include hover {
+
+	}
+}
+
+// Text style
+@mixin button--text {
+	padding: 0;
 	background-color: transparent;
+
+	@include hover {
+		background-color: transparent;
+	}
 }
 
-@mixin button--revert {
-	border-color: $lightcolor;
-	background-color: $lightcolor;
-	color: $darkcolor;
-}
-
-#{$all-button-inputs} {
-	@include button;
+// Button icon
+@mixin button--icon {
+	padding: 10px 11px;
 }
 
 .button {
 	$parent: &;
+
 	@include button;
-	&__text {
-		display: inline-block;
-		vertical-align: middle;
+
+	&--xs {
+		@include button--xs;
 	}
-	&__icon {
-		width: 5px;
-		height: 9px;
-		margin: 0 4px;
-		vertical-align: middle;
+	&--sm {
+		@include button--sm;
+	}
+	&--lg {
+		@include button--lg;
+	}
+	&--expand {
+		@include button--expand;
+	}
+	&--error {
+		@include button--colored($errorcolor-2, $errorcolor-1);
+	}
+	&--warning {
+		@include button--colored($noticecolor-2, $noticecolor-1);
+	}
+	&--success {
+		@include button--colored($successcolor-2, $successcolor-1);
+	}
+	&--info {
+		@include button--colored($infocolor-2, $infocolor-1);
 	}
 	&--outline {
 		@include button--outline;
-	}
-	&--revert {
-		@include button--revert;
+
+		&#{$parent}--error {
+			@include button--outline($errorcolor-2, $errorcolor-1);
+		}
+
+		&#{$parent}--warning {
+			@include button--outline($noticecolor-2, $noticecolor-1);
+		}
+
+		&#{$parent}--success {
+			@include button--outline($successcolor-2, $successcolor-1);
+		}
+
+		&#{$parent}--info {
+			@include button--outline($infocolor-2, $infocolor-1);
+		}
 	}
 	&--round {
 		@include button--round;
 	}
 	&--circle {
-		@include button--circle;
+		@include button--circle();
+	}
+	&--text {
+		@include button--text;
+	}
+	&--icon {
+		@include button--icon;
+	}
+	&[disabled] {
+		@include button--disabled;
 	}
 }

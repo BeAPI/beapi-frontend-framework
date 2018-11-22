@@ -46,14 +46,17 @@
         padding: $half-base-spacing;
     }
 
+    // Vertical card reversed
     &--reverse {
         @include card(column-reverse);
     }
 
+    // Horizontal card
     &--row {
         @include card(row);
     }
 
+    // Horizontal card reversed
     &--row-reverse {
         @include card(row-reverse);
     }

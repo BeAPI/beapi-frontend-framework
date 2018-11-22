@@ -69,12 +69,12 @@
 }
 
 // State style
-@mixin button--disabled {
+@mixin button--disabled($backgroundColor: $maingrey) {
 	opacity: 0.3;
 	cursor: not-allowed;
 
 	@include hover {
-
+		background-color: $backgroundColor;
 	}
 }
 
@@ -155,5 +155,21 @@
 	}
 	&[disabled] {
 		@include button--disabled;
+
+		&#{$parent}--error {
+			@include button--disabled($errorcolor-2);
+		}
+
+		&#{$parent}--warning {
+			@include button--disabled($noticecolor-2);
+		}
+
+		&#{$parent}--success {
+			@include button--disabled($successcolor-2);
+		}
+
+		&#{$parent}--info {
+			@include button--disabled($infocolor-2);
+		}
 	}
 }

@@ -1,70 +1,24 @@
-<?php $class = 'home'; ?>
-<?php include 'header.php'; ?>
+<?php $bodyClass = 'home'; ?>
+<?php include 'partials/header.php'; ?>
 	<article class="article">
 		<div class="container">
             <h1>Cards</h1>
 
             <h2>Vertical</h2>
-
-            <div class="card" style="max-width: 300px;">
-                <div class="card__thumbnail">
-                    <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'card__img', 'alt' => '#' ) ); ?>
-                </div>
-                <div class="card__content">
-                    <h2 class="card__title">Super title</h2>
-                    <p class="card__excerpt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.</p>
-                </div>
-            </div>
-            <div class="card card--reverse" style="max-width: 300px;">
-                <div class="card__thumbnail">
-                    <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'card__img', 'alt' => '#' ) ); ?>
-                </div>
-                <div class="card__content">
-                    <h2 class="card__title">Super title</h2>
-                    <p class="card__excerpt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.</p>
-                </div>
-            </div>
-
+            <?php includeWithVariables('cards/cards.php', array('cardClass' => 'card', 'cardTitle' => 'Card Title', 'cardExcerpt' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.')); ?>
+            <hr>
+            <?php includeWithVariables('cards/cards.php', array('cardClass' => 'card card--reverse', 'cardTitle' => 'Card Title', 'cardExcerpt' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.')); ?>
+            <hr>
             <h2>Horizontal</h2>
-            <div class="card card--row">
-                <div class="card__thumbnail">
-                    <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'card__img', 'alt' => '#' ) ); ?>
-                </div>
-                <div class="card__content">
-                    <h2 class="card__title">Super title</h2>
-                    <p class="card__excerpt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.</p>
-                </div>
-            </div>
-            <div class="card card--row card--reverse">
-                <div class="card__thumbnail">
-                    <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'card__img', 'alt' => '#' ) ); ?>
-                </div>
-                <div class="card__content">
-                    <h2 class="card__title">Super title</h2>
-                    <p class="card__excerpt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.</p>
-                </div>
-            </div>
-
+            <?php includeWithVariables('cards/cards.php', array('cardClass' => 'card card--row', 'cardTitle' => 'Card Title', 'cardExcerpt' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.')); ?>
+            <hr>
+            <?php includeWithVariables('cards/cards.php', array('cardClass' => 'card card--row card--reverse', 'cardTitle' => 'Card Title', 'cardExcerpt' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.')); ?>
+            <hr>
             <h2>Horizontal Centered</h2>
-            <div class="card card--row card--center">
-                <div class="card__thumbnail">
-                    <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'card__img', 'alt' => '#' ) ); ?>
-                </div>
-                <div class="card__content">
-                    <h2 class="card__title">Super title</h2>
-                    <p class="card__excerpt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.</p>
-                </div>
-            </div>
-            <div class="card card--row card--center card--reverse">
-                <div class="card__thumbnail">
-                    <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'card__img', 'alt' => '#' ) ); ?>
-                </div>
-                <div class="card__content">
-                    <h2 class="card__title">Super title</h2>
-                    <p class="card__excerpt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.</p>
-                </div>
-            </div>
+            <?php includeWithVariables('cards/cards.php', array('cardClass' => 'card card--row card--center', 'cardTitle' => 'Card Title', 'cardExcerpt' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.')); ?>
+            <hr>
+            <?php includeWithVariables('cards/cards.php', array('cardClass' => 'card card--row card--center card--reverse', 'cardTitle' => 'Card Title', 'cardExcerpt' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.')); ?>
 		</div>
 	</article>
 
-<?php include 'footer.php'; ?>
+<?php include 'partials/footer.php'; ?>

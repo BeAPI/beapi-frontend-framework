@@ -1,5 +1,5 @@
-<?php $class = 'archive'; ?>
-<?php include 'header.php'; ?>
+<?php $bodyClass = 'archive'; ?>
+<?php include 'partials/header.php'; ?>
     <div class="hero lazyload" data-bgset="assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg">
 		<div class="container">
             <h1>Two basic styles of archive list</h1>
@@ -7,17 +7,14 @@
 		</div>
     </div>
     <div class="container">
-        <h2>An example of entry list</h2>
-        <div class="entry__loop">
-            <?php include 'blocks/entry__summary-01.php' ?>
-            <?php include 'blocks/entry__summary-01.php' ?>
-            <?php include 'blocks/entry__summary-01.php' ?>
-        </div>
-        <h2>An example of entry "card" list</h2>
-        <div class="entry__loop">
-            <?php include 'blocks/entry__seo-01.php' ?>
-            <?php include 'blocks/entry__seo-01.php' ?>
-            <?php include 'blocks/entry__seo-01.php' ?>
+        <h2>Archive list</h2>
+        <div class="archive__list">
+            <?php for ($i=1; $i < 6; $i++) { ?>
+                <div class="archive__item">
+                    <?php includeWithVariables('cards/cards.php', array('cardClass' => 'card card--row card--center', 'cardTitle' => 'Card Title', 'cardExcerpt' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.')); ?>
+                    <hr>
+                </div>
+            <?php } ?>
         </div>
     </div>
-<?php include 'footer.php'; ?>
+<?php include 'partials/footer.php'; ?>

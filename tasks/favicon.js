@@ -6,6 +6,7 @@ const mkdirp = require('mkdirp')
 const faviconPath = 'src/img/favicons/'
 const faviconSource = faviconPath + 'favicon_src.png'
 const appiconSource = faviconPath + 'appicon_src.png'
+const distPath = './dist/assets/img/favicons'
 const appicon = process.argv.indexOf('--appicon') === -1
 
 let configuration = {
@@ -14,7 +15,7 @@ let configuration = {
   developerName: 'Be API',
   developerURL: 'http://beapi.fr',
   background: '#ffffff',
-  path: './dist/assets/img/favicons',
+  path: './',
   url: 'http://beapi.fr',
   display: 'standalone',
   orientation: 'portrait',
@@ -69,24 +70,24 @@ const callback = function(error, response) {
   }
 
   if (response.images) {
-    mkdirp.sync(configuration.path)
+    mkdirp.sync(distPath)
     response.images.forEach(image => {
-      console.log('\x1b[32m', `🤘 ${image.name} has been successfully generated into ${configuration.path}`)
-      return fs.writeFileSync(`${configuration.path}/${image.name}`, image.contents)
+      console.log('\x1b[32m', `🤘 ${image.name} has been successfully generated into ${distPath}`)
+      return fs.writeFileSync(`${distPath}/${image.name}`, image.contents)
     })
   }
 
   if (response.files) {
-    mkdirp.sync(configuration.path)
+    mkdirp.sync(distPath)
     response.files.forEach(file => {
-      console.log('\x1b[32m', `🤘 ${file.name} has been successfully generated into ${configuration.path}`)
-      return fs.writeFileSync(`${configuration.path}/${file.name}`, file.contents)
+      console.log('\x1b[32m', `🤘 ${file.name} has been successfully generated into ${distPath}`)
+      return fs.writeFileSync(`${distPath}/${file.name}`, file.contents)
     })
   }
 
   if (response.html) {
-    console.log('\x1b[32m', `🤘 ${configuration.html} has been successfully generated to ${configuration.path}`)
-    fs.writeFileSync(`${configuration.path}/${configuration.html}`, response.html.join('\n'))
+    console.log('\x1b[32m', `🤘 ${configuration.html} has been successfully generated to ${distPath}`)
+    fs.writeFileSync(`${distPath}/${configuration.html}`, response.html.join('\n'))
   }
 }
 

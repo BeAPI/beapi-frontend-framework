@@ -2,7 +2,6 @@
     display: flex;
     border: $base-border;
     flex-direction: $flexDirection;
-    max-width: $thumbnailWidth;
     margin: 0 auto;
 
     @if ($flexDirection == row) {
@@ -33,7 +32,6 @@
         flex-direction: column-reverse;
 
         @include breakpoints(sm) {
-            max-width: 100%;
             flex-direction: $flexDirection;
 
             .card__thumbnail {

@@ -4,10 +4,10 @@
 @import "root/url-config";
 
 /**
- * Load Susy with includePaths in tasks/sass.js
- * http://susydocs.oddbird.net/en/latest/
+ * Latest Susy 2.2.14
+ * https://susy.readthedocs.io/
  */
-@import "root/susy/sass/susy";
+@import "~susy/sass/susy";
 
 @import "root/mixins";
 @import "root/functions";
@@ -65,6 +65,9 @@
 @import "wp/img";
 @import "wp/gallery";
 @import "wp/wysiwyg";
+//Gutenberg align wide and full utilies, uncomment if gutenberg is supported
+//@import "wp/gutenberg";
+
 
 /**
  * Pages

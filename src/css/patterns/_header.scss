@@ -24,7 +24,7 @@
  .header {
 	@include clearfix;
 	position: relative;
-	z-index: z('site-header');
+	z-index: z('header');
 	margin-bottom: $base-spacing;
 	padding-top: $base-spacing;
 	padding-bottom: $base-spacing;

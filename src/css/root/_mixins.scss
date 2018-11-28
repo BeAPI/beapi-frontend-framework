@@ -168,9 +168,19 @@
 
 // Clearfix
 @mixin clearfix {
-	&::after {
-	  clear: both;
-	  content: "";
-	  display: table;
+	&:before, &:after {
+		content: "";
+		display: table;
 	}
+	&:after {
+		clear: both;
+	}
+}
+
+// Hardware acceleration
+@mixin hardware($backface: true, $perspective: 1000) {
+    @if $backface {
+        backface-visibility: hidden;
+    }
+    perspective: $perspective;
 }

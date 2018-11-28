@@ -19,18 +19,11 @@
 @import "root/fonts";
 @import "root/normalize";
 @import "root/box-sizing";
-@import "root/cssloading";
 
 /**
  * Components
  */
-@import "components/svg-icons";
 @import "components/text";
-@import "components/form";
-@import "components/buttons";
-@import "components/messages";
-@import "components/seo";
-@import "components/iframe";
 
 /**
  * Wordpress
@@ -38,3 +31,13 @@
 @import "wp/img";
 @import "wp/gallery";
 @import "wp/wysiwyg";
+
+/**
+ * Backend Classic editor container
+ */
+.mce-content-body {
+    margin: $base-spacing/2;
+    @include breakpoints(md) {
+        @include container;
+    }
+}

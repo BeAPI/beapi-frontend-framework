@@ -1,7 +1,8 @@
-<?php
-get_header();
-while ( have_posts() ) {
+<?php get_header(); ?>
+<div class="container">
+<?php while ( have_posts() ) {
 	the_post();
 	the_content();
-}
-get_footer();
+} ?>
+</div>
+<?php get_footer(); ?>

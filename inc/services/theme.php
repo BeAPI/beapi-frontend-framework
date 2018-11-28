@@ -16,7 +16,7 @@ class Theme implements Service {
 	 * @param Service_Container $container
 	 */
 	public function boot( Service_Container $container ) {
-		$this->add_theme_supports();
+		$this->after_setup_theme();
 	}
 
 	/**

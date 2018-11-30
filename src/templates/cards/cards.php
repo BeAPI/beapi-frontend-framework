@@ -1,4 +1,4 @@
-<div class="card <?php echo $cardClass; ?>" data-seo>
+<div class="<?php echo $cardClass; ?>" data-seo>
     <div class="card__thumbnail">
         <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'card__img', 'alt' => '#' ) ); ?>
     </div>

@@ -102,14 +102,14 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 				<li class="menu-fastaccess__item"><a href="#menu">Acces direct au menu</a></li>
 			</ul>
 			<div id="js-menu-trigger" class="menu-trigger">
-				<button type="button" id="js-menu-open" class="menu-trigger__open">
-					<svg class="button__icon icon icon-menu" aria-hidden="true" role="img">
+				<button type="button" id="js-menu-open" class="menu-trigger__open button button--primary">
+					<svg class="icon icon-menu" aria-hidden="true" role="img">
 						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-menu"></use>
 					</svg>
 					Menu
 				</button>
-				<button type="button" id="js-menu-close" class="menu-trigger__close">
-					<svg class="button__icon icon icon-close" aria-hidden="true" role="img">
+				<button type="button" id="js-menu-close" class="menu-trigger__close button button--primary">
+					<svg class="icon icon-close" aria-hidden="true" role="img">
 						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
 					</svg>
 					Fermer

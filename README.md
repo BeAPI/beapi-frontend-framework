@@ -1,7 +1,7 @@
 
 #  BeAPI FrontEnd Framework
 ##  What is it ?
-BeAPI FrontEnd Framework (BFF) is an open source framework for WordPress stacks. Mobile-first projects with the latest useful tools for the Frontend Development like Webpack 3, SASS, Critical CSS, Favicons generation and custom tools like ComposerJS.
+BeAPI FrontEnd Framework (BFF) is an open source framework for WordPress stacks. Mobile-first projects with the latest useful tools for the Frontend Development like Webpack 3, SASS, Favicons and SVG sprite icon generation and custom tools like ComposerJS.
 
 ##  Requirements
 You need to work in a wordpress environnement in order to make the BFF work with webpack for local dev. To do that you need to install [Advanced Responsive Images](https://github.com/asadowski10/advanced-responsive-images) in your plugin folder.
@@ -73,7 +73,7 @@ For production purpose, you can compile all of your assets by using :
 ```
 $ npm run build:prod
 ```
-If you want to deliver assets for both dev and prod AND run a criticalCSS
+If you want to deliver assets for both developpement and production
 ```
 $ npm run build
 ```
@@ -92,11 +92,6 @@ $ npm run favicon
 Generate SVG sprite from the icons files in `src/img/icons/` by using :
 ```
 $ npm run icons
-```
-
-Generate critical CSS, you must fill the configuration file `src/css/critical/conf/bea-critical-conf.json` by using :
-```
-$ npm run critical
 ```
 
 Generate JSON image sizes and locations (more details in [the Responsive images](#responsive-images) section) by using :

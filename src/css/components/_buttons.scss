@@ -65,8 +65,13 @@
 	border-radius: $base-border-radius;
 }
 
-@mixin button--circle {
-	border-radius: 50%;
+@mixin button--circle($size: 50px) {
+	padding: 0;
+	width: $size;
+	height: $size;
+	border-radius: $size;
+	line-height: $size;
+	text-align: center;
 }
 
 // State style

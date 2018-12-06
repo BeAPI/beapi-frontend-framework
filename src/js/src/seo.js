@@ -49,7 +49,8 @@ class SeoLink {
     const link = this.element.querySelector('a')
     const url = link.getAttribute('href')
     const target = link.getAttribute('target')
-    if (e.ctrlKey || e.metaKey || (target && target === '_blank')) {
+    const isBlank = e.which === 2 || e.ctrlKey || e.metaKey || (target && target === '_blank')
+    if (isBlank) {
       window.open(url, '_blank')
     } else {
       window.open(url, '_self')

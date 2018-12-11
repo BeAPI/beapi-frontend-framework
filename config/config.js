@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   entry: {
-    app: ['./src/js/app.js', './src/css/style.scss'],
+    app: ['@babel/polyfill', './src/js/app.js', './src/css/style.scss'],
     'editor-style': './src/css/editor-style.scss',
   },
   assets_path: path.resolve(__dirname, './../dist/assets'),

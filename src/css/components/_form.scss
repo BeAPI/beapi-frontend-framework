@@ -1,8 +1,8 @@
 /**
  * Form
  *
- * `.radio--custom` class can be applied to a parent div wrapping `<input type="radio">` element.  
- * `.checbox--custom` class can be applied to a parent div wrapping `<input type="checkbox">` element.  
+ * `.radio--custom` class can be applied to a parent div wrapping `<input type="radio">` element.
+ * `.checbox--custom` class can be applied to a parent div wrapping `<input type="checkbox">` element.
  * `.select--custom` class can be applied to a parent div wrapping `<select>` element.<br>
  *
  * @section Form
@@ -117,11 +117,9 @@ textarea {
 .select--custom {
 	position: relative;
 	padding: 0;
+	overflow: hidden;
 	margin: 0;
-	overflow: hidden;
 	border: 1px solid darken($lightcolor, 5%);
-	overflow: hidden;
-	background-color: $lightcolor;
 	background: $lightcolor url("#{$images-url}/icons/down.svg") no-repeat 98% 50%;
 	background-size: 11px 6px;
 	select {
@@ -140,7 +138,7 @@ textarea {
 		}
 	}
 }
-_:-ms-input-placeholder, :root .select--custom select { //ie10 
+_:-ms-input-placeholder, :root .select--custom select { //ie10
 	width: 120%;
 }
 .lte-ie9 .select--custom select { //ie9

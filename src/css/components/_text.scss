@@ -23,8 +23,8 @@
  */
 
 body {
-	font-size: $base-font-size;
-	line-height: $base-line-height;
+	font-size: $base-fz;
+	line-height: $base-lh;
 	font-family: $customfont-1;
 	color: $textcolor;
 	-webkit-font-smoothing: antialiased;
@@ -159,7 +159,7 @@ code {
 	background-color: $maingrey;
 	border: 1px solid $darkcolor;
 	font-family: monospace;
-	font-size: $base-font-size;
+	font-size: $base-fz;
 	border-radius: $base-border-radius;
 }
 s,

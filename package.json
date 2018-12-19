@@ -74,6 +74,7 @@
   "dependencies": {
     "concurrently": "^4.0.1",
     "lazysizes": "^4.1.4",
+    "normalize-scss": "^7.0.1",
     "object-fit-images": "^3.2.4",
     "picturefill": "3.0.2",
     "susy": "^2.2.14"

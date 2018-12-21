@@ -62,7 +62,7 @@
  */
 
 // Mixin for custom checkbox
-@mixin checkbox--custom($color: $maincolor, $size: 20px, $border-width: 2px) {
+@mixin checkbox--custom($color: $maincolor, $size: 1em, $border-width: 2px) {
 	margin-bottom: 20px;
 	input[type="checkbox"],
 	input[type="radio"] {
@@ -78,8 +78,8 @@
 				left: 0;
 				top: 1px;
 				background-color: transparent;
-				width: $size;
-				height: $size;
+				width: calc(#{$size} + #{$border-width});
+				height: calc(#{$size} + #{$border-width});
 				margin: 0;
 				border: $border-width solid $color;
 				cursor: pointer;
@@ -105,6 +105,61 @@
 				border-radius: 50%;
 			}
 		}
+	}
+}
+
+//Custom select
+@mixin select--custom {
+	display: block;
+	font-size: 16px; // prevent iOS zoom
+	color: $textcolor;
+	line-height: 1.15;
+	padding: $half-base-spacing $half-base-spacing*3 $half-base-spacing $half-base-spacing;
+	width: 100%;
+	max-width: 100%; /* useful when width is set to anything other than 100% */
+	margin: 0;
+	border: 1px solid $maingrey;
+	border-radius: 0;
+	appearance: none;
+	background-color: $lightcolor;
+	background-image: url('#{$src-url}/img/icons/down.svg'),
+	  linear-gradient(to bottom, $lightcolor 0%,$lightcolor 100%);
+	background-repeat: no-repeat, repeat;
+	background-position: right 10px top 50%, 0 0;
+	background-size: 10px auto, 100%;
+
+	// Hide arrow icon in IE browsers
+	&::-ms-expand {
+		display: none;
+	}
+
+	// Hover style
+	&:hover {
+		border-color: darken($maingrey, 10%);
+	}
+
+	// Focus style
+	&:focus {
+		border-color: darken($maingrey, 20%);
+		box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+		box-shadow: 0 0 0 3px -moz-mac-focusring;
+		color: darken($textcolor, 10%);
+		outline: none;
+		option {
+			outline: none;
+		}
+	}
+
+	// Set options to normal weight
+	option {
+		font-weight:normal;
+	}
+
+	// Support for rtl text, explicit support for Arabic and Hebrew
+	*[dir="rtl"] &,
+	:root:lang(ar) &,
+	:root:lang(iw) & {
+		background-position: left 10px top 50%, 0 0;
 	}
 }
 

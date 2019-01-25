@@ -57,7 +57,7 @@ class Favicons implements Service {
 
 		$favicons[] = '<meta name="mobile-web-app-capable" content="yes">';
 		$favicons[] = '<meta name="theme-color" content="#ffffff">';
-		$favicons[] = '<meta name="application-name" content="BFF">';
+		$favicons[] = '<meta name="application-name" content="' . get_bloginfo( 'name' ) . '">';
 
 		$favicons_atts = [
 			[
@@ -83,7 +83,7 @@ class Favicons implements Service {
 
 		$favicons[] = '<meta name="apple-mobile-web-app-capable" content="yes">';
 		$favicons[] = '<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">';
-		$favicons[] = '<meta name="apple-mobile-web-app-title" content="BFF">';
+		$favicons[] = '<meta name="apple-mobile-web-app-title" content="' . get_bloginfo( 'name' ) . '">';
 
 
 		$favicons_atts = [

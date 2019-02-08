@@ -21,8 +21,10 @@ class SeoLink {
     this.element = element
     this.setupTimer = this.setupTimer.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.preventClick = this.preventClick.bind(this)
     this.element.addEventListener('mousedown', this.setupTimer, false)
     this.element.addEventListener('mouseup', this.handleClick, false)
+    this.element.querySelector('a').addEventListener('click', this.preventClick)
   }
 
   /**
@@ -43,7 +45,7 @@ class SeoLink {
     this.end = Date.now()
     this.endX = e.clientX
     const timeout = Math.round(this.end - this.start)
-    if (timeout > 600 || Math.abs(this.startX - this.endX) > 100) {
+    if (timeout > 600 || Math.abs(this.startX - this.endX) > 100 || e.which === 3) {
       return false
     }
     const link = this.element.querySelector('a')
@@ -54,6 +56,17 @@ class SeoLink {
       window.open(url, '_blank')
     } else {
       window.open(url, '_self')
+    }
+    return false
+  }
+  /**
+   * Prevent left click on real link
+   * @param {Event} e
+   */
+  preventClick(e) {
+    if (e.which !== 3) {
+      e.preventDefault()
+      return false
     }
   }
 }

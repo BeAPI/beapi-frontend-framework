@@ -161,6 +161,11 @@ class Assets implements Service{
 				break;
 		}
 
+		// Custom type
+		if ( ! empty( $assets[ $type ] ) ) {
+			$file = $assets[ $type ];
+		}
+
 		if ( empty( $file ) ) {
 			return false;
 		}

@@ -1,4 +1,4 @@
-<?php $class = 'error-404'; ?>
+<?php $class = 'error404'; ?>
 <?php include 'header.php'; ?>
 	<article class="article">
 		<div class="container">

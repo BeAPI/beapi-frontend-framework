@@ -13,6 +13,9 @@ let webpackBase = {
     publicPath: config.assets_public_path,
     filename: config.dev ? '[name].js' : '[name].[chunkhash:8].min.js',
   },
+  externals: {
+    jquery: 'jQuery',
+  },
   module: {
     rules: [
       {

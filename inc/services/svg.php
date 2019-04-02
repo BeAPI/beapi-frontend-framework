@@ -33,7 +33,7 @@ class SVG implements Service {
 	}
 
 	public function footer_icons() {
-		if ( ! file_exists( \get_theme_file_path( '/dist/icons/icons.svg' ) ) ) {
+		if ( ! file_exists( \get_theme_file_path( '/dist/assets/img/icons/icons.svg' ) ) ) {
 			if ( defined('WP_DEBUG') && WP_DEBUG == true ) {
 				echo '<!-- No SVG File found -->';
 			}
@@ -41,7 +41,7 @@ class SVG implements Service {
 			return;
 		}
 
-		require_once( \get_theme_file_path( '/dist/icons/icons.svg' ) );
+		require_once( \get_theme_file_path( '/dist/assets/img/icons/icons.svg' ) );
 	}
 
 	/**

@@ -1,5 +1,5 @@
-<?php $class = 'error404'; ?>
-<?php include 'header.php'; ?>
+<?php $bodyClass = 'error404'; ?>
+<?php include 'partials/header.php'; ?>
 	<article class="article">
 		<div class="container">
 			<h1>Erreur 404</h1>
@@ -11,4 +11,4 @@
 		</div>
 	</article>
 
-<?php include 'footer.php'; ?>
+<?php include 'partials/footer.php'; ?>

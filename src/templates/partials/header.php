@@ -1,6 +1,4 @@
-<?php
-require( dirname( __FILE__ ) . '/functions/_init.php' );
-?>
+<?php include 'init.php'; ?>
 <!doctype html>
 <!--[if lte IE 9 ]> <html class="no-js ie lte-ie9 ie9" lang="fr"> <![endif]-->
 <!--[if !(IE)]><! -->
@@ -83,7 +81,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 		<script type="text/javascript" src="assets/js/vendor_async/jquery.js"></script>
 
 	</head>
-	<body class="<?php echo $class; ?>">
+	<body class="<?php echo $bodyClass; ?>">
 		<!--[if lte IE 9]>
 			<div class="message message__browserhappy">
 				<p>
@@ -123,7 +121,7 @@ require( dirname( __FILE__ ) . '/functions/_init.php' );
 							<svg class="header__icon icon" aria-hidden="true" role="img">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
 							</svg>
-							<?php if ( $class == 'home' ) :?>
+							<?php if ( $bodyClass == 'home' ) :?>
 								<h1 class="header__title visuallyhidden">BeAPI FrontEnd Framework</h1>
 							<?php else: ?>
 								<div class="header__title visuallyhidden">BeAPI FrontEnd Framework</div>

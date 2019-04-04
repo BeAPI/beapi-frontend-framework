@@ -2,7 +2,6 @@ const path = require('path')
 const config = require('./config')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const SvgStore = require('webpack-svgstore-plugin')
 const cssLoaders = require('./css-loader.js')
 
 let webpackBase = {
@@ -110,22 +109,6 @@ let webpackBase = {
         to: 'img/sample/',
       },
     ]),
-    new SvgStore(
-      path.resolve(__dirname, './../src/img/icons/*.svg'),
-      path.resolve(__dirname, './../dist/assets/img/icons/'),
-      {
-        name: 'icons',
-        prefix: 'icon-',
-        chunk: 'svg',
-        svgoOptions: {
-          plugins: [
-            {
-              removeTitle: true,
-            },
-          ],
-        },
-      }
-    ),
   ],
 }
 

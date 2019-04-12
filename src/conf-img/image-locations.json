@@ -21,15 +21,31 @@
         "srcsets": [
           {
             "srcset": "",
-            "size": "img-100-100"
+            "size": "img-45-50"
           },
           {
             "srcset": "2x",
-            "size": "img-200-200"
+            "size": "img-90-100"
           }
         ],
-        "default_img": "default-200-200.jpg",
-        "img_base": "img-200-200"
+        "default_img": "default-90-100.jpg",
+        "img_base": "img-90-100"
+      }
+    ],
+    "profil-header": [
+      {
+        "srcsets": [
+          {
+            "srcset": "",
+            "size": "img-30-30"
+          },
+          {
+            "srcset": "2x",
+            "size": "img-60-60"
+          }
+        ],
+        "default_img": "default-60-60.jpg",
+        "img_base": "img-60-60"
       }
     ],
     "square": [

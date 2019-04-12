@@ -10,6 +10,26 @@
       "height": "400",
       "crop": true
     },
+    "img-45-50": {
+      "width": "45",
+      "height": "50",
+      "crop": true
+    },
+    "img-90-100": {
+      "width": "90",
+      "height": "100",
+      "crop": true
+    },
+    "img-30-30": {
+      "width": "30",
+      "height": "30",
+      "crop": true
+    },
+    "img-60-60": {
+      "width": "60",
+      "height": "60",
+      "crop": true
+    },
     "img-100-100": {
       "width": "100",
       "height": "100",

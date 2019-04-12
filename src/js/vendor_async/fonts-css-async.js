@@ -8,13 +8,12 @@ g=n.a.offsetWidth,h=p.a.offsetWidth,u();q=setTimeout(I,50)}}var e=new r(k),n=new
 z(p,function(a){h=a;u()});t(p,L(c,'"'+c.family+'",monospace'))})})};"object"===typeof module?module.exports=A:(window.FontFaceObserver=A,window.FontFaceObserver.prototype.load=A.prototype.load);}());
 
 // detect loading of fonts using fontfaceobserver
-var Roboto = new FontFaceObserver("Roboto");
-var Circular = new FontFaceObserver("Circular");
+var sofia = new FontFaceObserver("sofia-pro");
 
 //Fallback condition for non Promise ready browsers
 if (typeof Promise !== "undefined") {
 	//Load any fonts you want
-	Promise.all([Roboto.load(), Circular.load()]).then(function () {
+	Promise.all([sofia.load()]).then(function () {
 		//Add class when fonts are loaded
 		document.documentElement.classList.remove('fonts-loading');
 		// set mark on storage for future page views

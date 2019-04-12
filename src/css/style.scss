@@ -17,7 +17,6 @@
  * Root styles
  * @font-face first !
  */
-@import "root/fonts";
 @import "~normalize-scss/sass/normalize/import-now";
 @import "root/box-sizing";
 @import "root/cssloading";
@@ -58,6 +57,7 @@
 @import "patterns/menu-fastaccess";
 @import "patterns/hero";
 @import "patterns/searchform";
+@import "patterns/profil";
 
 /**
  * Wordpress

@@ -9,13 +9,13 @@
 		<meta name="viewport" content="initial-scale=1.0" />
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-		<title>TMA Be API</title>
+		<title>BeAPI FrontEnd Framework | The WordPress BFF</title>
 
 		<!-- Web App favicons from /assets/img/favicons/index_hd.html -->
 		<link rel="manifest" href="assets/img/favicons/manifest.json">
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="theme-color" content="#ffffff">
-		<meta name="application-name" content="TMA Be API">
+		<meta name="application-name" content="BFF">
 		<link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicons/apple-touch-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicons/apple-touch-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicons/apple-touch-icon-72x72.png">
@@ -38,8 +38,6 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
 		<link rel="shortcut icon" href="assets/img/favicons/favicon.ico">
-
-		<link rel="stylesheet" href="https://use.typekit.net/yrt7ril.css">
 
 		<!--[if lte IE 9]>
 			<script type="text/javascript" src="assets/js/vendor_ie/matchMedia-polyfill.js"></script>
@@ -117,28 +115,32 @@
 			</div>
 			<header id="header" class="header" role="banner">
 				<div class="container">
-					<div class="header__left">
-						<div class="header__logo">
-							<a href="01-home.php" class="header__logo-link">
-								<?php echo get_the_post_thumbnail( 0, 'logo-beapi', array( 'data-location' => 'header-logo', 'class' => 'header__img', 'alt' => 'Logo' ) ); ?>
-								<?php if ( $bodyClass == 'home' ) :?>
-									<h1 class="header__title visuallyhidden">BeAPI FrontEnd Framework</h1>
-								<?php else: ?>
-									<div class="header__title visuallyhidden">BeAPI FrontEnd Framework</div>
-								<?php endif; ?>
-							</a>
-						</div>
-						<nav id="menu" class="menu" role="navigation" tabindex="-1" aria-label="Navigation Principal">
-							<ul class="menu__list">
-								<li class="menu-item current-menu-item"><a href="02-page-default.php">Vue d’ensemble</a></li>
-								<li class="menu-item"><a href="03-archive-default.php">Vue par projet</a></li>
-							</ul>
-						</nav>
+					<div class="header__logo">
+						<a href="01-home.php" class="header__logo-link">
+							<!-- <?php //echo get_the_post_thumbnail( 0, 'logo-beapi', array( 'data-location' => 'header-logo', 'class' => 'header__img', 'alt' => 'Logo' ) ); ?>  -->
+							<svg class="header__icon icon" aria-hidden="true" role="img">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
+							</svg>
+							<?php if ( $bodyClass == 'home' ) :?>
+								<h1 class="header__title visuallyhidden">BeAPI FrontEnd Framework</h1>
+							<?php else: ?>
+								<div class="header__title visuallyhidden">BeAPI FrontEnd Framework</div>
+							<?php endif; ?>
+						</a>
 					</div>
-					<div class="header__right">
-						<?php include './partials/header/searchform.php'; ?>
-						<?php include './partials/header/profil.php'; ?>
-					</div>
+					<nav id="menu" class="menu" role="navigation" tabindex="-1" aria-label="Navigation Principal">
+						<ul class="menu__list sf-menu">
+							<li class="menu-item current-menu-item menu-item-has-children">
+								<a href="01-home.php">Home</a>
+								<ul class="sub-menu">
+									<li class="menu-item"><a href="#">Sub menu item</a></li>
+								</ul>
+							</li>
+							<li class="menu-item"><a href="02-page-default.php">Page default</a></li>
+							<li class="menu-item"><a href="03-archive-default.php">Archive default</a></li>
+							<li class="menu-item"><a href="04-page-404.php">Page 404</a></li>
+						</ul>
+					</nav>
 				</div>
 			</header>
 			<main id="main__content" class="main__content" role="main" tabindex="-1" aria-label="Contenu Principal">

@@ -49,11 +49,7 @@
 	}
 
 	&__list {
-		margin-bottom: 0;
 		@include clearfix;
-		@include breakpoints(md) {
-			margin-left: 48px;
-		}
 
 		&>#{$menu-item} {
 			@include breakpoints(md) {
@@ -84,7 +80,8 @@
 			&.current-menu-parent,
 			&.current-menu-ancestor {
 				&>a {
-					opacity: 1;
+					background: $maincolor;
+					color: $textcolor;
 				}
 			}
 		}
@@ -93,14 +90,11 @@
 	#{$menu-item} {
 		&>a {
 			display: block;
-			padding: 10px 22px;
-			font-size: 14px;
-			font-weight: 300;
-			color: $lightcolor;
-			opacity: .2;
-			transition: opacity .25s ease-in-out;
+			padding: 10px;
+
 			@include hover {
-				opacity: 1;
+				color:$textcolor;
+				background:$maincolor;
 			}
 		}
 		@include hover {

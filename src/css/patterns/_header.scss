@@ -29,24 +29,6 @@
 	padding-top: $base-spacing;
 	padding-bottom: $base-spacing;
 	background-color: $maincolor;
-	height: 90px;
-	& > .container {
-		@include breakpoints(md) {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			padding: 0 20px;
-			max-width: 1440px;
-		}
-	}
-	&__right, &__left {
-		display: flex;
-		align-items: center;
-		flex: 1;
-	}
-	&__right {
-		justify-content: flex-end;
-	}
 	&__logo-link {
 		display: block;
 	}
@@ -54,9 +36,11 @@
 		display: block;
 		height: 50px;
 		width: 50px;
+		margin: 0 auto 10px;
 		color: $textcolor;
 	}
 	&__img {
 		@include img__responsive();
+		margin: 0 auto $base-spacing;
 	}
 }

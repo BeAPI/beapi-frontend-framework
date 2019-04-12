@@ -1,0 +1,10 @@
+//Roboto for body text
+@include declare-font-face("Roboto", "#{$fonts-url}/roboto-v15-latin/roboto-v15-latin-regular"); //regularx400
+@include declare-font-face("Roboto", "#{$fonts-url}/roboto-v15-latin/roboto-v15-latin-500", 500); //mediumx500
+@include declare-font-face("Roboto", "#{$fonts-url}/roboto-v15-latin/roboto-v15-latin-700", bold); //boldx700
+
+//Circular for Hn
+@include declare-font-face("Circular", "#{$fonts-url}/Circular/CircularStdBook"); //regularx400
+@include declare-font-face("Circular", "#{$fonts-url}/Circular/CircularStdMedium", 500); //mediumx500
+@include declare-font-face("Circular", "#{$fonts-url}/Circular/CircularStdBold", bold); //boldx700
+@include declare-font-face("Circular", "#{$fonts-url}/Circular/CircularStdBlack", 900); //blackx900

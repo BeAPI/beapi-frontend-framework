@@ -24,41 +24,14 @@
 
 .searchform {
 	position: relative;
-	width: 300px;
-	height: 37px;
-	margin-right: 75px;
-	background-color: $darkcolor;
-	border-radius: 18px;
-	&__field {
-		background-color: transparent !important;
-		padding-left: 55px !important;
-		height: 37px;
-		border: none !important;
-		outline: none;
-		font-size: 12px;
-		color: $lightcolor !important;
-		@include placeholder {
-			opacity: .2;
-		}
+	&__field[type=search] {
+		padding-right: $base-spacing*1.5;
 	}
 	&__submit {
 		position: absolute;
-		left: 18px;
-		top: 50%;
-		margin-top: -9px;
-		padding: 0;
-		background-color: transparent;
-		border: none;
-		color: $lightcolor;
-		opacity: .2;
-		transition: opacity .25s ease-in-out;
-		@include hover {
-			opacity: 1;
-			cursor: pointer;
-		}
+		top: 0; right: 0; bottom: 0;
 		.icon {
-			width: 14px;
-			height: 14px;
+			vertical-align: -15%;
 		}
 	}
 }

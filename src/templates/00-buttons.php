@@ -1,5 +1,4 @@
-<?php $class = 'home'; ?>
-<?php include 'header.php'; ?>
+<?php include 'partials/header.php'; ?>
 	<article class="article">
 		<div class="container">
 			<p>
@@ -237,4 +236,4 @@
 		</div>
 	</article>
 
-<?php include 'footer.php'; ?>
+<?php include 'partials/footer.php'; ?>

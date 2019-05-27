@@ -1,7 +1,7 @@
 <div class="searchform" id="searchform" tabindex="-1">
 	<form role="form" method="get" action="#" >
 		<div class="form__row">
-			<label for="search">Recherchez</label>
+			<label for="search" class="visuallyhidden">Recherchez</label>
 		</div>
 		<div class="form__row">
 			<input type="search" class="searchform__field" name="s" id="search" placeholder="Entrez un mot clé" aria-required="true" required="required">

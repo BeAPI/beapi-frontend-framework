@@ -6,7 +6,7 @@
 			<section class="wysiwyg">
 				<p>Désolé mais la page que vous recherchez n'existe plus.</p>
 				<p>Vous pouvez effectuer une recherche :</p>
-				<?php include 'searchform.php'; ?>
+				<?php include 'partials/searchform.php'; ?>
 			</section>
 		</div>
 	</article>

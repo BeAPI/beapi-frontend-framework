@@ -121,7 +121,7 @@ const webpackConfig = {
       },
       {
         from: 'src/templates/',
-        to: '..',
+        to: './',
       },
       {
         from: 'src/fonts/',

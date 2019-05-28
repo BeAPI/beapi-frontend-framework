@@ -9,8 +9,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const webpackConfig = {
   entry: config.entry,
   output: {
-    path: config.assets_path,
-    publicPath: config.assets_public_path,
+    path: config.assetsPath,
+    publicPath: config.assetsPublicPath,
   },
   optimization: {},
   externals: {
@@ -113,11 +113,11 @@ const webpackConfig = {
     new CopyWebpackPlugin([
       {
         from: 'src/js/vendor_async',
-        to: 'js/vendor_async',
+        to: config.assetsDirectory + 'js/vendor_async',
       },
       {
         from: 'src/js/vendor_ie',
-        to: 'js/vendor_ie',
+        to: config.assetsDirectory + 'js/vendor_ie',
       },
       {
         from: 'src/templates/',
@@ -125,15 +125,15 @@ const webpackConfig = {
       },
       {
         from: 'src/fonts/',
-        to: 'fonts/',
+        to: config.assetsDirectory + 'fonts/',
       },
       {
         from: 'src/img/bg-sample/',
-        to: 'img/bg-sample/',
+        to: config.assetsDirectory + 'img/bg-sample/',
       },
       {
         from: 'src/img/sample/',
-        to: 'img/sample/',
+        to: config.assetsDirectory + 'img/sample/',
       },
     ]),
   ],
@@ -142,10 +142,10 @@ const webpackConfig = {
 module.exports = (env, argv) => {
   if (argv.mode === 'development') {
     webpackConfig.devtool = 'source-map'
-    webpackConfig.output.filename = '[name].js'
+    webpackConfig.output.filename = config.assetsDirectory + '[name].js'
     webpackConfig.plugins.push(
       new MiniCssExtractPlugin({
-        filename: '[name].css',
+        filename: config.assetsDirectory + '[name].css',
         allChunks: true,
       })
     )
@@ -165,15 +165,15 @@ module.exports = (env, argv) => {
         sourceMap: true,
       }),
     ]
-    webpackConfig.output.filename = '[name].[chunkhash:8].min.js'
+    webpackConfig.output.filename = config.assetsDirectory + '[name].[chunkhash:8].min.js'
     webpackConfig.plugins.push(
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
-        filename: '[name].[contenthash:8].min.css',
+        filename: config.assetsDirectory + '[name].[contenthash:8].min.css',
         allChunks: true,
       }),
       new ManifestPlugin({
-        fileName: 'assets.json',
+        fileName: config.assetsDirectory + 'assets.json',
       })
     )
   }

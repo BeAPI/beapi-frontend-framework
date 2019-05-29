@@ -11,8 +11,8 @@
     "build:dev": "node_modules/.bin/webpack --mode=development",
     "build:prod": "node_modules/.bin/webpack --mode=production",
     "bump": "node scripts/style-version.js",
-    "favicons": "node scripts/favicon.js && node scripts/favicon.js --appicon",
-    "icons": "node scripts/svg-sprite.js"
+    "favicon": "node scripts/favicon.js && node scripts/favicon.js --appicon",
+    "icon": "node scripts/svg-sprite.js"
   },
   "license": "GPL-2.0",
   "devDependencies": {

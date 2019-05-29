@@ -6,6 +6,7 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const WebpackProgressOraPlugin = require('webpack-progress-ora-plugin')
 
 const webpackConfig = {
   entry: config.entry,
@@ -137,6 +138,7 @@ const webpackConfig = {
         to: config.assetsDirectory + 'img/sample/',
       },
     ]),
+    new WebpackProgressOraPlugin()
   ],
 }
 

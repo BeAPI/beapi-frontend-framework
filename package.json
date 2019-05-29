@@ -53,5 +53,6 @@
     "normalize-scss": "^7.0.1",
     "object-fit-images": "^3.2.4",
     "susy": "^2.2.14"
+    "webpack-progress-ora-plugin": "^1.2.1"
   }
 }

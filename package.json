@@ -10,6 +10,7 @@
     "start": "node_modules/.bin/concurrently -k -n \"Webpack,PHP Server\" -p \"[{name}]\" -c \"green, blue\" \"node_modules/.bin/webpack --mode=development --watch\" \"php -S localhost:9090\"",
     "build:dev": "node_modules/.bin/webpack --mode=development",
     "build:prod": "node_modules/.bin/webpack --mode=production",
+    "favicons": "node scripts/favicon.js && node scripts/favicon.js --appicon",
     "icons": "node scripts/svg-sprite.js"
   },
   "license": "GPL-2.0",
@@ -48,6 +49,7 @@
     "autoprefixer": "^9.5.1",
     "axe-core": "^3.2.2",
     "cheerio": "^1.0.0-rc.3",
+    "favicons": "^5.4.1",
     "lazysizes": "^5.0.0",
     "normalize-scss": "^7.0.1",
     "object-fit-images": "^3.2.4",

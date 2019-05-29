@@ -1,4 +1,5 @@
-const config = require('./config')
+const config = require('./webpack.settings')
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
@@ -147,7 +148,33 @@ module.exports = (env, argv) => {
       new MiniCssExtractPlugin({
         filename: config.assetsDirectory + '[name].css',
         allChunks: true,
-      })
+      }),
+      new BrowserSyncPlugin(
+        {
+          proxy: 'http://[::1]:' + config.port,
+          files: [
+            {
+              match: config.refresh,
+              fn: function(event, file) {
+                if (event === 'change') {
+                  const bs = require('browser-sync').get('bs-webpack-plugin')
+                  if (file.indexOf('.css') >= 0) {
+                    bs.reload('*.css')
+                  } else {
+                    bs.reload()
+                  }
+                }
+              },
+            },
+          ],
+          startPath: '/dist/index.php',
+          notify: true,
+        },
+        {
+          reload: false,
+          injectCss: true,
+        }
+      )
     )
   }
 

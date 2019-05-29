@@ -7,8 +7,9 @@
     "url": "https://github.com/BeAPI/beapi-frontend-framework"
   },
   "scripts": {
-    "build:dev": "node_modules/.bin/webpack --mode=development --config config/webpack.config.js",
-    "build:prod": "node_modules/.bin/webpack --mode=production --config config/webpack.config.js"
+    "start": "node_modules/.bin/concurrently -k -n \"Webpack,PHP Server\" -p \"[{name}]\" -c \"green, blue\" \"node_modules/.bin/webpack --mode=development --watch\" \"php -S localhost:9090\"",
+    "build:dev": "node_modules/.bin/webpack --mode=development",
+    "build:prod": "node_modules/.bin/webpack --mode=production"
   },
   "license": "GPL-2.0",
   "devDependencies": {
@@ -19,7 +20,10 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
     "babel-preset-stage-2": "^6.24.1",
+    "browser-sync": "^2.26.5",
+    "browser-sync-webpack-plugin": "^2.2.2",
     "clean-webpack-plugin": "^2.0.2",
+    "concurrently": "^4.1.0",
     "copy-webpack-plugin": "^5.0.3",
     "css-loader": "^2.1.1",
     "eslint": "^5.16.0",

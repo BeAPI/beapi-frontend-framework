@@ -58,4 +58,3 @@ export default Menu
 
 const menu = new Menu()
 menu.init()
-menu.sfMenuInit()

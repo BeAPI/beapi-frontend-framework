@@ -51,7 +51,6 @@
   },
   "dependencies": {
     "autoprefixer": "^9.5.1",
-    "axe-core": "^3.2.2",
     "cheerio": "^1.0.0-rc.3",
     "favicons": "^5.4.1",
     "lazysizes": "^5.0.0",

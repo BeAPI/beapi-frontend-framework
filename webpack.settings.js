@@ -5,7 +5,7 @@ module.exports = {
     app: ['@babel/polyfill', './src/js/app.js', './src/scss/style.scss'],
   },
   assetsDirectory: 'assets/',
-  assetsPath: path.resolve(__dirname, './../dist'),
+  assetsPath: path.resolve(__dirname, './dist'),
   assetsPublicPath: '/src/',
   port: 9090,
   dev: process.env.NODE_ENV === 'dev',

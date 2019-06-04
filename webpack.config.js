@@ -203,6 +203,7 @@ module.exports = (env, argv) => {
       }),
       new ManifestPlugin({
         fileName: config.assetsDirectory + 'assets.json',
+        filter: file => !file.isAsset,
       })
     )
   }

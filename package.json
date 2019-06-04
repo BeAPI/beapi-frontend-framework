@@ -8,9 +8,9 @@
   },
   "scripts": {
     "start": "node_modules/.bin/concurrently -k -n \"Webpack,PHP Server\" -p \"[{name}]\" -c \"green, blue\" \"node_modules/.bin/webpack --mode=development --watch\" \"php -S localhost:9090\"",
-    "build:dev": "node_modules/.bin/webpack --mode=development",
-    "build:prod": "node_modules/.bin/webpack --mode=production",
-    "build": "npm run build:prod && npm run build:dev",
+    "build:dev": "node_modules/.bin/webpack --mode=development && npm run icon && npm run favicon",
+    "build:prod": "node_modules/.bin/webpack --mode=production && npm run icon && npm run favicon",
+    "build": "node_modules/.bin/webpack --mode=production && npm run build:dev",
     "watch": "node_modules/.bin/webpack --watch --mode=development",
     "bump": "node scripts/style-version.js",
     "composerjs": "cd composerjs && npm install && node app.js",

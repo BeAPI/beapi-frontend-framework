@@ -138,7 +138,7 @@ const webpackConfig = {
         to: config.assetsDirectory + 'img/sample/',
       },
     ]),
-    new WebpackProgressOraPlugin()
+    new WebpackProgressOraPlugin(),
   ],
 }
 

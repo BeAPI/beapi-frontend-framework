@@ -10,7 +10,7 @@ import lazySizesBgset from 'lazysizes/plugins/bgset/ls.bgset'
 import './src/ie_message'
 import './src/menu'
 import './src/button-href'
-import './src/iframe'
+import './src/wrapper'
 
 /**
  * LazySizes configuration

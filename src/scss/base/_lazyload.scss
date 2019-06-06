@@ -1,0 +1,67 @@
+.lazyload,
+.lazyloading {
+	opacity: 0;
+	background: $maincolor;
+}
+.lazyloaded {
+	opacity: 1;
+	transition : opacity .5s;
+}
+
+//css loading for bgset items
+//with basicspinner
+$loading-dimensions : 50px;
+
+[data-bgset] {
+	position: relative;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+	opacity: 1;
+	&:before {
+		@include pseudo__content;
+		z-index: $zindex*2;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: $maincolor;
+		transition: opacity .5s, z-index .5s ease .5s;
+	}
+	&:after {
+		@include pseudo__content;
+		z-index: $zindex*3;
+		position: absolute;
+		top: calc(50% - #{$loading-dimensions / 2});
+		left: calc(50% - #{$loading-dimensions / 2});
+		transform: translateX(-50%) translateY(-50%);
+		width: $loading-dimensions;
+		height: $loading-dimensions;
+		border-radius: $loading-dimensions;
+		border: 5px solid $lightcolor;
+		border-top-color: transparent;
+		opacity: 1;
+		transition: opacity .5s, z-index .5s ease .5s;
+		animation: loading .5s linear infinite;
+	}
+	&.lazyload {
+		opacity: 1;
+		transition : opacity 0.5s;
+	}
+	&.lazyloaded {
+		&:after,
+		&:before {
+			opacity: 0;
+			z-index: -$zindex;
+		}
+	}
+}
+@keyframes loading {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

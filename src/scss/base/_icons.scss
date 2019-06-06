@@ -1,0 +1,111 @@
+
+@font-face {
+	font-family: "bea_icons";
+	//src: url('#{$fonts-url}/bea_icons.eot');
+	src: //url('#{$fonts-url}/bea_icons.eot?#iefix') format('eot'),
+		//url('#{$fonts-url}/bea_icons.woff2') format('woff2'),
+		url('#{$fonts-url}/bea_icons.woff') format('woff'),
+		//url('#{$fonts-url}/bea_icons.ttf') format('truetype');
+		//url('#{$fonts-url}/bea_icons.svg#bea_icons') format('svg');
+}
+
+@mixin icon-styles {
+	font-family: "bea_icons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+}
+
+%icon {
+	@include icon-styles;
+}
+
+@function icon-char($filename) {
+	$char: "";
+
+	@if $filename == close {
+		$char: "\E001";
+	}
+	@if $filename == facebook {
+		$char: "\E002";
+	}
+	@if $filename == google {
+		$char: "\E003";
+	}
+	@if $filename == instagram {
+		$char: "\E004";
+	}
+	@if $filename == linkedin {
+		$char: "\E005";
+	}
+	@if $filename == logo-beapi {
+		$char: "\E006";
+	}
+	@if $filename == menu {
+		$char: "\E007";
+	}
+	@if $filename == search {
+		$char: "\E008";
+	}
+	@if $filename == twitter {
+		$char: "\E009";
+	}
+	@if $filename == viadeo {
+		$char: "\E00A";
+	}
+	@if $filename == youtube {
+		$char: "\E00B";
+	}
+
+	@return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %icon;
+		} @else {
+			@include icon-styles;
+		}
+		content: icon-char($filename);
+	}
+}
+
+.icon-close {
+	@include icon(close);
+}
+.icon-facebook {
+	@include icon(facebook);
+}
+.icon-google {
+	@include icon(google);
+}
+.icon-instagram {
+	@include icon(instagram);
+}
+.icon-linkedin {
+	@include icon(linkedin);
+}
+.icon-logo-beapi {
+	@include icon(logo-beapi);
+}
+.icon-menu {
+	@include icon(menu);
+}
+.icon-search {
+	@include icon(search);
+}
+.icon-twitter {
+	@include icon(twitter);
+}
+.icon-viadeo {
+	@include icon(viadeo);
+}
+.icon-youtube {
+	@include icon(youtube);
+}

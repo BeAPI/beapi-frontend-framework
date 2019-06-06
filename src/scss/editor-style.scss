@@ -1,29 +1,22 @@
 /**
- * Main sass config files
+ * Abstract
  */
-@import "root/url-config";
-
-/**
- * Latest Susy 2.2.14
- * https://susy.readthedocs.io/
- */
+@import "abstract/url-config";
+// Susy 2.2.14
 @import "~susy/sass/susy";
-
-@import "root/mixins";
-@import "root/variables";
-
-/**
- * Root styles
- * @font-face first !
- */
-@import "root/fonts";
 @import "~normalize-scss/sass/normalize/import-now";
-@import "root/box-sizing";
+@import "abstract/positioning";
+@import "abstract/colors";
+@import "abstract/borders";
+@import "abstract/mixins";
+@import "abstract/fonts";
+@import "abstract/box-sizing";
+@import "abstract/breakpoints";
 
 /**
- * Components
+ * Base
  */
-@import "components/text";
+@import "base/text";
 
 /**
  * Wordpress

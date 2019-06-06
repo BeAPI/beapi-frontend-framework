@@ -1,0 +1,27 @@
+/* Main Layout
+----------------------------------------------------------------------------------------------------*/
+.main__content {
+	position: relative;
+	z-index: z('main__content');
+}
+.container {
+	padding: 0 10px;
+
+	@include container;
+	@include breakpoints(md) {
+		padding: 0;
+	}
+}
+.content {
+	@include breakpoints(md) {
+		@include span(9);
+	}
+}
+.sidebar {
+	@include breakpoints(md) {
+		@include span(3 last);
+	}
+}
+[tabindex]:focus {
+	outline: none;
+}

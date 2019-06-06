@@ -1,0 +1,16 @@
+[data-seo-container] {
+    position: relative;
+    @include hover {
+        cursor: pointer;
+    }
+    [data-seo-target] {
+        &:before {
+            @include pseudo__content;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
+    }
+}

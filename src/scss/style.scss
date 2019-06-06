@@ -1,65 +1,58 @@
 /**
- * Main sass config files
+ * Abstract
  */
-@import "root/url-config";
+@import "abstract/url-config";
 
-/**
- * Latest Susy 2.2.14
- * https://susy.readthedocs.io/
- */
+// Susy 2.2.14
 @import "~susy/sass/susy";
-
-@import "root/mixins";
-@import "root/functions";
-@import "root/variables";
-
-/**
- * Root styles
- * @font-face first !
- */
-@import "root/fonts";
 @import "~normalize-scss/sass/normalize/import-now";
-@import "root/box-sizing";
-@import "root/cssloading";
-@import "root/zindex";
+@import "abstract/mixins";
+@import "abstract/functions";
+@import 'abstract/fonts';
+@import 'abstract/colors';
+@import 'abstract/breakpoints';
+@import 'abstract/grid';
+@import 'abstract/positioning';
+@import 'abstract/borders';
+@import "abstract/box-sizing";
+@import "abstract/zindex";
+@import "abstract/fonts";
+@import "abstract/easing";
 
 /**
- * Vendor for external librairies (Slick etc.)
+ * Base
  */
-//@import "vendor/libname";
+@import "base/utilities";
+@import "base/svg-icons";
+@import "base/text";
+@import "base/form";
+@import "base/messages";
+@import "base/seo";
+@import "base/iframe";
+@import "base/lazyload";
+
+
+@import "base/layout";
+@import "base/cssloading";
+
+/**
+ * Wordpress
+ */
+ @import "wp/wpforms";
+ @import "wp/img";
+ @import "wp/gallery";
+ @import "wp/wysiwyg";
 
 /**
  * Components
  */
-@import "components/svg-icons";
-@import "components/text";
-@import "components/card";
-@import "components/form";
-@import "components/buttons";
-@import "components/messages";
-@import "components/seo";
-@import "components/iframe";
-
-/**
- * WordPress Plugin custom css (Mailpoet, WPForms etc.)
- */
-@import "wp-plugins/wpforms";
-
-/**
- * Patterns
- */
-@import "patterns/lazyload";
-@import "patterns/utilities";
-@import "patterns/layout";
-@import "patterns/header";
-@import "patterns/footer";
-@import "patterns/menu";
-@import "patterns/menu-trigger";
-@import "patterns/menu-fastaccess";
-@import "patterns/hero";
-@import "patterns/searchform";
-
-/**
+ @import "components/buttons";
+ @import "components/menu-trigger";
+ @import "components/menu-fastaccess";
+ @import "components/menu";
+  @import "components/searchform";
+ @import "components/card";
+ /**
  * Wordpress
  */
 @import "wp/img";
@@ -68,6 +61,12 @@
 //Gutenberg align wide and full utilies, uncomment if gutenberg is supported
 //@import "wp/gutenberg";
 
+/**
+ * Patterns
+ */
+@import "patterns/header";
+@import "patterns/footer";
+@import "patterns/hero";
 
 /**
  * Pages

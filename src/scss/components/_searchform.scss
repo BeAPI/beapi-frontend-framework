@@ -24,17 +24,10 @@
 
 .searchform {
 	position: relative;
-	margin-bottom: $base-spacing;
 	&__field[type=search] {
-		padding-right: $base-spacing*2;
-		margin-bottom: 0;
+		padding-right: $base-spacing*1.5;
 	}
 	&__submit {
-		@include button;
-		@include button--text;
-		cursor: pointer;
-		width: $base-spacing*1.5;
-		z-index: 1;
 		position: absolute;
 		top: 0; right: 0; bottom: 0;
 		.icon {

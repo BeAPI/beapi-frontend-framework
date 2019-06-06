@@ -10,7 +10,7 @@
  * 1. Font and Wording
  */
 
-// FontFace. GO to root/_fonts.scss to see it in action
+// FontFace. GO to abstract/_custom_fonts.scss to see it in action
 @mixin declare-font-face($font-family, $font-filename, $font-weight : normal, $font-style :normal, $font-stretch : normal){
 	@font-face{
 		font-family: '#{$font-family}';

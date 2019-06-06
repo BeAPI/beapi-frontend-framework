@@ -1,3 +1,23 @@
+/**
+ * Font Family
+ */
+$font-sansserif: Arial, Helvetica, sans-serif;
+$font-serif: Times, Georgia, serif;
+$customfont-1: Roboto, sans-serif;
+$customfont-2: Circular, sans-serif;
+
+/**
+ * Font Size
+ */
+$base-fz: 16px;
+$heading-font-size: 25px;
+
+/**
+ * Line Height
+ */
+$base-lh: 1.4;
+$heading-line-height: 1.2;
+
 //Roboto for body text
 @include declare-font-face("Roboto", "#{$fonts-url}/roboto-v15-latin/roboto-v15-latin-regular"); //regularx400
 @include declare-font-face("Roboto", "#{$fonts-url}/roboto-v15-latin/roboto-v15-latin-500", 500); //mediumx500

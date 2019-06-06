@@ -1,4 +1,4 @@
-class Iframe {
+class Wrapper {
   constructor() {
     this.target = document.querySelector('.wysiwyg')
   }
@@ -9,6 +9,9 @@ class Iframe {
     this.iframeWrapper()
     this.tableWrapper()
   }
+  /**
+   * Iframe wrapper
+   */
   iframeWrapper() {
     ;[].forEach.call(this.target.querySelectorAll('iframe'), iframe => {
       const iframeSrc = iframe.src
@@ -22,6 +25,9 @@ class Iframe {
       }
     })
   }
+  /**
+   * Table wrapper
+   */
   tableWrapper() {
     ;[].forEach.call(this.target.querySelectorAll('table'), table => {
       const wrapper = document.createElement('div')
@@ -33,7 +39,7 @@ class Iframe {
   }
 }
 
-export default Iframe
+export default Wrapper
 
-const iframe = new Iframe()
-iframe.init()
+const wrapper = new Wrapper()
+wrapper.init()

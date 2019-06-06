@@ -10,8 +10,7 @@ import lazySizesBgset from 'lazysizes/plugins/bgset/ls.bgset'
 import './src/ie_message'
 import './src/menu'
 import './src/button-href'
-import './src/iframe'
-import AccessibilityTests from './src/accessibility-tests'
+import './src/wrapper'
 
 /**
  * LazySizes configuration
@@ -24,13 +23,3 @@ lazySizes.customMedia = {}
  * https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/bgset#lazysizes-bgset-extension---responsive-background-images
  */
 lazySizesBgset.customMedia = {}
-
-/**
- * Automate a11y tests only in our dist folder
- */
-
-if (window.location.hostname === 'localhost' || window.location.pathname.includes('/dist/')) {
-  const accessibilityTests = new AccessibilityTests()
-  accessibilityTests.init()
-  window.scroll(0, 0)
-}

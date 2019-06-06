@@ -2,11 +2,11 @@ const path = require('path')
 
 module.exports = {
   entry: {
-    app: ['@babel/polyfill', './src/js/app.js', './src/css/style.scss'],
-    'editor-style': './src/css/editor-style.scss',
+    app: ['@babel/polyfill', './src/js/app.js', './src/scss/style.scss'],
   },
-  assets_path: path.resolve(__dirname, './../dist/assets'),
-  assets_public_path: '/src/',
+  assetsDirectory: 'assets/',
+  assetsPath: path.resolve(__dirname, './dist'),
+  assetsPublicPath: '/src/',
   port: 9090,
   dev: process.env.NODE_ENV === 'dev',
   refresh: [

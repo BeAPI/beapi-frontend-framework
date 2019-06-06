@@ -1,229 +1,195 @@
-
 #  BeAPI FrontEnd Framework
-##  What is it ?
-BeAPI FrontEnd Framework (BFF) is an open source framework for WordPress stacks. Mobile-first projects with the latest useful tools for the Frontend Development like Webpack 3, SASS, Favicons and SVG sprite icon generation and custom tools like ComposerJS.
+##  What is BeAPI FrontEnd Framework ?
 
-##  Requirements
+BeAPI FrontEnd Framework (BFF) is a Front-end WordPress theme friendly boilerplate to help you to build your own WordPress theme with modern tools and a better productivity.
+
+## Tools
+* [Webpack 4](https://www.npmjs.com/package/webpack)
+* [Node SASS](https://www.npmjs.com/package/node-sass)
+* [Favicons](https://www.npmjs.com/package/favicons)
+* [SVGStore](https://www.npmjs.com/package/svgstore)
+* [SVGGo](https://www.npmjs.com/package/svgstore)
+* [Susy 2](https://www.npmjs.com/package/susy)
+* [Lazysizes](https://www.npmjs.com/package/lazysizes)
+* [Eslint](https://www.npmjs.com/package/eslint)
+* [Babel Loader](https://www.npmjs.com/package/babel-loader)
+* [Browser Sync](https://www.npmjs.com/package/browser-sync-webpack-plugin)
+
+## Requirements
+
+### Node 8
+
+You need a minimum of Node 8.
+
+### Advanced Responsive Images
+
 You need to work in a wordpress environnement in order to make the BFF work with webpack for local dev. To do that you need to install [Advanced Responsive Images](https://github.com/asadowski10/advanced-responsive-images) in your plugin folder.
 
-```git clone https://github.com/asadowski10/advanced-responsive-images.git```
+## Installation
 
-With this plugin you can manage thumbnails with the `<picture>` tag through differents configurations located in `src/conf-img`. For more details go to the [Responsive images section](#responsive-images)
+Download the latest release of BFF [here](https://github.com/BeAPI/beapi-frontend-framework/releases) and extract the zip archive into your `themes` WordPress's folder.
 
-##  💻 Installation
-You have to install [Webpack](https://webpack.js.org/) and [Concurrently](https://www.npmjs.com/package/concurrently) globaly.
-
-```$ npm install webpack@3 concurrently -g```
-
-Clone the repository in the WordPress's themes folder. Remove the `.git` folder in order to work with your own repo.
-
+```bash
+|____wp-admin
+|____wp-content
+| |____plugins
+| |____themes
+| | |____beapi-frontend-framework
+| |____uploads
+|____wp-includes
 ```
-$ cd wp-content/themes
-$ git clone https://github.com/BeAPI/beapi-frontend-framework.git name_of_my_theme
-$ cd name_of_my_theme
-$ mv build.sh ../../../
-$ rm -rf .git
+
+Of course, you can rename `beapi-frontend-framework` to define your WordPress theme's name.
+
+Next, go to your theme folder (in the following example, I didn't rename `beapi-frontend-framework`) with your favorite Term software.
+
+```bash
+$ cd wp-content/themes/beapi-frontend-framework
 ```
-Then install dependencies with NPM.
-```
+
+Then install node dependencies with NPM or Yarn.
+```bash
 $ npm install
 ```
-Or using Yarn.
-```
-$ yarn
-```
-##  🔧 Configuration
-In the `config` directory, you can find the Webpack configurations files.
--   _config.js —_ the configuration settings (entries, output, port etc…)
-- _css-loader.js —_ the common loaders for CSS, SASS and SCSS filetypes
-- _server.js_ — the Browser Sync configuration
-- _webpack.base.js_ — the basic configuration of Webpack for development and production purpose.
-- _webpack.dev.js_ — the configuration of Webpack for development purpose
-- _webpack.prod.js_ — the configuration of Webpack for production purpose
 
-##  📦 How to use it ?
+## Configuration
+### Webpack
+You can edit Webpack configuration with `webpack.config.js` file and settings by editing `webpack.settings.js`.
+
+### Babel
+You can find a `.babelrc` file to modify Babel configuration.
+
+### Eslint
+You can find a `.eslintrc.js` file to modify Eslint configuration and ignore files in `.eslintignore`.
+
+## How to use BFF ?
+After installing dependencies, you can run some commands which are explained below.
+
 ### Local Server with Browser Sync
-First you need to add this following lines in your hosts files :
+You probably need to add this following line in your `hosts` file.
+
 ```
 ::1 localhost
 ```
 
-You must build the dist folder before lauching the php server :
+and run a first time the following command to generate required distributions files to run the server properly.
 ```
 $ npm run build:dev
 ```
 
-Then you can launch a local php server with Browser Sync using :
-```
+Then, you can run a "Petit PHP" local server with Browser Sync by running :
+```bash
 $ npm start
 ```
-But in order to work correctly you have to run a [build:dev](#development-build) script first (it will generate svg icons sprite)
-### Development purpose with watch
-If you don't need this server you can just compile AND watch styles and scripts (with sourcemap) using :
-```
+
+### Watching files for development purpose
+If you don't need a local server you just can compile AND watch styles and scripts (with sourcemap) by using :
+
+```bash
 $ npm run watch
 ```
+
 ### Development build
-If you want to just build styles and scripts (with sourcemap) use :
-```
+If you want to build styles and scripts (with sourcemap) by using :
+
+```bash
 $ npm run build:dev
 ```
-### Production purpose
+
+### Production build
 For production purpose, you can compile all of your assets by using :
-```
+
+```bash
 $ npm run build:prod
 ```
-If you want to deliver assets for both developpement and production
-```
+
+If you want to deliver assets for both developpement and production, run :
+
+```bash
 $ npm run build
 ```
-If want to bump your WordPress theme version you can add a flag like this :
+
+### Bump WordPress theme version
+You can change your WordPress theme's version by using :
+
+```bash
+$ npm run bump [-t | -type] [patch | minor | major]
 ```
-$ npm run bump -t minor
+
+It will change the version of your theme filled in the `style.css` file in the theme's root.
+There are 3 kinds of update available : patch, minor or major.
+
+In the case of a multiple themes of a Wordpress project, you can use the previous task in any themes in one command with a bash script. To use the command, you have to move the `build.sh` file based in your WordPress theme's root to your WordPress project's root and go to the Wordpress root path with your Terminal software.
+
+```bash
+$ mv build.sh ../../../
+$ cd ../../../
 ```
-For example, if you have a 1.2.1 theme version, it will be bumped to 1.3.0. You can replace `minor` by `patch` or `major`.
+
+By the way, you can specify the type of bump wanted.
+
+```bash
+$ sh build.sh [-t | -type] [patch | minor | major]
+```
 
 ### Assets
-Generate appicons and favicons from the sources files in `src/img/favicons/` by using :
-```
+#### Favicons
+
+Generate appicons and favicons from the sources files in src/img/favicons/ by using :
+
+```bash
 $ npm run favicon
 ```
 
-Generate SVG sprite from the icons files in `src/img/icons/` by using :
-```
-$ npm run icons
+#### SVG Icons
+Generate SVG sprite from the icons files in src/img/icons/ by using :
+
+```bash
+$ npm run icon
 ```
 
-Generate JSON image sizes and locations (more details in [the Responsive images](#responsive-images) section) by using :
-```
+Generate JSON image sizes and locations (more details in the [Responsive images section](#responsive-images)) by using :
+
+```bash
 # you can add csv as argument to generate a CSV file of image locations
 $ npm run image [csv]
 ```
 
-### Bump of WordPress theme version
-To prevent WordPress and/or browsers cache issues, you can update the version of `style.css` in the theme's root. There are 3 kinds of update available : `patch`, `minor` or `major`.
-```
-$ npm run bump [-t | -type] [patch | minor | major]
-```
-In the case of a multiple themes of a Wordpress project, you can use the previous task in any themes in one command with a bash script. _To use the command, you have to be in the Wordpress root path._ By the way, you can specify the type of bump wanted.
+## Composer JS
 
-```
-$ sh build.sh [-t | -type] [patch | minor | major]
+In order to keep a lightweight stack, you can add extra components that are used most of the time in Web dev by using :
+
+```bash
+$ npm run composerjs
 ```
 
-### CSS/SASS Guideline ###
+You can find the list of SCSS and JS components to use [here](https://github.com/BeAPI/beapi-frontend-framework/blob/master/composerjs).
 
-We like to present and order our css like this:
+## Responsive images
 
-    .module {
-        Position properties (z-index, top etc.)
-        Display properties (padding, margin, border etc.)
-        Text properties (font-family etc.)
-        Colors properties (color, background, etc.)
-        Mixins (transition etc.)
-        Others (white-space etc.)
-        @include media($desktop-small) {
-            Responsive stuffs
-        }
-    }
-
-We do not fully respect the BEM css method but we like this kind of OOCSS:
-
-    .module-name (.header)
-    .module-name__element (.header__column, .header__button etc.)
-    .module-name__element--modifier (.header__element--visible, .header__element--color-2 etc.)
-
-Keep in mind that your class will be more reusable if they are generic enough. If you have too much subelements in your class, there's a problem in your markup.
-
-For example
-
-    .entry-metas
-    .entry-metas__date
-    .entry-metas__date__month
-Should be
-
-    .entry-metas
-    .entry-date
-    .entry-date__month
-Cause date element could be used outside metas. You shouldn't have more than 1 subelement, except in really specifical cases.
-
-We like to keep our code clean and readable. This is why we skip lines between each selectors and add empty line between declarations and includes (like media queries)
-
-    // Example
-    .class,
-    .class--alt {
-      attr: value;
-
-      @media screen and (min-width: $breakpoint) {
-        attr: value;
-      }
-    }
-
-
-CSS partials are classified and saved in 6 mains folders
-
-* *root*. Where you define common base. Variables, Mixins, Fonts, Susy library etc.
-* *vendor*. It's where external ressources are (jQuery plugins fr example).
-* *components*. The basics like button forms elements etc. It's where you can defined you root's styles for button input headings etc.
-* *wp-plugins*. One file by WordPress plugins (Mailpoet, WPForms etc.). in order to define the base style of plugin in the theme. Make specific style in your patterns or pages.
-* *wp*. Specific wp related pattern.
-* *patterns*. it's related to your modules. It's where you defined the basics for your module.
-* *pages*. a css file for each pages. very useful for change module behavior in a specific context.
-* All those parts are referenced in *src/css/style.scss*. Don't forget to add your files here in the correct order.
-
-### JS Guideline ###
-
-As said above all JavaScript ressources are compiled with Webpack with a sourcemap for debbugging.
-
-If you need a library, install it with npm.
-
-    $ npm install --save my_lib
-
-Then you can require it where you need to use it, like this :
-
-    $ import npm_lib from 'npm_lib'
-
-If there is no packages available on npm for the library you need, paste the dist file into js vendor folder. Then you have to require it :
-
-    $ import vendor_lib from '../vendor/vendor_lib'
-
-
-We are using ESLint coding Standard : https://github.com/standard/standard
-
-### Composer JS ###
-
-In order to keep a lightweight stack, you can add extra components that are used most of the time in Web dev. You have to use [composerjs](composerjs)
-
-### LivingCSS / Styleguide (Optional) ###
-
-You can add a livingCSS by cloning this repo : https://github.com/BeAPI/living-css
-
-### Responsive images ###
-
-WordPress native thumbnails are not enough for us. We want to build images:
+WordPress native thumbnails are not enough for us. We want to build images :
 * That can have differents art direction between differents viewports
 * That can be displayed in the good resolution
-* That can be lazyloaded, but still accessible if no Javascript.
+* That can be lazyloaded, but still accessible if no Javascript
 
-Something like this:
-
-```
-   <picture>
-        <!--[if IE 9]><video style="display: none"><![endif]-->
-        <source
-            srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-            data-srcset="img-mobile, img-mobile 2x"
-            media="(max-width: 375px)" />
-        <source
-            srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-            data-srcset="img-tablet, img-tablet 2x"
-            media="(max-width: 1024px)" />
-        <source
-            srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-            data-srcset="img-desktop, img-desktop 2x" />
-        <!--[if IE 9]></video><![endif]-->
-        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" alt="image with artdirection"/>
-    </picture>
+Something like this :
+```html
+<picture>
+    <!--[if IE 9]><video style="display: none"><![endif]-->
+    <source
+        srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+        data-srcset="img-mobile, img-mobile 2x"
+        media="(max-width: 375px)" />
+    <source
+        srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+        data-srcset="img-tablet, img-tablet 2x"
+        media="(max-width: 1024px)" />
+    <source
+        srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+        data-srcset="img-desktop, img-desktop 2x" />
+    <!--[if IE 9]></video><![endif]-->
+    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" alt="image with artdirection"/>
+</picture>
 ```
 
 So with the [Advanced Responsive Images](https://github.com/asadowski10/advanced-responsive-images) plugin we can manage a `picture` tag with different file configuration.
@@ -242,37 +208,37 @@ $ npm run image
 ```
 
 Example of *src/conf-img/images-sizes.json* :
-
-    "img-100-100":
-        {
-            "width":"100",
-            "height":"100",
-            "crop":true
-        }
-
+```json
+"img-100-100":
+    {
+        "width":"100",
+        "height":"100",
+        "crop":true
+    }
+```
 Example of *src/conf-img/images-locations.json* :
 
-```
-   "entry-img-01": [
-      {
+```json
+"entry-img-01": [
+    {
         "srcsets": [
-          {
-            "size": "img-100-100"
-          },
-          {
-            "size": "img-200-200"
-          },
-          {
-            "size": "img-300-200"
-          },
-          {
-            "size": "img-600-400"
-          }
+            {
+                "size": "img-100-100"
+            },
+            {
+                "size": "img-200-200"
+            },
+            {
+                "size": "img-300-200"
+            },
+            {
+                "size": "img-600-400"
+            }
         ],
         "default_img": "default-300-200.jpg",
         "img_base": "img-300-200"
-      }
-    ]
+    }
+]
 ```
 
 `default_img` is used for default image if no image are provoded in WordPress Admin. `img_base` is used as fallback for older browser.
@@ -280,12 +246,13 @@ Example of *src/conf-img/images-locations.json* :
 You can use this [Sketch extension](https://github.com/Nkzq/advanced-responsive-images-default) to generate default image according to your *images-locations.json* file. There is a sketch file provided in the *src/img/default* folder.
 
 Now you can use it in your markup like this:
-
+```php
     <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01' ) ); ?>
-
+```
 If you need to add a class to your picture (the lazyload class is added by default):
-
+```php
     <?php echo get_the_post_thumbnail( 0, 'thumbnail', array( 'data-location' => 'entry-img-01', 'class' => 'my_class_name' ) ); ?>
+```
 
 We add Lazyload support too! We use [Lazysize](https://github.com/aFarkas/lazysizes) in addition to picturefill in order to provide responsive image served as fast as possible.
 

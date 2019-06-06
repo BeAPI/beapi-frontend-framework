@@ -99,12 +99,12 @@ function searchFiles(answers, input) {
 function setDirPath(ext) {
   if (ext === 'scss') {
     return [
-      '../src/css/patterns/',
-      '../src/css/components/',
-      '../src/css/pages/',
-      '../src/css/plugins/',
-      '../src/css/root/',
-      '../src/css/vendor/',
+      '../src/scss/patterns/',
+      '../src/scss/components/',
+      '../src/scss/pages/',
+      '../src/scss/plugins/',
+      '../src/scss/root/',
+      '../src/scss/vendor/',
     ]
   } else if (ext === 'js') {
     return ['../src/js/src/', '../src/js/vendor', '../src/js/vendor_async']

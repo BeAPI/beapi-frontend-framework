@@ -41,7 +41,15 @@ let webpackBase = {
       {
         test: /\.(sass|scss)$/,
         use: ExtractTextPlugin.extract({
-          use: [...cssLoaders, 'sass-loader'],
+          use: [
+            ...cssLoaders,
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: config.dev,
+              },
+            },
+          ],
         }),
       },
       {

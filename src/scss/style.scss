@@ -1,9 +1,9 @@
-// Abstract
-@import "abstract/url-config";
-
 // Susy 2.2.14
 @import "~susy/sass/susy";
 @import "~normalize-scss/sass/normalize/import-now";
+
+// Abstract
+@import "abstract/url-config";
 @import "abstract/mixins";
 @import "abstract/functions";
 @import 'abstract/fonts';

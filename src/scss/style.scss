@@ -1,6 +1,4 @@
-/**
- * Abstract
- */
+// Abstract
 @import "abstract/url-config";
 
 // Susy 2.2.14
@@ -19,9 +17,7 @@
 @import "abstract/fonts";
 @import "abstract/easing";
 
-/**
- * Base
- */
+// Base
 @import "base/utilities";
 @import "base/svg-icons";
 @import "base/text";
@@ -30,48 +26,30 @@
 @import "base/seo";
 @import "base/iframe";
 @import "base/lazyload";
-
-
 @import "base/layout";
 @import "base/cssloading";
 
-/**
- * Wordpress
- */
- @import "wp/wpforms";
- @import "wp/img";
- @import "wp/gallery";
- @import "wp/wysiwyg";
-
-/**
- * Components
- */
- @import "components/buttons";
- @import "components/menu-trigger";
- @import "components/menu-fastaccess";
- @import "components/menu";
- @import "components/searchform";
- @import "components/card";
- @import "components/key-figures";
- /**
- * Wordpress
- */
+//Wordpress
+@import "wp/wpforms";
 @import "wp/img";
 @import "wp/gallery";
 @import "wp/wysiwyg";
-//Gutenberg align wide and full utilies, uncomment if gutenberg is supported
-//@import "wp/gutenberg";
 
-/**
- * Patterns
- */
+// Components
+@import "components/buttons";
+@import "components/menu-trigger";
+@import "components/menu-fastaccess";
+@import "components/menu";
+@import "components/searchform";
+@import "components/card";
+@import "components/key-figures";
+
+// Patterns
 @import "patterns/header";
 @import "patterns/footer";
 @import "patterns/hero";
 
-/**
- * Pages
- */
+// Pages
 @import "pages/default";
 @import "pages/404";
 @import "pages/home";

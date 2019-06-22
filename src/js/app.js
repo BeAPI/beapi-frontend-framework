@@ -11,7 +11,7 @@ import './src/ie_message'
 import './src/menu'
 import './src/button-href'
 import './src/wrapper'
-import './src/KeyFigures'
+// import './src/KeyFigures'
 
 /**
  * LazySizes configuration

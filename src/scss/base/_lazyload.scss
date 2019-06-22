@@ -3,6 +3,7 @@
 	opacity: 0;
 	background: $maincolor;
 }
+
 .lazyloaded {
 	opacity: 1;
 	transition : opacity .5s;
@@ -18,8 +19,10 @@ $loading-dimensions : 50px;
 	background-position: 50% 50%;
 	background-size: cover;
 	opacity: 1;
-	&:before {
+
+	&::before {
 		@include pseudo__content;
+
 		z-index: $zindex*2;
 		position: absolute;
 		top: 0;
@@ -29,8 +32,10 @@ $loading-dimensions : 50px;
 		background: $maincolor;
 		transition: opacity .5s, z-index .5s ease .5s;
 	}
-	&:after {
+
+	&::after {
 		@include pseudo__content;
+
 		z-index: $zindex*3;
 		position: absolute;
 		top: calc(50% - #{$loading-dimensions / 2});
@@ -45,10 +50,12 @@ $loading-dimensions : 50px;
 		transition: opacity .5s, z-index .5s ease .5s;
 		animation: loading .5s linear infinite;
 	}
+
 	&.lazyload {
 		opacity: 1;
 		transition : opacity 0.5s;
 	}
+
 	&.lazyloaded {
 		&:after,
 		&:before {
@@ -57,6 +64,7 @@ $loading-dimensions : 50px;
 		}
 	}
 }
+
 @keyframes loading {
 	0% {
 		transform: rotate(0deg);

@@ -18,8 +18,9 @@
  *		</ul>
  *	</nav>
  */
+
 .menu {
-	$parent: &;
+	$el: &;
 	$menu-item: '.menu-item';
 	$sub-menu: '.sub-menu';
 
@@ -39,43 +40,15 @@
 
 	@include clearfix;
 
-	@include breakpoints(md) {
-		position: relative;
-		left: auto;
-		overflow: inherit;
-		background: none;
-		width: auto;
-		padding: 0;
-	}
-
 	&__list {
 		@include clearfix;
 
 		&>#{$menu-item} {
-			@include breakpoints(md) {
-				display: inline-block;
-				position: relative;
-
-				@include hover {
-					#{$parent}__list {
-						top: 100%;
-					}
-				}
-				&.sfHover {
-					ul {
-						top: 100%;
-					}
-				}
-				li {
-					display: block;
-				}
-			}
 			@include hover {
 				ul {
 					display: block;
 				}
 			}
-			&.sfHover,
 			&.current-menu-item,
 			&.current-menu-parent,
 			&.current-menu-ancestor {
@@ -97,8 +70,9 @@
 				background:$maincolor;
 			}
 		}
+
 		@include hover {
-			#{$parent}__list {
+			#{$el}__list {
 				display: block;
 			}
 		}
@@ -106,8 +80,17 @@
 
 	#{$sub-menu} {
 		display: none;
+	}
 
-		@include breakpoints(md) {
+	@include breakpoints(md) {
+		position: relative;
+		left: auto;
+		overflow: inherit;
+		background: none;
+		width: auto;
+		padding: 0;
+
+		#{$sub-menu} {
 			position: absolute;
 			top: 100%;
 			min-width: 200px;
@@ -119,6 +102,22 @@
 						background: $maincolor;
 						color: $textcolor;
 					}
+				}
+			}
+		}
+
+		#{$el}__list {
+			&>#{$menu-item} {
+				display: inline-block;
+				position: relative;
+
+				@include hover {
+					#{$el}__list {
+						top: 100%;
+					}
+				}
+				li {
+					display: block;
 				}
 			}
 		}

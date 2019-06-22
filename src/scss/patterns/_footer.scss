@@ -1,22 +1,12 @@
 /**
  * Footer
- *
- * Footer template
- *
- * @section Footer
- * @page patterns
- *
- * @example
- *	<footer class="footer" id="footer" role="contentinfo">
- *		<div class="container">
- *			<p>Copyright</p>
- *		</div>
- *	</footer>
  */
- .footer {
+
+.footer {
+	$el: &;
+
 	position: relative;
 	z-index: z('footer');
-	@include clearfix;
 	padding-bottom: $base-spacing;
 	text-align: center;
 }

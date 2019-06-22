@@ -1,10 +1,13 @@
 .gallery {
 	@include container;
+
 	margin: 0 0 $base-spacing;
-	br+br {
+
+	br + br {
 		display: none;
 	}
-	&-caption {
+
+	.gallery-caption {
 		font-size: 11px;
 		margin: $half-base-spacing 0 0;
 		text-align: left;
@@ -13,15 +16,19 @@
 
 .gallery-item {
 	@include gallery(6 of 12);
+
 	text-align: center;
 	position: relative;
 	margin-bottom: $base-spacing;
+
 	a {
 		display: block;
+
 		img {
 			display: block;
 		}
 	}
+
 	.gallery-columns-3 & {
 		@include gallery(4 of 12);
 	}

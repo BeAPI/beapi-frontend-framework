@@ -36,6 +36,7 @@ body {
 		font-family: $font-sansserif;
 	}
 }
+
 a {
 	color: $textcolor;
 	text-decoration: none;
@@ -47,12 +48,12 @@ a {
 
 /* Headings
 ----------------------------------------------------------------------------------------------------*/
-
 @for $i from 1 through 6 {
 	h#{$i} {
 		line-height: $heading-line-height;
 		font-size: $heading-font-size - ($i - 1) * 2px;
 		font-family: $customfont-2;
+
 		.fonts-loading & {
 			font-family: $font-sansserif;
 		}
@@ -91,6 +92,7 @@ fieldset,
 figure {
 	margin: 0 0 $base-spacing 0;
 }
+
 /* Wysiwyg style
 ----------------------------------------------------------------------------------------------------*/
 hr {
@@ -123,6 +125,7 @@ table {
 	border-collapse: collapse;
 	border-left: 0;
 	border-radius: $base-border-radius;
+
 	th {
 		padding: $half-base-spacing;
 		border-left: 1px solid $base-border-color;
@@ -130,6 +133,7 @@ table {
 		vertical-align: top;
 		text-align: left;
 	}
+
 	td {
 		padding: $half-base-spacing;
 		border-top: 1px solid $base-border-color;
@@ -145,16 +149,20 @@ address {
 	font-style: normal;
 	line-height: 20px;
 }
+
 abbr {
 	text-decoration: underline;
 }
+
 abbr[title], abbr[data-original-title] {
 	cursor: help;
 	border-bottom: 1px dotted $base-border-color;
 }
+
 big {
 	font-size: larger;
 }
+
 code {
 	display: inline-block;
 	padding: 2px 5px;
@@ -164,38 +172,46 @@ code {
 	font-size: $base-fz;
 	border-radius: $base-border-radius;
 }
+
 s,
 strike,
 del {
 	text-decoration: line-through;
 }
+
 em,
 var {
 	font-style: italic;
 }
+
 ins {
-	background-color: $maingrey;
 	text-decoration: none;
 }
+
 tt,
 kbd,
 samp {
 	font-family: monospace;
 }
+
 pre {
 	display: block;
 	padding: $half-base-spacing;
 	margin: 0 0 $base-spacing;
+
 	@include word-wrap(break-all);
+
 	white-space: pre-wrap;
 	background-color: $maingrey;
 	border: 1px solid $darkcolor;
 	border-radius: $base-border-radius;
 }
+
 q {
 	display: inline;
 	font-style: italic;
 }
+
 sub,
 sup {
 	bottom: -0.25em;
@@ -204,6 +220,7 @@ sup {
 	line-height: 0;
 	vertical-align: baseline;
 }
+
 sup {
 	top: -0.5em;
 }

@@ -1,3 +1,7 @@
+/**
+ * @section Cards
+ */
+
 @mixin card($flexDirection: column, $thumbnailWidth : 300px) {
     display: flex;
     border: $base-border;
@@ -35,18 +39,19 @@
 }
 
 .card {
-    $parent: &;
+    $el: &;
 
     @include card;
 
-    #{$parent}__img {
+    #{$el}__img {
         display: block;
         width: 100%;
         margin: 0 auto;
     }
 
-    #{$parent}__content {
+    #{$el}__content {
         padding: $base-spacing;
+
         p {
             &:last-child {
                 margin-bottom: 0;
@@ -63,15 +68,23 @@
     &--row {
         @include card(row, 300px);
 
-        &#{$parent}--center {
+        &#{$el}--center {
             @include breakpoints(sm) {
                 align-items: center;
             }
         }
 
         // Horizontal card reversed
-        &#{$parent}--reverse {
+        &#{$el}--reverse {
             @include card(row-reverse, 300px);
+        }
+    }
+
+    @include breakpoints(sm) {
+        #{$el}--row {
+            &#{$el}--center {
+                align-items: center;
+            }
         }
     }
 }

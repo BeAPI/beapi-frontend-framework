@@ -1,14 +1,11 @@
 /**
- * Menu Fast Access
+ * @section Menu Fast Access
  */
+
 .menu-fastaccess {
 	margin: 0;
 	font-size: 9px;
     display: none;
-
-    @include breakpoints(md) {
-		display: block;
-    }
 
 	&__item {
         display: inline;
@@ -27,4 +24,8 @@
 			}
 		}
 	}
+
+	@include breakpoints(md) {
+		display: block;
+    }
 }

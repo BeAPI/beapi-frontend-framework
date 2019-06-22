@@ -38,6 +38,8 @@ const svgoPlugins = [
   { convertShapeToPath: true },
   { sortAttrs: true },
   { removeDimensions: false },
+  { prefixIds: true },
+  { removeViewBox: false },
 ]
 const icons = [
   {

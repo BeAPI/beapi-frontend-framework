@@ -6,6 +6,7 @@ import './polyfill/forEach'
 import './polyfill/objectfit-polyfill'
 import lazySizes from 'lazysizes'
 import lazySizesBgset from 'lazysizes/plugins/bgset/ls.bgset'
+import 'lazysizes/plugins/native-loading/ls.native-loading'
 
 import './src/ie_message'
 import './src/menu'

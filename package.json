@@ -55,7 +55,7 @@
     "autoprefixer": "^9.5.1",
     "cheerio": "^1.0.0-rc.3",
     "favicons": "^5.4.1",
-    "lazysizes": "^5.0.0",
+    "lazysizes": "^5.1.0",
     "normalize-scss": "^7.0.1",
     "object-fit-images": "^3.2.4",
     "ora": "^3.4.0",

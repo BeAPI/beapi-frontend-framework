@@ -1,6 +1,5 @@
 const config = require('./webpack.settings')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -12,7 +11,6 @@ const webpackConfig = {
   entry: config.entry,
   output: {
     path: config.assetsPath,
-    publicPath: config.assetsPublicPath,
   },
   optimization: {},
   externals: {
@@ -115,27 +113,27 @@ const webpackConfig = {
     new CopyWebpackPlugin([
       {
         from: 'src/js/vendor_async',
-        to: config.assetsDirectory + 'js/vendor_async',
+        to: 'js/vendor_async',
       },
       {
         from: 'src/js/vendor_ie',
-        to: config.assetsDirectory + 'js/vendor_ie',
+        to: 'js/vendor_ie',
       },
       {
         from: 'src/templates/',
-        to: './',
+        to: './../',
       },
       {
         from: 'src/fonts/',
-        to: config.assetsDirectory + 'fonts/',
+        to: 'fonts/',
       },
       {
         from: 'src/img/bg-sample/',
-        to: config.assetsDirectory + 'img/bg-sample/',
+        to: 'img/bg-sample/',
       },
       {
         from: 'src/img/sample/',
-        to: config.assetsDirectory + 'img/sample/',
+        to: 'img/sample/',
       },
     ]),
     new WebpackProgressOraPlugin(),
@@ -145,10 +143,10 @@ const webpackConfig = {
 module.exports = (env, argv) => {
   if (argv.mode === 'development') {
     webpackConfig.devtool = 'source-map'
-    webpackConfig.output.filename = config.assetsDirectory + '[name].js'
+    webpackConfig.output.filename = '[name].js'
     webpackConfig.plugins.push(
       new MiniCssExtractPlugin({
-        filename: config.assetsDirectory + '[name].css',
+        filename: '[name].css',
         allChunks: true,
       }),
       new BrowserSyncPlugin(
@@ -194,15 +192,14 @@ module.exports = (env, argv) => {
         sourceMap: true,
       }),
     ]
-    webpackConfig.output.filename = config.assetsDirectory + '[name].[chunkhash:8].min.js'
+    webpackConfig.output.filename = '[name].[chunkhash:8].min.js'
     webpackConfig.plugins.push(
-      new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
-        filename: config.assetsDirectory + '[name].[contenthash:8].min.css',
+        filename: '[name].[contenthash:8].min.css',
         allChunks: true,
       }),
       new ManifestPlugin({
-        fileName: config.assetsDirectory + 'assets.json',
+        fileName: 'assets.json',
         filter: file => !file.isAsset,
       })
     )

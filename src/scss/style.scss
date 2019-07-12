@@ -26,6 +26,7 @@
 @import "base/lazyload";
 @import "base/layout";
 @import "base/cssloading";
+@import "base/iframe";
 
 //Wordpress
 @import "wp/wpforms";
@@ -38,7 +39,6 @@
 @import "components/menu-trigger";
 @import "components/menu-fastaccess";
 @import "components/card";
-@import "components/iframe";
 @import "components/messages";
 
 // Patterns
@@ -49,5 +49,17 @@
 @import "patterns/searchform";
 @import "patterns/key-figures";
 
+
+// Readymade vendors
+// @import "~slick-carousel/slick/slick";
+// @import "~slick-carousel/slick/slick-theme";
+// @import "~flickity/css/flickity";
+// @import "~@glidejs/glide/dist/css/glide.core";
+// @import "~@glidejs/glide/dist/css/glide.theme";
+
+
 // Pages
+@import "pages/404";
+@import "pages/home";
+@import "pages/default";
 @import "pages/print";

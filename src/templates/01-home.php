@@ -1,5 +1,5 @@
 <?php $bodyClass = 'home'; ?>
-<?php include 'partials/header.php'; ?>
+<?php include 'sections/header.php'; ?>
 	<article class="article">
 		<div class="container">
 			<div class="hero lazyload" data-bgset="assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg">
@@ -15,4 +15,4 @@
 		</div>
 	</article>
 
-<?php include 'partials/footer.php'; ?>
+<?php include 'sections/footer.php'; ?>

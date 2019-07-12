@@ -1,0 +1,10 @@
+.widget {
+	@include clearfix;
+	margin: 0 0 20px;
+	img {
+		@include img__responsive();
+	}
+	&__title {
+		@extend h2;
+	}
+}

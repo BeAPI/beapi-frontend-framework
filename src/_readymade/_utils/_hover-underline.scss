@@ -1,0 +1,16 @@
+@mixin underline-btn($bgcolor) {
+	position: relative;
+	&:after {
+		content: "";
+		position: absolute;
+		bottom: -3px; left: 0;
+		height: 1px; width: 0;
+		background: $bgcolor;
+		transition: width .2s cubic-bezier(.215,.61,.355,1);
+	}
+	@include hover {
+		&:after {
+			width: 100%;
+		}
+	}
+}

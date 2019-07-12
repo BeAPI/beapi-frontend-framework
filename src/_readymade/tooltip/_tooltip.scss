@@ -1,0 +1,113 @@
+/**
+ * Tooltip
+ *
+ * Tooltip template.
+ *
+ * @section Tooltip
+ * @page patterns
+ *
+ * @example
+ * <p data-tooltip="ceci est un tooltip" data-placement="top">Top</p>
+ * <p data-tooltip="ceci est un tooltip" data-placement="left">Left</p>
+ * <p data-tooltip="ceci est un tooltip" data-placement="right">Right</p>
+ * <p data-tooltip="ceci est un tooltip" data-placement="bottom">Bottom</p>
+ */
+
+ *[data-tooltip] {
+    position: relative;
+    display: inline;
+    &:before, &:after {
+        position: absolute;
+        z-index: 10;
+        display: none;
+        opacity: 0.85;
+    }
+    &:before {
+        /*
+        * using data-tooltip instead of title so we
+        * don't have the real tooltip overlapping
+        */
+        content: attr(data-tooltip);
+        background: $darkcolor;
+        color: #fff;
+        font-size: 13px;
+        padding: 5px;
+        border-radius: 5px;
+        /* we don't want the text to wrap */
+        white-space: nowrap;
+        text-decoration: none;
+    }
+    &:after {
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        content: '';
+    }
+    &:hover {
+        &:before, &:after {
+            display: block;
+        }
+    }
+    /* left tooltip */
+    &[data-placement="left"] {
+        &:before {
+            top: -25%;
+            right: 100%;
+            margin-right: 10px;
+        }
+        &:after {
+            border-left-color: #000;
+            border-right: none;
+            top: 50%;
+            right: 100%;
+            margin-top: -6px;
+            margin-right: 4px;
+        }
+    }
+    /* right tooltip */
+    &[data-placement="right"] {
+        &:before {
+            top: -25%;
+            left: 100%;
+            margin-left: 10px;
+        }
+        &:after {
+            border-right-color: #000;
+            border-left: none;
+            top: 50%;
+            left: 100%;
+            margin-top: -6px;
+            margin-left: 4px;
+        }
+    }
+    /* top tooltip */
+    &[data-placement="top"] {
+        &:before {
+            bottom: 100%;
+            left: 0;
+            margin-bottom: 10px;
+        }
+        &:after {
+            border-top-color: #000;
+            border-bottom: none;
+            bottom: 100%;
+            left: 10px;
+            margin-bottom: 4px;
+        }
+    }
+    /* bottom tooltip */
+    &[data-placement="bottom"] {
+        &:before {
+            top: 100%;
+            left: 0;
+            margin-top: 10px;
+        }
+        &:after {
+            border-bottom-color: #000;
+            border-top: none;
+            top: 100%;
+            left: 10px;
+            margin-top: 4px;
+        }
+    }
+}

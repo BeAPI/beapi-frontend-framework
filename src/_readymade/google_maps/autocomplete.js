@@ -318,7 +318,10 @@ googleDefined(() => {
     types: ['geocode'],
   }
 
-  const gMapsApiKey = 'AIzaSyCgIB5ioqhZWut29Cq0MR6sdcNig8UAjAA'
+  // You need to fill an api key
+  // For DEV use key from Be API : https://dontworry.beapi.fr/central/credential/google-maps-api-dev/
+  // For PROD ask api key to your client
+  const gMapsApiKey = ''
   if (document.getElementsByClassName('hero').length > 0) {
     const googleautocomplete = new GoogleAutocomplete(componentForm, limits, gMapsApiKey)
     googleautocomplete.init()

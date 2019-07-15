@@ -318,7 +318,7 @@ googleDefined(() => {
     types: ['geocode'],
   }
 
-  const gMapsApiKey = 'AIzaSyDA0_NJhoBxzykuohjRvzDGNZyeD3cK-RI'
+  const gMapsApiKey = 'AIzaSyCgIB5ioqhZWut29Cq0MR6sdcNig8UAjAA'
   if (document.getElementsByClassName('hero').length > 0) {
     const googleautocomplete = new GoogleAutocomplete(componentForm, limits, gMapsApiKey)
     googleautocomplete.init()

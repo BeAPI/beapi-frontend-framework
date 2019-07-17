@@ -17,14 +17,18 @@ import './src/iframe'
  * LazySizes configuration
  * https://github.com/aFarkas/lazysizes/#js-api---options
  */
-lazySizes.customMedia = {}
+// lazySizes.cfg
 
 /**
  * LazySizesBgset configuration
  * https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/bgset#lazysizes-bgset-extension---responsive-background-images
  */
-lazySizes.cfg.customMedia = {}
+// lazySizes.cfg.customMedia = {}
 
+/**
+ * LazySizesBgset configuration
+ * https://github.com/aFarkas/lazysizes/blob/gh-pages/plugins/native-loading/README.md
+ */
 lazySizes.cfg.nativeLoading = {
   setLoadingAttribute: true,
 }

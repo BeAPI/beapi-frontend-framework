@@ -18,6 +18,13 @@ class Assets_Fonts_Async implements Service {
 	public function register( Service_Container $container ) {}
 
 	/**
+	 * @return string
+	 */
+	public function get_service_name() {
+		return 'assets-fonts-async';
+	}
+
+	/**
 	 * @param Service_Container $container
 	 */
 	public function boot( Service_Container $container ) {

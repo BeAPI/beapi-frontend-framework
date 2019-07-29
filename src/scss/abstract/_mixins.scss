@@ -264,3 +264,8 @@
 	max-width: calc(#{$flexcolsize} - #{$gutter});
 	margin-left: $gutter;
 }
+
+@mixin flexoff($col:12,$grid:12,$gutter:1rem) {
+	$flexcolsize : $col/$grid*100%;
+	margin-left: calc(#{$flexcolsize} + #{$gutter});
+  }

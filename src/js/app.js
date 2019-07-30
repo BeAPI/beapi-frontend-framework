@@ -11,7 +11,7 @@ import 'lazysizes/plugins/native-loading/ls.native-loading'
 import './src/ie_message'
 import './src/menu'
 import './src/button-href'
-import './src/iframe'
+import './src/wrapper'
 
 /**
  * LazySizes configuration
@@ -23,12 +23,8 @@ import './src/iframe'
  * LazySizesBgset configuration
  * https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/bgset#lazysizes-bgset-extension---responsive-background-images
  */
-// lazySizes.cfg.customMedia = {}
+lazySizes.cfg.customMedia = {}
 
-/**
- * LazySizesBgset configuration
- * https://github.com/aFarkas/lazysizes/blob/gh-pages/plugins/native-loading/README.md
- */
 lazySizes.cfg.nativeLoading = {
   setLoadingAttribute: true,
 }

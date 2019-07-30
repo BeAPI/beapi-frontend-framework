@@ -1,0 +1,20 @@
+/**
+ * Hero
+ */
+
+.hero {
+    @include row__fullwidth;
+
+    margin-bottom: $base-spacing;
+    padding: $base-spacing 0;
+
+
+    .container {
+        position: relative;
+        z-index: $zindex * 4;
+    }
+
+    @include breakpoints(md) {
+        padding: 100px 0;
+    }
+}

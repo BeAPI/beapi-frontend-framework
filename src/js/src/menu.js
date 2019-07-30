@@ -1,5 +1,3 @@
-import 'superfish'
-
 class Menu {
   constructor() {
     // Elements to handle toggle menu
@@ -26,10 +24,6 @@ class Menu {
     })
     // Event breakpoint
     this.resizeBreakpoint.addListener(this.menuResizing.bind(this))
-  }
-  sfMenuInit() {
-    // Sf menu
-    jQuery('.sf-menu').superfish()
   }
   /**
    * Open menu
@@ -64,4 +58,3 @@ export default Menu
 
 const menu = new Menu()
 menu.init()
-menu.sfMenuInit()

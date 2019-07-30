@@ -1,0 +1,30 @@
+/**
+ * @section Burger Menu Trigger
+ */
+
+.menu-trigger {
+	z-index: 999;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	&__open {
+		display: block;
+
+		.menu-mobile--active & {
+			display: none;
+		}
+	}
+
+	&__close {
+		display: none;
+
+		.menu-mobile--active & {
+			display: block;
+		}
+	}
+
+	@include breakpoints(md) {
+		display: none;
+	}
+}

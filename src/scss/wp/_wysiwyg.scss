@@ -1,0 +1,49 @@
+.wysiwyg {
+	@include clearfix;
+
+	* {
+		margin-bottom: $base-spacing;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	a {
+		text-decoration: underline;
+
+		@include hover {
+			text-decoration: none;
+		}
+	}
+
+	ul {
+		list-style: disc inside none;
+		margin: 0 0 $base-spacing;
+
+		li {
+			margin: 0 0 $half-base-spacing;
+		}
+	}
+
+	ol {
+		list-style: decimal inside none;
+		margin: 0 0 $base-spacing;
+
+		li {
+			margin: 0 0 $half-base-spacing;
+		}
+	}
+	img {
+		@include img__responsive;
+	}
+
+	.alignright,
+	.alignleft {
+		max-width: 50%;
+
+		@include breakpoints(sm) {
+			max-width: 100%;
+		}
+	}
+}

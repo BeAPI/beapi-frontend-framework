@@ -1,0 +1,30 @@
+/**
+ * Font Family
+ */
+$font-sansserif: Arial, Helvetica, sans-serif;
+$font-serif: Times, Georgia, serif;
+$customfont-1: Roboto, sans-serif;
+$customfont-2: Circular, sans-serif;
+
+/**
+ * Font Size
+ */
+$base-fz: 16px;
+$heading-font-size: 25px;
+
+/**
+ * Line Height
+ */
+$base-lh: 1.4;
+$heading-line-height: 1.2;
+
+//Roboto for body text
+@include declare-font-face("Roboto", "#{$fonts-url}/roboto-v15-latin/roboto-v15-latin-regular"); //regularx400
+@include declare-font-face("Roboto", "#{$fonts-url}/roboto-v15-latin/roboto-v15-latin-500", 500); //mediumx500
+@include declare-font-face("Roboto", "#{$fonts-url}/roboto-v15-latin/roboto-v15-latin-700", bold); //boldx700
+
+//Circular for Hn
+@include declare-font-face("Circular", "#{$fonts-url}/Circular/CircularStdBook"); //regularx400
+@include declare-font-face("Circular", "#{$fonts-url}/Circular/CircularStdMedium", 500); //mediumx500
+@include declare-font-face("Circular", "#{$fonts-url}/Circular/CircularStdBold", bold); //boldx700
+@include declare-font-face("Circular", "#{$fonts-url}/Circular/CircularStdBlack", 900); //blackx900

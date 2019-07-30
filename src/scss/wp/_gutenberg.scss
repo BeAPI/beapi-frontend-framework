@@ -1,0 +1,10 @@
+.alignwide {
+    @include row--fullwidth;
+
+    max-width: container() * 1.5;
+}
+.alignfull {
+    @include row--fullwidth;
+
+    max-width: 100vw;
+}

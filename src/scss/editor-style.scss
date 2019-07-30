@@ -1,0 +1,36 @@
+/**
+ * Abstract
+ */
+@import "abstract/url-config";
+// Susy 2.2.14
+@import "~susy/sass/susy";
+@import "~normalize-scss/sass/normalize/import-now";
+@import "abstract/positioning";
+@import "abstract/colors";
+@import "abstract/borders";
+@import "abstract/mixins";
+@import "abstract/fonts";
+@import "abstract/box-sizing";
+@import "abstract/breakpoints";
+
+/**
+ * Base
+ */
+@import "base/text";
+
+/**
+ * Wordpress
+ */
+@import "wp/img";
+@import "wp/gallery";
+@import "wp/wysiwyg";
+
+/**
+ * Backend Classic editor container
+ */
+.mce-content-body {
+    margin: $base-spacing/2;
+    @include breakpoints(md) {
+        @include container;
+    }
+}

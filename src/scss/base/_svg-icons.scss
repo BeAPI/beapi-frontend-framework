@@ -1,0 +1,104 @@
+/**
+ * @section Icons
+ * @page index
+ *
+ * @example
+ * <ul class="icons">
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-close</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-down"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-down</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-facebook</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-google"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-google</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-instagram"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-instagram</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-linkedin"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-linkedin</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-logo-beapi</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-menu"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-menu</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-search"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-search</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-twitter</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-viadeo"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-viadeo</span>
+ *	</li>
+ * 	<li>
+ *		<svg class="icon" aria-hidden="true" role="img">
+ *			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-youtube"></use>
+ *		</svg>
+ *		<span class="icon--name">icon-youtube</span>
+ *	</li>
+ * </ul>
+ */
+
+.svg-sprite {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+.icon {
+	display: inline-block;
+	vertical-align: middle;
+    fill: currentColor;
+	height: 1em;
+	width: 1em;
+}
+
+//display hidden text for icon only button
+.no-svg {
+	.visuallyhidden {
+		position: static;
+		height: auto;
+		width: auto;
+	}
+}

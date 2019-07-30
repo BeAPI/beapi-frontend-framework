@@ -1,0 +1,189 @@
+/**
+ * @section Buttons
+ */
+
+ @mixin button {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 8px 12px;
+	background-color: $maingrey;
+	border: 1px solid transparent;
+	font-family: $customfont-1;
+	color: $textcolor;
+	line-height: 1.5;
+	transition: background-color .3s ease;
+
+	@include hover {
+		background-color: darken($maingrey, 10%);
+	}
+}
+
+// Sizing
+@mixin button--xs {
+	font-size: 9px;
+}
+
+@mixin button--sm {
+	font-size: 12px;
+}
+
+@mixin button--lg {
+	font-size: 18px;
+}
+
+@mixin button--expand {
+	display: block;
+	width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+	text-align: center;
+}
+
+// Coloring
+@mixin button--colored($backgroundColor, $color) {
+	background-color: $backgroundColor;
+	color: $color;
+
+	@include hover {
+		background-color: darken($backgroundColor, 10%);
+	}
+}
+
+// Outline style
+@mixin button--outline($borderColor: $maingrey, $color: $textcolor) {
+	background-color: transparent;
+	border-color: $borderColor;
+	color: $color;
+
+	@include hover {
+		background-color: transparent;
+		border-color: darken($borderColor, 10%);
+	}
+}
+
+// Border Radius
+@mixin button--round {
+	border-radius: $base-border-radius;
+}
+
+@mixin button--circle($size: 50px) {
+	padding: 0;
+	width: $size;
+	height: $size;
+	border-radius: $size;
+	line-height: $size;
+	text-align: center;
+}
+
+// State style
+@mixin button--disabled($backgroundColor: $maingrey) {
+	opacity: 0.3;
+	cursor: not-allowed;
+
+	@include hover {
+		background-color: $backgroundColor;
+	}
+}
+
+// Text style
+@mixin button--text {
+	padding: 0;
+	background-color: transparent;
+
+	@include hover {
+		background-color: transparent;
+	}
+}
+
+// Button icon
+@mixin button--icon {
+	padding: 10px 11px;
+}
+
+.button {
+	$parent: &;
+
+	@include button;
+
+	&--xs {
+		@include button--xs;
+	}
+	&--sm {
+		@include button--sm;
+	}
+	&--lg {
+		@include button--lg;
+	}
+	&--expand {
+		@include button--expand;
+	}
+	&--primary {
+		@include button--colored($maincolor, $textcolor);
+	}
+	&--error {
+		@include button--colored($errorcolor-2, $errorcolor-1);
+	}
+	&--warning {
+		@include button--colored($noticecolor-2, $noticecolor-1);
+	}
+	&--success {
+		@include button--colored($successcolor-2, $successcolor-1);
+	}
+	&--info {
+		@include button--colored($infocolor-2, $infocolor-1);
+	}
+	&--outline {
+		@include button--outline;
+
+		&#{$parent}--primary {
+			@include button--outline($maincolor, $textcolor);
+		}
+
+		&#{$parent}--error {
+			@include button--outline($errorcolor-2, $errorcolor-1);
+		}
+
+		&#{$parent}--warning {
+			@include button--outline($noticecolor-2, $noticecolor-1);
+		}
+
+		&#{$parent}--success {
+			@include button--outline($successcolor-2, $successcolor-1);
+		}
+
+		&#{$parent}--info {
+			@include button--outline($infocolor-2, $infocolor-1);
+		}
+	}
+	&--round {
+		@include button--round;
+	}
+	&--circle {
+		@include button--circle();
+	}
+	&--text {
+		@include button--text;
+	}
+	&--icon {
+		@include button--icon;
+	}
+	&[disabled] {
+		@include button--disabled;
+
+		&#{$parent}--error {
+			@include button--disabled($errorcolor-2);
+		}
+
+		&#{$parent}--warning {
+			@include button--disabled($noticecolor-2);
+		}
+
+		&#{$parent}--success {
+			@include button--disabled($successcolor-2);
+		}
+
+		&#{$parent}--info {
+			@include button--disabled($infocolor-2);
+		}
+	}
+}

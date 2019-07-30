@@ -1,0 +1,226 @@
+/**
+ * @section Typography
+ * @page index
+ *
+ * @example
+ * <div class="row">
+ * <div class="col-6">
+ * <h1 class="font--title">Circular</h1>
+ * <h1>Level 1 Heading</h1>
+ * <h2>Level 2 Heading</h2>
+ * <h3>Level 3 Heading</h3>
+ * <h4>Level 4 Heading</h4>
+ * <h5>Level 5 Heading</h5>
+ * <h6>Level 6 Heading</h6>
+ * </div>
+ * <div class="col-6">
+ * <h1 class="font--title">Roboto</h1>
+ * <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla.</p>
+ * <p class="font--italic">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla.</p>
+ * <p class="font--bold">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla.</p>
+ * </div>
+ * </div>
+ */
+
+body {
+	font-size: $base-fz;
+	line-height: $base-lh;
+	font-family: $customfont-1;
+	color: $textcolor;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
+	//Fonts loading FOUT
+	//Adjust FOUT with tools like https://meowni.ca/font-style-matcher/
+	.fonts-loading & {
+		font-family: $font-sansserif;
+	}
+}
+
+a {
+	color: $textcolor;
+	text-decoration: none;
+
+	@include hover {
+		color: $textcolor;
+	}
+}
+
+/* Headings
+----------------------------------------------------------------------------------------------------*/
+@for $i from 1 through 6 {
+	h#{$i} {
+		line-height: $heading-line-height;
+		font-size: $heading-font-size - ($i - 1) * 2px;
+		font-family: $customfont-2;
+
+		.fonts-loading & {
+			font-family: $font-sansserif;
+		}
+	}
+}
+
+/* Lists
+----------------------------------------------------------------------------------------------------*/
+ol,
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+li {
+	margin: 0;
+}
+
+/* Spacing
+----------------------------------------------------------------------------------------------------*/
+p,
+dl,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul,
+pre,
+table,
+address,
+fieldset,
+figure {
+	margin: 0 0 $base-spacing 0;
+}
+
+/* Wysiwyg style
+----------------------------------------------------------------------------------------------------*/
+hr {
+	clear: both;
+	border: 0;
+	height: 1px;
+	background: $maingrey;
+	margin: $base-spacing 0;
+}
+blockquote {
+	border-left: 5px solid $maingrey;
+	padding: $base-spacing;
+	margin: 0 0 $base-spacing 0;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+	p:last-child {
+		margin: 0;
+	}
+}
+cite {
+	font-style: italic;
+}
+small {
+	font-size: 11px;
+}
+table {
+	margin: $base-spacing 0;
+	width: 100%;
+	border: $base-border;
+	border-collapse: collapse;
+	border-left: 0;
+	border-radius: $base-border-radius;
+
+	th {
+		padding: $half-base-spacing;
+		border-left: 1px solid $base-border-color;
+		border-top: 0;
+		vertical-align: top;
+		text-align: left;
+	}
+
+	td {
+		padding: $half-base-spacing;
+		border-top: 1px solid $base-border-color;
+		border-left: 1px solid $base-border-color;
+		vertical-align: top;
+		text-align: left;
+	}
+}
+
+address {
+	display: block;
+	margin-bottom: $base-spacing;
+	font-style: normal;
+	line-height: 20px;
+}
+
+abbr {
+	text-decoration: underline;
+}
+
+abbr[title], abbr[data-original-title] {
+	cursor: help;
+	border-bottom: 1px dotted $base-border-color;
+}
+
+big {
+	font-size: larger;
+}
+
+code {
+	display: inline-block;
+	padding: 2px 5px;
+	background-color: $maingrey;
+	border: 1px solid $darkcolor;
+	font-family: monospace;
+	font-size: $base-fz;
+	border-radius: $base-border-radius;
+}
+
+s,
+strike,
+del {
+	text-decoration: line-through;
+}
+
+em,
+var {
+	font-style: italic;
+}
+
+ins {
+	text-decoration: none;
+}
+
+tt,
+kbd,
+samp {
+	font-family: monospace;
+}
+
+pre {
+	display: block;
+	padding: $half-base-spacing;
+	margin: 0 0 $base-spacing;
+
+	@include word-wrap(break-all);
+
+	white-space: pre-wrap;
+	background-color: $maingrey;
+	border: 1px solid $darkcolor;
+	border-radius: $base-border-radius;
+}
+
+q {
+	display: inline;
+	font-style: italic;
+}
+
+sub,
+sup {
+	bottom: -0.25em;
+	position: relative;
+	font-size: 75%;
+	line-height: 0;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}

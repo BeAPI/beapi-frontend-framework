@@ -1,0 +1,134 @@
+/**
+ * Menu
+ *
+ * Menu template.
+ *
+ * @section Menu
+ * @page patterns
+ *
+ * @example
+ *	<nav id="menu" class="menu" role="navigation" tabindex="-1" aria-label="Navigation Principal">
+ *		<ul class="menu__list sf-menu">
+ *			<li class="menu-item current-menu-item menu-item-has-children">
+ *				<a href="01-home.php">Home</a>
+ *			</li>
+ *			<li class="menu-item"><a href="02-page-default.php">Page default</a></li>
+ *			<li class="menu-item"><a href="03-archive-default.php">Archive default</a></li>
+ *			<li class="menu-item"><a href="04-page-404.php">Page 404</a></li>
+ *		</ul>
+ *	</nav>
+ */
+
+.menu {
+	$el: &;
+	$menu-item: '.menu-item';
+	$sub-menu: '.sub-menu';
+
+	z-index: 998;
+	position: fixed;
+	top: 0;
+	left: -100%;
+	bottom: 0;
+	width: 80%;
+	padding: 40px 0;
+	background: $maincolor;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	transition : left 0.5s ease-out;
+	-webkit-backface-visibility: hidden;
+	-webkit-transform: translateZ(0);
+
+	@include clearfix;
+
+	&__list {
+		@include clearfix;
+
+		&>#{$menu-item} {
+			@include hover {
+				ul {
+					display: block;
+				}
+			}
+			&.current-menu-item,
+			&.current-menu-parent,
+			&.current-menu-ancestor {
+				&>a {
+					background: $maincolor;
+					color: $textcolor;
+				}
+			}
+		}
+	}
+
+	#{$menu-item} {
+		&>a {
+			display: block;
+			padding: 10px;
+
+			@include hover {
+				color:$textcolor;
+				background:$maincolor;
+			}
+		}
+
+		@include hover {
+			#{$el}__list {
+				display: block;
+			}
+		}
+	}
+
+	#{$sub-menu} {
+		display: none;
+	}
+
+	@include breakpoints(md) {
+		position: relative;
+		left: auto;
+		overflow: inherit;
+		background: none;
+		width: auto;
+		padding: 0;
+
+		#{$sub-menu} {
+			position: absolute;
+			top: 100%;
+			min-width: 200px;
+			background: $lightcolor;
+
+			#{$menu-item} {
+				a {
+					@include hover {
+						background: $maincolor;
+						color: $textcolor;
+					}
+				}
+			}
+		}
+
+		#{$el}__list {
+			&>#{$menu-item} {
+				display: inline-block;
+				position: relative;
+
+				@include hover {
+					#{$el}__list {
+						top: 100%;
+					}
+				}
+				li {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+.menu-mobile--active {
+	overflow: hidden;
+
+	.menu {
+		left: 0;
+		box-shadow: 0 0 100px rgba($darkcolor, 0.5);
+	}
+}

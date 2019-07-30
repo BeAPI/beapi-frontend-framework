@@ -1,0 +1,90 @@
+/**
+ * @section Cards
+ */
+
+@mixin card($flexDirection: column, $thumbnailWidth : 300px) {
+    display: flex;
+    border: $base-border;
+    flex-direction: $flexDirection;
+    margin: 0 auto;
+
+    @if ($flexDirection == row or $flexDirection == row-reverse) {
+        @include breakpoints(sm) {
+            max-width: 100%;
+            flex-direction: $flexDirection;
+
+            .card__thumbnail {
+                width: $thumbnailWidth;
+            }
+
+            .card__content {
+                width: calc(100% - #{$thumbnailWidth});
+            }
+
+            .card__img {
+                @include object-fit;
+                height: 100%;
+                margin: 0;
+            }
+        }
+    }
+
+    @if ($flexDirection == row) {
+        flex-direction: column;
+    }
+
+    @if ($flexDirection == row-reverse) {
+        flex-direction: column-reverse;
+    }
+}
+
+.card {
+    $el: &;
+
+    @include card;
+
+    #{$el}__img {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    #{$el}__content {
+        padding: $base-spacing;
+
+        p {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    // Vertical card reversed
+    &--reverse {
+        @include card(column-reverse);
+    }
+
+    // Horizontal card
+    &--row {
+        @include card(row, 300px);
+
+        &#{$el}--center {
+            @include breakpoints(sm) {
+                align-items: center;
+            }
+        }
+
+        // Horizontal card reversed
+        &#{$el}--reverse {
+            @include card(row-reverse, 300px);
+        }
+    }
+
+    @include breakpoints(sm) {
+        #{$el}--row {
+            &#{$el}--center {
+                align-items: center;
+            }
+        }
+    }
+}

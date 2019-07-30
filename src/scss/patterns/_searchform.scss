@@ -1,0 +1,22 @@
+/**
+ * Searchform
+ */
+
+ .searchform {
+	position: relative;
+
+	&__field[type=search] {
+		padding-right: $base-spacing * 1.5;
+	}
+
+	&__submit {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+
+		.icon {
+			vertical-align: -15%;
+		}
+	}
+}

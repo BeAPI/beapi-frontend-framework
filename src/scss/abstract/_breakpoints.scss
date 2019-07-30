@@ -1,0 +1,27 @@
+/**
+ * Responsive breakpoints
+ * https://zellwk.com/blog/media-query-units/
+ *
+ * known issue :
+ *      an error will be throw if $breakpoint param is not a valid key of $breakpoints object
+ *      -> Invalid null operation: "null sub 1"
+ */
+
+ $breakpoints : (
+    xsm: 480,
+    sm: 768,
+    md: 1024,
+    lg: 1440
+);
+
+@mixin breakpoints($breakpoint, $minOrMax : min) {
+    @if ($minOrMax == max){
+        @media screen and (max-width: em(map-get($breakpoints, $breakpoint) - 1)) {
+            @content;
+        }
+    } @else {
+        @media screen and (min-width: em(map-get($breakpoints, $breakpoint))) {
+            @content;
+        }
+    }
+}

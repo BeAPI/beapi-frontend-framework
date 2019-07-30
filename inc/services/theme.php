@@ -54,7 +54,7 @@ class Theme implements Service {
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'html5', [ 'comment-list', 'comment-form', 'search-form' ] );
 		add_theme_support( 'title-tag' );
-		add_theme_support( 'async-css' );
+		add_theme_support( 'async-fonts' );
 		add_theme_support( 'async-js' );
 		add_theme_support( 'yoast-seo-breadcrumbs' );
 	}

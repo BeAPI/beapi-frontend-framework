@@ -156,13 +156,14 @@ module.exports = (env, argv) => {
             {
               match: config.refresh,
               fn: function(event, file) {
-                if (event === 'change') {
-                  const bs = require('browser-sync').get('bs-webpack-plugin')
-                  if (file.indexOf('.css') >= 0) {
-                    bs.reload('*.css')
-                  } else {
-                    bs.reload()
-                  }
+                const bs = require('browser-sync').get('bs-webpack-plugin')
+
+                if (event === 'change' && file.indexOf('.css') === -1) {
+                  bs.reload()
+                }
+
+                if (event === 'change' && file.indexOf('.css') !== -1) {
+                  bs.stream()
                 }
               },
             },

@@ -65,8 +65,7 @@
 			}
 		</style>
 
-		<link rel="preload" href="assets/app.css" as="style">
-		<link rel="stylesheet" href="assets/app.css" media="print" onload="this.media='all'">
+		<link rel="stylesheet" href="assets/app.css">
 
 		<!-- jQuery from official WordPress Core -->
 		<script type="text/javascript" src="assets/js/vendor_async/jquery.js"></script>

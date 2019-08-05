@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const SoundsPlugin = require('sounds-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const WebpackProgressOraPlugin = require('webpack-progress-ora-plugin')
 
@@ -48,7 +49,7 @@ const webpackConfig = {
             },
           },
           'resolve-url-loader',
-        ]
+        ],
       },
       {
         test: /\.(sass|scss)$/,
@@ -145,6 +146,7 @@ module.exports = (env, argv) => {
     webpackConfig.devtool = 'source-map'
     webpackConfig.output.filename = '[name].js'
     webpackConfig.plugins.push(
+      new SoundsPlugin(),
       new MiniCssExtractPlugin({
         filename: '[name].css',
         allChunks: true,

@@ -51,20 +51,6 @@
 			<script type="text/javascript" src="assets/js/vendor_ie/selectivizr.js"></script>
 		<![endif]-->
 
-		<style>
-			.cssloading__overlay {
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: #fff;
-				opacity: 1;
-				z-index: 10001;
-				transition: opacity .25s ease, z-index .25s ease .5s, width .25s ease .5s, height .25s ease .25s, visibility .25s ease .25s;
-			}
-		</style>
-
 		<link rel="stylesheet" href="assets/app.css">
 
 		<!-- jQuery from official WordPress Core -->
@@ -82,7 +68,6 @@
 				</p>
 			</div>
 		<![endif]-->
-		<div class="cssloading__overlay"></div>
 		<div id="main">
 			<ul class="menu-fastaccess">
 				<li class="menu-fastaccess__item"><a href="#main__content">Acces direct au contenu</a></li>

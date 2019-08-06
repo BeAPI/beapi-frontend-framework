@@ -33,4 +33,3 @@
 			</p>
 		</div>
 	<![endif]-->
-	<div class="cssloading__overlay"></div>

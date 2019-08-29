@@ -71,3 +71,6 @@ config/host.js
 ### frontend build directory ###
 dist/
 src/conf-img/*.csv
+
+### yarn
+yarn.lock

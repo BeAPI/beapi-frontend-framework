@@ -8,7 +8,6 @@ import lazySizes from 'lazysizes'
 import 'lazysizes/plugins/bgset/ls.bgset'
 import 'lazysizes/plugins/native-loading/ls.native-loading'
 
-import './src/ie_message'
 import './src/menu'
 import './src/button-href'
 import './src/wrapper'

@@ -44,12 +44,6 @@
 			<script type="text/javascript" src="assets/js/vendor_ie/matchMedia.addListener.js"></script>
 			<script type="text/javascript" src="assets/js/vendor_ie/placeholders.min.js"></script>
 		<![endif]-->
-		<!--[if lt IE 9]>
-			<script type="text/javascript" src="assets/js/vendor_ie/html5shiv.min.js"></script>
-		<![endif]-->
-		<!--[if lte IE 8]>
-			<script type="text/javascript" src="assets/js/vendor_ie/selectivizr.js"></script>
-		<![endif]-->
 
 		<link rel="stylesheet" href="assets/app.css">
 
@@ -58,16 +52,7 @@
 
 	</head>
 	<body class="<?php echo $bodyClass; ?>">
-		<!--[if lte IE 9]>
-			<div class="message message__browserhappy">
-				<p>
-				You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.
-				</p>
-				<p>
-				<button><span class="button-icon icon-close"></span>&nbsp;Close</button>
-				</p>
-			</div>
-		<![endif]-->
+		<?php include 'partials/ie.php'; ?>
 		<div id="main">
 			<ul class="menu-fastaccess">
 				<li class="menu-fastaccess__item"><a href="#main__content">Acces direct au contenu</a></li>

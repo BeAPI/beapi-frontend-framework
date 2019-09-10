@@ -67,12 +67,6 @@ class Assets implements Service{
 		$this->assets_tools->register_script( 'placeholders', 'dist/assets/js/vendor_ie/placeholders.min.js', [], '1', false );
 		wp_script_add_data( 'placeholders', 'conditional', 'lte IE 9' );
 
-		$this->assets_tools->register_script( 'html5shiv', 'dist/assets/js/vendor_ie/html5shiv.min.js', [], '1', false );
-		wp_script_add_data( 'html5shiv', 'conditional', 'lt IE 9' );
-
-		$this->assets_tools->register_script( 'selectivizr', 'dist/assets/js/vendor_ie/selectivizr.js', [], '1', false );
-		wp_script_add_data( 'selectivizr', 'conditional', 'lte IE 8' );
-
 		// Async and footer
 		$file = ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) ? $this->get_min_file( 'js' ) : 'app.js';
 		$this->assets_tools->register_script( 'scripts', 'dist/assets/' . $file, $scripts_dependencies, $theme->get( 'Version' ), true );
@@ -89,8 +83,6 @@ class Assets implements Service{
 		$this->assets_tools->enqueue_script( 'matchMedia-polyfill' );
 		$this->assets_tools->enqueue_script( 'matchMedia-addListener' );
 		$this->assets_tools->enqueue_script( 'placeholders' );
-		$this->assets_tools->enqueue_script( 'html5shiv' );
-		$this->assets_tools->enqueue_script( 'selectivizr' );
 		$this->assets_tools->enqueue_script( 'scripts' );
 	}
 

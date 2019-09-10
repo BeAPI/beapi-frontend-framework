@@ -8,14 +8,13 @@
   },
   "scripts": {
     "start": "node_modules/.bin/concurrently -k -n \"Webpack,PHP Server\" -p \"[{name}]\" -c \"green, blue\" \"node_modules/.bin/webpack --mode=development --watch\" \"php -S localhost:9090\"",
-    "build:dev": "node_modules/.bin/webpack --mode=development && npm run icon && npm run favicon",
-    "build:prod": "npm run clean && node_modules/.bin/webpack --mode=production && npm run icon && npm run favicon",
+    "build:dev": "node_modules/.bin/webpack --mode=development && npm run icon",
+    "build:prod": "npm run clean && node_modules/.bin/webpack --mode=production && npm run icon",
     "build": "npm run clean && node_modules/.bin/webpack --mode=production && npm run build:dev",
     "watch": "node_modules/.bin/webpack --watch --mode=development",
     "bump": "node scripts/style-version.js",
     "clean": "rm -rf dist/ && echo \"✓ dist folder has been successfully removed.\"",
     "composerjs": "cd composerjs && npm install && node app.js",
-    "favicon": "node scripts/favicon.js && node scripts/favicon.js --appicon",
     "icon": "node scripts/svg-sprite.js",
     "image": "node scripts/image-sizes.js"
   },
@@ -55,7 +54,6 @@
   "dependencies": {
     "autoprefixer": "^9.5.1",
     "cheerio": "^1.0.0-rc.3",
-    "favicons": "^5.4.1",
     "lazysizes": "^5.1.0",
     "normalize-scss": "^7.0.1",
     "object-fit-images": "^3.2.4",

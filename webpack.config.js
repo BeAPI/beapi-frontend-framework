@@ -170,7 +170,7 @@ module.exports = (env, argv) => {
               fn: function(event, file) {
                 const bs = require('browser-sync').get('bs-webpack-plugin')
 
-                if (event === 'change' && file.indexOf('.css') === -1) {
+                if (event === 'change' && file !== 'dist/WebpackBuiltFiles.php' && file.indexOf('.css') === -1) {
                   bs.reload()
                 }
 

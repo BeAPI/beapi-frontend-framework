@@ -37,6 +37,13 @@
 				loadJS('assets/js/vendor_async/fonts-css-async.js');
 			}
 		</script>
-		<script src="assets/app.js" async defer></script>
+		<?php
+		if ( is_readable( dirname( __FILE__ ) . '/../WebpackBuiltFiles.php' ) ) {
+			require_once dirname( __FILE__ ) . '/../WebpackBuiltFiles.php';
+			foreach ( WebpackBuiltFiles::$jsFiles as $file ) { ?>
+				<script src="assets/<?php echo $file; ?>" async defer></script>
+			<?php }
+		}
+		?>
 	</body>
 </html>

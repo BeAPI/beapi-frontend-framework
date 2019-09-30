@@ -15,6 +15,17 @@
     }
   }
 
+  MyClass.defaults = {
+
+  }
+
+  MyClass.preset = {
+    '.selector' : {this object will be extended with defaults options}
+  }
+
+  // loop on each preset
+  MyClass.initFromPreset()
+
 */
 
 var $ = jQuery

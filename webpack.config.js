@@ -1,5 +1,6 @@
 const config = require('./webpack.settings')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -183,6 +184,7 @@ module.exports = (env, argv) => {
 
   if (argv.mode === 'production') {
     webpackConfig.optimization.minimizer = [
+      // new BundleAnalyzerPlugin(),
       new OptimizeCssAssetsPlugin({
         assetNameRegExp: /\.min\.css$/,
         cssProcessorOptions: {

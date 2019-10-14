@@ -5,8 +5,8 @@
 <html class="fonts-loading no-js" lang="fr"><!--<![endif]-->
 	<head>
 
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta name="viewport" content="initial-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="initial-scale=1.0">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 
 		<title>BeAPI FrontEnd Framework | The WordPress BFF</title>

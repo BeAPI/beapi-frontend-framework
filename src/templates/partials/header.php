@@ -5,12 +5,12 @@
 <html class="fonts-loading no-js" lang="fr"><!--<![endif]-->
 	<head>
 
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta name="viewport" content="initial-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="initial-scale=1.0">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 
 		<title>BeAPI FrontEnd Framework | The WordPress BFF</title>
-
+		<meta name="description" content="BeAPI FrontEnd Framework is a Front-end WordPress theme friendly boilerplate to help you to build your own WordPress theme with modern tools and a better productivity.">
 		<!-- Web App favicons from /assets/img/favicons/index_hd.html -->
 		<link rel="manifest" href="assets/img/favicons/manifest.json">
 		<meta name="mobile-web-app-capable" content="yes">

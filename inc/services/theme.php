@@ -52,7 +52,7 @@ class Theme implements Service {
 	private function add_theme_supports() {
 		// Add the theme support basic elements
 		add_theme_support( 'post-thumbnails' );
-		add_theme_support( 'html5' );
+		add_theme_support( 'html5', [ 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'script', 'style' ] );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'async-fonts' );
 		add_theme_support( 'async-js' );

@@ -2,7 +2,6 @@
  * Main scripts file
  */
 import './polyfill/picturefill'
-import './polyfill/forEach'
 import './polyfill/objectfit-polyfill'
 import lazySizes from 'lazysizes'
 import 'lazysizes/plugins/bgset/ls.bgset'

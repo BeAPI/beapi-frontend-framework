@@ -38,14 +38,23 @@ const webpackConfig = {
       {
         test: /\.css$/,
         use: [
+          MiniCssExtractPlugin.loader,
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: 'style-loader',
+            options: {
+              sourceMap: true,
+            },
           },
-          'style-loader',
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
           {
             loader: 'postcss-loader',
             options: {
+              sourceMap: true,
               plugins: () => [require('autoprefixer')()],
             },
           },
@@ -55,24 +64,29 @@ const webpackConfig = {
       {
         test: /\.(sass|scss)$/,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
               importLoaders: 1,
               url: false,
+              sourceMap: true,
             },
           },
           {
             loader: 'postcss-loader',
             options: {
+              sourceMap: true,
               plugins: () => [require('autoprefixer')()],
             },
           },
-          'sass-loader',
-        ]
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
       },
       {
         test: /\.(woff2?|woff|eot|ttf|otf|mp3|wav)(\?.*)?$/,

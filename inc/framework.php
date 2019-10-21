@@ -27,6 +27,7 @@ class Framework {
 		\BEA\Theme\Framework\Services\Acf::class,
 		\BEA\Theme\Framework\Services\Sidebar::class,
 		\BEA\Theme\Framework\Services\Menu::class,
+		\BEA\Theme\Framework\Services\Templates::class,
 
 		// Services as Tools
 		\BEA\Theme\Framework\Tools\Body_Class::class,

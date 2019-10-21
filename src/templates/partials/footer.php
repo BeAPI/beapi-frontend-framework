@@ -25,6 +25,10 @@
 		</div><!-- Main -->
 
 		<?php require 'assets/img/icons/icons.svg'; ?>
+
+		<!-- Polyfill.io -->
+		<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=NodeList.prototype.forEach%2CElement.prototype.closest"></script>
+
 		<script>
 			// inline loadJS
 			function loadJS(e,t){"use strict";var n=window.document.getElementsByTagName("script")[0],o=window.document.createElement("script");return o.src=e,o.async=!0,n.parentNode.insertBefore(o,n),t&&"function"==typeof t&&(o.onload=t),o}
@@ -37,6 +41,8 @@
 				loadJS('assets/js/vendor_async/fonts-css-async.js');
 			}
 		</script>
+
+		<!-- Theme js -->
 		<script src="assets/app.js" async defer></script>
 	</body>
 </html>

@@ -1,6 +1,8 @@
 /**
  * Main scripts file
  */
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
 import './polyfill/picturefill'
 import './polyfill/objectfit-polyfill'
 import lazySizes from 'lazysizes'

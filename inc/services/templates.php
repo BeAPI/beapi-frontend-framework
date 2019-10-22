@@ -45,7 +45,7 @@ class Templates implements Service {
 			return false;
 		}
 
-		$path = apply_filters( 'BEA\Theme\Framework\Services', array( $tpl . '.php' ), $tpl, __NAMESPACE__ );
+		$path = apply_filters( 'BEA\Theme\Framework\Services\Templates', array( $tpl . '.php' ), $tpl, __NAMESPACE__ );
 
 		// Locate from the theme
 		$located = locate_template( $path, false, false );
@@ -166,13 +166,6 @@ class Templates implements Service {
 	 * @param string $block_name filename
 	 * @param array $args arguments to pass
 	 */
-	public static function get_section( $block_name, array $args = [] ) {
-		self::get_block( 'sections/' . $block_name, $args );
-	}
-
-	public static function get_svg( $block_name, array $args = [] ) {
-		self::get_block( 'svg/' . $block_name, $args );
-	}
 
 	public static function get_block( $block_name, array $args = [] ) {
 		if ( ! empty( $args ) ) {
@@ -188,14 +181,6 @@ class Templates implements Service {
 		} else {
 			get_template_part( 'components/parts/' . $module . '/' . $part_name );
 		}
-	}
-
-	public static function get_hero( $hero_name, array $args = [] ) {
-		self::get_block( 'hero/' . $hero_name, $args, true );
-	}
-
-	public static function get_cards( $card_name, array $args = [] ) {
-		self::get_block( 'cards/' . $card_name, $args, true );
 	}
 
 	public static function get_loop( string $loop, $args = [] ) {

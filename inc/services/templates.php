@@ -6,12 +6,11 @@ use BEA\Theme\Framework\Service;
 use BEA\Theme\Framework\Service_Container;
 
 /**
- * Class Helpers
+ * Class Templates
  *
  * @package Beapi\Theme\Framework
  */
-class Templates implements Service {
-
+class Templates implements Service, TemplatesInterface {
 
 	/**
 	 * @param Service_Container $container
@@ -45,7 +44,7 @@ class Templates implements Service {
 			return false;
 		}
 
-		$path = apply_filters( 'BEA\Theme\Framework\Services', array( $tpl . '.php' ), $tpl, __NAMESPACE__ );
+		$path = apply_filters( 'BEA\Theme\Framework\Services\Templates', array( $tpl . '.php' ), $tpl, __NAMESPACE__ );
 
 		// Locate from the theme
 		$located = locate_template( $path, false, false );
@@ -176,27 +175,32 @@ class Templates implements Service {
 
 	public static function get_block( $block_name, array $args = [] ) {
 		if ( ! empty( $args ) ) {
-			self::render( 'components/blocks/' . $block_name, $args, true );
+			self::render( BLOCKS . $block_name, $args, true );
 		} else {
-			get_template_part( 'components/blocks/' . $block_name );
+			get_template_part( BLOCKS . $block_name );
 		}
 	}
 
 	public static function get_part( $part_name, $module, array $args = [] ) {
 		if ( ! empty( $args ) ) {
-			self::render( 'components/parts/' . $module . '/' . $part_name, $args, true );
+			self::render( PARTS . $module . '/' . $part_name, $args, true );
 		} else {
-			get_template_part( 'components/parts/' . $module . '/' . $part_name );
+			get_template_part( PARTS . $module . '/' . $part_name );
 		}
 	}
-
-	public static function get_hero( $hero_name, array $args = [] ) {
-		self::get_block( 'hero/' . $hero_name, $args, true );
-	}
-
-	public static function get_cards( $card_name, array $args = [] ) {
-		self::get_block( 'cards/' . $card_name, $args, true );
-	}
+	/**
+	 * example of optional helpers
+	 * @param string $loop
+	 * @param array $args
+	 */
+//
+//	public static function get_hero( $hero_name, array $args = [] ) {
+//		self::get_block( 'hero/' . $hero_name, $args, true );
+//	}
+//
+//	public static function get_cards( $card_name, array $args = [] ) {
+//		self::get_block( 'cards/' . $card_name, $args, true );
+//	}
 
 	public static function get_loop( string $loop, $args = [] ) {
 		if ( ! empty( $args ) ) {

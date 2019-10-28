@@ -8,8 +8,10 @@
  *
  * @return string
  */
-function get_the_icon( $icon_class, $additionnal_classes = array() ) {
-	return ( \BEA\Theme\Framework\Framework::get_container() )->get_service( 'svg' )->get_the_icon( $icon_class, $additionnal_classes );
+if ( ! function_exists( 'get_the_icon' ) ) {
+	function get_the_icon( $icon_class, $additionnal_classes = array() ) {
+		return ( \BEA\Theme\Framework\Framework::get_container() )->get_service( 'svg' )->get_the_icon( $icon_class, $additionnal_classes );
+	}
 }
 
 /**
@@ -18,6 +20,8 @@ function get_the_icon( $icon_class, $additionnal_classes = array() ) {
  * @param       $icon_class
  * @param array $additionnal_classes
  */
-function the_icon( $icon_class, $additionnal_classes = array() ) {
-	( \BEA\Theme\Framework\Framework::get_container() )->get_service( 'svg' )->the_icon( $icon_class, $additionnal_classes );
+if ( ! function_exists( 'the_icon' ) ) {
+	function the_icon( $icon_class, $additionnal_classes = array() ) {
+		( \BEA\Theme\Framework\Framework::get_container() )->get_service( 'svg' )->the_icon( $icon_class, $additionnal_classes );
+	}
 }

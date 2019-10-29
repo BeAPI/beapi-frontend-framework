@@ -61,13 +61,13 @@
 			</ul>
 			<div id="js-menu-trigger" class="menu-trigger">
 				<button type="button" id="js-menu-open" class="menu-trigger__open button button--primary">
-					<svg class="icon icon-menu" aria-hidden="true" role="img">
+					<svg class="icon icon-menu" focusable="false" aria-hidden="true" role="img">
 						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-menu"></use>
 					</svg>
 					Menu
 				</button>
 				<button type="button" id="js-menu-close" class="menu-trigger__close button button--primary">
-					<svg class="icon icon-close" aria-hidden="true" role="img">
+					<svg class="icon icon-close" focusable="false" aria-hidden="true" role="img">
 						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
 					</svg>
 					Fermer
@@ -78,7 +78,7 @@
 					<div class="header__logo">
 						<a href="01-home.php" class="header__logo-link">
 							<!-- <?php //echo get_the_post_thumbnail( 0, 'logo-beapi', array( 'data-location' => 'header-logo', 'class' => 'header__img', 'alt' => 'Logo' ) ); ?>  -->
-							<svg class="header__icon icon" aria-hidden="true" role="img">
+							<svg class="header__icon icon"  focusable="false" aria-hidden="true" role="img">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
 							</svg>
 							<?php if ( $bodyClass == 'home' ) :?>
@@ -93,7 +93,8 @@
 							<li class="menu-item current-menu-item menu-item-has-children">
 								<a href="01-home.php">Home</a>
 								<ul class="sub-menu">
-									<li class="menu-item"><a href="#">Sub menu item</a></li>
+									<li class="menu-item"><a href="00-buttons.php">StyleGuide - Buttons</a></li>
+									<li class="menu-item"><a href="00-cards.php">StyleGuide - Cards</a></li>
 								</ul>
 							</li>
 							<li class="menu-item"><a href="02-page-default.php">Page default</a></li>

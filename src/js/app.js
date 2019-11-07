@@ -1,6 +1,8 @@
 /**
  * Main scripts file
  */
+
+import 'what-input'
 import './polyfill/picturefill'
 import './polyfill/forEach'
 import './polyfill/objectfit-polyfill'

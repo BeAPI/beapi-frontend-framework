@@ -1,15 +1,15 @@
 .wysiwyg {
 	@include clearfix;
 
-	* {
-		margin-bottom: $base-spacing;
+	// * {
+	// 	margin-bottom: $base-spacing;
 
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
+	// 	&:last-child {
+	// 		margin-bottom: 0;
+	// 	}
+	// }
 
-	a {
+	a:not([class]) {
 		text-decoration: underline;
 
 		@include hover {
@@ -17,7 +17,7 @@
 		}
 	}
 
-	ul {
+	ul:not([class]) {
 		list-style: disc inside none;
 		margin: 0 0 $base-spacing;
 
@@ -26,7 +26,7 @@
 		}
 	}
 
-	ol {
+	ol:not([class]) {
 		list-style: decimal inside none;
 		margin: 0 0 $base-spacing;
 
@@ -34,16 +34,16 @@
 			margin: 0 0 $half-base-spacing;
 		}
 	}
+
 	img {
 		@include img__responsive;
-	}
+		&.alignright,
+		&.alignleft {
+			max-width: 50%;
 
-	.alignright,
-	.alignleft {
-		max-width: 50%;
-
-		@include breakpoints(sm) {
-			max-width: 100%;
+			@include breakpoints(sm) {
+				max-width: 100%;
+			}
 		}
 	}
 }

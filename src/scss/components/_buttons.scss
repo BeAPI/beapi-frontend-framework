@@ -6,16 +6,11 @@
 	display: inline-block;
 	vertical-align: middle;
 	padding: 8px 12px;
-	background-color: $maingrey;
 	border: 1px solid transparent;
-	font-family: $customfont-1;
-	color: $textcolor;
+	border-radius: 0;
 	line-height: 1.5;
 	transition: background-color .3s ease;
-
-	@include hover {
-		background-color: darken($maingrey, 10%);
-	}
+	font-family: $customfont-1;
 }
 
 // Sizing
@@ -41,10 +36,11 @@
 
 // Coloring
 @mixin button--colored($backgroundColor, $color) {
-	background-color: $backgroundColor;
 	color: $color;
+	background-color: $backgroundColor;
 
 	@include hover {
+		color: $color;
 		background-color: darken($backgroundColor, 10%);
 	}
 }
@@ -154,6 +150,9 @@
 		&#{$parent}--info {
 			@include button--outline($infocolor-2, $infocolor-1);
 		}
+	}
+	&--square {
+		border-radius: 0;
 	}
 	&--round {
 		@include button--round;

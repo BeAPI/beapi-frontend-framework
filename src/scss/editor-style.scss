@@ -1,8 +1,5 @@
-/**
- * Abstract
- */
+// Abstract
 @import "abstract/url-config";
-// Susy 2.2.14
 @import "~susy/sass/susy";
 @import "~normalize-scss/sass/normalize/import-now";
 @import "abstract/positioning";
@@ -12,25 +9,38 @@
 @import "abstract/fonts";
 @import "abstract/box-sizing";
 @import "abstract/breakpoints";
+@import "abstract/grid";
 
-/**
- * Base
- */
+// Base
 @import "base/text";
 
-/**
- * Wordpress
- */
+// Components
+@import "components/buttons";
+
+// Wordpress
 @import "wp/img";
 @import "wp/gallery";
 @import "wp/wysiwyg";
+@import "wp/gutenberg";
 
-/**
- * Backend Classic editor container
- */
+// Backend Classic editor container
 .mce-content-body {
     margin: $base-spacing/2;
-    @include breakpoints(md) {
-        @include container;
+    max-width: container();
+}
+
+// Backend Gutenberg editor container
+.wp-block {
+    &:not([data-align="full"]) {
+        max-width: container();
+    }
+    &[data-align="wide"] {
+        max-width: container()*1.5;
+    }
+}
+
+.editor-post-title__block {
+    .editor-post-title__input {
+        font-family: $customfont-2;
     }
 }

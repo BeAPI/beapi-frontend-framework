@@ -45,6 +45,8 @@
 			<script type="text/javascript" src="assets/js/vendor_ie/placeholders.min.js"></script>
 		<![endif]-->
 
+		<link rel="stylesheet" href="partials/gutenberg.5.3.css">
+
 		<link rel="stylesheet" href="assets/app.css">
 
 		<!-- jQuery from official WordPress Core -->

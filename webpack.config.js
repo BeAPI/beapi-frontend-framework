@@ -1,4 +1,5 @@
 const config = require('./webpack.settings')
+const path = require('path')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')

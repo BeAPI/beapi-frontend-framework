@@ -12,7 +12,6 @@ import 'lazysizes/plugins/native-loading/ls.native-loading'
 
 import './src/menu'
 import './src/button-href'
-import './src/wrapper'
 
 /**
  * LazySizes configuration

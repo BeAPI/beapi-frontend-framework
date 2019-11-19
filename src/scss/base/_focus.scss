@@ -1,0 +1,38 @@
+html {
+	a,
+	button,
+	input,
+	select,
+	textarea {
+		&:focus {
+			outline: 2px solid currentColor;
+			outline-offset: .5rem;
+		}
+	}
+	[data-seo-container] {
+		&:focus-within {
+			outline-offset: .5rem;
+			outline: 1px solid currentColor;
+		}
+		*:focus {
+			outline: none;
+		}
+	}
+	&:not([data-whatintent="keyboard"]) {
+		a,
+		button,
+		input,
+		select,
+		textarea {
+			&:focus {
+				outline: none;
+			}
+		}
+		[data-seo-container] {
+			&:focus-within,
+			*:focus {
+				outline: none;
+			}
+		}
+	}
+}

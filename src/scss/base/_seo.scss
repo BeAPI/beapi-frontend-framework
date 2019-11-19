@@ -1,13 +1,8 @@
 [data-seo-container] {
     position: relative;
 
-    &:hover,
-    &:focus-within {
+    &:hover {
         cursor: pointer;
-    }
-
-    &:focus-within {
-        outline: 1px solid currentColor;
     }
 
     [data-seo-target] {

@@ -1,4 +1,4 @@
-<?php $bodyClass = 'page'; ?>
+<?php $bodyClass = 'page wp-embed-responsive'; ?>
 <?php include 'partials/header.php'; ?>
 <div class="hero lazyload"
 	data-bgset="assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg">

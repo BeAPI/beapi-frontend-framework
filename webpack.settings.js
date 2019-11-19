@@ -6,7 +6,6 @@ module.exports = {
     'editor-style': './src/scss/editor-style.scss',
   },
   assetsPath: path.resolve(__dirname, 'dist/assets'),
-  port: 9090,
   dev: process.env.NODE_ENV === 'dev',
   refresh: [
     'dist/**/*.php',

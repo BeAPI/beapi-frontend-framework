@@ -1,10 +1,12 @@
 const config = require('./webpack.settings')
+const path = require('path')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const PhpOutputPlugin = require('./src/js/vendor/webpack-php-output')
 const SoundsPlugin = require('sounds-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const WebpackProgressOraPlugin = require('webpack-progress-ora-plugin')
@@ -152,6 +154,15 @@ const webpackConfig = {
         to: 'img/sample/',
       },
     ]),
+    new PhpOutputPlugin({
+      devServer: false, // false or string with server entry point, e.g: app.js or
+      outPutPath: path.resolve(__dirname, 'dist/'), // false for default webpack path of pass string to specify
+      assetsPathPrefix: '',
+      phpClassName: 'WebpackBuiltFiles', //
+      phpFileName: 'WebpackBuiltFiles',
+      nameSpace: false, // false {nameSpace: 'name', use: ['string'] or empty property or don't pass "use" property}
+      path: '',
+    }),
     new WebpackProgressOraPlugin(),
   ],
 }
@@ -175,7 +186,7 @@ module.exports = (env, argv) => {
               fn: function(event, file) {
                 const bs = require('browser-sync').get('bs-webpack-plugin')
 
-                if (event === 'change' && file.indexOf('.css') === -1) {
+                if (event === 'change' && file !== 'dist/WebpackBuiltFiles.php' && file.indexOf('.css') === -1) {
                   bs.reload()
                 }
 

@@ -23,14 +23,14 @@ PhpOutputPlugin.prototype.apply = function apply(compiler) {
 
   var getCssFiles = function(filelist, filepath) {
     return _.map(
-      _.filter(filelist, filename => filename.endsWith('.css')), // filtering
+      _.filter(filelist, filename => filename.endsWith('.css') && !filename.startsWith('editor-style')), // filtering
       filename => path.join(options.assetsPathPrefix, filepath, filename) // mapping filtered
     )
   }
 
   var getJsFiles = function(filelist, filepath) {
     let files = _.map(
-      _.filter(filelist, filename => filename.endsWith('.js')), // filtering
+      _.filter(filelist, filename => filename.endsWith('.js') && !filename.startsWith('editor-style')), // filtering
       filename => path.join(options.assetsPathPrefix, filepath, filename) // mapping filtered
     )
 

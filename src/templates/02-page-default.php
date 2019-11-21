@@ -51,6 +51,34 @@
 
 
 
+			<h2>Paragraph as Heading</h2>
+
+
+
+			<p class="has-huge-font-size">Paragraph as H2</p>
+
+
+
+			<p>Using text settings size “Huge”</p>
+
+
+
+			<p class="has-large-font-size">Paragraph as H3</p>
+
+
+
+			<p>Using text settings size “Large”</p>
+
+
+
+			<p class="has-medium-font-size">Paragraph as H4</p>
+
+
+
+			<p>Using text settings size “Medium”</p>
+
+
+
 			<hr class="wp-block-separator">
 
 
@@ -223,7 +251,8 @@
 
 			<blockquote class="wp-block-quote has-text-align-left">
 				<p>Donec sed odio dui. Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, nisi erat
-					porttitor ligula, eget lacinia odio.</p><cite>Rich Tabor</cite>
+					porttitor ligula, eget lacinia odio.</p>
+				<p>With two paragraph</p><cite>Rich Tabor</cite>
 			</blockquote>
 
 
@@ -309,8 +338,22 @@
 
 
 
+			<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer posuere erat a ante
+				venenatis dapibus posuere velit aliquet.&nbsp;</p>
+
+
+
 			<div class="wp-block-button"><a class="wp-block-button__link has-text-color has-background" href="google.fr"
 					style="background-color:#52fff1;color:#454aef">Custom colors from color picker</a></div>
+
+
+
+			<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer posuere erat a ante
+				venenatis dapibus posuere velit aliquet.&nbsp;</p>
+
+
+
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link">Button outlined</a></div>
 
 
 
@@ -337,6 +380,10 @@
 			<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer posuere erat a ante
 				venenatis dapibus posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla. Maecenas
 				sed diam eget risus varius.</p>
+
+
+
+			<div class="wp-block-button"><a class="wp-block-button__link">Button outlined</a></div>
 
 
 

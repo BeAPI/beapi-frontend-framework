@@ -48,6 +48,7 @@
 // Outline style
 @mixin button--outline($borderColor: $maingrey, $color: $textcolor) {
 	background-color: transparent;
+	border-width: 1px; // Force button width VS Gutenberg CSS
 	border-color: $borderColor;
 	color: $color;
 

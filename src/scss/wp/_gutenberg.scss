@@ -13,9 +13,10 @@
 
     // Block Button
     &-button {
+        margin-bottom: $base-spacing;
+
         &__link {
             @extend .button;
-            @extend .button--round;
 
             &:not([class*="has"]) {
                 @extend .button--primary;

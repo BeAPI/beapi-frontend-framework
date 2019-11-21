@@ -18,21 +18,11 @@
 	}
 
 	ul:not([class]) {
-		list-style: disc inside none;
-		margin: 0 0 $base-spacing;
-
-		li {
-			margin: 0 0 $half-base-spacing;
-		}
+		@include wysiwyg__list();
 	}
 
 	ol:not([class]) {
-		list-style: decimal inside none;
-		margin: 0 0 $base-spacing;
-
-		li {
-			margin: 0 0 $half-base-spacing;
-		}
+		@include wysiwyg__list(ol);
 	}
 
 	img {

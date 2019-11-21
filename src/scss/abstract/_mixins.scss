@@ -250,6 +250,29 @@
     perspective: $perspective;
 }
 
+//List mixins
+@mixin wysiwyg__list($type: ul) {
+	padding-left: 0;
+	margin: $base-spacing 0 $base-spacing $half-base-spacing;
+
+	#{$type} {
+		margin-top: $half-base-spacing;
+		margin-bottom: $half-base-spacing;
+	}
+
+	li {
+		margin: 0 0 $half-base-spacing;
+	}
+
+	@if $type == ul {
+		list-style: disc inside none;
+	}
+
+	@if $type == ol {
+		list-style: decimal inside none;
+	}
+}
+
 //Title mixins
 @mixin title($size: md) {
 	font-weight: 700;

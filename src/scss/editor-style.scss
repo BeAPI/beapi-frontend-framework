@@ -44,3 +44,12 @@
         font-family: $customfont-2;
     }
 }
+
+.block-library-list {
+    ul {
+        @include wysiwyg__list();
+    }
+    ol {
+        @include wysiwyg__list(ol);
+    }
+}

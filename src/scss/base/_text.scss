@@ -119,9 +119,6 @@ blockquote {
 	margin: 0 0 $base-spacing 0;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
-	p:last-child {
-		margin: 0;
-	}
 }
 cite {
 	font-style: italic;

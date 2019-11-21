@@ -51,6 +51,17 @@
     &-quote {
         border-left: 4px solid currentColor;
 
+        p {
+            margin-bottom: $half-base-spacing;
+        }
+
+        cite,
+        &__citation {
+            font-size: 13px;
+            font-style: normal;
+            color: $maingrey;
+        }
+
         &.is-large {
             padding: $base-spacing*1.5;
             margin-bottom: $base-spacing*1.5;

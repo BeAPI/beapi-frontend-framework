@@ -40,3 +40,19 @@
         }
     }
 }
+
+//Paragraph
+p {
+    //H2 like style
+    &.has-huge-font-size {
+        @include title(XL);
+    }
+    //H3 like style
+    &.has-large-font-size {
+        @include title(L);
+    }
+    //H4 like style
+    &.has-medium-font-size {
+        @include title(M);
+    }
+}

@@ -48,16 +48,28 @@ a {
 
 /* Headings
 ----------------------------------------------------------------------------------------------------*/
-@for $i from 1 through 6 {
-	h#{$i} {
-		line-height: $heading-line-height;
-		font-size: $heading-font-size - ($i - 1) * 2px;
-		font-family: $customfont-2;
+h1 {
+	@include title(XXL);
+}
 
-		.fonts-loading & {
-			font-family: $font-sansserif;
-		}
-	}
+h2 {
+	@include title(XL);
+}
+
+h3 {
+	@include title(L);
+}
+
+h4 {
+	@include title(M);
+}
+
+h5 {
+	@include title(S);
+}
+
+h6 {
+	@include title(XS);
 }
 
 /* Lists

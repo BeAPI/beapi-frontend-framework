@@ -67,6 +67,23 @@
             margin-bottom: $base-spacing*1.5;
         }
     }
+
+    &-pullquote {
+        border-top: 4px solid currentColor;
+        border-bottom: 4px solid currentColor;
+
+        cite,
+        &__citation {
+            text-transform: uppercase;
+            font-size: 13px;
+            font-style: normal;
+            color: $maingrey;
+        }
+
+        blockquote {
+            margin-bottom: 0;
+        }
+    }
 }
 
 //Paragraph

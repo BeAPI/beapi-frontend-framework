@@ -40,9 +40,20 @@
         }
     }
 
+    // Block Separator (<hr/>)
     &-separator{
         &:not(.is-style-wide):not(.is-style-dots) {
             max-width: 100px;
+        }
+    }
+
+    // Block Quote (<blockquote/>)
+    &-quote {
+        border-left: 4px solid currentColor;
+
+        &.is-large {
+            padding: $base-spacing*1.5;
+            margin-bottom: $base-spacing*1.5;
         }
     }
 }

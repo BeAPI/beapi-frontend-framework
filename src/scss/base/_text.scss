@@ -210,7 +210,7 @@ pre {
 	@include word-wrap(break-all);
 
 	white-space: pre-wrap;
-	background-color: $maingrey;
+	background-color: $light-gray;
 	border: 1px solid $darkcolor;
 	border-radius: $base-border-radius;
 }

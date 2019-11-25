@@ -44,7 +44,8 @@
 		@include clearfix;
 
 		&>#{$menu-item} {
-			@include hover {
+			&:hover,
+			&:focus-within {
 				ul {
 					display: block;
 				}

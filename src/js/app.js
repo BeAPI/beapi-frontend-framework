@@ -2,6 +2,7 @@
  * Main scripts file
  */
 
+import 'what-input'
 import './polyfill/picturefill'
 import './polyfill/objectfit-polyfill'
 import lazySizes from 'lazysizes'

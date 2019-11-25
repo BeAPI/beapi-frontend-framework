@@ -99,7 +99,7 @@
 									<li class="menu-item"><a href="00-cards.php">StyleGuide - Cards</a></li>
 								</ul>
 							</li>
-							<li class="menu-item"><a href="02-page-default.php">Page default</a></li>
+							<li class="menu-item"><a href="02-single-default.php">Single default</a></li>
 							<li class="menu-item"><a href="03-archive-default.php">Archive default</a></li>
 							<li class="menu-item"><a href="04-page-404.php">Page 404</a></li>
 						</ul>

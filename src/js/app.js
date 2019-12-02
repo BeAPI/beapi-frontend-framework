@@ -4,9 +4,7 @@
 
 import 'what-input'
 import './polyfill/picturefill'
-// import './polyfill/objectfit-polyfill'
 import lazySizes from 'lazysizes'
-import 'lazysizes/plugins/bgset/ls.bgset'
 import 'lazysizes/plugins/native-loading/ls.native-loading'
 import 'lazysizes/plugins/object-fit/ls.object-fit'
 

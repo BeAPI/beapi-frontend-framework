@@ -1,13 +1,6 @@
 <?php $bodyClass = 'page'; ?>
 <?php include 'partials/header.php'; ?>
-	<div class="hero lazyload" data-bgset="assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg">
-		<div class="container">
-			<h1 class="title">Titre de la page par défaut, avec sidebar</h1>
-			<div class="date">
-				Publié le <time datetime="2015-06-30">06/30/2015</time>
-			</div>
-		</div>
-	</div>
+	<?php includeWithVariables('partials/hero.php', array('heroTitle' => 'Single default', 'heroExcerpt' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.')); ?>
 	<article class="article">
 		<div class="container">
 			<div class="content">

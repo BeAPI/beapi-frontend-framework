@@ -12,6 +12,20 @@
     .container {
         position: relative;
         z-index: $zindex * 4;
+        padding: 20px;
+        background: rgba($lightcolor, .5);
+    }
+
+    &__img {
+        z-index: $zindex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        @include object-fit();
     }
 
     @include breakpoints(md) {

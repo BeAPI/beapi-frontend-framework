@@ -6,6 +6,7 @@
 @import "abstract/colors";
 @import "abstract/borders";
 @import "abstract/mixins";
+@import "abstract/functions";
 @import "abstract/fonts";
 @import "abstract/box-sizing";
 @import "abstract/breakpoints";
@@ -42,7 +43,7 @@
 // Render Post/Page Title as FrontEnd view
 .editor-post-title__block {
     .editor-post-title__input {
-        font-family: $customfont-2;
+        @include title(XXL);
     }
 }
 

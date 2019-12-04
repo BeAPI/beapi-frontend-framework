@@ -1,6 +1,7 @@
 <?php
 
 namespace BEA\Theme\Framework\Services;
+use BEA\Theme\Framework\Framework;
 use BEA\Theme\Framework\Service;
 use BEA\Theme\Framework\Service_Container;
 
@@ -75,6 +76,22 @@ class Theme implements Service {
 	 * editor style
 	 */
 	private function editor_style() {
-		add_editor_style('dist/assets/editor-style.css');
+		/**
+		 * Default file
+		 **/
+		$file = 'editor-style.css';
+
+		if ( ! defined( 'SCRIPT_DEBUG' ) || false === SCRIPT_DEBUG ) {
+			$file = Framework::get_container()->get_service( 'assets' )->get_min_file( 'editor-style' );
+		}
+
+		/**
+		 * Do not enqueue a inexistant file on admin
+		 */
+		if ( ! is_file( get_theme_file_path( 'dist/assets/' . $file ) ) ) {
+			return;
+		}
+
+		add_editor_style( 'dist/assets/' . $file );
 	}
 }

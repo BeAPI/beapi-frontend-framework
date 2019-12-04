@@ -48,7 +48,14 @@
 		<link rel="stylesheet" href="partials/gutenberg.5.3.css">
 		<link rel="stylesheet" href="partials/gutenberg_theme.5.3.css">
 
-		<link rel="stylesheet" href="assets/app.css">
+		<?php
+		if ( is_readable( dirname( __FILE__ ) . '/../WebpackBuiltFiles.php' ) ) {
+			require_once dirname( __FILE__ ) . '/../WebpackBuiltFiles.php';
+			foreach ( WebpackBuiltFiles::$cssFiles as $file ) { ?>
+				<link rel="stylesheet" href="assets/<?php echo $file; ?>">
+			<?php }
+		}
+		?>
 
 		<!-- jQuery from official WordPress Core -->
 		<script type="text/javascript" src="assets/js/vendor_async/jquery.js"></script>

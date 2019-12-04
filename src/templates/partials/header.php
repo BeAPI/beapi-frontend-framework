@@ -45,6 +45,9 @@
 			<script type="text/javascript" src="assets/js/vendor_ie/placeholders.min.js"></script>
 		<![endif]-->
 
+		<link rel="stylesheet" href="partials/gutenberg.5.3.css">
+		<link rel="stylesheet" href="partials/gutenberg_theme.5.3.css">
+
 		<?php
 		if ( is_readable( dirname( __FILE__ ) . '/../WebpackBuiltFiles.php' ) ) {
 			require_once dirname( __FILE__ ) . '/../WebpackBuiltFiles.php';
@@ -104,7 +107,7 @@
 									<li class="menu-item"><a href="00-cards.php">StyleGuide - Cards</a></li>
 								</ul>
 							</li>
-							<li class="menu-item"><a href="02-page-default.php">Page default</a></li>
+							<li class="menu-item"><a href="02-single-default.php">Single default</a></li>
 							<li class="menu-item"><a href="03-archive-default.php">Archive default</a></li>
 							<li class="menu-item"><a href="04-page-404.php">Page 404</a></li>
 						</ul>

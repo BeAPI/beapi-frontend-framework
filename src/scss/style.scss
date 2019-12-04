@@ -27,18 +27,11 @@
 @import "base/layout";
 @import "base/focus";
 
-//Wordpress
-@import "wp/wpforms";
-@import "wp/img";
-@import "wp/gallery";
-@import "wp/wysiwyg";
-
 // Components
 @import "components/buttons";
 @import "components/menu-trigger";
 @import "components/menu-fastaccess";
 @import "components/card";
-@import "components/iframe";
 @import "components/messages";
 
 // Patterns
@@ -47,6 +40,13 @@
 @import "patterns/menu";
 @import "patterns/hero";
 @import "patterns/searchform";
+
+// Wordpress
+@import "wp/wpforms";
+@import "wp/img";
+//@import "wp/gallery"; Enable if Gutenberg is not used
+@import "wp/wysiwyg";
+@import "wp/gutenberg";
 
 // Pages
 @import "pages/print";

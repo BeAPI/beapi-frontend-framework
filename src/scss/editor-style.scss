@@ -1,36 +1,58 @@
-/**
- * Abstract
- */
+// Abstract
 @import "abstract/url-config";
-// Susy 2.2.14
 @import "~susy/sass/susy";
 @import "~normalize-scss/sass/normalize/import-now";
 @import "abstract/positioning";
 @import "abstract/colors";
 @import "abstract/borders";
 @import "abstract/mixins";
+@import "abstract/functions";
 @import "abstract/fonts";
 @import "abstract/box-sizing";
 @import "abstract/breakpoints";
+@import "abstract/grid";
 
-/**
- * Base
- */
+// Base
 @import "base/text";
 
-/**
- * Wordpress
- */
-@import "wp/img";
-@import "wp/gallery";
-@import "wp/wysiwyg";
+// Components
+@import "components/buttons";
 
-/**
- * Backend Classic editor container
- */
+// Wordpress
+@import "wp/img";
+//@import "wp/gallery"; Enable if Gutenberg is not used
+@import "wp/wysiwyg";
+@import "wp/gutenberg";
+
+// Backend Classic editor container
 .mce-content-body {
     margin: $base-spacing/2;
-    @include breakpoints(md) {
-        @include container;
+    max-width: container();
+}
+
+// Backend Gutenberg editor container
+.wp-block {
+    &:not([data-align="full"]) {
+        max-width: container();
+    }
+    &[data-align="wide"] {
+        max-width: container()*1.5;
+    }
+}
+
+// Render Post/Page Title as FrontEnd view
+.editor-post-title__block {
+    .editor-post-title__input {
+        @include title(XXL);
+    }
+}
+
+// Exact style between BO/FO for lists
+.block-library-list {
+    ul {
+        @include wysiwyg__list();
+    }
+    ol {
+        @include wysiwyg__list(ol);
     }
 }

@@ -18,12 +18,4 @@
 	.container {
 		padding: 0;
 	}
-
-	.content {
-		@include span(9);
-	}
-
-	.sidebar {
-		@include span(3 last);
-	}
 }

@@ -42,52 +42,53 @@
 
     // Block Separator (<hr/>)
     &-separator{
+
+        &:not(.is-style-dots) {
+            border-bottom: 2px solid $maingrey;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         &:not(.is-style-wide):not(.is-style-dots) {
-            max-width: 100px;
+            // Custom CSS for native Separator Block
         }
     }
 
     // Block Quote (<blockquote/>)
     &-quote {
-        border-left: 4px solid currentColor;
-
         p {
-            margin-bottom: $half-base-spacing;
+            // Custom CSS for inner paragraph
         }
 
         cite,
         &__citation {
-            font-size: 13px;
-            font-style: normal;
-            color: $maingrey;
+            // Custom CSS for Block Quote citation
         }
 
         &.is-large {
-            padding: $base-spacing*1.5;
-            margin-bottom: $base-spacing*1.5;
+            // Custom CSS for large Block Quote option
         }
     }
 
     &-pullquote {
-        border-top: 4px solid currentColor;
-        border-bottom: 4px solid currentColor;
+        blockquote {
+            margin-bottom: 0;
+        }
 
         cite,
         &__citation {
-            text-transform: uppercase;
-            font-size: 13px;
-            font-style: normal;
-            color: $maingrey;
-        }
-
-        blockquote {
-            margin-bottom: 0;
+            // Custom CSS for Block Quote citation
         }
     }
 
     // Block Table
     &-table {
         // Actually WordPress handle overflow scroll x on mobile
+        td,
+        th {
+            padding: $half-base-spacing;
+		    border: 1px solid $base-border-color;
+        }
     }
 }
 

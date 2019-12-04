@@ -46,6 +46,7 @@
 		<![endif]-->
 
 		<link rel="stylesheet" href="partials/gutenberg.5.3.css">
+		<link rel="stylesheet" href="partials/gutenberg_theme.5.3.css">
 
 		<link rel="stylesheet" href="assets/app.css">
 

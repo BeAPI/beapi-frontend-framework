@@ -1,13 +1,8 @@
 <?php $bodyClass = 'page wp-embed-responsive'; ?>
 <?php include 'partials/header.php'; ?>
-<div class="hero lazyload"
-	data-bgset="assets/img/bg-sample/bg_img-mobile-01.jpg [(max-width: 1023px)] | assets/img/bg-sample/bg_img-desktop-01.jpg">
-	<div class="container">
-		<h1 class="title">Single</h1>
-	</div>
-</div>
 <article class="article">
 	<div class="container">
+	<?php includeWithVariables('partials/hero.php', array('heroTitle' => 'Single Default', 'heroExcerpt' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.')); ?>
 		<div class="wysiwyg">
 
 			<p>Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient

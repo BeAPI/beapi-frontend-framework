@@ -74,3 +74,7 @@ src/conf-img/*.csv
 
 ### yarn
 yarn.lock
+
+### config
+.port
+.bs-port

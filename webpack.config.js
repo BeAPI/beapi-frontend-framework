@@ -1,3 +1,4 @@
+const fs = require('fs')
 const config = require('./webpack.settings')
 const path = require('path')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
@@ -10,7 +11,15 @@ const PhpOutputPlugin = require('./src/js/vendor/webpack-php-output')
 const SoundsPlugin = require('sounds-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const WebpackProgressOraPlugin = require('webpack-progress-ora-plugin')
+const getServerPort = function(portFile) {
+  try {
+    require('fs').accessSync(portFile, fs.R_OK | fs.W_OK)
 
+    return parseInt(fs.readFileSync(portFile, 'utf8'))
+  } catch (e) {
+    return false
+  }
+}
 const webpackConfig = {
   entry: config.entry,
   output: {
@@ -179,7 +188,8 @@ module.exports = (env, argv) => {
       }),
       new BrowserSyncPlugin(
         {
-          proxy: 'http://[::1]:' + config.port,
+          port: getServerPort('./.bs-port') || 3000,
+          proxy: 'http://[::1]:' + (getServerPort('./.port') || 9090),
           files: [
             {
               match: config.refresh,

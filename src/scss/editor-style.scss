@@ -19,7 +19,7 @@
 
 // Wordpress
 @import "wp/img";
-@import "wp/gallery";
+//@import "wp/gallery"; Enable if Gutenberg is not used
 @import "wp/wysiwyg";
 @import "wp/gutenberg";
 
@@ -39,12 +39,14 @@
     }
 }
 
+// Render Post/Page Title as FrontEnd view
 .editor-post-title__block {
     .editor-post-title__input {
         font-family: $customfont-2;
     }
 }
 
+// Exact style between BO/FO for lists
 .block-library-list {
     ul {
         @include wysiwyg__list();

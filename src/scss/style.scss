@@ -41,10 +41,10 @@
 @import "patterns/hero";
 @import "patterns/searchform";
 
-//Wordpress
+// Wordpress
 @import "wp/wpforms";
 @import "wp/img";
-@import "wp/gallery";
+//@import "wp/gallery"; Enable if Gutenberg is not used
 @import "wp/wysiwyg";
 @import "wp/gutenberg";
 

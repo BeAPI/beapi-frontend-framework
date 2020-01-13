@@ -41,7 +41,7 @@ $em-base: 16px !default;
 }
 
 // ----
-// column 
+// column
 // ----
 // how to use :
 // 		column(6) 			-> return 6 column + 5 gutter of desktop preset
@@ -78,7 +78,7 @@ $column-preset : (
 		$columnWidth: $totalColumn;
 		$totalColumn: $nbGutter;
 		$nbGutter: $nbColumn;
-		$nbColumn: $device; 
+		$nbColumn: $device;
 		$device: d;
 	}
 
@@ -90,6 +90,6 @@ $column-preset : (
 	@if $nbGutter == null {
 		$nbGutter: $nbColumn - 1;
 	}
-	
+
 	@return ($nbColumn * $columnWidth + $nbGutter * $gutterWidth) / ($totalColumn * $columnWidth + ($totalColumn - 1) * $gutterWidth) * 100%;
 }

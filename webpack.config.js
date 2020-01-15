@@ -155,8 +155,8 @@ const webpackConfig = {
         to: 'fonts/',
       },
       {
-        from: 'src/img/bg-sample/',
-        to: 'img/bg-sample/',
+        from: 'src/img/static/',
+        to: 'img/static/',
       },
       {
         from: 'src/img/sample/',

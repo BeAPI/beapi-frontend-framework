@@ -60,7 +60,6 @@
     "normalize-scss": "^7.0.1",
     "object-fit-images": "^3.2.4",
     "ora": "^3.4.0",
-    "susy": "^2.2.14",
     "svgo": "^1.2.2",
     "svgstore": "^3.0.0-2",
     "webpack": "^4.32.2",

@@ -5,25 +5,9 @@
 	z-index: z('main__content');
 }
 .container {
-	padding: 0 10px;
-
 	@include container;
 }
 
 [tabindex]:focus {
 	outline: none;
-}
-
-@include breakpoints(md) {
-	.container {
-		padding: 0;
-	}
-
-	.content {
-		@include span(9);
-	}
-
-	.sidebar {
-		@include span(3 last);
-	}
 }

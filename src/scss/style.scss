@@ -1,5 +1,3 @@
-// Susy 2.2.14
-@import "~susy/sass/susy";
 @import "~normalize-scss/sass/normalize/import-now";
 
 // Abstract
@@ -9,7 +7,6 @@
 @import 'abstract/fonts';
 @import 'abstract/colors';
 @import 'abstract/breakpoints';
-@import 'abstract/grid';
 @import 'abstract/positioning';
 @import 'abstract/borders';
 @import "abstract/box-sizing";

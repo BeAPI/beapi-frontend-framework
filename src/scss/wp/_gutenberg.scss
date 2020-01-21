@@ -11,6 +11,17 @@
 .wp-block {
     $el : &;
 
+    // Block columns
+    &-column {
+        @include breakpoints(xsm) {
+            flex-basis: calc(50% - #{$base-spacing});
+        }
+        &:nth-child(even){
+            @include breakpoints(xsm) {
+                margin-left: $base-spacing*2;
+            }
+        }
+    }
     // Block Button
     &-button {
         margin-bottom: $base-spacing;

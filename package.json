@@ -27,7 +27,7 @@
     "browser-sync": "^2.26.7",
     "browser-sync-webpack-plugin": "^2.2.2",
     "concurrently": "^4.1.0",
-    "copy-webpack-plugin": "^5.0.3",
+    "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^2.1.1",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
@@ -52,7 +52,7 @@
   "dependencies": {
     "autoprefixer": "^9.5.1",
     "cheerio": "^1.0.0-rc.3",
-    "favicons": "^5.4.1",
+    "favicons": "^6.0.0",
     "lazysizes": "^5.1.0",
     "normalize-scss": "^7.0.1",
     "ora": "^3.4.0",

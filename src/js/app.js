@@ -9,7 +9,6 @@ import 'lazysizes/plugins/native-loading/ls.native-loading'
 import 'lazysizes/plugins/object-fit/ls.object-fit'
 
 import './src/menu'
-import './src/button-href'
 
 /**
  * LazySizes configuration

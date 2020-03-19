@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--[if lte IE 9 ]> <html class="no-js ie lte-ie9 ie9" <?php language_attributes( ); ?>> <![endif]-->
 <!--[if !(IE)]><! -->
-<html class="fonts-loading no-js" <?php language_attributes( ); ?>>
+<html class="no-js" <?php language_attributes( ); ?>>
 <!--<![endif]-->
 <head>
 	<script type="text/javascript">

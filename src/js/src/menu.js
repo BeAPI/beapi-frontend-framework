@@ -11,19 +11,23 @@ class Menu {
     this.resizeBreakpoint = window.matchMedia('(min-width: 1024px)')
   }
   init() {
-    // Events to handle toggle menu
-    this.menuOpen.addEventListener('click', this.openMenu.bind(this), false)
-    this.menuClose.addEventListener('click', this.closeMenu.bind(this), false)
-    // Detect if clicked outside menu
-    document.addEventListener('click', event => {
-      const menu = this.menu.contains(event.target)
-      const buttonContainer = this.buttonContainer.contains(event.target)
-      if (!menu && !buttonContainer) {
-        this.closeMenu()
-      }
-    })
-    // Event breakpoint
-    this.resizeBreakpoint.addListener(this.menuResizing.bind(this))
+    if (this.menu) {
+      // Events to handle toggle menu
+      this.menuOpen.addEventListener('click', this.openMenu.bind(this), false)
+      this.menuClose.addEventListener('click', this.closeMenu.bind(this), false)
+      // Detect if clicked outside menu
+      document.addEventListener('click', event => {
+        const menu = this.menu.contains(event.target)
+        const buttonContainer = this.buttonContainer.contains(event.target)
+        if (!menu && !buttonContainer) {
+          this.closeMenu()
+        }
+      })
+      // Event breakpoint
+      this.resizeBreakpoint.addListener(this.menuResizing.bind(this))
+    } else {
+      console.log('No menu')
+    }
   }
   /**
    * Open menu

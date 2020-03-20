@@ -279,10 +279,6 @@
 	line-height: $heading-line-height;
 	font-family: $customfont-2;
 
-	.fonts-loading & {
-		font-family: $font-sansserif;
-	}
-
 	@if $size == XXL {
 		font-size: 40px;
 

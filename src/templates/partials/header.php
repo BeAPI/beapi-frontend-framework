@@ -2,7 +2,7 @@
 <!doctype html>
 <!--[if lte IE 9 ]> <html class="no-js ie lte-ie9 ie9" lang="fr"> <![endif]-->
 <!--[if !(IE)]><! -->
-<html class="fonts-loading no-js" lang="fr"><!--<![endif]-->
+<html class="no-js" lang="fr"><!--<![endif]-->
 	<head>
 
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

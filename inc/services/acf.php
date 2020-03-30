@@ -94,6 +94,7 @@ class Acf implements Service {
 		 *
 		 *    $this->acf_add_options_page( [
 		 *        'page_title'  => __( 'Theme Options', 'framework-textdomain' ),
+		 *        'menu_slug'   => 'theme-options',
 		 *        'parent_slug' => 'themes.php',
 		 *    ] );
 		 *
@@ -147,16 +148,19 @@ class Acf implements Service {
 	}
 
 	/**
+	 * Add options Subpage
+	 *
 	 * @param $parameters
 	 *
 	 * @return bool
 	 */
 	public function acf_add_options_sub_page( $parameters ) {
-		/**
-		 * Add Option Subpage
-		 */
 		if ( ! function_exists( 'acf_add_options_sub_page' ) ) {
 			return false;
+		}
+
+		if ( ! isset( $parameters['menu_slug'] ) ) {
+			throw new Exception( 'You must specify menu slug for ACF options page.' );
 		}
 
 		return acf_add_options_sub_page( $parameters );

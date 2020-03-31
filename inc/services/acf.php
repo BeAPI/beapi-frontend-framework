@@ -105,16 +105,20 @@ class Acf implements Service {
 	}
 
 	/**
-	 * @param $parameters
+	 * Add Option Page
 	 *
 	 * @return bool
+	 *
+	 * @param $parameters
+	 *
 	 */
 	public function acf_add_options_page( $parameters ) {
-		/**
-		 * Add Option Page
-		 */
 		if ( ! function_exists( 'acf_add_options_page' ) ) {
 			return false;
+		}
+
+		if ( ! isset( $parameters['menu_slug'] ) ) {
+			throw new InvalidArgumentException( 'You must specify menu slug for ACF options page.' );
 		}
 
 		return acf_add_options_page( $parameters );
@@ -150,9 +154,10 @@ class Acf implements Service {
 	/**
 	 * Add options Subpage
 	 *
+	 * @return bool
+	 *
 	 * @param $parameters
 	 *
-	 * @return bool
 	 */
 	public function acf_add_options_sub_page( $parameters ) {
 		if ( ! function_exists( 'acf_add_options_sub_page' ) ) {
@@ -160,7 +165,7 @@ class Acf implements Service {
 		}
 
 		if ( ! isset( $parameters['menu_slug'] ) ) {
-			throw new Exception( 'You must specify menu slug for ACF options page.' );
+			throw new InvalidArgumentException( 'You must specify menu slug for ACF options page.' );
 		}
 
 		return acf_add_options_sub_page( $parameters );

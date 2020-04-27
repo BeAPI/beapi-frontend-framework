@@ -9,7 +9,6 @@ BeAPI FrontEnd Framework (BFF) is a Front-end WordPress theme friendly boilerpla
 * [Favicons](https://www.npmjs.com/package/favicons)
 * [SVGStore](https://www.npmjs.com/package/svgstore)
 * [SVGGo](https://www.npmjs.com/package/svgstore)
-* [Susy 2](https://www.npmjs.com/package/susy)
 * [Lazysizes](https://www.npmjs.com/package/lazysizes)
 * [Eslint](https://www.npmjs.com/package/eslint)
 * [Babel Loader](https://www.npmjs.com/package/babel-loader)
@@ -23,7 +22,7 @@ You need a minimum of Node 8.
 
 ### Advanced Responsive Images
 
-You need to work in a wordpress environnement in order to make the BFF work with webpack for local dev. To do that you need to install [Advanced Responsive Images](https://github.com/asadowski10/advanced-responsive-images) in your plugin folder.
+You need to work in a WordPress environnement in order to make the BFF work with webpack for local dev. To do that you need to install [Advanced Responsive Images](https://github.com/asadowski10/advanced-responsive-images) in your plugin folder.
 
 ## Installation
 

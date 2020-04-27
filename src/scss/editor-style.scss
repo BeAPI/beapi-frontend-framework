@@ -1,14 +1,15 @@
 // Abstract
 @import "abstract/url-config";
-@import "~normalize-scss/sass/normalize/import-now";
-@import "abstract/positioning";
-@import "abstract/colors";
-@import "abstract/borders";
 @import "abstract/mixins";
-@import "abstract/functions";
-@import "abstract/fonts";
+@import "abstract/utilities";
+@import "abstract/grid";
+@import 'abstract/fonts';
+@import 'abstract/colors';
+@import 'abstract/breakpoints';
+@import 'abstract/positioning';
+@import 'abstract/borders';
 @import "abstract/box-sizing";
-@import "abstract/breakpoints";
+@import "abstract/easing";
 
 // Base
 @import "base/text";

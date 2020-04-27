@@ -1,12 +1,9 @@
 [data-seo-container] {
     position: relative;
-
-    &:hover {
-        cursor: pointer;
-    }
+    cursor: pointer;
 
     [data-seo-target] {
-        &:before {
+        &::before {
             @include pseudo__content;
 
             position: absolute;

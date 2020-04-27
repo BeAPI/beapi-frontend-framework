@@ -3,7 +3,8 @@
 // Abstract
 @import "abstract/url-config";
 @import "abstract/mixins";
-@import "abstract/functions";
+@import "abstract/utilities";
+@import "abstract/grid";
 @import 'abstract/fonts';
 @import 'abstract/colors';
 @import 'abstract/breakpoints';
@@ -15,7 +16,6 @@
 @import "abstract/easing";
 
 // Base
-@import "base/utilities";
 @import "base/svg-icons";
 @import "base/text";
 @import "base/form";

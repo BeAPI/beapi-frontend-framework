@@ -69,7 +69,7 @@
         justify-content: space-between;
         align-items: center;
         background: $secondary-color;
-        height: rem(50);
+        height: 50px;
     }
 
     &__title {
@@ -80,13 +80,12 @@
         padding-left: $base-spacing;
         margin: 0;
     }
-    
 
     &__close {
         background: $primary-color;
         border: 0;
-        width:rem(50);
-        height: rem(50);
+        width: 50px;
+        height: 50px;
         border-radius: 0;
         outline: 0;
         &:hover{

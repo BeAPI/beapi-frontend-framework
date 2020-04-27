@@ -66,7 +66,7 @@ const webpackConfig = {
             loader: 'postcss-loader',
             options: {
               sourceMap: true,
-              plugins: () => [require('autoprefixer')()],
+              plugins: () => [require('autoprefixer')(), require('postcss-pxtorem')({ propWhiteList: [] })],
             },
           },
           'resolve-url-loader',
@@ -88,7 +88,7 @@ const webpackConfig = {
             loader: 'postcss-loader',
             options: {
               sourceMap: true,
-              plugins: () => [require('autoprefixer')()],
+              plugins: () => [require('autoprefixer')(), require('postcss-pxtorem')({ propWhiteList: [] })],
             },
           },
           {

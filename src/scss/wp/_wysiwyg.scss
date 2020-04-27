@@ -1,7 +1,7 @@
 .wysiwyg {
 	@include clearfix;
 
-	* {
+	>* {
 		margin-bottom: $base-spacing;
 
 		&:last-child {
@@ -9,7 +9,7 @@
 		}
 	}
 
-	a {
+	>a:not([class]) {
 		text-decoration: underline;
 
 		@include hover {
@@ -17,33 +17,24 @@
 		}
 	}
 
-	ul {
-		list-style: disc inside none;
-		margin: 0 0 $base-spacing;
-
-		li {
-			margin: 0 0 $half-base-spacing;
-		}
+	ul:not([class]) {
+		@include wysiwyg__list();
 	}
 
-	ol {
-		list-style: decimal inside none;
-		margin: 0 0 $base-spacing;
-
-		li {
-			margin: 0 0 $half-base-spacing;
-		}
+	ol:not([class]) {
+		@include wysiwyg__list(ol);
 	}
+
 	img {
 		@include img__responsive;
-	}
 
-	.alignright,
-	.alignleft {
-		max-width: 50%;
+		&.alignright,
+		&.alignleft {
+			max-width: 50%;
 
-		@include breakpoints(sm) {
-			max-width: 100%;
+			@include breakpoints(sm) {
+				max-width: 100%;
+			}
 		}
 	}
 }

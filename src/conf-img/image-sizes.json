@@ -20,6 +20,16 @@
       "height": "200",
       "crop": true
     },
+    "img-1024-400": {
+      "width": "1024",
+      "height": "400",
+      "crop": true
+    },
+    "img-2048-800": {
+      "width": "2048",
+      "height": "800",
+      "crop": true
+    },
     "img-400-400": {
       "width": "400",
       "height": "400",

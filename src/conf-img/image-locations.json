@@ -32,6 +32,22 @@
         "img_base": "img-200-200"
       }
     ],
+    "hero-img": [
+      {
+        "srcsets": [
+          {
+            "srcset": "",
+            "size": "img-1024-400"
+          },
+          {
+            "srcset": "2x",
+            "size": "img-2048-800"
+          }
+        ],
+        "default_img": "default-2048-800.jpg",
+        "img_base": "img-2048-800"
+      }
+    ],
     "square": [
       {
         "srcsets": [

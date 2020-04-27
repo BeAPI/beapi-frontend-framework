@@ -30,11 +30,6 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	overflow-x: hidden;
-	//Fonts loading FOUT
-	//Adjust FOUT with tools like https://meowni.ca/font-style-matcher/
-	.fonts-loading & {
-		font-family: $font-sansserif;
-	}
 }
 
 a {
@@ -48,16 +43,28 @@ a {
 
 /* Headings
 ----------------------------------------------------------------------------------------------------*/
-@for $i from 1 through 6 {
-	h#{$i} {
-		line-height: $heading-line-height;
-		font-size: $heading-font-size - ($i - 1) * 2px;
-		font-family: $customfont-2;
+h1 {
+	@include title(XXL);
+}
 
-		.fonts-loading & {
-			font-family: $font-sansserif;
-		}
-	}
+h2 {
+	@include title(XL);
+}
+
+h3 {
+	@include title(L);
+}
+
+h4 {
+	@include title(M);
+}
+
+h5 {
+	@include title(S);
+}
+
+h6 {
+	@include title(XS);
 }
 
 /* Lists
@@ -97,20 +104,13 @@ figure {
 ----------------------------------------------------------------------------------------------------*/
 hr {
 	clear: both;
-	border: 0;
-	height: 1px;
-	background: $maingrey;
 	margin: $base-spacing 0;
 }
 blockquote {
-	border-left: 5px solid $maingrey;
 	padding: $base-spacing;
 	margin: 0 0 $base-spacing 0;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
-	p:last-child {
-		margin: 0;
-	}
 }
 cite {
 	font-style: italic;
@@ -121,23 +121,13 @@ small {
 table {
 	margin: $base-spacing 0;
 	width: 100%;
-	border: $base-border;
+	border: 0;
 	border-collapse: collapse;
-	border-left: 0;
-	border-radius: $base-border-radius;
 
-	th {
-		padding: $half-base-spacing;
-		border-left: 1px solid $base-border-color;
-		border-top: 0;
-		vertical-align: top;
-		text-align: left;
-	}
-
+	th,
 	td {
 		padding: $half-base-spacing;
-		border-top: 1px solid $base-border-color;
-		border-left: 1px solid $base-border-color;
+		border: 1px solid $base-border-color;
 		vertical-align: top;
 		text-align: left;
 	}
@@ -166,7 +156,7 @@ big {
 code {
 	display: inline-block;
 	padding: 2px 5px;
-	background-color: $maingrey;
+	background-color: $light-gray;
 	border: 1px solid $darkcolor;
 	font-family: monospace;
 	font-size: $base-fz;
@@ -202,7 +192,7 @@ pre {
 	@include word-wrap(break-all);
 
 	white-space: pre-wrap;
-	background-color: $maingrey;
+	background-color: $light-gray;
 	border: 1px solid $darkcolor;
 	border-radius: $base-border-radius;
 }

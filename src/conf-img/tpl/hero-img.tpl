@@ -1,0 +1,1 @@
+<source data-srcset="%%img-1024-400%%, %%img-2048-800%% 2x" %%srcset%% />

@@ -1,7 +1,7 @@
 [data-seo-container] {
     position: relative;
 
-    @include hover {
+    &:hover {
         cursor: pointer;
     }
 

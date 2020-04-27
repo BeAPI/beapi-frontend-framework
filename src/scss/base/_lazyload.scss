@@ -1,7 +1,7 @@
 .lazyload,
 .lazyloading {
 	opacity: 0;
-	background: $maincolor;
+	background: $primary-color;
 }
 
 .lazyloaded {
@@ -29,7 +29,7 @@ $loading-dimensions : 50px;
 		right: 0;
 		bottom: 0;
 		left: 0;
-		background: $maincolor;
+		background: $primary-color;
 		transition: opacity .5s, z-index .5s ease .5s;
 	}
 
@@ -44,7 +44,7 @@ $loading-dimensions : 50px;
 		width: $loading-dimensions;
 		height: $loading-dimensions;
 		border-radius: $loading-dimensions;
-		border: 5px solid $lightcolor;
+		border: 5px solid $light-color;
 		border-top-color: transparent;
 		opacity: 1;
 		transition: opacity .5s, z-index .5s ease .5s;

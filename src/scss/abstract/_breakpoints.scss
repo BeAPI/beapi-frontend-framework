@@ -1,12 +1,3 @@
-/**
- * Responsive breakpoints
- * https://zellwk.com/blog/media-query-units/
- *
- * known issue :
- *      an error will be throw if $breakpoint param is not a valid key of $breakpoints object
- *      -> Invalid null operation: "null sub 1"
- */
-
 $containerWidth: 960px;
 
 $breakpoints : (

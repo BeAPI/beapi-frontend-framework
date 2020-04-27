@@ -28,7 +28,7 @@
         * don't have the real tooltip overlapping
         */
         content: attr(data-tooltip);
-        background: $darkcolor;
+        background: $dark-color;
         color: #fff;
         font-size: 13px;
         padding: 5px;

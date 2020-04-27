@@ -46,7 +46,7 @@
 }
 
 // Outline style
-@mixin button--outline($borderColor: $maingrey, $color: $textcolor) {
+@mixin button--outline($borderColor: $gray-color-500, $color: $secondary-color) {
 	background-color: transparent;
 	border-width: 1px; // Force button width VS Gutenberg CSS
 	border-color: $borderColor;
@@ -73,7 +73,7 @@
 }
 
 // State style
-@mixin button--disabled($backgroundColor: $maingrey) {
+@mixin button--disabled($backgroundColor: $gray-color-500) {
 	opacity: 0.3;
 	cursor: not-allowed;
 
@@ -115,41 +115,41 @@
 		@include button--expand;
 	}
 	&--primary {
-		@include button--colored($maincolor, $textcolor);
+		@include button--colored($primary-color, $secondary-color);
 	}
 	&--error {
-		@include button--colored($errorcolor-2, $errorcolor-1);
+		@include button--colored($error-color-50, $error-color-600);
 	}
 	&--warning {
-		@include button--colored($noticecolor-2, $noticecolor-1);
+		@include button--colored($notice-color-50, $notice-color-600);
 	}
 	&--success {
-		@include button--colored($successcolor-2, $successcolor-1);
+		@include button--colored($success-color-50, $success-color-600);
 	}
 	&--info {
-		@include button--colored($infocolor-2, $infocolor-1);
+		@include button--colored($info-color-50, $info-color-600);
 	}
 	&--outline {
 		@include button--outline;
 
 		&#{$parent}--primary {
-			@include button--outline($maincolor, $textcolor);
+			@include button--outline($primary-color, $secondary-color);
 		}
 
 		&#{$parent}--error {
-			@include button--outline($errorcolor-2, $errorcolor-1);
+			@include button--outline($error-color-50, $error-color-600);
 		}
 
 		&#{$parent}--warning {
-			@include button--outline($noticecolor-2, $noticecolor-1);
+			@include button--outline($notice-color-50, $notice-color-600);
 		}
 
 		&#{$parent}--success {
-			@include button--outline($successcolor-2, $successcolor-1);
+			@include button--outline($success-color-50, $success-color-600);
 		}
 
 		&#{$parent}--info {
-			@include button--outline($infocolor-2, $infocolor-1);
+			@include button--outline($info-color-50, $info-color-600);
 		}
 	}
 	&--square {
@@ -171,19 +171,19 @@
 		@include button--disabled;
 
 		&#{$parent}--error {
-			@include button--disabled($errorcolor-2);
+			@include button--disabled($error-color-50);
 		}
 
 		&#{$parent}--warning {
-			@include button--disabled($noticecolor-2);
+			@include button--disabled($notice-color-50);
 		}
 
 		&#{$parent}--success {
-			@include button--disabled($successcolor-2);
+			@include button--disabled($success-color-50);
 		}
 
 		&#{$parent}--info {
-			@include button--disabled($infocolor-2);
+			@include button--disabled($info-color-50);
 		}
 	}
 }

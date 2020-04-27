@@ -1,49 +1,21 @@
-/**
- * @section Colors
- * @page index
- *
- * @example
- * <div class="colors">
- * 	<div class="color color--main"><span>#f5745a</span></div>
- * 	<div class="color color--light"><span>#fff</span></div>
- * 	<div class="color color--dark"><span>#000</span></div>
- * 	<div class="color color--darkgray"><span>#333</span></div>
- * 	<div class="color color--mediumgray"><span>#999</span></div>
- * 	<div class="color color--lightgray"><span>#ddd</span></div>
- * </div>
- */
+// Theme colors
+$primary-color: #F1E25B;
+$secondary-color: #333;
 
-/**
- * Main colors
- */
-$maincolor: #F1E25B;
-$textcolor: #333;
+// Gray palette
+$dark-color: #000;
+$gray-color-300: #333;
+$gray-color-500: #888;
+$gray-color-600: #999;
+$gray-color-800: #ddd;
+$light-color: #fff;
 
-/**
- * Light and Dark colors
- */
-$lightcolor: #fff;
-$darkcolor: #000;
-
-/**
- * Grey colors
- */
-$maingrey: #888;
-$dark-gray: #333;
-$medium-gray: #999;
-$light-gray: #ddd;
-
-/**
- * Contextual colors
- */
-$errorcolor-1 : #8a1f11;
-$errorcolor-2 : #fbe3e4;
-
-$noticecolor-1 : #514721;
-$noticecolor-2 : #fff6bf;
-
-$successcolor-1 : #264409;
-$successcolor-2 : #e6efc2;
-
-$infocolor-1 : #205791;
-$infocolor-2 : #d5edf8;
+// Contextual colors
+$error-color-600 : #8a1f11;
+$error-color-50 : #fbe3e4;
+$notice-color-600 : #514721;
+$notice-color-50 : #fff6bf;
+$success-color-600 : #264409;
+$success-color-50 : #e6efc2;
+$info-color-600 : #205791;
+$info-color-50 : #d5edf8;

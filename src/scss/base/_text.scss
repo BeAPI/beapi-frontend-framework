@@ -26,18 +26,18 @@ body {
 	font-size: $base-fz;
 	line-height: $base-lh;
 	font-family: $customfont-1;
-	color: $textcolor;
+	color: $secondary-color;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	overflow-x: hidden;
 }
 
 a {
-	color: $textcolor;
+	color: $secondary-color;
 	text-decoration: none;
 
 	@include hover {
-		color: $textcolor;
+		color: $secondary-color;
 	}
 }
 
@@ -156,8 +156,8 @@ big {
 code {
 	display: inline-block;
 	padding: 2px 5px;
-	background-color: $light-gray;
-	border: 1px solid $darkcolor;
+	background-color: $gray-color-800;
+	border: 1px solid $dark-color;
 	font-family: monospace;
 	font-size: $base-fz;
 	border-radius: $base-border-radius;
@@ -192,8 +192,8 @@ pre {
 	@include word-wrap(break-all);
 
 	white-space: pre-wrap;
-	background-color: $light-gray;
-	border: 1px solid $darkcolor;
+	background-color: $gray-color-800;
+	border: 1px solid $dark-color;
 	border-radius: $base-border-radius;
 }
 

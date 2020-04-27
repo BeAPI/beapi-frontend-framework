@@ -31,7 +31,7 @@
 	bottom: 0;
 	width: 80%;
 	padding: 40px 0;
-	background: $maincolor;
+	background: $primary-color;
 	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
 	transition : left 0.5s ease-out;
@@ -54,8 +54,8 @@
 			&.current-menu-parent,
 			&.current-menu-ancestor {
 				&>a {
-					background: $maincolor;
-					color: $textcolor;
+					background: $primary-color;
+					color: $secondary-color;
 				}
 			}
 		}
@@ -67,8 +67,8 @@
 			padding: 10px;
 
 			@include hover {
-				color:$textcolor;
-				background:$maincolor;
+				color:$secondary-color;
+				background:$primary-color;
 			}
 		}
 
@@ -95,13 +95,13 @@
 			position: absolute;
 			top: 100%;
 			min-width: 200px;
-			background: $lightcolor;
+			background: $light-color;
 
 			#{$menu-item} {
 				a {
 					@include hover {
-						background: $maincolor;
-						color: $textcolor;
+						background: $primary-color;
+						color: $secondary-color;
 					}
 				}
 			}
@@ -130,6 +130,6 @@
 
 	.menu {
 		left: 0;
-		box-shadow: 0 0 100px rgba($darkcolor, 0.5);
+		box-shadow: 0 0 100px rgba($dark-color, 0.5);
 	}
 }

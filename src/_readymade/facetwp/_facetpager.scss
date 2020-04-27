@@ -1,0 +1,15 @@
+.facetwp-pager {
+	text-align: center;
+	@media screen and (max-width: $tablet-medium) {
+		.facetwp-pager-label,
+		.first-page,
+		.last-page {
+			display: none;
+		}
+		.facetwp-page,
+		.next-page,
+		.previous-page {
+			display: inline-block;
+		}
+	}
+}

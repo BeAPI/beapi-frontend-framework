@@ -1,0 +1,77 @@
+//Custom CSS for : https://fr.wordpress.org/plugins/gdpr/
+@mixin gdrp__button {
+    //You're main button mixin is probably not enough suitable for your need.
+    //Please set here the css you want to get versus the plugin css
+    height: auto;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none!important;
+    text-shadow: none!important;
+    color: $lightcolor!important;
+    border-color: $maincolor!important;
+    background-color: $maincolor!important;
+}
+.gdpr {
+    $parent: &;
+
+    *:not(textarea):not(input):not(select) {
+        //Plugin re-add system font
+        font-family: $customfont-1!important;
+    }
+    //The bar
+    #{$parent}-wrapper {
+        @include container();
+    }
+    &#{$parent}-privacy-bar,
+    &#{$parent}-reconsent-bar {
+        background: rgba($dark-gray, .9);
+        #{$parent}-preferences {
+            //preference link css here
+        }
+        #{$parent}-agreement {
+            @include gdrp__button;
+        }
+    }
+    &#{$parent}-content {
+    }
+    //The modal
+    &#{$parent}-privacy-preferences,
+    &#{$parent}-reconsent,
+    &#{$parent}-general-confirmation {
+        #{$parent}-wrapper {
+            //Header bar
+            &>form>header .gdpr-box-title,
+            .reconsent-form>header .gdpr-box-title {
+                background: rgba($dark-gray, .9);
+            }
+            //Tabs
+            #{$parent}-content {
+                #{$parent}-tabs {
+                    background: rgba($dark-gray, .9);
+                    li {
+                        button,
+                        a {
+                            background: none;
+                            &:hover {
+                                color: $maincolor;
+                                background: rgba($dark-gray, .9);
+                            }
+                            &#{$parent}-active {
+                                background-color: $maincolor;
+                            }
+                        }
+                        #{$parent}-subtabs {
+                            background: none;
+                        }
+                    }
+                }
+            }
+
+            //Submit buttons
+            &>form>footer input[type="submit"],
+            .reconsent-form > footer input[type="submit"] {
+                @include gdrp__button;
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+/* Facetwp css
+-------------------------------------------------------------- */
+
+.facetwp-page.active {
+    background-color: $maingrey;
+    color: $darkcolor;
+}
+.facetwp-page {
+    border: 1px solid  $maingrey;
+}
+.facetwp-sort{
+	margin: 10px 0;
+}
+
+.facetwp-checkbox{
+	.facetwp-counter{
+		color: $maincolor;
+	}
+}
+

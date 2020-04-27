@@ -22,6 +22,8 @@
 @import "base/seo";
 @import "base/lazyload";
 @import "base/layout";
+@import "base/cssloading";
+@import "base/iframe";
 @import "base/focus";
 
 // Components
@@ -46,4 +48,7 @@
 @import "wp/gutenberg";
 
 // Pages
+@import "pages/404";
+@import "pages/home";
+@import "pages/default";
 @import "pages/print";

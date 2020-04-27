@@ -1,4 +1,5 @@
-<?php include 'partials/header.php'; ?>
+<?php $bodyClass = 'buttons'; ?>
+<?php include 'sections/header.php'; ?>
 	<article class="article">
 		<div class="container">
 			<p>
@@ -236,4 +237,4 @@
 		</div>
 	</article>
 
-<?php include 'partials/footer.php'; ?>
+<?php include 'sections/footer.php'; ?>

@@ -127,7 +127,7 @@ table {
 	th,
 	td {
 		padding: $half-base-spacing;
-		border: 1px solid $base-border-color;
+		border: $base-border;
 		vertical-align: top;
 		text-align: left;
 	}

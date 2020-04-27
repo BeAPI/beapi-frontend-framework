@@ -1,16 +1,8 @@
-/**
- * Positioning
- */
-$zindex: 1;
 
-/**
- * Spacing
- */
+// Spacing
 $base-spacing: 32px;
 $half-base-spacing: $base-spacing / 2;
 
-/**
- * WP ADMIN BAR
- */
-$wpadminbarM : 46px;
-$wpadminbarD : 32px;
+// WP Admin Bar
+$wp-admin-bar-mobile-height: 46px;
+$wp-admin-bar-desktop-height: 32px;

@@ -224,7 +224,7 @@
 
 //fullwidth row
 @mixin row--fullwidth($position: relative) {
-	z-index: $zindex;
+	z-index: 1;
 	position: $position;
 	width: 100vw;
 	left: 50%;

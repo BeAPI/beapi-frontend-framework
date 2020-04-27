@@ -29,9 +29,9 @@
 
 	// Admin bar sample if header is fixed
 	// .admin-bar & {
-	// 	top: $wpadminbarM;
+	// 	top: $wp-admin-bar-mobile-height;
 	// 	@include breakpoints(md) {
-	// 		top: $wpadminbarD;
+	// 		top: $wp-admin-bar-desktop-height;
 	// 	}
 	// }
 }

@@ -23,7 +23,7 @@ $loading-dimensions : 50px;
 	&::before {
 		@include pseudo__content;
 
-		z-index: $zindex*2;
+		z-index: 2;
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -36,7 +36,7 @@ $loading-dimensions : 50px;
 	&::after {
 		@include pseudo__content;
 
-		z-index: $zindex*3;
+		z-index: 3;
 		position: absolute;
 		top: calc(50% - #{$loading-dimensions / 2});
 		left: calc(50% - #{$loading-dimensions / 2});
@@ -60,7 +60,7 @@ $loading-dimensions : 50px;
 		&:after,
 		&:before {
 			opacity: 0;
-			z-index: -$zindex;
+			z-index: -1;
 		}
 	}
 }

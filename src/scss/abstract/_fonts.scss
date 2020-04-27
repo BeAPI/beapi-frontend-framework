@@ -10,9 +10,9 @@ $base-line-height: 1.4;
 $heading-line-height: 1.2;
 
 // Font Faces
-@include declare-font-face("Roboto", "#{$fonts-url}/roboto-v15-latin/roboto-v15-latin-regular");
-@include declare-font-face("Roboto", "#{$fonts-url}/roboto-v15-latin/roboto-v15-latin-500", 500);
-@include declare-font-face("Roboto", "#{$fonts-url}/roboto-v15-latin/roboto-v15-latin-700", bold);
+@include declare-font-face("Roboto", "./fonts/roboto-v15-latin/roboto-v15-latin-regular");
+@include declare-font-face("Roboto", "./fonts/roboto-v15-latin/roboto-v15-latin-500", 500);
+@include declare-font-face("Roboto", "./fonts/roboto-v15-latin/roboto-v15-latin-700", bold);
 
 // Sofia Pro for Hn
 // Use this script to add external ressource like typekit: https://github.com/swissspidy/local-webfont

@@ -16,7 +16,7 @@
 
     *:not(textarea):not(input):not(select) {
         //Plugin re-add system font
-        font-family: $customfont-1!important;
+        font-family: $primary-font-family!important;
     }
     //The bar
     #{$parent}-wrapper {

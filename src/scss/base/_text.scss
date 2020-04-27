@@ -23,9 +23,9 @@
  */
 
 body {
-	font-size: $base-fz;
-	line-height: $base-lh;
-	font-family: $customfont-1;
+	font-size: $base-font-size;
+	line-height: $base-line-height;
+	font-family: $primary-font-family;
 	color: $secondary-color;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -159,7 +159,7 @@ code {
 	background-color: $gray-color-800;
 	border: 1px solid $dark-color;
 	font-family: monospace;
-	font-size: $base-fz;
+	font-size: $base-font-size;
 	border-radius: $base-border-radius;
 }
 

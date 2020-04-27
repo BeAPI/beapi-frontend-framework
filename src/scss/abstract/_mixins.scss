@@ -294,7 +294,7 @@
 @mixin title($size: md) {
 	font-weight: 700;
 	line-height: $heading-line-height;
-	font-family: $customfont-2;
+	font-family: $secondary-font-family;
 
 	@if $size == XXL {
 		font-size: 40px;

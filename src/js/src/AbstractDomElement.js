@@ -3,7 +3,7 @@
 
   class MyClass extends AbstractDomElement {
     constructor(element, options) {
-      var instance = super(element, options)
+      const instance = super(element, options)
 
       // avoid double init :
       if (!instance.isNewInstance()) {
@@ -28,12 +28,12 @@
 
 */
 
-var $ = jQuery
+const $ = jQuery
 
 class AbstractDomElement {
   constructor(element, options) {
-    var className = this.constructor.name
-    var oldInstance
+    const className = this.constructor.name
+    let oldInstance
 
     // if no spacename beapi, create it - avoid futur test
     if (!element.beapi) {
@@ -71,12 +71,12 @@ class AbstractDomElement {
   }
 
   static hasInstance(element) {
-    var el = getDomElement(element)
+    const el = getDomElement(element)
     return el && el.beapi && !!el.beapi[this.name]
   }
 
   static getInstance(element) {
-    var el = getDomElement(element)
+    const el = getDomElement(element)
     return el && el.beapi ? el.beapi[this.name] : undefined
   }
 
@@ -101,8 +101,8 @@ class AbstractDomElement {
   }
 
   static initFromPreset() {
-    var preset = this.preset
-    var selector
+    const preset = this.preset
+    let selector
 
     for (selector in preset) {
       this.init(selector, preset[selector])
@@ -112,8 +112,8 @@ class AbstractDomElement {
   }
 
   static destroyFromPreset() {
-    var preset = this.preset
-    var selector
+    const preset = this.preset
+    let selector
 
     for (selector in preset) {
       this.destroy(selector)
@@ -127,8 +127,8 @@ class AbstractDomElement {
 // utils
 // ----
 function foreach(element, callback) {
-  var el = getDomElements(element)
-  var i
+  const el = getDomElements(element)
+  let i
 
   for (i = 0; i < el.length; i++) {
     if (callback(el[i]) === false) break

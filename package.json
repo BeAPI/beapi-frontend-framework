@@ -62,6 +62,6 @@
     "webpack-cli": "^3.3.11",
     "webpack-manifest-plugin": "^2.2.0",
     "webpack-progress-ora-plugin": "^1.2.2",
-    "what-input": "^5.2.6"
+    "what-input": "^5.2.7"
   }
 }

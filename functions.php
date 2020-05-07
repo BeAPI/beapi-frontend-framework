@@ -1,8 +1,4 @@
 <?php
-/**
- * Autoload all the things \o/
- */
-require_once 'autoload.php';
 
 /**
  * Load all services

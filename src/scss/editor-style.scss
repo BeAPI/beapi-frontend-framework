@@ -1,6 +1,5 @@
 // Abstract
 @import "abstract/url-config";
-@import "~susy/sass/susy";
 @import "~normalize-scss/sass/normalize/import-now";
 @import "abstract/positioning";
 @import "abstract/colors";
@@ -10,7 +9,6 @@
 @import "abstract/fonts";
 @import "abstract/box-sizing";
 @import "abstract/breakpoints";
-@import "abstract/grid";
 
 // Base
 @import "base/text";
@@ -27,16 +25,16 @@
 // Backend Classic editor container
 .mce-content-body {
     margin: $base-spacing/2;
-    max-width: container();
+    max-width: $containerWidth;
 }
 
 // Backend Gutenberg editor container
 .wp-block {
     &:not([data-align="full"]) {
-        max-width: container();
+        max-width: $containerWidth;
     }
     &[data-align="wide"] {
-        max-width: container()*1.5;
+        max-width: $containerWidth * 1.5;
     }
 }
 

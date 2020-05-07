@@ -1,6 +1,6 @@
 {
   "name": "beapi-frontend-framework",
-  "version": "4.0.3",
+  "version": "4.1.0",
   "author": "BeAPI",
   "repository": {
     "type": "git",
@@ -56,13 +56,12 @@
     "favicons": "^6.0.0",
     "normalize-scss": "^7.0.1",
     "ora": "^3.4.0",
-    "susy": "^2.2.14",
     "svgo": "^1.2.2",
     "svgstore": "^3.0.0-2",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
     "webpack-manifest-plugin": "^2.2.0",
-    "webpack-progress-ora-plugin": "^1.2.1",
+    "webpack-progress-ora-plugin": "^1.2.2",
     "what-input": "^5.2.6"
   }
 }

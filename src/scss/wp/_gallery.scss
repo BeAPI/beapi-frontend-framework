@@ -1,6 +1,5 @@
 .gallery {
-	@include container;
-
+	@include flex-grid__container();
 	margin: 0 0 $base-spacing;
 
 	br + br {
@@ -15,8 +14,7 @@
 }
 
 .gallery-item {
-	@include gallery(6 of 12);
-
+	width: column(6);
 	text-align: center;
 	position: relative;
 	margin-bottom: $base-spacing;
@@ -30,9 +28,9 @@
 	}
 
 	.gallery-columns-3 & {
-		@include gallery(4 of 12);
+		width: column(4);
 	}
 	.gallery-columns-4 & {
-		@include gallery(3 of 12);
+		width: column(3);
 	}
 }

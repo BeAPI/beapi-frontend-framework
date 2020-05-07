@@ -9,7 +9,6 @@ BeAPI FrontEnd Framework (BFF) is a Front-end WordPress theme friendly boilerpla
 * [Favicons](https://www.npmjs.com/package/favicons)
 * [SVGStore](https://www.npmjs.com/package/svgstore)
 * [SVGGo](https://www.npmjs.com/package/svgstore)
-* [Susy 2](https://www.npmjs.com/package/susy)
 * [Lazysizes](https://www.npmjs.com/package/lazysizes)
 * [Eslint](https://www.npmjs.com/package/eslint)
 * [Babel Loader](https://www.npmjs.com/package/babel-loader)

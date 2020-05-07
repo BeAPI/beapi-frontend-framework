@@ -1,5 +1,5 @@
 <?php $bodyClass = 'home'; ?>
-<?php include 'partials/header.php'; ?>
+<?php include 'sections/header.php'; ?>
 	<article class="article">
 		<div class="container">
 			<?php includeWithVariables('partials/hero.php', array('heroTitle' => 'Welcome to the BFF')); ?>
@@ -11,4 +11,4 @@
 		</div>
 	</article>
 
-<?php include 'partials/footer.php'; ?>
+<?php include 'sections/footer.php'; ?>

@@ -7,7 +7,9 @@
  *      -> Invalid null operation: "null sub 1"
  */
 
- $breakpoints : (
+$containerWidth: 960px;
+
+$breakpoints : (
     xsm: 600,
     sm: 768,
     md: 1024,

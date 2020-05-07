@@ -1,0 +1,317 @@
+// Gravity Form datepicker
+.ui-datepicker {
+	display: none; //hide by default when not used
+	padding: 10px;
+	border: 1px solid $maingrey;
+	background: $lightcolor;
+}
+
+.ui-datepicker-header {
+	position: relative;
+	padding-left: 60px;
+	padding-right: 60px;
+}
+
+.ui-datepicker-prev,
+.ui-datepicker-next {
+	position: absolute;
+	top: 0;
+	cursor: pointer;
+}
+
+.ui-datepicker-prev {
+	left: 0;
+}
+
+.ui-datepicker-next {
+	right: 0;
+}
+
+.ui-datepicker-title {
+	text-align: center;
+	select {
+		margin: 0 5px;
+	}
+}
+
+.ui-datepicker-calendar {
+	td,
+	th {
+		text-align: center;
+	}
+}
+
+// Gravity Form
+.gfield,
+.ginput_full {
+	@include clearfix;
+	select {
+		width: 100%;
+	}
+}
+
+.gform_heading,
+.gf_progressbar_wrapper,
+.gfield,
+.gf_page_steps {
+	margin-bottom: $base-spacing !important; //important to resolve conflict with entry__content ul's margins
+}
+
+.gform_description,
+.gfield_description,
+.gsection_description {
+	@include clearfix;
+	font-size: 11px;
+}
+
+//multistep form
+//progressbar when multi part form are used
+.gf_progressbar {
+	background: $maingrey;
+}
+
+.gf_progressbar_percentage {
+	text-align: center;
+	font-size: 11px;
+	font-weight: 700;
+	color: $lightcolor;
+	background: $maincolor;
+}
+
+//step by step layout
+.gf_page_steps {
+	.gf_step {
+		display: inline-block;
+	}
+}
+
+//multi step footer
+.gform_page_footer {
+	@include clearfix;
+	clear: both;
+	position: relative;
+	padding: $base-spacing 0;
+	text-align: center;
+	.gform_previous_button {
+		float: left;
+	}
+	.gform_next_button {
+		float: right;
+	}
+}
+
+//input size choice. Responsive
+.ginput_container {
+	@include clearfix;
+	@media screen and (min-width: $tablet-medium) {
+		.small {
+			@include span(6);
+		}
+		.medium {
+			@include span(8);
+		}
+		.large {
+			@include span(12);
+		}
+	}
+}
+
+.gfield_label {
+	margin: 0 0 $half-base-spacing;
+}
+
+//gfield description
+.gfield_description {
+	margin: 0;
+}
+
+.field_description_below {
+	.gfield_description {
+		margin-top: $half-base-spacing;
+	}
+}
+
+.field_description_above {
+	.gfield_description {
+		margin-bottom: $half-base-spacing;
+	}
+}
+
+//gf section title
+.gsection_title {}
+
+//ready classes columns.
+.gf_left_half {
+	clear: left;
+	@media screen and (min-width: $tablet-medium) {
+		@include span(6);
+	}
+}
+
+.gf_right_half {
+	@media screen and (min-width: $tablet-medium) {
+		@include span(6 last);
+		&+.gfield {
+			clear: both;
+		}
+	}
+}
+
+.gf_left_third {
+	clear: left;
+}
+
+.gf_left_third,
+.gf_middle_third {
+	@media screen and (min-width: $tablet-medium) {
+		@include span(4);
+	}
+}
+
+.gf_right_third {
+	@media screen and (min-width: $tablet-medium) {
+		@include span(4 last);
+		&+.gfield {
+			clear: both;
+		}
+	}
+}
+
+//2 columns used with advancef GF fields adress, name
+.ginput_complex {
+	@include clearfix;
+	.ginput_left,
+	.ginput_right,
+	.name_first,
+	.name_last {
+		@include span(6);
+		label {
+			margin: 5px 0 10px;
+			font-size: 11px;
+		}
+	}
+	.ginput_right,
+	.name_last {
+		margin-right: 0;
+	}
+	.ginput_full {
+		display: block;
+		margin: 0 0 $base-spacing;
+		label {
+			margin: 5px 0 10px;
+			font-size: 11px;
+		}
+	}
+}
+
+//hour advanced field
+.gfield_time_hour,
+.gfield_time_minute {
+	display: inline-block;
+	input[type="text"] {
+		display: inline-block;
+		width: auto;
+	}
+	label {
+		display: block;
+	}
+}
+
+//gfield date
+.ginput_container_date {
+	input[type="text"] {
+		padding-right: 40px;
+	}
+	.ui-datepicker-trigger {
+		cursor: pointer;
+		display: inline-block;
+		margin-left: -40px;
+		margin-top: 14px;
+	}
+}
+
+//gfield counter 
+//gfield file
+.screen-reader-text,
+.ginput_counter {
+	display: block;
+	clear: both;
+	font-size: 11px;
+	margin-top: $half-base-spacing;
+}
+
+.ginput_preview .gform_delete {
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: -10%;
+}
+
+.ginput_container_fileupload {
+	input[type=file] {
+		line-height: 1;
+	}
+	.validation_message:not(:empty) {
+		color: $errorcolor-1;
+		font-weight: 700;
+	}
+}
+
+//gfield list
+.gfield_list {
+	border: 0;
+	td {
+		padding: 0;
+		border: 0;
+	}
+}
+
+//gfield radio/checkbox
+.gfield_checkbox,
+.gfield_radio {
+	&>li {
+		position: relative;
+	}
+	input[type=checkbox],
+	input[type=radio] {
+		position: absolute;
+		top: 3px;
+		left: 0;
+	}
+	label {
+		cursor: pointer;
+		padding-left: $base-spacing;
+	}
+}
+
+//gfield price
+.gfield_price {
+	input[type="text"] {
+		display: inline-block;
+		width: auto;
+	}
+}
+
+//Footer
+.gform_footer {
+	text-align: center;
+}
+
+//Success
+.gform_confirmation_message {
+	margin-bottom: $base-spacing;
+}
+
+//Errors
+.validation_error,
+.gfield_error {
+	margin-bottom: $base-spacing;
+}
+
+// Honeypot
+.gform_validation_container,
+.gform_wrapper .gform_validation_container,
+body .gform_wrapper .gform_body ul.gform_fields li.gfield.gform_validation_container,
+body .gform_wrapper li.gform_validation_container,
+body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
+	@extend .visuallyhidden;
+}

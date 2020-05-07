@@ -17,13 +17,30 @@ BeAPI FrontEnd Framework (BFF) is a Front-end WordPress theme friendly boilerpla
 
 ## Requirements
 
+### Composer
+You need composer to autoload all your classes from the inc folder.
+
+Use the `beapi/composer-scaffold-theme` package that add it automatically to the composer.json file.
+You can add it yourself like this :
+ 
+```composer.json
+    "autoload": {
+        "psr-4": {
+            "BEA\\Theme\\Framework\\": "content/themes/framework/inc/"
+        }
+    }
+```
+
+## Autoload
+The autoload is based on psr-4 and handled by composer.
+
 ### Node 8
 
 You need a minimum of Node 8.
 
 ### Advanced Responsive Images
 
-You need to work in a wordpress environnement in order to make the BFF work with webpack for local dev. To do that you need to install [Advanced Responsive Images](https://github.com/asadowski10/advanced-responsive-images) in your plugin folder.
+You need to work in a wordpress environment in order to make the BFF work with webpack for local dev. To do that you need to install [Advanced Responsive Images](https://github.com/asadowski10/advanced-responsive-images) in your plugin folder.
 
 ## Installation
 

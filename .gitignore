@@ -72,8 +72,8 @@ config/host.js
 dist/
 src/conf-img/*.csv
 
-### yarn
-yarn.lock
+### NPM (use Yarn instead)
+package-lock.json
 
 ### config
 .port

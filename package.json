@@ -54,17 +54,18 @@
   "dependencies": {
     "autoprefixer": "^9.7.4",
     "cheerio": "^1.0.0-rc.3",
-    "lazysizes": "^5.2.0",
     "favicons": "^6.0.0",
+    "lazysizes": "^5.2.0",
     "normalize-scss": "^7.0.1",
     "ora": "^3.4.0",
+    "single-line-log": "^1.1.2",
     "svgo": "^1.2.2",
     "svgstore": "^3.0.0-2",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
     "webpack-manifest-plugin": "^2.2.0",
     "webpack-progress-ora-plugin": "^1.2.2",
-    "what-input": "^5.2.6",
+    "what-input": "^5.2.7",
     "snyk": "^1.316.1"
   },
   "snyk": true

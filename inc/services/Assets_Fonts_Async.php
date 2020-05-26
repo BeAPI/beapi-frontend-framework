@@ -38,6 +38,6 @@ class Assets_Fonts_Async implements Service {
 	 * @author Nicolas JUEN
 	 */
 	public function load_font() {
-		get_template_part( 'inc/async/loadfont' );
+		get_template_part( 'inc/Async/Loadfont' );
 	}
 }

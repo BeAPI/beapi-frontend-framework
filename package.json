@@ -8,17 +8,14 @@
   },
   "scripts": {
     "start": "node_modules/.bin/concurrently -k -n \"Webpack,PHP Server\" -p \"[{name}]\" -c \"green, blue\" \"node_modules/.bin/webpack --mode=development --watch\" \"sh server.sh\"",
-    "build:dev": "node_modules/.bin/webpack --mode=development && npm run icon",
-    "build:prod": "npm run clean && node_modules/.bin/webpack --mode=production && npm run icon",
-    "build": "npm run clean && node_modules/.bin/webpack --mode=production && npm run build:dev",
+    "build:dev": "node_modules/.bin/webpack --mode=development && node scripts/svg-sprite.js",
+    "build:prod": "rm -rf dist/ && echo \"✓ dist folder has been successfully removed.\" && node_modules/.bin/webpack --mode=production && node scripts/svg-sprite.js",
+    "build": "rm -rf dist/ && echo \"✓ dist folder has been successfully removed.\" && node_modules/.bin/webpack --mode=production && node_modules/.bin/webpack --mode=development && node scripts/svg-sprite.js",
     "watch": "node_modules/.bin/webpack --watch --mode=development",
     "bump": "node scripts/style-version.js",
-    "clean": "rm -rf dist/ && echo \"✓ dist folder has been successfully removed.\"",
-    "composerjs": "cd composerjs && npm install && node app.js",
     "icon": "node scripts/svg-sprite.js",
     "image": "node scripts/image-sizes.js",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "favicon": "node scripts/favicon.js && node scripts/favicon.js --appicon",
   },
   "license": "GPL-2.0",
   "devDependencies": {
@@ -57,7 +54,6 @@
     "normalize-scss": "^7.0.1",
     "ora": "^3.4.0",
     "single-line-log": "^1.1.2",
-    "snyk": "^1.316.1",
     "svgo": "^1.2.2",
     "svgstore": "^3.0.0-2",
     "webpack": "^4.41.6",
@@ -65,6 +61,5 @@
     "webpack-manifest-plugin": "^2.2.0",
     "webpack-progress-ora-plugin": "^1.2.2",
     "what-input": "^5.2.7"
-  },
-  "snyk": true
+  }
 }

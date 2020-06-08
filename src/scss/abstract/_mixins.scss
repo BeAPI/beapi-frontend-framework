@@ -170,10 +170,10 @@
 
 // Customize placeholder
 @mixin placeholder {
-	$placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+	$placeholders: ":placeholder", ":-webkit-input-placeholder" ":-moz-placeholder" "-moz-placeholder" "-ms-input-placeholder";
 
 	@each $placeholder in $placeholders {
-		&:#{$placeholder}-placeholder {
+		&:#{$placeholder} {
 			@content;
 		}
 	}

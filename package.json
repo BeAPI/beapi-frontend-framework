@@ -15,7 +15,7 @@
     "bump": "node scripts/style-version.js",
     "icon": "node scripts/svg-sprite.js",
     "image": "node scripts/image-sizes.js",
-    "favicon": "node scripts/favicon.js && node scripts/favicon.js --appicon",
+    "favicon": "node scripts/favicon.js && node scripts/favicon.js --appicon"
   },
   "license": "GPL-2.0",
   "devDependencies": {

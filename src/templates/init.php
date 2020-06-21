@@ -50,7 +50,7 @@ function get_lorem( $min, $max ) {
 
 function get_the_icon( $fileName ) {
 	$absurl = '';
-	$output = '<svg class="icon icon-' . $fileName . '" aria-hidden="true" role="img"><use xlink:href="/dist/assets/img/icons/icons.svg' . '#icon-' . $fileName . '"></use></svg>';
+	$output = '<svg class="icon icon-' . $fileName . '" aria-hidden="true" role="img"><use xlink:href="/dist/assets/img/icons/icons.svg#icon-' . $fileName . '"></use></svg>';
 	return $output;
 }
 

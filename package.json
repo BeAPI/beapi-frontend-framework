@@ -54,6 +54,7 @@
     "normalize-scss": "^7.0.1",
     "ora": "^3.4.0",
     "single-line-log": "^1.1.2",
+    "svg4everybody": "^2.1.9",
     "svgo": "^1.2.2",
     "svgstore": "^3.0.0-2",
     "webpack": "^4.41.6",

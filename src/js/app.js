@@ -7,7 +7,7 @@ import './polyfill/picturefill'
 import lazySizes from 'lazysizes'
 import 'lazysizes/plugins/native-loading/ls.native-loading'
 import 'lazysizes/plugins/object-fit/ls.object-fit'
-
+import 'vendor/accessible-mega-menu'
 import './src/menu'
 
 /**

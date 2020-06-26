@@ -233,6 +233,11 @@ module.exports = (env, argv) => {
       }),
       new UglifyJsPlugin({
         sourceMap: true,
+        uglifyOptions: {
+          output: {
+            comments: false,
+          },
+        },
       }),
     ]
     webpackConfig.output.filename = '[name].[chunkhash:8].min.js'

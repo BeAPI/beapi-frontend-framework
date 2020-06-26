@@ -137,14 +137,6 @@ const webpackConfig = {
   plugins: [
     new CopyWebpackPlugin([
       {
-        from: 'src/js/vendor_async',
-        to: 'js/vendor_async',
-      },
-      {
-        from: 'src/js/vendor_ie',
-        to: 'js/vendor_ie',
-      },
-      {
         from: 'src/templates/',
         to: './../',
       },

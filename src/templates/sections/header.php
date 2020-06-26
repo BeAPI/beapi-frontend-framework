@@ -1,4 +1,4 @@
-<?php include 'init.php'; ?>
+<?php require 'init.php'; ?>
 <!doctype html>
 <!--[if lte IE 9 ]> <html class="no-js ie lte-ie9 ie9" lang="fr"> <![endif]-->
 <!--[if !(IE)]><! -->
@@ -11,22 +11,10 @@
 
 		<title>BeAPI FrontEnd Framework | The WordPress BFF</title>
 
-		<!--[if lte IE 9]>
-			<script type="text/javascript" src="assets/js/vendor_ie/matchMedia-polyfill.js"></script>
-			<script type="text/javascript" src="assets/js/vendor_ie/matchMedia.addListener.js"></script>
-			<script type="text/javascript" src="assets/js/vendor_ie/placeholders.min.js"></script>
-		<![endif]-->
-		<!--[if lt IE 9]>
-			<script type="text/javascript" src="assets/js/vendor_ie/html5shiv.min.js"></script>
-		<![endif]-->
-		<!--[if lte IE 8]>
-			<script type="text/javascript" src="assets/js/vendor_ie/selectivizr.js"></script>
-		<![endif]-->
-
 		<link rel="stylesheet" href="assets/app.css">
 
 		<!-- jQuery from official WordPress Core -->
-		<script type="text/javascript" src="assets/js/vendor_async/jquery.js"></script>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 
 	</head>
 	<body class="<?php echo $bodyClass; ?>">
@@ -68,9 +56,9 @@
 							<svg class="header__icon icon" aria-hidden="true" role="img">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
 							</svg>
-							<?php if ( $bodyClass == 'home' ) :?>
+							<?php if ( $bodyClass == 'home' ) : ?>
 								<h1 class="header__title visuallyhidden">BeAPI FrontEnd Framework</h1>
-							<?php else: ?>
+							<?php else : ?>
 								<div class="header__title visuallyhidden">BeAPI FrontEnd Framework</div>
 							<?php endif; ?>
 						</a>

@@ -8,7 +8,7 @@
  *
  * @example
  *	<nav id="menu" class="menu" role="navigation" tabindex="-1" aria-label="Navigation Principal">
- *		<ul class="menu__list sf-menu">
+ *		<ul class="menu">
  *			<li class="menu-item current-menu-item menu-item-has-children">
  *				<a href="01-home.php">Home</a>
  *			</li>
@@ -23,4 +23,37 @@
 	$el: &;
 	$menu-item: '.menu-item';
 	$sub-menu: '.sub-menu';
+
+	padding: 0;
+	margin: 0;
+
+	&-item {
+		padding: 0;
+
+		a {
+			padding: .5em 1em;
+			display: block;
+		}
+	}
+
+	&__panel {
+		padding: 0;
+		display: block;
+		max-height: 0;
+		overflow: hidden;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.35s ease, max-height 0.5s ease, visibility 0s linear;
+
+		&.open {
+			overflow: auto;
+			max-height: 350px;
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	@include breakpoints(sm) {
+		display: flex;
+	}
 }

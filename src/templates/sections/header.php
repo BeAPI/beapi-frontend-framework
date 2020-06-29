@@ -47,20 +47,6 @@
 		<!-- <li class="menu-fastaccess__item"><a href="#searchform">Acces direct à la recherche</a></li> -->
 		<li class="menu-fastaccess__item"><a href="#menu">Acces direct au menu</a></li>
 	</ul>
-	<div id="js-menu-trigger" class="menu-trigger">
-		<button type="button" id="js-menu-open" class="menu-trigger__open button button--primary">
-			<svg class="icon icon-menu" aria-hidden="true" role="img">
-				<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-menu"></use>
-			</svg>
-			Menu
-		</button>
-		<button type="button" id="js-menu-close" class="menu-trigger__close button button--primary">
-			<svg class="icon icon-close" aria-hidden="true" role="img">
-				<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
-			</svg>
-			Fermer
-		</button>
-	</div>
 	<header id="header" class="header" role="banner">
 		<div class="container">
 			<div class="header__logo">
@@ -77,17 +63,17 @@
 				</a>
 			</div>
 			<nav id="nav-primary" class="amenu nav-primary" aria-label="Main navigation" role="navigation">
-				<button class="amenu__toggle accessible-megamenu-toggle" aria-expanded="false" aria-pressed="false" aria-controls="amenu-main">
+				<button class="amenu__toggle accessible-megamenu-toggle">
 					<span class="visuallyhidden">Menu</span>
 					<svg class="icon icon-menu" aria-hidden="true" role="img">
-						<use xlink:href="https://2020.mosne.it/wp-content/themes/mosne_2020/dist/icons.svg#icon-menu"></use>
+						<use xlink:href="#icon-menu"></use>
 					</svg>
 					<svg class="icon icon-close" aria-hidden="true" role="img">
-						<use xlink:href="https://2020.mosne.it/wp-content/themes/mosne_2020/dist/icons.svg#icon-close"></use>
+						<use xlink:href="#icon-close"></use>
 					</svg>
 				</button>
-				<ul id="amenu-main" class="amenu__main js-amenu__main">
-					<li id="menu-item-2502" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2502 amenu__top"><a href="https://2020.mosne.it/instagram/" id="amenu-1592823626259-1">instagram</a></li>
+				<ul id="amenu-main" class="menu amenu__main js-amenu__main">
+					<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://2020.mosne.it/instagram/" id="amenu-1592823626259-1">instagram</a></li>
 					<li class="menu-item current-menu-item menu-item-has-children">
 						<a href="01-home.php">Home</a>
 						<div class='amenu__panel'>

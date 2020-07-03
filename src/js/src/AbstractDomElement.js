@@ -31,16 +31,19 @@
 const $ = jQuery
 
 class AbstractDomElement {
-  constructor(element, options) {
-    const className = this.constructor.name
+  constructor(element, options, nameSpace) {
     let oldInstance
+
+    // provide an explicit spaceName to prevent conflict after minification
+    // keep this.constructor.name for retro compatibility
+    nameSpace = nameSpace || this.constructor.name
 
     // if no spacename beapi, create it - avoid futur test
     if (!element.beapi) {
       element.beapi = {}
     }
 
-    oldInstance = element.beapi[className]
+    oldInstance = element.beapi[nameSpace]
 
     if (oldInstance) {
       oldInstance._isNewInstance = false
@@ -49,7 +52,7 @@ class AbstractDomElement {
 
     this._element = element
     this._settings = $.extend(true, {}, this.constructor.defaults, options)
-    this._element.beapi[className] = this
+    this._element.beapi[nameSpace] = this
     this._isNewInstance = true
   }
 

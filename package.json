@@ -7,11 +7,11 @@
     "url": "https://github.com/BeAPI/beapi-frontend-framework"
   },
   "scripts": {
-    "start": "node_modules/.bin/concurrently -k -n \"Webpack,PHP Server\" -p \"[{name}]\" -c \"green, blue\" \"node_modules/.bin/webpack --mode=development --watch\" \"sh server.sh\"",
-    "build:dev": "node_modules/.bin/webpack --mode=development && node scripts/svg-sprite.js",
-    "build:prod": "rm -rf dist/ && echo \"✓ dist folder has been successfully removed.\" && node_modules/.bin/webpack --mode=production && node scripts/svg-sprite.js",
-    "build": "rm -rf dist/ && echo \"✓ dist folder has been successfully removed.\" && node_modules/.bin/webpack --mode=production && node_modules/.bin/webpack --mode=development && node scripts/svg-sprite.js",
-    "watch": "node_modules/.bin/webpack --watch --mode=development",
+    "start": "node_modules/.bin/concurrently -k -n \"Webpack,PHP Server\" -p \"[{name}]\" -c \"green, blue\" \"node_modules/.bin/webpack --mode=development --watch --display=errors-only\" \"sh server.sh\"",
+    "build:dev": "node_modules/.bin/webpack --mode=development --display=errors-only && node scripts/svg-sprite.js",
+    "build:prod": "rm -rf dist/ && echo \"✓ dist folder has been successfully removed.\" && node_modules/.bin/webpack --mode=production --display=errors-only&& node scripts/svg-sprite.js",
+    "build": "rm -rf dist/ && echo \"✓ dist folder has been successfully removed.\" && node_modules/.bin/webpack --mode=production --display=errors-only&& node_modules/.bin/webpack --mode=development --display=errors-only&& node scripts/svg-sprite.js",
+    "watch": "node_modules/.bin/webpack --watch --mode=development --display=errors-only",
     "bump": "node scripts/style-version.js",
     "icon": "node scripts/svg-sprite.js",
     "image": "node scripts/image-sizes.js",
@@ -26,9 +26,9 @@
     "sounds-webpack-plugin": "0.0.2"
   },
   "dependencies": {
-    "autoprefixer": "^9.7.4",
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.4.5",
+    "autoprefixer": "^9.7.4",
     "babel-loader": "^8.0.6",
     "cheerio": "^1.0.0-rc.3",
     "copy-webpack-plugin": "^5.1.1",

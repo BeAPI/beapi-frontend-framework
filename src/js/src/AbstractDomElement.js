@@ -47,6 +47,7 @@ class AbstractDomElement {
     oldInstance = element.beapi[nameSpace]
 
     if (oldInstance) {
+      console.warning('[AbstractDomElement] more than 1 class is initialised with the same name space on :', this._element, this)
       oldInstance._isNewInstance = false
       return oldInstance
     }

@@ -36,6 +36,7 @@ class AbstractDomElement {
 
     // provide an explicit spaceName to prevent conflict after minification
     // MaClass.nameSpace = 'MaClass'
+    this.constructor.nameSpace = this.constructor.nameSpace || this.constructor.name
     nameSpace = this.constructor.nameSpace
 
     // if no spacename beapi, create it - avoid futur test

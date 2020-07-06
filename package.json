@@ -50,7 +50,6 @@
     "postcss-loader": "^3.0.0",
     "prettier": "^1.17.1",
     "sass-loader": "^7.1.0",
-    "ora": "^3.4.0",
     "single-line-log": "^1.1.2",
     "svgo": "^1.2.2",
     "svgstore": "^3.0.0-2",
@@ -59,7 +58,7 @@
     "webpack-bundle-analyzer": "^3.5.2",
     "webpack-cli": "^3.3.11",
     "webpack-manifest-plugin": "^2.2.0",
-    "webpack-progress-ora-plugin": "^1.2.2",
+    "webpackbar": "^4.0.0",
     "what-input": "^5.2.7"
   }
 }

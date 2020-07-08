@@ -15,8 +15,8 @@ html {
 	[data-seo-container] {
 
 		&:focus-within {
-			outline-offset: 0.5rem;
 			outline: 1px solid currentColor;
+			outline-offset: 0.5rem;
 		}
 
 		*:focus {

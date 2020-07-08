@@ -9,10 +9,10 @@
 }
 
 .aligncenter {
-	clear: both;
 	display: block;
-	margin-left: auto;
 	margin-right: auto;
+	margin-left: auto;
+	clear: both;
 }
 
 .alignleft,
@@ -22,10 +22,10 @@
 }
 
 .wp-caption {
-	margin-bottom: $base-spacing;
-	padding: 5px 0;
-	text-align: center;
 	max-width: 100% !important;
+	padding: 5px 0;
+	margin-bottom: $base-spacing;
+	text-align: center;
 }
 
 .wp-caption img,
@@ -34,6 +34,6 @@
 }
 
 .wp-caption-text {
-	font-size: 11px;
 	margin: 5px 5px 0;
+	font-size: 11px;
 }

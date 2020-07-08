@@ -20,7 +20,7 @@
 
 	ul:not([class]) {
 
-		@include wysiwyg__list();
+		@include wysiwyg__list;
 	}
 
 	ol:not([class]) {

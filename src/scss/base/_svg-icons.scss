@@ -7,10 +7,10 @@
 
 .icon {
 	display: inline-block;
+	width: 1em;
+	height: 1em;
 	vertical-align: middle;
 	fill: currentColor;
-	height: 1em;
-	width: 1em;
 }
 
 //display hidden text for icon only button
@@ -18,7 +18,7 @@
 
 	.visuallyhidden {
 		position: static;
-		height: auto;
 		width: auto;
+		height: auto;
 	}
 }

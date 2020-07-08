@@ -1,11 +1,11 @@
 .iframe {
 
 	&__wrapper {
-		line-height: 0;
 		position: relative;
-		padding-bottom: 56.25%; /* 16:9 */
-		padding-top: 25px;
 		height: 0;
+		padding-top: 25px;
+		padding-bottom: 56.25%; /* 16:9 */
+		line-height: 0;
 
 		iframe {
 			position: absolute;

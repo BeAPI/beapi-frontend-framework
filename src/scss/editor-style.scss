@@ -24,8 +24,8 @@
 
 // Backend Classic editor container
 .mce-content-body {
-	max-width: $containerWidth;
 	margin: $base-spacing/2;
+	max-width: $containerWidth;
 }
 
 // Backend Gutenberg editor container
@@ -41,9 +41,9 @@
 }
 
 // Render Post/Page Title as FrontEnd view
-.editor-post-title {
+.editor-post-title__block {
 
-	&__input {
+	.editor-post-title__input {
 
 		@include title(XXL);
 	}

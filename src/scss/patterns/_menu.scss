@@ -2,20 +2,20 @@
 	$el: &;
 	$menu-item: ".menu-item";
 	$sub-menu: ".sub-menu";
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: -100%;
 
 	z-index: 998;
+	position: fixed;
+	top: 0;
+	left: -100%;
+	bottom: 0;
 	width: 80%;
 	padding: 40px 0;
-	overflow-y: auto;
 	background: $maincolor;
-	transition: left 0.5s ease-out;
-	-webkit-transform: translateZ(0);
+	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
+	transition: left 0.5s ease-out;
 	-webkit-backface-visibility: hidden;
+	-webkit-transform: translateZ(0);
 
 	@include clearfix;
 
@@ -38,8 +38,8 @@
 			&.current-menu-ancestor {
 
 				> a {
-					color: $textcolor;
 					background: $maincolor;
+					color: $textcolor;
 				}
 			}
 		}
@@ -71,10 +71,10 @@
 	@include breakpoints(md) {
 		position: relative;
 		left: auto;
-		width: auto;
-		padding: 0;
 		overflow: inherit;
 		background: none;
+		width: auto;
+		padding: 0;
 
 		#{$sub-menu} {
 			position: absolute;
@@ -87,8 +87,8 @@
 				a {
 
 					@include hover {
-						color: $textcolor;
 						background: $maincolor;
+						color: $textcolor;
 					}
 				}
 			}
@@ -96,8 +96,8 @@
 
 		#{$el}__list {
 			>#{$menu-item} {
-				position: relative;
 				display: inline-block;
+				position: relative;
 
 				@include hover {
 					#{$el}__list {

@@ -11,14 +11,14 @@
 
 @mixin icon-styles {
 	font-family: "bea_icons", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 	font-style: normal;
-	font-weight: 400;
 	font-variant: normal;
+	font-weight: 400;
 	// speak: none;
 	text-decoration: none;
 	text-transform: none;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
 
 %icon {

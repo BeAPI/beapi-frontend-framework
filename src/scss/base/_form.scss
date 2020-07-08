@@ -26,13 +26,13 @@ textarea {
 #{$all-text-inputs},
 textarea {
 	box-sizing: border-box;
+	line-height: 1;
 	width: 100%;
+	border: 1px solid $maingrey;
 	padding: $half-base-spacing;
 	font-family: $customfont-1;
-	line-height: 1;
 	color: $textcolor;
 	background: darken($lightcolor, 5%);
-	border: 1px solid $maingrey;
 	border-radius: 0; //reset border radius for ios
 	transition: border-color 0.5s ease;
 	appearance: none;

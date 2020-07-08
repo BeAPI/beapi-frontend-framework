@@ -15,8 +15,8 @@
 
 	@font-face {
 		font-family: "#{$font-family}";
-		font-style: $font-style;
 		font-weight: $font-weight;
+		font-style: $font-style;
 		font-stretch: $font-stretch;
 		font-display: swap;
 		src:
@@ -27,8 +27,8 @@
 
 // Word wrap
 @mixin word-wrap($wrap: break-word) {
-	word-wrap: $wrap;
 	overflow-wrap: $wrap;
+	word-wrap: $wrap;
 
 	@if $wrap == break-word {
 		word-break: break-all;
@@ -74,22 +74,22 @@
 		@extend .visuallyhidden;
 
 		+ label {
-			position: relative;
 			display: block;
-			padding-left: $size * 1.5;
 			cursor: pointer;
+			position: relative;
+			padding-left: $size * 1.5;
 
 			&::before {
+				content: "";
 				position: absolute;
-				top: 1px;
 				left: 0;
+				top: 1px;
+				background-color: transparent;
 				width: calc(#{$size} + #{$border-width});
 				height: calc(#{$size} + #{$border-width});
 				margin: 0;
-				cursor: pointer;
-				content: "";
-				background-color: transparent;
 				border: $border-width solid $color;
+				cursor: pointer;
 				transition: background-color 0.25s ease;
 			}
 		}
@@ -124,13 +124,16 @@
 //Custom select
 @mixin select--custom {
 	display: block;
+	font-size: 16px; // prevent iOS zoom
+	color: $textcolor;
+	line-height: 1.15;
+	padding: $half-base-spacing $half-base-spacing*3 $half-base-spacing $half-base-spacing;
 	width: 100%;
 	max-width: 100%; /* useful when width is set to anything other than 100% */
-	padding: $half-base-spacing $half-base-spacing*3 $half-base-spacing $half-base-spacing;
 	margin: 0;
-	font-size: 16px; // prevent iOS zoom
-	line-height: 1.15;
-	color: $textcolor;
+	border: 1px solid $maingrey;
+	border-radius: 0;
+	appearance: none;
 	background-color: $lightcolor;
 	background-image:
 		url("#{$src-url}/img/icons/down.svg"),
@@ -138,9 +141,6 @@
 	background-repeat: no-repeat, repeat;
 	background-position: right 10px top 50%, 0 0;
 	background-size: 10px auto, 100%;
-	border: 1px solid $maingrey;
-	border-radius: 0;
-	appearance: none;
 
 	// Set options to normal weight
 	option {
@@ -159,12 +159,11 @@
 
 	// Focus style
 	&:focus {
-		display: none;
-		color: darken($textcolor, 10%);
 		border-color: darken($maingrey, 20%);
-		outline: none;
 		box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
 		box-shadow: 0 0 0 3px -moz-mac-focusring;
+		color: darken($textcolor, 10%);
+		outline: none;
 
 		option {
 			outline: none;
@@ -221,8 +220,8 @@
 
 // Insert content for extra style
 @mixin pseudo__content {
-	display: block;
 	content: "";
+	display: block;
 	speak: none;
 }
 
@@ -245,10 +244,10 @@
 
 //fullwidth row
 @mixin row--fullwidth($position: relative) {
-	position: $position;
-	left: 50%;
 	z-index: $zindex;
+	position: $position;
 	width: 100vw;
+	left: 50%;
 	transform: translateX(-50%) translateY(0);
 }
 
@@ -257,8 +256,8 @@
 
 	&::before,
 	&::after {
-		display: table;
 		content: "";
+		display: table;
 	}
 
 	&::after {
@@ -276,10 +275,10 @@
 }
 
 @mixin container {
-	max-width: $containerWidth;
 	padding: 0 $base-spacing;
-	margin-right: auto;
 	margin-left: auto;
+	margin-right: auto;
+	max-width: $containerWidth;
 
 	@include breakpoints(md) {
 		padding: 0;
@@ -317,9 +316,9 @@
 
 //Title mixins
 @mixin title($size: md) {
-	font-family: $customfont-2;
 	font-weight: 700;
 	line-height: $heading-line-height;
+	font-family: $customfont-2;
 
 	@if $size == XXL {
 		font-size: 40px;

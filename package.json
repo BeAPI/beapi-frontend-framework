@@ -55,7 +55,6 @@
     "ora": "^3.4.0",
     "single-line-log": "^1.1.2",
     "stylelint": "^13.6.1",
-    "stylelint-config-recess-order": "^2.0.4",
     "stylelint-config-wordpress": "^17.0.0",
     "stylelint-scss": "^3.18.0",
     "stylelint-webpack-plugin": "^2.1.0",

@@ -1,9 +1,9 @@
 .hero {
 
 	@include row__fullwidth;
-	padding: $base-spacing 0;
 
 	margin-bottom: $base-spacing;
+	padding: $base-spacing 0;
 
 
 	.container {
@@ -16,15 +16,15 @@
 	&__img {
 
 		@include object-fit;
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
 
 		z-index: $zindex;
-		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
 		height: 100%;
+		width: 100%;
 	}
 
 	@include breakpoints(md) {

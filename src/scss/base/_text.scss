@@ -1,9 +1,9 @@
 
 
 body {
-	font-family: $customfont-1;
 	font-size: $base-fz;
 	line-height: $base-lh;
+	font-family: $customfont-1;
 	color: $textcolor;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -52,9 +52,9 @@ h6 {
 /* Lists */
 ol,
 ul {
-	padding: 0;
-	margin: 0;
 	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 li {
@@ -83,8 +83,8 @@ figure {
 
 /* Wysiwyg style */
 hr {
-	margin: $base-spacing 0;
 	clear: both;
+	margin: $base-spacing 0;
 }
 
 blockquote {
@@ -103,17 +103,17 @@ small {
 }
 
 table {
-	width: 100%;
 	margin: $base-spacing 0;
-	border-collapse: collapse;
+	width: 100%;
 	border: 0;
+	border-collapse: collapse;
 
 	th,
 	td {
 		padding: $half-base-spacing;
-		text-align: left;
-		vertical-align: top;
 		border: 1px solid $base-border-color;
+		vertical-align: top;
+		text-align: left;
 	}
 }
 
@@ -141,10 +141,10 @@ big {
 code {
 	display: inline-block;
 	padding: 2px 5px;
-	font-family: monospace;
-	font-size: $base-fz;
 	background-color: $light-gray;
 	border: 1px solid $darkcolor;
+	font-family: monospace;
+	font-size: $base-fz;
 	border-radius: $base-border-radius;
 }
 
@@ -189,8 +189,8 @@ q {
 
 sub,
 sup {
-	position: relative;
 	bottom: -0.25em;
+	position: relative;
 	font-size: 75%;
 	line-height: 0;
 	vertical-align: baseline;

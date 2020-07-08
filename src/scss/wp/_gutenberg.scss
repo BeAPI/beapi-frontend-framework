@@ -67,9 +67,9 @@
 	&-separator {
 
 		&:not(.is-style-dots) {
-			margin-right: auto;
-			margin-left: auto;
 			border-bottom: 2px solid $maingrey;
+			margin-left: auto;
+			margin-right: auto;
 		}
 	}
 

@@ -8,17 +8,17 @@
 	}
 
 	.gallery-caption {
-		margin: $half-base-spacing 0 0;
 		font-size: 11px;
+		margin: $half-base-spacing 0 0;
 		text-align: left;
 	}
 }
 
 .gallery-item {
-	position: relative;
 	width: column(6);
-	margin-bottom: $base-spacing;
 	text-align: center;
+	position: relative;
+	margin-bottom: $base-spacing;
 
 	a {
 		display: block;

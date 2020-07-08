@@ -10,21 +10,30 @@
 
 	&__open {
 		display: block;
-
-		.menu-mobile--active & {
-			display: none;
-		}
 	}
 
 	&__close {
 		display: none;
-
-		.menu-mobile--active & {
-			display: block;
-		}
 	}
 
 	@include breakpoints(md) {
 		display: none;
+	}
+}
+
+.menu-mobile {
+
+	&--active {
+
+		.menu-trigger {
+
+			&__open {
+				display: none;
+			}
+
+			&__close {
+				display: block;
+			}
+		}
 	}
 }

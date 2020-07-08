@@ -5,15 +5,15 @@
 .menu-fastaccess {
 	margin: 0;
 	font-size: 9px;
-    display: none;
+	display: none;
 
 	&__item {
-        display: inline;
+		display: inline;
 
 		a {
 			position: absolute;
 			z-index: 1;
-            color: transparent;
+			color: transparent;
 
 			&:focus {
 				text-decoration: none;
@@ -27,5 +27,5 @@
 
 	@include breakpoints(md) {
 		display: block;
-    }
+	}
 }

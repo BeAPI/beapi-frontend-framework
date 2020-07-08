@@ -4,14 +4,13 @@
 @import "abstract/url-config";
 @import "abstract/mixins";
 @import "abstract/functions";
-@import 'abstract/fonts';
-@import 'abstract/colors';
-@import 'abstract/breakpoints';
-@import 'abstract/positioning';
-@import 'abstract/borders';
+@import "abstract/fonts";
+@import "abstract/colors";
+@import "abstract/breakpoints";
+@import "abstract/positioning";
+@import "abstract/borders";
 @import "abstract/box-sizing";
 @import "abstract/zindex";
-@import "abstract/fonts";
 @import "abstract/easing";
 
 // Base
@@ -40,8 +39,7 @@
 @import "patterns/hero";
 @import "patterns/searchform";
 
-// Wordpress
-@import "wp/wpforms";
+// WordPress
 @import "wp/img";
 //@import "wp/gallery"; Enable if Gutenberg is not used
 @import "wp/wysiwyg";

@@ -6,7 +6,7 @@
 
 .lazyloaded {
 	opacity: 1;
-	transition : opacity .5s;
+	transition: opacity 0.5s;
 }
 
 //css loading for bgset items
@@ -21,6 +21,7 @@ $loading-dimensions : 50px;
 	opacity: 1;
 
 	&::before {
+
 		@include pseudo__content;
 
 		z-index: $zindex*2;
@@ -30,10 +31,11 @@ $loading-dimensions : 50px;
 		bottom: 0;
 		left: 0;
 		background: $maincolor;
-		transition: opacity .5s, z-index .5s ease .5s;
+		transition: opacity 0.5s, z-index 0.5s ease 0.5s;
 	}
 
 	&::after {
+
 		@include pseudo__content;
 
 		z-index: $zindex*3;
@@ -47,18 +49,19 @@ $loading-dimensions : 50px;
 		border: 5px solid $lightcolor;
 		border-top-color: transparent;
 		opacity: 1;
-		transition: opacity .5s, z-index .5s ease .5s;
-		animation: loading .5s linear infinite;
+		transition: opacity 0.5s, z-index 0.5s ease 0.5s;
+		animation: loading 0.5s linear infinite;
 	}
 
 	&.lazyload {
 		opacity: 1;
-		transition : opacity 0.5s;
+		transition: opacity 0.5s;
 	}
 
 	&.lazyloaded {
-		&:after,
-		&:before {
+
+		&::after,
+		&::before {
 			opacity: 0;
 			z-index: -$zindex;
 		}
@@ -66,9 +69,11 @@ $loading-dimensions : 50px;
 }
 
 @keyframes loading {
+
 	0% {
 		transform: rotate(0deg);
 	}
+
 	100% {
 		transform: rotate(360deg);
 	}

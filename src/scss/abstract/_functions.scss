@@ -15,28 +15,35 @@
 $em-base: 16px !default;
 // Strip units
 @function strip-units($value) {
+
 	@return ($value / ($value * 0 + 1));
 }
 // PX to EM
 @function em($pxval, $base: $em-base) {
+
 	@if not unitless($pxval) {
-	  $pxval: strip-units($pxval);
+		$pxval: strip-units($pxval);
 	}
+
 	@if not unitless($base) {
-	  $base: strip-units($base);
+		$base: strip-units($base);
 	}
+
 	@return ($pxval / $base) * 1em;
 }
 // PX to REM
 @function rem($pxval) {
+
 	@if not unitless($pxval) {
-	  $pxval: strip-units($pxval);
+		$pxval: strip-units($pxval);
 	}
 
 	$base: $em-base;
+
 	@if not unitless($base) {
-	  $base: strip-units($base);
+		$base: strip-units($base);
 	}
+
 	@return ($pxval / $base) * 1rem;
 }
 
@@ -46,34 +53,38 @@ $em-base: 16px !default;
 // how to use :
 // 		column(6) 			-> return 6 column + 5 gutter of desktop preset
 // 		column('m', 6) 		-> return 6 column + 5 gutter of mobile preset
-// 		column(6, 5, 8)		-> return 6 column + 5 gutter of 8 grid size of desktop preset
+// 		column(6, 5, 8)		-> return 6 column + 5 gutter of 8 grid size of
+//							   desktop preset
 
 $column-preset : (
-	// preset for desktop
+	/* preset for desktop*/
 	d : (
-		columnWidth: 76,
-		gutterWidth: 22,
-		totalColumn: 12
+		columnwidth: 76,
+		gutterwidth: 22,
+		totalcolumn: 12
 	),
-	// preset for mobile
+	/* preset for mobile*/
 	m : (
-		columnWidth: 76,
-		gutterWidth: 22,
-		totalColumn: 6
+		columnwidth: 76,
+		gutterwidth: 22,
+		totalcolumn: 6
 	)
 );
 
 @function column-set-var($var, $device, $prop) {
+
 	@if ($var == null) {
+
 		@return map-get(map-get($column-preset, $device), $prop);
 	} @else {
+
 		@return $var;
 	}
 }
 
 @function column($device, $nbColumn: null, $nbGutter: null, $totalColumn: null, $columnWidth: null, $gutterWidth: null) {
 	// shift vars if $device is number
-	@if type-of($device) == 'number' {
+	@if type-of($device) == "number" {
 		$gutterWidth: $columnWidth;
 		$columnWidth: $totalColumn;
 		$totalColumn: $nbGutter;
@@ -83,9 +94,9 @@ $column-preset : (
 	}
 
 
-	$gutterWidth: column-set-var($gutterWidth, $device, gutterWidth);
-	$columnWidth: column-set-var($columnWidth, $device, columnWidth);
-	$totalColumn: column-set-var($totalColumn, $device, totalColumn);
+	$gutterWidth: column-set-var($gutterWidth, $device, gutterwidth);
+	$columnWidth: column-set-var($columnWidth, $device, columnwidth);
+	$totalColumn: column-set-var($totalColumn, $device, totalcolumn);
 
 	@if $nbGutter == null {
 		$nbGutter: $nbColumn - 1;

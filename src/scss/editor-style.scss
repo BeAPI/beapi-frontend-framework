@@ -24,33 +24,41 @@
 
 // Backend Classic editor container
 .mce-content-body {
-    margin: $base-spacing/2;
-    max-width: $containerWidth;
+	margin: $base-spacing/2;
+	max-width: $containerWidth;
 }
 
 // Backend Gutenberg editor container
 .wp-block {
-    &:not([data-align="full"]) {
-        max-width: $containerWidth;
-    }
-    &[data-align="wide"] {
-        max-width: $containerWidth * 1.5;
-    }
+
+	&:not([data-align="full"]) {
+		max-width: $containerWidth;
+	}
+
+	&[data-align="wide"] {
+		max-width: $containerWidth * 1.5;
+	}
 }
 
 // Render Post/Page Title as FrontEnd view
 .editor-post-title__block {
-    .editor-post-title__input {
-        @include title(XXL);
-    }
+
+	.editor-post-title__input {
+
+		@include title(XXL);
+	}
 }
 
 // Exact style between BO/FO for lists
 .block-library-list {
-    ul {
-        @include wysiwyg__list();
-    }
-    ol {
-        @include wysiwyg__list(ol);
-    }
+
+	ul {
+
+		@include wysiwyg__list();
+	}
+
+	ol {
+
+		@include wysiwyg__list(ol);
+	}
 }

@@ -1,19 +1,21 @@
 [data-seo-container] {
-    position: relative;
+	position: relative;
 
-    &:hover {
-        cursor: pointer;
-    }
+	&:hover {
+		cursor: pointer;
+	}
 
-    [data-seo-target] {
-        &:before {
-            @include pseudo__content;
+	[data-seo-target] {
 
-            position: absolute;
-            left: 0;
-            top: 0;
-            right: 0;
-            bottom: 0;
-        }
-    }
+		&::before {
+
+			@include pseudo__content;
+
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+		}
+	}
 }

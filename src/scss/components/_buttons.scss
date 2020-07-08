@@ -2,14 +2,14 @@
  * @section Buttons
  */
 
- @mixin button {
+@mixin button {
 	display: inline-block;
 	vertical-align: middle;
 	padding: 8px 12px;
 	border: 1px solid transparent;
 	border-radius: 0;
 	line-height: 1.5;
-	transition: background-color .3s ease;
+	transition: background-color 0.3s ease;
 	font-family: $customfont-1;
 }
 
@@ -103,86 +103,125 @@
 	@include button;
 
 	&--xs {
+
 		@include button--xs;
 	}
+
 	&--sm {
+
 		@include button--sm;
 	}
+
 	&--lg {
+
 		@include button--lg;
 	}
+
 	&--expand {
+
 		@include button--expand;
 	}
+
 	&--primary {
+
 		@include button--colored($maincolor, $textcolor);
 	}
+
 	&--error {
+
 		@include button--colored($errorcolor-2, $errorcolor-1);
 	}
+
 	&--warning {
+
 		@include button--colored($noticecolor-2, $noticecolor-1);
 	}
+
 	&--success {
+
 		@include button--colored($successcolor-2, $successcolor-1);
 	}
+
 	&--info {
+
 		@include button--colored($infocolor-2, $infocolor-1);
 	}
+
 	&--outline {
+
 		@include button--outline;
 
 		&#{$parent}--primary {
+
 			@include button--outline($maincolor, $textcolor);
 		}
 
 		&#{$parent}--error {
+
 			@include button--outline($errorcolor-2, $errorcolor-1);
 		}
 
 		&#{$parent}--warning {
+
 			@include button--outline($noticecolor-2, $noticecolor-1);
 		}
 
 		&#{$parent}--success {
+
 			@include button--outline($successcolor-2, $successcolor-1);
 		}
 
 		&#{$parent}--info {
+
 			@include button--outline($infocolor-2, $infocolor-1);
 		}
 	}
+
 	&--square {
 		border-radius: 0;
 	}
+
 	&--round {
+
 		@include button--round;
 	}
+
 	&--circle {
+
 		@include button--circle();
 	}
+
 	&--text {
+
 		@include button--text;
 	}
+
 	&--icon {
+
 		@include button--icon;
 	}
+
 	&[disabled] {
+
 		@include button--disabled;
 
 		&#{$parent}--error {
+
 			@include button--disabled($errorcolor-2);
 		}
 
 		&#{$parent}--warning {
+
 			@include button--disabled($noticecolor-2);
 		}
 
 		&#{$parent}--success {
+
 			@include button--disabled($successcolor-2);
 		}
 
 		&#{$parent}--info {
+
 			@include button--disabled($infocolor-2);
 		}
 	}

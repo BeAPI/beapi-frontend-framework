@@ -135,6 +135,9 @@ const webpackConfig = {
     ],
   },
   plugins: [
+    new WebpackBar({
+      color: '#ffe600',
+    }),
     new CopyWebpackPlugin([
       {
         from: 'src/templates/',
@@ -161,9 +164,6 @@ const webpackConfig = {
       phpFileName: 'WebpackBuiltFiles',
       nameSpace: false, // false {nameSpace: 'name', use: ['string'] or empty property or don't pass "use" property}
       path: '',
-    }),
-    new WebpackBar({
-      color: '#ffe600',
     }),
   ],
 }

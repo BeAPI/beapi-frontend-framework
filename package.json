@@ -13,7 +13,7 @@
     "build": "rm -rf dist/ && echo \"✓ dist folder has been successfully removed.\" && node_modules/.bin/webpack --mode=production --display=errors-only && node_modules/.bin/webpack --mode=development --display=errors-only && node scripts/svg-sprite.js",
     "watch": "node_modules/.bin/webpack --watch --mode=development --display=errors-only",
     "bump": "node scripts/style-version.js",
-    "icon": "node scripts/svg-sprite.js",
+    "icons": "node scripts/svg-sprite.js",
     "image": "node scripts/image-sizes.js",
     "favicon": "node scripts/favicon.js && node scripts/favicon.js --appicon"
   },
@@ -47,6 +47,7 @@
     "node-sass": "^4.13.1",
     "normalize-scss": "^7.0.1",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "ora": "^4.0.4",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.17.1",
     "sass-loader": "^7.1.0",

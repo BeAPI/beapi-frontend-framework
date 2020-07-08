@@ -37,7 +37,7 @@ class AbstractDomElement {
     // provide an explicit spaceName to prevent conflict after minification
     // MaClass.nameSpace = 'MaClass'
     this.constructor.nameSpace = this.constructor.nameSpace || this.constructor.name
-    nameSpace = this.constructor.nameSpace
+    const nameSpace = this.constructor.nameSpace
 
     // if no spacename beapi, create it - avoid futur test
     if (!element.beapi) {
@@ -47,7 +47,11 @@ class AbstractDomElement {
     oldInstance = element.beapi[nameSpace]
 
     if (oldInstance) {
-      console.warning('[AbstractDomElement] more than 1 class is initialised with the same name space on :', this._element, this)
+      console.warning(
+        '[AbstractDomElement] more than 1 class is initialised with the same name space on :',
+        this._element,
+        this
+      )
       oldInstance._isNewInstance = false
       return oldInstance
     }

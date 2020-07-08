@@ -1,8 +1,7 @@
 .wysiwyg {
-
 	@include clearfix;
 
-	> * {
+	>* {
 		margin-bottom: $base-spacing;
 
 		&:last-child {
@@ -10,7 +9,7 @@
 		}
 	}
 
-	> a:not([class]) {
+	>a:not([class]) {
 		text-decoration: underline;
 
 		@include hover {
@@ -19,17 +18,14 @@
 	}
 
 	ul:not([class]) {
-
 		@include wysiwyg__list();
 	}
 
 	ol:not([class]) {
-
 		@include wysiwyg__list(ol);
 	}
 
 	img {
-
 		@include img__responsive;
 
 		&.alignright,

@@ -11,17 +11,15 @@
  */
 
 // FontFace. GO to abstract/_custom_fonts.scss to see it in action
-@mixin declare-font-face($font-family, $font-filename, $font-weight : normal, $font-style :normal, $font-stretch : normal) {
-
-	@font-face {
-		font-family: "#{$font-family}";
+@mixin declare-font-face($font-family, $font-filename, $font-weight : normal, $font-style :normal, $font-stretch : normal){
+	@font-face{
+		font-family: '#{$font-family}';
 		font-weight: $font-weight;
 		font-style: $font-style;
 		font-stretch: $font-stretch;
 		font-display: swap;
-		src:
-			url(#{$font-filename}.woff2) format("woff2"),
-			url(#{$font-filename}.woff) format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+		src: url(#{$font-filename}.woff2) format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+			 url(#{$font-filename}.woff) format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 	}
 }
 
@@ -31,9 +29,9 @@
 	word-wrap: $wrap;
 
 	@if $wrap == break-word {
-		word-break: break-all;
+	  word-break: break-all;
 	} @else {
-		word-break: $wrap;
+	  word-break: $wrap;
 	}
 }
 
@@ -51,12 +49,11 @@
 // Object Fit polyfill
 @mixin object-fit($fit: cover, $position: null) {
 	object-fit: $fit;
-
 	@if $position {
 		object-position: $position;
-		font-family: "object-fit: #{$fit}; object-position: #{$position}";
+		font-family: 'object-fit: #{$fit}; object-position: #{$position}';
 	} @else {
-		font-family: "object-fit: #{$fit}";
+		font-family: 'object-fit: #{$fit}';
 	}
 }
 
@@ -67,20 +64,16 @@
 // Mixin for custom checkbox
 @mixin checkbox--custom($color: $maincolor, $size: 1em, $border-width: 2px) {
 	margin-bottom: 20px;
-
 	input[type="checkbox"],
 	input[type="radio"] {
-
 		@extend .visuallyhidden;
-
-		+ label {
+		&+label {
 			display: block;
 			cursor: pointer;
 			position: relative;
 			padding-left: $size * 1.5;
-
-			&::before {
-				content: "";
+			&:before {
+				content: '';
 				position: absolute;
 				left: 0;
 				top: 1px;
@@ -90,15 +83,12 @@
 				margin: 0;
 				border: $border-width solid $color;
 				cursor: pointer;
-				transition: background-color 0.25s ease;
+				transition: background-color .25s ease;
 			}
 		}
-
 		&:checked {
-
-			+ label {
-
-				&::before {
+			&+label {
+				&:before {
 					background-color: $color;
 				}
 			}
@@ -109,12 +99,9 @@
 
 // Custom radio
 @mixin radio--custom() {
-
 	input[type="radio"] {
-
-		+ label {
-
-			&::before {
+		&+label {
+			&:before {
 				border-radius: 50%;
 			}
 		}
@@ -135,17 +122,11 @@
 	border-radius: 0;
 	appearance: none;
 	background-color: $lightcolor;
-	background-image:
-		url("#{$src-url}/img/icons/down.svg"),
-		linear-gradient(to bottom, $lightcolor 0%, $lightcolor 100%);
+	background-image: url('#{$src-url}/img/icons/down.svg'),
+	  linear-gradient(to bottom, $lightcolor 0%,$lightcolor 100%);
 	background-repeat: no-repeat, repeat;
 	background-position: right 10px top 50%, 0 0;
 	background-size: 10px auto, 100%;
-
-	// Set options to normal weight
-	option {
-		font-weight: 400;
-	}
 
 	// Hide arrow icon in IE browsers
 	&::-ms-expand {
@@ -160,14 +141,18 @@
 	// Focus style
 	&:focus {
 		border-color: darken($maingrey, 20%);
-		box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+		box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
 		box-shadow: 0 0 0 3px -moz-mac-focusring;
 		color: darken($textcolor, 10%);
 		outline: none;
-
 		option {
 			outline: none;
 		}
+	}
+
+	// Set options to normal weight
+	option {
+		font-weight:normal;
 	}
 
 	// Support for rtl text, explicit support for Arabic and Hebrew
@@ -196,12 +181,11 @@
 
 // Webkit autofill
 @mixin autofill {
-
-	&:-webkit-autofill,
-	&:-webkit-autofill:hover,
-	&:-webkit-autofill:focus {
-		@content;
-	}
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+        @content;
+    }
 }
 
 /**
@@ -210,10 +194,7 @@
 
 // Hover Active Focus pseudo selector mixin
 @mixin hover {
-
-	&:hover,
-	&:active,
-	&:focus {
+	&:hover, &:active, &:focus {
 		@content;
 	}
 }
@@ -228,13 +209,12 @@
 // Card base
 @mixin card {
 	padding: $base-spacing;
-	box-shadow: 0 2px 4px rgba($darkcolor, 0.25);
+	box-shadow: 0 2px 4px rgba($darkcolor, .25);
 }
 
 // Float, left by default
 @mixin align($direction:left) {
 	float: $direction;
-
 	@if ($direction == left) {
 		margin-right: $base-spacing;
 	} @else {
@@ -253,25 +233,21 @@
 
 // Clearfix
 @mixin clearfix {
-
-	&::before,
-	&::after {
+	&:before, &:after {
 		content: "";
 		display: table;
 	}
-
-	&::after {
+	&:after {
 		clear: both;
 	}
 }
 
 // Hardware acceleration
 @mixin hardware($backface: true, $perspective: 1000) {
-
-	@if $backface {
-		backface-visibility: hidden;
-	}
-	perspective: $perspective;
+    @if $backface {
+        backface-visibility: hidden;
+    }
+    perspective: $perspective;
 }
 
 @mixin container {
@@ -327,7 +303,6 @@
 			font-size: 40px*1.5;
 		}
 	}
-
 	@if $size == XL {
 		font-size: 36px;
 
@@ -335,7 +310,6 @@
 			font-size: 36px*1.5;
 		}
 	}
-
 	@if $size == L {
 		font-size: 32px;
 
@@ -343,7 +317,6 @@
 			font-size: 32px*1.5;
 		}
 	}
-
 	@if $size == M {
 		font-size: 28px;
 
@@ -351,7 +324,6 @@
 			font-size: 28px*1.5;
 		}
 	}
-
 	@if $size == S {
 		font-size: 24px;
 
@@ -359,7 +331,6 @@
 			font-size: 24px*1.5;
 		}
 	}
-
 	@if $size == XS {
 		font-size: 20px;
 

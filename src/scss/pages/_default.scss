@@ -1,2 +1,5 @@
-/* Page default css [ .page ] Use core WP bodyclass
+/* Page default css
 -------------------------------------------------------------- */
+.page {
+	$parent : &;
+}

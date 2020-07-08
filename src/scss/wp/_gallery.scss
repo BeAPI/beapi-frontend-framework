@@ -1,5 +1,4 @@
 .gallery {
-
 	@include flex-grid__container();
 	margin: 0 0 $base-spacing;
 
@@ -31,7 +30,6 @@
 	.gallery-columns-3 & {
 		width: column(4);
 	}
-
 	.gallery-columns-4 & {
 		width: column(3);
 	}

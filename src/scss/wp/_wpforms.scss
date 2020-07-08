@@ -1,0 +1,84 @@
+.wpforms {
+    $el: &;
+    //in order to erase plugin css we need to wrap extra CSS in a container
+    body & {
+        &-container {
+            //Checkbox and radio
+            input[type=checkbox],
+            input[type=radio] {
+                margin-top: 0;
+                //Fit parent text size
+                width: 1em;
+                height: 1em;
+            }
+
+            //Required *
+            #{$el}-required-label {
+                color: $maincolor;
+            }
+
+            //Main form fields container
+            #{$el}-form {
+                #{$all-text-inputs} {
+                    //Main input text style
+                }
+
+                #{$el}-head-container {
+                    //Head with title and description
+                    #{$el}-title {
+                        //Title
+                    }
+                }
+
+                #{$el}-field {
+                    //Main field container
+                    #{$el}-field-label {
+                        //the label
+                    }
+                    #{$el}-field-sublabel {
+                        //the sublabel
+                        font-weight: 400;
+                    }
+                    //Errors Field input and label
+                    #{$el}-error {
+                        color: $errorcolor-1;
+                        border-color: currentColor;
+                        outline-color: currentColor;
+                    }
+                }
+
+                //Custom Checkbox and radio. Remove it if you want browser based style
+                #{$el}-field-checkbox {
+                    @include checkbox--custom($maincolor);
+                }
+
+                #{$el}-field-radio {
+                    @include checkbox--custom($maincolor);
+                    @include radio--custom();
+                }
+
+                //hide Honey pot
+                #{$el}-field-hp {
+                    @extend .visuallyhidden;
+                }
+
+                //The submit button
+                #{$el}-submit {
+
+                }
+            }
+        }
+
+        //After submit error
+        &-error-container {
+            @extend .message;
+            @extend .message--error;
+        }
+
+        //After submit success
+        &-confirmation-container {
+            @extend .message;
+            @extend .message--success;
+        }
+    }
+}

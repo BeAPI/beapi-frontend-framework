@@ -1,6 +1,10 @@
+/**
+ * Header
+ */
+
 .header {
 	position: relative;
-	z-index: z("header");
+	z-index: z('header');
 	padding-top: $base-spacing;
 	padding-bottom: $base-spacing;
 	background-color: $maincolor;
@@ -18,7 +22,6 @@
 	}
 
 	&__img {
-
 		@include img__responsive();
 
 		margin: 0 auto $base-spacing;

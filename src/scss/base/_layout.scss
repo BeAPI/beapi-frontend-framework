@@ -1,14 +1,10 @@
-/* Main Layout */
-.main {
-
-	&__content {
-		position: relative;
-		z-index: z("main__content");
-	}
+/* Main Layout
+----------------------------------------------------------------------------------------------------*/
+.main__content {
+	position: relative;
+	z-index: z('main__content');
 }
-
 .container {
-
 	@include container;
 }
 
@@ -17,7 +13,6 @@
 }
 
 @include breakpoints(md) {
-
 	.container {
 		padding: 0;
 	}

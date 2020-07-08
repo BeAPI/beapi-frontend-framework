@@ -1,11 +1,27 @@
-.message {
+/**
+ * Messages
+ *
+ * Add `.message--error` | `.message--alert` | `.message--notice` | `.message--success` | `.message--info` class to `<p>` element.  
+ * `<p>` element must be have `.message` class.
+ *
+ * @section Messages
+ * @page components
+ *
+ * @example
+ * <p class="message message--error">Error message.</p>
+ * <p class="message message--alert">Alert message.</p>
+ * <p class="message message--notice">Notice message.</p>
+ * <p class="message message--success">Success message.</p>
+ * <p class="message message--info">Info message.</p>
+ */
+
+ .message {
 	border-left: 5px solid $maincolor;
 	color: $maincolor;
 	padding: $base-spacing;
 	margin: 0 0 $base-spacing;
 
 	p {
-
 		&:last-child {
 			margin: 0;
 		}

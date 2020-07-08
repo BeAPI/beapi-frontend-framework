@@ -1,4 +1,26 @@
-
+/**
+ * @section Typography
+ * @page index
+ *
+ * @example
+ * <div class="row">
+ * <div class="col-6">
+ * <h1 class="font--title">Circular</h1>
+ * <h1>Level 1 Heading</h1>
+ * <h2>Level 2 Heading</h2>
+ * <h3>Level 3 Heading</h3>
+ * <h4>Level 4 Heading</h4>
+ * <h5>Level 5 Heading</h5>
+ * <h6>Level 6 Heading</h6>
+ * </div>
+ * <div class="col-6">
+ * <h1 class="font--title">Roboto</h1>
+ * <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla.</p>
+ * <p class="font--italic">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla.</p>
+ * <p class="font--bold">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla.</p>
+ * </div>
+ * </div>
+ */
 
 body {
 	font-size: $base-fz;
@@ -18,50 +40,46 @@ a {
 	}
 }
 
-/* Headings */
+/* Headings
+----------------------------------------------------------------------------------------------------*/
 h1 {
-
 	@include title(XXL);
 }
 
 h2 {
-
 	@include title(XL);
 }
 
 h3 {
-
 	@include title(L);
 }
 
 h4 {
-
 	@include title(M);
 }
 
 h5 {
-
 	@include title(S);
 }
 
 h6 {
-
 	@include title(XS);
 }
 
-/* Lists */
+/* Lists
+----------------------------------------------------------------------------------------------------*/
 ol,
 ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
-
 li {
 	margin: 0;
 }
 
-/* Spacing */
+/* Spacing
+----------------------------------------------------------------------------------------------------*/
 p,
 dl,
 hr,
@@ -81,27 +99,24 @@ figure {
 	margin: 0 0 $base-spacing 0;
 }
 
-/* Wysiwyg style */
+/* Wysiwyg style
+----------------------------------------------------------------------------------------------------*/
 hr {
 	clear: both;
 	margin: $base-spacing 0;
 }
-
 blockquote {
 	padding: $base-spacing;
 	margin: 0 0 $base-spacing 0;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
 }
-
 cite {
 	font-style: italic;
 }
-
 small {
 	font-size: 11px;
 }
-
 table {
 	margin: $base-spacing 0;
 	width: 100%;
@@ -128,8 +143,7 @@ abbr {
 	text-decoration: underline;
 }
 
-abbr[title],
-abbr[data-original-title] {
+abbr[title], abbr[data-original-title] {
 	cursor: help;
 	border-bottom: 1px dotted $base-border-color;
 }

@@ -93,7 +93,9 @@ const generateSprite = async (src, dist, name, prefix) => {
       }
     })
     const $ = cheerio.load(sprites.toString({ inline: true }))
-    const svg = $('svg').addClass('svg-sprite')
+    const svg = $('svg')
+      .addClass('svg-sprite')
+      .attr('xmlns', 'http://www.w3.org/2000/svg')
     fs.writeFileSync(`${dist}/${name}`, svg)
   })
 }
@@ -111,6 +113,7 @@ const init = async () => {
     await optimizeIcons(icon.src, icon.optimize)
     await generateSprite(icon.src, icon.dist, icon.filename, icon.prefix)
     spinner.succeed(`Sprite for ${icon.id} has been generated in ${`${icon.dist}/${icon.filename}`}`)
+    // spinner.succeed(`Icons optimized`)
   })
 }
 

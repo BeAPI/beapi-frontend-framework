@@ -53,6 +53,7 @@
     "prettier": "^1.17.1",
     "sass-loader": "^7.1.0",
     "single-line-log": "^1.1.2",
+    "svg4everybody": "^2.1.9",
     "svgo": "^1.2.2",
     "svgstore": "^3.0.0-2",
     "uglifyjs-webpack-plugin": "^2.1.3",

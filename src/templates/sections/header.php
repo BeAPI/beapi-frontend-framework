@@ -73,7 +73,6 @@
 					</svg>
 				</button>
 				<ul id="amenu-main" class="menu amenu__main js-amenu__main">
-					<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://2020.mosne.it/instagram/" id="amenu-1592823626259-1">instagram</a></li>
 					<li class="menu-item current-menu-item menu-item-has-children">
 						<a href="01-home.php">Home</a>
 						<div class='amenu__panel'>

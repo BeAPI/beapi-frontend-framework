@@ -282,7 +282,7 @@ limitations under the License.
 							var pageScrollPosition = $('html')[0].scrollTop;
 							var openPanelTopParent = $('.' + settings.panelClass + '.' + settings.openClass).parent()
 							if(openPanelTopParent.length > 0) {
-							var openPanelTopPosition = $('.' + settings.panelClass + '.' + settings.openClass).parent().offset().top;
+							var openPanelTopPosition = openPanelTopParent.offset().top;
 								if(pageScrollPosition > openPanelTopPosition) {
 										$('html')[0].scrollTop = openPanelTopPosition;
 								}

@@ -1,4 +1,4 @@
-<?php namespace BEA\Theme\Framework\Helpers\SVG;
+<?php namespace BEA\Theme\Framework\Helpers\Svg;
 
 /**
  * @usage BEA\Theme\Framework\Helpers\SVG\get_the_icon( 'like' );

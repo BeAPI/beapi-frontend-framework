@@ -48,14 +48,23 @@ function get_lorem( $min, $max ) {
 	echo substr( $lorem, 0, rand( $min, $max ) );
 }
 
-function get_the_icon( $fileName ) {
-	$absurl = '';
-	$output = '<svg class="icon icon-' . $fileName . '" aria-hidden="true" role="img"><use xlink:href="/dist/assets/img/icons/icons.svg#icon-' . $fileName . '"></use></svg>';
-	return $output;
+/**
+ * @param       $fileName
+ * @param array $additional_classes
+ *
+ * @return string
+ */
+function get_the_icon( $fileName, $additional_classes = array() ) {
+	$classes[] = 'icon';
+	$classes[] = sprintf( 'icon-%s', $fileName );
+	$classes   = array_merge( $classes, $additional_classes );
+
+	return sprintf( '<svg class="%s" aria-hidden="true" role="img"><use xlink:href="%s#icon-%s"></use></svg>', implode( ' ', $classes ), '/dist/assets/img/icons/icons.svg', $fileName );
 }
 
-function the_icon( $fileName ) {
-	echo get_the_icon( $fileName );
+
+function the_icon( $fileName, $additional_classes = array() ) {
+	echo get_the_icon( $fileName, $additional_classes );
 }
 
 ?>

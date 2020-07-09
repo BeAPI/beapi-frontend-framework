@@ -1,6 +1,6 @@
 <?php
 
-namespace BEA\Theme\Framework\Services;
+namespace BEA\Theme\Framework\Helpers;
 
 class Accessible_Menu_Walker extends Walker_Nav_Menu {
 

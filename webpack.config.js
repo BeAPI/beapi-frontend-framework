@@ -1,16 +1,14 @@
 const fs = require('fs')
 const config = require('./webpack.settings')
 const path = require('path')
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const PhpOutputPlugin = require('./src/js/vendor/webpack-php-output')
-const SoundsPlugin = require('sounds-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const WebpackProgressOraPlugin = require('webpack-progress-ora-plugin')
+const WebpackBar = require('webpackbar')
 const getServerPort = function(portFile) {
   try {
     require('fs').accessSync(portFile, fs.R_OK | fs.W_OK)
@@ -137,15 +135,10 @@ const webpackConfig = {
     ],
   },
   plugins: [
+    new WebpackBar({
+      color: '#ffe600',
+    }),
     new CopyWebpackPlugin([
-      {
-        from: 'src/js/vendor_async',
-        to: 'js/vendor_async',
-      },
-      {
-        from: 'src/js/vendor_ie',
-        to: 'js/vendor_ie',
-      },
       {
         from: 'src/templates/',
         to: './../',
@@ -172,12 +165,14 @@ const webpackConfig = {
       nameSpace: false, // false {nameSpace: 'name', use: ['string'] or empty property or don't pass "use" property}
       path: '',
     }),
-    new WebpackProgressOraPlugin(),
   ],
 }
 
 module.exports = (env, argv) => {
   if (argv.mode === 'development') {
+    const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+    const SoundsPlugin = require('sounds-webpack-plugin')
+
     webpackConfig.devtool = 'source-map'
     webpackConfig.output.filename = '[name].js'
     webpackConfig.plugins.push(
@@ -233,6 +228,11 @@ module.exports = (env, argv) => {
       }),
       new UglifyJsPlugin({
         sourceMap: true,
+        uglifyOptions: {
+          output: {
+            comments: false,
+          },
+        },
       }),
     ]
     webpackConfig.output.filename = '[name].[chunkhash:8].min.js'

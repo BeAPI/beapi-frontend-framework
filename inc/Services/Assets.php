@@ -11,7 +11,7 @@ use BEA\Theme\Framework\Tools\Assets as Assets_Tools;
  *
  * @package BEA\Theme\Framework
  */
-class Assets implements Service{
+class Assets implements Service {
 
 	/**
 	 * @var \BEA\Theme\Framework\Tools\Assets
@@ -57,15 +57,6 @@ class Assets implements Service{
 		// Js theme
 		// Theme js dependencies
 		$scripts_dependencies = [ 'jquery' ];
-
-		$this->assets_tools->register_script( 'matchMedia-polyfill', 'dist/assets/js/vendor_ie/matchMedia-polyfill.js', [], '1', false );
-		wp_script_add_data( 'matchMedia-polyfill', 'conditional', 'lte IE 9' );
-
-		$this->assets_tools->register_script( 'matchMedia-addListener', 'dist/assets/js/vendor_ie/matchMedia.addListener.js', [], '1', false );
-		wp_script_add_data( 'matchMedia-addListener', 'conditional', 'lte IE 9' );
-
-		$this->assets_tools->register_script( 'placeholders', 'dist/assets/js/vendor_ie/placeholders.min.js', [], '1', false );
-		wp_script_add_data( 'placeholders', 'conditional', 'lte IE 9' );
 
 		// Async and footer
 		$file = ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) ? $this->get_min_file( 'js' ) : 'app.js';

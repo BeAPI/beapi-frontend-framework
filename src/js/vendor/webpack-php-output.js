@@ -84,7 +84,7 @@ PhpOutputPlugin.prototype.apply = function apply(compiler) {
     }
   }
 
-  compiler.plugin('emit', function(compilation, callback) {
+  compiler.hooks.emit.tap('PhpOutputPlugin', (compilation) => {
     var stats = compilation.getStats().toJson()
     var toInclude = []
 
@@ -111,7 +111,7 @@ PhpOutputPlugin.prototype.apply = function apply(compiler) {
     mkOutputDir(path.resolve(outPutPath))
     fs.writeFileSync(path.join(outPutPath, options.phpFileName + '.php'), out)
 
-    callback()
+    return compilation
   })
 }
 

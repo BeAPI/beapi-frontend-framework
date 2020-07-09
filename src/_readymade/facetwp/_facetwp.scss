@@ -2,11 +2,11 @@
 -------------------------------------------------------------- */
 
 .facetwp-page.active {
-    background-color: $maingrey;
-    color: $darkcolor;
+    background-color: $gray-color-500;
+    color: $dark-color;
 }
 .facetwp-page {
-    border: 1px solid  $maingrey;
+    border: 1px solid  $gray-color-500;
 }
 .facetwp-sort{
 	margin: 10px 0;
@@ -14,7 +14,7 @@
 
 .facetwp-checkbox{
 	.facetwp-counter{
-		color: $maincolor;
+		color: $primary-color;
 	}
 }
 

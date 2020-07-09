@@ -1,9 +1,9 @@
 /* Wpforms css
 -------------------------------------------------------------- */
 .div.wpforms-container-full .wpforms-form .wpforms-page-button, div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form input[type=submit]{
-	background-color: $maincolor;
-	border: 1px solid $maincolor;
-	color: $lightcolor;
+	background-color: $primary-color;
+	border: 1px solid $primary-color;
+	color: $light-color;
 }
 
 div.wpforms-container-full .wpforms-form input[type=date],
@@ -22,12 +22,12 @@ div.wpforms-container-full .wpforms-form input[type=url],
 div.wpforms-container-full .wpforms-form input[type=week],
 div.wpforms-container-full .wpforms-form select,
 div.wpforms-container-full .wpforms-form textarea {
-	background-color: $lightcolor;
-	color: $darkcolor;
+	background-color: $light-color;
+	color: $dark-color;
 	font-size: 16px;
-	border: 1px solid $maingrey;
+	border: 1px solid $gray-color-500;
 }
 
 div.wpforms-container-full .wpforms-form .wpforms-required-label {
-	color: $maincolor;
+	color: $primary-color;
 }

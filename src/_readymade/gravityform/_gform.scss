@@ -2,8 +2,8 @@
 .ui-datepicker {
 	display: none; //hide by default when not used
 	padding: 10px;
-	border: 1px solid $maingrey;
-	background: $lightcolor;
+	border: 1px solid $gray-color-500;
+	background: $light-color;
 }
 
 .ui-datepicker-header {
@@ -67,15 +67,15 @@
 //multistep form
 //progressbar when multi part form are used
 .gf_progressbar {
-	background: $maingrey;
+	background: $gray-color-500;
 }
 
 .gf_progressbar_percentage {
 	text-align: center;
 	font-size: 11px;
 	font-weight: 700;
-	color: $lightcolor;
-	background: $maincolor;
+	color: $light-color;
+	background: $primary-color;
 }
 
 //step by step layout
@@ -251,7 +251,7 @@
 		line-height: 1;
 	}
 	.validation_message:not(:empty) {
-		color: $errorcolor-1;
+		color: $error-color-600;
 		font-weight: 700;
 	}
 }

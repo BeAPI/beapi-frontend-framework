@@ -11,15 +11,15 @@
 
     .container {
         position: relative;
-        z-index: $zindex * 4;
+        z-index: 4;
         padding: 20px;
-        background: rgba($lightcolor, .5);
+        background: rgba($light-color, .5);
     }
 
     &__img {
         @include object-fit;
 
-        z-index: $zindex;
+        z-index: 1;
         position: absolute;
         top: 0;
         left: 0;

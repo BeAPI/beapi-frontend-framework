@@ -5,8 +5,6 @@
 .footer {
 	$el: &;
 
-	position: relative;
-	z-index: z('footer');
 	padding-bottom: $base-spacing;
 	text-align: center;
 }

@@ -3,11 +3,9 @@
  */
 
 .header {
-	position: relative;
-	z-index: z('header');
 	padding-top: $base-spacing;
 	padding-bottom: $base-spacing;
-	background-color: $maincolor;
+	background-color: $primary-color;
 
 	&__logo-link {
 		display: block;
@@ -18,7 +16,7 @@
 		height: 50px;
 		width: 50px;
 		margin: 0 auto 10px;
-		color: $textcolor;
+		color: $secondary-color;
 	}
 
 	&__img {
@@ -29,9 +27,9 @@
 
 	// Admin bar sample if header is fixed
 	// .admin-bar & {
-	// 	top: $wpadminbarM;
+	// 	top: $wp-admin-bar-mobile-height;
 	// 	@include breakpoints(md) {
-	// 		top: $wpadminbarD;
+	// 		top: $wp-admin-bar-desktop-height;
 	// 	}
 	// }
 }

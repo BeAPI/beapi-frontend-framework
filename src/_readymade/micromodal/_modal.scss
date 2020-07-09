@@ -28,12 +28,12 @@
         min-width: $container-mobile;
         text-transform: uppercase;
         text-align: center;
-        color: $textcolor;
+        color: $secondary-color;
         font-weight: bold;
-        background: $maincolor;
+        background: $primary-color;
         @include hover{
-            color: $maincolor;
-            background: $textcolor;
+            color: $primary-color;
+            background: $secondary-color;
         }
         @include breakpoints(md){
             display: none;
@@ -68,30 +68,29 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: $textcolor;
-        height: rem(50);
+        background: $secondary-color;
+        height: 50px;
     }
 
     &__title {
-        color: $lightcolor;
+        color: $light-color;
         text-transform: uppercase;
         font-weight: 400;
         font-size: 1rem;
         padding-left: $base-spacing;
         margin: 0;
     }
-    
 
     &__close {
-        background: $maincolor;
+        background: $primary-color;
         border: 0;
-        width:rem(50);
-        height: rem(50);
+        width: 50px;
+        height: 50px;
         border-radius: 0;
         outline: 0;
         &:hover{
-            background: $textcolor;
-            color: $maincolor;
+            background: $secondary-color;
+            color: $primary-color;
         }
     }
 
@@ -100,7 +99,7 @@
     }
 
     &__content {
-        background: $medium-gray;
+        background: $gray-600;
         overflow: hidden;
     }
     &__grouptitle{
@@ -108,7 +107,7 @@
         margin: 0;
         font-size: 1em;
         text-align: center;
-        background: $lightcolor;
+        background: $light-color;
         text-transform: uppercase;
         text-align: center;
         border-top: 1px solid $light-stroke;
@@ -299,15 +298,15 @@
         p{
             background: $errorcolor-0;
             margin: 0 auto 10px auto;
-            color: $lightcolor;
+            color: $light-color;
             padding: 10px;
             border-radius: 5px;
             margin-bottom: 0;
         }
     }
     .wpforms-submit-container button{
-        background: $maincolor;
-        color: $textcolor;
+        background: $primary-color;
+        color: $secondary-color;
         width: 100%;
         font-weight: bold;
         text-align: center;
@@ -315,8 +314,8 @@
         padding: $half-base-spacing;
         margin-bottom: 25px;
         @include hover{
-            background: $textcolor;
-            color: $lightcolor;
+            background: $secondary-color;
+            color: $light-color;
         }
     }
 
@@ -349,7 +348,7 @@
             text-align: center;
             text-transform: inherit;
             height: 50px;
-            background: $maincolor;
+            background: $primary-color;
             line-height: 50px;
             width: 500px;
             padding:0;
@@ -367,12 +366,12 @@
                 height: 50px;
                 font-size: .9em;
                 font-style: italic;
-                background: $lightcolor;
-                color: $textcolor;
+                background: $light-color;
+                color: $secondary-color;
             }
             &:hover{
-                background: $textcolor;
-                color: $lightcolor;
+                background: $secondary-color;
+                color: $light-color;
             }
             .wpforms-error{
                 text-align: center;
@@ -408,7 +407,7 @@
 
     &__file-alert{
         background:  $errorcolor-0;
-        color: $lightcolor;
+        color: $light-color;
         border-radius: 5px;
         width: 465px;
         text-align: center;

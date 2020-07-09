@@ -62,7 +62,7 @@
  */
 
 // Mixin for custom checkbox
-@mixin checkbox--custom($color: $maincolor, $size: 1em, $border-width: 2px) {
+@mixin checkbox--custom($color: $primary-color, $size: 1em, $border-width: 2px) {
 	margin-bottom: 20px;
 	input[type="checkbox"],
 	input[type="radio"] {
@@ -112,18 +112,18 @@
 @mixin select--custom {
 	display: block;
 	font-size: 16px; // prevent iOS zoom
-	color: $textcolor;
+	color: $secondary-color;
 	line-height: 1.15;
 	padding: $half-base-spacing $half-base-spacing*3 $half-base-spacing $half-base-spacing;
 	width: 100%;
 	max-width: 100%; /* useful when width is set to anything other than 100% */
 	margin: 0;
-	border: 1px solid $maingrey;
+	border: 1px solid $gray-color-500;
 	border-radius: 0;
 	appearance: none;
-	background-color: $lightcolor;
-	background-image: url('#{$src-url}/img/icons/down.svg'),
-	  linear-gradient(to bottom, $lightcolor 0%,$lightcolor 100%);
+	background-color: $light-color;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11.2 6.7'%3E%3Cpath d='M0 .5C0 .4.1.2.2.1c.2-.2.5-.1.7.1l4.6 5.3.1.1s.1 0 .1-.1L10.3.1c.2-.1.5-.2.7 0 .2.2.2.5.1.7L6.5 6.2c-.2.3-.5.5-.9.5s-.7-.2-.9-.6L.1.8C0 .7 0 .6 0 .5z'/%3E%3C/svg%3E"),
+	  linear-gradient(to bottom, $light-color 0%,$light-color 100%);
 	background-repeat: no-repeat, repeat;
 	background-position: right 10px top 50%, 0 0;
 	background-size: 10px auto, 100%;
@@ -135,15 +135,15 @@
 
 	// Hover style
 	&:hover {
-		border-color: darken($maingrey, 10%);
+		border-color: darken($gray-color-500, 10%);
 	}
 
 	// Focus style
 	&:focus {
-		border-color: darken($maingrey, 20%);
+		border-color: darken($gray-color-500, 20%);
 		box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
 		box-shadow: 0 0 0 3px -moz-mac-focusring;
-		color: darken($textcolor, 10%);
+		color: darken($secondary-color, 10%);
 		outline: none;
 		option {
 			outline: none;
@@ -209,7 +209,7 @@
 // Card base
 @mixin card {
 	padding: $base-spacing;
-	box-shadow: 0 2px 4px rgba($darkcolor, .25);
+	box-shadow: 0 2px 4px rgba($dark-color, .25);
 }
 
 // Float, left by default
@@ -224,7 +224,7 @@
 
 //fullwidth row
 @mixin row--fullwidth($position: relative) {
-	z-index: $zindex;
+	z-index: 1;
 	position: $position;
 	width: 100vw;
 	left: 50%;
@@ -294,7 +294,7 @@
 @mixin title($size: md) {
 	font-weight: 700;
 	line-height: $heading-line-height;
-	font-family: $customfont-2;
+	font-family: $secondary-font-family;
 
 	@if $size == XXL {
 		font-size: 40px;

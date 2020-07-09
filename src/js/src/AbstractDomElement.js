@@ -31,12 +31,13 @@
 const $ = jQuery
 
 class AbstractDomElement {
-  constructor(element, options, nameSpace) {
+  constructor(element, options) {
     let oldInstance
 
     // provide an explicit spaceName to prevent conflict after minification
-    // keep this.constructor.name for retro compatibility
-    nameSpace = nameSpace || this.constructor.name
+    // MaClass.nameSpace = 'MaClass'
+    this.constructor.nameSpace = this.constructor.nameSpace || this.constructor.name
+    const nameSpace = this.constructor.nameSpace
 
     // if no spacename beapi, create it - avoid futur test
     if (!element.beapi) {
@@ -46,6 +47,11 @@ class AbstractDomElement {
     oldInstance = element.beapi[nameSpace]
 
     if (oldInstance) {
+      console.warning(
+        '[AbstractDomElement] more than 1 class is initialised with the same name space on :',
+        this._element,
+        this
+      )
       oldInstance._isNewInstance = false
       return oldInstance
     }
@@ -61,7 +67,7 @@ class AbstractDomElement {
   }
 
   destroy() {
-    this._element.beapi[this.constructor.name] = undefined
+    this._element.beapi[this.constructor.nameSpace] = undefined
     return this
   }
 
@@ -75,18 +81,18 @@ class AbstractDomElement {
 
   static hasInstance(element) {
     const el = getDomElement(element)
-    return el && el.beapi && !!el.beapi[this.name]
+    return el && el.beapi && !!el.beapi[this.nameSpace]
   }
 
   static getInstance(element) {
     const el = getDomElement(element)
-    return el && el.beapi ? el.beapi[this.name] : undefined
+    return el && el.beapi ? el.beapi[this.nameSpace] : undefined
   }
 
   static destroy(element) {
     this.foreach(element, el => {
-      if (el.beapi && el.beapi[this.name]) {
-        el.beapi[this.name].destroy()
+      if (el.beapi && el.beapi[this.nameSpace]) {
+        el.beapi[this.nameSpace].destroy()
       }
     })
 
@@ -95,7 +101,7 @@ class AbstractDomElement {
 
   static foreach(element, callback) {
     foreach(element, el => {
-      if (el.beapi && el.beapi[this.name]) {
+      if (el.beapi && el.beapi[this.nameSpace]) {
         callback(el)
       }
     })

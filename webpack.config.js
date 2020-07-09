@@ -7,6 +7,7 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const PhpOutputPlugin = require('./src/js/vendor/webpack-php-output')
+const StylelintPlugin = require('stylelint-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const WebpackBar = require('webpackbar')
 const getServerPort = function(portFile) {
@@ -156,6 +157,7 @@ const webpackConfig = {
         to: 'img/sample/',
       },
     ]),
+    new StylelintPlugin(),
     new PhpOutputPlugin({
       devServer: false, // false or string with server entry point, e.g: app.js or
       outPutPath: path.resolve(__dirname, 'dist/'), // false for default webpack path of pass string to specify

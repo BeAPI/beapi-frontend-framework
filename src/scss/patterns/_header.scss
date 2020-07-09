@@ -13,13 +13,14 @@
 
 	&__icon {
 		display: block;
-		height: 50px;
 		width: 50px;
+		height: 50px;
 		margin: 0 auto 10px;
 		color: $secondary-color;
 	}
 
 	&__img {
+
 		@include img__responsive();
 
 		margin: 0 auto $base-spacing;

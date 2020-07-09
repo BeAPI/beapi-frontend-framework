@@ -2,10 +2,10 @@
  * Searchform
  */
 
- .searchform {
+.searchform {
 	position: relative;
 
-	&__field[type=search] {
+	&__field[type="search"] {
 		padding-right: $base-spacing * 1.5;
 	}
 

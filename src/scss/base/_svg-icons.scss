@@ -7,17 +7,18 @@
 
 .icon {
 	display: inline-block;
-	vertical-align: middle;
-    fill: currentColor;
-	height: 16px;
 	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	fill: currentColor;
 }
 
 //display hidden text for icon only button
 .no-svg {
+
 	.visuallyhidden {
 		position: static;
-		height: auto;
 		width: auto;
+		height: auto;
 	}
 }

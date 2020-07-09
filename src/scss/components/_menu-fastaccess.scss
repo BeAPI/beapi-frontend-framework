@@ -3,23 +3,23 @@
  */
 
 .menu-fastaccess {
+	display: none;
 	margin: 0;
 	font-size: 9px;
-    display: none;
 
 	&__item {
-        display: inline;
+		display: inline;
 
 		a {
 			position: absolute;
 			z-index: 1;
-            color: transparent;
+			color: transparent;
 
 			&:focus {
-				text-decoration: none;
 				z-index: 2;
 				padding: $base-spacing / 2;
 				color: $dark-color;
+				text-decoration: none;
 				background-color: $primary-color;
 			}
 		}
@@ -27,5 +27,5 @@
 
 	@include breakpoints(md) {
 		display: block;
-    }
+	}
 }

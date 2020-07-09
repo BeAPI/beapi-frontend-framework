@@ -1,31 +1,7 @@
-/**
- * @section Typography
- * @page index
- *
- * @example
- * <div class="row">
- * <div class="col-6">
- * <h1 class="font--title">Circular</h1>
- * <h1>Level 1 Heading</h1>
- * <h2>Level 2 Heading</h2>
- * <h3>Level 3 Heading</h3>
- * <h4>Level 4 Heading</h4>
- * <h5>Level 5 Heading</h5>
- * <h6>Level 6 Heading</h6>
- * </div>
- * <div class="col-6">
- * <h1 class="font--title">Roboto</h1>
- * <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla.</p>
- * <p class="font--italic">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla.</p>
- * <p class="font--bold">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur quam augue, vehicula quis, tincidunt vel, varius vitae, nulla.</p>
- * </div>
- * </div>
- */
-
 body {
+	font-family: $primary-font-family;
 	font-size: $base-font-size;
 	line-height: $base-line-height;
-	font-family: $primary-font-family;
 	color: $secondary-color;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -40,46 +16,50 @@ a {
 	}
 }
 
-/* Headings
-----------------------------------------------------------------------------------------------------*/
+/* Headings */
 h1 {
+
 	@include title(XXL);
 }
 
 h2 {
+
 	@include title(XL);
 }
 
 h3 {
+
 	@include title(L);
 }
 
 h4 {
+
 	@include title(M);
 }
 
 h5 {
+
 	@include title(S);
 }
 
 h6 {
+
 	@include title(XS);
 }
 
-/* Lists
-----------------------------------------------------------------------------------------------------*/
+/* Lists */
 ol,
 ul {
-	list-style: none;
-	margin: 0;
 	padding: 0;
+	margin: 0;
+	list-style: none;
 }
+
 li {
 	margin: 0;
 }
 
-/* Spacing
-----------------------------------------------------------------------------------------------------*/
+/* Spacing */
 p,
 dl,
 hr,
@@ -99,36 +79,39 @@ figure {
 	margin: 0 0 $base-spacing 0;
 }
 
-/* Wysiwyg style
-----------------------------------------------------------------------------------------------------*/
+/* Wysiwyg style */
 hr {
-	clear: both;
 	margin: $base-spacing 0;
+	clear: both;
 }
+
 blockquote {
 	padding: $base-spacing;
 	margin: 0 0 $base-spacing 0;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
 }
+
 cite {
 	font-style: italic;
 }
+
 small {
 	font-size: 11px;
 }
+
 table {
-	margin: $base-spacing 0;
 	width: 100%;
-	border: 0;
+	margin: $base-spacing 0;
 	border-collapse: collapse;
+	border: 0;
 
 	th,
 	td {
 		padding: $half-base-spacing;
-		border: $base-border;
-		vertical-align: top;
 		text-align: left;
+		vertical-align: top;
+		border: $base-border;
 	}
 }
 
@@ -143,7 +126,8 @@ abbr {
 	text-decoration: underline;
 }
 
-abbr[title], abbr[data-original-title] {
+abbr[title],
+abbr[data-original-title] {
 	cursor: help;
 	border-bottom: 1px dotted $base-border-color;
 }
@@ -155,10 +139,10 @@ big {
 code {
 	display: inline-block;
 	padding: 2px 5px;
-	background-color: $gray-color-800;
-	border: 1px solid $dark-color;
 	font-family: monospace;
 	font-size: $base-font-size;
+	background-color: $gray-color-800;
+	border: 1px solid $dark-color;
 	border-radius: $base-border-radius;
 }
 
@@ -203,8 +187,8 @@ q {
 
 sub,
 sup {
-	bottom: -0.25em;
 	position: relative;
+	bottom: -0.25em;
 	font-size: 75%;
 	line-height: 0;
 	vertical-align: baseline;

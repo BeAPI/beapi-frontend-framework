@@ -2,82 +2,84 @@
  * @section Accessible Mega Menu
  */
 .amenu {
-  $el: &;
+	$el: &;
 
-  &__toggle {
-    border: 0;
-    appearance: none;
-    background: transparent;
-    cursor: pointer;
+	&__toggle {
+		cursor: pointer;
+		background: transparent;
+		border: 0;
+		appearance: none;
 
-    .icon {
-      width: 30px;
-      height: 30px;
-    }
+		.icon {
+			width: 30px;
+			height: 30px;
+		}
 
-    .icon-close {
-      display: none;
-    }
+		.icon-close {
+			display: none;
+		}
 
-    &[aria-expanded='true'] {
-      .icon-close {
-        display: block;
-      }
+		&[aria-expanded="true"] {
 
-      .icon-menu {
-        display: none;
-      }
-    }
-  }
+			.icon-close {
+				display: block;
+			}
 
-  &__main {
-    padding: 0;
-  }
+			.icon-menu {
+				display: none;
+			}
+		}
+	}
 
-  &__panel {
-    padding: 0;
-    display: block;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .35s ease, max-height .5s ease, visibility 0s linear;
+	&__main {
+		padding: 0;
+	}
 
-    &.open {
-      overflow: visible;
-      max-height: 350px;
-      opacity: 1;
-      visibility: visible;
-    }
-  }
+	&__panel {
+		display: block;
+		max-height: 0;
+		padding: 0;
+		overflow: hidden;
+		visibility: hidden;
+		opacity: 0;
+		transition: opacity 0.35s ease, max-height 0.5s ease, visibility 0s linear;
 
-  &__sub-menu {
-    padding: 0;
-    margin: 0;
-  }
+		&.open {
+			max-height: 350px;
+			overflow: visible;
+			visibility: visible;
+			opacity: 1;
+		}
+	}
 
-  @include breakpoints(sm, max) {
-    &__toggle~#{$el}__main>#{$el}__top {
-      height: 0;
-      overflow: hidden;
-      visibility: collapse;
-    }
+	&__sub-menu {
+		padding: 0;
+		margin: 0;
+	}
 
-    &__toggle[aria-expanded='true']~#{$el}__main>#{$el}__top {
-      height: auto;
-      overflow: visible;
-      visibility: visible;
-    }
-  }
+	@include breakpoints(sm, max) {
+		&__toggle~#{$el}__main>#{$el}__top {
+			height: 0;
+			overflow: hidden;
+			visibility: collapse;
+		}
 
-  @include breakpoints(sm) {
-    &__toggle {
-      display: none;
-    }
+		&__toggle[aria-expanded='true']~#{$el}__main>#{$el}__top {
+			height: auto;
+			overflow: visible;
+			visibility: visible;
+		}
+	}
 
-    &__main {
-      display: flex;
-      flex-wrap: wrap;
-    }
-  }
+	@include breakpoints(sm) {
+
+		&__toggle {
+			display: none;
+		}
+
+		&__main {
+			display: flex;
+			flex-wrap: wrap;
+		}
+	}
 }

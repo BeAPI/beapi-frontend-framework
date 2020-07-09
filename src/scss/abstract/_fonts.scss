@@ -1,5 +1,5 @@
 // Font Family
-$primary-font-family: Roboto, sans-serif;
+$primary-font-family: roboto, sans-serif;
 $secondary-font-family: sofia-pro, sans-serif;
 
 // Font Size
@@ -17,66 +17,3 @@ $heading-line-height: 1.2;
 // Sofia Pro for Hn
 // Use this script to add external ressource like typekit: https://github.com/swissspidy/local-webfont
 // example: npx local-webfont https://use.typekit.net/bjc8obi.css src/scss/abstract/temp_to_copy_paste_delete.css swap
-@font-face {
-    font-display: swap;
-    font-family: "sofia-pro";
-    src: url("https://use.typekit.net/af/0c5f71/00000000000000003b9b1aa0/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3") format("woff2"), url("https://use.typekit.net/af/0c5f71/00000000000000003b9b1aa0/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3") format("woff"), url("https://use.typekit.net/af/0c5f71/00000000000000003b9b1aa0/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3") format("opentype");
-    font-style: normal;
-    font-weight: 900;
-}
-
-@font-face {
-    font-display: swap;
-    font-family: "sofia-pro";
-    src: url("https://use.typekit.net/af/30420e/00000000000000003b9b1a9e/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"), url("https://use.typekit.net/af/30420e/00000000000000003b9b1a9e/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"), url("https://use.typekit.net/af/30420e/00000000000000003b9b1a9e/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
-    font-style: normal;
-    font-weight: 700;
-}
-
-@font-face {
-    font-display: swap;
-    font-family: "sofia-pro";
-    src: url("https://use.typekit.net/af/1ca530/00000000000000003b9b1a94/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n2&v=3") format("woff2"), url("https://use.typekit.net/af/1ca530/00000000000000003b9b1a94/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n2&v=3") format("woff"), url("https://use.typekit.net/af/1ca530/00000000000000003b9b1a94/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n2&v=3") format("opentype");
-    font-style: normal;
-    font-weight: 200;
-}
-
-@font-face {
-    font-display: swap;
-    font-family: "sofia-pro";
-    src: url("https://use.typekit.net/af/572508/00000000000000003b9b1a96/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("woff2"), url("https://use.typekit.net/af/572508/00000000000000003b9b1a96/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("woff"), url("https://use.typekit.net/af/572508/00000000000000003b9b1a96/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("opentype");
-    font-style: normal;
-    font-weight: 300;
-}
-
-@font-face {
-    font-display: swap;
-    font-family: "sofia-pro";
-    src: url("https://use.typekit.net/af/b4d13d/00000000000000003b9b1a9a/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3") format("woff2"), url("https://use.typekit.net/af/b4d13d/00000000000000003b9b1a9a/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3") format("woff"), url("https://use.typekit.net/af/b4d13d/00000000000000003b9b1a9a/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3") format("opentype");
-    font-style: normal;
-    font-weight: 500;
-}
-
-@font-face {
-    font-display: swap;
-    font-family: "sofia-pro";
-    src: url("https://use.typekit.net/af/5855b2/00000000000000003b9b1a98/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"), url("https://use.typekit.net/af/5855b2/00000000000000003b9b1a98/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"), url("https://use.typekit.net/af/5855b2/00000000000000003b9b1a98/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
-    font-style: normal;
-    font-weight: 400;
-}
-
-@font-face {
-    font-display: swap;
-    font-family: "sofia-pro";
-    src: url("https://use.typekit.net/af/7158ff/00000000000000003b9b1a9c/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff2"), url("https://use.typekit.net/af/7158ff/00000000000000003b9b1a9c/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff"), url("https://use.typekit.net/af/7158ff/00000000000000003b9b1a9c/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("opentype");
-    font-style: normal;
-    font-weight: 600;
-}
-
-@font-face {
-    font-display: swap;
-    font-family: "sofia-pro";
-    src: url("https://use.typekit.net/af/0a60d4/00000000000000003b9b1a92/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i1&v=3") format("woff2"), url("https://use.typekit.net/af/0a60d4/00000000000000003b9b1a92/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i1&v=3") format("woff"), url("https://use.typekit.net/af/0a60d4/00000000000000003b9b1a92/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i1&v=3") format("opentype");
-    font-style: italic;
-    font-weight: 100;
-}

@@ -49,21 +49,21 @@ function get_lorem( $min, $max ) {
 }
 
 /**
- * @param       $fileName
- * @param array $additional_classes
+ * @param $fileName
+ * @param $additional_classes
  *
  * @return string
  */
-function get_the_icon( $fileName, $additional_classes = array() ) {
+function get_the_icon( $fileName, $additional_classes = '' ) {
 	$classes[] = 'icon';
 	$classes[] = sprintf( 'icon-%s', $fileName );
-	$classes   = array_merge( $classes, $additional_classes );
+	$classes   =  array_merge( $classes, explode( ' ', $additional_classes ) ) ;
 
 	return sprintf( '<svg class="%s" aria-hidden="true" role="img"><use xlink:href="%s#icon-%s"></use></svg>', implode( ' ', $classes ), '/dist/assets/img/icons/icons.svg', $fileName );
 }
 
 
-function the_icon( $fileName, $additional_classes = array() ) {
+function the_icon( $fileName, $additional_classes = '' ) {
 	echo get_the_icon( $fileName, $additional_classes );
 }
 

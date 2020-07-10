@@ -1,5 +1,5 @@
 <?php $bodyClass = 'page wp-embed-responsive'; ?>
-<?php include 'partials/header.php'; ?>
+<?php include 'sections/header.php'; ?>
 <article class="article">
 	<div class="container">
 	<?php includeWithVariables('partials/hero.php', array('heroTitle' => 'Single Default', 'heroExcerpt' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod ex ad porro harum nemo assumenda enim nam, similique temporibus! Aliquid unde, reiciendis nesciunt asperiores veritatis tenetur eum! Omnis, neque natus.')); ?>

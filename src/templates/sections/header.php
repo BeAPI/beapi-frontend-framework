@@ -40,7 +40,7 @@
 			<div class="header__logo">
 				<a href="01-home.php" class="header__logo-link">
 					<!-- <?php //echo get_the_post_thumbnail( 0, 'logo-beapi', array( 'data-location' => 'header-logo', 'class' => 'header__img', 'alt' => 'Logo' ) ); ?>  -->
-					<?php the_icon( 'logo-beapi' ); ?>
+					<?php the_icon( 'logo-beapi','header__icon' ); ?>
 					<?php if ( $bodyClass == 'home' ) : ?>
 						<h1 class="header__title visuallyhidden">BeAPI FrontEnd Framework</h1>
 					<?php else: ?>

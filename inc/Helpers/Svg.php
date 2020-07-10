@@ -8,7 +8,7 @@
  *
  * @return string
  */
-function get_the_icon( $icon_class, $additionnal_classes = array() ) {
+function get_the_icon( $icon_class, $additionnal_classes = [] ) {
 	return ( \BEA\Theme\Framework\Framework::get_container() )->get_service( 'svg' )->get_the_icon( $icon_class, $additionnal_classes );
 }
 
@@ -18,6 +18,6 @@ function get_the_icon( $icon_class, $additionnal_classes = array() ) {
  * @param       $icon_class
  * @param array $additionnal_classes
  */
-function the_icon( $icon_class, $additionnal_classes = array() ) {
+function the_icon( $icon_class, $additionnal_classes = [] ) {
 	( \BEA\Theme\Framework\Framework::get_container() )->get_service( 'svg' )->the_icon( $icon_class, $additionnal_classes );
 }

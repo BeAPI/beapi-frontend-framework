@@ -37,7 +37,7 @@ class Svg implements Service {
 	 *
 	 * @return string
 	 */
-	public function get_the_icon( $icon_class, $additionnal_classes = array() ) {
+	public function get_the_icon( $icon_class, $additionnal_classes = [] ) {
 		$classes[] = 'icon';
 		$classes[] = sprintf( 'icon-%s', $icon_class );
 		$classes   = array_merge( $classes, $additionnal_classes );
@@ -50,7 +50,7 @@ class Svg implements Service {
 	 * @param       $icon_class
 	 * @param array $additionnal_classes
 	 */
-	public function the_icon( $icon_class, $additionnal_classes = array() ) {
+	public function the_icon( $icon_class, $additionnal_classes = [] ) {
 		echo $this->get_the_icon( $icon_class, $additionnal_classes );
 	}
 }

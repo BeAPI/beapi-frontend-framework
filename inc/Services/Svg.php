@@ -6,11 +6,11 @@ use BEA\Theme\Framework\Service;
 use BEA\Theme\Framework\Service_Container;
 
 /**
- * Class SVG
+ * Class Svg
  *
  * @package BEA\Theme\Framework
  */
-class SVG implements Service {
+class Svg implements Service {
 
 	/**
 	 * @param Service_Container $container

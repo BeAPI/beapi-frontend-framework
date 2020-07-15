@@ -1,0 +1,19 @@
+> a:not([class]) {
+	text-decoration: underline;
+
+	@include hover {
+		text-decoration: none;
+	}
+}
+
+ul.rich-editor,
+ul:not([class]) {
+
+	@include wysiwyg__list();
+}
+
+ol.rich-editor,
+ol:not([class]) {
+
+	@include wysiwyg__list(ol);
+}

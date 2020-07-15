@@ -10,23 +10,7 @@
 		}
 	}
 
-	> a:not([class]) {
-		text-decoration: underline;
-
-		@include hover {
-			text-decoration: none;
-		}
-	}
-
-	ul:not([class]) {
-
-		@include wysiwyg__list();
-	}
-
-	ol:not([class]) {
-
-		@include wysiwyg__list(ol);
-	}
+	@import "../base/list";
 
 	img {
 

@@ -74,7 +74,7 @@ const optimizeIcons = async (src, optimize) => {
         fs.readFile(filepath, 'utf8', (err, data) => {
           if (err) throw err
           svgo.optimize(data, { path: filepath }).then(result => {
-            fs.writeFileSync(filepath, result.data)
+            fs.writeFileSync(filepath, result.data.toString())
           })
         })
       }
@@ -96,7 +96,7 @@ const generateSprite = async (src, dist, name, prefix) => {
     const svg = $('svg')
       .addClass('svg-sprite')
       .attr('xmlns', 'http://www.w3.org/2000/svg')
-    fs.writeFileSync(`${dist}/${name}`, svg)
+    fs.writeFileSync(`${dist}/${name}`, svg.toString())
   })
 }
 

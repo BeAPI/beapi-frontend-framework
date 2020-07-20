@@ -97,7 +97,7 @@
 	padding: 10px 11px;
 }
 
-.button {
+.btn {
 	$parent: &;
 
 	@include button;

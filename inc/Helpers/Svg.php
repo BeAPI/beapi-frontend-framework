@@ -1,7 +1,7 @@
 <?php namespace BEA\Theme\Framework\Helpers\Svg;
 
 /**
- * @usage BEA\Theme\Framework\Helpers\SVG\get_the_icon( 'like' );
+ * @usage BEA\Theme\Framework\Helpers\Svg\get_the_icon( 'like' );
  *
  * @param       $icon_class
  * @param array $additionnal_classes
@@ -13,7 +13,7 @@ function get_the_icon( $icon_class, $additionnal_classes = [] ) {
 }
 
 /**
- * @usage BEA\Theme\Framework\Helpers\SVG\the_icon( 'like' );
+ * @usage BEA\Theme\Framework\Helpers\Svg\the_icon( 'like' );
  *
  * @param       $icon_class
  * @param array $additionnal_classes

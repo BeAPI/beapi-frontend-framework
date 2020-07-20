@@ -22,7 +22,7 @@ class Framework {
 		\BEA\Theme\Framework\Services\Assets::class,
 		\BEA\Theme\Framework\Services\Assets_Fonts_Async::class,
 		\BEA\Theme\Framework\Services\Assets_JS_Async::class,
-		\BEA\Theme\Framework\Services\SVG::class,
+		\BEA\Theme\Framework\Services\Svg::class,
 		\BEA\Theme\Framework\Services\Acf::class,
 		\BEA\Theme\Framework\Services\Sidebar::class,
 		\BEA\Theme\Framework\Services\Menu::class,

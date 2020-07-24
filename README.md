@@ -1,4 +1,6 @@
 #  BeAPI FrontEnd Framework
+![Node.js CI](https://github.com/BeAPI/beapi-frontend-framework/workflows/Node.js%20CI/badge.svg?branch=master)
+
 ##  What is BeAPI FrontEnd Framework ?
 
 BeAPI FrontEnd Framework (BFF) is a Front-end WordPress theme friendly boilerplate to help you to build your own WordPress theme with modern tools and a better productivity.

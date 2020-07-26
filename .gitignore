@@ -69,7 +69,8 @@ dist/assets/img/sample/cache
 config/host.js
 
 ### frontend build directory ###
-dist/
+dist/assets/
+dist/WebpackBuiltFiles.php
 src/conf-img/*.csv
 
 ### NPM (use Yarn instead)

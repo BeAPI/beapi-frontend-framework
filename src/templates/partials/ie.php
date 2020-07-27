@@ -4,7 +4,7 @@
         You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.
         </p>
         <p>
-        <button class="button" id="js-ieClose">Close</button>
+        <button class="btn" id="js-ieClose">Close</button>
         </p>
     </div>
     <script>

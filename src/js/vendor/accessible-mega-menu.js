@@ -591,7 +591,7 @@ limitations under the License.
 							break;
 					case Keyboard.SPACE:
 					case Keyboard.ENTER:
-							if (isTopNavItem) {
+							if (isTopNavItem && target.parent().find(settings.panelClass).lenght <= 0) {
 									event.preventDefault();
 									_clickHandler.call(that, event);
 							} else {

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         name="Beapi frontend framework"
+         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd"
+         >
+
+    <description>A custom set of rules to check for a WPized WordPress project</description>
+
+    <!-- Scan only PHP files -->
+    <arg name="extensions" value="php"/>
+
+    <!-- Exclude the plugins -->
+    <exclude-pattern>vendor/</exclude-pattern>
+    <exclude-pattern>dist/</exclude-pattern>
+    <exclude-pattern>src/</exclude-pattern>
+    <exclude-pattern>scripts/</exclude-pattern>
+
+    <!-- <<< EXCLUDE EXTERNAL (MU-)PLUGINS OR THEMES HERE >>> -->
+
+    <rule ref="WordPress-Extra">
+        <!-- Exclude as we use a custom autoloader. -->
+        <exclude name="WordPress.Files.FileName"/>
+
+        <!-- Exclude as it conflict with @var declaration. -->
+        <exclude name="Squiz.PHP.CommentedOutCode.Found"/>
+
+        <!-- Exclude as we use the short array syntax over the long one. -->
+        <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+
+        <!-- Allow to use short ternary operators since they are very usefull. -->
+        <exclude name="WordPress.PHP.DisallowShortTernary.Found"/>
+
+        <!-- Allow custom hooks naming. -->
+        <exclude name="WordPress.NamingConventions.ValidHookName.UseUnderscores"/>
+        <exclude name="WordPress.NamingConventions.ValidHookName.NotLowercase"/>
+
+        <!-- Allow extracting -->
+        <exclude name="WordPress.PHP.DontExtract.extract_extract"/>
+    </rule>
+
+    <rule ref="WordPress.Security.EscapeOutput">
+        <properties>
+            <property name="customEscapingFunctions" type="array" value="bea_get_attachment_image" />
+        </properties>
+    </rule>
+
+
+    <!-- Show sniff name in report. -->
+    <arg value="sp"/>
+
+    <!-- Show progress. -->
+    <arg value="p"/>
+
+    <!-- Use colors. -->
+    <arg name="colors"/>
+
+    <!-- Set ini. -->
+    <ini name="memory_limit" value="512M"/>
+    <ini name="max_execution_time" value="-1"/>
+</ruleset>

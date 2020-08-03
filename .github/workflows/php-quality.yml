@@ -30,4 +30,8 @@ jobs:
         run: composer cs
 
       - name: Check psalm
-        run: composer psalm
+        run:
+          - mkdir src
+          - mkdir dist
+          - mkdir scripts
+          - composer psalm

@@ -31,7 +31,6 @@ jobs:
 
       - name: Check psalm
         run: |
-          mkdir src
           mkdir dist
           mkdir scripts
           composer psalm

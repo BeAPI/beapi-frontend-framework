@@ -81,7 +81,7 @@ class Service_Container {
 	 */
 	private function instantiate_service( $class ) {
 		/**
-		 * @var $service Service
+		 * @var Service $service
 		 */
 		$service = new $class();
 		$service->register( $this );

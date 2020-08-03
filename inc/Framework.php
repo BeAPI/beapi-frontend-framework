@@ -14,7 +14,7 @@ class Framework {
 	protected static $container;
 
 	/**
-	 * @var $services
+	 * @var array $services
 	 */
 	protected static $services = [
 		// Services

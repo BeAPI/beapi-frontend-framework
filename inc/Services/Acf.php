@@ -118,7 +118,7 @@ class Acf implements Service {
 		}
 
 		if ( ! isset( $parameters['menu_slug'] ) ) {
-			throw new InvalidArgumentException( 'You must specify menu slug for ACF options page.' );
+			throw new \InvalidArgumentException( 'You must specify menu slug for ACF options page.' );
 		}
 
 		return acf_add_options_page( $parameters );
@@ -165,7 +165,7 @@ class Acf implements Service {
 		}
 
 		if ( ! isset( $parameters['menu_slug'] ) ) {
-			throw new InvalidArgumentException( 'You must specify menu slug for ACF options page.' );
+			throw new \InvalidArgumentException( 'You must specify menu slug for ACF options page.' );
 		}
 
 		return acf_add_options_sub_page( $parameters );

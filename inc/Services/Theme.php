@@ -82,8 +82,13 @@ class Theme implements Service {
 		 **/
 		$file = 'editor-style.css';
 
-		if ( ! defined( 'SCRIPT_DEBUG' ) || false === SCRIPT_DEBUG ) {
-			$file = Framework::get_container()->get_service( 'assets' )->get_min_file( 'editor-style' );
+		/**
+		 * @var Assets $assets
+		 **/
+		$assets = Framework::get_container()->get_service( 'assets' );
+
+		if ( ( ! defined( 'SCRIPT_DEBUG' ) || false === SCRIPT_DEBUG ) && false !== $assets ) {
+			$file = $assets->get_min_file( 'editor-style' );
 		}
 
 		/**

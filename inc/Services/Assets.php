@@ -125,7 +125,7 @@ class Assets implements Service {
 			return false;
 		}
 
-		$json   = file_get_contents( \get_theme_file_path( '/dist/assets/assets.json' ) );
+		$json   = file_get_contents( \get_theme_file_path( '/dist/assets/assets.json' ) ); //phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 		$assets = json_decode( $json, true );
 
 		if ( empty( $assets ) ) {

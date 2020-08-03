@@ -6,7 +6,7 @@ namespace BEA\Theme\Framework;
  *
  * @package BEA\Theme\Framework
  */
-Interface Service extends Interface_Module {
+interface Service extends Interface_Module {
 
 	/**
 	 * Register the service

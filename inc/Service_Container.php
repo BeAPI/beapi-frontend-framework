@@ -23,10 +23,13 @@ class Service_Container {
 		$services = array_unique( $this->get_services() );
 		$services = array_map( [ $this, 'instantiate_service' ], $services );
 
-		array_walk( $services, function ( Service $service ) {
-			$service->boot( $this );
-			$this->services[ $service->get_service_name() ] = $service;
-		} );
+		array_walk(
+			$services,
+			function ( Service $service ) {
+				$service->boot( $this );
+				$this->services[ $service->get_service_name() ] = $service;
+			}
+		);
 	}
 
 	/**
@@ -60,7 +63,7 @@ class Service_Container {
 	 * @author Clément Boirie
 	 */
 	public function register_service( $service ) {
-		if ( ! class_exists( $service ) || ! in_array( Service::class, class_implements( $service ) ) ) {
+		if ( ! class_exists( $service ) || ! in_array( Service::class, class_implements( $service ), true ) ) {
 			return false;
 		}
 

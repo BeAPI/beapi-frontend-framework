@@ -66,6 +66,6 @@ class Assets_JS_Async implements Service {
 			return $html;
 		}
 
-		return  str_replace( ' src', sprintf( ' %s src', $this->js_handlers[ $handle ] ), $html );
+		return str_replace( ' src', sprintf( ' %s src', $this->js_handlers[ $handle ] ), $html );
 	}
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!--[if lte IE 9 ]> <html class="no-js ie lte-ie9 ie9" <?php language_attributes( ); ?>> <![endif]-->
+<!--[if lte IE 9 ]> <html class="no-js ie lte-ie9 ie9" <?php language_attributes(); ?>> <![endif]-->
 <!--[if !(IE)]><! -->
-<html class="no-js" <?php language_attributes( ); ?>>
+<html class="no-js" <?php language_attributes(); ?>>
 <!--<![endif]-->
 <head>
 	<script type="text/javascript">
@@ -14,12 +14,12 @@
 		//]]>
 	</script>
 
-    <meta charset="<?php bloginfo( 'charset' ); ?>" />
-    <meta http-equiv="Content-Type" content="text/html; charset=<?php bloginfo( 'charset' ); ?>" />
-    <meta name="viewport" content="initial-scale=1.0" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta charset="<?php bloginfo( 'charset' ); ?>" />
+	<meta http-equiv="Content-Type" content="text/html; charset=<?php bloginfo( 'charset' ); ?>" />
+	<meta name="viewport" content="initial-scale=1.0" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <?php wp_head(); ?>
+	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>

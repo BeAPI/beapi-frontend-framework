@@ -6,7 +6,7 @@ namespace BEA\Theme\Framework;
  *
  * @package BEA\Theme\Framework
  */
-Interface Interface_Module {
+interface Interface_Module {
 
 	/**
 	 * Register the module

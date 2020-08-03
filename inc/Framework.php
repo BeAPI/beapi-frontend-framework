@@ -50,6 +50,6 @@ class Framework {
 	 * @param $name
 	 */
 	public static function register_service( $name ) {
-	 	self::get_container()->register_service( $name );
+		self::get_container()->register_service( $name );
 	}
 }

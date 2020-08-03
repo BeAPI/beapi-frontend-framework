@@ -41,9 +41,12 @@
 
     <rule ref="WordPress.Security.EscapeOutput">
         <properties>
-            <property name="customEscapingFunctions" type="array" value="bea_get_attachment_image" />
-        </properties>
-    </rule>
+            <property name="customAutoEscapedFunctions" type="array">
+                <element value="\BEA\Theme\Framework\Helpers\Svg\get_the_icon" />
+                <element value="\BEA\Theme\Framework\Helpers\Svg\the_icon" />
+                <element value="bea_get_attachment_image" />
+            </property>
+        </properties>    </rule>
 
 
     <!-- Show sniff name in report. -->

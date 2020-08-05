@@ -20,150 +20,151 @@ const getServerPort = function(portFile) {
     return false
   }
 }
-const webpackConfig = {
-  entry: config.entry,
-  output: {
-    path: config.assetsPath,
-  },
-  optimization: {},
-  externals: {
-    jquery: 'jQuery',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              babelrc: true,
-            },
-          },
-          {
-            loader: 'eslint-loader',
-          },
-        ],
-      },
-      {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'style-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-              plugins: () => [require('autoprefixer')(), require('postcss-pxtorem')({ propWhiteList: [] })],
-            },
-          },
-          'resolve-url-loader',
-        ],
-      },
-      {
-        test: /\.(sass|scss)$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              url: false,
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-              plugins: () => [require('autoprefixer')(), require('postcss-pxtorem')({ propWhiteList: [] })],
-            },
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(woff2?|woff|eot|ttf|otf|mp3|wav)(\?.*)?$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: './fonts/',
-          },
-        },
-      },
-      {
-        test: /icons\/.*\.svg$/,
-        use: [
-          {
-            loader: 'svg-sprite-loader',
-            options: {
-              extract: true,
-              publicPath: 'icons/',
-              spriteFilename: svgPath => `icons${svgPath.substr(-4)}`,
-            },
-          },
-          'svgo-loader',
-        ],
-      },
-    ],
-  },
-  plugins: [
-    new WebpackBar({
-      color: '#ffe600',
-    }),
-    new CopyWebpackPlugin([
-      {
-        from: 'src/templates/',
-        to: './../',
-      },
-      {
-        from: 'src/fonts/',
-        to: 'fonts/',
-      },
-      {
-        from: 'src/img/static/',
-        to: 'img/static/',
-      },
-      {
-        from: 'src/img/sample/',
-        to: 'img/sample/',
-      },
-    ]),
-    new SpriteLoaderPlugin({
-      plainSprite: true,
-    }),
-    new StylelintPlugin(),
-    new PhpOutputPlugin({
-      devServer: false, // false or string with server entry point, e.g: app.js or
-      outPutPath: path.resolve(__dirname, 'dist/'), // false for default webpack path of pass string to specify
-      assetsPathPrefix: '',
-      phpClassName: 'WebpackBuiltFiles', //
-      phpFileName: 'WebpackBuiltFiles',
-      nameSpace: false, // false {nameSpace: 'name', use: ['string'] or empty property or don't pass "use" property}
-      path: '',
-    }),
-  ],
-}
 
 module.exports = (env, argv) => {
+  const webpackConfig = {
+    entry: config.entry,
+    output: {
+      path: config.assetsPath,
+    },
+    optimization: {},
+    externals: {
+      jquery: 'jQuery',
+    },
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /(node_modules|bower_components)/,
+          use: [
+            {
+              loader: 'babel-loader',
+              options: {
+                babelrc: true,
+              },
+            },
+            {
+              loader: 'eslint-loader',
+            },
+          ],
+        },
+        {
+          test: /\.css$/,
+          use: [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: 'style-loader',
+              options: {
+                sourceMap: true,
+              },
+            },
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true,
+              },
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: true,
+                plugins: () => [require('autoprefixer')(), require('postcss-pxtorem')({ propWhiteList: [] })],
+              },
+            },
+            'resolve-url-loader',
+          ],
+        },
+        {
+          test: /\.(sass|scss)$/,
+          use: [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1,
+                url: false,
+                sourceMap: true,
+              },
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: true,
+                plugins: () => [require('autoprefixer')(), require('postcss-pxtorem')({ propWhiteList: [] })],
+              },
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true,
+              },
+            },
+          ],
+        },
+        {
+          test: /\.(woff2?|woff|eot|ttf|otf|mp3|wav)(\?.*)?$/,
+          use: {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: './fonts/',
+            },
+          },
+        },
+        {
+          test: /icons\/.*\.svg$/,
+          use: [
+            {
+              loader: 'svg-sprite-loader',
+              options: {
+                extract: argv.mode === 'production',
+                publicPath: 'icons/',
+                spriteFilename: svgPath => `icons${svgPath.substr(-4)}`,
+              },
+            },
+            'svgo-loader',
+          ],
+        },
+      ],
+    },
+    plugins: [
+      new WebpackBar({
+        color: '#ffe600',
+      }),
+      new CopyWebpackPlugin([
+        {
+          from: 'src/templates/',
+          to: './../',
+        },
+        {
+          from: 'src/fonts/',
+          to: 'fonts/',
+        },
+        {
+          from: 'src/img/static/',
+          to: 'img/static/',
+        },
+        {
+          from: 'src/img/sample/',
+          to: 'img/sample/',
+        },
+      ]),
+      new SpriteLoaderPlugin({
+        plainSprite: true,
+      }),
+      new StylelintPlugin(),
+      new PhpOutputPlugin({
+        devServer: false, // false or string with server entry point, e.g: app.js or
+        outPutPath: path.resolve(__dirname, 'dist/'), // false for default webpack path of pass string to specify
+        assetsPathPrefix: '',
+        phpClassName: 'WebpackBuiltFiles', //
+        phpFileName: 'WebpackBuiltFiles',
+        nameSpace: false, // false {nameSpace: 'name', use: ['string'] or empty property or don't pass "use" property}
+        path: '',
+      }),
+    ],
+  }
+
   if (argv.mode === 'development') {
     const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
     const SoundsPlugin = require('sounds-webpack-plugin')

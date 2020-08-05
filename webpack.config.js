@@ -111,7 +111,17 @@ const webpackConfig = {
       },
       {
         test: /icons\/.*\.svg$/,
-        use: ['svg-sprite-loader', 'svgo-loader'],
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+            options: {
+              extract: true,
+              publicPath: 'icons/',
+              spriteFilename: svgPath => `icons${svgPath.substr(-4)}`,
+            },
+          },
+          'svgo-loader',
+        ],
       },
     ],
   },

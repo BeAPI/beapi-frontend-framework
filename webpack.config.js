@@ -22,7 +22,7 @@ const getServerPort = function(portFile) {
 const webpackConfig = {
   entry: config.entry,
   output: {
-    path: config.assetsPath,
+    path: config.path.build,
   },
   optimization: {},
   externals: {
@@ -141,16 +141,9 @@ const webpackConfig = {
     }),
     new CopyWebpackPlugin([
       {
-        from: 'src/fonts/',
-        to: 'fonts/',
-      },
-      {
-        from: 'src/img/static/',
-        to: 'img/static/',
-      },
-      {
-        from: 'src/img/sample/',
-        to: 'img/sample/',
+        from: config.path.static,
+        to: '.',
+        ignore: ['*.DS_Store'],
       },
     ]),
     new StylelintPlugin(),

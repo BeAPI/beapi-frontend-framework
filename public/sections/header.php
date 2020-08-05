@@ -12,7 +12,7 @@
 
 	<title>BeAPI FrontEnd Framework | The WordPress BFF</title>
 
-	<link rel="stylesheet" href="assets/app.css">
+	<link rel="stylesheet" href="app.css">
 
 	<!-- jQuery from official WordPress Core -->
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
@@ -40,10 +40,10 @@
 			<div class="header__logo">
 				<a href="01-home.php" class="header__logo-link">
 					<!-- <?php //echo get_the_post_thumbnail( 0, 'logo-beapi', array( 'data-location' => 'header-logo', 'class' => 'header__img', 'alt' => 'Logo' ) ); ?>  -->
-					<?php the_icon( 'logo-beapi', [ 'header__icon' ] ); ?>
+					<?php the_icon( 'logo-beapi', array( 'header__icon' ) ); ?>
 					<?php if ( $bodyClass == 'home' ) : ?>
 						<h1 class="header__title visuallyhidden">BeAPI FrontEnd Framework</h1>
-					<?php else: ?>
+					<?php else : ?>
 						<div class="header__title visuallyhidden">BeAPI FrontEnd Framework</div>
 					<?php endif; ?>
 				</a>

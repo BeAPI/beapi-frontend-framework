@@ -25,9 +25,11 @@
 <?php
 if ( is_readable( dirname( __FILE__ ) . '/../WebpackBuiltFiles.php' ) ) {
 	require_once dirname( __FILE__ ) . '/../WebpackBuiltFiles.php';
-	foreach ( WebpackBuiltFiles::$jsFiles as $file ) { ?>
-		<script src="assets/<?php echo $file; ?>" async defer></script>
-	<?php }
+	foreach ( WebpackBuiltFiles::$jsFiles as $file ) {
+		?>
+		<script src="<?php echo $file; ?>" async defer></script>
+		<?php
+	}
 }
 ?>
 </body>

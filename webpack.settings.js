@@ -5,7 +5,11 @@ module.exports = {
     app: ['./src/js/app.js', './src/scss/style.scss'],
     'editor-style': './src/scss/editor-style.scss',
   },
-  assetsPath: path.resolve(__dirname, 'dist/assets'),
+  path: {
+    src: path.resolve(__dirname, './src'), // source files
+    build: path.resolve(__dirname, './dist'), // production build files
+    static: path.resolve(__dirname, './public'), // static files to copy to build folder
+  },
   dev: process.env.NODE_ENV === 'dev',
   refresh: [
     'dist/**/*.php',

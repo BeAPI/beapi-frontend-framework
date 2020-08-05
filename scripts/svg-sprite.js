@@ -45,7 +45,7 @@ const icons = [
   {
     id: 'Icons front',
     src: './src/img/icons',
-    dist: './dist/assets/img/icons',
+    dist: './dist/',
     filename: 'icons.svg',
     prefix: 'icon',
     optimize: true,

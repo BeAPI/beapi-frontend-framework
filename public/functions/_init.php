@@ -6,8 +6,8 @@ define( 'ARI_MODE', 'picture_lazyload' );
 define( 'ARI_CONTEXT', 'front' );
 define( 'ARI_PIXEL', 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' );
 
-define( 'BEA_IMG_SAMPLE_URL', get_full_url( $_SERVER, true ) . '../src/img/sample/' );
-define( 'BEA_IMG_SAMPLE_DIR', dirname( __FILE__ ) . '/../../src/img/sample/' );
+define( 'BEA_IMG_SAMPLE_URL', get_full_url( $_SERVER, true ) . '../public/img/sample/' );
+define( 'BEA_IMG_SAMPLE_DIR', dirname( __FILE__ ) . '/../../public/img/sample/' );
 
 require dirname( __FILE__ ) . '/compat.php';
 require dirname( __FILE__ ) . '/post-thumbnail.php';

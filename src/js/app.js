@@ -3,6 +3,7 @@
  */
 
 import 'what-input'
+import 'svg4everybody'
 import './polyfill/picturefill'
 import lazySizes from 'lazysizes'
 import 'lazysizes/plugins/native-loading/ls.native-loading'

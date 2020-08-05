@@ -108,31 +108,6 @@ const webpackConfig = {
           },
         },
       },
-      {
-        test: /\.(png|jpe?g|gif|svg)$/,
-        use: [
-          'file-loader',
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                progressive: true,
-                quality: 65,
-              },
-              pngquant: {
-                quality: '65-90',
-                speed: 4,
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-              webp: {
-                quality: 75,
-              },
-            },
-          },
-        ],
-      },
     ],
   },
   plugins: [

@@ -192,7 +192,6 @@ module.exports = (env, argv) => {
               },
             },
           ],
-          startPath: '/dist/index.php',
           notify: true,
         },
         {

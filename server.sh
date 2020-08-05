@@ -16,4 +16,4 @@ echo $PORT > ".port"
 echo $BSPORT > ".bs-port"
 
 echo "Server is running on port ${PORT} and BrowserSync on port ${BSPORT}"
-php -S localhost:${PORT}
+cd dist/ && php -S localhost:${PORT}

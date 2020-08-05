@@ -7,6 +7,7 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const PhpOutputPlugin = require('./src/js/vendor/webpack-php-output')
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const WebpackBar = require('webpackbar')
@@ -108,6 +109,10 @@ const webpackConfig = {
           },
         },
       },
+      {
+        test: /icons\/.*\.svg$/,
+        use: ['svg-sprite-loader', 'svgo-loader'],
+      },
     ],
   },
   plugins: [
@@ -132,6 +137,9 @@ const webpackConfig = {
         to: 'img/sample/',
       },
     ]),
+    new SpriteLoaderPlugin({
+      plainSprite: true,
+    }),
     new StylelintPlugin(),
     new PhpOutputPlugin({
       devServer: false, // false or string with server entry point, e.g: app.js or

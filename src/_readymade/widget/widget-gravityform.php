@@ -26,7 +26,7 @@
 				</ul>
 			</div>
 			<div class="gform_footer top_label">
-				<input type="submit" id="gform_submit_button_277" class="button gform_button" value="Submit" tabindex="503">
+				<input type="submit" id="gform_submit_button_277" class="btn gform_button" value="Submit" tabindex="503">
 			</div>
 		</form>
 	</div>

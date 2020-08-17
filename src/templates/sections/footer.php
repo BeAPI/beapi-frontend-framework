@@ -2,15 +2,15 @@
 <footer class="footer" id="footer" role="contentinfo">
 	<div class="container">
 		<p>Follow us:</p>
-		<a class="button button--circle" href="https://www.facebook.com/beapi.agency/?ref=bookmarks">
+		<a class="btn btn--circle" href="https://www.facebook.com/beapi.agency/?ref=bookmarks">
 			<span class="visuallyhidden">On Facebook</span>
 			<?php the_icon( 'facebook' ); ?>
 		</a>
-		<a class="button button--circle" href="https://twitter.com/be_api">
+		<a class="btn btn--circle" href="https://twitter.com/be_api">
 			<span class="visuallyhidden">On Twitter</span>
 			<?php the_icon( 'twitter' ); ?>
 		</a>
-		<a class="button button--circle" href="https://www.instagram.com/agencebeapi/">
+		<a class="btn btn--circle" href="https://www.instagram.com/agencebeapi/">
 			<span class="visuallyhidden">On Instagram</span>
 			<?php the_icon( 'instagram' ); ?>
 		</a>

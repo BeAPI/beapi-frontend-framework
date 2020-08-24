@@ -96,16 +96,18 @@ const imageLocationsFromTpl = () => {
     const srcsetArr = tplContent.match(regex)
     const cropArr = tplContent.match(/crop="(.[^"]*)"/gm)
     const locationName = cleanLocationName(tplName)
-    LOCATIONS[0][locationName] = [{
-      srcsets: [],
-      default_img: '',
-      img_base: '',
-    }, ]
+    LOCATIONS[0][locationName] = [
+      {
+        srcsets: [],
+        default_img: '',
+        img_base: '',
+      },
+    ]
     srcsetArr.forEach(src => {
       const regex = /img-\d*-\d*/gm
       const sizes = src.match(regex)
       const retina = isRetina(src)
-      let crop = !(cropArr && cropArr[0] === 'crop="false"')
+      const crop = !(cropArr && cropArr[0] === 'crop="false"')
 
       sizes.forEach((size, index) => {
         const srcsetObj = {
@@ -176,7 +178,7 @@ const exportCSV = () => {
   }
   const json2csvParser = new Json2csvParser({
     fields,
-    unwind: 'sizes'
+    unwind: 'sizes',
   })
   let csv = json2csvParser.parse(CSVInfo)
   csv = replaceAll(csv, 'sizes.', '')

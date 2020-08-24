@@ -25,7 +25,7 @@
 		You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.
 		</p>
 		<p>
-		<button><span class="button-icon icon-close"></span>&nbsp;Close</button>
+		<button><span class="btn-icon icon-close"></span>&nbsp;Close</button>
 		</p>
 	</div>
 <![endif]-->

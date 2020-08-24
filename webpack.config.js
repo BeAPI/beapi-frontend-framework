@@ -11,6 +11,7 @@ const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const WebpackBar = require('webpackbar')
+const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries')
 const getServerPort = function(portFile) {
   try {
     require('fs').accessSync(portFile, fs.R_OK | fs.W_OK)
@@ -194,6 +195,7 @@ module.exports = (env, argv) => {
       ],
     },
     plugins: [
+      new FixStyleOnlyEntriesPlugin(),
       new WebpackBar({
         color: '#ffe600',
       }),

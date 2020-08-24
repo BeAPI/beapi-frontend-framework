@@ -8,7 +8,7 @@
             <p><?php echo $cardExcerpt; ?></p>
         </div>
         <div class="card__more">
-            <span class="button button--primary">Read more</span>
+            <span class="btn btn--primary">Read more</span>
         </div>
     </div>
 </div>

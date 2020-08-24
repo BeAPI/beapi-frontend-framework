@@ -166,6 +166,31 @@ module.exports = (env, argv) => {
             },
           ],
         },
+        {
+          test: /\.(png|jpe?g|gif)$/,
+          use: [
+            'file-loader',
+            {
+              loader: 'image-webpack-loader',
+              options: {
+                mozjpeg: {
+                  progressive: true,
+                  quality: 65,
+                },
+                pngquant: {
+                  quality: '65-90',
+                  speed: 4,
+                },
+                gifsicle: {
+                  interlaced: false,
+                },
+                webp: {
+                  quality: 75,
+                },
+              },
+            },
+          ],
+        },
       ],
     },
     plugins: [

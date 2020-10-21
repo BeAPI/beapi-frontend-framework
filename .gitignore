@@ -79,3 +79,4 @@ package-lock.json
 .port
 .bs-port
 /vendor/
+composer.lock

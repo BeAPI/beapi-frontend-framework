@@ -1,18 +1,17 @@
 [data-seo-container] {
-	position: relative;
-	cursor: pointer;
+    position: relative;
+    cursor: pointer;
 
-	[data-seo-target] {
+    [data-seo-target] {
+        &::before {
 
-		&::before {
+            @include pseudo__content;
 
-			@include pseudo__content;
-
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-		}
-	}
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    }
 }

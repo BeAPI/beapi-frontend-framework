@@ -1,4 +1,5 @@
 // Abstract
+
 @import "abstract/mixins";
 @import "abstract/utilities";
 @import "abstract/grid";
@@ -11,61 +12,60 @@
 @import "abstract/easing";
 
 // Base
+
 @import "base/text";
 
 // Components
+
 @import "components/buttons";
 
 // Wordpress
+
 @import "wp/img";
 //@import "wp/gallery"; Enable if Gutenberg is not used
+
 @import "wp/wysiwyg";
 @import "wp/gutenberg";
 
 // Backend Classic editor container
 .mce-content-body {
-	max-width: $containerWidth;
-	margin: $base-spacing/2;
+    max-width: $containerWidth;
+    margin: $base-spacing/2;
 }
 
 // Backend Gutenberg editor container
 .wp-block {
+    &:not([data-align="full"]) {
+        max-width: $containerWidth;
+    }
 
-	&:not([data-align="full"]) {
-		max-width: $containerWidth;
-	}
-
-	&[data-align="wide"] {
-		max-width: $containerWidth * 1.5;
-	}
+    &[data-align="wide"] {
+        max-width: $containerWidth * 1.5;
+    }
 }
 
 // Render Post/Page Title as FrontEnd view
 .editor-post-title {
+    &__block {
+        .editor-post-title {
+            &__input {
 
-	&__block {
+                @include title(XXL);
+            }
+        }
 
-		.editor-post-title {
-
-			&__input {
-
-				@include title(XXL);
-			}
-		}
-
-	}
+    }
 }
 
 // Exact style between BO/FO for lists
 .block-library-list {
+    ul {
 
-	ul {
+        @include wysiwyg__list();
+    }
 
-		@include wysiwyg__list();
-	}
+    ol {
 
-	ol {
-
-		@include wysiwyg__list(ol);
-	}
+        @include wysiwyg__list(ol);
+    }
 }

@@ -1,39 +1,39 @@
 .alignleft {
 
-	@include align;
+    @include align;
 }
 
 .alignright {
 
-	@include align(right);
+    @include align(right);
 }
 
 .aligncenter {
-	display: block;
-	margin-right: auto;
-	margin-left: auto;
-	clear: both;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    clear: both;
 }
 
 .alignleft,
 .alignright,
 .aligncenter {
-	margin-bottom: $base-spacing;
+    margin-bottom: $base-spacing;
 }
 
 .wp-caption {
-	max-width: 100% !important;
-	padding: 5px 0;
-	margin-bottom: $base-spacing;
-	text-align: center;
+    max-width: 100% !important;
+    padding: 5px 0;
+    margin-bottom: $base-spacing;
+    text-align: center;
 }
 
 .wp-caption img,
 .wp-smiley {
-	margin: 0;
+    margin: 0;
 }
 
 .wp-caption-text {
-	margin: 5px 5px 0;
-	font-size: 11px;
+    margin: 5px 5px 0;
+    font-size: 11px;
 }

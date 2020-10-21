@@ -1,6 +1,7 @@
 @import "~normalize-scss/sass/normalize/import-now";
 
 // Abstract
+
 @import "abstract/mixins";
 @import "abstract/utilities";
 @import "abstract/grid";
@@ -13,6 +14,7 @@
 @import "abstract/easing";
 
 // Base
+
 @import "base/svg-icons";
 @import "base/text";
 @import "base/form";
@@ -23,6 +25,7 @@
 @import "base/focus";
 
 // Components
+
 @import "components/buttons";
 @import "components/menu-fastaccess";
 @import "components/menu-accessible";
@@ -30,6 +33,7 @@
 @import "components/messages";
 
 // Patterns
+
 @import "patterns/header";
 @import "patterns/footer";
 @import "patterns/menu";
@@ -37,12 +41,15 @@
 @import "patterns/searchform";
 
 // Wordpress
+
 @import "wp/img";
 //@import "wp/gallery"; Enable if Gutenberg is not used
+
 @import "wp/wysiwyg";
 @import "wp/gutenberg";
 
 // Pages
+
 @import "pages/404";
 @import "pages/home";
 @import "pages/default";

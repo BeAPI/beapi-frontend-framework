@@ -1,38 +1,39 @@
 .gallery {
 
-	@include flex-grid__container();
-	margin: 0 0 $base-spacing;
+    @include flex-grid__container();
 
-	br + br {
-		display: none;
-	}
+    margin: 0 0 $base-spacing;
 
-	.gallery-caption {
-		margin: $half-base-spacing 0 0;
-		font-size: 11px;
-		text-align: left;
-	}
+    br + br {
+        display: none;
+    }
+
+    .gallery-caption {
+        margin: $half-base-spacing 0 0;
+        font-size: 11px;
+        text-align: left;
+    }
 }
 
 .gallery-item {
-	position: relative;
-	width: column(6);
-	margin-bottom: $base-spacing;
-	text-align: center;
+    position: relative;
+    width: column(6);
+    margin-bottom: $base-spacing;
+    text-align: center;
 
-	a {
-		display: block;
+    a {
+        display: block;
 
-		img {
-			display: block;
-		}
-	}
+        img {
+            display: block;
+        }
+    }
 
-	.gallery-columns-3 & {
-		width: column(4);
-	}
+    .gallery-columns-3 & {
+        width: column(4);
+    }
 
-	.gallery-columns-4 & {
-		width: column(3);
-	}
+    .gallery-columns-4 & {
+        width: column(3);
+    }
 }

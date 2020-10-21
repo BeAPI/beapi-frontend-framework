@@ -1,44 +1,44 @@
 .wysiwyg {
 
-	@include clearfix;
+    @include clearfix;
 
-	> * {
-		margin-bottom: $base-spacing;
+    > * {
+        margin-bottom: $base-spacing;
 
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 
-	> a:not([class]) {
-		text-decoration: underline;
+    > a:not([class]) {
+        text-decoration: underline;
 
-		@include hover {
-			text-decoration: none;
-		}
-	}
+        @include hover {
+            text-decoration: none;
+        }
+    }
 
-	ul:not([class]) {
+    ul:not([class]) {
 
-		@include wysiwyg__list();
-	}
+        @include wysiwyg__list();
+    }
 
-	ol:not([class]) {
+    ol:not([class]) {
 
-		@include wysiwyg__list(ol);
-	}
+        @include wysiwyg__list(ol);
+    }
 
-	img {
+    img {
 
-		@include img__responsive;
+        @include img__responsive;
 
-		&.alignright,
-		&.alignleft {
-			max-width: 50%;
+        &.alignright,
+        &.alignleft {
+            max-width: 50%;
 
-			@include breakpoints(sm) {
-				max-width: 100%;
-			}
-		}
-	}
+            @include breakpoints(sm) {
+                max-width: 100%;
+            }
+        }
+    }
 }

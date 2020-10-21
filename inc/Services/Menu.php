@@ -34,8 +34,8 @@ class Menu implements Service {
 
 	public function register_menus() {
 		$nav_menu = [
-			'menu-main' => __('Main menu'),
-			'menu-footer' => __('Footer menu'),
+			'menu-main'   => __( 'Main menu' ),
+			'menu-footer' => __( 'Footer menu' ),
 		];
 		register_nav_menus( $nav_menu );
 	}

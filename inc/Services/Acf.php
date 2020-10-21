@@ -15,7 +15,7 @@ class Acf implements Service {
 	/**
 	 * @var array
 	 */
-	private $files = [];
+	private $files = array();
 
 	/**
 	 * @var string
@@ -26,9 +26,9 @@ class Acf implements Service {
 	 * @param Service_Container $container
 	 */
 	public function boot( Service_Container $container ) {
-		add_action( 'template_redirect', [ $this, 'warning' ], 0 );
-		add_action( 'init', [ $this, 'init' ], 0 );
-		add_action( 'init', [ $this, 'init_acf' ] );
+		add_action( 'template_redirect', array( $this, 'warning' ), 0 );
+		add_action( 'init', array( $this, 'init' ), 0 );
+		add_action( 'init', array( $this, 'init_acf' ) );
 	}
 
 	/**
@@ -51,8 +51,8 @@ class Acf implements Service {
 		if ( function_exists( 'get_field' ) ) {
 			return;
 		}
-
-		wp_die( sprintf( __( 'This theme can\'t work without ACF plugin. <a href="%s">Please login to admin</a>, and activate it !', 'framework-textdomain' ), wp_login_url() ) );
+		// translators: error message when acf is not activated
+		wp_die( wp_kses_post( sprintf( __( 'This theme can\'t work without ACF plugin. <a href="%s">Please login to admin</a>, and activate it !', 'framework-textdomain' ), wp_login_url() ) ) );
 	}
 
 	/**

@@ -32,10 +32,10 @@ class Assets implements Service {
 		/**
 		 * Add hooks for the scripts and styles to hook on
 		 */
-		add_action( 'wp', [ $this, 'register_assets' ] );
-		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
-		add_action( 'wp_print_styles', [ $this, 'enqueue_styles' ] );
-		add_filter( 'stylesheet_uri', [ $this, 'stylesheet_uri' ] );
+		add_action( 'wp', array( $this, 'register_assets' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'wp_print_styles', array( $this, 'enqueue_styles' ) );
+		add_filter( 'stylesheet_uri', array( $this, 'stylesheet_uri' ) );
 	}
 
 	/**
@@ -56,14 +56,14 @@ class Assets implements Service {
 
 		// Js theme
 		// Theme js dependencies
-		$scripts_dependencies = [ 'jquery' ];
+		$scripts_dependencies = array( 'jquery' );
 
 		// Async and footer
 		$file = ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) ? $this->get_min_file( 'js' ) : 'app.js';
 		$this->assets_tools->register_script( 'scripts', 'dist/assets/' . $file, $scripts_dependencies, $theme->get( 'Version' ), true );
 
 		// CSS
-		wp_register_style( 'theme-style', get_stylesheet_uri(), [], $theme->get( 'Version' ) );
+		wp_register_style( 'theme-style', get_stylesheet_uri(), array(), $theme->get( 'Version' ) );
 	}
 
 	/**
@@ -125,7 +125,7 @@ class Assets implements Service {
 			return false;
 		}
 
-		$json   = file_get_contents( \get_theme_file_path( '/dist/assets/assets.json' ) );
+		$json   = file_get_contents( \get_theme_file_path( '/dist/assets/assets.json' ) ); //phpcs:ignore
 		$assets = json_decode( $json, true );
 
 		if ( empty( $assets ) ) {

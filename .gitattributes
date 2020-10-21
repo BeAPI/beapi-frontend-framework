@@ -1,0 +1,8 @@
+.github export-ignore
+.gitattributes export-ignore
+.idea export-ignore
+phpcs.xml export-ignore
+psalm.xml export-ignore
+.snyk export-ignore
+composer.json export-ignore
+composer.lock export-ignore

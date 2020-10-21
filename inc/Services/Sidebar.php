@@ -31,6 +31,6 @@ class Sidebar implements Service {
 	}
 
 	public function register_sidebars() {
-		
+
 	}
 }

@@ -49,25 +49,25 @@
 
 				<p>
 					<h3>Buttons + Icons</h3>
-					<button type="button" class="btn">Default Button <svg class="btn__icon icon icon-close" aria-hidden="true" role="img">
+					<button type="button" class="btn">Default Button <svg class="btn__icon icon icon-close" aria-hidden="true" focusable="false">
 						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
 					</svg></button>
-					<button type="button" class="btn btn--primary">Primary Button <svg class="btn__icon icon icon-close" aria-hidden="true" role="img">
+					<button type="button" class="btn btn--primary">Primary Button <svg class="btn__icon icon icon-close" aria-hidden="true" focusable="false">
 						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
 					</svg></button>
-					<button type="button" class="btn btn--error">Error Button <svg class="btn__icon icon icon-close" aria-hidden="true" role="img">
+					<button type="button" class="btn btn--error">Error Button <svg class="btn__icon icon icon-close" aria-hidden="true" focusable="false">
 						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
 					</svg></button>
-					<button type="button" class="btn btn--warning">Warning Button <svg class="btn__icon icon icon-close" aria-hidden="true" role="img">
+					<button type="button" class="btn btn--warning">Warning Button <svg class="btn__icon icon icon-close" aria-hidden="true" focusable="false">
 						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
 					</svg></button>
-					<button type="button" class="btn btn--success">Success Button <svg class="btn__icon icon icon-close" aria-hidden="true" role="img">
+					<button type="button" class="btn btn--success">Success Button <svg class="btn__icon icon icon-close" aria-hidden="true" focusable="false">
 						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
 					</svg></button>
-					<button type="button" class="btn btn--info">Info Button <svg class="btn__icon icon icon-close" aria-hidden="true" role="img">
+					<button type="button" class="btn btn--info">Info Button <svg class="btn__icon icon icon-close" aria-hidden="true" focusable="false">
 						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
 					</svg></button>
-					<button type="button" class="btn btn--transparent">Transparent Button <svg class="btn__icon icon icon-close" aria-hidden="true" role="img">
+					<button type="button" class="btn btn--transparent">Transparent Button <svg class="btn__icon icon icon-close" aria-hidden="true" focusable="false">
 						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
 					</svg></button>
 				</p>
@@ -144,32 +144,32 @@
 					</p>
 					<p>
 						<button type="button" class="btn btn--circle">
-							<svg class="icon icon-logo-beapi" aria-hidden="true" role="img">
+							<svg class="icon icon-logo-beapi" aria-hidden="true" focusable="false">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
 							</svg>
 						</button>
 						<button type="button" class="btn btn--circle btn--primary">
-							<svg class="icon icon-logo-beapi" aria-hidden="true" role="img">
+							<svg class="icon icon-logo-beapi" aria-hidden="true" focusable="false">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
 							</svg>
 						</button>
 						<button type="button" class="btn btn--circle btn--error">
-							<svg class="icon icon-logo-beapi" aria-hidden="true" role="img">
+							<svg class="icon icon-logo-beapi" aria-hidden="true" focusable="false">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
 							</svg>
 						</button>
 						<button type="button" class="btn btn--circle btn--warning">
-							<svg class="icon icon-logo-beapi" aria-hidden="true" role="img">
+							<svg class="icon icon-logo-beapi" aria-hidden="true" focusable="false">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
 							</svg>
 						</button>
 						<button type="button" class="btn btn--circle btn--success">
-							<svg class="icon icon-logo-beapi" aria-hidden="true" role="img">
+							<svg class="icon icon-logo-beapi" aria-hidden="true" focusable="false">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
 							</svg>
 						</button>
 						<button type="button" class="btn btn--circle btn--info">
-							<svg class="icon icon-logo-beapi" aria-hidden="true" role="img">
+							<svg class="icon icon-logo-beapi" aria-hidden="true" focusable="false">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
 							</svg>
 						</button>
@@ -188,32 +188,32 @@
 				</p>
 				<p>
 					<a href="#" class="btn btn--circle">
-						<svg class="icon icon-logo-beapi" aria-hidden="true" role="img">
+						<svg class="icon icon-logo-beapi" aria-hidden="true" focusable="false">
 							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
 						</svg>
 					</a>
 					<a href="#" class="btn btn--circle btn--primary">
-						<svg class="icon icon-logo-beapi" aria-hidden="true" role="img">
+						<svg class="icon icon-logo-beapi" aria-hidden="true" focusable="false">
 							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
 						</svg>
 					</a>
 					<a href="#" class="btn btn--circle btn--error">
-						<svg class="icon icon-logo-beapi" aria-hidden="true" role="img">
+						<svg class="icon icon-logo-beapi" aria-hidden="true" focusable="false">
 							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
 						</svg>
 					</a>
 					<a href="#" class="btn btn--circle btn--warning">
-						<svg class="icon icon-logo-beapi" aria-hidden="true" role="img">
+						<svg class="icon icon-logo-beapi" aria-hidden="true" focusable="false">
 							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
 						</svg>
 					</a>
 					<a href="#" class="btn btn--circle btn--success">
-						<svg class="icon icon-logo-beapi" aria-hidden="true" role="img">
+						<svg class="icon icon-logo-beapi" aria-hidden="true" focusable="false">
 							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
 						</svg>
 					</a>
 					<a href="#" class="btn btn--circle btn--info">
-						<svg class="icon icon-logo-beapi" aria-hidden="true" role="img">
+						<svg class="icon icon-logo-beapi" aria-hidden="true" focusable="false">
 							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
 						</svg>
 					</a>
@@ -229,7 +229,7 @@
 				<hr>
 				<a class="btn btn--icon" href="https://beapi.fr">
 					<span class="visuallyhidden">Be API</span>
-					<svg class="icon icon-logo-beapi" aria-hidden="true" role="img">
+					<svg class="icon icon-logo-beapi" aria-hidden="true" focusable="false">
 						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo-beapi"></use>
 					</svg>
 				</a>

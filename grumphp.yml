@@ -1,0 +1,35 @@
+# grumphp.yml
+grumphp:
+  tasks:
+    git_blacklist:
+      keywords:
+        - "var_dump("
+        - "<<<<<<< HEAD"
+      whitelist_patterns: []
+      triggered_by: ['php']
+      regexp_type: G
+    phplint:
+      exclude: ['vendor']
+      jobs: ~
+      triggered_by: ['php', 'phtml', 'php3', 'php4', 'php5', 'php7']
+    phpcs:
+      standard: ['phpcs.xml']
+      triggered_by: [php]
+    securitychecker:
+      lockfile: ./composer.lock
+      format: ~
+      end_point: ~
+      timeout: ~
+      run_always: false
+    composer:
+      no_check_all: true
+      no_check_publish: true
+      no_local_repository: true
+    jsonlint:
+      ignore_patterns: []
+      detect_key_conflicts: false
+    psalm:
+      config: psalm.xml
+      triggered_by: ['php']
+  testsuites: []
+  extensions: []

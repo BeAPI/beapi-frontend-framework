@@ -13,6 +13,7 @@ const CSV_ZIP_PATH = `${CONF_IMG_DIR}/images-sizes.csv`
 
 const LOCATIONS = [{}]
 const SIZES_STORE = []
+const CROP_STORE = []
 const SIZES = [{}]
 
 const isExport = process.argv[2] === 'csv'
@@ -74,7 +75,7 @@ const replaceAll = (str, find, replace) => {
  * @param {String} json
  */
 const createFile = (filename, json) => {
-  fs.open(filename, 'r', (err, fd) => {
+  fs.open(filename, 'r', err => {
     if (err) {
       fs.writeFileSync(filename, json)
     } else {
@@ -93,6 +94,7 @@ const imageLocationsFromTpl = () => {
     const tplContent = fs.readFileSync(`${CONF_IMG_DIR}/tpl/${tplName}`, 'utf8')
     const regex = /data-srcset="(.[^"]*)"/gm
     const srcsetArr = tplContent.match(regex)
+    const cropArr = tplContent.match(/crop="(.[^"]*)"/gm)
     const locationName = cleanLocationName(tplName)
     LOCATIONS[0][locationName] = [
       {
@@ -105,12 +107,15 @@ const imageLocationsFromTpl = () => {
       const regex = /img-\d*-\d*/gm
       const sizes = src.match(regex)
       const retina = isRetina(src)
+      const crop = !(cropArr && cropArr[0] === 'crop="false"')
+
       sizes.forEach((size, index) => {
         const srcsetObj = {
           srcset: retina[index],
           size,
         }
         SIZES_STORE.push(size)
+        CROP_STORE.push(crop)
         LOCATIONS[0][locationName][0].srcsets.push(srcsetObj)
         const defaultName = cleanDefaultName(size)
         LOCATIONS[0][locationName][0].default_img = defaultName
@@ -124,13 +129,13 @@ const imageLocationsFromTpl = () => {
  * Split image sizes into width and height
  */
 const cleanImageSizes = () => {
-  uniqueArray(SIZES_STORE).forEach(size => {
+  uniqueArray(SIZES_STORE).forEach((size, index) => {
     nbSizes += 1
     const splitSize = size.split('-')
     SIZES[0][size] = {
       width: splitSize[1],
       height: splitSize[2],
-      crop: true,
+      crop: CROP_STORE[index],
     }
   })
 }
@@ -171,7 +176,10 @@ const exportCSV = () => {
       CSVObj.sizes.push(size)
     })
   }
-  const json2csvParser = new Json2csvParser({ fields, unwind: 'sizes' })
+  const json2csvParser = new Json2csvParser({
+    fields,
+    unwind: 'sizes',
+  })
   let csv = json2csvParser.parse(CSVInfo)
   csv = replaceAll(csv, 'sizes.', '')
   createFile(CSV_ZIP_PATH, csv)

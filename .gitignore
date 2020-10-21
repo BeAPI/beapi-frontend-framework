@@ -78,3 +78,5 @@ package-lock.json
 ### config
 .port
 .bs-port
+/vendor/
+composer.lock

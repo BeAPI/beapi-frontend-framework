@@ -51,10 +51,10 @@
 			<nav id="nav-primary" class="amenu nav-primary" aria-label="Main navigation" role="navigation">
 				<button class="amenu__toggle accessible-megamenu-toggle">
 					<span class="visuallyhidden">Menu</span>
-					<svg class="icon icon-menu" aria-hidden="true" role="img">
+					<svg class="icon icon-menu" aria-hidden="true" focusable="false">
 						<use xlink:href="#icon-menu"></use>
 					</svg>
-					<svg class="icon icon-close" aria-hidden="true" role="img">
+					<svg class="icon icon-close" aria-hidden="true" focusable="false">
 						<use xlink:href="#icon-close"></use>
 					</svg>
 				</button>

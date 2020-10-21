@@ -17,7 +17,7 @@ class BackToTop {
     backToTopButton.setAttribute('id', 'js-back-to-top')
     backToTopButton.setAttribute('data-goto', '0')
     backToTopButton.innerHTML =
-      '<svg class="icon icon-up" aria-hidden="true" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-up"></use></svg>'
+      '<svg class="icon icon-up" aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-up"></use></svg>'
 
     document.body.appendChild(backToTopButton)
   }

@@ -13,11 +13,11 @@
         "block-closing-brace-space-before": null,
         "block-opening-brace-newline-after": null,
         "block-opening-brace-space-after": null,
-        "block-opening-brace-space-before": null,
+        "block-opening-brace-space-before": "always",
         "declaration-block-semicolon-newline-after": null,
         "declaration-block-semicolon-space-after": null,
         "declaration-block-semicolon-space-before": null,
-        "declaration-block-trailing-semicolon": null,
+        "declaration-block-trailing-semicolon": "always",
         "indentation": 4,
         "no-descending-specificity": null,
         "number-leading-zero": "never",
@@ -62,6 +62,7 @@
                 "function"
                 ]
             }
-        ]
+        ],
+        "string-quotes": "double",
     }
 }

@@ -14,7 +14,7 @@ class Framework {
 	protected static $container;
 
 	/**
-	 * @var $services
+	 * @var array $services
 	 */
 	protected static $services = [
 		// Services
@@ -50,6 +50,6 @@ class Framework {
 	 * @param $name
 	 */
 	public static function register_service( $name ) {
-	 	self::get_container()->register_service( $name );
+		self::get_container()->register_service( $name );
 	}
 }

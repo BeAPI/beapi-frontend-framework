@@ -52,7 +52,7 @@ class Acf implements Service {
 			return;
 		}
 
-		wp_die( sprintf( __( 'This theme can\'t work without ACF plugin. <a href="%s">Please login to admin</a>, and activate it !', 'framework-textdomain' ), wp_login_url() ) );
+		wp_die( sprintf( __( 'This theme can\'t work without ACF plugin. <a href="%s">Please login to admin</a>, and activate it !', 'framework-textdomain' ), esc_url( wp_login_url() ) ) ); // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment, WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
@@ -118,7 +118,7 @@ class Acf implements Service {
 		}
 
 		if ( ! isset( $parameters['menu_slug'] ) ) {
-			throw new InvalidArgumentException( 'You must specify menu slug for ACF options page.' );
+			throw new \InvalidArgumentException( 'You must specify menu slug for ACF options page.' );
 		}
 
 		return acf_add_options_page( $parameters );
@@ -165,7 +165,7 @@ class Acf implements Service {
 		}
 
 		if ( ! isset( $parameters['menu_slug'] ) ) {
-			throw new InvalidArgumentException( 'You must specify menu slug for ACF options page.' );
+			throw new \InvalidArgumentException( 'You must specify menu slug for ACF options page.' );
 		}
 
 		return acf_add_options_sub_page( $parameters );

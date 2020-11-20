@@ -59,7 +59,7 @@ function get_the_icon( $fileName, $additional_classes = [] ) {
 	$classes[] = sprintf( 'icon-%s', $fileName );
 	$classes   = array_merge( $classes, $additional_classes );
 
-	return sprintf( '<svg class="%s" aria-hidden="true" role="img"><use xlink:href="%s#icon-%s"></use></svg>', implode( ' ', $classes ), '/dist/assets/img/icons/icons.svg', $fileName );
+	return sprintf( '<svg class="%s" aria-hidden="true" focusable="false"><use xlink:href="%s#icon-%s"></use></svg>', implode( ' ', $classes ), '/dist/assets/img/icons/icons.svg', $fileName );
 }
 
 function the_icon( $fileName, $additional_classes = [] ) {

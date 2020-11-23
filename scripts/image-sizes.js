@@ -2,37 +2,80 @@ const fs = require('fs')
 const ora = require('ora')
 const Json2csvParser = require('json2csv').Parser
 const fields = ['location', 'sizes.width', 'sizes.height', 'sizes.retina', 'sizes.ratio']
-
-const CONF_IMG_DIR = './src/conf-img'
-const IGNORED_TPL = 'default-picture.tpl'
-const LOCATIONS_FILENAME = 'image-locations.json'
-const SIZES_FILENAME = 'image-sizes.json'
-const DEFAULT_PREFIX_NAME = 'default'
-const DEFAULT_EXT = 'jpg'
-const CSV_ZIP_PATH = `${CONF_IMG_DIR}/images-sizes.csv`
-
-const LOCATIONS = [{}]
-const SIZES_STORE = []
-const CROP_STORE = []
-const SIZES = [{}]
+const dir = {
+  conf: './src/conf-img/',
+  tpl: './src/conf-img/tpl/',
+}
+const path = {
+  imagesSizesCsv: dir.conf + 'images-sizes.csv',
+  imagesSizesJson: dir.conf + 'image-sizes.json',
+  imageLocationsJson: dir.conf + 'image-locations.json',
+}
+const regex = {
+  srcset: /data-srcset="(.[^"]*)"/gm,
+  crop: /crop="(.[^"]*)"/gm,
+  img: /img-\d*-\d*/gm,
+}
+const locations = {}
+const sizes = {}
 
 const isExport = process.argv[2] === 'csv'
 let nbLocations = 0
 let nbSizes = 0
 
 /**
+ * Return an array of names of tpl files
+ * @return {array}
+ */
+function getTemplateFileNames() {
+  return fs.readdirSync(dir.tpl).filter(function(tpl) {
+    return tpl !== 'default-picture.tpl'
+  })
+}
+
+/**
+ * Return content of tpl file
+ * @param {string} templateFileName
+ * @return {string}
+ */
+function getTemplateFileContent(templateFileName) {
+  return fs.readFileSync(dir.tpl + templateFileName, 'utf8')
+}
+
+/**
+ * Create a json file
+ * @param {string} destPath
+ * @param data
+ * @return undefined
+ */
+function createJsonFile(destPath, data) {
+  createFile(destPath, JSON.stringify(data, null, 2))
+}
+
+/**
  * Remove extension template name
  * @param {string} name
  * @return {String}
  */
-const cleanLocationName = name => name.split('.')[0]
+function removeFileExtension(name) {
+  return name.split('.')[0]
+}
+
+/**
+ * Generate default location name based on image size
+ * @param {String} size
+ * @return {String}
+ */
+function getDefaultImgName(str) {
+  return str.replace('img', 'default') + '.jpg'
+}
 
 /**
  * Check if srcset is retina
  * @param {String} src
  * @return {Array}
  */
-const isRetina = src => {
+function isRetina(src) {
   const retina = []
   src.split(',').forEach(val => {
     if (val.includes('2x')) {
@@ -45,157 +88,121 @@ const isRetina = src => {
 }
 
 /**
- * Generate default location name based on image size
- * @param {String} size
- * @return {String}
- */
-const cleanDefaultName = size => `${size.replace('img', DEFAULT_PREFIX_NAME)}.${DEFAULT_EXT}`
-
-/**
- * Remove duplicate occurences of an array
- * @param {Array} a
- * @return {Array}
- */
-const uniqueArray = a => a.filter((item, pos, self) => self.indexOf(item) === pos)
-
-/**
- * Replace all occurences of a string
- * @param {String} str
- * @param {String} find
- * @param {String} replace
- * @return {String}
- */
-const replaceAll = (str, find, replace) => {
-  return str.replace(new RegExp(find, 'g'), replace)
-}
-
-/**
  * Create file if he does not exist
  * @param {String} filename
  * @param {String} json
  */
-const createFile = (filename, json) => {
-  fs.open(filename, 'r', err => {
-    if (err) {
-      fs.writeFileSync(filename, json)
-    } else {
-      fs.writeFileSync(filename, json)
-    }
+function createFile(filename, json) {
+  fs.open(filename, 'r', () => {
+    fs.writeFileSync(filename, json)
   })
 }
 
 /**
  * Get image locations informations from tpl files
  */
-const imageLocationsFromTpl = () => {
-  const templates = fs.readdirSync(`${CONF_IMG_DIR}/tpl/`).filter(tpl => tpl !== IGNORED_TPL)
-  templates.forEach(tplName => {
+function imageLocationsFromTpl() {
+  const templateFileNames = getTemplateFileNames()
+
+  templateFileNames.forEach(function(tplName) {
     nbLocations += 1
-    const tplContent = fs.readFileSync(`${CONF_IMG_DIR}/tpl/${tplName}`, 'utf8')
-    const regex = /data-srcset="(.[^"]*)"/gm
-    const srcsetArr = tplContent.match(regex)
-    const cropArr = tplContent.match(/crop="(.[^"]*)"/gm)
-    const locationName = cleanLocationName(tplName)
-    LOCATIONS[0][locationName] = [
-      {
-        srcsets: [],
-        default_img: '',
-        img_base: '',
-      },
-    ]
+    const tplContent = getTemplateFileContent(tplName)
+    const srcsetArr = tplContent.match(regex.srcset)
+    const cropArr = tplContent.match(regex.crop)
+    const storage = {
+      srcsets: [],
+      default_img: '',
+      img_base: '',
+    }
+
     srcsetArr.forEach(src => {
-      const regex = /img-\d*-\d*/gm
-      const sizes = src.match(regex)
+      const dimensions = src.match(regex.img)
       const retina = isRetina(src)
       const crop = !(cropArr && cropArr[0] === 'crop="false"')
 
-      sizes.forEach((size, index) => {
+      dimensions.forEach((size, index) => {
+        const splitSize = size.split('-')
         const srcsetObj = {
           srcset: retina[index],
           size,
         }
-        SIZES_STORE.push(size)
-        CROP_STORE.push(crop)
-        LOCATIONS[0][locationName][0].srcsets.push(srcsetObj)
-        const defaultName = cleanDefaultName(size)
-        LOCATIONS[0][locationName][0].default_img = defaultName
-        LOCATIONS[0][locationName][0].img_base = size
+
+        // TODO: check if size already exists
+        if (sizes[size] && sizes[size].crop !== crop) {
+          console.log('\nSize already exists but crop is not equal :', size)
+        }
+
+        if (!sizes[size]) {
+          sizes[size] = {
+            width: splitSize[1],
+            height: splitSize[2],
+            crop: crop,
+          }
+
+          nbSizes += 1
+        }
+
+        // console.log('[imageLocationsFromTpl]', CROP_STORE.length - 1, size, crop)
+        storage.srcsets.push(srcsetObj)
+        storage.default_img = getDefaultImgName(size)
+        storage.img_base = size
       })
+
+      locations[removeFileExtension(tplName)] = [storage]
     })
   })
-}
-
-/**
- * Split image sizes into width and height
- */
-const cleanImageSizes = () => {
-  uniqueArray(SIZES_STORE).forEach((size, index) => {
-    nbSizes += 1
-    const splitSize = size.split('-')
-    SIZES[0][size] = {
-      width: splitSize[1],
-      height: splitSize[2],
-      crop: CROP_STORE[index],
-    }
-  })
-}
-
-/**
- * Write image locations json file
- */
-const writeLocationsJSON = () => {
-  createFile(`${CONF_IMG_DIR}/${LOCATIONS_FILENAME}`, JSON.stringify(LOCATIONS, null, 2))
-}
-
-/**
- * Write image sizes json file
- */
-const writeSizesJSON = () => {
-  createFile(`${CONF_IMG_DIR}/${SIZES_FILENAME}`, JSON.stringify(SIZES, null, 2))
 }
 
 /**
  * Export all data as CSV
  */
-const exportCSV = () => {
+function exportCSV() {
   const CSVInfo = []
-  for (const location in LOCATIONS[0]) {
-    const CSVObj = {
-      location,
-      sizes: [],
-    }
-    CSVInfo.push(CSVObj)
-    const srcsets = LOCATIONS[0][location][0].srcsets
-    srcsets.forEach(val => {
-      const size = {}
-      size.retina = val.srcset === '2x' ? '✓' : '×'
-      const splitSize = val.size.split('-')
-      size.width = `${splitSize[1]}px`
-      size.height = `${splitSize[2]}px`
-      size.ratio = splitSize[1] / splitSize[2]
-      CSVObj.sizes.push(size)
-    })
-  }
   const json2csvParser = new Json2csvParser({
     fields,
     unwind: 'sizes',
   })
-  let csv = json2csvParser.parse(CSVInfo)
-  csv = replaceAll(csv, 'sizes.', '')
-  createFile(CSV_ZIP_PATH, csv)
+  let csv
+  let location
+
+  for (location in locations) {
+    const srcsets = locations[location][0].srcsets
+    const CSVObj = {
+      location,
+      sizes: [],
+    }
+
+    CSVInfo.push(CSVObj)
+
+    srcsets.forEach(val => {
+      const splitSize = val.size.split('-')
+
+      CSVObj.sizes.push({
+        retina: val.srcset === '2x' ? '✓' : '×',
+        width: splitSize[1] + 'px',
+        height: splitSize[2] + 'px',
+        ratio: splitSize[1] / splitSize[2],
+      })
+    })
+  }
+
+  csv = json2csvParser.parse(CSVInfo)
+  csv = csv.replace(/sizes./g, '')
+  createFile(path.imagesSizesCsv, csv)
 }
 
 /**
  * Init function
  */
-const init = async () => {
+function init() {
   const spinner = ora('Generate image locations and sizes JSON files').start()
-  await imageLocationsFromTpl()
-  await cleanImageSizes()
-  await writeLocationsJSON()
-  await writeSizesJSON()
+  imageLocationsFromTpl()
+
+  createJsonFile(path.imageLocationsJson, [locations])
+  createJsonFile(path.imagesSizesJson, [sizes])
+
   if (isExport) {
-    await exportCSV()
+    exportCSV()
     spinner.succeed(
       `JSON files successfully generated !\nNumber of locations : ${nbLocations} \nNumber of sizes : ${nbSizes} \nCSV exported`
     )

@@ -28,7 +28,9 @@ let nbSizes = 0
  * @return {array}
  */
 function getTemplateFileNames() {
-  return fs.readdirSync(dir.tpl).filter(tpl => tpl !== 'default-picture.tpl')
+  return fs.readdirSync(dir.tpl).filter(function(tpl) {
+    return tpl !== 'default-picture.tpl'
+  })
 }
 
 /**
@@ -102,7 +104,7 @@ function createFile(filename, json) {
 function imageLocationsFromTpl() {
   const templateFileNames = getTemplateFileNames()
 
-  templateFileNames.forEach(tplName => {
+  templateFileNames.forEach(function(tplName) {
     nbLocations += 1
     const tplContent = getTemplateFileContent(tplName)
     const srcsetArr = tplContent.match(regex.srcset)
@@ -161,8 +163,9 @@ function exportCSV() {
     unwind: 'sizes',
   })
   let csv
+  let location
 
-  for (let location in locations) {
+  for (location in locations) {
     const srcsets = locations[location][0].srcsets
     const CSVObj = {
       location,
@@ -184,7 +187,7 @@ function exportCSV() {
   }
 
   csv = json2csvParser.parse(CSVInfo)
-  csv = csv.replace(new RegExp('sizes.', 'g'), '')
+  csv = csv.replace(/sizes./g, '')
   createFile(path.imagesSizesCsv, csv)
 }
 

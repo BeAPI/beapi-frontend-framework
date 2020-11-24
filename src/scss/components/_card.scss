@@ -3,98 +3,97 @@
  */
 
 @mixin card($flexDirection: column, $thumbnailWidth : 300px) {
-	display: flex;
-	flex-direction: $flexDirection;
-	margin: 0 auto;
-	border: $base-border;
+    display: flex;
+    flex-direction: $flexDirection;
+    margin: 0 auto;
+    border: $base-border;
 
-	@if ($flexDirection == row or $flexDirection == row-reverse) {
+    @if ($flexDirection == row or $flexDirection == row-reverse) {
 
-		@include breakpoints(sm) {
-			flex-direction: $flexDirection;
-			max-width: 100%;
+        @include breakpoints(sm) {
+            flex-direction: $flexDirection;
+            max-width: 100%;
 
-			.card {
+            .card {
+                &__thumbnail {
+                    width: $thumbnailWidth;
+                }
 
-				&__thumbnail {
-					width: $thumbnailWidth;
-				}
+                &__content {
+                    width: calc(100% - #{$thumbnailWidth});
+                }
 
-				&__content {
-					width: calc(100% - #{$thumbnailWidth});
-				}
+                &__img {
 
-				&__img {
+                    @include object-fit;
 
-					@include object-fit;
-					height: 100%;
-					margin: 0;
-				}
-			}
-		}
-	}
+                    height: 100%;
+                    margin: 0;
+                }
+            }
+        }
+    }
 
-	@if ($flexDirection == row) {
-		flex-direction: column;
-	}
+    @if ($flexDirection == row) {
+        flex-direction: column;
+    }
 
-	@if ($flexDirection == row-reverse) {
-		flex-direction: column-reverse;
-	}
+    @if ($flexDirection == row-reverse) {
+        flex-direction: column-reverse;
+    }
 }
 
 .card {
-	$el: &;
+    $el: &;
 
-	@include card;
+    @include card;
 
-	#{$el}__img {
-		display: block;
-		width: 100%;
-		margin: 0 auto;
-	}
+    #{$el}__img {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+    }
 
-	#{$el}__content {
-		padding: $base-spacing;
+    #{$el}__content {
+        padding: $base-spacing;
 
-		p {
+        p {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
 
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
-	}
+    // Vertical card reversed
+    &--reverse {
 
-	// Vertical card reversed
-	&--reverse {
+        @include card(column-reverse);
+    }
 
-		@include card(column-reverse);
-	}
+    // Horizontal card
+    &--row {
 
-	// Horizontal card
-	&--row {
+        @include card(row, 300px);
 
-		@include card(row, 300px);
+        &#{$el}--center {
 
-		&#{$el}--center {
+            @include breakpoints(sm) {
+                align-items: center;
+            }
+        }
 
-			@include breakpoints(sm) {
-				align-items: center;
-			}
-		}
+        // Horizontal card reversed
+        &#{$el}--reverse {
 
-		// Horizontal card reversed
-		&#{$el}--reverse {
+            @include card(row-reverse, 300px);
+        }
+    }
 
-			@include card(row-reverse, 300px);
-		}
-	}
-
-	@include breakpoints(sm) {
-		#{$el}--row {
-			&#{$el}--center {
-				align-items: center;
-			}
-		}
-	}
+    @include breakpoints(sm) {
+        #{$el}--row {
+            &#{$el}--center {
+                align-items: center;
+            }
+        }
+    }
 }

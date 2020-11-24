@@ -1,137 +1,134 @@
 .alignwide {
 
-	@include row--fullwidth;
-	max-width: $containerWidth * 1.5;
+    @include row--fullwidth;
+
+    max-width: $containerWidth * 1.5;
 }
 
 .alignfull {
 
-	@include row--fullwidth;
-	max-width: 100vw;
+    @include row--fullwidth;
+
+    max-width: 100vw;
 }
 
 //Paragraph
 p {
-	//H2 like style
-	&.has-huge-font-size {
+    //H2 like style
+    &.has-huge-font-size {
 
-		@include title(XL);
-	}
-	//H3 like style
-	&.has-large-font-size {
+        @include title(XL);
+    }
+    //H3 like style
+    &.has-large-font-size {
 
-		@include title(L);
-	}
-	//H4 like style
-	&.has-medium-font-size {
+        @include title(L);
+    }
+    //H4 like style
+    &.has-medium-font-size {
 
-		@include title(M);
-	}
+        @include title(M);
+    }
 }
 
 // Mains blocks
 .wp-block {
-	$el : &;
+    $el : &;
 
-	// Block columns
-	&-column {
+    // Block columns
+    &-column {
 
-		@include breakpoints(xsm) {
-			flex-basis: calc(50% - #{$base-spacing});
-		}
+        @include breakpoints(xsm) {
+            flex-basis: calc(50% - #{$base-spacing});
+        }
 
-		&:nth-child(even) {
+        &:nth-child(even) {
 
-			@include breakpoints(xsm) {
-				margin-left: $base-spacing*2;
-			}
-		}
-	}
-	// Block Button
-	&-button {
-		margin-bottom: $base-spacing;
+            @include breakpoints(xsm) {
+                margin-left: $base-spacing*2;
+            }
+        }
+    }
+    // Block Button
+    &-button {
+        margin-bottom: $base-spacing;
 
-		&__link {
+        &__link {
 
-			@extend .btn;
+            @extend .btn;
 
-			&:not([class*="has"]) {
+            &:not([class*="has"]) {
 
-				@extend .btn--primary;
-			}
-		}
+                @extend .btn--primary;
+            }
+        }
 
-		&.is-style-outline {
-			#{$el}-button {
+        &.is-style-outline {
+            #{$el}-button {
+                &__link {
 
-				&__link {
+                    @extend .btn--outline;
+                }
+            }
+        }
 
-					@extend .btn--outline;
-				}
-			}
-		}
+        &.is-style-squared {
+            #{$el}-button {
+                &__link {
 
-		&.is-style-squared {
-			#{$el}-button {
+                    @extend .btn--square;
+                }
+            }
+        }
+    }
 
-				&__link {
+    // Block Separator (<hr/>)
+    &-separator {
+        &:not(.is-style-dots) {
+            margin-right: auto;
+            margin-left: auto;
+            border-bottom: 2px solid $gray-color-500;
+        }
 
-					@extend .btn--square;
-				}
-			}
-		}
-	}
+        &:not(.is-style-wide):not(.is-style-dots) {
+            // Custom CSS for native Separator Block
+        }
+    }
 
-	// Block Separator (<hr/>)
-	&-separator {
+    // Block Quote (<blockquote/>)
+    &-quote {
+        p {
+            // Custom CSS for inner paragraph
+        }
 
-		&:not(.is-style-dots) {
-			margin-right: auto;
-			margin-left: auto;
-			border-bottom: 2px solid $gray-color-500;
-		}
+        cite,
+        &__citation {
+            // Custom CSS for Block Quote citation
+        }
 
-		&:not(.is-style-wide):not(.is-style-dots) {
-			// Custom CSS for native Separator Block
-		}
-	}
+        &.is-large {
+            // Custom CSS for large Block Quote option
+        }
+    }
 
-	// Block Quote (<blockquote/>)
-	&-quote {
+    &-pullquote {
+        blockquote {
+            margin-bottom: 0;
+        }
 
-		p {
-			// Custom CSS for inner paragraph
-		}
+        cite,
+        &__citation {
+            // Custom CSS for Block Quote citation
+        }
+    }
 
-		cite,
-		&__citation {
-			// Custom CSS for Block Quote citation
-		}
-
-		&.is-large {
-			// Custom CSS for large Block Quote option
-		}
-	}
-
-	&-pullquote {
-
-		blockquote {
-			margin-bottom: 0;
-		}
-
-		cite,
-		&__citation {
-			// Custom CSS for Block Quote citation
-		}
-	}
-
-	// Block Table
-	&-table {
-		// Actually WordPress handle overflow scroll x on mobile
-		td,
-		th {
-			padding: $half-base-spacing;
-			border: $base-border;
-		}
-	}
+    // Block Table
+    &-table {
+        // Actually WordPress handle overflow scroll x on mobile
+        td,
+        th {
+            padding: $half-base-spacing;
+            border: $base-border;
+        }
+    }
 }

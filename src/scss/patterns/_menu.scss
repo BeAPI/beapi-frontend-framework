@@ -3,40 +3,40 @@
  */
 
 .menu {
-	$el: &;
-	$menu-item: ".menu-item";
-	$sub-menu: ".sub-menu";
+    $el: &;
+    $menu-item: ".menu-item";
+    $sub-menu: ".sub-menu";
 
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
 
-	&-item {
-		padding: 0;
+    &-item {
+        padding: 0;
 
-		a {
-			display: block;
-			padding: 0.5em 1em;
-		}
-	}
+        a {
+            display: block;
+            padding: .5em 1em;
+        }
+    }
 
-	&__panel {
-		display: block;
-		max-height: 0;
-		padding: 0;
-		overflow: hidden;
-		visibility: hidden;
-		opacity: 0;
-		transition: opacity 0.35s ease, max-height 0.5s ease, visibility 0s linear;
+    &__panel {
+        display: block;
+        max-height: 0;
+        padding: 0;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .35s ease, max-height .5s ease, visibility 0s linear;
 
-		&.open {
-			max-height: 350px;
-			overflow: auto;
-			visibility: visible;
-			opacity: 1;
-		}
-	}
+        &.open {
+            max-height: 350px;
+            overflow: auto;
+            visibility: visible;
+            opacity: 1;
+        }
+    }
 
-	@include breakpoints(sm) {
-		display: flex;
-	}
+    @include breakpoints(sm) {
+        display: flex;
+    }
 }

@@ -38,7 +38,7 @@ class Svg implements Service {
 	 * @return string
 	 */
 	public function get_the_icon( $icon_class, $additionnal_classes = [] ) {
-		$icon_slug = sprintf( 'icon-%s', ltrim( $icon_class, 'icon-' ) );
+		$icon_slug = 'icon-' === substr( $icon_class, 0, 5 ) ? $icon_class : sprintf( 'icon-%s', $icon_class );
 		$classes   = [ 'icon', $icon_slug ];
 		$classes   = array_merge( $classes, $additionnal_classes );
 		$classes   = array_map( 'sanitize_html_class', $classes );

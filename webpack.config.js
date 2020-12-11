@@ -3,6 +3,7 @@ const config = require('./webpack.settings')
 const path = require('path')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
@@ -43,9 +44,6 @@ module.exports = (env, argv) => {
               options: {
                 babelrc: true,
               },
-            },
-            {
-              loader: 'eslint-loader',
             },
           ],
         },
@@ -195,6 +193,7 @@ module.exports = (env, argv) => {
       ],
     },
     plugins: [
+      new ESLintPlugin(),
       new FixStyleOnlyEntriesPlugin(),
       new WebpackBar({
         color: '#ffe600',

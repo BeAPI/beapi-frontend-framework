@@ -43,6 +43,7 @@
         opacity: 0;
         transition: opacity .35s ease, max-height .5s ease, visibility 0s linear;
 
+        &.alwaysopen,
         &.open {
             max-height: 350px;
             overflow: visible;

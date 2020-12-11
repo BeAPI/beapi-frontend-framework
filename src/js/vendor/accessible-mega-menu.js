@@ -56,7 +56,8 @@ limitations under the License.
 					hoverClass: "hover", // default css class for the hover state
 					focusClass: "focus", // default css class for the focus state
 					openClass: "open", // default css class for the open state,
-					toggleButtonClass: "accessible-megamenu-toggle", // default css class responsive toggle button
+					alwaysopenClass: "alwaysopen", // default css class for force the open state of a pannel,
+				  toggleButtonClass: "accessible-megamenu-toggle", // default css class responsive toggle button
 					openDelay: 0, // default open delay when opening menu via mouseover
 					closeDelay: 250, // default open delay when opening menu via mouseover
 					openOnMouseover: false // default setting for whether menu should open on mouseover
@@ -591,7 +592,7 @@ limitations under the License.
 							break;
 					case Keyboard.SPACE:
 					case Keyboard.ENTER:
-							if (isTopNavItem) {
+							if (isTopNavItem && target.parent().find(settings.panelClass).lenght <= 0) {
 									event.preventDefault();
 									_clickHandler.call(that, event);
 							} else {
@@ -836,14 +837,16 @@ limitations under the License.
 													"tabindex": 0
 											});
 
-											topnavitempanel.attr({
-													"role": "region",
-													"aria-expanded": false,
-													"aria-hidden": true
-											})
-													.addClass(settings.panelClass)
-													.not("[aria-labelledby]")
-													.attr("aria-labelledby", topnavitemlink.attr("id"));
+										  if(!topnavitempanel.hasClass(settings.alwaysopenClass)){
+                          topnavitempanel.attr({
+                            "role": "region",
+                            "aria-expanded": false,
+                            "aria-hidden": true
+                          })
+                            .addClass(settings.panelClass)
+                            .not("[aria-labelledby]")
+                            .attr("aria-labelledby", topnavitemlink.attr("id"));
+										  }
 									}
 							});
 

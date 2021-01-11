@@ -240,6 +240,10 @@ module.exports = (env, argv) => {
     webpackConfig.devtool = 'source-map'
     webpackConfig.output.filename = '[name].js'
     webpackConfig.plugins.push(
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        openAnalyzer: false,
+      }),
       new SoundsPlugin(),
       new MiniCssExtractPlugin({
         filename: '[name].css',
@@ -278,10 +282,6 @@ module.exports = (env, argv) => {
 
   if (argv.mode === 'production') {
     webpackConfig.optimization.minimizer = [
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'static',
-        openAnalyzer: false,
-      }),
       new OptimizeCssAssetsPlugin({
         assetNameRegExp: /\.min\.css$/,
         cssProcessorOptions: {

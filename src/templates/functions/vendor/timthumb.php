@@ -535,14 +535,6 @@ class timthumb {
 		$canvas_color = $this->param('cc', DEFAULT_CC);
 		$canvas_trans = (bool) $this->param('ct', '1');
 
-		if ($new_height == 9999) {
-			$new_height = 0;
-		}
-
-		if ($new_width == 9999) {
-			$new_width = 0;
-		}
-
 		// set default width and height if neither are set already
 		if ($new_width == 0 && $new_height == 0) {
 		    $new_width = (int) DEFAULT_WIDTH;

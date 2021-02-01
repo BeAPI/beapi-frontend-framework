@@ -1,0 +1,17 @@
+.alignwide {
+    position: relative;
+    left: 50%;
+    z-index: 1;
+    width: 100vw;
+    max-width: $container-width * 1.5;
+    transform: translateX(-50%) translateY(0);
+}
+
+.alignfull {
+    position: relative;
+    left: 50%;
+    z-index: 1;
+    width: 100vw;
+    max-width: 100vw;
+    transform: translateX(-50%) translateY(0);
+}

@@ -1,0 +1,66 @@
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    font-family: var(--heading--font-family);
+}
+
+h1,
+.h1 {
+    font-size: var(--heading--font-size-h1);
+    font-weight: 400;
+    line-height: var(--heading--line-height-h1);
+    letter-spacing: var(--heading--letter-spacing-h1);
+}
+
+h2,
+.h2 {
+    font-size: var(--heading--font-size-h2);
+    font-weight: 500;
+    line-height: var(--heading--line-height-h2);
+    letter-spacing: var(--heading--letter-spacing-h2);
+}
+
+h3,
+.h3 {
+    font-size: var(--heading--font-size-h3);
+    font-weight: 500;
+    line-height: var(--heading--line-height-h3);
+    letter-spacing: var(--heading--letter-spacing-h3);
+
+}
+
+h4,
+.h4 {
+    font-size: var(--heading--font-size-h4);
+    font-weight: 500;
+    line-height: var(--heading--line-height-h4);
+    letter-spacing: var(--heading--letter-spacing-h4);
+
+}
+
+h5,
+.h5 {
+    font-family: var(--global--font-primary);
+    font-size: var(--heading--font-size-h5);
+    font-weight: 400;
+    line-height: var(--heading--line-height-h5);
+    letter-spacing: var(--heading--letter-spacing-h5);
+}
+
+h6,
+.h6 {
+    font-family: var(--global--font-primary);
+    font-size: var(--heading--font-size-h6);
+    font-weight: 300;
+    line-height: var(--heading--line-height-h6);
+    letter-spacing: var(--heading--letter-spacing-h6);
+}

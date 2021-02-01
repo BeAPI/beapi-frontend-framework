@@ -1,0 +1,84 @@
+/**
+ * @section Accessible Mega Menu
+ */
+.amenu {
+    $el: &;
+
+    &__toggle {
+        cursor: pointer;
+        background: transparent;
+        border: 0;
+        appearance: none;
+
+        .icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        .icon-close {
+            display: none;
+        }
+
+        &[aria-expanded="true"] {
+            .icon-close {
+                display: block;
+            }
+
+            .icon-menu {
+                display: none;
+            }
+        }
+    }
+
+    &__main {
+        padding: 0;
+    }
+
+    &__panel {
+        display: block;
+        max-height: 0;
+        padding: 0;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .35s ease, max-height .5s ease, visibility 0s linear;
+
+        &.alwaysopen,
+        &.open {
+            max-height: 350px;
+            overflow: visible;
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    &__sub-menu {
+        padding: 0;
+        margin: 0;
+    }
+
+    @include breakpoints(sm, max) {
+        &__toggle~#{$el}__main>#{$el}__top {
+            height: 0;
+            overflow: hidden;
+            visibility: collapse;
+        }
+
+        &__toggle[aria-expanded='true']~#{$el}__main>#{$el}__top {
+            height: auto;
+            overflow: visible;
+            visibility: visible;
+        }
+    }
+
+    @include breakpoints(sm) {
+        &__toggle {
+            display: none;
+        }
+
+        &__main {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+}

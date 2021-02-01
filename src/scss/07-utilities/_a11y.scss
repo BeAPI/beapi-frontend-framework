@@ -1,0 +1,58 @@
+html {
+    a,
+    button,
+    input,
+    select,
+    textarea {
+        &:focus {
+            outline: 2px solid currentColor;
+            outline-offset: .5rem;
+        }
+    }
+
+    [data-seo-container] {
+        position: relative;
+        cursor: pointer;
+
+        &:focus-within {
+            outline: 1px solid currentColor;
+            outline-offset: .5rem;
+        }
+
+        *:focus {
+            outline: none;
+        }
+
+        [data-seo-target] {
+            &::before {
+
+                @include pseudo__content;
+
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+        }
+    }
+
+    &:not([data-whatintent="keyboard"]) {
+        a,
+        button,
+        input,
+        select,
+        textarea {
+            &:focus {
+                outline: none;
+            }
+        }
+
+        [data-seo-container] {
+            &:focus-within,
+            *:focus {
+                outline: none;
+            }
+        }
+    }
+}

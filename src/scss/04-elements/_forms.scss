@@ -1,0 +1,75 @@
+// All inputs variables
+$text-inputs-list: 'input[type="color"]',
+    'input[type="date"]',
+    'input[type="datetime"]',
+    'input[type="datetime-local"]',
+    'input[type="email"]',
+    'input[type="month"]',
+    'input[type="number"]',
+    'input[type="password"]',
+    'input[type="search"]',
+    'input[type="tel"]',
+    'input[type="text"]',
+    'input[type="time"]',
+    'input[type="url"]',
+    'input[type="week"]',
+    "input:not([type])",
+    "textarea";
+
+$all-text-inputs:        assign-inputs($text-inputs-list);
+
+// Textarea
+textarea {
+    resize: vertical;
+}
+
+#{$all-text-inputs},
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: #{1.6 * $baseline-unit};
+    font-family: var(--global--font-primary);
+    line-height: 1;
+    color: var(--global--color-secondary);
+    background-color: var(--global--color-white);
+    border: 1px solid var(--global--color-gray-500);
+    border-radius: 0; // Reset border radius for ios
+    transition: border-color .5s ease;
+    appearance: none;
+
+    @include placeholder {
+        opacity: .5;
+    }
+
+    &:hover {
+        border-color: var(--global--color-gray-600);
+    }
+
+    &:focus {
+        border-color: var(--global--color-gray-300);
+    }
+}
+
+// Label
+label {
+    display: inline-block;
+    font-weight: 700;
+}
+
+// Custom select
+select {
+
+    @include select--custom;
+}
+
+// Checkbox + Radio
+.checkbox-custom {
+
+    @include checkbox--custom;
+}
+
+.radio-custom {
+
+    @include checkbox--custom;
+    @include radio--custom;
+}

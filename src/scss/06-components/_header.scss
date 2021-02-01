@@ -1,0 +1,28 @@
+/**
+ * Header
+ */
+
+.header {
+    padding-top: 3.2 * $baseline-unit;
+    padding-bottom: 3.2 * $baseline-unit;
+    background-color: var(--global--color-primary);
+
+    &__logo-link {
+        display: block;
+    }
+
+    &__icon {
+        display: block;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 10px;
+        color: var(--global--color-secondary);
+    }
+
+    &__img {
+
+        @include img-responsive;
+
+        margin: 0 auto #{3.2 * $baseline-unit};
+    }
+}

@@ -1,0 +1,31 @@
+/**
+ * @section Menu Fast Access
+ */
+
+.menu-fastaccess {
+    display: none;
+    margin: 0;
+    font-size: 9px;
+
+    &__item {
+        display: inline;
+
+        a {
+            position: absolute;
+            z-index: 1;
+            color: transparent;
+
+            &:focus {
+                z-index: 2;
+                padding: $baseline-unit * 1.6;
+                color: var(--global--color-black);
+                text-decoration: none;
+                background-color: var(--global--color-primary);
+            }
+        }
+    }
+
+    @include breakpoints(md) {
+        display: block;
+    }
+}

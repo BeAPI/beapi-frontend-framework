@@ -1,56 +1,47 @@
 @import "~normalize-scss/sass/normalize/import-now";
 
-// Abstract
+/* Categories 01 to 03 are the basics. */
 
-@import "abstract/mixins";
-@import "abstract/utilities";
-@import "abstract/grid";
-@import "abstract/fonts";
-@import "abstract/colors";
-@import "abstract/breakpoints";
-@import "abstract/positioning";
-@import "abstract/borders";
-@import "abstract/box-sizing";
-@import "abstract/easing";
+@import "01-settings/fonts";
+@import "01-settings/global";
 
-// Base
+@import "02-tools/easing";
+@import "02-tools/mixins";
+@import "02-tools/functions";
 
-@import "base/svg-icons";
-@import "base/text";
-@import "base/form";
-@import "base/seo";
-@import "base/lazyload";
-@import "base/layout";
-@import "base/video-wrapper";
-@import "base/focus";
+@import "03-generic/breakpoints";
+@import "03-generic/reset";
+@import "03-generic/layout";
+@import "03-generic/lazyload";
 
-// Components
+/* Category 04 can contain any default HTML element. Do not add classes here, just give the elements some basic styles. */
 
-@import "components/buttons";
-@import "components/menu-fastaccess";
-@import "components/menu-accessible";
-@import "components/card";
-@import "components/messages";
+@import "04-elements/blockquote";
+@import "04-elements/forms";
+@import "04-elements/media";
+@import "04-elements/misc";
+@import "04-elements/links";
+@import "04-elements/svg-icons";
 
-// Patterns
+/* Category 05 is all about adjusting the default block styles to the given layout. I only added three blocks as examples. */
 
-@import "patterns/header";
-@import "patterns/footer";
-@import "patterns/menu";
-@import "patterns/hero";
-@import "patterns/searchform";
+@import "05-blocks/blocks";
 
-// Wordpress
+/* Category 06 contains all "bigger" components which contain elements of the previous two categories like header, footer, page template, single template, comments section, archives, ... */
 
-@import "wp/img";
-//@import "wp/gallery"; Enable if Gutenberg is not used
+@import "06-components/header";
+@import "06-components/footer";
+@import "06-components/menu-fastaccess";
+@import "06-components/menu";
+@import "06-components/navigation";
+@import "06-components/searchform";
+@import "06-components/404";
 
-@import "wp/wysiwyg";
-@import "wp/gutenberg";
+/* Category 07 is for any utility classes that are not assigned to a specific component. */
 
-// Pages
-
-@import "pages/404";
-@import "pages/home";
-@import "pages/default";
-@import "pages/print";
+@import "07-utilities/a11y";
+@import "07-utilities/sr-only";
+@import "07-utilities/color-palette";
+@import "07-utilities/measure";
+@import "07-utilities/video-wrapper";
+@import "07-utilities/print";

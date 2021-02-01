@@ -1,0 +1,62 @@
+/* Grid system */
+$column-preset : (
+    /* preset for desktop*/
+    d : (
+        columnwidth: 76,
+        gutterwidth: 22,
+        totalcolumn: 12
+    ),
+    /* preset for mobile*/
+    m : (
+        columnwidth: 76,
+        gutterwidth: 22,
+        totalcolumn: 6
+    )
+);
+
+@function column-set-var($var, $device, $prop) {
+
+    @if ($var == null) {
+
+        @return map-get(map-get($column-preset, $device), $prop);
+    } @else {
+
+        @return $var;
+    }
+}
+
+@function column($device, $nbColumn: null, $nbGutter: null, $totalColumn: null, $columnWidth: null, $gutterWidth: null) {
+    // shift vars if $device is number
+    @if type-of($device) == "number" {
+        $gutterWidth: $columnWidth;
+        $columnWidth: $totalColumn;
+        $totalColumn: $nbGutter;
+        $nbGutter: $nbColumn;
+        $nbColumn: $device;
+        $device: d;
+    }
+
+    $gutterWidth: column-set-var($gutterWidth, $device, gutterwidth);
+    $columnWidth: column-set-var($columnWidth, $device, columnwidth);
+    $totalColumn: column-set-var($totalColumn, $device, totalcolumn);
+
+    @if $nbGutter == null {
+        $nbGutter: $nbColumn - 1;
+    }
+
+    @return ($nbColumn * $columnWidth + $nbGutter * $gutterWidth) / ($totalColumn * $columnWidth + ($totalColumn - 1) * $gutterWidth) * 100%;
+}
+
+// Assign inputs
+
+@function assign-inputs($inputs, $pseudo: null) {
+    $list: ();
+
+    @each $input in $inputs {
+        $input: unquote($input);
+        $input: if($pseudo, $input + ":" + $pseudo, $input);
+        $list: append($list, $input, comma);
+    }
+
+    @return $list;
+}

@@ -47,6 +47,7 @@ class Assets_JS_Async implements Service {
 
 	/**
 	 * @param $handler
+	 * @param string $type : async/defer or a combination of
 	 */
 	public function add_handler( $handler, $type = 'async' ) {
 		$this->js_handlers[ $handler ] = $type;
@@ -66,6 +67,6 @@ class Assets_JS_Async implements Service {
 			return $html;
 		}
 
-		return str_replace( ' src', sprintf( ' %s src', $this->js_handlers[ $handle ] ), $html );
+		return str_replace( ' src', sprintf( ' %s src', esc_attr( $this->js_handlers[ $handle ] ) ), $html );
 	}
 }

@@ -20,7 +20,6 @@ class Framework {
 		// Services
 		\BEA\Theme\Framework\Services\Theme::class,
 		\BEA\Theme\Framework\Services\Assets::class,
-		\BEA\Theme\Framework\Services\Assets_Fonts_Async::class,
 		\BEA\Theme\Framework\Services\Assets_JS_Async::class,
 		\BEA\Theme\Framework\Services\Svg::class,
 		\BEA\Theme\Framework\Services\Acf::class,

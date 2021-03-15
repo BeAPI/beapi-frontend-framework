@@ -3,7 +3,6 @@
 
 namespace BEA\Theme\Framework\Services;
 
-
 use BEA\Theme\Framework\Framework;
 use BEA\Theme\Framework\Service;
 use BEA\Theme\Framework\Service_Container;
@@ -24,7 +23,7 @@ class Editor implements Service {
 	 */
 	public function register( Service_Container $container ): void {
 		$this->assets_tools = new \BEA\Theme\Framework\Tools\Assets();
-		$this->assets = Framework::get_container()->get_service( 'assets' );
+		$this->assets       = Framework::get_container()->get_service( 'assets' );
 	}
 
 	/**
@@ -97,18 +96,24 @@ class Editor implements Service {
 		 **/
 		$assets = Framework::get_container()->get_service( 'assets' );
 
-		$theme = wp_get_theme();
-		$file = ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) ? $assets->get_min_file( 'admin-editor-script.js' ) : 'admin-editor-script.js';
+		$theme    = wp_get_theme();
+		$file     = ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) ? $assets->get_min_file( 'admin-editor-script.js' ) : 'admin-editor-script.js';
 		$filepath = 'dist/' . $file;
 
 		if ( ! file_exists( get_theme_file_path( $filepath ) ) ) {
 			return;
 		}
 
-		$this->assets_tools->register_script( 'theme-admin-editor-script', $filepath, [
-			'wp-blocks',
-			'wp-dom',
-		], $theme->get( 'Version' ), true );
+		$this->assets_tools->register_script(
+			'theme-admin-editor-script',
+			$filepath,
+			[
+				'wp-blocks',
+				'wp-dom',
+			],
+			$theme->get( 'Version' ),
+			true
+		);
 		$this->assets_tools->enqueue_script( 'theme-admin-editor-script' );
 	}
 }

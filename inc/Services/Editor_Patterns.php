@@ -3,7 +3,6 @@
 
 namespace BEA\Theme\Framework\Services;
 
-
 use BEA\Theme\Framework\Service;
 use BEA\Theme\Framework\Service_Container;
 

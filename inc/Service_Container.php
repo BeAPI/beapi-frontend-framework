@@ -19,7 +19,7 @@ class Service_Container {
 	/**
 	 * Load all services.
 	 */
-	public function boot_services() {
+	public function boot_services(): void {
 		$services = array_unique( $this->get_services() );
 		$services = array_map( [ $this, 'instantiate_service' ], $services );
 
@@ -39,7 +39,7 @@ class Service_Container {
 	 *
 	 * @return array[string] Array of fully qualified class names.
 	 */
-	private function get_services() {
+	private function get_services(): array {
 		return $this->services;
 	}
 
@@ -50,8 +50,8 @@ class Service_Container {
 	 *
 	 * @return Service|bool The service instance or false if service not found
 	 */
-	public function get_service( $name ) {
-		return isset( $this->services[ $name ] ) ? $this->services[ $name ] : false;
+	public function get_service( string $name ) {
+		return $this->services[ $name ] ?? false;
 	}
 
 	/**
@@ -62,7 +62,7 @@ class Service_Container {
 	 * @return bool
 	 * @author Clément Boirie
 	 */
-	public function register_service( $service ) {
+	public function register_service( string $service ): bool {
 		if ( ! class_exists( $service ) || ! in_array( Service::class, class_implements( $service ), true ) ) {
 			return false;
 		}
@@ -79,7 +79,7 @@ class Service_Container {
 	 *
 	 * @return Service
 	 */
-	private function instantiate_service( $class ) {
+	private function instantiate_service( string $class ): Service {
 		/**
 		 * @var Service $service
 		 */

@@ -21,12 +21,12 @@ class Assets_JS_Async implements Service {
 	/**
 	 * @param Service_Container $container
 	 */
-	public function register( Service_Container $container ) {}
+	public function register( Service_Container $container ): void {}
 
 	/**
 	 * @param Service_Container $container
 	 */
-	public function boot( Service_Container $container ) {
+	public function boot( Service_Container $container ): void {
 		if ( current_theme_supports( 'async-js' ) && ! is_admin() ) {
 			add_filter( 'script_loader_tag', array( $this, 'script_loader_tag' ), 20, 2 );
 		}
@@ -41,15 +41,15 @@ class Assets_JS_Async implements Service {
 	/**
 	 * @return string
 	 */
-	public function get_service_name() {
+	public function get_service_name(): string {
 		return 'assets-js-async';
 	}
 
 	/**
-	 * @param $handler
+	 * @param string $handler
 	 * @param string $type : async/defer or a combination of
 	 */
-	public function add_handler( $handler, $type = 'async' ) {
+	public function add_handler( string $handler, $type = 'async' ): void {
 		$this->js_handlers[ $handler ] = $type;
 	}
 
@@ -62,7 +62,7 @@ class Assets_JS_Async implements Service {
 	 * @return string
 	 * @author Nicolas JUEN
 	 */
-	public function script_loader_tag( $html, $handle ) {
+	public function script_loader_tag( string $html, string $handle ): string {
 		if ( ! isset( $this->js_handlers[ $handle ] ) ) {
 			return $html;
 		}

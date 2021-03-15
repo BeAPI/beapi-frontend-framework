@@ -21,14 +21,14 @@ class Assets implements Service {
 	/**
 	 * @param Service_Container $container
 	 */
-	public function register( Service_Container $container ) {
+	public function register( Service_Container $container ): void {
 		$this->assets_tools = new Assets_Tools();
 	}
 
 	/**
 	 * @param Service_Container $container
 	 */
-	public function boot( Service_Container $container ) {
+	public function boot( Service_Container $container ): void {
 		/**
 		 * Add hooks for the scripts and styles to hook on
 		 */
@@ -41,14 +41,14 @@ class Assets implements Service {
 	/**
 	 * @return string
 	 */
-	public function get_service_name() {
+	public function get_service_name(): string {
 		return 'assets';
 	}
 
 	/**
 	 * Register all the Theme assets
 	 */
-	public function register_assets() {
+	public function register_assets(): void {
 		if ( is_admin() ) {
 			return;
 		}
@@ -59,7 +59,7 @@ class Assets implements Service {
 		$scripts_dependencies = [ 'jquery', 'global-polyfill' ];
 
 		// Polyfill
-		\wp_register_script( 'global-polyfill', 'https://cdn.polyfill.io/v3/polyfill.min.js?features=es5,es6,fetch,Array.prototype.includes,CustomEvent,Element.prototype.closest,NodeList.prototype.forEach', null, null, true ); //phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion, WordPress.WP.EnqueuedResourceParameters.NotInFooter
+		\wp_register_script( 'global-polyfill', 'https://cdn.polyfill.io/v3/polyfill.min.js?features=es5,es6,fetch,Array.prototype.includes,CustomEvent,Element.prototype.closest,NodeList.prototype.forEach', null, null, true ); //phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 
 		// Async and footer
 		$file = ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) ? $this->get_min_file( 'js' ) : 'app.js';
@@ -72,7 +72,7 @@ class Assets implements Service {
 	/**
 	 * Enqueue the scripts
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts(): void {
 		// JS
 		$this->assets_tools->enqueue_script( 'scripts' );
 	}
@@ -80,8 +80,7 @@ class Assets implements Service {
 	/**
 	 * Enqueue the styles
 	 */
-	public function enqueue_styles() {
-
+	public function enqueue_styles(): void {
 		// CSS
 		$this->assets_tools->enqueue_style( 'theme-style' );
 	}
@@ -89,12 +88,12 @@ class Assets implements Service {
 	/**
 	 * The stylesheet uri based on the dev or not constant
 	 *
-	 * @param $stylesheet_uri
+	 * @param string $stylesheet_uri
 	 *
 	 * @return string
 	 * @author Nicolas Juen
 	 */
-	public function stylesheet_uri( $stylesheet_uri ) {
+	public function stylesheet_uri( string $stylesheet_uri ): string {
 		if ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) {
 			$file = $this->get_min_file( 'css' );
 			if ( ! empty( $file ) && file_exists( \get_theme_file_path( '/dist/assets/' . $file ) ) ) {
@@ -112,11 +111,11 @@ class Assets implements Service {
 	/**
 	 * Return JS/CSS .min file based on assets.json
 	 *
-	 * @param $type
+	 * @param string $type
 	 *
 	 * @return bool|null
 	 */
-	public function get_min_file( $type ) {
+	public function get_min_file( string $type ): ?bool {
 		if ( empty( $type ) ) {
 			return false;
 		}
@@ -138,6 +137,9 @@ class Assets implements Service {
 				break;
 			case 'editor-style':
 				$file = $assets['editor-style.css'];
+				break;
+			case 'admin-editor-script':
+				$file = $assets['gutenberg-editor.js'];
 				break;
 			case 'js':
 				$file = $assets['app.js'];

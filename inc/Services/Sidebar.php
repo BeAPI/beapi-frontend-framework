@@ -14,23 +14,23 @@ class Sidebar implements Service {
 	/**
 	 * @param Service_Container $container
 	 */
-	public function register( Service_Container $container ) {}
+	public function register( Service_Container $container ): void {}
 
 	/**
 	 * @param Service_Container $container
 	 */
-	public function boot( Service_Container $container ) {
+	public function boot( Service_Container $container ): void {
 		$this->register_sidebars();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function get_service_name() {
+	public function get_service_name(): string {
 		return 'sidebar';
 	}
 
-	public function register_sidebars() {
+	public function register_sidebars(): void {
 
 	}
 }

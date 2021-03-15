@@ -2,7 +2,6 @@
 
 namespace BEA\Theme\Framework\Services;
 
-use BEA\Theme\Framework\Framework;
 use BEA\Theme\Framework\Service;
 use BEA\Theme\Framework\Service_Container;
 
@@ -12,26 +11,26 @@ class Theme implements Service {
 	/**
 	 * @param Service_Container $container
 	 */
-	public function register( Service_Container $container ) {}
+	public function register( Service_Container $container ): void {}
 
 	/**
 	 * @param Service_Container $container
 	 */
-	public function boot( Service_Container $container ) {
+	public function boot( Service_Container $container ): void {
 		$this->after_setup_theme();
 	}
 
 	/**
 	 * @return string
 	 */
-	public function get_service_name() {
+	public function get_service_name(): string {
 		return 'theme';
 	}
 
 	/**
 	 * After setup theme
 	 */
-	public function after_setup_theme() {
+	public function after_setup_theme(): void {
 		/**
 		 * Init the supports.
 		 */
@@ -41,17 +40,12 @@ class Theme implements Service {
 		 * Load translations.
 		 */
 		$this->i18n();
-
-		/**
-		 * Load editor style css.
-		 */
-		$this->editor_style();
 	}
 
 	/**
 	 * Set theme supports
 	 */
-	private function add_theme_supports() {
+	private function add_theme_supports(): void {
 		// Add the theme support basic elements
 		add_theme_support( 'align-wide' );
 		add_theme_support( 'responsive-embeds' );
@@ -67,36 +61,8 @@ class Theme implements Service {
 	/**
 	 * i18n
 	 */
-	private function i18n() {
+	private function i18n(): void {
 		// Load theme texdomain
 		load_theme_textdomain( 'framework-textdomain', \get_theme_file_path( '/languages' ) );
-	}
-
-	/**
-	 * editor style
-	 */
-	private function editor_style() {
-		/**
-		 * Default file
-		 **/
-		$file = 'editor-style.css';
-
-		/**
-		 * @var Assets $assets
-		 **/
-		$assets = Framework::get_container()->get_service( 'assets' );
-
-		if ( ( ! defined( 'SCRIPT_DEBUG' ) || false === SCRIPT_DEBUG ) && false !== $assets ) {
-			$file = $assets->get_min_file( 'editor-style' );
-		}
-
-		/**
-		 * Do not enqueue a inexistant file on admin
-		 */
-		if ( ! is_file( get_theme_file_path( 'dist/assets/' . $file ) ) ) {
-			return;
-		}
-
-		add_editor_style( 'dist/assets/' . $file );
 	}
 }

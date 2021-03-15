@@ -9,7 +9,7 @@ class Accessible_Menu_Walker extends Walker_Nav_Menu {
 	 * @param int   $depth
 	 * @param array $args
 	 */
-	public function start_lvl( &$output, $depth = 0, $args = array() ) {
+	public function start_lvl( &$output, $depth = 0, $args = [] ) {
 		$indent  = str_repeat( "\t", $depth );
 		$output .= "\n$indent<div class='amenu__panel'><ul class='sub-menu amenu__sub-menu'>\n";
 	}
@@ -19,7 +19,7 @@ class Accessible_Menu_Walker extends Walker_Nav_Menu {
 	 * @param int   $depth
 	 * @param array $args
 	 */
-	public function end_lvl( &$output, $depth = 0, $args = array() ) {
+	public function end_lvl( &$output, $depth = 0, $args = [] ) {
 		$indent  = str_repeat( "\t", $depth );
 		$output .= "$indent</ul></div>\n";
 	}

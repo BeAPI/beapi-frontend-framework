@@ -14,12 +14,12 @@ class Menu implements Service {
 	/**
 	 * @param Service_Container $container
 	 */
-	public function register( Service_Container $container ) {}
+	public function register( Service_Container $container ): void {}
 
 	/**
 	 * @param Service_Container $container
 	 */
-	public function boot( Service_Container $container ) {
+	public function boot( Service_Container $container ): void {
 		add_theme_support( 'menus' );
 
 		$this->register_menus();
@@ -28,11 +28,11 @@ class Menu implements Service {
 	/**
 	 * @return string
 	 */
-	public function get_service_name() {
+	public function get_service_name(): string {
 		return 'menu';
 	}
 
-	public function register_menus() {
+	public function register_menus(): void {
 		$nav_menu = [
 			'menu-main'   => __( 'Main menu' ),
 			'menu-footer' => __( 'Footer menu' ),

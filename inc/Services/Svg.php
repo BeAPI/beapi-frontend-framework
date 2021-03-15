@@ -15,30 +15,30 @@ class Svg implements Service {
 	/**
 	 * @param Service_Container $container
 	 */
-	public function register( Service_Container $container ) {
+	public function register( Service_Container $container ): void {
 	}
 
 	/**
 	 * @param Service_Container $container
 	 */
-	public function boot( Service_Container $container ) {
+	public function boot( Service_Container $container ): void {
 	}
 
 	/**
 	 * @return string
 	 */
-	public function get_service_name() {
+	public function get_service_name(): string {
 		return 'svg';
 	}
 
 	/**
-	 * @param       $icon_class
-	 * @param array $additionnal_classes
+	 * @param string $icon_class
+	 * @param array  $additionnal_classes
 	 *
 	 * @return string
 	 */
-	public function get_the_icon( $icon_class, $additionnal_classes = [] ) {
-		$icon_slug = 'icon-' === substr( $icon_class, 0, 5 ) ? $icon_class : sprintf( 'icon-%s', $icon_class );
+	public function get_the_icon( string $icon_class, array $additionnal_classes = [] ): string {
+		$icon_slug = strpos( $icon_class, 'icon-' ) === 0 ? $icon_class : sprintf( 'icon-%s', $icon_class );
 		$classes   = [ 'icon', $icon_slug ];
 		$classes   = array_merge( $classes, $additionnal_classes );
 		$classes   = array_map( 'sanitize_html_class', $classes );
@@ -47,10 +47,10 @@ class Svg implements Service {
 	}
 
 	/**
-	 * @param       $icon_class
-	 * @param array $additionnal_classes
+	 * @param string $icon_class
+	 * @param array  $additionnal_classes
 	 */
-	public function the_icon( $icon_class, $additionnal_classes = [] ) {
+	public function the_icon( string $icon_class, array $additionnal_classes = [] ): void {
 		echo $this->get_the_icon( $icon_class, $additionnal_classes ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }

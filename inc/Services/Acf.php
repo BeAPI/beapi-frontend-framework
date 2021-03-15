@@ -25,7 +25,7 @@ class Acf implements Service {
 	/**
 	 * @param Service_Container $container
 	 */
-	public function boot( Service_Container $container ) {
+	public function boot( Service_Container $container ): void {
 		add_action( 'template_redirect', [ $this, 'warning' ], 0 );
 		add_action( 'init', [ $this, 'init' ], 0 );
 		add_action( 'init', [ $this, 'init_acf' ] );
@@ -34,20 +34,20 @@ class Acf implements Service {
 	/**
 	 * @param Service_Container $container
 	 */
-	public function register( Service_Container $container ) {
+	public function register( Service_Container $container ): void {
 	}
 
 	/**
 	 * @return string
 	 */
-	public function get_service_name() {
+	public function get_service_name(): string {
 		return 'acf';
 	}
 
 	/**
 	 * Show warning message if ACF plugin not activate
 	 */
-	public function warning() {
+	public function warning(): void {
 		if ( function_exists( 'get_field' ) ) {
 			return;
 		}
@@ -56,9 +56,9 @@ class Acf implements Service {
 	}
 
 	/**
-	 * @param $files
+	 * @param array $files
 	 */
-	public function register_files( $files ) {
+	public function register_files( array $files ): void {
 		foreach ( $files as $file ) {
 			if ( empty( $file ) ) {
 				continue;
@@ -68,23 +68,23 @@ class Acf implements Service {
 	}
 
 	/**
-	 * @param $filename
+	 * @param string $filename
 	 */
-	private function register_file( $filename ) {
+	private function register_file( string $filename ): void {
 		$this->files[ $filename ] = $filename;
 	}
 
 	/**
-	 * @param $path
+	 * @param string $path
 	 */
-	public function set_path( $path ) {
+	public function set_path( string $path ): void {
 		$this->path = (string) $path;
 	}
 
 	/**
 	 * Load fields and add pages
 	 */
-	public function init() {
+	public function init(): void {
 		/**
 		 * Register ACF Files and Pages/Subpages
 		 */
@@ -109,10 +109,10 @@ class Acf implements Service {
 	 *
 	 * @return bool
 	 *
-	 * @param $parameters
+	 * @param array $parameters
 	 *
 	 */
-	public function acf_add_options_page( $parameters ) {
+	public function acf_add_options_page( array $parameters ) {
 		if ( ! function_exists( 'acf_add_options_page' ) ) {
 			return false;
 		}
@@ -122,13 +122,12 @@ class Acf implements Service {
 		}
 
 		return acf_add_options_page( $parameters );
-
 	}
 
 	/**
 	 * Load ACF files previously registered
 	 */
-	public function init_acf() {
+	public function init_acf(): void {
 		$files = $this->get_files();
 
 		if ( empty( $files ) || ! is_dir( get_theme_file_path( $this->path ) ) ) {
@@ -147,7 +146,7 @@ class Acf implements Service {
 	/**
 	 * @return array
 	 */
-	public function get_files() {
+	public function get_files(): array {
 		return $this->files;
 	}
 
@@ -159,7 +158,7 @@ class Acf implements Service {
 	 * @param $parameters
 	 *
 	 */
-	public function acf_add_options_sub_page( $parameters ) {
+	public function acf_add_options_sub_page( array $parameters ) {
 		if ( ! function_exists( 'acf_add_options_sub_page' ) ) {
 			return false;
 		}

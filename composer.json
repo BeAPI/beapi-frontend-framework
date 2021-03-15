@@ -2,7 +2,6 @@
     "name": "beapi/beapi-frontend-framework",
     "description": "Frontend Framework theme for WordPress",
     "type": "metapackage",
-    "require": {},
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
         "php-parallel-lint/php-parallel-lint": "^1.2",

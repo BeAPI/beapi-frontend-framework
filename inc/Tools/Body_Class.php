@@ -48,7 +48,7 @@ class Body_Class implements Service {
 	 *
 	 * @author Maxime Culea
 	 *
-	 * @param $body_class array | String
+	 * @param array|string $body_class
 	 */
 	public function add( $body_class ): void {
 		$this->body_class[] = $body_class;
@@ -67,11 +67,11 @@ class Body_Class implements Service {
 
 	/**
 	 *
-	 * @param $classes
+	 * @param array $classes
 	 *
 	 * @return array
 	 */
-	public function body_class( $classes ): array {
+	public function body_class( array $classes ): array {
 		// Filter body classes
 		return array_filter( \array_merge( $classes, $this->body_class ), [ $this, 'filter' ] );
 	}

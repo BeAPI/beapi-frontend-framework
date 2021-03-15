@@ -14,7 +14,6 @@
     <exclude-pattern>dist/</exclude-pattern>
     <exclude-pattern>src/</exclude-pattern>
     <exclude-pattern>scripts/</exclude-pattern>
-    <exclude-pattern>inc/Async/Loadfont.php</exclude-pattern>
 
     <!-- <<< EXCLUDE EXTERNAL (MU-)PLUGINS OR THEMES HERE >>> -->
 
@@ -30,13 +29,6 @@
 
         <!-- Allow to use short ternary operators since they are very usefull. -->
         <exclude name="WordPress.PHP.DisallowShortTernary.Found"/>
-
-        <!-- Allow custom hooks naming. -->
-        <exclude name="WordPress.NamingConventions.ValidHookName.UseUnderscores"/>
-        <exclude name="WordPress.NamingConventions.ValidHookName.NotLowercase"/>
-
-        <!-- Allow extracting -->
-        <exclude name="WordPress.PHP.DontExtract.extract_extract"/>
     </rule>
 
     <rule ref="WordPress.Security.EscapeOutput">
@@ -61,4 +53,7 @@
     <!-- Set ini. -->
     <ini name="memory_limit" value="512M"/>
     <ini name="max_execution_time" value="-1"/>
+
+    <rule ref="PHPCompatibility"/>
+    <config name="testVersion" value="7.2-"/>
 </ruleset>

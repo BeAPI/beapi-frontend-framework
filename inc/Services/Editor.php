@@ -14,7 +14,7 @@ class Editor implements Service {
 	private $assets_tools;
 
 	/**
-	 * @var Assets();
+	 * @var Assets;
 	 */
 	private $assets;
 

@@ -14,7 +14,8 @@ class Assets_JS_Async implements Service {
 
 	/**
 	 * JS handlers for the script.
-	 * @var array : the script styles to async load
+	 * The script styles to async load
+	 * @var array
 	 */
 	private $js_handlers = [ 'scripts' => 'async' ];
 
@@ -49,7 +50,7 @@ class Assets_JS_Async implements Service {
 	 * @param string $handler
 	 * @param string $type : async/defer or a combination of
 	 */
-	public function add_handler( string $handler, $type = 'async' ): void {
+	public function add_handler( string $handler, string $type = 'async' ): void {
 		$this->js_handlers[ $handler ] = $type;
 	}
 

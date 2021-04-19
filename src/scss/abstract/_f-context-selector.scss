@@ -1,0 +1,15 @@
+/**
+ * context-selector($selector-for-front, $selector-for-editor, $common-selector)
+ */
+
+@function context-selector($default: "", $editor: "", $selector: "") {
+    $full-selector: "";
+
+    @if ($sass-entry-file-name == "editor-style") {
+        $full-selector: $editor + $selector;
+    } @else {
+        $full-selector: $default + $selector;
+    }
+
+    @return $full-selector;
+}

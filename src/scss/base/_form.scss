@@ -60,17 +60,17 @@ label {
 // Custom select
 select {
 
-    @include select--custom;
+    @include select-custom;
 }
 
 // Checkbox + Radio
 .checkbox-custom {
 
-    @include checkbox--custom($primary-color);
+    @include checkbox-custom($primary-color);
 }
 
 .radio-custom {
 
-    @include checkbox--custom($primary-color);
-    @include radio--custom();
+    @include checkbox-custom($primary-color);
+    @include radio-custom();
 }

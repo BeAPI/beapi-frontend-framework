@@ -1,0 +1,9 @@
+@mixin radio-custom() {
+    input[type="radio"] {
+        + label {
+            &::before {
+                border-radius: 50%;
+            }
+        }
+    }
+}

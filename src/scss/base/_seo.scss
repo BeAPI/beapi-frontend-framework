@@ -5,7 +5,7 @@
     [data-seo-target] {
         &::before {
 
-            @include pseudo__content;
+            @include pseudo-content;
 
             position: absolute;
             top: 0;

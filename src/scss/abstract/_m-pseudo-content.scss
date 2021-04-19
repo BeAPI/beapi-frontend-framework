@@ -1,0 +1,7 @@
+// Insert content for extra style
+
+@mixin pseudo-content {
+    display: block;
+    content: "";
+    speak: none;
+}

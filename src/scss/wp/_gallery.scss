@@ -1,6 +1,6 @@
 .gallery {
 
-    @include flex-grid__container();
+    @include flex-grid-container();
 
     margin: 0 0 $base-spacing;
 

@@ -1,0 +1,9 @@
+// Webkit autofill
+
+@mixin autofill {
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+        @content;
+    }
+}

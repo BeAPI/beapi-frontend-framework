@@ -55,11 +55,11 @@
 .block-library-list {
     ul {
 
-        @include wysiwyg__list();
+        @include wysiwyg-list();
     }
 
     ol {
 
-        @include wysiwyg__list(ol);
+        @include wysiwyg-list(ol);
     }
 }

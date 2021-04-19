@@ -22,7 +22,7 @@ $loading-dimensions : 50px;
 
     &::before {
 
-        @include pseudo__content;
+        @include pseudo-content;
 
         position: absolute;
         top: 0;
@@ -36,7 +36,7 @@ $loading-dimensions : 50px;
 
     &::after {
 
-        @include pseudo__content;
+        @include pseudo-content;
 
         position: absolute;
         top: calc(50% - #{$loading-dimensions / 2});

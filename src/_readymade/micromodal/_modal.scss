@@ -112,7 +112,7 @@
         text-align: center;
         border-top: 1px solid $light-stroke;
         border-bottom: 1px solid $light-stroke;
-        @include row--fullwidth();
+        @include row-fullwidth();
     }
 
     &__groupform{

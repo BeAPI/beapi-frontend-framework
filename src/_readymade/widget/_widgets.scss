@@ -2,7 +2,7 @@
 	@include clearfix;
 	margin: 0 0 20px;
 	img {
-		@include img__responsive();
+		@include img-responsive();
 	}
 	&__title {
 		@extend h2;

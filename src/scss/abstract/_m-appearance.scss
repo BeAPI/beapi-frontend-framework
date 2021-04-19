@@ -1,0 +1,5 @@
+// Appearence for form elements
+
+@mixin appearance($value) {
+    appearance: $value;
+}

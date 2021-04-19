@@ -1,0 +1,9 @@
+/**
+ * editor-style-only{ style only for editor }
+ */
+
+@mixin editor-style-only {
+    @if ($entry-file-name == "editor-style") {
+        @content;
+    }
+}

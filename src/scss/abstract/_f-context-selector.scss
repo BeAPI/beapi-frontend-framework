@@ -5,7 +5,7 @@
 @function context-selector($default: "", $editor: "", $selector: "") {
     $full-selector: "";
 
-    @if ($sass-entry-file-name == "editor-style") {
+    @if ($entry-file-name == "editor-style") {
         $full-selector: $editor + $selector;
     } @else {
         $full-selector: $default + $selector;

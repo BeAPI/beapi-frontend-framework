@@ -1,0 +1,9 @@
+/**
+ * style-only{ style only for front }
+ */
+
+@mixin style-only {
+    @if ($entry-file-name == "style") {
+        @content;
+    }
+}

@@ -281,7 +281,7 @@
 }
 
 @mixin container {
-    max-width: $containerWidth;
+    max-width: $container-width;
     padding: 0 $base-spacing;
     margin-right: auto;
     margin-left: auto;

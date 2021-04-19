@@ -1,19 +1,11 @@
 // Abstract
 
-@import "abstract/mixins";
-@import "abstract/utilities";
-@import "abstract/grid";
-@import "abstract/fonts";
-@import "abstract/colors";
-@import "abstract/breakpoints";
-@import "abstract/positioning";
-@import "abstract/borders";
-@import "abstract/box-sizing";
-@import "abstract/easing";
+@import "abstract/index";
 
 // Base
 
 @import "base/fonts";
+@import "base/box-sizing";
 @import "base/visuallyhidden";
 @import "base/text";
 
@@ -31,18 +23,18 @@
 
 // Backend Classic editor container
 .mce-content-body {
-    max-width: $containerWidth;
+    max-width: $container-width;
     margin: $base-spacing/2;
 }
 
 // Backend Gutenberg editor container
 .wp-block {
     &:not([data-align="full"]) {
-        max-width: $containerWidth;
+        max-width: $container-width;
     }
 
     &[data-align="wide"] {
-        max-width: $containerWidth * 1.5;
+        max-width: $container-width * 1.5;
     }
 }
 

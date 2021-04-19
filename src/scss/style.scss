@@ -2,20 +2,12 @@
 
 // Abstract
 
-@import "abstract/mixins";
-@import "abstract/utilities";
-@import "abstract/grid";
-@import "abstract/fonts";
-@import "abstract/colors";
-@import "abstract/breakpoints";
-@import "abstract/positioning";
-@import "abstract/borders";
-@import "abstract/box-sizing";
-@import "abstract/easing";
+@import "abstract/index";
 
 // Base
 
 @import "base/fonts";
+@import "base/box-sizing";
 @import "base/visuallyhidden";
 @import "base/svg-icons";
 @import "base/text";

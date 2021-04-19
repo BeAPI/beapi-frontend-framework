@@ -1,0 +1,124 @@
+/**
+ * Variables
+ */
+// ----
+// colors
+// ----
+// Theme colors
+$primary-color: #f1e25b;
+$secondary-color: #333;
+
+// Gray palette
+$dark-color: #000;
+$gray-color-300: #333;
+$gray-color-500: #888;
+$gray-color-600: #999;
+$gray-color-800: #ddd;
+$light-color: #fff;
+
+// Contextual colors
+$error-color-600 : #8a1f11;
+$error-color-50 : #fbe3e4;
+$notice-color-600 : #514721;
+$notice-color-50 : #fff6bf;
+$success-color-600 : #264409;
+$success-color-50 : #e6efc2;
+$info-color-600 : #205791;
+$info-color-50 : #d5edf8;
+
+// ----
+// sizes
+// ----
+$container-width: 960px;
+
+$breakpoints : (
+    xsm: 600,
+    sm: 768,
+    md: 1024,
+    lg: 1440
+);
+
+$column-preset : (
+    /* preset for desktop*/
+    d : (
+        columnwidth: 76,
+        gutterwidth: 22,
+        totalcolumn: 12
+    ),
+    /* preset for mobile*/
+    m : (
+        columnwidth: 76,
+        gutterwidth: 22,
+        totalcolumn: 6
+    )
+);
+
+// Spacing
+$base-spacing: 32px;
+$half-base-spacing: $base-spacing / 2;
+
+// WP Admin Bar
+$wp-admin-bar-mobile-height: 46px;
+$wp-admin-bar-desktop-height: 32px;
+
+// ----
+// border
+// ----
+$base-border-color: $gray-color-800;
+$base-border: 1px solid $base-border-color;
+
+// Border Radius
+$base-border-radius: 3px;
+
+// ----
+// Fonts
+// ----
+// Font Family
+$primary-font-family: roboto, sans-serif;
+$secondary-font-family: sofia-pro, sans-serif;
+
+// Font Size
+$base-font-size: 16px;
+
+// Line Height
+$base-line-height: 1.4;
+$heading-line-height: 1.2;
+
+// ----
+// easings - Author: Scotty Vernon - Licensed under a MIT License
+// ----
+$ease-in-sine: cubic-bezier(.47, 0, .745, .715);
+$ease-out-sine: cubic-bezier(.39, .575, .565, 1);
+$ease-in-out-sine: cubic-bezier(.39, .575, .565, 1);
+
+$ease-in-quad: cubic-bezier(.55, .085, .68, .53);
+$ease-out-quad: cubic-bezier(.25, .46, .45, .94);
+$ease-in-out-quad: cubic-bezier(.25, .46, .45, .94);
+
+$ease-in-cubic: cubic-bezier(.55, .055, .675, .19);
+$ease-out-cubic: cubic-bezier(.215, .61, .355, 1);
+$ease-in-out-cubic: cubic-bezier(.215, .61, .355, 1);
+
+$ease-in-quart: cubic-bezier(.895, .03, .685, .22);
+$ease-out-quart: cubic-bezier(.165, .84, .44, 1);
+$ease-in-out-quart: cubic-bezier(.165, .84, .44, 1);
+
+$ease-in-quint: cubic-bezier(.755, .05, .855, .06);
+$ease-out-quint: cubic-bezier(.23, 1, .32, 1);
+$ease-in-out-quint: cubic-bezier(.23, 1, .32, 1);
+
+$ease-in-expo: cubic-bezier(.95, .05, .795, .035);
+$ease-out-expo: cubic-bezier(.19, 1, .22, 1);
+$ease-in-out-expo: cubic-bezier(.19, 1, .22, 1);
+
+$ease-in-circ: cubic-bezier(.6, .04, .98, .335);
+$ease-out-circ: cubic-bezier(.075, .82, .165, 1);
+$ease-in-out-circ: cubic-bezier(.075, .82, .165, 1);
+
+$ease-in-back: cubic-bezier(.6, -.28, .735, .045);
+$ease-out-back: cubic-bezier(.175, .885, .32, 1.275);
+$ease-in-out-back: cubic-bezier(.68, -.55, .265, 1.55);
+
+$ease-in-out-fast: cubic-bezier(1, 0, 0, 1);
+
+$authentic-motion: cubic-bezier(.4, 0, .2, 1);

@@ -1,15 +1,11 @@
-$containerWidth: 960px;
+@mixin breakpoints($breakpoint, $min-or-max-or-breakpoint: min) {
 
-$breakpoints : (
-    xsm: 600,
-    sm: 768,
-    md: 1024,
-    lg: 1440
-);
+    @if (type-of(map-get($breakpoints, $min-or-max-or-breakpoint)) == "number") {
 
-@mixin breakpoints($breakpoint, $minOrMax : min) {
-
-    @if ($minOrMax == max) {
+        @media screen and (min-width: em(map-get($breakpoints, $breakpoint))) and (max-width: em(map-get($breakpoints, $breakpoint) - 1)) {
+            @content;
+        }
+    } @else if ($min-or-max-or-breakpoint == max) {
 
         @media screen and (max-width: em(map-get($breakpoints, $breakpoint) - 1)) {
             @content;

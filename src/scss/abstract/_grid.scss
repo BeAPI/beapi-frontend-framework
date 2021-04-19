@@ -7,21 +7,6 @@
 // 		column(6, 5, 8)		-> return 6 column + 5 gutter of 8 grid size of
 // 							   desktop preset
 
-$column-preset : (
-    /* preset for desktop*/
-    d : (
-        columnwidth: 76,
-        gutterwidth: 22,
-        totalcolumn: 12
-    ),
-    /* preset for mobile*/
-    m : (
-        columnwidth: 76,
-        gutterwidth: 22,
-        totalcolumn: 6
-    )
-);
-
 @function column-set-var($var, $device, $prop) {
 
     @if ($var == null) {

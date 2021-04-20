@@ -1,4 +1,8 @@
-// FontFace. GO to abstract/_custom_fonts.scss to see it in action
+/**
+ * Declare font face
+ *
+ * used in base/_fonts.scss
+ */
 
 @mixin declare-font-face($font-family, $font-filename, $font-weight : normal, $font-style :normal, $font-stretch : normal) {
 

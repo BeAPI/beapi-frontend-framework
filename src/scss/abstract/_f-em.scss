@@ -1,4 +1,8 @@
-// PX to EM
+/**
+ * Em
+ *
+ * convert value from px to em
+ */
 
 @function em($pxval, $base: $base-font-size) {
 

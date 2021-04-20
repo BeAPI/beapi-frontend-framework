@@ -1,4 +1,6 @@
-//fullwidth row
+/**
+ * Row fullwidth
+ */
 
 @mixin row-fullwidth($position: relative) {
     position: $position;

@@ -1,3 +1,7 @@
+/**
+ * Container
+ */
+
 @mixin container {
     width: $container-width;
     max-width: calc(100% - #{$mobile-external-gutter * 2});

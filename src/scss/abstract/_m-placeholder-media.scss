@@ -1,4 +1,6 @@
-// placehoder-media
+/**
+ * Placeholder media
+ */
 
 @mixin placeholder-media($width, $height, $targets: "picture, iframe", $include-object-fit: true) {
     position: relative;
@@ -26,6 +28,10 @@
     @if ($include-object-fit) {
         img {
             @include object-fit;
+
+            display: block;
+            width: 100%;
+            height: 100%;
         }
     }
 }

@@ -1,4 +1,6 @@
-//Title mixins
+/**
+ * Title mixins
+ */
 
 @mixin title($size: md) {
     font-family: $secondary-font-family;

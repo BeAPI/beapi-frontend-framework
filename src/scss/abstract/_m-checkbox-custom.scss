@@ -1,4 +1,6 @@
-// Mixin for custom checkbox
+/**
+ * Checkbox custom
+ */
 
 @mixin checkbox-custom($color: $primary-color, $size: 1em, $border-width: 2px) {
     margin-bottom: 20px;

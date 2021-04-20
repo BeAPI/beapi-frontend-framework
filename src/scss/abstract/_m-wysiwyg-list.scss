@@ -1,5 +1,9 @@
 // List mixins
 
+/**
+ * Wysiwyg list
+ */
+
 @mixin wysiwyg-list($type: ul) {
     padding-left: 0;
     margin: $base-spacing 0 $base-spacing $half-base-spacing;

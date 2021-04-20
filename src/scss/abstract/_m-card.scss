@@ -1,3 +1,7 @@
+/**
+ * Card
+ */
+
 @mixin card($flexDirection: column, $thumbnailWidth : 300px) {
     display: flex;
     flex-direction: $flexDirection;

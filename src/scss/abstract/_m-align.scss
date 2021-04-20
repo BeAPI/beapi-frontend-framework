@@ -1,6 +1,10 @@
-// Float, left by default
+/**
+ * Align
+ *
+ * default: float left
+ */
 
-@mixin align($direction:left) {
+@mixin align($direction: left) {
     float: $direction;
 
     @if ($direction == left) {

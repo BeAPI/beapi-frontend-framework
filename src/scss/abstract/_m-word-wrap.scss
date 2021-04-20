@@ -1,4 +1,6 @@
-// Word wrap
+/**
+ * Word wrap
+ */
 
 @mixin word-wrap($wrap: break-word) {
     word-wrap: $wrap;

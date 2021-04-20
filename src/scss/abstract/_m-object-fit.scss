@@ -1,4 +1,6 @@
-// Object Fit polyfill
+/**
+ * Object fit
+ */
 
 @mixin object-fit($fit: cover, $position: null) {
     object-fit: $fit;

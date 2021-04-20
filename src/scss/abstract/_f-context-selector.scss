@@ -1,5 +1,31 @@
 /**
- * context-selector($selector-for-front, $selector-for-editor, $common-selector)
+ * Context selector
+ *
+ * exemples :
+ *
+ *      #{ context-selector('#main__content', '#editor', '.block') } {
+ *          ... your css
+ *      }
+ *
+ *      return for style.scss :
+ *          #main__content .block {
+ *              ... your css
+ *          }
+ *
+ *      return for editor-style.scss :
+ *          #main__content .block {
+ *              ... your css
+ *          }
+ *
+ *      It can be used to define a variable :
+ *
+ *      $parent: context-selector('#main__content', '#editor')
+ *
+ *      #{(dollar)parent} > .block {
+ *          ... your css
+ *      }
+ *
+ *      the variable $entry-file-name is defined in style.scss and editor-style.scss
  */
 
 @function context-selector($default: "", $editor: "", $selector: "") {

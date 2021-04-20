@@ -1,0 +1,136 @@
+/**
+ * Easings
+ *
+ * converted from source: https://github.com/ai/eamath-sings.net/blob/master/src/eamath-sings/eamath-singsFunctions.ts
+ *
+ * each ease receive a value $x in a range of 0 to 1
+ *
+ */
+
+// ==========
+// Quad
+// ==========
+
+@function ease-in-quad($x) {
+    @return $x * $x;
+}
+
+@function ease-out-quad($x) {
+    @return 1 - (1 - $x) * (1 - $x);
+}
+
+@function ease-in-out-quad($x) {
+    @if ($x < .5) {
+        @return 2 * $x * $x;
+    } @else {
+        @return 1 - math-pow(-2 * $x + 2, 2) / 2;
+    }
+}
+
+// ==========
+// Cubic
+// ==========
+
+@function ease-in-cubic($x) {
+    @return $x * $x * $x;
+}
+
+@function ease-out-cubic($x) {
+    @return 1 - math-pow(1 - $x, 3);
+}
+
+@function ease-in-out-cubic($x) {
+    @if ($x < .5) {
+        @return 4 * $x * $x * $x;
+    } @else {
+        @return 1 - math-pow(-2 * $x + 2, 2) / 2;
+    }
+}
+
+// ==========
+// Quart
+// ==========
+
+@function ease-in-quart($x) {
+    @return $x * $x * $x * $x;
+}
+
+@function ease-out-quart($x) {
+    @return 1 - math-pow(1 - $x, 4);
+}
+
+@function ease-in-out-quart($x) {
+    @if ($x < .5) {
+        @return 8 * $x * $x * $x * $x;
+    } @else {
+        @return 1 - math-pow(-2 * $x + 2, 4) / 2;
+    }
+}
+
+// ==========
+// Quint
+// ==========
+
+@function ease-in-quint($x) {
+    @return $x * $x * $x * $x * $x;
+}
+
+@function ease-out-quint($x) {
+    @return 1 - math-pow(1 - $x, 5);
+}
+
+@function ease-in-out-quint($x) {
+    @if ($x < .5) {
+        @return 16 * $x * $x * $x * $x * $x;
+    } @else {
+        @return 1 - math-pow(-2 * $x + 2, 5) / 2;
+    }
+}
+
+// ==========
+// Sin
+// ==========
+
+@function ease-in-sine($x) {
+    @return 1 - math-cos(($x * math-pi()) / 2);
+}
+
+@function ease-out-sine($x) {
+    @return math-sin(($x * math-pi()) / 2);
+}
+
+@function ease-in-out-sine($x) {
+    @return -(math-cos(math-pi() * $x) - 1) / 2;
+}
+
+// ==========
+// Expo
+// ==========
+
+@function easeInExpo($x) {
+    @if ($x == 0) {
+        @return 0;
+    } @else {
+        @return math-pow(2, 10 * $x - 10);
+    }
+}
+
+@function easeOutExpo($x) {
+    @if ($x == 1) {
+        @return 1;
+    } @else {
+        @return 1 - math-pow(2, -10 * $x);
+    }
+}
+
+@function easeInOutExpo($x) {
+    @if ($x == 0) {
+        @return 0;
+    } @else if ($x == 1) {
+        @return 1;
+    } @else if ($x < .5) {
+        @return math-pow(2, 20 * $x - 10) / 2;
+    } @else {
+        @return (2 - math-pow(2, -20 * $x + 10)) / 2;
+    }
+}

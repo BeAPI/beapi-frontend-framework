@@ -29,7 +29,8 @@ $info-color-50 : #d5edf8;
 // ----
 // sizes
 // ----
-$container-width: 960px;
+$container-width: 1154px;
+$mobile-external-gutter: 25px;
 
 $breakpoints : (
     xsm: 600,
@@ -39,17 +40,23 @@ $breakpoints : (
 );
 
 $column-preset : (
-    /* preset for desktop*/
+    /* preset for desktop */
     d : (
         columnwidth: 76,
         gutterwidth: 22,
         totalcolumn: 12
     ),
-    /* preset for mobile*/
+    /* preset for tablet */
+    t : (
+        columnwidth: 76,
+        gutterwidth: 22,
+        totalcolumn: 8
+    ),
+    /* preset for mobile */
     m : (
         columnwidth: 76,
         gutterwidth: 22,
-        totalcolumn: 6
+        totalcolumn: 4
     )
 );
 

@@ -1,6 +1,6 @@
 @mixin container {
     width: $container-width;
-    max-width: calc(100% - #{$base-spacing * 2});
+    max-width: calc(100% - #{$mobile-external-gutter * 2});
     padding: 0;
     margin-right: auto;
     margin-left: auto;

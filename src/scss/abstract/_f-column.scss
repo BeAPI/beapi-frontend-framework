@@ -4,8 +4,11 @@
 // how to use :
 // 		column(6) 			-> return 6 column + 5 gutter of desktop preset
 // 		column('m', 6) 		-> return 6 column + 5 gutter of mobile preset
-// 		column(6, 5, 8)		-> return 6 column + 5 gutter of 8 grid size of
-// 							   desktop preset
+// 		column(6, 5, 8)		-> return 6 column + 5 gutter of 8 grid size of desktop
+
+// ----
+// column-set-var
+// ----
 
 @function column-set-var($var, $device, $prop) {
 
@@ -18,24 +21,76 @@
     }
 }
 
-@function column($device, $nbColumn: null, $nbGutter: null, $totalColumn: null, $columnWidth: null, $gutterWidth: null) {
+// ----
+// column
+// ----
+
+@function column($device, $nb-column: null, $nb-gutter: null, $total-column: null, $total-gutter: null) {
     // shift vars if $device is number
     @if type-of($device) == "number" {
-        $gutterWidth: $columnWidth;
-        $columnWidth: $totalColumn;
-        $totalColumn: $nbGutter;
-        $nbGutter: $nbColumn;
-        $nbColumn: $device;
+        $total-gutter: $total-column;
+        $total-column: $nb-gutter;
+        $nb-gutter: $nb-column;
+        $nb-column: $device;
         $device: d;
     }
 
-    $gutterWidth: column-set-var($gutterWidth, $device, gutterwidth);
-    $columnWidth: column-set-var($columnWidth, $device, columnwidth);
-    $totalColumn: column-set-var($totalColumn, $device, totalcolumn);
+    $preset: map-get($column-preset, $device);
+    $gutter-width: map-get($preset, gutterwidth);
+    $column-width: map-get($preset, columnwidth);
+    $total-column: column-set-var($total-column, $device, totalcolumn);
 
-    @if $nbGutter == null {
-        $nbGutter: $nbColumn - 1;
+    @if $nb-gutter == null {
+        $nb-gutter: $nb-column - 1;
     }
 
-    @return ($nbColumn * $columnWidth + $nbGutter * $gutterWidth) / ($totalColumn * $columnWidth + ($totalColumn - 1) * $gutterWidth) * 100%;
+    @if $total-gutter == null {
+        $total-gutter: $total-column - 1;
+    }
+
+    @return ($nb-column * $column-width + $nb-gutter * $gutter-width) / ($total-column * $column-width + $total-gutter * $gutter-width) * 100%;
+}
+
+// ----
+// column px, usefull to get max-width
+// ----
+
+@function column-px($device, $nb-column: null, $nb-gutter: null) {
+    // shift vars if $device is number
+    @if type-of($device) == "number" {
+        $nb-gutter: $nb-column;
+        $nb-column: $device;
+        $device: d;
+    }
+
+    $preset: map-get($column-preset, $device);
+    $gutter-width: map-get($preset, gutterwidth);
+    $column-width: map-get($preset, columnwidth);
+
+    @if $nb-gutter == null {
+        $nb-gutter: $nb-column - 1;
+    }
+
+    @return #{$nb-column * $column-width + $nb-gutter * $gutter-width}px;
+}
+
+// ----
+// column full
+// ----
+
+@function column-full($device, $nb-column: null, $nb-gutter: null) {
+    // shift vars if $device is number
+    @if type-of($device) == "number" {
+        $width: $device;
+        $device: d;
+    }
+
+    $preset: map-get($column-preset, $device);
+    $gutter-width: map-get($preset, gutterwidth);
+    $column-width: map-get($preset, columnwidth);
+    $total-column: map-get($preset, totalcolumn);
+
+    $width: column-px($device, $nb-column, $nb-gutter);
+
+    @return calc((100% - #{$mobile-external-gutter * 2}) * #{$width / ($gutter-width * ($total-column - 1) + $column-width * $total-column)});
 }

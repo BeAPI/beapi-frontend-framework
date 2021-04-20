@@ -81,7 +81,8 @@
 @function column-full($device, $nb-column: null, $nb-gutter: null) {
     // shift vars if $device is number
     @if type-of($device) == "number" {
-        $width: $device;
+        $nb-gutter: $nb-column;
+        $nb-column: $device;
         $device: d;
     }
 

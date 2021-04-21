@@ -6,6 +6,11 @@
  * each ease receive a value $x in a range of 0 to 1
  *
  */
+$easings-const-c1: 1.70158;
+$easings-const-c2: $easings-const-c1 * 1.525;
+$easings-const-c3: $easings-const-c1 + 1;
+$easings-const-c4: (2 * math-pi()) / 3;
+$easings-const-c5: (2 * math-pi()) / 4.5;
 
 // ==========
 // Quad
@@ -132,5 +137,115 @@
         @return math-pow(2, 20 * $x - 10) / 2;
     } @else {
         @return (2 - math-pow(2, -20 * $x + 10)) / 2;
+    }
+}
+
+// ==========
+// Circ
+// ==========
+
+@function ease-in-Circ($x) {
+    @return 1 - math-sqrt(1 - math-pow($x, 2));
+}
+
+@function ease-out-Circ($x) {
+    @return math-sqrt(1 - math-pow($x - 1, 2));
+}
+
+@function ease-in-out-Circ($x) {
+    @if ($x < .5) {
+        @return (1 - math-sqrt(1 - math-pow(2 * $x, 2))) / 2;
+    } @else {
+        @return (math-sqrt(1 - math-pow(-2 * $x + 2, 2)) + 1) / 2;
+    }
+}
+
+// ==========
+// Back
+// ==========
+
+@function ease-in-Back($x) {
+    @return $easings-const-c3 * $x * $x * $x - $easings-const-c1 * $x * $x;
+}
+
+@function ease-out-Back($x) {
+    @return 1 + $easings-const-c3 * math-pow($x - 1, 3) + $easings-const-c1 * math-pow($x - 1, 2);
+}
+
+@function ease-in-out-Back($x) {
+    @if ($x < .5) {
+        @return (math-pow(2 * $x, 2) * (($easings-const-c2 + 1) * 2 * $x - $easings-const-c2)) / 2;
+    } @else {
+        @return (math-pow(2 * $x - 2, 2) * (($easings-const-c2 + 1) * ($x * 2 - 2) + $easings-const-c2) + 2) / 2;
+    }
+}
+
+// ==========
+// Elastic
+// ==========
+
+@function ease-in-Elastic($x) {
+    @if ($x == 0) {
+        @return 0;
+    } @else if ($x == 1) {
+        @return 1;
+    } @else if ($x < .5) {
+        @return -(math-pow(2, 10 * $x - 10)) * sin(($x * 10 - 10.75) * $easings-const-c4);
+    }
+}
+
+@function ease-out-Elastic($x) {
+    @if ($x == 0) {
+        @return 0;
+    } @else if ($x == 1) {
+        @return 1;
+    } @else if ($x < .5) {
+        @return math-pow(2, -10 * $x) * math-sin(($x * 10 - .75) * $easings-const-c4) + 1;
+    }
+}
+
+@function ease-in-out-Elastic($x) {
+    @if ($x == 0) {
+        @return 0;
+    } @else if ($x == 1) {
+        @return 1;
+    } @else if ($x < .5) {
+        @return -(math-pow(2, 20 * $x - 10) * math-sin((20 * $x - 11.125) * $easings-const-c5)) / 2;
+    } @else {
+        @return (math-pow(2, -20 * $x + 10) * math-sin((20 * $x - 11.125) * $easings-const-c5)) / 2 + 1;
+    }
+}
+
+// ==========
+// Bounce
+// ==========
+
+@function ease-in-bounce($x) {
+    @return 1 - ease-out-bounce(1 - $x);
+}
+
+@function ease-out-bounce($x) {
+    $n1: 7.5625;
+    $d1: 2.75;
+
+    @if ($x < 1 / $d1) {
+        @return $n1 * $x * $x;
+    } @else if ($x < 2 / $d1) {
+        $x: $x - 1.5 / $d1;
+        @return $n1 * $x * $x + .75;
+    } @else if ($x < 2.5 / $d1) {
+        $x: $x - 2.25 / $d1;
+        @return $n1 * $x * $x + .9375;
+    } @else {
+        $x: $x - 2.625 / $d1;
+        @return $n1 * $x * $x + .984375;
+    }
+}
+
+@function ease-in-out-Bounce($x) {
+    @if ($x < .5) {
+        @return (1 - ease-out-bounce(1 - 2 * $x)) / 2;
+    } @else {
+        @return (1 + ease-out-bounce(2 * $x - 1)) / 2;
     }
 }

@@ -8,6 +8,7 @@
  *      math-sin
  *      math-cos
  *      math-tan
+ *      math-sqrt from : https://www.antimath.info/css/sass-sqrt-function/
  */
 
 @function math-pow($number, $exp) {
@@ -76,4 +77,16 @@
   
 @function math-tan($angle) {
     @return math-sin($angle) / math-cos($angle);
+}
+
+@function math-sqrt($r) {
+    $x0: 1;
+    $x1: $x0;
+   
+    @for $i from 1 through 10 {
+        $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+        $x0: $x1;
+    }
+
+    @return $x1;
 }

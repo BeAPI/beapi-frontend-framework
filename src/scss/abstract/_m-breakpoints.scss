@@ -1,0 +1,35 @@
+/**
+ * Breakpoints
+ *
+ * exemples :
+ *
+ *      @include breakpoints(sm, md) { ... }
+ *          return @media screen and (min-width: 768px) and (max-width: 1024px) { ... }
+ *
+ *      @include breakpoints(sm, max) { ... }
+ *          return @media screen and (max-width: 767px) { ... }
+ *
+ *      @include breakpoints(sm) or @include breakpoints(sm, min) { ... }
+ *          return @media screen and (min-width: 768px) { ... }
+ *
+ */
+
+@mixin breakpoints($breakpoint, $min-or-max-or-breakpoint: min) {
+
+    @if (type-of(map-get($breakpoints, $min-or-max-or-breakpoint)) == "number") {
+
+        @media screen and (min-width: em(map-get($breakpoints, $breakpoint))) and (max-width: em(map-get($breakpoints, $breakpoint) - 1)) {
+            @content;
+        }
+    } @else if ($min-or-max-or-breakpoint == max) {
+
+        @media screen and (max-width: em(map-get($breakpoints, $breakpoint) - 1)) {
+            @content;
+        }
+    } @else {
+
+        @media screen and (min-width: em(map-get($breakpoints, $breakpoint))) {
+            @content;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+/**
+ * Radio custom, must be used with checkbox custom
+ */
+
+@mixin radio-custom() {
+    input[type="radio"] {
+        + label {
+            &::before {
+                border-radius: 50%;
+            }
+        }
+    }
+}

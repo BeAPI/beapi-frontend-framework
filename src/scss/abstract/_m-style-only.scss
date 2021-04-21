@@ -1,0 +1,17 @@
+/**
+ * Style only
+ *
+ *      Style inside the mixin while be writed only for style.scss
+ *
+ *      @include style-only {
+ *          ... css only for the front office
+ *      }
+ *
+ *      the variable $entry-file-name is defined in style.scss and editor-style.scss
+ */
+
+@mixin style-only {
+    @if ($entry-file-name == "style") {
+        @content;
+    }
+}

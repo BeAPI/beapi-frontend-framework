@@ -1,13 +1,13 @@
 .alignwide {
 
-    @include row--fullwidth;
+    @include row-fullwidth;
 
-    max-width: $containerWidth * 1.5;
+    max-width: $container-width * 1.5;
 }
 
 .alignfull {
 
-    @include row--fullwidth;
+    @include row-fullwidth;
 
     max-width: 100vw;
 }

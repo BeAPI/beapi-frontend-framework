@@ -1,20 +1,16 @@
+$entry-file-name: "style";
+
 @import "~normalize-scss/sass/normalize/import-now";
 
 // Abstract
 
-@import "abstract/mixins";
-@import "abstract/utilities";
-@import "abstract/grid";
-@import "abstract/fonts";
-@import "abstract/colors";
-@import "abstract/breakpoints";
-@import "abstract/positioning";
-@import "abstract/borders";
-@import "abstract/box-sizing";
-@import "abstract/easing";
+@import "abstract/index";
 
 // Base
 
+@import "base/fonts";
+@import "base/box-sizing";
+@import "base/visuallyhidden";
 @import "base/svg-icons";
 @import "base/text";
 @import "base/form";
@@ -26,7 +22,7 @@
 
 // Components
 
-@import "components/buttons";
+@import "components/btn";
 @import "components/menu-fastaccess";
 @import "components/menu-accessible";
 @import "components/card";

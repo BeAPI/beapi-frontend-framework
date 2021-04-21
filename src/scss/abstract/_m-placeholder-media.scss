@@ -1,0 +1,41 @@
+/**
+ * Placeholder media
+ */
+
+@mixin placeholder-media($width, $height, $targets: "picture, iframe", $include-object-fit: true) {
+    position: relative;
+
+    &::before {
+        @include placeholder-media-size($width, $height);
+
+        display: block;
+        content: "";
+    }
+
+    .lazyload,
+    .lazyloading {
+        height: 0;
+    }
+
+    #{$target} {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    @if ($include-object-fit) {
+        img {
+            @include object-fit;
+
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+@mixin placeholder-media-size($width, $height) {
+    padding-bottom: $height / $width * 100%;
+}

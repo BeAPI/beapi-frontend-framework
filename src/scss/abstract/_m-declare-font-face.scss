@@ -1,0 +1,19 @@
+/**
+ * Declare font face
+ *
+ * used in base/_fonts.scss
+ */
+
+@mixin declare-font-face($font-family, $font-filename, $font-weight : normal, $font-style :normal, $font-stretch : normal) {
+
+    @font-face {
+        font-family: "#{$font-family}";
+        font-style: $font-style;
+        font-weight: $font-weight;
+        font-stretch: $font-stretch;
+        font-display: swap;
+        src:
+            url(#{$font-filename}.woff2) format("woff2"),
+            url(#{$font-filename}.woff) format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+}

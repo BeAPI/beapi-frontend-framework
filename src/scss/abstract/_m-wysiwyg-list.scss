@@ -1,0 +1,27 @@
+// List mixins
+
+/**
+ * Wysiwyg list
+ */
+
+@mixin wysiwyg-list($type: ul) {
+    padding-left: 0;
+    margin: $base-spacing 0 $base-spacing $half-base-spacing;
+
+    #{$type} {
+        margin-top: $half-base-spacing;
+        margin-bottom: $half-base-spacing;
+    }
+
+    li {
+        margin: 0 0 $half-base-spacing;
+    }
+
+    @if $type == ul {
+        list-style: disc inside none;
+    }
+
+    @if $type == ol {
+        list-style: decimal inside none;
+    }
+}

@@ -1,0 +1,13 @@
+/**
+ * Hover
+ *
+ *          Hover Active Focus pseudo selector mixin
+ */
+
+@mixin hover {
+    &:hover,
+    &:active,
+    &:focus {
+        @content;
+    }
+}

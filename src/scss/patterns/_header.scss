@@ -21,7 +21,7 @@
 
     &__img {
 
-        @include img__responsive();
+        @include img-responsive();
 
         margin: 0 auto $base-spacing;
     }

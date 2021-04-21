@@ -1,0 +1,99 @@
+/**
+ * Column
+ *
+ * exemples :
+ *      column(6) 			-> return 6 column + 5 gutter of desktop preset
+ * 		column('m', 6) 		-> return 6 column + 5 gutter of mobile preset
+ * 		column(6, 5, 8)		-> return 6 column + 5 gutter of 8 grid size of desktop
+ *
+ */
+
+// ----
+// column-set-var
+// ----
+
+@function column-set-var($var, $device, $prop) {
+
+    @if ($var == null) {
+
+        @return map-get(map-get($column-preset, $device), $prop);
+    } @else {
+
+        @return $var;
+    }
+}
+
+// ----
+// column - return a percent value
+// ----
+
+@function column($device, $nb-column: null, $nb-gutter: null, $total-column: null, $total-gutter: null) {
+    // shift vars if $device is number
+    @if type-of($device) == "number" {
+        $total-gutter: $total-column;
+        $total-column: $nb-gutter;
+        $nb-gutter: $nb-column;
+        $nb-column: $device;
+        $device: d;
+    }
+
+    $preset: map-get($column-preset, $device);
+    $gutter-width: map-get($preset, gutterwidth);
+    $column-width: map-get($preset, columnwidth);
+    $total-column: column-set-var($total-column, $device, totalcolumn);
+
+    @if $nb-gutter == null {
+        $nb-gutter: $nb-column - 1;
+    }
+
+    @if $total-gutter == null {
+        $total-gutter: $total-column - 1;
+    }
+
+    @return ($nb-column * $column-width + $nb-gutter * $gutter-width) / ($total-column * $column-width + $total-gutter * $gutter-width) * 100%;
+}
+
+// ----
+// column px, return a pixel value
+// ----
+
+@function column-px($device, $nb-column: null, $nb-gutter: null) {
+    // shift vars if $device is number
+    @if type-of($device) == "number" {
+        $nb-gutter: $nb-column;
+        $nb-column: $device;
+        $device: d;
+    }
+
+    $preset: map-get($column-preset, $device);
+    $gutter-width: map-get($preset, gutterwidth);
+    $column-width: map-get($preset, columnwidth);
+
+    @if $nb-gutter == null {
+        $nb-gutter: $nb-column - 1;
+    }
+
+    @return #{$nb-column * $column-width + $nb-gutter * $gutter-width}px;
+}
+
+// ----
+// column full - return a percent value of the full width container (100%) minus mobile external gutter width * 2
+// ----
+
+@function column-full($device, $nb-column: null, $nb-gutter: null) {
+    // shift vars if $device is number
+    @if type-of($device) == "number" {
+        $nb-gutter: $nb-column;
+        $nb-column: $device;
+        $device: d;
+    }
+
+    $preset: map-get($column-preset, $device);
+    $gutter-width: map-get($preset, gutterwidth);
+    $column-width: map-get($preset, columnwidth);
+    $total-column: map-get($preset, totalcolumn);
+
+    $width: column-px($device, $nb-column, $nb-gutter);
+
+    @return calc((100% - #{$mobile-external-gutter * 2}) * #{$width / ($gutter-width * ($total-column - 1) + $column-width * $total-column)});
+}

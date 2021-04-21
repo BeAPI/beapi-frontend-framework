@@ -1,0 +1,9 @@
+/**
+ * Flex grid container
+ */
+
+@mixin flex-grid-container($flex-wrap: wrap, $justify-content: space-between) {
+    display: flex;
+    flex-wrap: $flex-wrap;
+    justify-content: $justify-content;
+}

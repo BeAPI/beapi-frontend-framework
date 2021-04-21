@@ -1,0 +1,13 @@
+/**
+ * Placeholder
+ */
+
+@mixin placeholder {
+    $placeholders: ":placeholder", ":-webkit-input-placeholder" ":-moz-placeholder" "-moz-placeholder" "-ms-input-placeholder";
+
+    @each $placeholder in $placeholders {
+        &:#{$placeholder} {
+            @content;
+        }
+    }
+}

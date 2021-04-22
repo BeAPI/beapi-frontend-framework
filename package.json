@@ -7,7 +7,7 @@
     "url": "https://github.com/BeAPI/beapi-frontend-framework"
   },
   "scripts": {
-    "start": "node_modules/.bin/concurrently -k -n \"Webpack,PHP Server\" -p \"[{name}]\" -c \"green, blue\" \"node_modules/.bin/webpack --mode=development --watch --display=errors-only\" \"sh server.sh\"",
+    "start": "sh server.sh && node_modules/.bin/webpack --mode=development --watch --display=errors-only",
     "build:dev": "node_modules/.bin/webpack --mode=development --display=errors-only",
     "build:prod": "rm -rf dist/ && echo \"✓ dist folder has been successfully removed.\" && node_modules/.bin/webpack --mode=production --display=errors-only",
     "build": "rm -rf dist/ && echo \"✓ dist folder has been successfully removed.\" && node_modules/.bin/webpack --mode=production --display=errors-only && node_modules/.bin/webpack --mode=development --display=errors-only",

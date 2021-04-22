@@ -3,7 +3,7 @@
  *
  * exemples :
  *
- *      #{ align("wide") } .block#{ align() } {
+ *      #{ context-align("wide") } .block#{ context-align() } {
  *          ... your css
  *      }
  *
@@ -19,15 +19,15 @@
  *
  */
 
-$function-align-last-value: "";
+$function-context-align-last-value: "";
 
-@function align($value: null, $suffix: " > ") {
+@function context-align($value: null, $suffix: " > ") {
     @if ($value == null) {
         @if ($entry-file-name == "style") {
-            @return ".align" + $function-align-last-value;
+            @return ".align" + $function-context-align-last-value;
         }
     } @else {
-        $function-align-last-value: $value;
+        $function-context-align-last-value: $value;
 
         @if ($entry-file-name == "editor-style") {
             @return "[data-align=\"" + $value + "\"]" + $suffix;

@@ -1,9 +1,56 @@
 /**
  * Easings
  *
- * converted from source: https://github.com/ai/eamath-sings.net/blob/master/src/eamath-sings/eamath-singsFunctions.ts
+ *      converted from source: https://github.com/ai/eamath-sings.net/blob/master/src/eamath-sings/eamath-singsFunctions.ts
+ *      each ease receive a value $x in a range of 0 to 1
  *
- * each ease receive a value $x in a range of 0 to 1
+ *      exemples :
+ *
+ *      @for (dollar)i from 0 through 10 {
+ *          .test {
+ *              transition-delay: #{ease-out-cubic((dollar)i / 10)}s;
+ *          }
+ *      }
+ *
+ *      ease-in-quad
+ *      ease-out-quad
+ *      ease-in-out-quad
+ *
+ *      ease-in-cubic
+ *      ease-out-cubic
+ *      ease-in-out-cubic
+ *
+ *      ease-in-quart
+ *      ease-out-quart
+ *      ease-in-out-quart
+ *
+ *      ease-in-quint
+ *      ease-out-quint
+ *      ease-in-out-quint
+ *
+ *      ease-in-sine
+ *      ease-out-sine
+ *      ease-in-out-sine
+ *
+ *      ease-in-expo
+ *      ease-out-expo
+ *      ease-in-out-expo
+ *
+ *      ease-in-circ
+ *      ease-out-circ
+ *      ease-in-out-circ
+ *
+ *      ease-in-back
+ *      ease-out-back
+ *      ease-in-out-back
+ *
+ *      ease-in-elastic
+ *      ease-out-elastic
+ *      ease-in-out-elastic
+ *
+ *      ease-in-bounce
+ *      ease-out-bounce
+ *      ease-in-out-bounce
  *
  */
 $easings-const-c1: 1.70158;
@@ -144,15 +191,15 @@ $easings-const-c5: (2 * math-pi()) / 4.5;
 // Circ
 // ==========
 
-@function ease-in-Circ($x) {
+@function ease-in-circ($x) {
     @return 1 - math-sqrt(1 - math-pow($x, 2));
 }
 
-@function ease-out-Circ($x) {
+@function ease-out-circ($x) {
     @return math-sqrt(1 - math-pow($x - 1, 2));
 }
 
-@function ease-in-out-Circ($x) {
+@function ease-in-out-circ($x) {
     @if ($x < .5) {
         @return (1 - math-sqrt(1 - math-pow(2 * $x, 2))) / 2;
     } @else {
@@ -164,15 +211,15 @@ $easings-const-c5: (2 * math-pi()) / 4.5;
 // Back
 // ==========
 
-@function ease-in-Back($x) {
+@function ease-in-back($x) {
     @return $easings-const-c3 * $x * $x * $x - $easings-const-c1 * $x * $x;
 }
 
-@function ease-out-Back($x) {
+@function ease-out-back($x) {
     @return 1 + $easings-const-c3 * math-pow($x - 1, 3) + $easings-const-c1 * math-pow($x - 1, 2);
 }
 
-@function ease-in-out-Back($x) {
+@function ease-in-out-back($x) {
     @if ($x < .5) {
         @return (math-pow(2 * $x, 2) * (($easings-const-c2 + 1) * 2 * $x - $easings-const-c2)) / 2;
     } @else {
@@ -184,7 +231,7 @@ $easings-const-c5: (2 * math-pi()) / 4.5;
 // Elastic
 // ==========
 
-@function ease-in-Elastic($x) {
+@function ease-in-elastic($x) {
     @if ($x == 0) {
         @return 0;
     } @else if ($x == 1) {
@@ -194,7 +241,7 @@ $easings-const-c5: (2 * math-pi()) / 4.5;
     }
 }
 
-@function ease-out-Elastic($x) {
+@function ease-out-elastic($x) {
     @if ($x == 0) {
         @return 0;
     } @else if ($x == 1) {
@@ -204,7 +251,7 @@ $easings-const-c5: (2 * math-pi()) / 4.5;
     }
 }
 
-@function ease-in-out-Elastic($x) {
+@function ease-in-out-elastic($x) {
     @if ($x == 0) {
         @return 0;
     } @else if ($x == 1) {
@@ -242,7 +289,7 @@ $easings-const-c5: (2 * math-pi()) / 4.5;
     }
 }
 
-@function ease-in-out-Bounce($x) {
+@function ease-in-out-bounce($x) {
     @if ($x < .5) {
         @return (1 - ease-out-bounce(1 - 2 * $x)) / 2;
     } @else {

@@ -1,0 +1,38 @@
+/**
+ * Align
+ *
+ * exemples :
+ *
+ *      #{ align("wide") } .block#{ align() } {
+ *          ... your css
+ *      }
+ *
+  *      return for style.scss :
+ *          .block.alignwide {
+ *              ... your css
+ *          }
+ *
+ *      return for editor-style.scss :
+ *          [data-align="wide"] > .block {
+ *              ... your css
+ *          }
+ *
+ */
+
+$function-align-last-value: "";
+
+@function align($value: null, $suffix: " > ") {
+    @if ($value == null) {
+        @if ($entry-file-name == "style") {
+            @return ".align" + $function-align-last-value;
+        }
+    } @else {
+        $function-align-last-value: $value;
+
+        @if ($entry-file-name == "editor-style") {
+            @return "[data-align=\"" + $value + "\"]" + $suffix;
+        }
+    }
+
+    @return "";
+}

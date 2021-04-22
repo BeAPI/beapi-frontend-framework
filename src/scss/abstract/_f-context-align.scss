@@ -27,7 +27,7 @@ $function-context-align-last-value: "";
             @return ".align" + $function-context-align-last-value;
         }
     } @else {
-        $function-context-align-last-value: $value;
+        $function-context-align-last-value: $value !global;
 
         @if ($entry-file-name == "editor-style") {
             @return "[data-align=\"" + $value + "\"]" + $suffix;

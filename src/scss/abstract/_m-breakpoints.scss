@@ -15,20 +15,21 @@
  */
 
 @mixin breakpoints($breakpoint, $min-or-max-or-breakpoint: min) {
+    $font-size: 16px; // don't use em function whitout param, $base-font-size can be modified
 
     @if (type-of(map-get($breakpoints, $min-or-max-or-breakpoint)) == "number") {
 
-        @media screen and (min-width: em(map-get($breakpoints, $breakpoint))) and (max-width: em(map-get($breakpoints, $breakpoint) - 1)) {
+        @media screen and (min-width: em(map-get($breakpoints, $breakpoint), $font-size)) and (max-width: em(map-get($breakpoints, $min-or-max-or-breakpoint) - 1, $font-size)) {
             @content;
         }
     } @else if ($min-or-max-or-breakpoint == max) {
 
-        @media screen and (max-width: em(map-get($breakpoints, $breakpoint) - 1)) {
+        @media screen and (max-width: em(map-get($breakpoints, $breakpoint) - 1, $font-size)) {
             @content;
         }
     } @else {
 
-        @media screen and (min-width: em(map-get($breakpoints, $breakpoint))) {
+        @media screen and (min-width: em(map-get($breakpoints, $breakpoint), $font-size)) {
             @content;
         }
     }

@@ -2,7 +2,7 @@
 	"presets": [
 		["@babel/preset-env", {
 			"targets": {
-				"browsers": ["last 2 versions", "ie >= 9", "Firefox ESR"]
+				"browsers": ["last 2 versions", "IE 11", "> 0.25%"]
 			}
 		}]
 	],

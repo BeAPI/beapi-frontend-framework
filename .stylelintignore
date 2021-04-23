@@ -1,4 +1,0 @@
-src/_readymade/**/*.scss
-dist/**/*.css
-src/scss/vendor/*
-src/templates/partials/**/*.css

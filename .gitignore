@@ -65,9 +65,6 @@ dist/assets/img/sample/cache
 ### PHPStorm ###
 .idea/
 
-### Conf Webpack ###
-config/host.js
-
 ### frontend build directory ###
 dist/
 src/conf-img/*.csv
@@ -76,7 +73,5 @@ src/conf-img/*.csv
 package-lock.json
 
 ### config
-.port
-.bs-port
 /vendor/
 composer.lock

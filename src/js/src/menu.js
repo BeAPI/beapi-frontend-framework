@@ -1,7 +1,5 @@
-/**
- * Main Menu
- */
-;(function($) {
+// eslint-disable-next-line prettier/prettier
+(function($) {
   // Accesible toggle menu
   $('#nav-primary').accessibleMegaMenu({
     uuidPrefix: 'amenu',

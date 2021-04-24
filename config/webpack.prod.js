@@ -9,7 +9,7 @@ module.exports = merge(common, {
     filename: '[name].[chunkhash:8].min.js',
   },
   module: {
-    rules: [loaders.FontsLoader, loaders.JSLoader, loaders.SCSSLoaderProd, loaders.SVGLoader],
+    rules: [loaders.FontsLoader, loaders.ImagesLoader, loaders.JSLoader, loaders.SCSSLoaderProd, loaders.SVGLoader],
   },
   plugins: [plugins.ManifestPlugin, plugins.MiniCssExtractPluginProd],
 })

@@ -68,6 +68,37 @@ const FontsLoader = {
   },
 }
 
+const ImagesLoader = {
+  test: /\.(png|jpe?g|gif)$/,
+  use: [
+    {
+      loader: 'file-loader',
+      options: {
+        name: '[path][name].[ext]',
+      },
+    },
+    {
+      loader: 'image-webpack-loader',
+      options: {
+        mozjpeg: {
+          progressive: true,
+          quality: 65,
+        },
+        pngquant: {
+          quality: [0.65, 0.9],
+          speed: 4,
+        },
+        gifsicle: {
+          interlaced: false,
+        },
+        webp: {
+          quality: 75,
+        },
+      },
+    },
+  ],
+}
+
 const JSLoader = {
   test: /\.js$/i,
   exclude: /node_modules/,
@@ -99,6 +130,7 @@ const SVGLoader = {
 
 module.exports = {
   FontsLoader,
+  ImagesLoader,
   JSLoader,
   SCSSLoaderDev,
   SCSSLoaderProd,

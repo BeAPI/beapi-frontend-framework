@@ -30,6 +30,7 @@
         ]
     },
     "globals": {
-        "jQuery": true
+        "jQuery": true,
+        "wp": true
     }
   }

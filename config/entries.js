@@ -1,4 +1,4 @@
 module.exports = {
   app: ['./src/js/app.js', './src/scss/style.scss'],
-  'editor-style': './src/scss/editor-style.scss',
+  editor: ['./src/js/editor.js', './src/scss/editor.scss'],
 }

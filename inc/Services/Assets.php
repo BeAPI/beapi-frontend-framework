@@ -32,10 +32,10 @@ class Assets implements Service {
 		/**
 		 * Add hooks for the scripts and styles to hook on
 		 */
-		add_action( 'wp', array( $this, 'register_assets' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-		add_action( 'wp_print_styles', array( $this, 'enqueue_styles' ) );
-		add_filter( 'stylesheet_uri', array( $this, 'stylesheet_uri' ) );
+		add_action( 'wp', [ $this, 'register_assets' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
+		add_action( 'wp_print_styles', [ $this, 'enqueue_styles' ] );
+		add_filter( 'stylesheet_uri', [ $this, 'stylesheet_uri' ] );
 	}
 
 	/**
@@ -56,7 +56,7 @@ class Assets implements Service {
 
 		// Js theme
 		// Theme js dependencies
-		$scripts_dependencies = array( 'jquery', 'global-polyfill' );
+		$scripts_dependencies = [ 'jquery', 'global-polyfill' ];
 
 		// Polyfill
 		\wp_register_script( 'global-polyfill', 'https://cdn.polyfill.io/v3/polyfill.min.js?features=es5,es6,fetch,Array.prototype.includes,CustomEvent,Element.prototype.closest,NodeList.prototype.forEach', null, null, true ); //phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
@@ -66,7 +66,7 @@ class Assets implements Service {
 		$this->assets_tools->register_script( 'scripts', 'dist/' . $file, $scripts_dependencies, $theme->get( 'Version' ), true );
 
 		// CSS
-		wp_register_style( 'theme-style', get_stylesheet_uri(), array(), $theme->get( 'Version' ) );
+		wp_register_style( 'theme-style', get_stylesheet_uri(), [], $theme->get( 'Version' ) );
 	}
 
 	/**

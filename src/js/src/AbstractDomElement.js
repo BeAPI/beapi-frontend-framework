@@ -28,8 +28,6 @@
 
 */
 
-const $ = jQuery
-
 class AbstractDomElement {
   constructor(element, options) {
     let oldInstance
@@ -57,7 +55,7 @@ class AbstractDomElement {
     }
 
     this._element = element
-    this._settings = $.extend(true, {}, this.constructor.defaults, options)
+    this._settings = Object.assign(this.constructor.defaults, options)
     this._element.beapi[nameSpace] = this
     this._isNewInstance = true
   }

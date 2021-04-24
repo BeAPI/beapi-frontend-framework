@@ -6,5 +6,6 @@ module.exports = {
       stage: 0,
     },
     'postcss-pxtorem': { propWhiteList: [] },
+    'postcss-sort-media-queries': {},
   },
 }

@@ -29,6 +29,7 @@
     "postcss-loader": "^5.2.0",
     "postcss-preset-env": "^6.7.0",
     "postcss-pxtorem": "^6.0.0",
+    "postcss-sort-media-queries": "^3.8.9",
     "sass": "^1.32.11",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",

@@ -1,7 +1,7 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const SCSSLoader = {
+const SCSSLoaderDev = {
   test: /\.(scss|css)$/,
   exclude: /node_modules/,
   use: [
@@ -16,7 +16,35 @@ const SCSSLoader = {
       loader: 'postcss-loader',
       options: {
         postcssOptions: {
-          config: path.resolve(__dirname, 'postcss.config.js'),
+          config: path.resolve(__dirname, 'postcss.dev.config.js'),
+        },
+      },
+    },
+    {
+      loader: 'sass-loader',
+      options: {
+        sourceMap: true,
+      },
+    },
+  ],
+}
+
+const SCSSLoaderProd = {
+  test: /\.(scss|css)$/,
+  exclude: /node_modules/,
+  use: [
+    MiniCssExtractPlugin.loader,
+    {
+      loader: 'css-loader',
+      options: {
+        importLoaders: 1,
+      },
+    },
+    {
+      loader: 'postcss-loader',
+      options: {
+        postcssOptions: {
+          config: path.resolve(__dirname, 'postcss.prod.config.js'),
         },
       },
     },
@@ -59,8 +87,8 @@ const SVGLoader = {
       options: {
         extract: true,
         publicPath: 'img/icons/',
-        spriteFilename: svgPath => `icons${svgPath.substr(-4)}`,
-        symbolId: filePath => `icon-${path.basename(filePath).slice(0, -4)}`,
+        spriteFilename: (svgPath) => `icons${svgPath.substr(-4)}`,
+        symbolId: (filePath) => `icon-${path.basename(filePath).slice(0, -4)}`,
       },
     },
     {
@@ -72,6 +100,7 @@ const SVGLoader = {
 module.exports = {
   FontsLoader,
   JSLoader,
-  SCSSLoader,
+  SCSSLoaderDev,
+  SCSSLoaderProd,
   SVGLoader,
 }

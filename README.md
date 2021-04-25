@@ -5,9 +5,9 @@
 
 ![Banner](screenshot.png)
 
-## ℹ️ What is BeAPI FrontEnd Framework ?
+## ℹ️ What is Be API Frontend Framework ?
 
-**Be API FrontEnd Framework** (BFF) is a friendly Front-end WordPress theme boilerplate to help you to start your own WordPress theme with modern tools.
+**Be API Frontend Framework** (BFF) is a friendly Front-end WordPress theme boilerplate to help you to start your own WordPress theme with modern tools.
 
 ## ⚒️ Main tools
 * [Webpack 5](https://webpack.js.org/) JS, CSS and assets are built with Webpack.

@@ -1,4 +1,0 @@
-src/js/vendor/*.js
-src/js/vendor_async/*.js
-src/js/vendor_ie/*.js
-src/js/polyfill/*.js

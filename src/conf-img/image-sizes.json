@@ -1,15 +1,5 @@
 [
   {
-    "img-300-200": {
-      "width": "300",
-      "height": "200",
-      "crop": true
-    },
-    "img-600-400": {
-      "width": "600",
-      "height": "400",
-      "crop": true
-    },
     "img-100-100": {
       "width": "100",
       "height": "100",
@@ -18,16 +8,6 @@
     "img-200-200": {
       "width": "200",
       "height": "200",
-      "crop": true
-    },
-    "img-1024-400": {
-      "width": "1024",
-      "height": "400",
-      "crop": true
-    },
-    "img-2048-800": {
-      "width": "2048",
-      "height": "800",
       "crop": true
     },
     "img-400-400": {

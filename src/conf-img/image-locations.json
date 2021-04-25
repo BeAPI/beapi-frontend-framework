@@ -1,53 +1,5 @@
 [
   {
-    "entry-img-01": [
-      {
-        "srcsets": [
-          {
-            "srcset": "",
-            "size": "img-300-200"
-          },
-          {
-            "srcset": "2x",
-            "size": "img-600-400"
-          }
-        ],
-        "default_img": "default-600-400.jpg",
-        "img_base": "img-600-400"
-      }
-    ],
-    "header-logo": [
-      {
-        "srcsets": [
-          {
-            "srcset": "",
-            "size": "img-100-100"
-          },
-          {
-            "srcset": "2x",
-            "size": "img-200-200"
-          }
-        ],
-        "default_img": "default-200-200.jpg",
-        "img_base": "img-200-200"
-      }
-    ],
-    "hero-img": [
-      {
-        "srcsets": [
-          {
-            "srcset": "",
-            "size": "img-1024-400"
-          },
-          {
-            "srcset": "2x",
-            "size": "img-2048-800"
-          }
-        ],
-        "default_img": "default-2048-800.jpg",
-        "img_base": "img-2048-800"
-      }
-    ],
     "square": [
       {
         "srcsets": [

@@ -1,16 +1,14 @@
-/**
- * Main scripts file
- */
-
-import 'what-input'
-import 'svg4everybody'
-import './polyfill/picturefill'
 import lazySizes from 'lazysizes'
 import 'lazysizes/plugins/native-loading/ls.native-loading'
 import 'lazysizes/plugins/object-fit/ls.object-fit'
+import 'what-input'
+import 'svg4everybody'
+import './polyfill/picturefill'
 import './post-build'
-import './vendor/accessible-mega-menu'
-import './src/menu'
+import AccessibleMenu from './classes/AccessibleMenu'
+
+// Initializations
+AccessibleMenu.initFromPreset()
 
 /**
  * LazySizes configuration

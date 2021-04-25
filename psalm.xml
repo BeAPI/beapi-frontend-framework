@@ -12,7 +12,7 @@
             <directory name="vendor" />
             <directory name="src" />
             <directory name="dist" />
-            <directory name="scripts" />
+            <directory name="config" />
         </ignoreFiles>
     </projectFiles>
 

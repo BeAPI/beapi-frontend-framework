@@ -12,7 +12,7 @@
  *              ... your css
  *          }
  *
- *      return for editor-style.scss :
+ *      return for editor.scss :
  *          [data-align="wide"] > .block {
  *              ... your css
  *          }
@@ -29,7 +29,7 @@ $function-context-align-last-value: "";
     } @else {
         $function-context-align-last-value: $value !global;
 
-        @if ($entry-file-name == "editor-style") {
+        @if ($entry-file-name == "editor") {
             @return "[data-align=\"" + $value + "\"]" + $suffix;
         }
     }

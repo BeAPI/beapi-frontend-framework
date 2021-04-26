@@ -1,0 +1,17 @@
+/**
+ * Editor style only
+ *
+ *      Style inside the mixin while be writed only for editor.scss
+ *
+ *      @include editor-only {
+ *          ... css only for the gutenberg editor
+ *      }
+ *
+ *      the variable $entry-file-name is defined in style.scss and editor.scss
+ */
+
+@mixin editor-only {
+    @if ($entry-file-name == "editor") {
+        @content;
+    }
+}

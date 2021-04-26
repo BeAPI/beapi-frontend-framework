@@ -10,7 +10,7 @@ function isObject(o) {
 }
 
 export default function isPlainObject(o) {
-  var ctor, prot
+  let ctor, prot
 
   if (isObject(o) === false) {
     return false

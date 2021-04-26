@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node_modules/.bin/webpack --watch --config config/webpack.dev.js --no-stats",
     "build": "node_modules/.bin/webpack --config config/webpack.prod.js",
-    "bundle-report": "node_modules/.bin/webpack --config config/webpack.prod.js --json > dist/stats.json && node_modules/.bin/webpack-bundle-analyzer dist/stats.json",
+    "bundle-report": "node_modules/.bin/webpack --config config/webpack.prod.js --json=dist/stats.json && node_modules/.bin/webpack-bundle-analyzer dist/stats.json",
     "image": "node config/image-sizes.js"
   },
   "license": "GPL-2.0",

@@ -1,4 +1,4 @@
-import AbstractDomElement from '../AbstractDomElement'
+import AbstractDomElement from './AbstractDomElement'
 import '../vendor/accessible-mega-menu'
 
 class AccessibleMenu extends AbstractDomElement {

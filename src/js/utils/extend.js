@@ -6,8 +6,8 @@ export default function extend() {
   const deep = firstArgIsBool ? args[0] : false
   const start = firstArgIsBool ? 1 : 0
   const rt = isPlainObject(args[start]) ? args[start] : {}
-  let i
-  let prop
+  var i
+  var prop
 
   for (i = start + 1; i < args.length; i++) {
     for (prop in args[i]) {

@@ -72,7 +72,7 @@ class AbstractDomElement {
   }
 
   static init(element, options) {
-    foreach(element, el => {
+    foreach(element, (el) => {
       new this(el, options)
     })
 
@@ -90,7 +90,7 @@ class AbstractDomElement {
   }
 
   static destroy(element) {
-    this.foreach(element, el => {
+    this.foreach(element, (el) => {
       if (el.beapi && el.beapi[this.nameSpace]) {
         el.beapi[this.nameSpace].destroy()
       }
@@ -100,7 +100,7 @@ class AbstractDomElement {
   }
 
   static foreach(element, callback) {
-    foreach(element, el => {
+    foreach(element, (el) => {
       if (el.beapi && el.beapi[this.nameSpace]) {
         callback(el)
       }

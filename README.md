@@ -46,10 +46,6 @@ The autoload is based on psr-4 and handled by composer.
 
 You need a minimum of Node 12. Version 14 is recommended.
 
-### Advanced Responsive Images
-
-You need to work in a WordPress environment in order to make the BFF work with webpack for local dev. To do that you need to install [Advanced Responsive Images](https://github.com/asadowski10/advanced-responsive-images) in your `plugins` folder.
-
 ## Installation
 
 Download the latest release of BFF [here](https://github.com/BeAPI/beapi-frontend-framework/releases) and extract the zip archive into your `themes` WordPress's folder.
@@ -72,7 +68,11 @@ Next, go to your theme folder (in the following example, I didn't rename `beapi-
 $ cd wp-content/themes/beapi-frontend-framework
 ```
 
-Then install node dependencies with NPM or Yarn.
+Then install node dependencies with Yarn.
+```bash
+$ yarn
+```
+Alternatively, you can use NPM.
 ```bash
 $ npm install
 ```
@@ -104,13 +104,13 @@ Then, run the following command from the theme :
 
 
 ```bash
-$ npm start
+$ yarn start
 ```
 BrowserSync will proxy your lando'server based on the name defined in your `.lando.yml`.
 ### Build
 
 ```bash
-$ npm run build
+$ yarn build
 ```
 
 ### Bundle report
@@ -118,5 +118,5 @@ $ npm run build
 You can launch a bundle report with the following command :
 
 ```bash
-$ npm run bundle-report
+$ yarn bundle-report
 ```

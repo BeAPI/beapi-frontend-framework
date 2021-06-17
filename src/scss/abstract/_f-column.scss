@@ -57,7 +57,7 @@
 // column px, return a pixel value
 // ----
 
-@function column-px($device, $nb-column: null, $nb-gutter: null) {
+@function column-px($device, $nb-column: null, $nb-gutter: null, $unitless: false) {
     // shift vars if $device is number
     @if type-of($device) == "number" {
         $nb-gutter: $nb-column;
@@ -71,6 +71,10 @@
 
     @if $nb-gutter == null {
         $nb-gutter: $nb-column - 1;
+    }
+
+    @if $unitless == true {
+        @return $nb-column * $column-width + $nb-gutter * $gutter-width;
     }
 
     @return #{$nb-column * $column-width + $nb-gutter * $gutter-width}px;
@@ -93,7 +97,7 @@
     $column-width: map-get($preset, columnwidth);
     $total-column: map-get($preset, totalcolumn);
 
-    $width: column-px($device, $nb-column, $nb-gutter);
+    $width: column-px($device, $nb-column, $nb-gutter, true);
 
     @return calc((100% - #{$mobile-external-gutter * 2}) * #{$width / ($gutter-width * ($total-column - 1) + $column-width * $total-column)});
 }

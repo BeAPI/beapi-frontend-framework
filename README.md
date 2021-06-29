@@ -1,3 +1,5 @@
+<a href="https://beapi.fr">![Be API Github Banner](.github/banner-github.png)</a>
+
 #  BeAPI FrontEnd Framework
 ![Node.js CI](https://github.com/BeAPI/beapi-frontend-framework/workflows/Node.js%20CI/badge.svg?branch=master)
 
@@ -277,3 +279,11 @@ We add Lazyload support too! We use [Lazysize](https://github.com/aFarkas/lazysi
 If you don't want this feature you still can set BEA_LAZYSIZE to false in /functions/class-bea-images.php. it will turn the markup to basic img tag with srcset.
 
 Lazysize is also used for displaying background image in different sizes for differents viewports. Look at the Lazysize bgset documentation and the `page__header` or `hero` pattern.
+
+# Who ?
+
+Created by [Be API](https://beapi.fr), the French WordPress leader agency since 2009. Based in Paris, we are more than 30 people and always [hiring](https://beapi.workable.com) some fun and talented guys. So we will be pleased to work with you.
+
+This plugin is only maintained, which means we do not guarantee some free support. Consider reporting an [issue](#issues--features-request--proposal) and be patient.
+
+If you really like what we do or want to thank us for our quick work, feel free to [donate](https://www.paypal.me/BeAPI) as much as you want / can, even 1€ is a great gift for buying coffee :)

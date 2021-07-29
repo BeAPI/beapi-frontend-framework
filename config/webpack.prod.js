@@ -5,6 +5,7 @@ const plugins = require('./plugins')
 
 module.exports = merge(common, {
   mode: 'production',
+  stats: 'minimal',
   output: {
     filename: '[name].[chunkhash:8].min.js',
   },

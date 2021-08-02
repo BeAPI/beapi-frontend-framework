@@ -1,10 +1,8 @@
-<a href="https://beapi.fr">![Be API Github Banner](.github/banner-github.png)</a>
+[![Be API Github Banner](.github/banner-github.png)](https://beapi.fr)
 
 #  BeAPI FrontEnd Framework
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 ![Node.js CI](https://github.com/BeAPI/beapi-frontend-framework/workflows/Node.js%20CI/badge.svg?branch=master)
-
-![Banner](screenshot.png)
 
 ## ℹ️ What is Be API Frontend Framework ?
 

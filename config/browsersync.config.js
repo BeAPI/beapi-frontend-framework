@@ -5,11 +5,13 @@ const portfinder = require('portfinder')
 let landoProjectName = 'sample'
 
 try {
-  let fileContents = fs.readFileSync('../../../../.lando.yml', 'utf8')
-  let data = yaml.load(fileContents)
+  if (fs.existsSync('../../../../.lando.yml')) {
+    let fileContents = fs.readFileSync('../../../../.lando.yml', 'utf8')
+    let data = yaml.load(fileContents)
 
-  if (data.name) {
-    landoProjectName = data.name
+    if (data.name) {
+      landoProjectName = data.name
+    }
   }
 } catch (e) {
   console.log(e)

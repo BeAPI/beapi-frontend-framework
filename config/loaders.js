@@ -103,9 +103,10 @@ const JSLoader = {
   test: /\.js$/i,
   exclude: /node_modules/,
   use: {
-    loader: 'babel-loader',
+    loader: 'esbuild-loader',
     options: {
-      babelrc: true,
+      loader: 'js',
+      target: 'es2016',
     },
   },
 }

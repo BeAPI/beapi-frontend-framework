@@ -16,7 +16,7 @@
   "dependencies": {
     "css-loader": "^5.2.4",
     "cssnano": "^5.0.1",
-    "esbuild": "^0.12.17",
+    "esbuild-loader": "^2.13.1",
     "eslint": "^7.24.0",
     "eslint-webpack-plugin": "^2.5.4",
     "file-loader": "^6.2.0",

@@ -38,6 +38,10 @@ class Svg implements Service {
 	 * @return string
 	 */
 	public function get_the_icon( string $icon_class, array $additionnal_classes = [] ): string {
+		if ( empty( $icon_class ) ) {
+			return '';
+		}
+
 		$icon_slug = strpos( $icon_class, 'icon-' ) === 0 ? $icon_class : sprintf( 'icon-%s', $icon_class );
 		$classes   = [ 'icon', $icon_slug ];
 		$classes   = array_merge( $classes, $additionnal_classes );

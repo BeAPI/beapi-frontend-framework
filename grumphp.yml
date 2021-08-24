@@ -15,12 +15,6 @@ grumphp:
     phpcs:
       standard: ['phpcs.xml']
       triggered_by: [php]
-    securitychecker:
-      lockfile: ./composer.lock
-      format: ~
-      end_point: ~
-      timeout: ~
-      run_always: false
     composer:
       no_check_all: true
       no_check_publish: true

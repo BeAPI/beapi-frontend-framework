@@ -1,9 +1,12 @@
 # 5.0.0
 - Add Webpack 5
-- Refactoring
+- Set build configuration files into config directory
 - Remove bash scripts
 - Frontend image optimization
 - Remove static templates
+- Make BrowserSync working with Lando
+- Replace Babel with Esbuild
+- IE11 is not supported anymore
 
 # 4.7.0
  - Handle Editor patterns

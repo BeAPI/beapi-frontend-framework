@@ -65,7 +65,7 @@ class Assets implements Service {
 
 		// Async and footer
 		$file = ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) ? $this->get_min_file( 'js' ) : 'app.js';
-		$this->assets_tools->register_script( 'scripts', 'dist/assets/' . $file, $scripts_dependencies, $theme->get( 'Version' ), true );
+		$this->assets_tools->register_script( 'scripts', 'dist/' . $file, $scripts_dependencies, $theme->get( 'Version' ), true );
 
 		// CSS
 		wp_register_style( 'theme-style', get_stylesheet_uri(), [], $theme->get( 'Version' ) );
@@ -98,13 +98,13 @@ class Assets implements Service {
 	public function stylesheet_uri( string $stylesheet_uri ): string {
 		if ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) {
 			$file = $this->get_min_file( 'css' );
-			if ( ! empty( $file ) && file_exists( \get_theme_file_path( '/dist/assets/' . $file ) ) ) {
-				return \get_theme_file_uri( '/dist/assets/' . $file );
+			if ( ! empty( $file ) && file_exists( \get_theme_file_path( '/dist/' . $file ) ) ) {
+				return \get_theme_file_uri( '/dist/' . $file );
 			}
 		}
 
-		if ( file_exists( \get_theme_file_path( '/dist/assets/app.css' ) ) ) {
-			return \get_theme_file_uri( '/dist/assets/app.css' );
+		if ( file_exists( \get_theme_file_path( '/dist/app.css' ) ) ) {
+			return \get_theme_file_uri( '/dist/app.css' );
 		}
 
 		return $stylesheet_uri;
@@ -122,11 +122,11 @@ class Assets implements Service {
 			return '';
 		}
 
-		if ( ! file_exists( \get_theme_file_path( '/dist/assets/assets.json' ) ) ) {
+		if ( ! file_exists( \get_theme_file_path( '/dist/assets.json' ) ) ) {
 			return '';
 		}
 
-		$json   = file_get_contents( \get_theme_file_path( '/dist/assets/assets.json' ) ); //phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$json   = file_get_contents( \get_theme_file_path( '/dist/assets.json' ) ); //phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 		$assets = json_decode( $json, true );
 
 		if ( empty( $assets ) || JSON_ERROR_NONE !== json_last_error() ) {

@@ -1,0 +1,36 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "prettier"
+    ],
+    "plugins": ["prettier"],
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-console": "off",
+        "strict": ["error", "global"],
+        "curly": "warn",
+        "semi": [2, "never"],
+        "no-new": 0,
+        "prettier/prettier": [
+            "error",
+            {
+                "trailingComma": "es5",
+                "singleQuote": true,
+                "printWidth": 120,
+                "semi": false
+            }
+        ]
+    },
+    "globals": {
+        "jQuery": true,
+        "wp": true
+    }
+  }

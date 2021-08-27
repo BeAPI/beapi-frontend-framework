@@ -1,0 +1,67 @@
+$entry-file-name: "editor";
+
+// Abstract
+
+@import "abstract/index";
+
+// Base
+
+@import "base/fonts";
+@import "base/box-sizing";
+@import "base/visuallyhidden";
+@import "base/text";
+
+// Components
+
+@import "components/btn";
+
+// Wordpress
+
+@import "wp/img";
+//@import "wp/gallery"; Enable if Gutenberg is not used
+
+@import "wp/wysiwyg";
+@import "wp/gutenberg";
+
+// Backend Classic editor container
+.mce-content-body {
+    max-width: $container-width;
+    margin: $base-spacing/2;
+}
+
+// Backend Gutenberg editor container
+.wp-block {
+    &:not([data-align="full"]) {
+        max-width: $container-width;
+    }
+
+    &[data-align="wide"] {
+        max-width: $container-width * 1.5;
+    }
+}
+
+// Render Post/Page Title as FrontEnd view
+.editor-post-title {
+    &__block {
+        .editor-post-title {
+            &__input {
+
+                @include title(XXL);
+            }
+        }
+
+    }
+}
+
+// Exact style between BO/FO for lists
+.block-library-list {
+    ul {
+
+        @include wysiwyg-list();
+    }
+
+    ol {
+
+        @include wysiwyg-list(ol);
+    }
+}

@@ -66,7 +66,7 @@ class Editor implements Service {
 		/**
 		 * Default file
 		 **/
-		$file = 'editor-style.css';
+		$file = 'editor.css';
 
 		/**
 		 * @var Assets $assets
@@ -74,17 +74,17 @@ class Editor implements Service {
 		$assets = Framework::get_container()->get_service( 'assets' );
 
 		if ( ( ! defined( 'SCRIPT_DEBUG' ) || false === SCRIPT_DEBUG ) && false !== $assets ) {
-			$file = $assets->get_min_file( 'editor-style' );
+			$file = $assets->get_min_file( 'editor.css' );
 		}
 
 		/**
 		 * Do not enqueue a inexistant file on admin
 		 */
-		if ( ! is_file( get_theme_file_path( 'dist/assets/' . $file ) ) ) {
+		if ( ! is_file( get_theme_file_path( 'dist/' . $file ) ) ) {
 			return;
 		}
 
-		add_editor_style( 'dist/assets/' . $file );
+		add_editor_style( 'dist/' . $file );
 	}
 
 	/**
@@ -97,7 +97,7 @@ class Editor implements Service {
 		$assets = Framework::get_container()->get_service( 'assets' );
 
 		$theme    = wp_get_theme();
-		$file     = ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) ? $assets->get_min_file( 'admin-editor-script.js' ) : 'admin-editor-script.js';
+		$file     = ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) ? $assets->get_min_file( 'editor.js' ) : 'editor.js';
 		$filepath = 'dist/' . $file;
 
 		if ( ! file_exists( get_theme_file_path( $filepath ) ) ) {

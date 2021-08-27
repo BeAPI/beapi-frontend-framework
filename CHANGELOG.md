@@ -1,3 +1,10 @@
+# 5.0.0
+- Add Webpack 5
+- Refactoring
+- Remove bash scripts
+- Frontend image optimization
+- Remove static templates
+
 # 4.7.0
  - Handle Editor patterns
  - Handle Editor patterns categories

@@ -5,6 +5,8 @@ namespace BEA\Theme\Framework\Services;
 use BEA\Theme\Framework\Service;
 use BEA\Theme\Framework\Service_Container;
 use BEA\Theme\Framework\Tools\Assets as Assets_Tools;
+use function json_last_error;
+use const JSON_ERROR_NONE;
 
 /**
  * Class Assets
@@ -113,22 +115,22 @@ class Assets implements Service {
 	 *
 	 * @param string $type
 	 *
-	 * @return bool|null
+	 * @return string
 	 */
-	public function get_min_file( string $type ): ?bool {
+	public function get_min_file( string $type ): string {
 		if ( empty( $type ) ) {
-			return false;
+			return '';
 		}
 
 		if ( ! file_exists( \get_theme_file_path( '/dist/assets.json' ) ) ) {
-			return false;
+			return '';
 		}
 
 		$json   = file_get_contents( \get_theme_file_path( '/dist/assets.json' ) ); //phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 		$assets = json_decode( $json, true );
 
-		if ( empty( $assets ) ) {
-			return false;
+		if ( empty( $assets ) || JSON_ERROR_NONE !== json_last_error() ) {
+			return '';
 		}
 
 		switch ( $type ) {
@@ -155,7 +157,7 @@ class Assets implements Service {
 		}
 
 		if ( empty( $file ) ) {
-			return false;
+			return '';
 		}
 
 		return $file;

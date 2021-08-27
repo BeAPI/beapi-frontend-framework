@@ -10,7 +10,7 @@
 
 ## ⚒️ Main tools
 * [Webpack 5](https://webpack.js.org/) JS, CSS and assets are built with Webpack.
-* [Babel](https://babeljs.io/) for ES6 browser support.
+* [Esbuild Loader](https://github.com/privatenumber/esbuild-loader) for ESNext & TypeScript transpilation.
 * [Eslint](https://eslint.org/) for JS code style.
 * [Stylelint](https://stylelint.io/) for CSS code style.
 * [CSSNano](https://cssnano.co/) for CSS optimization

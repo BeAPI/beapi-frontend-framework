@@ -11,3 +11,4 @@ add_action(
 	}
 );
 require_once __DIR__ . '/inc/Helpers/Svg.php';
+require_once __DIR__ . '/inc/Helpers/Helper.php';

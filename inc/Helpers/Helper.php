@@ -272,3 +272,91 @@ function the_image( int $image_id, array $options = [] ): void {
 	// phpcs:ignore
 	echo $settings['before'] . $image . $settings['after'];
 }
+
+/**
+ * @usage BEA\Theme\Framework\Helpers\Helper\get_share_link( ['name' => facebook'], [ 'u' => 'https://...'] );
+ *
+ * @param array $option_field
+ * @param array $url_params
+ *
+ * @return string
+ */
+function get_share_link( array $option_field, array $url_params = [] ): string {
+	if ( empty( $option_field['name'] ) ) {
+		return '';
+	}
+
+	$networks = [
+		'facebook' => [
+			'title'         => 'Partager sur Facebook',
+			'href'          => 'http://www.facebook.com/sharer.php',
+			'default_param' => 'u',
+		],
+		'twitter'  => [
+			'title'         => 'Partager sur Twitter',
+			'href'          => 'https://twitter.com/intent/tweet',
+			'default_param' => 'url',
+		],
+		'linkedin' => [
+			'title'         => 'Partager sur Linkedin',
+			'href'          => 'https://www.linkedin.com/shareArticle',
+			'default_param' => 'url',
+		],
+		'email'    => [
+			'title'         => 'Partager par email',
+			'href'          => 'mailto:',
+			'default_param' => 'body',
+		],
+	];
+
+	$networks = apply_filters( 'bea_networks', $networks );
+	$network  = $networks[ $option_field['name'] ] ?? false;
+
+	if ( empty( $network ) ) {
+		return '';
+	}
+
+	$network_data = [
+		'title'      => $option_field['title'] ?? $network['title'],
+		'class'      => $option_field['class'] ?? 'share__link',
+		'url_params' => empty( $url_params ) ? [ $network['default_param'] => get_permalink() ] : $url_params,
+	];
+
+	$network_data = apply_filters( 'bea_networks_data', $network_data );
+
+	return sprintf(
+		'<a href="%1$s" target="_blank" rel="noopener" title="%2$s" tabindex="-1" class="%3$s">%4$s</a>',
+		esc_url( add_query_arg( [ $network_data['url_params'] ], $network['href'] ) ),
+		esc_attr( $network_data['title'] ),
+		esc_attr( $network_data['class'] ),
+		get_the_icon( $option_field['name'] )
+	);
+}
+
+/**
+ * @usage BEA\Theme\Framework\Helpers\Helper\the_share_link( ['name' => 'facebook' ], [ 'u' => 'https://...'] );
+ *
+ * @param array $options
+ * @param array $url_params
+ * @param array $wrapper
+ *
+ * @return void
+ */
+function the_share_link( array $options, array $url_params = [], array $wrapper = [] ): void {
+	$share_link_markup = get_share_link( $options, $url_params );
+
+	if ( empty( $share_link_markup ) ) {
+		echo '';
+	}
+
+	if ( empty( $wrapper ) ) {
+		$wrapper = [
+			'before' => '<li>',
+			'after'  => '</li>',
+		];
+	}
+
+	$wrapper = apply_filters( 'bea_networks_wrapper', $wrapper );
+
+	echo $wrapper['before'] . $share_link_markup . $wrapper['after']; //phpcs:ignore
+}

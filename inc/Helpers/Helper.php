@@ -229,3 +229,46 @@ function get_the_text( string $text, array $wrapper = [] ): string {
 	// phpcs:ignore
 	return $wrapper['before'] . $text . $wrapper['after'];
 }
+
+
+/**
+ * @usage BEA\Theme\Framework\Helpers\Helper\the_image( 1, [  'data-location' => 'image-size' ] );
+ *
+ * @param int $image_id
+ * @param array $options
+ *
+ * @return void
+ */
+function the_image( int $image_id, array $options = [] ): void {
+	if ( $image_id <= 0 ) {
+		return;
+	}
+
+	$settings = wp_parse_args(
+		$options,
+		[
+			'before'        => '',
+			'after'         => '',
+			'data-location' => '',
+			'class'         => '',
+		]
+	);
+
+	$settings = apply_filters( 'bea_the_image_settings', $settings );
+
+	$image = \wp_get_attachment_image(
+		$image_id,
+		'thumbnail',
+		false,
+		[
+			'data-location' => $settings['data-location'],
+			'class'         => $settings['class'],
+		]
+	);
+
+
+	$image = apply_filters( 'bea_the_image_markup', $image );
+
+	// phpcs:ignore
+	echo $settings['before'] . $image . $settings['after'];
+}

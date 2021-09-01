@@ -1,4 +1,5 @@
 .gallery {
+    $el: &;
 
     @include flex-grid-container();
 
@@ -8,32 +9,32 @@
         display: none;
     }
 
-    .gallery-caption {
+    &-caption {
         margin: $half-base-spacing 0 0;
         font-size: 11px;
         text-align: left;
     }
-}
 
-.gallery-item {
-    position: relative;
-    width: column(6);
-    margin-bottom: $base-spacing;
-    text-align: center;
+    &-item {
+        position: relative;
+        width: column(6);
+        margin-bottom: $base-spacing;
+        text-align: center;
 
-    a {
-        display: block;
-
-        img {
+        a {
             display: block;
+
+            img {
+                display: block;
+            }
         }
-    }
 
-    .gallery-columns-3 & {
-        width: column(4);
-    }
+        #{$el}-columns-3 & {
+            width: column(4);
+        }
 
-    .gallery-columns-4 & {
-        width: column(3);
+        #{$el}-columns-4 & {
+            width: column(3);
+        }
     }
 }

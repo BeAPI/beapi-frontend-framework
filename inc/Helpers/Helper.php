@@ -156,3 +156,76 @@ function get_custom_link( array $options, array $wrapper = [] ): string {
 function the_custom_link( array $acf_field, array $options = [] ): void {
 	echo get_custom_link( $acf_field, $options );
 }
+
+/**
+ * @usage BEA\Theme\Framework\Helpers\Helper\the_text( 'text' => 'Lorem ipsum', 'esc' => 'html', [ 'before' => '<p>', 'after' => '</p>' ] );
+ *
+ * @param array $options
+ * @param array $wrapper
+ *
+ * @return void
+ */
+function the_text( array $options, array $wrapper = [] ): void {
+	$text = get_the_text( $options['text'], $wrapper );
+
+	if ( empty( $text ) ) {
+		return;
+	}
+
+	$escape = $options['esc'] ?? 'html';
+
+	switch ( $escape ) {
+		case 'attr':
+			$text = esc_attr( $text );
+			break;
+		case 'url':
+			$text = esc_url( $text );
+			break;
+		case 'js':
+			$text = esc_js( $text );
+			break;
+		case 'textarea':
+			$text = esc_textarea( $text );
+			break;
+		case 'kses':
+			$text = wp_kses_post( $text );
+			break;
+		default:
+			$text = esc_html( $text );
+			break;
+	}
+
+	$text = apply_filters( 'bea_the_text', $text );
+
+	// phpcs:ignore
+	echo $text;
+}
+
+/**
+ * Get the text
+ * @usage BEA\Theme\Framework\Helpers\Helper\get_the_text( 'Lorem ipsum', [ 'before' => '<p>', 'after' => '</p>' ] );
+ *
+ * @param string $text
+ * @param array $wrapper
+ *
+ * @return string
+ */
+function get_the_text( string $text, array $wrapper = [] ): string {
+	if ( empty( $text ) ) {
+		return '';
+	}
+
+	$wrapper = wp_parse_args(
+		$wrapper,
+		[
+			'before' => '',
+			'after'  => '',
+		],
+	);
+
+	$text    = apply_filters( 'bea_get_text', $text );
+	$wrapper = apply_filters( 'bea_get_text_wrapper', $wrapper );
+
+	// phpcs:ignore
+	return $wrapper['before'] . $text . $wrapper['after'];
+}

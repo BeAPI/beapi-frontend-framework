@@ -37,7 +37,6 @@ class Framework {
 		Editor_Patterns::class,
 		Svg::class,
 		Acf::class,
-		Sidebar::class,
 		Menu::class,
 
 		// Services as Tools

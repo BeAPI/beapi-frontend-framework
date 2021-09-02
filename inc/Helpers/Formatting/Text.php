@@ -20,8 +20,8 @@ function the_text( string $value, array $settings = [] ): void {
  * Get the text
  * @usage BEA\Theme\Framework\Helpers\Formatting\Text\get_the_text( 'Lorem ipsum', [ 'before' => '<p>', 'after' => '</p>' ] );
  *
- * @param string $text
- * @param array $wrapper
+ * @param string $value
+ * @param array $settings
  *
  * @return string
  */

@@ -67,11 +67,13 @@ function get_terms_list( array $attributes, array $settings = [] ): string {
 		$settings['items'] = '%s';
 	}
 
-	foreach ( $terms as $key => $term ) {
+	$count = 1;
+	foreach ( $terms as $term ) {
 		$terms_str .= sprintf( $settings['items'], esc_html( $term ) );
-		if ( ( $key + 1 ) < $terms_length ) {
+		if ( $count < $terms_length ) {
 			$terms_str .= $settings['separator'];
 		}
+		$count ++;
 	}
 
 	if ( ! empty( $settings['wrapper'] ) ) {

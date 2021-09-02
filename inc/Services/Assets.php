@@ -138,13 +138,13 @@ class Assets implements Service {
 				$file = $assets['app.css'];
 				break;
 			case 'editor-style':
-				$file = $assets['editor-style.css'];
-				break;
-			case 'admin-editor-script':
-				$file = $assets['gutenberg-editor.js'];
+				$file = $assets['editor.css'];
 				break;
 			case 'js':
 				$file = $assets['app.js'];
+				break;
+			case 'editor-script':
+				$file = $assets['editor.js'];
 				break;
 			default:
 				$file = null;

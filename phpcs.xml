@@ -55,5 +55,5 @@
     <ini name="max_execution_time" value="-1"/>
 
     <rule ref="PHPCompatibility"/>
-    <config name="testVersion" value="7.2-"/>
+    <config name="testVersion" value="7.4-"/>
 </ruleset>

@@ -11,8 +11,7 @@ namespace BEA\Theme\Framework\Helpers\Formatting\Image;
  *
  * @return string
  */
-function get_the_image( int $image_id, array $attributes, array $settings = [] ): string
-{
+function get_the_image( int $image_id, array $attributes, array $settings = [] ): string {
 	if ( $image_id <= 0 ) {
 		return '';
 	}
@@ -44,13 +43,11 @@ function get_the_image( int $image_id, array $attributes, array $settings = [] )
 		$attributes
 	);
 
-
 	$image_markup = apply_filters( 'bea_theme_framework_the_image_markup', $image_markup );
 
 	// phpcs:ignore
 	return sprintf( '%s%s%s', $settings['before'], $image_markup, $settings['after'] );
 }
-
 
 /**
  * @usage BEA\Theme\Framework\Helpers\Formatting\Image\the_image( 1, [  'data-location' => 'image-size' ] );

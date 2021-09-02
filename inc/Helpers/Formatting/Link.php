@@ -103,7 +103,7 @@ function get_custom_link( array $attributes, array $settings = [] ): string {
 			'after'  => '',
 			'escape' => [
 				'href' => 'esc_url',
-			]
+			],
 		],
 	);
 

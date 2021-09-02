@@ -68,10 +68,10 @@ function get_share_link( string $name, array $attributes = [], array $settings =
 		} else {
 			$networks = wp_parse_args(
 				[
-					$name => $attributes
+					$name => $attributes,
 				],
-				$networks,
-		);
+				$networks
+			);
 		}
 	}
 

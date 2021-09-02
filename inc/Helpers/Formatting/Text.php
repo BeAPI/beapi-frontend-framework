@@ -36,7 +36,7 @@ function get_the_text( string $value, array $settings = [] ): string {
 			'before' => '',
 			'after'  => '',
 			'escape' => 'esc_html',
-		],
+		]
 	);
 
 	$settings = apply_filters( 'bea_theme_framework_get_text_settings', $settings );

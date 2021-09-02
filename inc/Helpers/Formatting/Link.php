@@ -23,7 +23,7 @@ function get_acf_link( array $attributes, array $settings = [] ): string {
 		[
 			'href'  => $attributes['field']['url'],
 			'title' => $attributes['field']['title'],
-		],
+		]
 	);
 
 	// Set rel attribute if target is _blank
@@ -47,7 +47,7 @@ function get_acf_link( array $attributes, array $settings = [] ): string {
 			'escape'  => [
 				'href' => 'esc_url',
 			],
-		],
+		]
 	);
 
 	$settings = apply_filters( 'bea_theme_framework_acf_link_settings', $settings );
@@ -84,7 +84,7 @@ function get_custom_link( array $attributes, array $settings = [] ): string {
 		$attributes,
 		[
 			'title' => '',
-		],
+		]
 	);
 
 	// Set rel attribute if target is _blank
@@ -104,7 +104,7 @@ function get_custom_link( array $attributes, array $settings = [] ): string {
 			'escape' => [
 				'href' => 'esc_url',
 			],
-		],
+		]
 	);
 
 	$settings = apply_filters( 'bea_theme_framework_custom_link_settings', $settings );

@@ -75,7 +75,7 @@ function get_share_link( string $name, array $attributes = [], array $settings =
 		}
 	}
 
-	$networks = apply_filters( 'bea_networks', $networks );
+	$networks = apply_filters( 'bea_theme_framework_networks', $networks );
 	$network  = $networks[ $name ] ?? false;
 
 	if ( empty( $network ) ) {
@@ -91,7 +91,7 @@ function get_share_link( string $name, array $attributes = [], array $settings =
 		]
 	);
 
-	$settings = apply_filters( 'bea_networks_settings', $settings );
+	$settings = apply_filters( 'bea_theme_framework_networks_settings', $settings );
 
 	return get_custom_link(
 		[

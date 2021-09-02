@@ -36,7 +36,7 @@ function get_acf_link( array $attributes, array $settings = [] ): string {
 	// Unset unused field params
 	unset( $attributes['field'] );
 
-	$attributes = apply_filters( 'bea_acf_link_attribute', $attributes );
+	$attributes = apply_filters( 'bea_theme_framework_acf_link_attribute', $attributes );
 
 	$settings = wp_parse_args(
 		$settings,
@@ -50,7 +50,7 @@ function get_acf_link( array $attributes, array $settings = [] ): string {
 		],
 	);
 
-	$settings = apply_filters( 'bea_acf_link_settings', $settings );
+	$settings = apply_filters( 'bea_theme_framework_acf_link_settings', $settings );
 
 	return get_custom_link( $attributes, $settings );
 }
@@ -94,7 +94,7 @@ function get_custom_link( array $attributes, array $settings = [] ): string {
 		$attributes['rel']    = 'noopener';
 	}
 
-	$attributes = apply_filters( 'bea_custom_link_attributes', $attributes );
+	$attributes = apply_filters( 'bea_theme_framework_custom_link_attributes', $attributes );
 
 	$settings = wp_parse_args(
 		$settings,
@@ -107,7 +107,7 @@ function get_custom_link( array $attributes, array $settings = [] ): string {
 		],
 	);
 
-	$settings = apply_filters( 'bea_custom_link_settings', $settings );
+	$settings = apply_filters( 'bea_theme_framework_custom_link_settings', $settings );
 
 	/**************************************** START MARKUP LINK ****************************************/
 
@@ -125,7 +125,7 @@ function get_custom_link( array $attributes, array $settings = [] ): string {
 
 	/**************************************** END MARKUP LINK ****************************************/
 
-	$link_markup = apply_filters( 'bea_acf_link_markup', $link_markup );
+	$link_markup = apply_filters( 'bea_theme_framework_acf_link_markup', $link_markup );
 
 	return sprintf( '%s%s%s', $settings['before'], $link_markup, $settings['after'] );
 }

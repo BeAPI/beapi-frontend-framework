@@ -25,7 +25,7 @@ function get_the_image( int $image_id, array $attributes, array $settings = [] )
 		]
 	);
 
-	$attributes = apply_filters( 'bea_the_image_settings', $attributes );
+	$attributes = apply_filters( 'bea_theme_framework_the_image_attributes', $attributes );
 
 	$settings = wp_parse_args(
 		$settings,
@@ -35,7 +35,7 @@ function get_the_image( int $image_id, array $attributes, array $settings = [] )
 		]
 	);
 
-	$settings = apply_filters( 'bea_the_image_settings', $settings );
+	$settings = apply_filters( 'bea_theme_framework__the_image_settings', $settings );
 
 	$image_markup = \wp_get_attachment_image(
 		$image_id,
@@ -45,7 +45,7 @@ function get_the_image( int $image_id, array $attributes, array $settings = [] )
 	);
 
 
-	$image_markup = apply_filters( 'bea_the_image_markup', $image_markup );
+	$image_markup = apply_filters( 'bea_theme_framework_the_image_markup', $image_markup );
 
 	// phpcs:ignore
 	return sprintf( '%s%s%s', $settings['before'], $image_markup, $settings['after'] );

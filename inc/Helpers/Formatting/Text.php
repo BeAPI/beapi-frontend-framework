@@ -39,8 +39,8 @@ function get_the_text( string $value, array $settings = [] ): string {
 		],
 	);
 
-	$settings = apply_filters( 'bea_get_text_settings', $settings );
-	$value    = apply_filters( 'bea_the_text', escape_content_value( $value, $settings['escape'] ) );
+	$settings = apply_filters( 'bea_theme_framework_get_text_settings', $settings );
+	$value    = apply_filters( 'bea_theme_framework_the_text', escape_content_value( $value, $settings['escape'] ) );
 
 	// phpcs:ignore
 	return sprintf( '%s%s%s', $settings['before'], $value, $settings['after'] );

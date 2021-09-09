@@ -1,0 +1,92 @@
+// SCSS variables to customise the login page styles
+// The CSS file generated in dist/ by webpack is called automatically thanks to the WP Login Page mu-plugin present in the WP Skeleton.
+
+$login-logo-path: "../../src/img/static/logo.jpg";
+$login-logo-size: 312px 43px;
+$login-logo-height: 60px;
+$login-body-bg-color: #666;
+$login-text-color: #fff;
+$login-link-color: #fff;
+$login-link-hover-color: #eee;
+$login-remember-input-check-color: #222;
+$login-btn-bg-color: #666;
+$login-btn-hover-bg-color: #222;
+
+// Except for specific needs, it is not necessary to modify the SCSS rules below (modification of the SCSS variables is sufficient)
+
+html,
+body {
+    &::before,
+    &::after {
+        display: none;
+    }
+}
+
+body.login {
+    // screen background color
+    background: $login-body-bg-color;
+
+    // logo (before login form) path and size
+    h1 a {
+        display: block;
+        width: 100%;
+        height: $login-logo-height;
+        background-image: url(#{$login-logo-path});
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: $login-logo-size;
+    }
+
+    // default link styles
+    a {
+        color: $login-link-color;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            color: $login-link-hover-color;
+            text-decoration: underline;
+        }
+    }
+
+    // notice block border-left color
+    .message,
+    .success,
+    #login_error {
+        border-left-color: $login-text-color;
+    }
+
+    // remember input checkbox check color
+    input[type="checkbox"]:checked::before {
+        color: $login-remember-input-check-color;
+    }
+
+    // link after login form styles
+    #nav,
+    #backtoblog {
+        a {
+            color: $login-link-color;
+
+            &:focus,
+            &:hover {
+                color: $login-link-hover-color;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+// submit login form button styles
+.wp-core-ui {
+    .button-primary {
+        text-shadow: none;
+        background-color: $login-btn-bg-color;
+        border: 0;
+        box-shadow: none;
+        transition: all .2s ease;
+
+        &:hover {
+            background-color: $login-btn-hover-bg-color;
+        }
+    }
+}

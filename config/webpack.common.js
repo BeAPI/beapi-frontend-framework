@@ -9,6 +9,7 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, '../dist'),
     publicPath: '',
+    assetModuleFilename: 'assets/[hash][ext][query]',
   },
   module: {
     rules: [loaders.FontsLoader, loaders.ImagesLoader, loaders.JSLoader],

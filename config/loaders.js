@@ -58,25 +58,14 @@ const SCSSLoaderProd = {
 }
 
 const FontsLoader = {
-  test: /\.(woff2?|woff|eot|ttf|otf|mp3|wav)(\?.*)?$/,
-  use: {
-    loader: 'file-loader',
-    options: {
-      name: '[name].[ext]',
-      outputPath: './fonts/',
-    },
-  },
+  test: /\.(woff|woff2)$/,
+  type: 'asset/resource',
 }
 
 const ImagesLoader = {
   test: /\.(png|jpe?g|gif)$/,
+  type: 'asset/resource',
   use: [
-    {
-      loader: 'file-loader',
-      options: {
-        name: '[path][name].[ext]',
-      },
-    },
     {
       loader: 'image-webpack-loader',
       options: {

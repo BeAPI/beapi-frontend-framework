@@ -8,7 +8,7 @@
     input[type="checkbox"],
     input[type="radio"] {
 
-        @extend .visuallyhidden;
+        @include sr-only;
 
         + label {
             position: relative;

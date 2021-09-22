@@ -11,6 +11,9 @@ module.exports = {
     publicPath: '',
     assetModuleFilename: 'assets/[hash][ext][query]',
   },
+  externals: {
+    jquery: 'window.jQuery',
+  },
   module: {
     rules: [loaders.FontsLoader, loaders.ImagesLoader, loaders.JSLoader],
   },

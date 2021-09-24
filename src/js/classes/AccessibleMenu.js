@@ -1,3 +1,4 @@
+import $ from 'jquery'
 import AbstractDomElement from './AbstractDomElement'
 import '../vendor/accessible-mega-menu'
 
@@ -17,10 +18,7 @@ class AccessibleMenu extends AbstractDomElement {
     const el = this._element
     const s = this._settings
 
-    ;(function ($) {
-      // Accesible toggle menu;
-      $(el).accessibleMegaMenu(s.options)
-    })(jQuery)
+    $(el).accessibleMegaMenu(s.options)
   }
 }
 

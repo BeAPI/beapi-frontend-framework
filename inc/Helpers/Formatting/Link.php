@@ -1,17 +1,33 @@
 <?php
-
 namespace BEA\Theme\Framework\Helpers\Formatting\Link;
 
-use function BEA\Theme\Framework\Helpers\Formatting\Escape\escape_attribute_value;
 use function BEA\Theme\Framework\Helpers\Formatting\Escape\escape_content_value;
+use function BEA\Theme\Framework\Helpers\Formatting\Escape\escape_attribute_value;
 
 /**
- * @usage BEA\Theme\Framework\Helpers\Formatting\Link\get_custom_link( ['field' => ..., 'class' => ...], [ 'before' => '<p>%s', 'after' => '</p>' ] );
+ * @usage BEA\Theme\Framework\Helpers\Formatting\Link\get_acf_link( ['field' => ..., 'class' => ...], [ 'before' => '<p>%s', 'after' => '</p>' ] );
  *
- * @param array $attributes
- * @param array $settings
+ * @param array $attributes {
+ *    Attributes for the acf link markup.
  *
- * @return string
+ * @type array $field ACF link field. Example ['url' => 'https://....', 'title' => 'My title', 'target' => '_blank' ]
+ * @type string $target Target for the link.
+ * @type string $class CSS class name or space-separated list of classes.
+ *                                 Default is empty.
+ * @type string $rel The attribute indicates the relationship between the target of the link and the object making the link.
+ * }
+ *
+ * @param array $settings {
+ *    Optional. Settings for the acf link markup.
+ *
+ * @type string $content Optional. The content of the link
+ * @type string $before Optional. Markup to prepend to the image. Default empty.
+ * @type string $after Optional. Markup to append to the image. Default empty.
+ * @type array $escape Optional. An array where we specify as key the value we want to escape and as value the method to use. Example for the href ['escape' => ['href' => 'esc_url'] ]
+ *
+ * }
+ *
+ * @return string Return the markup of the link
  */
 function get_acf_link( array $attributes, array $settings = [] ): string {
 	if ( empty( $attributes['field']['url'] ) || empty( $attributes['field']['title'] ) ) {
@@ -21,61 +37,85 @@ function get_acf_link( array $attributes, array $settings = [] ): string {
 	$attributes = wp_parse_args(
 		$attributes,
 		[
-			'href'  => $attributes['field']['url'],
-			'title' => $attributes['field']['title'],
+			'href'   => $attributes['field']['url'],
+			'title'  => $attributes['field']['title'],
+			'target' => $attributes['field']['target'],
 		]
 	);
-
-	// Set rel attribute if target is _blank
-	$target = $attributes['field']['target'];
-	if ( '_blank' === $target ) {
-		$attributes['target'] = $target;
-		$attributes['rel']    = 'noopener';
-	}
 
 	// Unset unused field params
 	unset( $attributes['field'] );
 
-	$attributes = apply_filters( 'bea_theme_framework_acf_link_attribute', $attributes );
+	$attributes = apply_filters( 'bea_theme_framework_acf_link_attribute', $attributes, $settings );
 
 	$settings = wp_parse_args(
 		$settings,
 		[
 			'content' => $attributes['title'],
-			'before'  => '',
-			'after'   => '',
-			'escape'  => [
-				'href' => 'esc_url',
-			],
 		]
 	);
 
-	$settings = apply_filters( 'bea_theme_framework_acf_link_settings', $settings );
+	$settings = apply_filters( 'bea_theme_framework_acf_link_settings', $settings, $attributes );
 
-	return get_custom_link( $attributes, $settings );
+	return get_the_link( $attributes, $settings );
 }
 
 /**
  * @usage BEA\Theme\Framework\Helpers\Formatting\Link\the_custom_link( ['url' => ..., 'title' => ...], [ 'wrapper' => '<p></p>' ] );
  *
- * @param array $attributes
- * @param array $settings
+ * @param array $attributes {
+ *    Attributes for the acf link markup.
  *
- * @return void
+ * @type array $field ACF link field. Example ['url' => 'https://....', 'title' => 'My title', 'target' => '_blank' ]
+ * @type string $target Target for the link.
+ * @type string $class CSS class name or space-separated list of classes.
+ *                                 Default is empty.
+ * @type string $rel The attribute indicates the relationship between the target of the link and the object making the link.
+ * }
+ *
+ * @param array $settings {
+ *    Optional. Settings for the acf link markup.
+ *
+ * @type string $content Optional. The content of the link
+ * @type string $before Optional. Markup to prepend to the image. Default empty.
+ * @type string $after Optional. Markup to append to the image. Default empty.
+ * @type array $escape Optional. An array where we specify as key the value we want to escape and as value the method to use. Example for the href ['escape' => ['href' => 'esc_url'] ]
+ *
+ * }
+ *
+ * @return void Echo of the link markup
  */
 function the_acf_link( array $attributes, array $settings = [] ): void {
 	echo get_acf_link( $attributes, $settings ); //phpcs:ignore
 }
 
 /**
- * @usage BEA\Theme\Framework\Helpers\Formatting\Link\get_custom_link( ['href' => ..., 'title' => ...], [ 'wrapper' => '<p>%s</p>' ] );
+ * @usage BEA\Theme\Framework\Helpers\Formatting\Link\get_link( ['href' => ..., 'title' => ...], [ 'wrapper' => '<p>%s</p>' ] );
  *
- * @param array $attributes
- * @param array $settings
+ * @param array $attributes {
+ *    Attributes for the acf link markup.
  *
- * @return string
+ * @type string $href URL link.
+ * @type string $title title link.
+ * @type string $target Target for the link.
+ * @type string $class CSS class name or space-separated list of classes.
+ *                                 Default is empty.
+ * @type string $rel The attribute indicates the relationship between the target of the link and the object making the link.
+ * }
+ *
+ * @param array $settings {
+ *    Optional. Settings for the acf link markup.
+ *
+ * @type string $content Optional. The content of the link
+ * @type string $before Optional. Markup to prepend to the image. Default empty.
+ * @type string $after Optional. Markup to append to the image. Default empty.
+ * @type array $escape Optional. An array where we specify as key the value we want to escape and as value the method to use. Example for the href ['escape' => ['href' => 'esc_url'] ]
+ *
+ * }
+ *
+ * @return string Return the markup of the link
  */
-function get_custom_link( array $attributes, array $settings = [] ): string {
+function get_the_link( array $attributes, array $settings = [] ): string {
 	if ( empty( $attributes['href'] ) ) {
 		return '';
 	}
@@ -83,61 +123,84 @@ function get_custom_link( array $attributes, array $settings = [] ): string {
 	$attributes = wp_parse_args(
 		$attributes,
 		[
-			'title' => '',
+			'title'  => '',
+			'target' => '',
 		]
 	);
 
-	// Set rel attribute if target is _blank
-	$target = $attributes['target'];
-	if ( '_blank' === $target ) {
-		$attributes['target'] = $target;
-		$attributes['rel']    = 'noopener';
+	// For security reason if target _blank add rel noopener
+	if ( '_blank' === $attributes['target'] ) {
+		$attributes['rel'] = 'noopener';
 	}
 
-	$attributes = apply_filters( 'bea_theme_framework_custom_link_attributes', $attributes );
+	$attributes = apply_filters( 'bea_theme_framework_link_attributes', $attributes, $settings );
 
 	$settings = wp_parse_args(
 		$settings,
 		[
-			'before' => '',
-			'after'  => '',
-			'escape' => [
+			'before'  => '',
+			'content' => $attributes['title'],
+			'after'   => '',
+			'escape'  => [
 				'href' => 'esc_url',
 			],
 		]
 	);
 
-	$settings = apply_filters( 'bea_theme_framework_custom_link_settings', $settings );
+	$settings = apply_filters( 'bea_theme_framework_link_settings', $settings, $attributes );
 
 	/**************************************** START MARKUP LINK ****************************************/
 
 	$attributes_escape = [];
-
 	foreach ( $attributes as $name => $value ) {
+		// Use user escape function, or default
+		$value = escape_attribute_value( $value, $settings['escape'][ $name ] ?? '' );
 
-		$escape_option       = $settings['escape'][ $name ] ?? 'esc_attr';
-		$value               = escape_attribute_value( $value, $escape_option );
-		$attributes_escape[] = null === $value ? sprintf( '%s', $name ) : sprintf( '%s="%s"', $name, $value );
+		// Handle single attributes like checked or data-seo-target, if null no attribute value
+		$attributes_escape[] = null === $value ? $name : sprintf( '%s="%s"', $name, $value );
 	}
 
-	$escape_content = $settings['escape']['content'] ?? '';
-	$link_markup    = sprintf( '<a %s>%s</a>', implode( ' ', $attributes_escape ), escape_content_value( $settings['content'], $escape_content ) );
+	// Implode all attributes for display purposes
+	$attributes_escape = implode( ' ', $attributes_escape );
+	// Escape content for display purposes
+	$label = escape_content_value( $settings['content'], $settings['escape']['content'] ?? '' );
+
+	$link_markup = sprintf( '<a %s>%s</a>', $attributes_escape, $label );
 
 	/**************************************** END MARKUP LINK ****************************************/
 
-	$link_markup = apply_filters( 'bea_theme_framework_acf_link_markup', $link_markup );
+	$link_markup = apply_filters( 'bea_theme_framework_link_markup', $link_markup, $attributes, $settings );
 
-	return sprintf( '%s%s%s', $settings['before'], $link_markup, $settings['after'] );
+	return $settings['before'] . $link_markup . $settings['after'];
 }
 
 /**
- * @usage BEA\Theme\Framework\Helpers\Formatting\Link\the_custom_link( ['url' => ..., 'title' => ...], [ 'wrapper' => '<p></p>' ] );
+ * @usage BEA\Theme\Framework\Helpers\Formatting\Link\the_link( ['url' => ..., 'title' => ...], [ 'wrapper' => '<p></p>' ] );
  *
- * @param array $attributes
- * @param array $settings
+ * @param array $attributes {
+ *    Attributes for the acf link markup.
  *
- * @return void
+ * @type string $href URL link.
+ * @type string $title title link.
+ * @type string $target Target for the link.
+ * @type string $class CSS class name or space-separated list of classes.
+ *                                 Default is empty.
+ * @type string $rel The attribute indicates the relationship between the target of the link and the object making the link.
+ * }
+ *
+ * @param array $settings {
+ *    Optional. Settings for the acf link markup.
+ *
+ * @type string $content Optional. The content of the link
+ * @type string $before Optional. Markup to prepend to the image. Default empty.
+ * @type string $after Optional. Markup to append to the image. Default empty.
+ * @type array $escape Optional. An array where we specify as key the value we want to escape and as value the method to use. Example for the href ['escape' => ['href' => 'esc_url'] ]
+ *
+ * }
+ *
+ *
+ * @return void Echo of the link markup
  */
-function the_custom_link( array $attributes, array $settings = [] ): void {
-	echo get_custom_link( $attributes, $settings ); //phpcs:ignore
+function the_link( array $attributes, array $settings = [] ): void {
+	echo get_the_link( $attributes, $settings );
 }

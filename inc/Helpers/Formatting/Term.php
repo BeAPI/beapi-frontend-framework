@@ -1,14 +1,13 @@
 <?php
-
 namespace BEA\Theme\Framework\Helpers\Formatting\Term;
 
 /**
- * @usage BEA\Theme\Framework\Helpers\Formatting\Term\get_terms_array( 0, 'news-type' );
+ * @usage BEA\Theme\Framework\Helpers\Formatting\Term\get_terms_name( 0, 'news-type' );
  *
- * @param int $post_id
- * @param string $taxonomy
+ * @param int $post_id Post ID
+ * @param string $taxonomy Taxonomy name
  *
- * @return array
+ * @return array Return an array with the terms name
  */
 function get_terms_name( int $post_id, string $taxonomy ): array {
 	if ( empty( $post_id ) || empty( $taxonomy ) ) {
@@ -27,8 +26,23 @@ function get_terms_name( int $post_id, string $taxonomy ): array {
 /**
  * @usage BEA\Theme\Framework\Helpers\Formatting\Term\get_terms_list( ['post_id' => 0,'taxonomy' => 'news-type'],['items'  => '<span>%s</span>', 'separator' => ' ', 'wrapper' => '<p>%s</p>'] );
  *
- * @param array $attributes
- * @param array $settings
+ * @param array $attributes {
+ *   Attributes for generating the list of terms
+ *
+ * @type int $post_id ID of the post
+ * @type string $taxonomy Name of the taxonomy
+ *
+ * }
+ * @param array $settings {
+ *   Optional. Settings for the terms list markup.
+ *
+ * @type string $before Optional. Markup to prepend to the wrapper of the item. Default <ul>.
+ * @type string $after Optional. Markup to prepend to the wrapper of the item. Default </ul>.
+ * @type string $before_item Optional. Markup to prepend to the item. Default <li>.
+ * @type string $after_item Optional. Markup to prepend to the item. Default </li>.
+ * @type string $separator Optional. Markup to prepend to the image. Default empty.
+ *
+ * }
  *
  * @return string
  */
@@ -37,58 +51,64 @@ function get_terms_list( array $attributes, array $settings = [] ): string {
 		return '';
 	}
 
-	$attributes = apply_filters( 'bea_theme_framework_term_list_attributes', $attributes );
+	$attributes = apply_filters( 'bea_theme_framework_term_list_attributes', $attributes, $settings );
 	$terms      = get_terms_name( $attributes['post_id'], $attributes['taxonomy'] );
 
 	if ( empty( $terms ) ) {
 		return '';
 	}
 
-	$terms_str    = '';
-	$terms_count  = count( $terms );
-	$terms_length = 0;
-
 	$settings = wp_parse_args(
 		$settings,
 		[
-			'items'     => '<li>%s</li>',
-			'wrapper'   => '<ul>%s</ul>',
-			'separator' => '',
+			'before'      => '<ul>',
+			'after'       => '</ul>',
+			'before_item' => '<li>',
+			'after_item'  => '</li>',
+			'separator'   => '',
 		]
 	);
 
-	$settings = apply_filters( 'bea_theme_framework_term_list_settings', $settings );
+	$settings = apply_filters( 'bea_theme_framework_term_list_settings', $settings, $attributes );
 
-	if ( empty( $settings['terms_length'] ) || $settings['terms_length'] >= $terms_count ) {
-		$terms_length = $terms_count;
-	}
-
-	if ( empty( $settings['wrapper'] ) ) {
-		$settings['items'] = '%s';
-	}
-
-	$count = 1;
+	$items = [];
 	foreach ( $terms as $term ) {
-		$terms_str .= sprintf( $settings['items'], esc_html( $term ) );
-		if ( $count < $terms_length ) {
-			$terms_str .= $settings['separator'];
+		$value = escape_content_value( $term );
+		if ( empty( $value ) ) {
+			continue;
 		}
-		$count ++;
+
+		$items[] = $settings['before_item'] . $value . $settings['after_item'];
 	}
 
-	if ( ! empty( $settings['wrapper'] ) ) {
-		$terms_str = sprintf( $settings['wrapper'], $terms_str );
+	if ( empty( $items ) ) {
+		return '';
 	}
 
-	return $terms_str;
+	return $settings['before'] . implode( $settings['separator'], $items ) . $settings['after'];
 }
 
 /**
  * @usage BEA\Theme\Framework\Helpers\Formatting\Term\the_terms_list( ['post_id' => 0,'taxonomy' => 'news-type'],['items'  => '<span>%s</span>', 'separator' => ' ', 'wrapper' => '<p>%s</p>'] );
  *
- * @param array $attributes
- * @param array $settings
+ * @param array $attributes {
+ *   Attributes for generating the list of terms
+ *
+ * @type int $post_id ID of the post
+ * @type string $taxonomy Name of the taxonomy
+ *
+ * }
+ * @param array $settings {
+ *   Optional. Settings for the terms list markup.
+ *
+ * @type string $before Optional. Markup to prepend to the wrapper of the item. Default <ul>.
+ * @type string $after Optional. Markup to prepend to the wrapper of the item. Default </ul>.
+ * @type string $before_item Optional. Markup to prepend to the item. Default <li>.
+ * @type string $after_item Optional. Markup to prepend to the item. Default </li>.
+ * @type string $separator Optional. Markup to prepend to the image. Default empty.
+ *
+ * }
  */
 function the_terms_list( array $attributes, array $settings = [] ): void {
-	echo get_terms_list( $attributes, $settings ); //phpcs:ignore
+	echo get_terms_list( $attributes, $settings );
 }

@@ -1,27 +1,40 @@
 <?php
-
 namespace BEA\Theme\Framework\Helpers\Formatting\Text;
 
 use function BEA\Theme\Framework\Helpers\Formatting\Escape\escape_content_value;
 
 /**
- * @usage BEA\Theme\Framework\Helpers\Formatting\Text\the_text( 'text' => 'Lorem ipsum', 'esc' => 'html', [ 'before' => '<p>', 'after' => '</p>' ] );
+ * @usage BEA\Theme\Framework\Helpers\Formatting\Text\the_text( 'text' => 'Lorem ipsum', [ 'before' => '<p>', 'after' => '</p>' ] );
  *
- * @param string $value
- * @param array $settings
+ * @param string $value Text to display
+ * @param array $settings {
+ *   Optional. Settings for the text markup.
+ *
+ * @type string $before Optional. Markup to prepend to the text. Default empty.
+ * @type string $after Optional. Markup to prepend to the text. Default empty.
+ * @type string $escpae Optional. Markup to prepend to the item. Default esc_html.
+ *
+ * }
  *
  * @return void
  */
 function the_text( string $value, array $settings = [] ): void {
-	echo get_the_text( $value, $settings ); //phpcs:ignore
+	echo get_the_text( $value, $settings );
 }
 
 /**
  * Get the text
  * @usage BEA\Theme\Framework\Helpers\Formatting\Text\get_the_text( 'Lorem ipsum', [ 'before' => '<p>', 'after' => '</p>' ] );
  *
- * @param string $value
- * @param array $settings
+ * @param string $value Text to display
+ * @param array $settings {
+ *   Optional. Settings for the text markup.
+ *
+ * @type string $before Optional. Markup to prepend to the text. Default empty.
+ * @type string $after Optional. Markup to prepend to the text. Default empty.
+ * @type string $escpae Optional. Markup to prepend to the item. Default esc_html.
+ *
+ * }
  *
  * @return string
  */
@@ -39,10 +52,8 @@ function get_the_text( string $value, array $settings = [] ): string {
 		]
 	);
 
-	$settings = apply_filters( 'bea_theme_framework_get_text_settings', $settings );
-	$value    = apply_filters( 'bea_theme_framework_the_text', escape_content_value( $value, $settings['escape'] ) );
+	$settings = apply_filters( 'bea_theme_framework_text_settings', $settings, $value );
+	$value    = apply_filters( 'bea_theme_framework_text_value', escape_content_value( $value, $settings['escape'] ), $settings );
 
-	// phpcs:ignore
-	return sprintf( '%s%s%s', $settings['before'], $value, $settings['after'] );
+	return $settings['before'] . $value . $settings['after'];
 }
-

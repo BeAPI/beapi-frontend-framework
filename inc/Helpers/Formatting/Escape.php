@@ -1,30 +1,33 @@
 <?php
-
 namespace BEA\Theme\Framework\Helpers\Formatting\Escape;
 
 /**
- * @param string $value
- * @param string $escape
+ * Method for escaping attributes
  *
- * @return mixed
+ * @param string $value Value to be escaped
+ * @param callable|string $escape We can pass an anonymous function or method in native escape form as a string (example: 'esc_url'). By default the method escapes the attributes
+ *
+ * @return mixed Return value escape
  */
-function escape_attribute_value( string $value, string $escape ) {
-	if ( ! function_exists( $escape ) ) {
-		return $value;
+function escape_attribute_value( string $value, $escape = 'esc_attr' ) {
+	if ( ! is_callable( $escape ) ) {
+		return esc_attr( $value );
 	}
 
 	return $escape( $value );
 }
 
 /**
- * @param string $value
- * @param string $escape
+ * Method for escaping html or content
  *
- * @return mixed
+ * @param string $value Value to be escaped
+ * @param callable|string $escape We can pass an anonymous function or method in native escape form as a string (example: 'wp_kses'). By default the method escapes the html
+ *
+ * @return mixed Return value escape
  */
-function escape_content_value( string $value, string $escape ) {
-	if ( ! function_exists( $escape ) ) {
-		return $value;
+function escape_content_value( string $value, $escape = 'esc_html' ) {
+	if ( ! is_callable( $escape ) ) {
+		return esc_html( $value );
 	}
 
 	return $escape( $value );

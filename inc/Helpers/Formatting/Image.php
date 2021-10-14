@@ -1,15 +1,37 @@
 <?php
-
 namespace BEA\Theme\Framework\Helpers\Formatting\Image;
 
 /**
  * @usage BEA\Theme\Framework\Helpers\Formatting\Image\get_the_image( 1, [  'data-location' => 'image-size' ] );
  *
- * @param int $image_id
- * @param array $attributes
- * @param array $settings
+ * @param int $image_id Attachment post ID
  *
- * @return string
+ * @param array $attributes {
+ *    Attributes for the image markup.
+ *
+ * @type string $src Image attachment URL.
+ * @type string $data-location Image attachment URL.
+ * @type string $class CSS class name or space-separated list of classes.
+ *                                 Default `attachment-$size_class size-$size_class`,
+ *                                 where `$size_class` is the image size being requested.
+ * @type string $alt Image description for the alt attribute.
+ * @type string $srcset The 'srcset' attribute value.
+ * @type string $sizes The 'sizes' attribute value.
+ * @type string|false $loading The 'loading' attribute value. Passing a value of false
+ *                                 will result in the attribute being omitted for the image.
+ *                                 Defaults to 'lazy', depending on wp_lazy_loading_enabled().
+ * }
+ *
+ * @param array $settings {
+ *    Optional. Settings for the image markup.
+ *
+ * @type string $size Optional. The 'sizes' attribute value.
+ * @type string $before Optional. Markup to prepend to the image. Default empty.
+ * @type string $after Optional. Markup to append to the image. Default empty.
+ *
+ * }
+ *
+ * @return string Return the markup of the image
  */
 function get_the_image( int $image_id, array $attributes, array $settings = [] ): string {
 	if ( $image_id <= 0 ) {
@@ -24,40 +46,66 @@ function get_the_image( int $image_id, array $attributes, array $settings = [] )
 		]
 	);
 
-	$attributes = apply_filters( 'bea_theme_framework_the_image_attributes', $attributes );
+	$attributes = apply_filters( 'bea_theme_framework_the_image_attributes', $attributes, $image_id, $settings );
 
 	$settings = wp_parse_args(
 		$settings,
 		[
+			'size'   => 'thumbnail',
 			'before' => '',
 			'after'  => '',
 		]
 	);
 
-	$settings = apply_filters( 'bea_theme_framework__the_image_settings', $settings );
-
+	$settings     = apply_filters( 'bea_theme_framework_the_image_settings', $settings, $image_id, $attributes );
 	$image_markup = \wp_get_attachment_image(
 		$image_id,
-		'thumbnail',
+		$settings['size'],
 		false,
 		$attributes
 	);
 
-	$image_markup = apply_filters( 'bea_theme_framework_the_image_markup', $image_markup );
+	if ( empty( $image_markup ) ) {
+		return '';
+	}
 
-	// phpcs:ignore
-	return sprintf( '%s%s%s', $settings['before'], $image_markup, $settings['after'] );
+	$image_markup = apply_filters( 'bea_theme_framework_the_image_markup', $image_markup, $image_id, $attributes, $settings );
+
+	return $settings['before'] . $image_markup . $settings['after'];
 }
 
 /**
- * @usage BEA\Theme\Framework\Helpers\Formatting\Image\the_image( 1, [  'data-location' => 'image-size' ] );
+ * @usage BEA\Theme\Framework\Helpers\Formatting\Image\the_image( 1, [  'data-location' => 'image-size' ], ['before'  => '');
  *
- * @param int $image_id
- * @param array $attributes
- * @param array $settings
+ * @param int $image_id Attachment post ID
  *
- * @return void
+ * @param array $attributes {
+ *    Attributes for the image markup.
+ *
+ * @type string $src Image attachment URL.
+ * @type string $data-location Image attachment URL.
+ * @type string $class CSS class name or space-separated list of classes.
+ *                                 Default `attachment-$size_class size-$size_class`,
+ *                                 where `$size_class` is the image size being requested.
+ * @type string $alt Image description for the alt attribute.
+ * @type string $srcset The 'srcset' attribute value.
+ * @type string $sizes The 'sizes' attribute value.
+ * @type string|false $loading The 'loading' attribute value. Passing a value of false
+ *                                 will result in the attribute being omitted for the image.
+ *                                 Defaults to 'lazy', depending on wp_lazy_loading_enabled().
+ * }
+ *
+ * @param array $settings {
+ *    Optional. Settings for the image markup.
+ *
+ * @type string $size Optional. The 'sizes' attribute value.
+ * @type string $before Optional. Markup to prepend to the image. Default empty.
+ * @type string $after Optional. Markup to append to the image. Default empty.
+ *
+ * }
+ *
+ * @return void Echo of the image markup
  */
 function the_image( int $image_id, array $attributes, array $settings = [] ): void {
-	echo get_the_image( $image_id, $attributes, $settings ); // phpcs:ignore
+	echo get_the_image( $image_id, $attributes, $settings );
 }

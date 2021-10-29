@@ -92,11 +92,20 @@ class Acf implements Service {
 		/**
 		 * Example
 		 *
-		 *    $this->acf_add_options_page( [
-		 *        'page_title'  => __( 'Theme Options', 'framework-textdomain' ),
-		 *        'menu_slug'   => 'theme-options',
-		 *        'parent_slug' => 'themes.php',
-		 *    ] );
+		 * Add "Theme options" entry after "Appearance"
+		 *      $this->acf_add_options_page( [
+		 *          'page_title' => __( 'Theme Options', 'framework-textdomain' ),
+		 *          'menu_slug'  => 'theme-options',
+		 *          'position'   => 60.1,
+		 *      ] );
+		 *
+		 * Add one or more sub-pages of options
+		 *        $this->acf_add_options_sub_page( [
+		 *            'page_title'  => __( 'Theme Options 1', 'framework-textdomain' ),
+		 *            'menu_slug'   => 'theme-options-slug-1',
+		 *            'parent_slug' => 'theme-options',
+		 *        ] );
+		 *
 		 *
 		 *    $this->register_files( [
 		 *        'options-theme',
@@ -107,9 +116,9 @@ class Acf implements Service {
 	/**
 	 * Add Option Page
 	 *
-	 * @return bool
-	 *
 	 * @param array $parameters
+	 *
+	 * @return array|bool
 	 *
 	 */
 	public function acf_add_options_page( array $parameters ) {
@@ -153,9 +162,9 @@ class Acf implements Service {
 	/**
 	 * Add options Subpage
 	 *
-	 * @return bool
+	 * @param array $parameters
 	 *
-	 * @param $parameters
+	 * @return array|bool
 	 *
 	 */
 	public function acf_add_options_sub_page( array $parameters ) {

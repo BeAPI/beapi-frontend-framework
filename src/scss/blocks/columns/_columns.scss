@@ -1,0 +1,21 @@
+.wp-block-columns {
+    &:not(.alignwide):not(.alignfull) {
+        clear: both;
+    }
+
+    .wp-block-column {
+        > * {
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

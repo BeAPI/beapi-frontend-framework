@@ -1,0 +1,10 @@
+.wp-block-separator,
+hr {
+    clear: both;
+
+    [data-align="full"] > &,
+    [data-align="wide"] > & {
+        max-width: inherit;
+    }
+
+}

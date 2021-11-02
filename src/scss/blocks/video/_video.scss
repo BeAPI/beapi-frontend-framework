@@ -1,0 +1,11 @@
+.wp-block-video {
+    figcaption {
+        text-align: center;
+    }
+}
+
+* > figure > video {
+    width: 100%;
+    max-width: unset;
+    vertical-align: middle;
+}

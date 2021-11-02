@@ -15,13 +15,10 @@ $entry-file-name: "editor";
 
 @import "components/btn";
 
-// Wordpress
+// Blocks
 
-@import "wp/img";
-//@import "wp/gallery"; Enable if Gutenberg is not used
-
-@import "wp/wysiwyg";
-@import "wp/gutenberg";
+@import "blocks/align";
+@import "blocks/blocks-editor";
 
 // Backend Classic editor container
 .mce-content-body {

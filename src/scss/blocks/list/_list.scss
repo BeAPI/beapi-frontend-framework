@@ -1,0 +1,26 @@
+ul,
+ol {
+    // Utility classes
+    &.aligncenter {
+        padding: 0;
+        list-style-position: inside;
+    }
+
+    &.alignright {
+        padding: 0;
+        text-align: right;
+        list-style-position: inside;
+    }
+}
+
+ul {
+    list-style-type: disc;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+dd {
+    margin: 0;
+}

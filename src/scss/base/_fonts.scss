@@ -2,8 +2,11 @@
 // Use this script to add external ressource like typekit: https://github.com/swissspidy/local-webfont
 // example: npx local-webfont https://use.typekit.net/bjc8obi.css src/scss/abstract/temp_to_copy_paste_delete.css swap
 
-// Examples include
-
-@include declare-font-face("Poppins", "../fonts/poppins-v19-latin/poppins-v19-latin-regular");
-@include declare-font-face("Poppins", "../fonts/poppins-v19-latin/poppins-v19-latin-500", 500);
-@include declare-font-face("Poppins", "../fonts/poppins-v19-latin/poppins-v19-latin-700", bold);
+@include declare-font-face("Poppins", "../fonts/poppins-v15-latin/poppins-v15-latin-300", 300);
+@include declare-font-face("Poppins", "../fonts/poppins-v15-latin/poppins-v15-latin-300italic", 300, italic);
+@include declare-font-face("Poppins", "../fonts/poppins-v15-latin/poppins-v15-latin-regular");
+@include declare-font-face("Poppins", "../fonts/poppins-v15-latin/poppins-v15-latin-italic", 400, italic);
+@include declare-font-face("Poppins", "../fonts/poppins-v15-latin/poppins-v15-latin-500", 500);
+@include declare-font-face("Poppins", "../fonts/poppins-v15-latin/poppins-v15-latin-500italic", 500, italic);
+@include declare-font-face("Poppins", "../fonts/poppins-v15-latin/poppins-v15-latin-700", 700);
+@include declare-font-face("Poppins", "../fonts/poppins-v15-latin/poppins-v15-latin-700italic", 700, italic);

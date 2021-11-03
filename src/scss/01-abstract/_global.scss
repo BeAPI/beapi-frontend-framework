@@ -12,6 +12,9 @@ $baseline-unit: 10px;
     // Heading
     --heading--color-primary: #1e1e1e;
 
+    // Figcaption
+    --figcaption--color-primary: #{$gray-color-600};
+
     /*
      * Fonts
      */
@@ -60,10 +63,11 @@ $baseline-unit: 10px;
      */
     --global--spacing-unit: #{2 * $baseline-unit}; // 20px
     --global--spacing-measure: unset; // Use ch units here. ie: 60ch = 60 character max-width
-    --global--spacing-horizontal: #{2.5 * $baseline-unit}; // 25px
-    --global--spacing-vertical: #{3 * $baseline-unit}; // 30px.
+    --global--spacing-vertical: #{map-get(map-get($column-preset, m), gutterwidth) * 1px};
+    --global--spacing-horizontal: #{3 * $baseline-unit}; // 30px.
 
     @media screen and (min-width: 1024px) { // The breakpoint mixin is declared after
         // Redefine CSS variables responsively
+        --global--spacing-vertical: #{map-get(map-get($column-preset, d), gutterwidth) * 1px};
     }
 }

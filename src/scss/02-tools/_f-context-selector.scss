@@ -17,6 +17,23 @@
  *              ... your css
  *          }
  *
+ *      $selectors: ".blocks-gallery-image,", ".blocks-gallery-item";
+ *      #{ context-selector('.wp-block-gallery', '.blocks-gallery-grid', selectors) } {
+ *          ... your css
+ *      }
+ *
+ *      return for style.scss :
+ *          .wp-block-gallery .blocks-gallery-image,
+ *          .wp-block-gallery .blocks-gallery-item {
+ *              ... your css
+ *          }
+ *
+ *      return for editor.scss :
+ *          .blocks-gallery-grid .blocks-gallery-image,
+ *          .blocks-gallery-grid .blocks-gallery-item {
+ *              ... your css
+ *          }
+ *
  *      It can be used to define a variable :
  *
  *      $parent: context-selector('#main__content', '#editor')
@@ -29,12 +46,23 @@
  */
 
 @function context-selector($default: null, $editor: null, $selector) {
-    $full-selector: $selector;
+    $full-selector: "";
+    $parent: "";
 
     @if ($entry-file-name == "editor" and $editor) {
-        $full-selector: $editor + " " + $selector;
+        $parent: $editor;
     } @else if ($entry-file-name == "style" and $default) {
-        $full-selector: $default + " " + $selector;
+        $parent: $default;
+    } @else {
+        @return $selector;
+    }
+
+    @if (type-of($selector) == "string") {
+        $full-selector: $parent + " " + $selector;
+    } @else if (type-of($selector) == "list") {
+        @each $s in $selector {
+            $full-selector: $full-selector +  $parent + " " + $s;
+        }
     }
 
     @return $full-selector;

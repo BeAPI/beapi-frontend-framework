@@ -17,5 +17,11 @@
         &:last-child {
             margin-bottom: 0;
         }
+
+        @include breakpoints(sm) {
+            &:not(:first-child) {
+                margin-left: column-px(0, 1);
+            }
+        }
     }
 }

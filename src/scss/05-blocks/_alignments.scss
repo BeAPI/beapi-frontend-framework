@@ -12,6 +12,8 @@
 .alignwide,
 .wide-max-width {
     max-width: var(--responsive--alignwide-width);
+    margin-right: auto;
+    margin-left: auto;
 }
 
 // Editor

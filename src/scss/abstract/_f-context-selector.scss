@@ -28,13 +28,13 @@
  *      the variable $entry-file-name is defined in style.scss and editor.scss
  */
 
-@function context-selector($default: "", $editor: "", $selector: "") {
-    $full-selector: "";
+@function context-selector($default: null, $editor: null, $selector) {
+    $full-selector: $selector;
 
-    @if ($entry-file-name == "editor") {
-        $full-selector: $editor + $selector;
-    } @else {
-        $full-selector: $default + $selector;
+    @if ($entry-file-name == "editor" and $editor) {
+        $full-selector: $editor + " " + $selector;
+    } @else if ($entry-file-name == "style" and $default) {
+        $full-selector: $default + " " + $selector;
     }
 
     @return $full-selector;

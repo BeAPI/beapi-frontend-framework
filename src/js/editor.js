@@ -13,7 +13,11 @@ lazySizes.cfg.nativeLoading = {
 // Native Gutenberg
 if (typeof wp !== 'undefined') {
   wp.domReady(() => {
-    // Do stuff
+    // core/button
+    wp.blocks.unregisterBlockStyle('core/button', 'outline')
+
+    // core/quote
+    wp.blocks.unregisterBlockStyle('core/quote', 'large')
   })
 }
 

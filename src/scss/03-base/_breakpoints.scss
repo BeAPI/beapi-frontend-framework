@@ -1,5 +1,15 @@
+$container-width: map-get(map-get($column-preset, d), columnwidth) * map-get(map-get($column-preset, d), totalcolumn) + map-get(map-get($column-preset, d), gutterwidth) * map-get(map-get($column-preset, d), totalcolumn) - 1 * 1px;
+
 :root {
-    --responsive--aligndefault-width: #{column-px(6)};
-    --responsive--alignwide-width: #{map-get(map-get($column-preset, d), columnwidth) * map-get(map-get($column-preset, d), totalcolumn) + map-get(map-get($column-preset, d), gutterwidth) * map-get(map-get($column-preset, d), totalcolumn) - 1 * 1px};
+    --responsive--aligndefault-width: calc(100% - #{$mobile-external-gutter * 2});
+    --responsive--alignwide-width: calc(100% - #{$mobile-external-gutter * 2});
     --responsive--alignfull-width: 100%;
+
+    @media screen and (min-width: #{to-number(column-px(6, 7)) + $mobile-external-gutter * 2}) {
+        --responsive--aligndefault-width: #{column-px(6, 7)};
+    }
+
+    @media screen and (min-width: #{$container-width + $mobile-external-gutter * 2}) {
+        --responsive--alignwide-width: #{$container-width};
+    }
 }

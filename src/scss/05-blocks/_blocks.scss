@@ -4,32 +4,32 @@
 // - In the future the Block styles may get compiled to individual .css
 //   files and conditionally loaded
 
-@import "audio/audio";
-@import "buttons/buttons";
-@import "code/code";
-@import "columns/columns";
-@import "cover/cover";
-@import "file/file";
-@import "gallery/gallery";
-@import "group/group";
-@import "heading/heading";
-@import "image/image";
-@import "latest-posts/latest-posts";
-@import "legacy/style"; // "Blocks" from the legacy WP editor, ie: galleries, .button class, etc.
-@import "list/list";
-@import "media-text/media-text";
-@import "paragraph/paragraph";
-@import "preformatted/preformatted";
-@import "pullquote/pullquote";
-@import "quote/quote";
-@import "rss/rss";
-@import "search/search";
-@import "separator/separator";
-@import "social-links/social-links";
-@import "spacer/spacer";
-@import "table/table";
-@import "tag-cloud/tag-cloud";
-@import "verse/verse";
-@import "video/video";
+@import "core/audio";
+@import "core/buttons";
+@import "core/code";
+@import "core/columns";
+@import "core/cover";
+@import "core/file";
+@import "core/gallery";
+@import "core/group";
+@import "core/heading";
+@import "core/image";
+@import "core/latest-posts";
+@import "core/legacy"; // "Blocks" from the legacy WP editor, ie: galleries, .button class, etc.
+@import "core/list";
+@import "core/media-text";
+@import "core/paragraph";
+@import "core/preformatted";
+@import "core/pullquote";
+@import "core/quote";
+@import "core/rss";
+@import "core/search";
+@import "core/separator";
+@import "core/social-links";
+@import "core/spacer";
+@import "core/table";
+@import "core/tag-cloud";
+@import "core/verse";
+@import "core/video";
 @import "utilities/font-sizes";
 // @import "utilities/style"; // Import LAST to cascade properly

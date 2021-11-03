@@ -1,0 +1,37 @@
+.wp-block-columns {
+    &:not(.alignwide):not(.alignfull) {
+        clear: both;
+    }
+
+    @include style-only {
+        .wp-block-column {
+            > * {
+                &:first-child {
+                    margin-top: 0;
+                }
+    
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+    
+            &:last-child {
+                margin-bottom: 0;
+            }
+    
+            @include breakpoints(sm) {
+                &:not(:first-child) {
+                    margin-left: var(--global--spacing-vertical);
+                }
+            }
+        }
+    }
+
+    @include editor-only {
+        .wp-block,
+        .wp-block-column {
+            // Allow Gutenberg to set the width of a block that lives inside the columns block.
+            max-width: inherit;
+        }
+    }
+}

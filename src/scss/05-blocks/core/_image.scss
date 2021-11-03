@@ -1,0 +1,34 @@
+.wp-block-image {
+    > img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    figcaption {
+        font-size: var(--global--font-size-xs);
+        color: var(--figcaption--color-primary);
+    }
+}
+
+.alignleft {
+
+    @include align;
+}
+
+.alignright {
+
+    @include align(right);
+}
+
+.aligncenter {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    clear: both;
+}
+
+.alignleft,
+.alignright,
+.aligncenter {
+    margin-bottom: $base-spacing;
+}

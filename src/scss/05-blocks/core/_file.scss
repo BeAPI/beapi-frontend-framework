@@ -1,0 +1,18 @@
+.wp-block-file {
+    .wp-block-file__button {
+        // style
+    }
+}
+
+@include editor-only {
+    .wp-block-file {
+        .wp-block-file__textlink {
+            // style
+        }
+    
+        .wp-block-file__button {
+            // style
+        }
+    }
+    
+}

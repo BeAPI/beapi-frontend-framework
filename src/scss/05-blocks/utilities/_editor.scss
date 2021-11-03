@@ -114,12 +114,12 @@ a {
 
 .alignleft {
     margin: 0;
-    margin-right: var(--global--spacing-horizontal);
+    margin-right: var(--global--spacing-vertical);
 }
 
 .alignright {
     margin: 0;
-    margin-left: var(--global--spacing-horizontal);
+    margin-left: var(--global--spacing-vertical);
 }
 
 // Drop cap
@@ -137,12 +137,12 @@ a {
 @media only screen and (min-width: 482px) {
     .wp-block[data-align="left"] > * {
         max-width: 290px;
-        margin-right: var(--global--spacing-horizontal);
+        margin-right: var(--global--spacing-vertical);
     }
 
     .wp-block[data-align="right"] > * {
         max-width: 290px;
-        margin-left: var(--global--spacing-horizontal);
+        margin-left: var(--global--spacing-vertical);
     }
 }
 

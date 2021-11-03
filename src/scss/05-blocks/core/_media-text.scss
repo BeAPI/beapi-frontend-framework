@@ -1,0 +1,15 @@
+.wp-block-media-text {
+    @include style-only {
+        &.alignfull {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    @include editor-only {
+        [data-align="full"] & {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,6 @@
+.wp-block-verse {
+    @include editor-only {
+        padding: 0;
+        color: currentColor;
+    }
+}

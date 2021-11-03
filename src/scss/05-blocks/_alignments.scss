@@ -1,0 +1,33 @@
+// Front Office
+.post-thumbnail,
+.entry-content .wp-audio-shortcode,
+.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+*[class*=inner-container] > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+.default-max-width {
+    max-width: var(--responsive--aligndefault-width);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.alignwide,
+.wide-max-width {
+    max-width: var(--responsive--alignwide-width);
+}
+
+// Editor
+
+@include editor-only {
+    .wp-block {
+        max-width: var(--responsive--aligndefault-width);
+
+        &[data-align="wide"],
+        .alignwide {
+            max-width: var(--responsive--alignwide-width);
+        }
+
+        &[data-align="full"],
+        .alignfull {
+            max-width: none;
+        }
+    }
+}

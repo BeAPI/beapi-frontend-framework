@@ -1,0 +1,32 @@
+.entry-content > *,
+[class*="inner-container"] > * {
+    margin-top: calc(.666 * var(--global--spacing-vertical));
+    margin-bottom: calc(.666 * var(--global--spacing-vertical));
+ 
+    &:first-child {
+        margin-top: 0;
+    }
+ 
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &.alignleft,
+    &.alignright,
+    &.alignleft:first-child + *,
+    &.alignright:first-child + *,
+    &.alignfull.has-background {
+        margin-top: 0;
+    }
+ 
+    &:last-child,
+    &.alignfull.has-background {
+        margin-bottom: 0;
+    }
+ 
+    /* Reset alignleft and alignright margins after alignfull */
+    &.alignfull + .alignleft,
+    &.alignfull + .alignright {
+        margin-top: var(--global--spacing-vertical);
+    }
+}

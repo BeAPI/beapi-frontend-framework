@@ -1,0 +1,23 @@
+#{context-selector(null, '.wp-block', 'a')} {
+    color: var(--global--color-primary);
+    text-decoration: underline;
+    cursor: pointer;
+    
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:focus {
+        background-color: $gray-color-1200;
+    }
+}
+
+// Enforce the custom link color even if a custom background color has been set.
+// The extra specificity here is required to override the background color styles.
+.has-background {
+    // Target both current level and nested block.
+    .has-link-color a,
+    &.has-link-color a {
+        color: var(--global--color-primary);
+    }
+}

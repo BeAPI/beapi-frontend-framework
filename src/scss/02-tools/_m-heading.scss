@@ -1,0 +1,37 @@
+/**
+ * Heading mixins
+ */
+
+@mixin heading($level: 1) {
+    font-family: var(--heading--font-family);
+
+    @if $level == 1 {
+        font-size: var(--heading--font-size-h1);
+        line-height: var(--heading--line-height-h1);
+    }
+
+    @if $level == 2 {
+        font-size: var(--heading--font-size-h2);
+        line-height: var(--heading--line-height-h2);
+    }
+
+    @if $level == 3 {
+        font-size: var(--heading--font-size-h3);
+        line-height: var(--heading--line-height-h3);
+    }
+
+    @if $level == 4 {
+        font-size: var(--heading--font-size-h4);
+        line-height: var(--heading--line-height-h4);
+    }
+
+    @if $level == 5 {
+        font-size: var(--heading--font-size-h5);
+        line-height: var(--heading--line-height-h5);
+    }
+
+    @if $level == 6 {
+        font-size: var(--heading--font-size-h6);
+        line-height: var(--heading--line-height-h6);
+    }
+}

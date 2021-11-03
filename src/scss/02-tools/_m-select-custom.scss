@@ -1,0 +1,59 @@
+/**
+ * Select custom
+ */
+
+@mixin select-custom {
+    display: block;
+    width: 100%;
+    max-width: 100%; /* useful when width is set to anything other than 100% */
+    padding: $half-base-spacing $half-base-spacing*3 $half-base-spacing $half-base-spacing;
+    margin: 0;
+    font-size: 16px; // prevent iOS zoom
+    line-height: 1.15;
+    color: $global-color-secondary;
+    background-color: $light-color;
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11.2 6.7'%3E%3Cpath d='M0 .5C0 .4.1.2.2.1c.2-.2.5-.1.7.1l4.6 5.3.1.1s.1 0 .1-.1L10.3.1c.2-.1.5-.2.7 0 .2.2.2.5.1.7L6.5 6.2c-.2.3-.5.5-.9.5s-.7-.2-.9-.6L.1.8C0 .7 0 .6 0 .5z'/%3E%3C/svg%3E"),
+        linear-gradient(to bottom, $light-color 0%, $light-color 100%);
+    background-repeat: no-repeat, repeat;
+    background-position: right 10px top 50%, 0 0;
+    background-size: 10px auto, 100%;
+    border: 1px solid $gray-color-500;
+    border-radius: 0;
+    appearance: none;
+
+    // Set options to normal weight
+    option {
+        font-weight: 400;
+    }
+
+    // Hide arrow icon in IE browsers
+    &::-ms-expand {
+        display: none;
+    }
+
+    // Hover style
+    &:hover {
+        border-color: darken($gray-color-500, 10%);
+    }
+
+    // Focus style
+    &:focus {
+        color: darken($global-color-secondary, 10%);
+        border-color: darken($gray-color-500, 20%);
+        outline: none;
+        box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+        box-shadow: 0 0 0 3px -moz-mac-focusring;
+
+        option {
+            outline: none;
+        }
+    }
+
+    // Support for rtl text, explicit support for Arabic and Hebrew
+    *[dir="rtl"] &,
+    :root:lang(ar) &,
+    :root:lang(iw) & {
+        background-position: left 10px top 50%, 0 0;
+    }
+}

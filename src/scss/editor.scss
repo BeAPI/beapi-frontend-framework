@@ -1,60 +1,66 @@
 $entry-file-name: "editor";
 
-// Abstract
+$entry-file-name: "style";
 
-@import "abstract/index";
+/**
+ * Abstract
+ * == Contain SCSS and CSS variables and webfonts declarations.
+ */
 
-// Base
+@import "01-abstract/index";
 
-@import "base/sr-only";
-@import "base/fonts";
-@import "base/box-sizing";
-@import "base/text";
+/**
+ * Tools
+ * == Contains functions and mixins.
+ */
 
-// Blocks
+@import "02-tools/index";
 
-@import "blocks/align";
-@import "blocks/blocks-editor";
+/**
+ * Base
+ * == Contain generic styles such as normalize or reset.
+ */
 
-// Backend Classic editor container
-.mce-content-body {
-    max-width: $container-width;
-    margin: $base-spacing/2;
-}
+@import "03-base/breakpoints";
+@import "03-base/layout";
+@import "03-base/svg-icons";
+@import "03-base/vertical-spacing";
 
-// Backend Gutenberg editor container
-.wp-block {
-    &:not([data-align="full"]) {
-        max-width: $container-width;
-    }
+/**
+ * Elements
+ * == Contain any default HTML element. Do not add classes here, just give the elements some basic styles.
+ */
 
-    &[data-align="wide"] {
-        max-width: $container-width * 1.5;
-    }
-}
+@import "04-elements/blockquote";
+@import "04-elements/media";
+@import "04-elements/forms-editor";
+@import "04-elements/links";
 
-// Render Post/Page Title as FrontEnd view
-.editor-post-title {
-    &__block {
-        .editor-post-title {
-            &__input {
+/**
+ * Blocks
+ * == Gutenberg core blocks styles, style for front-end layout and editor.
+ */
 
-                @include title(XXL);
-            }
-        }
+@import "05-blocks/alignments";
+@import "05-blocks/blocks-editor";
 
-    }
-}
+/**
+ * Pages
+ * == If you want to add custom styles for specifics page templates.
+ */
 
-// Exact style between BO/FO for lists
-.block-library-list {
-    ul {
+@import "07-pages/index";
 
-        @include wysiwyg-list();
-    }
+/**
+ * Utilities
+ * == Utility classes that are not assigned to a specific component.
+ */
 
-    ol {
+@import "08-utilities/index";
 
-        @include wysiwyg-list(ol);
-    }
-}
+/**
+ * Vendor
+ * == Plugins or libraries custom styles.
+ */
+
+@import "09-vendor/index";

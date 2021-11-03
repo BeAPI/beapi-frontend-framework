@@ -1,0 +1,5 @@
+:root {
+    --responsive--aligndefault-width: #{column-px(6)};
+    --responsive--alignwide-width: #{map-get(map-get($column-preset, d), columnwidth) * map-get(map-get($column-preset, d), totalcolumn) + map-get(map-get($column-preset, d), gutterwidth) * map-get(map-get($column-preset, d), totalcolumn) - 1 * 1px};
+    --responsive--alignfull-width: 100%;
+}

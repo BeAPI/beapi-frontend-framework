@@ -1,42 +1,74 @@
 $entry-file-name: "style";
 
-@import "~normalize-scss/sass/normalize/import-now";
+/**
+ * Abstract
+ * == Contain SCSS and CSS variables and webfonts declarations.
+ */
 
-// Abstract
+@import "01-abstract/index";
 
-@import "abstract/index";
+/**
+ * Tools
+ * == Contains functions and mixins.
+ */
 
-// Base
+@import "02-tools/index";
 
-@import "base/sr-only";
-@import "base/fonts";
-@import "base/box-sizing";
-@import "base/svg-icons";
-@import "base/text";
-@import "base/form";
-@import "base/seo";
-@import "base/lazyload";
-@import "base/layout";
-@import "base/video-wrapper";
-@import "base/focus";
+/**
+ * Base
+ * == Contain generic styles such as normalize or reset.
+ */
 
-// Patterns
+@import "03-base/normalize";
+@import "03-base/breakpoints";
+@import "03-base/layout";
+@import "03-base/vertical-spacing";
+@import "03-base/svg-icons";
+@import "03-base/reset";
 
-@import "patterns/header";
-@import "patterns/footer";
-@import "patterns/menu";
-@import "patterns/hero";
-@import "patterns/searchform";
-@import "patterns/skip-links";
+/**
+ * Elements
+ * == Contain any default HTML element. Do not add classes here, just give the elements some basic styles.
+ */
 
-// Blocks
+@import "04-elements/blockquote";
+@import "04-elements/forms";
+@import "04-elements/media";
+@import "04-elements/misc";
+@import "04-elements/links";
 
-@import "blocks/align";
-@import "blocks/blocks";
+/**
+ * Blocks
+ * == Gutenberg core blocks styles, style for front-end layout and editor.
+ */
 
-// Pages
+@import "05-blocks/alignments";
+@import "05-blocks/blocks";
 
-@import "pages/404";
-@import "pages/home";
-@import "pages/default";
-@import "pages/print";
+/**
+ * Patterns
+ * == Contains styles for site patterns such as header, footer or menu.
+ */
+
+@import "06-patterns/index";
+
+/**
+ * Pages
+ * == If you want to add custom styles for specifics page templates.
+ */
+
+@import "07-pages/index";
+
+/**
+ * Utilities
+ * == Utility classes that are not assigned to a specific component.
+ */
+
+@import "08-utilities/index";
+
+/**
+ * Vendor
+ * == Plugins or libraries custom styles.
+ */
+
+@import "09-vendor/index";

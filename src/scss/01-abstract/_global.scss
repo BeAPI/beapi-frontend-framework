@@ -1,0 +1,62 @@
+$baseline-unit: 10px;
+
+:root {
+    /*
+     * Colors
+     */
+
+    // Global
+    --global--color-primary: #{$global-color-primary};
+    --global--color-background: #fff;
+
+    // Heading
+    --heading--color-primary: #1e1e1e;
+
+    /*
+     * Fonts
+     */
+
+    // Global
+    --global--font-primary: #{$primary-font-family};
+
+    // Heading
+    --heading--font-family: #{$primary-font-family};
+
+    /*
+     * Font Size
+     */
+    --global--font-size-base: 16px;
+
+    // Heading
+    --heading--font-size-h1: 56px;
+    --heading--font-size-h2: 48px;
+    --heading--font-size-h3: 36px;
+    --heading--font-size-h4: 32px;
+    --heading--font-size-h5: 24px;
+    --heading--font-size-h6: 18px;
+
+    /*
+     * Line Height
+     */
+    --global--line-height: #{$base-line-height};
+
+    // Heading
+    --heading--line-height-h1: 1.25;
+    --heading--line-height-h2: 1.33;
+    --heading--line-height-h3: 1.36;
+    --heading--line-height-h4: 1.4375;
+    --heading--line-height-h5: 1.375;
+    --heading--line-height-h6: 1.44;
+
+    /*
+     * Spacing
+     */
+    --global--spacing-unit: #{2 * $baseline-unit}; // 20px
+    --global--spacing-measure: unset; // Use ch units here. ie: 60ch = 60 character max-width
+    --global--spacing-horizontal: #{2.5 * $baseline-unit}; // 25px
+    --global--spacing-vertical: #{3 * $baseline-unit}; // 30px.
+
+    @media screen and (min-width: 1024px) { // The breakpoint mixin is declared after
+        // Redefine CSS variables responsively
+    }
+}

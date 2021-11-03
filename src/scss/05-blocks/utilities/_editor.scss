@@ -1,0 +1,163 @@
+html {
+    font-family: var(--global--font-primary);
+    line-height: var(--global--line-height);
+}
+
+body {
+    --wp--typography--line-height: var(--global--line-height);
+
+    font-family: var(--global--font-primary);
+    font-size: var(--global--font-size-base);
+    font-weight: normal;
+    color: var(--global--color-primary);
+    background-color: var(--global--color-background);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+button,
+a {
+    cursor: pointer;
+}
+
+// Post title style
+.wp-block.editor-post-title__block {
+    max-width: var(--responsive--aligndefault-width);
+    margin-bottom: 32px;
+    border-bottom: 1px solid;
+
+    .editor-post-title__input {
+        @include heading(1);
+    }
+}
+
+// Editor UI font styles
+.wp-block.block-editor-default-block-appender > textarea {
+    font-family: var(--global--font-secondary);
+    font-size: var(--global--font-size-md);
+}
+
+// Gutenberg text color options
+.has-primary-color[class] {
+    color: var(--global--color-primary);
+}
+
+.has-secondary-color[class] {
+    color: var(--global--color-secondary);
+}
+
+// Enforce the custom link color even if a custom background color has been set.
+// The extra specificity here is required to override the background color styles.
+.has-background {
+    a,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: currentColor;
+    }
+
+    // Target both current level and nested block.
+    .has-link-color a,
+    &.has-link-color a {
+        color: var(--wp--style--color--link, var(--global--color-primary));
+    }
+}
+
+.has-primary-background-color[class] {
+    color: var(--global--color-background);
+    background-color: var(--global--color-primary);
+}
+
+.has-secondary-background-color[class] {
+    color: var(--global--color-background);
+    background-color: var(--global--color-secondary);
+}
+
+.has-white-background-color[class] {
+    color: var(--global--color-secondary);
+    background-color: var(--global--color-white);
+}
+
+.has-black-background-color[class] {
+    color: var(--global--color-primary);
+    background-color: var(--global--color-black);
+}
+
+// Spacing Overrides
+[data-block] {
+    margin-top: var(--global--spacing-vertical);
+    margin-bottom: var(--global--spacing-vertical);
+}
+
+// Block Alignments
+.wp-block {
+
+    // Gutenberg injects a rule that limits the max width of .wp-block to 580px
+    // This line overrides it to use the responsive spacing rules for default width content
+    max-width: var(--responsive--aligndefault-width);
+
+    // Use the theme's max-width for wide alignment.
+    &[data-align="wide"],
+    &.alignwide {
+        max-width: var(--responsive--alignwide-width);
+    }
+
+    &[data-align="full"],
+    &.alignfull {
+        max-width: none;
+    }
+}
+
+.alignleft {
+    margin: 0;
+    margin-right: var(--global--spacing-horizontal);
+}
+
+.alignright {
+    margin: 0;
+    margin-left: var(--global--spacing-horizontal);
+}
+
+// Drop cap
+.has-drop-cap:not(:focus)::first-letter {
+    float: left;
+    margin: .1em .1em 0 0;
+    font-family: var(--heading--font-family);
+    font-size: calc(1.2 * var(--heading--font-size-h1));
+    font-style: normal;
+    font-weight: var(--heading--font-weight);
+    line-height: .66;
+    text-transform: uppercase;
+}
+
+@media only screen and (min-width: 482px) {
+    .wp-block[data-align="left"] > * {
+        max-width: 290px;
+        margin-right: var(--global--spacing-horizontal);
+    }
+
+    .wp-block[data-align="right"] > * {
+        max-width: 290px;
+        margin-left: var(--global--spacing-horizontal);
+    }
+}
+
+// Remove the border of blockquotes inside the classic block.
+.wp-block-freeform.block-library-rich-text__tinymce blockquote {
+    border: none;
+}
+
+// Adjust the position of the quote symbol for blockquotes inside the classic block.
+.wp-block-freeform.block-library-rich-text__tinymce blockquote::before {
+    left: 5px;
+}
+
+// Backend Classic editor container
+.mce-content-body {
+    max-width: var(--responsive--alignwide-width);
+    margin: $base-spacing/2;
+}

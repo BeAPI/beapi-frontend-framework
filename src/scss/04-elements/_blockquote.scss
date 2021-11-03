@@ -1,0 +1,18 @@
+blockquote {
+    position: relative;
+    padding: 0;
+    margin: var(--global--spacing-vertical) 0 var(--global--spacing-vertical) var(--global--spacing-horizontal);
+
+    > * {
+        margin-top: var(--global--spacing-unit);
+        margin-bottom: var(--global--spacing-unit);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

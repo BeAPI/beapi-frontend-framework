@@ -1,0 +1,36 @@
+/**
+ * Header
+ */
+
+.header {
+    padding-top: $base-spacing;
+    padding-bottom: $base-spacing;
+    background-color: $global-color-primary;
+
+    &__logo-link {
+        display: block;
+    }
+
+    &__icon {
+        display: block;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 10px;
+        color: $global-color-secondary;
+    }
+
+    &__img {
+
+        @include img-responsive();
+
+        margin: 0 auto $base-spacing;
+    }
+
+    // Admin bar sample if header is fixed
+    // .admin-bar & {
+    // 	top: $wp-admin-bar-mobile-height;
+    // 	@include breakpoints(md) {
+    // 		top: $wp-admin-bar-desktop-height;
+    // 	}
+    // }
+}

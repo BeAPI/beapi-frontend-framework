@@ -1,0 +1,10 @@
+/* Main Layout */
+.container {
+    @include container;
+}
+
+@include breakpoints(md) {
+    .container {
+        padding: 0;
+    }
+}

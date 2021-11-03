@@ -1,0 +1,110 @@
+/**
+ * Variables
+ */
+
+// ==========
+// Colors
+// ==========
+// ----
+// Theme colors
+// ----
+$global-color-primary: #111;
+$global-color-secondary: #333;
+
+// ----
+// Gray palette
+// ----
+$dark-color: #000;
+$gray-color-100: #111;
+$gray-color-200: #222;
+$gray-color-300: #333;
+$gray-color-400: #444;
+$gray-color-500: #555;
+$gray-color-600: #666;
+$gray-color-700: #777;
+$gray-color-800: #888;
+$gray-color-900: #999;
+$gray-color-1000: #aaa;
+$gray-color-1100: #bbb;
+$gray-color-1200: #ccc;
+$gray-color-1300: #ddd;
+$gray-color-1400: #eee;
+$light-color: #fff;
+
+// ----
+// Contextual colors
+// ----
+$error-color-600 : #8a1f11;
+$error-color-50 : #fbe3e4;
+$notice-color-600 : #514721;
+$notice-color-50 : #fff6bf;
+$success-color-600 : #264409;
+$success-color-50 : #e6efc2;
+$info-color-600 : #205791;
+$info-color-50 : #d5edf8;
+
+// ==========
+// Sizes
+// ==========
+// ----
+// Breakpoints
+// ----
+$container-width: 1154px;
+$mobile-external-gutter: 25px;
+// $breakpoints : (
+//     xsm: 600,
+//     sm: 768,
+//     md: 1024,
+//     lg: 1440
+// );
+$column-preset : (
+    /* preset for desktop */
+    d : (
+        columnwidth: 76,
+        gutterwidth: 22,
+        totalcolumn: 12
+    ),
+    /* preset for mobile */
+    m : (
+        columnwidth: 76,
+        gutterwidth: 22,
+        totalcolumn: 4
+    )
+);
+
+// ----
+// spacing
+// ----
+$base-spacing: 32px;
+$half-base-spacing: $base-spacing / 2;
+
+// ----
+// wp admin bar
+// ----
+$wp-admin-bar-mobile-height: 46px;
+$wp-admin-bar-desktop-height: 32px;
+
+// ----
+// border
+// ----
+$base-border-color: $gray-color-800;
+$base-border: 1px solid $base-border-color;
+$base-border-radius: 3px;
+
+// ==========
+// Fonts
+// ==========
+// ----
+// Font Family
+// ----
+$primary-font-family: poppins, sans-serif;
+
+// ----
+// Font Size
+// ----
+$base-font-size: 16px;
+
+// ----
+// Line Height
+// ----
+$base-line-height: 1.4;

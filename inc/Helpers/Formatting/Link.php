@@ -132,7 +132,7 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 	// For security reason if target _blank add rel noopener
 	if ( '_blank' === $attributes['target'] ) {
 		$attributes['rel']      = 'noopener';
-		$settings['new_window'] = ! empty( $settings['new_window'] ) ? $settings['new_window'] : '<span class="sronly">' . esc_html__(
+		$settings['new_window'] = ! empty( $settings['new_window'] ) ? $settings['new_window'] : '<span class="sr-only">' . esc_html__(
 			'New window',
 			'beapi-frontend-framework'
 		) . '</span>';

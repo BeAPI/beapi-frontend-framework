@@ -24,7 +24,7 @@ use function BEA\Theme\Framework\Helpers\Formatting\Escape\escape_attribute_valu
  * @type string $before Optional. Markup to prepend to the image. Default empty.
  * @type string $after Optional. Markup to append to the image. Default empty.
  * @type array $escape Optional. An array where we specify as key the value we want to escape and as value the method to use. Example for the href ['escape' => ['href' => 'esc_url'] ]
- *
+ * @type string $new_window Optional. Add <span class="sronly> for a11y
  * }
  *
  * @return string Return the markup of the link
@@ -80,7 +80,7 @@ function get_acf_link( array $attributes, array $settings = [] ): string {
  * @type string $before Optional. Markup to prepend to the image. Default empty.
  * @type string $after Optional. Markup to append to the image. Default empty.
  * @type array $escape Optional. An array where we specify as key the value we want to escape and as value the method to use. Example for the href ['escape' => ['href' => 'esc_url'] ]
- *
+ * @type string $new_window Optional. Add <span class="sronly> for a11y
  * }
  *
  * @return void Echo of the link markup
@@ -104,12 +104,13 @@ function the_acf_link( array $attributes, array $settings = [] ): void {
  * }
  *
  * @param array $settings {
- *    Optional. Settings for the acf link markup.
+ *    Optional. Settings for the link markup.
  *
  * @type string $content Optional. The content of the link
  * @type string $before Optional. Markup to prepend to the image. Default empty.
  * @type string $after Optional. Markup to append to the image. Default empty.
  * @type array $escape Optional. An array where we specify as key the value we want to escape and as value the method to use. Example for the href ['escape' => ['href' => 'esc_url'] ]
+ * @type string $new_window Optional. Add <span class="sronly> for a11y
  *
  * }
  *
@@ -130,7 +131,11 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 
 	// For security reason if target _blank add rel noopener
 	if ( '_blank' === $attributes['target'] ) {
-		$attributes['rel'] = 'noopener';
+		$attributes['rel']      = 'noopener';
+		$settings['new_window'] = ! empty( $settings['new_window'] ) ? $settings['new_window'] : '<span class="sronly">' . esc_html__(
+			'New window',
+			'beapi-frontend-framework'
+		) . '</span>';
 	}
 
 	$attributes = apply_filters( 'bea_theme_framework_link_attributes', $attributes, $settings );
@@ -138,10 +143,11 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 	$settings = wp_parse_args(
 		$settings,
 		[
-			'before'  => '',
-			'content' => $attributes['title'],
-			'after'   => '',
-			'escape'  => [
+			'before'     => '',
+			'content'    => $attributes['title'],
+			'new_window' => '',
+			'after'      => '',
+			'escape'     => [
 				'href' => 'esc_url',
 			],
 		]
@@ -151,21 +157,21 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 
 	/**************************************** START MARKUP LINK ****************************************/
 
-	$attributes_escape = [];
+	$attributes_escaped = [];
 	foreach ( $attributes as $name => $value ) {
 		// Use user escape function, or default
 		$value = escape_attribute_value( $value, $settings['escape'][ $name ] ?? '' );
 
 		// Handle single attributes like checked or data-seo-target, if null no attribute value
-		$attributes_escape[] = null === $value ? $name : sprintf( '%s="%s"', $name, $value );
+		$attributes_escaped[] = null === $value ? $name : sprintf( '%s="%s"', $name, $value );
 	}
 
 	// Implode all attributes for display purposes
-	$attributes_escape = implode( ' ', $attributes_escape );
+	$attributes_escaped = implode( ' ', $attributes_escaped );
 	// Escape content for display purposes
 	$label = escape_content_value( $settings['content'], $settings['escape']['content'] ?? '' );
 
-	$link_markup = sprintf( '<a %s>%s</a>', $attributes_escape, $label );
+	$link_markup = sprintf( '<a %s>%s%s</a>', $attributes_escaped, $settings['new_window'], $label );
 
 	/**************************************** END MARKUP LINK ****************************************/
 
@@ -175,10 +181,10 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 }
 
 /**
- * @usage BEA\Theme\Framework\Helpers\Formatting\Link\the_link( ['url' => ..., 'title' => ...], [ 'wrapper' => '<p></p>' ] );
+ * @usage BEA\Theme\Framework\Helpers\Formatting\Link\the_link( ['href' => ..., 'title' => ...], [ 'wrapper' => '<p></p>' ] );
  *
  * @param array $attributes {
- *    Attributes for the acf link markup.
+ *    Attributes for the link markup.
  *
  * @type string $href URL link.
  * @type string $title title link.
@@ -195,7 +201,7 @@ function get_the_link( array $attributes, array $settings = [] ): string {
  * @type string $before Optional. Markup to prepend to the image. Default empty.
  * @type string $after Optional. Markup to append to the image. Default empty.
  * @type array $escape Optional. An array where we specify as key the value we want to escape and as value the method to use. Example for the href ['escape' => ['href' => 'esc_url'] ]
- *
+ * @type string $new_window Optional. Add <span class="sronly> for a11y
  * }
  *
  *

@@ -10,7 +10,7 @@ namespace BEA\Theme\Framework\Helpers\Formatting\Image;
  *    Attributes for the image markup.
  *
  * @type string $src Image attachment URL.
- * @type string $data-location Image attachment URL.
+ * @type string $data-location Location of image.
  * @type string $class CSS class name or space-separated list of classes.
  *                                 Default `attachment-$size_class size-$size_class`,
  *                                 where `$size_class` is the image size being requested.
@@ -83,7 +83,7 @@ function get_the_image( int $image_id, array $attributes, array $settings = [] )
  *    Attributes for the image markup.
  *
  * @type string $src Image attachment URL.
- * @type string $data-location Image attachment URL.
+ * @type string $data-location Location of image.
  * @type string $class CSS class name or space-separated list of classes.
  *                                 Default `attachment-$size_class size-$size_class`,
  *                                 where `$size_class` is the image size being requested.

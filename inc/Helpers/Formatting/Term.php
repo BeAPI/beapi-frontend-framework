@@ -1,22 +1,19 @@
 <?php
 namespace BEA\Theme\Framework\Helpers\Formatting\Term;
 
+use function BEA\Theme\Framework\Helpers\Formatting\Escape\escape_content_value;
 /**
  * @usage BEA\Theme\Framework\Helpers\Formatting\Term\get_terms_name( 0, 'news-type' );
  *
- * @param int $post_id Post ID
+ * @param int|\WP_Post $post Post ID or object.
  * @param string $taxonomy Taxonomy name
  *
  * @return array Return an array with the terms name
  */
-function get_terms_name( int $post_id, string $taxonomy ): array {
-	if ( empty( $post_id ) || empty( $taxonomy ) ) {
-		return [];
-	}
-
+function get_terms_name( $post_id, string $taxonomy ): array {
 	$terms = get_the_terms( $post_id, $taxonomy );
 
-	if ( empty( $terms ) || is_wp_error( $terms ) ) {
+	if ( false !== $terms || is_wp_error( $terms ) ) {
 		return [];
 	}
 
@@ -26,13 +23,9 @@ function get_terms_name( int $post_id, string $taxonomy ): array {
 /**
  * @usage BEA\Theme\Framework\Helpers\Formatting\Term\get_terms_list( ['post_id' => 0,'taxonomy' => 'news-type'],['items'  => '<span>%s</span>', 'separator' => ' ', 'wrapper' => '<p>%s</p>'] );
  *
- * @param array $attributes {
- *   Attributes for generating the list of terms
+ * @param int|\WP_Post $post Post ID or object.
+ * @param string $taxonomy Taxonomy name.
  *
- * @type int $post_id ID of the post
- * @type string $taxonomy Name of the taxonomy
- *
- * }
  * @param array $settings {
  *   Optional. Settings for the terms list markup.
  *
@@ -46,13 +39,9 @@ function get_terms_name( int $post_id, string $taxonomy ): array {
  *
  * @return string
  */
-function get_terms_list( array $attributes, array $settings = [] ): string {
-	if ( empty( $attributes['post_id'] ) || empty( $attributes['taxonomy'] ) ) {
-		return '';
-	}
-
-	$attributes = apply_filters( 'bea_theme_framework_term_list_attributes', $attributes, $settings );
-	$terms      = get_terms_name( $attributes['post_id'], $attributes['taxonomy'] );
+function get_terms_list( $post, string $taxonomy, array $settings = [] ): string {
+	$attributes = apply_filters( 'bea_theme_framework_term_list_attributes', $post, $taxonomy, $settings );
+	$terms      = get_terms_name( $post, $taxonomy );
 
 	if ( empty( $terms ) ) {
 		return '';
@@ -91,13 +80,9 @@ function get_terms_list( array $attributes, array $settings = [] ): string {
 /**
  * @usage BEA\Theme\Framework\Helpers\Formatting\Term\the_terms_list( ['post_id' => 0,'taxonomy' => 'news-type'],['items'  => '<span>%s</span>', 'separator' => ' ', 'wrapper' => '<p>%s</p>'] );
  *
- * @param array $attributes {
- *   Attributes for generating the list of terms
+ * @param int|\WP_Post $post Post ID or object.
+ * @param string $taxonomy Taxonomy name.
  *
- * @type int $post_id ID of the post
- * @type string $taxonomy Name of the taxonomy
- *
- * }
  * @param array $settings {
  *   Optional. Settings for the terms list markup.
  *
@@ -109,6 +94,6 @@ function get_terms_list( array $attributes, array $settings = [] ): string {
  *
  * }
  */
-function the_terms_list( array $attributes, array $settings = [] ): void {
-	echo get_terms_list( $attributes, $settings );
+function the_terms_list( $post, string $taxonomy, array $settings = [] ): void {
+	echo get_terms_list( $post, $taxonomy, $settings );
 }

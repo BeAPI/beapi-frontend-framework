@@ -12,7 +12,7 @@ use function BEA\Theme\Framework\Helpers\Formatting\Escape\escape_content_value;
  *
  * @type string $before Optional. Markup to prepend to the text. Default empty.
  * @type string $after Optional. Markup to prepend to the text. Default empty.
- * @type string $escpae Optional. Markup to prepend to the item. Default esc_html.
+ * @type string $escape Optional. Markup to prepend to the item. Default esc_html.
  *
  * }
  *
@@ -32,7 +32,7 @@ function the_text( string $value, array $settings = [] ): void {
  *
  * @type string $before Optional. Markup to prepend to the text. Default empty.
  * @type string $after Optional. Markup to prepend to the text. Default empty.
- * @type string $escpae Optional. Markup to prepend to the item. Default esc_html.
+ * @type string $escape Optional. Markup to prepend to the item. Default esc_html.
  *
  * }
  *

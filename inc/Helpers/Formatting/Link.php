@@ -24,7 +24,7 @@ use function BEA\Theme\Framework\Helpers\Formatting\Escape\escape_attribute_valu
  * @type string $before Optional. Markup to prepend to the image. Default empty.
  * @type string $after Optional. Markup to append to the image. Default empty.
  * @type array $escape Optional. An array where we specify as key the value we want to escape and as value the method to use. Example for the href ['escape' => ['href' => 'esc_url'] ]
- * @type string $new_window Optional. Add <span class="sronly> for a11y
+ * @type string $new_window Optional. Add <span class="sr-only> for a11y
  * }
  *
  * @return string Return the markup of the link
@@ -80,7 +80,7 @@ function get_acf_link( array $attributes, array $settings = [] ): string {
  * @type string $before Optional. Markup to prepend to the image. Default empty.
  * @type string $after Optional. Markup to append to the image. Default empty.
  * @type array $escape Optional. An array where we specify as key the value we want to escape and as value the method to use. Example for the href ['escape' => ['href' => 'esc_url'] ]
- * @type string $new_window Optional. Add <span class="sronly> for a11y
+ * @type string $new_window Optional. Add <span class="sr-only> for a11y
  * }
  *
  * @return void Echo of the link markup
@@ -110,7 +110,7 @@ function the_acf_link( array $attributes, array $settings = [] ): void {
  * @type string $before Optional. Markup to prepend to the image. Default empty.
  * @type string $after Optional. Markup to append to the image. Default empty.
  * @type array $escape Optional. An array where we specify as key the value we want to escape and as value the method to use. Example for the href ['escape' => ['href' => 'esc_url'] ]
- * @type string $new_window Optional. Add <span class="sronly> for a11y
+ * @type string $new_window Optional. Add <span class="sr-only> for a11y
  *
  * }
  *
@@ -204,7 +204,7 @@ function get_the_link( array $attributes, array $settings = [] ): string {
  * @type string $before Optional. Markup to prepend to the image. Default empty.
  * @type string $after Optional. Markup to append to the image. Default empty.
  * @type array $escape Optional. An array where we specify as key the value we want to escape and as value the method to use. Example for the href ['escape' => ['href' => 'esc_url'] ]
- * @type string $new_window Optional. Add <span class="sronly> for a11y
+ * @type string $new_window Optional. Add <span class="sr-only> for a11y
  * }
  *
  *

@@ -159,17 +159,20 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 
 	$attributes_escaped = [];
 	foreach ( $attributes as $name => $value ) {
-		// Use user escape function, or default
-		$value = escape_attribute_value( $value, $settings['escape'][ $name ] ?? '' );
-
 		// Handle single attributes like checked or data-seo-target, if null no attribute value
-		$attributes_escaped[] = null === $value ? $name : sprintf( '%s="%s"', $name, $value );
+		if ( null === $value ) {
+			$attributes_escaped[] = $name;
+		} else {
+			// Use user escape function, or default
+			$value                = escape_attribute_value( $value, $settings['escape'][ $name ] ?? '' );
+			$attributes_escaped[] = sprintf( '%s="%s"', $name, $value );
+		}
 	}
 
 	// Implode all attributes for display purposes
 	$attributes_escaped = implode( ' ', $attributes_escaped );
 	// Escape content for display purposes
-	$label = escape_content_value( $settings['content'], $settings['escape']['content'] ?? '' );
+	$label = $settings['content'] ? escape_content_value( $settings['content'], $settings['escape']['content'] ?? '' ) : '';
 
 	$link_markup = sprintf( '<a %s>%s%s</a>', $attributes_escaped, $settings['new_window'], $label );
 

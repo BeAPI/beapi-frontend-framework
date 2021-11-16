@@ -62,7 +62,7 @@ function get_terms_list( $post, string $taxonomy, array $settings = [] ): string
 
 	$items = [];
 	foreach ( $terms as $term ) {
-		$value = escape_content_value( $term );
+		$value = escape_content_value( $term, 'esc_html' );
 		if ( empty( $value ) ) {
 			continue;
 		}

@@ -34,11 +34,19 @@
     <rule ref="WordPress.Security.EscapeOutput">
         <properties>
             <property name="customAutoEscapedFunctions" type="array">
-                <element value="\BEA\Theme\Framework\Helpers\Svg\get_the_icon" />
-                <element value="\BEA\Theme\Framework\Helpers\Svg\the_icon" />
-                <element value="bea_get_attachment_image" />
+                <element value="\BEA\Theme\Framework\Helpers\Svg\get_the_icon"/>
+                <element value="\BEA\Theme\Framework\Helpers\Svg\the_icon"/>
+                <element value="bea_get_attachment_image"/>
+                <element value="get_the_image"/>
+                <element value="get_the_link"/>
+                <element value="get_acf_link"/>
+                <element value="get_share_link"/>
+                <element value="get_terms_name"/>
+                <element value="get_terms_list"/>
+                <element value="get_the_text"/>
             </property>
-        </properties>    </rule>
+        </properties>
+    </rule>
 
 
     <!-- Show sniff name in report. -->
@@ -55,5 +63,5 @@
     <ini name="max_execution_time" value="-1"/>
 
     <rule ref="PHPCompatibility"/>
-    <config name="testVersion" value="7.2-"/>
+    <config name="testVersion" value="7.4-"/>
 </ruleset>

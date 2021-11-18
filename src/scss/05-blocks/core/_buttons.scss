@@ -1,5 +1,44 @@
+button,
+input[type="submit"],
+input[type="reset"],
+.button,
 .wp-block-search__button,
 .wp-block-button .wp-block-button__link,
 .wp-block-file .wp-block-file__button {
-    // style
+    @include button;
+}
+
+.wp-block-buttons > .wp-block-button.has-custom-font-size .wp-block-button__link,
+.wp-block-button.has-custom-font-size .wp-block-button__link {
+    font-size: inherit;
+}
+
+@include editor-only {
+    .wp-block-button__link {
+        @include button;
+    }
+    
+    /**
+     * Block Options
+     */
+    
+    // The parent container does not need outer margins applied.
+    // The children should all have top and bottom margins.
+    [data-block].wp-block-buttons {
+        margin-top: 0;
+        margin-bottom: 0;
+    
+        .wp-block-button:first-child {
+            margin-top: var(--global--spacing-vertical);
+        }
+    
+        .wp-block-button:last-child {
+            margin-bottom: var(--global--spacing-vertical);
+        }
+    }
+    
+    .is-style-outline .wp-block-button__link[style*="radius"],
+    .wp-block-button__link[style*="radius"] {
+        outline-offset: 2px;
+    }
 }

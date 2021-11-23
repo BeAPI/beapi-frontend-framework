@@ -1,3 +1,9 @@
+# 5.0.7
+- Add hook to load minified CSS for login page
+
+# 5.0.6
+- Add some templating helpers ( the_image, the_text, the_link ...)
+
 # 5.0.0
 - Add Webpack 5
 - Set build configuration files into config directory

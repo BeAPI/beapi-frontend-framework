@@ -19,5 +19,16 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+	<ul class="fast-access fast-access--hidden" aria-label="<?php echo esc_attr( 'Fast access navigation' ); ?>">
+		<li>
+			<a href="#searchform"><?php echo esc_html( 'Searchform' ); ?></a>
+		</li>
+		<li>
+			<a href="#content"><?php echo esc_html( 'Main content' ); ?></a>
+		</li>
+		<li>
+			<a href="#footer"><?php echo esc_html( 'Footer' ); ?></a>
+		</li>
+	</ul>
 <?php
 	wp_body_open();

@@ -1,3 +1,6 @@
+# 5.0.8
+- Fix filename for editor script and editor style
+
 # 5.0.7
 - Add hook to load minified CSS for login page
 

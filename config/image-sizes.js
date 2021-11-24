@@ -184,17 +184,15 @@ function generateDefaultImage(sizes, filename) {
     context.fillRect(0, 0, width, height)
 
     loadImage(imageSettings.logo).then((image) => {
+      let logoHeight = height * imageSettings.logoScale
+      let logoWidth = (logoHeight * image.naturalWidth) / image.naturalHeight
+
       if (image.naturalWidth > image.naturalHeight) {
-        const logoWidth = width * imageSettings.logoScale
-        const logoHeight = (logoWidth * image.naturalHeight) / image.naturalWidth
-
-        context.drawImage(image, (width - logoWidth) / 2, (height - logoHeight) / 2, logoWidth, logoHeight)
-      } else {
-        const logoHeight = height * imageSettings.logoScale
-        const logoWidth = (logoHeight * image.naturalWidth) / image.naturalHeight
-
-        context.drawImage(image, (width - logoWidth) / 2, (height - logoHeight) / 2, logoWidth, logoHeight)
+        logoWidth = width * imageSettings.logoScale
+        logoHeight = (logoWidth * image.naturalHeight) / image.naturalWidth
       }
+
+      context.drawImage(image, (width - logoWidth) / 2, (height - logoHeight) / 2, logoWidth, logoHeight)
 
       const buffer = canvas.toBuffer('image/jpeg')
       fs.writeFileSync(dir.defaultImages + filename, buffer)

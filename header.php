@@ -19,15 +19,15 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<ul class="fast-access fast-access--hidden" aria-label="<?php echo esc_attr( 'Fast access navigation' ); ?>">
+	<ul class="skip-links skip-links--hidden" aria-label="Liens d'évitement">
 		<li>
-			<a href="#searchform"><?php echo esc_html( 'Searchform' ); ?></a>
+			<a href="#searchform">Recherche</a>
 		</li>
 		<li>
-			<a href="#content"><?php echo esc_html( 'Main content' ); ?></a>
+			<a href="#content">Contenu principal</a>
 		</li>
 		<li>
-			<a href="#footer"><?php echo esc_html( 'Footer' ); ?></a>
+			<a href="#footer">Pied de page</a>
 		</li>
 	</ul>
 <?php

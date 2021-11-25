@@ -28,8 +28,8 @@
 		</li>
 	</ul>
 
-	<header id="header" class="header" role="banner"></header>
+	<header id="header" class="header" role="banner" aria-label="Entête de page"></header>
 
-	<main id="content" role="main" tabindex="-1">
+	<main id="content" role="main" tabindex="-1" aria-label="Zone de contenus">
 <?php
 	wp_body_open();

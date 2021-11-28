@@ -1,3 +1,6 @@
+# 5.0.9
+- Add invisible scrollbar SCSS mixin
+
 # 5.0.8
 - Fix filename for editor script and editor style
 

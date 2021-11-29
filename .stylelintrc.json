@@ -63,6 +63,6 @@
                 ]
             }
         ],
-        "string-quotes": "double",
+        "string-quotes": "double"
     }
 }

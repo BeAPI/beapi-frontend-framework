@@ -32,7 +32,7 @@ const MiniCssExtractPluginProd = new _MiniCssExtractPlugin({
 })
 
 const StyleLintPlugin = new _StyleLintPlugin({
-  configFile: path.resolve(__dirname, '../.stylelintrc'),
+  configFile: path.resolve(__dirname, '../.stylelintrc.json'),
   context: path.resolve(__dirname, '../src/scss'),
   files: '**/*.scss',
 })

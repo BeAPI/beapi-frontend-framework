@@ -164,7 +164,7 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 			$attributes_escaped[] = $name;
 		} else {
 			// Use user escape function, or default
-			$value                = escape_attribute_value( $value, $settings['escape'][ $name ] ?? '' );
+			$value                = escape_attribute_value( $value, $settings['escape'][ $name ] ?? 'esc_attr' );
 			$attributes_escaped[] = sprintf( '%s="%s"', $name, $value );
 		}
 	}
@@ -172,7 +172,7 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 	// Implode all attributes for display purposes
 	$attributes_escaped = implode( ' ', $attributes_escaped );
 	// Escape content for display purposes
-	$label = $settings['content'] ? escape_content_value( $settings['content'], $settings['escape']['content'] ?? '' ) : '';
+	$label = $settings['content'] ? escape_content_value( $settings['content'], $settings['escape']['content'] ?? 'esc_html' ) : '';
 
 	$link_markup = sprintf( '<a %s>%s%s</a>', $attributes_escaped, $settings['new_window'], $label );
 

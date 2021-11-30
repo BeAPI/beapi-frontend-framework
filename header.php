@@ -19,5 +19,17 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+	<ul class="skip-links skip-links--hidden" aria-label="Liens d'évitement">
+		<li>
+			<a href="#content">Contenu principal</a>
+		</li>
+		<li>
+			<a href="#footer">Pied de page</a>
+		</li>
+	</ul>
+
+	<header id="header" class="header" role="banner" aria-label="Entête de page"></header>
+
+	<main id="content" role="main" tabindex="-1" aria-label="Zone de contenus">
 <?php
 	wp_body_open();

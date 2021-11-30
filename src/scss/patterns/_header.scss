@@ -3,9 +3,12 @@
  */
 
 .header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
     padding-top: $base-spacing;
     padding-bottom: $base-spacing;
-    background-color: $primary-color;
 
     &__logo-link {
         display: block;

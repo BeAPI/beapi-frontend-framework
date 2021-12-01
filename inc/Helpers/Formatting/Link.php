@@ -172,7 +172,7 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 	// Implode all attributes for display purposes
 	$attributes_escaped = implode( ' ', $attributes_escaped );
 	// Escape content for display purposes
-	$label = $settings['content'] ? escape_content_value( $settings['content'], $settings['escape']['content'] ?? 'esc_html' ) : '';
+	$label = $settings['content'] ? escape_content_value( $settings['content'], $settings['escape']['content'] ?? 'wp_kses_post' ) : '';
 
 	$link_markup = sprintf( '<a %s>%s%s</a>', $attributes_escaped, $settings['new_window'], $label );
 

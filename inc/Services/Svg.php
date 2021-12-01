@@ -16,6 +16,7 @@ class Svg implements Service {
 	 * @param Service_Container $container
 	 */
 	public function register( Service_Container $container ): void {
+		add_filter( 'wp_kses_allowed_html', [ $this, 'allow_svg_tag' ] );
 	}
 
 	/**
@@ -52,9 +53,41 @@ class Svg implements Service {
 
 	/**
 	 * @param string $icon_class
-	 * @param array  $additionnal_classes
+	 * @param array $additionnal_classes
 	 */
 	public function the_icon( string $icon_class, array $additionnal_classes = [] ): void {
 		echo $this->get_the_icon( $icon_class, $additionnal_classes ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+
+	/**
+	 * Allow svg tag
+	 *
+	 * @param $tags
+	 *
+	 * @return mixed
+	 * @author Egidio CORICA
+	 */
+	public function allow_svg_tag( $tags ) {
+		$tags['svg'] = [
+			'xmlns'       => [],
+			'fill'        => [],
+			'viewbox'     => [],
+			'role'        => [],
+			'aria-hidden' => [],
+			'focusable'   => [],
+			'class'       => [],
+		];
+
+		$tags['path'] = [
+			'd'    => [],
+			'fill' => [],
+		];
+
+		$tags['use'] = [
+			'xmlns:xlink' => [],
+			'xlink:href'  => [],
+		];
+
+		return $tags;
 	}
 }

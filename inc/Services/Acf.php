@@ -20,7 +20,7 @@ class Acf implements Service {
 	/**
 	 * @var string
 	 */
-	private $path = 'src/acf/php/';
+	private $path = 'assets/acf/php/';
 
 	/**
 	 * @param Service_Container $container

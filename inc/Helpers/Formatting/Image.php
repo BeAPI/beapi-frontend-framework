@@ -28,16 +28,13 @@ namespace BEA\Theme\Framework\Helpers\Formatting\Image;
  * @type string $size Optional. The 'sizes' attribute value.
  * @type string $before Optional. Markup to prepend to the image. Default empty.
  * @type string $after Optional. Markup to append to the image. Default empty.
+ * @type boolean $default Optional. If WP image does not exists, display a default image.
  *
  * }
  *
  * @return string Return the markup of the image
  */
 function get_the_image( int $image_id, array $attributes, array $settings = [] ): string {
-	if ( $image_id <= 0 ) {
-		return '';
-	}
-
 	$attributes = wp_parse_args(
 		$attributes,
 		[
@@ -51,11 +48,16 @@ function get_the_image( int $image_id, array $attributes, array $settings = [] )
 	$settings = wp_parse_args(
 		$settings,
 		[
-			'size'   => 'thumbnail',
-			'before' => '',
-			'after'  => '',
+			'size'    => 'thumbnail',
+			'before'  => '',
+			'after'   => '',
+			'default' => false,
 		]
 	);
+
+	if ( $image_id <= 0 && false === $settings['default'] ) {
+		return '';
+	}
 
 	$settings     = apply_filters( 'bea_theme_framework_the_image_settings', $settings, $image_id, $attributes );
 	$image_markup = \wp_get_attachment_image(

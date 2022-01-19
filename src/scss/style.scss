@@ -8,6 +8,7 @@ $entry-file-name: "style";
 
 // Base
 
+@import "base/sr-only";
 @import "base/fonts";
 @import "base/box-sizing";
 @import "base/svg-icons";

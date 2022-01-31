@@ -48,16 +48,11 @@ function get_the_image( int $image_id, array $attributes, array $settings = [] )
 	$settings = wp_parse_args(
 		$settings,
 		[
-			'size'    => 'thumbnail',
-			'before'  => '',
-			'after'   => '',
-			'default' => false,
+			'size'   => 'thumbnail',
+			'before' => '',
+			'after'  => '',
 		]
 	);
-
-	if ( $image_id <= 0 && false === $settings['default'] ) {
-		return '';
-	}
 
 	$settings     = apply_filters( 'bea_theme_framework_the_image_settings', $settings, $image_id, $attributes );
 	$image_markup = \wp_get_attachment_image(

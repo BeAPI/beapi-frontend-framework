@@ -141,6 +141,9 @@ class Assets implements Service {
 			case 'editor.css':
 				$file = $assets['editor.css'];
 				break;
+			case 'login':
+				$file = $assets['login.css'];
+				break;
 			case 'editor.js':
 				$file = $assets['editor.js'];
 				break;

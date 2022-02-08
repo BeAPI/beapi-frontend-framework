@@ -33,3 +33,12 @@ jobs:
         run: |
           mkdir -p dist
           composer psalm
+
+      - name: Check unit test
+        run: composer tests-cov -- --coverage-clover=./tests/coverage/xml/index.xml
+
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: tests/coverage/xml/

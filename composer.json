@@ -9,7 +9,8 @@
         "phpro/grumphp-shim": "^0.19.1",
         "squizlabs/php_codesniffer": "^3.5",
         "vimeo/psalm": "^3.13",
-        "wp-coding-standards/wpcs": "^2.3"
+        "wp-coding-standards/wpcs": "^2.3",
+        "10up/wp_mock": "^0.4.2"
     },
      "scripts": {
         "cs": [
@@ -20,7 +21,9 @@
         ],
         "psalm": [
             "./vendor/bin/psalm"
-        ]
+        ],
+       "tests": "./vendor/bin/phpunit",
+       "tests-cov": "phpdbg -qrr ./vendor/bin/phpunit --coverage-html ./tests/coverage/"
     },
     "autoload": {
         "psr-4": {

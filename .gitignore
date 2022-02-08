@@ -75,3 +75,7 @@ package-lock.json
 ### config
 /vendor/
 composer.lock
+
+### Tests
+.phpunit.result.cache
+tests/coverage/

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit beStrictAboutTestsThatDoNotTestAnything="false" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd" bootstrap="./tests/bootstrap.php" executionOrder="depends,defects" forceCoversAnnotation="false" beStrictAboutCoversAnnotation="false" beStrictAboutOutputDuringTests="true" beStrictAboutTodoAnnotatedTests="true" colors="true" verbose="true">
+    <coverage processUncoveredFiles="true">
+        <include>
+            <file>functions.php</file>
+            <directory suffix=".php">inc</directory>
+        </include>
+    </coverage>
+    <testsuites>
+        <testsuite name="BFF test suite">
+            <directory suffix="Test.php">tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

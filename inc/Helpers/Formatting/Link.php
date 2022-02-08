@@ -38,10 +38,11 @@ function get_acf_link( array $attributes, array $settings = [] ): string {
 		$attributes,
 		[
 			'href'   => $attributes['field']['url'],
-			'title'  => $attributes['field']['title'],
 			'target' => $attributes['field']['target'],
 		]
 	);
+
+	$content = $attributes['field']['title'];
 
 	// Unset unused field params
 	unset( $attributes['field'] );
@@ -51,7 +52,7 @@ function get_acf_link( array $attributes, array $settings = [] ): string {
 	$settings = wp_parse_args(
 		$settings,
 		[
-			'content' => $attributes['title'],
+			'content' => $content,
 		]
 	);
 
@@ -144,7 +145,7 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 		$settings,
 		[
 			'before'     => '',
-			'content'    => $attributes['title'],
+			'content'    => '',
 			'new_window' => '',
 			'after'      => '',
 			'escape'     => [

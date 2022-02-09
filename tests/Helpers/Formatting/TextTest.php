@@ -28,46 +28,9 @@ class TextTest extends TestCase {
 		the_text( '' );
 		$buffer = ob_get_clean();
 		$this->assertSame( $test, $buffer );
-
 	}
 
 	public function testBeforeAfter() {
-		WP_Mock::userFunction( 'wp_parse_args', [
-			'times'           => 6,
-			'return_in_order' => [
-				[
-					'before' => 'b',
-					'after'  => '',
-					'escape' => '',
-				],
-				[
-					'before' => '',
-					'after'  => 'a',
-					'escape' => '',
-				],
-				[
-					'before' => 'b',
-					'after'  => 'a',
-					'escape' => '',
-				],
-				[
-					'before' => 'b',
-					'after'  => '',
-					'escape' => '',
-				],
-				[
-					'before' => '',
-					'after'  => 'a',
-					'escape' => '',
-				],
-				[
-					'before' => 'b',
-					'after'  => 'a',
-					'escape' => '',
-				],
-			],
-		] );
-
 		$val  = get_the_text( 'val', [ 'before' => 'b' ] );
 		$val2 = get_the_text( 'val', [ 'after' => 'a' ] );
 		$val3 = get_the_text( 'val', [ 'before' => 'b', 'after' => 'a' ] );
@@ -96,31 +59,7 @@ class TextTest extends TestCase {
 	}
 
 	public function testEscape() {
-		WP_Mock::userFunction( 'wp_parse_args', [
-			'times'           => 4,
-			'return_in_order' => [
-				[
-					'before' => '',
-					'after'  => '',
-					'escape' => 'test_escape',
-				],
-				[
-					'before' => 'b',
-					'after'  => '',
-					'escape' => 'test_escape',
-				],
-				[
-					'before' => '',
-					'after'  => 'a',
-					'escape' => 'test_escape',
-				],
-				[
-					'before' => 'b',
-					'after'  => 'a',
-					'escape' => 'test_escape',
-				],
-			],
-		] );
+
 
 		$this->assertSame( 'esc_val', get_the_text( 'val', [
 			'before' => '',
@@ -145,45 +84,57 @@ class TextTest extends TestCase {
 	}
 
 	public function testFilterSettings() {
-		WP_Mock::userFunction( 'wp_parse_args', [
-			'return' =>
+
+		WP_Mock::onFilter( 'bea_theme_framework_text_settings' )->with(
+			[
+				'before' => '',
+				'after'  => '',
+				'escape' => 'test_escape',
+			],
+			'val'
+		)->reply(
+			[
+				'before' => 'b',
+				'after'  => 'a',
+				'escape' => 'esc_html',
+			]
+		);
+
+		$this->assertSame(
+			'bvala',
+			get_the_text(
+				'val',
 				[
-					'before' => '',
-					'after'  => '',
-					'escape' => 'test_escape',
-				],
-		] );
-
-		WP_Mock::onFilter( 'bea_theme_framework_text_settings' )->with( [
-			'before' => '',
-			'after'  => '',
-			'escape' => 'test_escape',
-		], 'val' )->reply( [
-			'before' => 'b',
-			'after'  => 'a',
-			'escape' => 'esc_html',
-		] );
-
-		$this->assertSame( 'bvala', get_the_text( 'val' ) );
+					'before' => 'b',
+					'after'  => 'a',
+					'escape' => 'esc_html',
+				]
+			)
+		);
 	}
 
 	public function testFilterValue() {
-		WP_Mock::userFunction( 'wp_parse_args', [
-			'return' =>
+
+		WP_Mock::onFilter( 'bea_theme_framework_text_value' )->with(
+			'esc_val',
+			[
+				'before' => '',
+				'after'  => '',
+				'escape' => 'test_escape',
+			]
+		)->reply( 'filtered' );
+
+		$this->assertSame(
+			'filtered',
+			get_the_text(
+				'val',
 				[
 					'before' => '',
 					'after'  => '',
 					'escape' => 'test_escape',
-				],
-		] );
-
-		WP_Mock::onFilter( 'bea_theme_framework_text_value' )->with( 'esc_val', [
-			'before' => '',
-			'after'  => '',
-			'escape' => 'test_escape',
-		] )->reply( 'filtered' );
-
-		$this->assertSame( 'filtered', get_the_text( 'val' ) );
+				]
+			)
+		);
 	}
 }
 

@@ -69,7 +69,7 @@ class Assets implements Service {
 		$this->assets_tools->register_script( 'scripts', 'dist/' . $file, $scripts_dependencies, $theme->get( 'Version' ), true );
 
 		// CSS
-		wp_register_style( 'theme-style', get_stylesheet_uri(), [], $theme->get( 'Version' ) );
+		\wp_register_style( 'theme-style', \get_stylesheet_uri(), [], $theme->get( 'Version' ) );
 	}
 
 	/**
@@ -98,6 +98,7 @@ class Assets implements Service {
 	 */
 	public function stylesheet_uri( string $stylesheet_uri ): string {
 		if ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) {
+
 			$file = $this->get_min_file( 'css' );
 			if ( ! empty( $file ) && file_exists( \get_theme_file_path( '/dist/' . $file ) ) ) {
 				return \get_theme_file_uri( '/dist/' . $file );

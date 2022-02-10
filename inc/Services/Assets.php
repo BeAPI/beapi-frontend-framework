@@ -59,17 +59,17 @@ class Assets implements Service {
 
 		// Js theme
 		// Theme js dependencies
-		$scripts_dependencies = [ 'jquery' ];
+		$scripts_dependencies = [ 'jquery', 'global-polyfill' ];
+
+		// Polyfill
+		\wp_register_script( 'global-polyfill', 'https://cdn.polyfill.io/v3/polyfill.min.js?features=es5,es6,fetch,Array.prototype.includes,CustomEvent,Element.prototype.closest,NodeList.prototype.forEach', null, null, true ); //phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 
 		// Async and footer
-		$file = $this->is_minified() ? $this->get_min_file( 'js' ) : 'app.js';
-
-		// Do not add version if minified
-		$version = $this->is_minified() ? null : $theme->get( 'Version' );
-		$this->assets_tools->register_script( 'scripts', 'dist/' . $file, $scripts_dependencies, $version, true );
+		$file = ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) ? $this->get_min_file( 'js' ) : 'app.js';
+		$this->assets_tools->register_script( 'scripts', 'dist/' . $file, $scripts_dependencies, $theme->get( 'Version' ), true );
 
 		// CSS
-		wp_register_style( 'theme-style', get_stylesheet_uri(), [], $version );
+		\wp_register_style( 'theme-style', \get_stylesheet_uri(), [], $theme->get( 'Version' ) );
 	}
 
 	/**
@@ -97,7 +97,8 @@ class Assets implements Service {
 	 * @author Nicolas Juen
 	 */
 	public function stylesheet_uri( string $stylesheet_uri ): string {
-		if ( $this->is_minified() ) {
+		if ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) {
+
 			$file = $this->get_min_file( 'css' );
 			if ( ! empty( $file ) && file_exists( \get_theme_file_path( '/dist/' . $file ) ) ) {
 				return \get_theme_file_uri( '/dist/' . $file );
@@ -168,20 +169,10 @@ class Assets implements Service {
 	}
 
 	/**
-	 * Check if we are on minified environment.
-	 *
-	 * @return bool
-	 * @author Nicolas JUEN
-	 */
-	private function is_minified(): bool {
-		return ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false );
-	}
-
-	/**
 	 * Change login CSS URL
 	 * @return string
 	 */
 	public function login_stylesheet_uri(): string {
-		return $this->is_minified() ? 'dist/' . $this->get_min_file( 'login' ) : 'dist/login.css';
+		return ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) ? 'dist/' . $this->get_min_file( 'login' ) : 'dist/login.css';
 	}
 }

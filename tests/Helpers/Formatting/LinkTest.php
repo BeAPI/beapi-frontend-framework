@@ -34,7 +34,7 @@ class LinkTest extends TestCase {
 
 		// Auto noopener
 		$this->assertSame(
-			'<a title="TITLE LINK" target="_blank" href="https://localhost.dev" rel="noopener"><span class="sr-only">New window</span>TITLE LINK</a>',
+			'<a title="TITLE LINK" target="_blank" href="https://localhost.dev" rel="noopener"><span class="sr-only">New window</span></a>',
 			get_the_link(
 				[
 					'href'   => 'https://localhost.dev',
@@ -57,7 +57,7 @@ class LinkTest extends TestCase {
 
 		// self title
 		$this->assertSame(
-			'<a title="TITLE LINK" target="_self" href="https://localhost.dev">TITLE LINK</a>',
+			'<a title="TITLE LINK" target="_self" href="https://localhost.dev"></a>',
 			get_the_link(
 				[
 					'href'   => 'https://localhost.dev',
@@ -157,7 +157,7 @@ class LinkTest extends TestCase {
 
 	public function testGetAcfLinkWithAttributes() {
 		$this->assertSame(
-			'<a title="Title" target="_blank" href="https://localhost.dev" rel="noopener"><span class="sr-only">New window</span>Title</a>',
+			'<a title="" target="_blank" href="https://localhost.dev" rel="noopener"><span class="sr-only">New window</span>Title</a>',
 			get_acf_link(
 				[
 					'field' => [
@@ -170,7 +170,7 @@ class LinkTest extends TestCase {
 		);
 
 		$this->assertSame(
-			'<a title="Title" target="" href="https://localhost.dev">Title</a>',
+			'<a title="" target="" href="https://localhost.dev">Title</a>',
 			get_acf_link(
 				[
 					'field' => [
@@ -183,7 +183,7 @@ class LinkTest extends TestCase {
 		);
 
 		$this->assertSame(
-			'<a title="Title" target="" href="https://localhost.dev">CONTENT</a>',
+			'<a title="" target="" href="https://localhost.dev">CONTENT</a>',
 			get_acf_link(
 				[
 					'field' => [

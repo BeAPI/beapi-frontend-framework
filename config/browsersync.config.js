@@ -20,7 +20,6 @@ try {
 // BrowserSync options
 const browserSyncOptions = {
   port: 3000,
-  host: `${landoProjectName}.lndo.site`,
   proxy: `https://${landoProjectName}.lndo.site/`,
   https: true,
   injectChanges: true,

@@ -236,26 +236,16 @@ function get_acf_link_classes( $field, array $classes ): string {
 	if ( empty( $field['url'] ) ) {
 		return implode( ' ', $classes );
 	}
-
+	// chek if current is the current url marches with the url of the field
 	if ( trailingslashit( $field['url'] ) === trailingslashit( home_url( add_query_arg( null, null ) ) ) ) {
-		$classes = wp_parse_args(
-			$classes,
-			[
-				'current' => 'current-menu-item',
-			]
-		);
+		$classes ['current'] = 'current-menu-item';
 	}
 
 	$components = wp_parse_url( $field['url'] );
 	$base       = wp_parse_url( home_url( '/' ) );
 
 	if ( ! empty( $components['host'] ) && ! empty( $base['host'] ) && strcasecmp( $components['host'], $base['host'] ) ) {
-		$classes = wp_parse_args(
-			$classes,
-			[
-				'external' => 'external-menu-item',
-			]
-		);
+		$classes ['external'] = 'external-menu-item';
 	}
 
 	return implode( ' ', $classes );

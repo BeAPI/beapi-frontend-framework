@@ -50,15 +50,30 @@ class Editor_Patterns implements Service {
 	public function register_patterns(): void {
 		/**
 		 * Example :
-		register_block_pattern(
-			'project/pattern',
-			[
-				'title'      => __( 'Group list', 'beapi-frontend-framework' ),
-				'categories' => [ 'cover' ],
-				'content'    => $this->get_pattern_content( 'src/stories/patterns/block-patterns/GroupListing/GroupListing.html' ),
-			]
-		);
-		 */
+		$patterns = [
+			'group-list' => [
+				'category' => 'common-patterns',
+				'title'    => __( 'Group list', 'beapi-frontend-framework' ),
+				'keyword'  => 'list',
+			],
+		];
+
+		foreach ( $patterns as $slug => $data ) {
+			register_block_pattern(
+				'project/' . $slug,
+				[
+					'title'      => $data['title'],
+					'categories' => [
+						$data['category'],
+					],
+					'keywords'   => [
+						$data['keyword'],
+					],
+					'content'    => $this->get_pattern_content( 'assets/gutenberg/' . $slug . '.php' ),
+				]
+			);
+		}
+		*/
 	}
 
 	/**

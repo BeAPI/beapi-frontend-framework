@@ -51,10 +51,10 @@ class Editor_Patterns implements Service {
 		/**
 		 * Example :
 		$patterns = [
-			'group-list' => [
+			'example' => [
 				'category' => 'common-patterns',
-				'title'    => __( 'Group list', 'beapi-frontend-framework' ),
-				'keyword'  => 'list',
+				'title'    => __( 'Example', 'beapi-frontend-framework' ),
+				'keyword'  => 'example',
 			],
 		];
 
@@ -69,7 +69,7 @@ class Editor_Patterns implements Service {
 					'keywords'   => [
 						$data['keyword'],
 					],
-					'content'    => $this->get_pattern_content( 'assets/gutenberg/' . $slug . '.php' ),
+					'content'    => $this->get_pattern_content( 'assets/patterns/' . $slug . '.php' ),
 				]
 			);
 		}

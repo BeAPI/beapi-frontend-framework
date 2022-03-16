@@ -89,7 +89,8 @@ class Editor_Patterns implements Service {
 		if ( ! \is_readable( $file ) ) {
 			return '';
 		}
-
-		return file_get_contents( $file ); // phpcs:ignore
+		ob_start();
+		load_template( $file, false );
+		return ob_get_clean();
 	}
 }

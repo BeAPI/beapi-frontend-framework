@@ -2,7 +2,7 @@
 namespace BEA\Theme\Framework\Helpers\Formatting\Share;
 
 use function BEA\Theme\Framework\Helpers\Formatting\Link\get_the_link;
-use function Unaf\Master\Theme\Helpers\Svg\get_the_icon;
+use function BEA\Theme\Framework\Helpers\Svg\get_the_icon;
 
 
 /**

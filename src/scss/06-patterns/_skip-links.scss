@@ -1,0 +1,20 @@
+.skip-links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    padding: .5rem 1rem;
+    color: $global-color-text;
+    background-color: $global-color-primary;
+    transition: transform .3s ease-in-out;
+    transform: translate3d(0, -100%, 0);
+
+    &:focus-within {
+        transform: translate3d(0, 0, 0);
+    }
+
+    li:not(:last-of-type) {
+        margin-right: 1rem;
+    }
+}

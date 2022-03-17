@@ -3,8 +3,10 @@
  */
 
 .header {
-    padding-top: $base-spacing;
-    padding-bottom: $base-spacing;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
     background-color: $global-color-primary;
 
     &__logo-link {
@@ -16,7 +18,7 @@
         width: 50px;
         height: 50px;
         margin: 0 auto 10px;
-        color: $global-color-secondary;
+        color: $global-color-text;
     }
 
     &__img {

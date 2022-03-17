@@ -1,5 +1,5 @@
 #{context-selector(null, '.wp-block', 'a')} {
-    color: var(--global--color-primary);
+    color: var(--global--color-secondary);
     text-decoration: underline;
     cursor: pointer;
     
@@ -18,6 +18,6 @@
     // Target both current level and nested block.
     .has-link-color a,
     &.has-link-color a {
-        color: var(--global--color-primary);
+        color: var(--global--color-secondary);
     }
 }

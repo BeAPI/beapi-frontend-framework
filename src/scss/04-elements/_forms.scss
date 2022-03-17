@@ -30,7 +30,7 @@ textarea {
     padding: $half-base-spacing;
     font-family: $primary-font-family;
     line-height: 1;
-    color: $global-color-secondary;
+    color: $global-color-text;
     background: darken($light-color, 5%);
     border: 1px solid $gray-color-500;
     border-radius: 0; //reset border radius for ios
@@ -38,7 +38,7 @@ textarea {
     appearance: none;
 
     @include placeholder {
-        color: lighten($global-color-secondary, 50%);
+        color: lighten($global-color-text, 50%);
     }
 
     &:hover {
@@ -46,7 +46,7 @@ textarea {
     }
 
     &:focus {
-        color: darken($global-color-secondary, 10%);
+        color: darken($global-color-text, 10%);
         border-color: darken($gray-color-500, 20%);
     }
 }

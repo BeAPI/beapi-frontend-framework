@@ -50,7 +50,7 @@
 
 // Outline style
 
-@mixin button-outline($borderColor: $gray-color-500, $color: $global-color-secondary) {
+@mixin button-outline($borderColor: $gray-color-500, $color: $global-color-text) {
     color: $color;
     background-color: transparent;
     border-color: $borderColor;

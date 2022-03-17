@@ -7,10 +7,11 @@ $baseline-unit: 10px;
 
     // Global
     --global--color-primary: #{$global-color-primary};
+    --global--color-secondary: #{$global-color-text};
     --global--color-background: #fff;
 
     // Heading
-    --heading--color-primary: #1e1e1e;
+    --heading--color-primary: #{$global-color-text};
 
     // Figcaption
     --figcaption--color-primary: #{$gray-color-600};

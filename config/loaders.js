@@ -63,8 +63,9 @@ const FontsLoader = {
 }
 
 const ImagesLoader = {
-  test: /\.(png|jpe?g|gif)$/,
+  test: /\.(png|jpe?g|gif|svg)$/,
   type: 'asset/resource',
+  exclude: /icons/,
   use: [
     {
       loader: 'image-webpack-loader',

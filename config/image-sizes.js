@@ -177,6 +177,10 @@ function generateDefaultImage(sizes, filename) {
     const width = parseInt(sizes.width, 10)
     const height = parseInt(sizes.height, 10)
 
+    if (width >= 9999 || height >= 9999) {
+      return
+    }
+
     const canvas = createCanvas(width, height)
     const context = canvas.getContext('2d')
 

@@ -13,36 +13,19 @@ $global-color-primary: #ffe600;
 // ----
 // Gray palette
 // ----
-$dark-color: #000;
-$gray-color-100: #111;
-$gray-color-200: #222;
-$gray-color-300: #333;
-$gray-color-400: #444;
-$gray-color-500: #555;
-$gray-color-600: #666;
-$gray-color-700: #777;
-$gray-color-800: #888;
-$gray-color-900: #999;
-$gray-color-1000: #aaa;
-$gray-color-1100: #bbb;
-$gray-color-1200: #ccc;
-$gray-color-1300: #ddd;
-$gray-color-1400: #eee;
-$light-color: #fff;
+$color-light: #fff;
+$color-dark: #000;
+$color-grey-100: #eee;
+$color-grey-200: #ccc;
+$color-grey-300: #aaa;
+$color-grey-400: #999;
+$color-grey-500: #888;
+$color-grey-600: #777;
+$color-grey-700: #555;
+$color-grey-800: #333;
+$color-grey-900: #111;
 
 $global-color-text: #1e1e1e;
-
-// ----
-// Contextual colors
-// ----
-$error-color-600 : #8a1f11;
-$error-color-50 : #fbe3e4;
-$notice-color-600 : #514721;
-$notice-color-50 : #fff6bf;
-$success-color-600 : #264409;
-$success-color-50 : #e6efc2;
-$info-color-600 : #205791;
-$info-color-50 : #d5edf8;
 
 // ==========
 // Sizes
@@ -81,7 +64,7 @@ $wp-admin-bar-desktop-height: 32px;
 // ----
 // border
 // ----
-$base-border-color: $gray-color-800;
+$base-border-color: $color-grey-800;
 $base-border: 1px solid $base-border-color;
 $base-border-radius: 3px;
 

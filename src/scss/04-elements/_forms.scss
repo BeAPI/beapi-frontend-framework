@@ -31,8 +31,8 @@ textarea {
     font-family: $primary-font-family;
     line-height: 1;
     color: $global-color-text;
-    background: darken($light-color, 5%);
-    border: 1px solid $gray-color-500;
+    background: darken($color-light, 5%);
+    border: 1px solid $color-grey-500;
     border-radius: 0; //reset border radius for ios
     transition: border-color .5s ease;
     appearance: none;
@@ -42,12 +42,12 @@ textarea {
     }
 
     &:hover {
-        border-color: darken($gray-color-500, 10%);
+        border-color: darken($color-grey-500, 10%);
     }
 
     &:focus {
         color: darken($global-color-text, 10%);
-        border-color: darken($gray-color-500, 20%);
+        border-color: darken($color-grey-500, 20%);
     }
 }
 

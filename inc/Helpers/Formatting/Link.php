@@ -34,6 +34,8 @@ function get_acf_link( array $attributes, array $settings = [] ): string {
 		return '';
 	}
 
+	$content = $attributes['field']['title'];
+
 	$attributes = wp_parse_args(
 		$attributes,
 		[
@@ -213,4 +215,41 @@ function get_the_link( array $attributes, array $settings = [] ): string {
  */
 function the_link( array $attributes, array $settings = [] ): void {
 	echo get_the_link( $attributes, $settings );
+}
+/**
+ * @usage BEA\Theme\Framework\Helpers\Formatting\Link\get_acf_link_classes( ['url' => ...], [ 'menu-item'] );
+ *
+ * @param array|null $field{
+ * @type string $url
+ * @type string $title
+ * @type string $target
+ * }
+ *
+ * @param array $classes {
+ *
+ * @type string $current
+ * @type string $external
+ * }
+ *
+ * @return string Echo of the link classes
+ */
+function get_acf_link_classes( $field, array $classes ): string {
+
+	if ( empty( $field['url'] ) ) {
+		return implode( ' ', $classes );
+	}
+	// chek if current is the current url marches with the url of the field
+	if ( trailingslashit( $field['url'] ) === trailingslashit( home_url( add_query_arg( null, null ) ) ) ) {
+		$classes ['current'] = 'current-menu-item';
+	}
+
+	$components = wp_parse_url( $field['url'] );
+	$base       = wp_parse_url( home_url( '/' ) );
+
+	if ( ! empty( $components['host'] ) && ! empty( $base['host'] ) && strcasecmp( $components['host'], $base['host'] ) ) {
+		$classes ['external'] = 'external-menu-item';
+	}
+
+	return implode( ' ', $classes );
+
 }

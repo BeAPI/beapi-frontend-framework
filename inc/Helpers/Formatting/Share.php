@@ -2,6 +2,7 @@
 namespace BEA\Theme\Framework\Helpers\Formatting\Share;
 
 use function BEA\Theme\Framework\Helpers\Formatting\Link\get_the_link;
+use function BEA\Theme\Framework\Helpers\Svg\get_the_icon;
 
 
 /**
@@ -119,12 +120,13 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 	$settings = wp_parse_args(
 		$settings,
 		[
-			'content' => $network['icon'] ?? '',
+			'content' => sprintf(
+				'%s<span class="sr-only">%s</span>',
+				get_the_icon( $network['icon'] ),
+				$network['attributes']['title']
+			),
 			'before'  => '<li>',
 			'after'   => '</li>',
-			'escape'  => [
-				'content' => 'BEA\Theme\Framework\Helpers\Svg\get_the_icon',
-			],
 		]
 	);
 

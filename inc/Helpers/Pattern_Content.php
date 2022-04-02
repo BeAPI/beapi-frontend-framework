@@ -1,9 +1,9 @@
 <?php
 
-namespace Unaf\Master\Theme\Helpers\Pattern_Content;
+namespace BEA\Theme\Framework\Helpers\Pattern_Content;
 
 /**
- * @usage Unaf\Master\Theme\Helpers\Pattern_Content\maybe_term( 'slug','taxonomy' );
+ * @usage BEA\Theme\Framework\Helpers\Pattern_Content\maybe_term( 'slug','taxonomy' );
  *
  * @param string $slug
  * @param string $taxonomy

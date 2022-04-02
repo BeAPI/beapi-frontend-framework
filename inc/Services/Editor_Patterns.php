@@ -38,7 +38,7 @@ class Editor_Patterns implements Service {
 		);
 
 		foreach ( $block_pattern_categories as $name => $properties ) {
-			if ( ! WP_Block_Pattern_Categories_Registry::get_instance()->is_registered( $name ) ) {
+			if ( ! \WP_Block_Pattern_Categories_Registry::get_instance()->is_registered( $name ) ) {
 				register_block_pattern_category( $name, $properties );
 			}
 		}

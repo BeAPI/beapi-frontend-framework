@@ -32,15 +32,16 @@ class Editor_Patterns implements Service {
 	 *
 	 */
 	public function register_categories(): void {
-		/**
-		 * Example :
-		 * register_block_pattern_category(
-			'cover',
-			[
-				'label' => _x( 'Cover', 'Block pattern category', 'beapi-frontend-framework' ),
-			],
+
+		$block_pattern_categories = array(
+			'common' => array( 'label' => __( 'Common', 'beapi-frontend-framework' ) ),
 		);
-		 */
+
+		foreach ( $block_pattern_categories as $name => $properties ) {
+			if ( ! WP_Block_Pattern_Categories_Registry::get_instance()->is_registered( $name ) ) {
+				register_block_pattern_category( $name, $properties );
+			}
+		}
 	}
 
 	/**
@@ -48,32 +49,18 @@ class Editor_Patterns implements Service {
 	 *
 	 */
 	public function register_patterns(): void {
-		/**
-		 * Example :
-		$patterns = [
-			'example' => [
-				'category' => 'common-patterns',
-				'title'    => __( 'Example', 'beapi-frontend-framework' ),
-				'keyword'  => 'example',
-			],
+		$block_patterns = [
+			'media-text',
 		];
 
-		foreach ( $patterns as $slug => $data ) {
+		foreach ( $block_patterns as $block_pattern ) {
+			$pattern_file = get_theme_file_path( '/assets/patterns/' . $block_pattern . '.php' );
+
 			register_block_pattern(
-				'project/' . $slug,
-				[
-					'title'      => $data['title'],
-					'categories' => [
-						$data['category'],
-					],
-					'keywords'   => [
-						$data['keyword'],
-					],
-					'content'    => $this->get_pattern_content( 'assets/patterns/' . $slug . '.php' ),
-				]
+				'project/' . $block_pattern,
+				require $pattern_file
 			);
 		}
-		*/
 	}
 
 	/**

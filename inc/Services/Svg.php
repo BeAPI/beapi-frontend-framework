@@ -76,6 +76,7 @@ class Svg implements Service {
 			'aria-hidden' => [],
 			'focusable'   => [],
 			'class'       => [],
+			'style'       => [],
 		];
 
 		$tags['path'] = [
@@ -84,6 +85,7 @@ class Svg implements Service {
 		];
 
 		$tags['use'] = [
+			'href'        => [],
 			'xmlns:xlink' => [],
 			'xlink:href'  => [],
 		];

@@ -64,6 +64,9 @@ class Assets implements Service {
 		// Polyfill
 		\wp_register_script( 'global-polyfill', 'https://cdn.polyfill.io/v3/polyfill.min.js?features=es5,es6,fetch,Array.prototype.includes,CustomEvent,Element.prototype.closest,NodeList.prototype.forEach', null, null, true ); //phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 
+		// Passive touchstart
+		wp_add_inline_script( 'jquery', $this->passive_touchstart() );
+
 		// Async and footer
 		$file = $this->is_minified() ? $this->get_min_file( 'js' ) : 'app.js';
 
@@ -187,4 +190,13 @@ class Assets implements Service {
 	public function login_stylesheet_uri(): string {
 		return $this->is_minified() ? 'dist/' . $this->get_min_file( 'login' ) : 'dist/login.css';
 	}
+
+	/**
+	 * Add passsive touchstart for performance
+	 * @return string
+	 */
+	public function passive_touchstart(): string {
+		return 'document.addEventListener("touchstart", onTouchStart, {passive: true});';
+	}
+
 }

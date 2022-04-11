@@ -196,7 +196,7 @@ class Assets implements Service {
 	 * @return string
 	 */
 	public function passive_touchstart(): string {
-		return 'document.addEventListener("touchstart", onTouchStart, {passive: true});';
+		return 'if ("ontouchstart" in document.documentElement) {document.addEventListener("touchstart", onTouchStart, {passive: true});}';
 	}
 
 }

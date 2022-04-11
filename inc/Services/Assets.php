@@ -196,7 +196,7 @@ class Assets implements Service {
 	 * @return string
 	 */
 	public function passive_touchstart(): string {
-		return 'if ("ontouchstart" in document.documentElement) {document.addEventListener("touchstart", onTouchStart, {passive: true});}';
+		return 'jQuery.event.special.touchstart={setup:function(e,t,s){this.addEventListener("touchstart",s,{passive:!t.includes("noPreventDefault")})}},jQuery.event.special.touchmove={setup:function(e,t,s){this.addEventListener("touchmove",s,{passive:!t.includes("noPreventDefault")})}},jQuery.event.special.wheel={setup:function(e,t,s){this.addEventListener("wheel",s,{passive:!0})}},jQuery.event.special.mousewheel={setup:function(e,t,s){this.addEventListener("mousewheel",s,{passive:!0})}};';
 	}
 
 }

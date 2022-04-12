@@ -23,8 +23,17 @@ class Editor_Patterns implements Service {
 	 * @param Service_Container $container
 	 */
 	public function boot( Service_Container $container ): void {
+		\add_action( 'init', [ $this, 'remove_core_blocks_pattern' ], 9 );
 		\add_action( 'init', [ $this, 'register_categories' ], 10 );
 		\add_action( 'init', [ $this, 'register_patterns' ], 11 );
+	}
+
+	/**
+	 * Remove core blocks patttern
+	 *
+	 */
+	public function remove_core_blocks_pattern(): void {
+		remove_theme_support( 'core-block-patterns' );
 	}
 
 	/**
@@ -61,23 +70,5 @@ class Editor_Patterns implements Service {
 				require $pattern_file
 			);
 		}
-	}
-
-	/**
-	 * Get pattern content from designated folder
-	 *
-	 * @param string $pattern_file : .html file to get content from.
-	 *
-	 * @return false|string
-	 * @author Nicolas JUEN
-	 */
-	protected function get_pattern_content( string $pattern_file ) {
-		$file = locate_template( $pattern_file, false, false );
-		if ( ! \is_readable( $file ) ) {
-			return '';
-		}
-		ob_start();
-		load_template( $file, false );
-		return ob_get_clean();
 	}
 }

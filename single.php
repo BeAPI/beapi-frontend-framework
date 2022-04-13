@@ -7,4 +7,5 @@ the_post();
 	<div class="blocks-container">
 		<?php the_content(); ?>;
 	</div>
-<?php get_footer();
+<?php
+get_footer();

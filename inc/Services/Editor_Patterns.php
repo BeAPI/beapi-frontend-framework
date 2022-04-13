@@ -23,17 +23,8 @@ class Editor_Patterns implements Service {
 	 * @param Service_Container $container
 	 */
 	public function boot( Service_Container $container ): void {
-		\add_action( 'init', [ $this, 'remove_core_blocks_pattern' ], 9 );
 		\add_action( 'init', [ $this, 'register_categories' ], 10 );
 		\add_action( 'init', [ $this, 'register_patterns' ], 11 );
-	}
-
-	/**
-	 * Remove core blocks patttern
-	 *
-	 */
-	public function remove_core_blocks_pattern(): void {
-		remove_theme_support( 'core-block-patterns' );
 	}
 
 	/**
@@ -42,11 +33,11 @@ class Editor_Patterns implements Service {
 	 */
 	public function register_categories(): void {
 
-		$block_pattern_categories = array(
+		$pattern_categories = array(
 			'common' => array( 'label' => __( 'Common', 'beapi-frontend-framework' ) ),
 		);
 
-		foreach ( $block_pattern_categories as $name => $properties ) {
+		foreach ( $pattern_categories as $name => $properties ) {
 			if ( ! \WP_Block_Pattern_Categories_Registry::get_instance()->is_registered( $name ) ) {
 				register_block_pattern_category( $name, $properties );
 			}

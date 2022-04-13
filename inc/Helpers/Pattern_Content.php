@@ -15,6 +15,9 @@ function maybe_term( string $slug, string $taxonomy ): string {
 	if ( ! $term instanceof \WP_Term ) {
 		return '[]';
 	}
-	$data = [ 'id' => absint( $term->term_id ), 'taxonomy' =>  esc_attr( $taxonomy )  ];
+	$data = [
+		'id'       => absint( $term->term_id ),
+		'taxonomy' => esc_attr( $taxonomy ),
+	];
 	return wp_json_encode( $data );
 }

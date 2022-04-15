@@ -59,13 +59,7 @@ class Assets implements Service {
 
 		// Js theme
 		// Theme js dependencies
-		$scripts_dependencies = [ 'jquery', 'global-polyfill' ];
-
-		// Polyfill
-		\wp_register_script( 'global-polyfill', 'https://cdn.polyfill.io/v3/polyfill.min.js?features=es5,es6,fetch,Array.prototype.includes,CustomEvent,Element.prototype.closest,NodeList.prototype.forEach', null, null, true ); //phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
-
-		// Passive touchstart
-		wp_add_inline_script( 'jquery', $this->passive_touchstart() );
+		$scripts_dependencies = [ 'jquery' ];
 
 		// Async and footer
 		$file = $this->is_minified() ? $this->get_min_file( 'js' ) : 'app.js';
@@ -190,13 +184,4 @@ class Assets implements Service {
 	public function login_stylesheet_uri(): string {
 		return $this->is_minified() ? 'dist/' . $this->get_min_file( 'login' ) : 'dist/login.css';
 	}
-
-	/**
-	 * Add passsive touchstart for performance
-	 * @return string
-	 */
-	public function passive_touchstart(): string {
-		return 'jQuery.event.special.touchstart={setup:function(e,t,s){this.addEventListener("touchstart",s,{passive:!t.includes("noPreventDefault")})}},jQuery.event.special.touchmove={setup:function(e,t,s){this.addEventListener("touchmove",s,{passive:!t.includes("noPreventDefault")})}},jQuery.event.special.wheel={setup:function(e,t,s){this.addEventListener("wheel",s,{passive:!0})}},jQuery.event.special.mousewheel={setup:function(e,t,s){this.addEventListener("mousewheel",s,{passive:!0})}};';
-	}
-
 }

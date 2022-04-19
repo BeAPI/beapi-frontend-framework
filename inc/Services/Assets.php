@@ -59,10 +59,7 @@ class Assets implements Service {
 
 		// Js theme
 		// Theme js dependencies
-		$scripts_dependencies = [ 'jquery', 'global-polyfill' ];
-
-		// Polyfill
-		\wp_register_script( 'global-polyfill', 'https://cdn.polyfill.io/v3/polyfill.min.js?features=es5,es6,fetch,Array.prototype.includes,CustomEvent,Element.prototype.closest,NodeList.prototype.forEach', null, null, true ); //phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+		$scripts_dependencies = [ 'jquery' ];
 
 		// Async and footer
 		$file = $this->is_minified() ? $this->get_min_file( 'js' ) : 'app.js';

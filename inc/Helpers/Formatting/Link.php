@@ -1,4 +1,5 @@
 <?php
+
 namespace BEA\Theme\Framework\Helpers\Formatting\Link;
 
 use function BEA\Theme\Framework\Helpers\Formatting\Escape\escape_content_value;
@@ -124,6 +125,8 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 		return '';
 	}
 
+	$link_markup = '<a %s>%s%s</a>';
+
 	$attributes = wp_parse_args(
 		$attributes,
 		[
@@ -151,12 +154,26 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 			'new_window' => '',
 			'after'      => '',
 			'escape'     => [
-				'href' => 'esc_url',
+				'href'      => 'esc_url',
+				'data-href' => 'esc_url',
 			],
 		]
 	);
 
 	$settings = apply_filters( 'bea_theme_framework_link_settings', $settings, $attributes );
+
+	/**************************************** MODE BUTTON ****************************************/
+
+	$settings['mode_button'] = ! empty( $settings['mode_button'] ) ? $settings['mode_button'] : false;
+
+	if ( $settings['mode_button'] ) {
+		$link_markup                  = '<button %s>%s%s</button>';
+		$attributes['data-seo-click'] = 'true';
+		$attributes['type']           = 'button';
+		$attributes['data-href']      = $attributes['href'];
+		$attributes['data-target']    = $attributes['target'];
+		unset( $attributes['href'], $attributes['target'] );
+	}
 
 	/**************************************** START MARKUP LINK ****************************************/
 
@@ -177,7 +194,7 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 	// Escape content for display purposes
 	$label = $settings['content'] ? escape_content_value( $settings['content'], $settings['escape']['content'] ?? 'wp_kses_post' ) : '';
 
-	$link_markup = sprintf( '<a %s>%s%s</a>', $attributes_escaped, $settings['new_window'], $label );
+	$link_markup = sprintf( $link_markup, $attributes_escaped, $settings['new_window'], $label );
 
 	/**************************************** END MARKUP LINK ****************************************/
 
@@ -216,10 +233,12 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 function the_link( array $attributes, array $settings = [] ): void {
 	echo get_the_link( $attributes, $settings );
 }
+
 /**
  * @usage BEA\Theme\Framework\Helpers\Formatting\Link\get_acf_link_classes( ['url' => ...], [ 'menu-item'] );
  *
- * @param array|null $field{
+ * @param array|null $field {
+ *
  * @type string $url
  * @type string $title
  * @type string $target

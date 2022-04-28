@@ -125,6 +125,7 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				get_the_icon( $network['icon'] ),
 				$network['attributes']['title']
 			),
+			'mode'    => 'button',
 			'before'  => '<li>',
 			'after'   => '</li>',
 		]

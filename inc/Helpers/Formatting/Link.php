@@ -26,6 +26,7 @@ use function BEA\Theme\Framework\Helpers\Formatting\Escape\escape_attribute_valu
  * @type string $after Optional. Markup to append to the image. Default empty.
  * @type array $escape Optional. An array where we specify as key the value we want to escape and as value the method to use. Example for the href ['escape' => ['href' => 'esc_url'] ]
  * @type string $new_window Optional. Add <span class="sr-only> for a11y
+ * @type string $mode Optional. For social links use mode 'button' for better SEO (it hides the link to search engines using a button element), by default 'link' returns an <a> element.
  * }
  *
  * @return string Return the markup of the link
@@ -85,6 +86,7 @@ function get_acf_link( array $attributes, array $settings = [] ): string {
  * @type string $after Optional. Markup to append to the image. Default empty.
  * @type array $escape Optional. An array where we specify as key the value we want to escape and as value the method to use. Example for the href ['escape' => ['href' => 'esc_url'] ]
  * @type string $new_window Optional. Add <span class="sr-only> for a11y
+ * @type string $mode Optional. For social links use mode 'button' for better SEO (it hides the link to search engines using a button element), by default 'link' returns an <a> element.
  * }
  *
  * @return void Echo of the link markup
@@ -115,6 +117,7 @@ function the_acf_link( array $attributes, array $settings = [] ): void {
  * @type string $after Optional. Markup to append to the image. Default empty.
  * @type array $escape Optional. An array where we specify as key the value we want to escape and as value the method to use. Example for the href ['escape' => ['href' => 'esc_url'] ]
  * @type string $new_window Optional. Add <span class="sr-only> for a11y
+ * @type string $mode Optional. For social links use mode 'button' for better SEO (it hides the link to search engines using a button element), by default 'link' returns an <a> element.
  *
  * }
  *
@@ -153,6 +156,7 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 			'content'    => '',
 			'new_window' => '',
 			'after'      => '',
+			'mode'       => 'link',
 			'escape'     => [
 				'href'      => 'esc_url',
 				'data-href' => 'esc_url',
@@ -164,15 +168,14 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 
 	/**************************************** MODE BUTTON ****************************************/
 
-	$settings['mode_button'] = ! empty( $settings['mode_button'] ) ? $settings['mode_button'] : false;
-
-	if ( $settings['mode_button'] ) {
+	if ( 'button' === $settings['mode'] ) {
 		$link_markup                  = '<button %s>%s%s</button>';
 		$attributes['data-seo-click'] = 'true';
 		$attributes['type']           = 'button';
 		$attributes['data-href']      = $attributes['href'];
+		$attributes['data-rel']       = $attributes['rel'];
 		$attributes['data-target']    = $attributes['target'];
-		unset( $attributes['href'], $attributes['target'] );
+		unset( $attributes['href'], $attributes['rel'], $attributes['target'] );
 	}
 
 	/**************************************** START MARKUP LINK ****************************************/
@@ -225,6 +228,7 @@ function get_the_link( array $attributes, array $settings = [] ): string {
  * @type string $after Optional. Markup to append to the image. Default empty.
  * @type array $escape Optional. An array where we specify as key the value we want to escape and as value the method to use. Example for the href ['escape' => ['href' => 'esc_url'] ]
  * @type string $new_window Optional. Add <span class="sr-only> for a11y
+ * @type string $mode Optional. For social links use mode 'button' for better SEO (it hides the link to search engines using a button element), by default 'link' returns an <a> element.
  * }
  *
  *

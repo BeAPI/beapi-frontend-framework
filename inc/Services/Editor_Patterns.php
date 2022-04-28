@@ -10,7 +10,8 @@ class Editor_Patterns implements Service {
 	/**
 	 * @param Service_Container $container
 	 */
-	public function register( Service_Container $container ): void {}
+	public function register( Service_Container $container ): void {
+	}
 
 	/**
 	 * @return string
@@ -29,18 +30,21 @@ class Editor_Patterns implements Service {
 
 	/**
 	 * Register the patterns categories
-	 *
 	 */
 	public function register_categories(): void {
 
-		$pattern_categories = array(
-			'common' => array( 'label' => __( 'Common', 'beapi-frontend-framework' ) ),
-		);
+		/**
+		 * usage : 'common' => [ 'label' => __( 'Common', 'beapi-frontend-framework' ) ]
+		 */
+		$pattern_categories = [
+			'common' => [ 'label' => __( 'Common', 'beapi-frontend-framework' ) ],
+		];
 
 		foreach ( $pattern_categories as $name => $properties ) {
-			if ( ! \WP_Block_Pattern_Categories_Registry::get_instance()->is_registered( $name ) ) {
-				register_block_pattern_category( $name, $properties );
+			if ( \WP_Block_Pattern_Categories_Registry::get_instance()->is_registered( $name ) ) {
+				continue;
 			}
+			register_block_pattern_category( $name, $properties );
 		}
 	}
 
@@ -54,10 +58,15 @@ class Editor_Patterns implements Service {
 		];
 
 		foreach ( $block_patterns as $block_pattern ) {
+
 			$pattern_file = get_theme_file_path( '/assets/patterns/' . $block_pattern . '.php' );
 
+			if ( ! is_file( $pattern_file ) ) {
+				continue;
+			}
+
 			register_block_pattern(
-				'project/' . $block_pattern,
+				'beapi-frontend-framework/' . $block_pattern,
 				require $pattern_file
 			);
 		}

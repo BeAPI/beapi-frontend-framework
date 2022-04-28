@@ -1,5 +1,5 @@
 <?php
-return array(
+return [
 	'title'      => __( 'Image Title and text', 'beapi-frontend-framework' ),
 	'categories' => [ 'common' ],
 	'content'    => '<!-- wp:media-text {"align":"","mediaType":"image"} -->
@@ -10,4 +10,4 @@ return array(
 	<p></p>
 	<!-- /wp:paragraph --></div></div>
 	<!-- /wp:media-text -->',
-);
+];

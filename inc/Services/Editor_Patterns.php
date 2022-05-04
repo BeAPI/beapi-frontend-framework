@@ -5,7 +5,6 @@ namespace BEA\Theme\Framework\Services;
 
 use BEA\Theme\Framework\Service;
 use BEA\Theme\Framework\Service_Container;
-use function Sodium\version_string;
 
 class Editor_Patterns implements Service {
 	/**
@@ -123,8 +122,8 @@ class Editor_Patterns implements Service {
 							'_register_theme_block_patterns',
 							sprintf(
 							/* translators: %s: file name. */
-								__( 'Could not register file "%s" as a block pattern ("Slug" field missing)', 'beapi-frontend-framework' ),
-								$file
+								esc_html__( 'Could not register file "%s" as a block pattern ("Slug" field missing)', 'beapi-frontend-framework' ),
+								esc_html( $file )
 							),
 							'6.0.0'
 						);
@@ -136,9 +135,9 @@ class Editor_Patterns implements Service {
 							'_register_theme_block_patterns',
 							sprintf(
 							/* translators: %1s: file name; %2s: slug value found. */
-								__( 'Could not register file "%1$s" as a block pattern (invalid slug "%2$s")', 'beapi-frontend-framework' ),
-								$file,
-								$pattern_data['slug']
+								esc_html__( 'Could not register file "%1$s" as a block pattern (invalid slug "%2$s")', 'beapi-frontend-framework' ),
+								esc_html( $file ),
+								esc_html( $pattern_data['slug'] )
 							),
 							'6.0.0'
 						);
@@ -153,8 +152,8 @@ class Editor_Patterns implements Service {
 							'_register_theme_block_patterns',
 							sprintf(
 							/* translators: %1s: file name; %2s: slug value found. */
-								__( 'Could not register file "%s" as a block pattern ("Title" field missing)', 'beapi-frontend-framework' ),
-								$file
+								esc_html__( 'Could not register file "%s" as a block pattern ("Title" field missing)', 'beapi-frontend-framework' ),
+								esc_html( $file )
 							),
 							'6.0.0'
 						);

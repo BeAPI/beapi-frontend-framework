@@ -77,6 +77,7 @@ class Editor_Patterns implements Service {
 	 * @since 6.0.0
 	 * @access private
 	 * @internal
+	 * @see https://github.com/WordPress/gutenberg/blob/trunk/lib/compat/wordpress-6.0/block-patterns.php
 	 */
 	public function register_patterns(): void {
 

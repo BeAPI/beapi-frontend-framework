@@ -5,8 +5,11 @@ namespace Services;
 use BEA\Theme\Framework\Service_Container;
 use BEA\Theme\Framework\Services\Svg;
 use WP_Mock;
+use WP_Mock\Tools\TestCase;
+use function ob_end_clean;
+use function ob_start;
 
-class SvgTest extends \WP_Mock\Tools\TestCase {
+class SvgTest extends TestCase {
 	public function setUp(): void {
 		WP_Mock::setUp();
 	}
@@ -61,10 +64,10 @@ class SvgTest extends \WP_Mock\Tools\TestCase {
 			'return' => 'test.example.fr',
 		] );
 
-		\ob_start();
+		ob_start();
 		$this->AssertNull( $svg->the_icon( 'test' ) );
 		$this->AssertNull( $svg->the_icon( 'test', [ 'class1', 'class2' ] ) );
-		\ob_end_clean();
+		ob_end_clean();
 	}
 
 	public function testGetIconWithClass() {

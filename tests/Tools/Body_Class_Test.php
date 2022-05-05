@@ -3,9 +3,11 @@
 namespace Tools;
 
 use BEA\Theme\Framework\Service_Container;
+use BEA\Theme\Framework\Tools\Body_Class;
 use WP_Mock;
+use WP_Mock\Tools\TestCase;
 
-class Body_Class_Test extends \WP_Mock\Tools\TestCase {
+class Body_Class_Test extends TestCase {
 	public function setUp(): void {
 		WP_Mock::setUp();
 	}
@@ -15,7 +17,7 @@ class Body_Class_Test extends \WP_Mock\Tools\TestCase {
 	}
 
 	public function testAdd() {
-		$body_class = new \BEA\Theme\Framework\Tools\Body_Class();
+		$body_class = new Body_Class();
 
 		$body_class->add( 'test' );
 		$this->assertEquals( [ 'test' ], $body_class->body_class( [] ) );
@@ -23,7 +25,7 @@ class Body_Class_Test extends \WP_Mock\Tools\TestCase {
 	}
 
 	public function testRemove() {
-		$body_class = new \BEA\Theme\Framework\Tools\Body_Class();
+		$body_class = new Body_Class();
 
 		$body_class->add( 'test' );
 		$body_class->remove( 'test' );
@@ -31,7 +33,7 @@ class Body_Class_Test extends \WP_Mock\Tools\TestCase {
 	}
 
 	public function testAddRemoveWithInitialData() {
-		$body_class = new \BEA\Theme\Framework\Tools\Body_Class();
+		$body_class = new Body_Class();
 
 		$body_class->add( 'test' );
 		$body_class->remove( 'test' );
@@ -39,15 +41,15 @@ class Body_Class_Test extends \WP_Mock\Tools\TestCase {
 	}
 
 	public function testName() {
-		$body_class = new \BEA\Theme\Framework\Tools\Body_Class();
+		$body_class = new Body_Class();
 		self::assertEquals( 'body-class', $body_class->get_service_name() );
 	}
 
 	public function testBoot() {
-		$body_class = new \BEA\Theme\Framework\Tools\Body_Class();
+		$body_class = new Body_Class();
 		$container  = $this->createStub( Service_Container::class );
 
-		\WP_Mock::expectFilterAdded( 'body_class', [ $body_class, 'body_class' ] );
+		WP_Mock::expectFilterAdded( 'body_class', [ $body_class, 'body_class' ] );
 
 		$body_class->boot( $container );
 	}

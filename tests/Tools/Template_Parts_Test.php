@@ -2,9 +2,11 @@
 
 namespace Tools;
 
+use BEA\Theme\Framework\Tools\Template_Parts;
 use WP_Mock;
+use WP_Mock\Tools\TestCase;
 
-class Template_Parts_Test extends \WP_Mock\Tools\TestCase {
+class Template_Parts_Test extends TestCase {
 	public function setUp(): void {
 		WP_Mock::setUp();
 	}
@@ -14,13 +16,13 @@ class Template_Parts_Test extends \WP_Mock\Tools\TestCase {
 	}
 
 	public function testAdd() {
-		$template = new \BEA\Theme\Framework\Tools\Template_Parts();
+		$template = new Template_Parts();
 
 		$this->assertTrue( $template->add_var( 'slug', 'key', 'value' ) );
 	}
 
 	public function testGet() {
-		$template = new \BEA\Theme\Framework\Tools\Template_Parts();
+		$template = new Template_Parts();
 
 		$this->assertNull( $template->get_var( 'slug', 'key' ) );
 
@@ -30,7 +32,7 @@ class Template_Parts_Test extends \WP_Mock\Tools\TestCase {
 	}
 
 	public function testGetOtherslug() {
-		$template = new \BEA\Theme\Framework\Tools\Template_Parts();
+		$template = new Template_Parts();
 
 		$template->add_var( 'slug', 'key', 'value' );
 
@@ -38,7 +40,7 @@ class Template_Parts_Test extends \WP_Mock\Tools\TestCase {
 	}
 
 	public function testGetVars() {
-		$template = new \BEA\Theme\Framework\Tools\Template_Parts();
+		$template = new Template_Parts();
 
 		$template->add_var( 'slug', 'key', 'value' );
 		$template->add_var( 'slug', 'key2', 'value3' );
@@ -50,7 +52,7 @@ class Template_Parts_Test extends \WP_Mock\Tools\TestCase {
 	}
 
 	public function testName() {
-		$template = new \BEA\Theme\Framework\Tools\Template_Parts();
+		$template = new Template_Parts();
 		self::assertEquals( 'template-parts', $template->get_service_name() );
 	}
 

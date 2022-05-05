@@ -1,5 +1,6 @@
 <?php
 
+use BEA\Theme\Framework\Framework;
 use BEA\Theme\Framework\Service_Container;
 use BEA\Theme\Framework\Services\Acf;
 use BEA\Theme\Framework\Services\Theme;
@@ -17,20 +18,20 @@ class FrameworkTest extends \WP_Mock\Tools\TestCase {
 	}
 
 	public function testNotAService() {
-		\BEA\Theme\Framework\Framework::register_service( 'not-a-service' );
+		Framework::register_service( 'not-a-service' );
 
-		$this->assertFalse( \BEA\Theme\Framework\Framework::get_container()->get_service( 'not-a-service' ) );
+		$this->assertFalse( Framework::get_container()->get_service( 'not-a-service' ) );
 	}
 
 	public function testSameContainer() {
-		$container = \BEA\Theme\Framework\Framework::get_container();
+		$container = Framework::get_container();
 
-		$this->assertSame( $container, \BEA\Theme\Framework\Framework::get_container() );
+		$this->assertSame( $container, Framework::get_container() );
 	}
 
 	public function testServiceSet() {
-		\BEA\Theme\Framework\Framework::register_service( Acf::class );
+		Framework::register_service( Acf::class );
 
-		$this->assertNotEmpty( \BEA\Theme\Framework\Framework::get_container()->get_service( Acf::class ) );
+		$this->assertNotEmpty( Framework::get_container()->get_service( Acf::class ) );
 	}
 }

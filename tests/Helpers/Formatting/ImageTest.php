@@ -24,6 +24,11 @@ class ImageTest extends TestCase {
 	}
 
 	public function testGetZeroImage() {
+		WP_Mock::userFunction( 'wp_get_attachment_image', [
+				'return' => '',
+			]
+		);
+
 		$this->assertSame( '', get_the_image( 0, [] ) );
 	}
 

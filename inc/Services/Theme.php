@@ -35,6 +35,7 @@ class Theme implements Service {
 		 * Init the supports.
 		 */
 		$this->add_theme_supports();
+		$this->remove_theme_supports();
 
 		/**
 		 * Load translations.
@@ -56,6 +57,14 @@ class Theme implements Service {
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'async-js' );
 		add_theme_support( 'yoast-seo-breadcrumbs' );
+	}
+
+	/**
+	 * Remove theme supports
+	 */
+	private function remove_theme_supports(): void {
+		// remove the theme support basic elements
+		remove_theme_support( 'core-block-patterns' );
 	}
 
 	/**

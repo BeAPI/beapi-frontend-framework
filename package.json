@@ -37,7 +37,7 @@
     "stylelint-config-standard": "^21.0.0",
     "stylelint-scss": "^3.19.0",
     "stylelint-webpack-plugin": "^2.1.1",
-    "svg-sprite-loader": "^6.0.5",
+    "svg-sprite-loader": "^6.0.10",
     "svg4everybody": "^2.1.9",
     "svgo-loader": "^3.0.0",
     "webpack": "^5.35.0",
@@ -50,6 +50,7 @@
   "devDependencies": {
     "browser-sync": "^2.26.14",
     "browser-sync-webpack-plugin": "^2.3.0",
+    "canvas": "^2.8.0",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-prettier": "^3.4.0",

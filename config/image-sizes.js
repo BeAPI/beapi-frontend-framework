@@ -1,10 +1,12 @@
 const fs = require('fs')
 const ora = require('ora')
+const { createCanvas, loadImage } = require('canvas')
 const Json2csvParser = require('json2csv').Parser
 const fields = ['location', 'sizes.width', 'sizes.height', 'sizes.retina', 'sizes.ratio']
 const dir = {
   conf: './src/conf-img/',
   tpl: './src/conf-img/tpl/',
+  defaultImages: './src/img/default/',
 }
 const path = {
   imagesSizesCsv: dir.conf + 'images-sizes.csv',
@@ -15,6 +17,11 @@ const regex = {
   srcset: /data-srcset="(.[^"]*)"/gm,
   crop: /crop="(.[^"]*)"/gm,
   img: /img-\d*-\d*/gm,
+}
+const imageSettings = {
+  fill: '#f1e25b',
+  logo: './src/img/static/logo-beapi.svg',
+  logoScale: 0.5,
 }
 const locations = {}
 const sizes = {}
@@ -28,7 +35,7 @@ let nbSizes = 0
  * @return {array}
  */
 function getTemplateFileNames() {
-  return fs.readdirSync(dir.tpl).filter(function(tpl) {
+  return fs.readdirSync(dir.tpl).filter(function (tpl) {
     return tpl !== 'default-picture.tpl'
   })
 }
@@ -77,7 +84,7 @@ function getDefaultImgName(str) {
  */
 function isRetina(src) {
   const retina = []
-  src.split(',').forEach(val => {
+  src.split(',').forEach((val) => {
     if (val.includes('2x')) {
       retina.push('2x')
     } else {
@@ -104,7 +111,7 @@ function createFile(filename, json) {
 function imageLocationsFromTpl() {
   const templateFileNames = getTemplateFileNames()
 
-  templateFileNames.forEach(function(tplName) {
+  templateFileNames.forEach(function (tplName) {
     nbLocations += 1
     const tplContent = getTemplateFileContent(tplName)
     const srcsetArr = tplContent.match(regex.srcset)
@@ -115,7 +122,7 @@ function imageLocationsFromTpl() {
       img_base: '',
     }
 
-    srcsetArr.forEach(src => {
+    srcsetArr.forEach((src) => {
       const dimensions = src.match(regex.img)
       const retina = isRetina(src)
       const crop = !(cropArr && cropArr[0] === 'crop="false"')
@@ -146,11 +153,57 @@ function imageLocationsFromTpl() {
         storage.srcsets.push(srcsetObj)
         storage.default_img = getDefaultImgName(size)
         storage.img_base = size
+
+        generateDefaultImage(sizes[size], getDefaultImgName(size))
       })
 
       locations[removeFileExtension(tplName)] = [storage]
     })
   })
+}
+
+/**
+ * Generate a default file from width and height
+ * @param {object} sizes dimensions of image
+ * @param {string} filename default image filename
+ * @returns {void}
+ */
+function generateDefaultImage(sizes, filename) {
+  try {
+    if (fs.existsSync(dir.defaultImages + filename)) {
+      return
+    }
+
+    const width = parseInt(sizes.width, 10)
+    const height = parseInt(sizes.height, 10)
+
+    if (width >= 9999 || height >= 9999) {
+      return
+    }
+
+    const canvas = createCanvas(width, height)
+    const context = canvas.getContext('2d')
+
+    context.fillStyle = imageSettings.fill
+    context.fillRect(0, 0, width, height)
+
+    loadImage(imageSettings.logo).then((image) => {
+      let logoHeight = height * imageSettings.logoScale
+      let logoWidth = (logoHeight * image.naturalWidth) / image.naturalHeight
+
+      if (image.naturalWidth > image.naturalHeight) {
+        logoWidth = width * imageSettings.logoScale
+        logoHeight = (logoWidth * image.naturalHeight) / image.naturalWidth
+      }
+
+      context.drawImage(image, (width - logoWidth) / 2, (height - logoHeight) / 2, logoWidth, logoHeight)
+
+      const buffer = canvas.toBuffer('image/jpeg')
+      fs.writeFileSync(dir.defaultImages + filename, buffer)
+    })
+  } catch (err) {
+    console.error(err)
+  }
 }
 
 /**
@@ -174,7 +227,7 @@ function exportCSV() {
 
     CSVInfo.push(CSVObj)
 
-    srcsets.forEach(val => {
+    srcsets.forEach((val) => {
       const splitSize = val.size.split('-')
 
       CSVObj.sizes.push({

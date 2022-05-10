@@ -4,6 +4,7 @@ namespace BEA\Theme\Framework;
 
 use BEA\Theme\Framework\Services\Acf;
 use BEA\Theme\Framework\Services\Assets;
+use BEA\Theme\Framework\Services\Performance;
 use BEA\Theme\Framework\Services\Assets_JS_Async;
 use BEA\Theme\Framework\Services\Editor;
 use BEA\Theme\Framework\Services\Editor_Patterns;
@@ -32,6 +33,7 @@ class Framework {
 		// Services
 		Theme::class,
 		Assets::class,
+		Performance::class,
 		Assets_JS_Async::class,
 		Editor::class,
 		Editor_Patterns::class,

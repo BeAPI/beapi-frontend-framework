@@ -2,6 +2,8 @@
 // Use this script to add external ressource like typekit: https://github.com/swissspidy/local-webfont
 // example: npx local-webfont https://use.typekit.net/bjc8obi.css src/scss/abstract/temp_to_copy_paste_delete.css swap
 
-@include declare-font-face("Roboto", "../fonts/roboto-v15-latin/roboto-v15-latin-regular");
-@include declare-font-face("Roboto", "../fonts/roboto-v15-latin/roboto-v15-latin-500", 500);
-@include declare-font-face("Roboto", "../fonts/roboto-v15-latin/roboto-v15-latin-700", bold);
+// Examples include
+
+@include declare-font-face("Poppins", "../fonts/poppins-v19-latin/poppins-v19-latin-regular");
+@include declare-font-face("Poppins", "../fonts/poppins-v19-latin/poppins-v19-latin-500", 500);
+@include declare-font-face("Poppins", "../fonts/poppins-v19-latin/poppins-v19-latin-700", bold);

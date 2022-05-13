@@ -1,0 +1,13 @@
+#{context-selector('', '.wp-block', 'a')} {
+    color: currentColor;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:focus {
+        background-color: $color-grey-200;
+    }
+}

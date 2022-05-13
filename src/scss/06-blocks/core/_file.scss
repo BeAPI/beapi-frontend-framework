@@ -1,0 +1,6 @@
+.wp-block-file {
+    &__button {
+        @include button;
+        @include button-block;
+    }
+}

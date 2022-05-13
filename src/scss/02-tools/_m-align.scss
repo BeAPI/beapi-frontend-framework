@@ -8,8 +8,8 @@
     float: $direction;
 
     @if ($direction == left) {
-        margin-right: $base-spacing;
+        margin-right: var(--spacing--block-1);
     } @else {
-        margin-left: $base-spacing;
+        margin-left: var(--spacing--block-1);
     }
 }

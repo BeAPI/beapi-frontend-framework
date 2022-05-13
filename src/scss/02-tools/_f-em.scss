@@ -4,7 +4,7 @@
  * convert value from px to em
  */
 
-@function em($pxval, $base: $base-font-size) {
+@function em($pxval, $base: $font-size-base) {
 
     @if not unitless($pxval) {
         $pxval: strip-units($pxval);

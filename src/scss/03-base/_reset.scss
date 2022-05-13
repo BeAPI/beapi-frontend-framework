@@ -43,8 +43,17 @@ html {
     box-sizing: border-box;
  
     // HTML resets
-    font-family: var(--global--font-secondary);
-    line-height: var(--global--line-height-body);
+    font-family: $font-family-primary;
+    line-height: $line-height-base;
+
+    // Scroll resets
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+
+    // Fonts resets
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: auto;
 }
  
 /**
@@ -57,18 +66,21 @@ html {
         box-sizing: inherit;
     }
 }
- 
+
 // body resets
 body {
-    font-family: var(--global--font-primary);
-    font-size: var(--global--font-size-base);
+    font-family: $font-family-primary;
+    font-size: $font-size-base;
     font-weight: normal;
-    color: var(--global--color-secondary);
+    color: $color-text;
     text-align: left;
-    background-color: var(--global--color-background);
+    background-color: $color-light;
 }
- 
- 
+
 button {
     cursor: pointer;
+
+    &[disabled] {
+        cursor: not-allowed;
+    }
 }

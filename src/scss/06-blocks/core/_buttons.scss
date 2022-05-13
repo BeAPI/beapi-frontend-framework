@@ -1,0 +1,27 @@
+.wp-block {
+    &-search__button,
+    &-button .wp-block-button__link {
+        @include button;
+        @include button-block;
+    }
+
+    &-buttons > .wp-block-button.has-custom-font-size .wp-block-button__link,
+    &-button.has-custom-font-size .wp-block-button__link {
+        font-size: inherit;
+    }
+
+    @include editor-only {
+        &-button__link {
+            @include button;
+            @include button-block;
+        }
+
+        .is-style-outline .wp-block-button__link[style*="radius"],
+        .wp-block-button__link[style*="radius"] {
+            @include button;
+            @include button-block-outline;
+
+            outline-offset: 2px;
+        }
+    }
+}

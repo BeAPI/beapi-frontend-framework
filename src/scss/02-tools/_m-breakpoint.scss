@@ -1,15 +1,4 @@
 /**
- * Root Media Query Variables
- */
- 
-$breakpoints : (
-    xsm: 600,
-    sm: 768,
-    md: 1024,
-    lg: 1440
-);
-
-/**
  * Breakpoints
  *
  * exemples :
@@ -26,7 +15,7 @@ $breakpoints : (
  */
 
 @mixin breakpoints($breakpoint, $min-or-max-or-breakpoint: min) {
-    $font-size: 16px; // don't use em function whitout param, $base-font-size can be modified
+    $font-size: 16px; // don't use em function whitout param, $font-size-base can be modified
 
     @if (type-of(map-get($breakpoints, $min-or-max-or-breakpoint)) == "number") {
 

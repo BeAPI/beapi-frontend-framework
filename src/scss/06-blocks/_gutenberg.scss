@@ -1,0 +1,131 @@
+html {
+    font-family: $font-family-primary;
+    line-height: $line-height-base;
+}
+
+body {
+    --wp--typography--line-height: #{$line-height-base};
+
+    font-family: $font-family-primary;
+    font-size: $font-size-base;
+    font-weight: normal;
+    color: $color-text;
+    background-color: $color-light;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+button,
+a {
+    cursor: pointer;
+}
+
+// Post title style
+.wp-block.editor-post-title__block {
+    max-width: var(--responsive--aligndefault-width);
+    margin-bottom: var(---spacing--block-1);
+
+    .editor-post-title__input {
+        @include heading(h1);
+    }
+}
+
+// Editor UI font styles
+.wp-block.block-editor-default-block-appender > textarea {
+    font-family: var(--global--font-secondary);
+    font-size: var($font-size-md);
+}
+
+// Spacing overrides
+[data-block] {
+    margin-top: var(--spacing--block-1);
+    margin-bottom: var(--spacing--block-1);
+}
+
+// Drop cap
+.has-drop-cap:not(:focus)::first-letter {
+    float: left;
+    margin: .1em .1em 0 0;
+    font-family: var($font-family-primary);
+    font-size: calc(1.2 * var(--heading--font-size-h1));
+    font-style: normal;
+    font-weight: var(--heading--font-weight);
+    line-height: .66;
+    text-transform: uppercase;
+}
+
+// Remove the border of blockquotes inside the classic block.
+.wp-block-freeform.block-library-rich-text__tinymce blockquote {
+    border: none;
+}
+
+// Adjust the position of the quote symbol for blockquotes inside the classic block.
+.wp-block-freeform.block-library-rich-text__tinymce blockquote::before {
+    left: 5px;
+}
+
+// Backend Classic editor container
+.mce-content-body {
+    max-width: var(--responsive--alignwide-width);
+    margin: var(--spacing--block-1)/2;
+}
+
+/*
+ ** Alignments
+ */
+#{context-selector(".blocks-container", ".is-root-container")} {
+    > :where(*) {
+        max-width: var(--responsive--aligndefault-width);
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .alignwide {
+        max-width: var(--responsive--alignwide-width);
+    }
+
+    .alignfull {
+        max-width: var(--responsive--alignfull-width);
+    }
+
+    .alignleft {
+
+        @include align;
+    }
+
+    .alignright {
+
+        @include align(right);
+    }
+
+    .aligncenter {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        clear: both;
+    }
+
+    .alignleft,
+    .alignright,
+    .aligncenter {
+        margin-bottom: var(--spacing--block-1);
+    }
+}
+
+// Editor
+
+@include editor-only {
+    .wp-block {
+        max-width: var(--responsive--aligndefault-width);
+
+        &[data-align="wide"],
+        .alignwide {
+            max-width: var(--responsive--alignwide-width);
+        }
+
+        &[data-align="full"],
+        .alignfull {
+            max-width: var(--responsive--alignfull-width);
+        }
+    }
+}

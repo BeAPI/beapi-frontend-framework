@@ -45,7 +45,7 @@
  *      the variable $entry-file-name is defined in style.scss and editor.scss
  */
 
-@function context-selector($default: null, $editor: null, $selector) {
+@function context-selector($default: null, $editor: null, $selector: null) {
     $full-selector: "";
     $parent: "";
 
@@ -63,6 +63,8 @@
         @each $s in $selector {
             $full-selector: $full-selector +  $parent + " " + $s;
         }
+    } @else {
+        $full-selector: $parent;
     }
 
     @return $full-selector;

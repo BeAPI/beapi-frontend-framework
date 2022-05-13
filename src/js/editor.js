@@ -13,11 +13,14 @@ lazySizes.cfg.nativeLoading = {
 // Native Gutenberg
 if (typeof wp !== 'undefined') {
   wp.domReady(() => {
-    // core/button
-    wp.blocks.unregisterBlockStyle('core/button', 'outline')
-
-    // core/quote
-    wp.blocks.unregisterBlockStyle('core/quote', 'large')
+    wp.blocks.unregisterBlockStyle('core/separator', ['wide', 'dots'])
+    // whitelist core embeds
+    const allowedEmbedVariants = ['youtube', 'vimeo', 'dailymotion']
+    wp.blocks.getBlockVariations('core/embed').forEach((variant) => {
+      if (!allowedEmbedVariants.includes(variant.name)) {
+        wp.blocks.unregisterBlockVariation('core/embed', variant.name)
+      }
+    })
   })
 }
 
@@ -25,3 +28,32 @@ if (typeof wp !== 'undefined') {
 if (window.acf) {
   // Do stuff
 }
+
+wp.hooks.addFilter('blocks.registerBlockType', 'beapi-framework', function (settings, name) {
+  if (name === 'core/list') {
+    settings.example.attributes.values = '<li><a>Lorem ipsum</a></li><li><a>Dolor sit amet</a></li>'
+  }
+
+  if (name === 'core/paragraph') {
+    settings.example.attributes.content = 'Lorem ipsum dolor'
+    settings.example.attributes.dropCap = false
+  }
+
+  if (name === 'core/table') {
+    settings.styles = []
+  }
+
+  if (name === 'core/image') {
+    settings.styles = []
+
+    settings.attributes.align = {
+      type: 'string',
+    }
+  }
+
+  if (name === 'core/separator' || name === 'core/quote' || name === 'core/pullquote') {
+    settings.styles = []
+  }
+
+  return settings
+})

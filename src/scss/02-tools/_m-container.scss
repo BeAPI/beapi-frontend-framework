@@ -3,8 +3,8 @@
  */
 
 @mixin container {
-    width: $container-width;
-    max-width: calc(100% - #{$mobile-external-gutter * 2});
+    width: $container-wide;
+    max-width: calc(100% - #{$external-gutter * 2});
     padding: 0;
     margin-right: auto;
     margin-left: auto;

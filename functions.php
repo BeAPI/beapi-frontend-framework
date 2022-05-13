@@ -18,3 +18,4 @@ require_once __DIR__ . '/inc/Helpers/Formatting/Share.php';
 require_once __DIR__ . '/inc/Helpers/Formatting/Term.php';
 require_once __DIR__ . '/inc/Helpers/Formatting/Text.php';
 require_once __DIR__ . '/inc/Helpers/Pattern_Content.php';
+require_once __DIR__ . '/inc/Helpers/Menu_Walker.php';

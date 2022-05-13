@@ -1,0 +1,42 @@
+/**
+ * Scrollbar invisible
+ *
+ *      /!\ ALERT : Don't use this mixin neither on the html element, nor on the body element to avoid deteriorating accessibility
+ */
+
+@mixin scrollbar-invisible {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/**
+ * Scrollbar color
+ */
+
+@mixin scrollbar-color($size, $scrollbar-color, $track-color) {
+    &::-webkit-scrollbar {
+        display: none;
+        width: $size;
+        height: $size;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $scrollbar-color;
+        border-radius: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $track-color;
+        border-radius: 20px;
+    }
+
+    @include hover {
+        &::-webkit-scrollbar {
+            display: block;
+        }
+    }
+}

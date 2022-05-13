@@ -5,16 +5,16 @@
 // ==========
 // Colors
 // ==========
-// ----
-// Theme colors
-// ----
-$global-color-primary: #ffe600;
 
 // ----
-// Gray palette
+// Dark/Light colors
 // ----
 $color-light: #fff;
 $color-dark: #000;
+
+// ----
+// Grey colors
+// ----
 $color-grey-100: #eee;
 $color-grey-200: #ccc;
 $color-grey-300: #aaa;
@@ -25,21 +25,52 @@ $color-grey-700: #555;
 $color-grey-800: #333;
 $color-grey-900: #111;
 
-$global-color-text: #1e1e1e;
+// ----
+// Palette colors
+// ----
+$color-yellow-500: #ffe600;
+
+// ----
+// Theme colors
+// ----
+$color-primary: $color-yellow-500;
+$color-secondary: $color-grey-400;
+$color-text: $color-grey-900;
 
 // ==========
 // Sizes
 // ==========
+
+// ----
+// Containers
+// ----
+$container-default: 800px;
+$container-wide: 1280px;
+$external-gutter: 25px;
+
 // ----
 // Breakpoints
 // ----
-$mobile-external-gutter: 25px;
+$breakpoints : (
+    xs: 480,
+    s: 600,
+    sm: 768,
+    admin-bar: 784,
+    md: 1024,
+    lg: $container-wide + $external-gutter,
+);
+
 $column-preset : (
     /* preset for desktop */
     d : (
         columnwidth: 76,
         gutterwidth: 22,
         totalcolumn: 12
+    ),
+    t: (
+        columnwidth: 76,
+        gutterwidth: 22,
+        totalcolumn: 8
     ),
     /* preset for mobile */
     m : (
@@ -48,12 +79,6 @@ $column-preset : (
         totalcolumn: 4
     )
 );
-
-// ----
-// spacing
-// ----
-$base-spacing: 32px;
-$half-base-spacing: $base-spacing / 2;
 
 // ----
 // wp admin bar
@@ -74,14 +99,26 @@ $base-border-radius: 3px;
 // ----
 // Font Family
 // ----
-$primary-font-family: poppins, sans-serif;
+$font-family-primary: poppins, sans-serif;
 
 // ----
 // Font Size
 // ----
-$base-font-size: 16px;
+$font-size-base: 16px;
+$font-size-xs: 14px;
+$font-size-sm: 16px;
+$font-size-md: 18px;
+$font-size-lg: 24px;
+$font-size-xl: 32px;
+$font-size-xxl: 48px;
+$font-size-xxxl: 56px;
 
 // ----
 // Line Height
 // ----
-$base-line-height: 1.4;
+$line-height-base: 1.4;
+
+// ----
+// Line Height
+// ----
+$line-height-base: 1.4;

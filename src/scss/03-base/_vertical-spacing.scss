@@ -1,12 +1,12 @@
-.entry-content > *,
+.blocks-container > *,
 [class*="inner-container"] > * {
-    margin-top: calc(.666 * var(--global--spacing-vertical));
-    margin-bottom: calc(.666 * var(--global--spacing-vertical));
- 
+    margin-top: var(--spacing--block-1);
+    margin-bottom: var(--spacing--block-1);
+
     &:first-child {
         margin-top: 0;
     }
- 
+
     &:last-child {
         margin-bottom: 0;
     }
@@ -18,15 +18,15 @@
     &.alignfull.has-background {
         margin-top: 0;
     }
- 
+
     &:last-child,
     &.alignfull.has-background {
         margin-bottom: 0;
     }
- 
+
     /* Reset alignleft and alignright margins after alignfull */
     &.alignfull + .alignleft,
     &.alignfull + .alignright {
-        margin-top: var(--global--spacing-vertical);
+        margin-top: var(--spacing--block-1);
     }
 }

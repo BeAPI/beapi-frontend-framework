@@ -52,7 +52,7 @@
 
     @return $unitless;
 }
-  
+
 @function math-sin($angle) {
     $sin: 0;
     $angle: math-rad($angle);

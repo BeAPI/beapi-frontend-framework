@@ -99,5 +99,5 @@
 
     $width: column-px($device, $nb-column, $nb-gutter, true);
 
-    @return calc((100% - #{$mobile-external-gutter * 2}) * #{$width / ($gutter-width * ($total-column - 1) + $column-width * $total-column)});
+    @return calc((100% - #{$external-gutter * 2}) * #{$width / ($gutter-width * ($total-column - 1) + $column-width * $total-column)});
 }

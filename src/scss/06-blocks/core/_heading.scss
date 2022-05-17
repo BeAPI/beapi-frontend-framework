@@ -15,15 +15,8 @@ h6,
 
 @for $i from 1 through 6 {
     h#{$i},
-    .is-style-h#{$i} {
+    .is-style-h#{$i},
+    .has-h-#{$i}-font-size {
         @include heading($i);
-    }
-
-    @include editor-only {
-        .wp-block-heading h#{$i} {
-            @include heading($i);
-
-            clear: both;
-        }
     }
 }

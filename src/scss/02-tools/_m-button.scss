@@ -58,6 +58,11 @@
 // Outline style
 
 @mixin button-block-outline() {
+    padding: 15px 25px;
     background-color: transparent;
     border: 2px solid currentColor; // Force button width VS Gutenberg CSS
+    @include hover {
+        color: $color-primary;
+        background-color: $color-dark;
+    }
 }

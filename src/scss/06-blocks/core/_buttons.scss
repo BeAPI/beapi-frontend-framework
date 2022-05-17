@@ -1,27 +1,48 @@
 .wp-block {
-    &-search__button,
-    &-button .wp-block-button__link {
-        @include button;
-        @include button-block;
+    $el: &;
+
+    &-buttons {
+        margin-top: 0;
     }
 
-    &-buttons > .wp-block-button.has-custom-font-size .wp-block-button__link,
-    &-button.has-custom-font-size .wp-block-button__link {
-        font-size: inherit;
-    }
-
-    @include editor-only {
-        &-button__link {
+    &-button {
+        &__link {
             @include button;
             @include button-block;
         }
 
-        .is-style-outline .wp-block-button__link[style*="radius"],
-        .wp-block-button__link[style*="radius"] {
-            @include button;
-            @include button-block-outline;
+        &.is-style-reverse {
+            #{$el}-button__link {
+                @include button;
+                @include button-block;
 
-            outline-offset: 2px;
+                color: $color-dark;
+                background: $color-light;
+            }
+        }
+
+        &.is-style-outline {
+            #{$el}-button__link {
+                @include button;
+                @include button-block-outline;
+            }
+        }
+
+        &.is-style-outline-reverse {
+            #{$el}-button__link {
+                @include button;
+                @include button-block-outline;
+
+                color: $color-light;
+            }
+        }
+
+        @include breakpoints(sm,max) {
+            width: 100%;
+
+            &__link {
+                width: 100%;
+            }
         }
     }
 }

@@ -1,3 +1,23 @@
+html {
+    font-family: $font-family-primary;
+    line-height: $line-height-base;
+}
+
+body {
+    font-family: $font-family-primary;
+    font-size: $font-size-base;
+    font-weight: normal;
+    color: $color-text;
+    background-color: $color-light;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+button,
+a {
+    cursor: pointer;
+}
+
 b,
 strong {
     font-weight: 700;

@@ -1,25 +1,3 @@
-html {
-    font-family: $font-family-primary;
-    line-height: $line-height-base;
-}
-
-body {
-    --wp--typography--line-height: #{$line-height-base};
-
-    font-family: $font-family-primary;
-    font-size: $font-size-base;
-    font-weight: normal;
-    color: $color-text;
-    background-color: $color-light;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-}
-
-button,
-a {
-    cursor: pointer;
-}
-
 // Post title style
 .wp-block.editor-post-title__block {
     max-width: var(--responsive--aligndefault-width);

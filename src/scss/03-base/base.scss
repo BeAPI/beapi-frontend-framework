@@ -4,11 +4,15 @@
 
 @import "./fonts";
 @import "./variables";
-@import "./normalize";
+
+@include style-only {
+    @import "./normalize";
+    @import "./reset";
+    @import "./forms";
+}
+
+@import "./text";
 @import "./vertical-spacing";
 @import "./svg-icons";
-@import "./reset";
-@import "./forms";
 @import "./links";
 @import "./media";
-@import "./text";

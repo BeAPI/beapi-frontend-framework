@@ -3,7 +3,8 @@ html {
     button,
     input,
     select,
-    textarea {
+    textarea,
+    [tabindex] {
         &:focus {
             outline: 2px solid currentColor;
             outline-offset: .5rem;
@@ -26,7 +27,8 @@ html {
         button,
         input,
         select,
-        textarea {
+        textarea,
+        [tabindex] {
             &:focus {
                 outline: none;
             }

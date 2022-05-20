@@ -4,6 +4,7 @@
 
 @mixin heading($name: h1) {
     font-family: $font-family-primary;
+    font-weight: 400;
 
     @if $name == h1 {
         font-size: var(--heading--font-size-h1);

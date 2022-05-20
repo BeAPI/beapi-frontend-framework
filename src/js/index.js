@@ -5,7 +5,6 @@ import 'what-input'
 import './classes/ScrollDirection'
 import './classes/ButtonSeoClick'
 import './classes/Header'
-import './post-build'
 
 /**
  * LazySizes configuration

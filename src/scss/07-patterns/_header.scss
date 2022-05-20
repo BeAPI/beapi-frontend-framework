@@ -5,14 +5,15 @@
 .header {
     $el: &;
 
-    position: relative;
+    position: fixed;
     top: 0;
     z-index: 10000;
     width: 100%;
-    background: $color-light;
+    background: var(--wp--preset--color--cyan-bluish-gray);
 
     > .container {
-        padding-top: 14px;
+        padding-top: 26px;
+        padding-bottom: 28px;
     }
 
     &__logo-link {
@@ -34,7 +35,7 @@
         height: 46px;
         padding: 0;
         cursor: pointer;
-        background: $color-primary;
+        background: $color-text;
         border: none;
         border-radius: 50%;
 
@@ -76,6 +77,7 @@
         margin: 0;
         font-size: 14px;
         letter-spacing: 1px;
+        list-style: none;
 
         li + li {
             margin-top: 22px;
@@ -109,7 +111,7 @@
         width: 50px;
         height: 50px;
         padding: 0;
-        color: $color-light;
+        color: $color-dark;
         vertical-align: middle;
         cursor: pointer;
         background: none;
@@ -141,14 +143,6 @@
         }
     }
 
-    &__sub-menu-title {
-        margin-bottom: 20px;
-        font-size: 12px;
-        font-weight: 700;
-        color: $color-primary;
-        text-transform: uppercase;
-    }
-
     &--menu-is-open {
         #{$el}__menu-toggle {
             > span {
@@ -169,6 +163,12 @@
         top: $wp-admin-bar-mobile-height;
     }
 
+    .scroll-up &,
+    .scroll-down &,
+    .scroll-bottom & {
+        top: 0;
+    }
+
     @include breakpoints(lg, max) {
         &__menu {
             position: absolute;
@@ -183,18 +183,20 @@
             transform: translateX(-100%);
 
             > div {
-                padding: 14px #{$external-gutter * 2} 25px;
+                padding: 76px #{$external-gutter * 2} 25px;
             }
         }
 
         &__menu-list {
             width: 100%;
             padding-bottom: 22px;
-            border-bottom: 1px solid $color-light;
         
             > li {
                 padding-top: 22px;
-                border-top: 1px solid $color-light;
+
+                + li {
+                    border-top: 1px solid $color-dark;
+                }
             }
         }
 
@@ -236,7 +238,6 @@
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
-            padding-top: 18px;
         }
 
         &__logo-link {
@@ -249,20 +250,14 @@
 
         &__menu {
             width: column(9);
-            margin-top: 12px;
 
             > div {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: flex-start;
-                justify-content: flex-end;
                 text-align: right;
             }
         }
 
         &__menu-list {
-            margin-top: 4px;
-            color: $color-primary;
+            color: $color-text;
 
             li + li {
                 margin-top: 12px;
@@ -282,10 +277,6 @@
                     > a {
                         max-width: none;
                         margin-right: 14px;
-                    }
-
-                    > #{$el}__sub-menu-toggle {
-                        color: $color-primary;
                     }
                 }
             }
@@ -315,8 +306,6 @@
         }
 
         &__sub-menu {
-            color: $color-secondary;
-
             > div {
                 padding-top: 10px;
                 padding-bottom: 10px;
@@ -334,8 +323,7 @@
                 &::after {
                     position: absolute;
                     content: "";
-                    background: $color-light;
-                    border: 1px solid $color-primary;
+                    background: $color-primary;
                 }
 
                 &::before {
@@ -379,11 +367,6 @@
                 right: 0;
                 color: inherit;
             }
-        }
-
-        &__sub-menu-title {
-            margin-bottom: 11px;
-            color: $color-secondary;
         }
     }
 }

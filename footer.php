@@ -1,5 +1,7 @@
 		</main>
-		<footer id="footer" class="footer" role="contentinfo" aria-label="Pied de page"></footer>
-<?php wp_footer(); ?>
+		<?php
+		get_template_part( 'components/blocks/footer' );
+		wp_footer();
+		?>
 	</body>
 </html>

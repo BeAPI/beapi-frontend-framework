@@ -16,6 +16,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 
+	<script type="module" src="//localhost:3000/@vite/client"></script>
+	<script type="module" src="//localhost:3000/src/js/index.js"></script>
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

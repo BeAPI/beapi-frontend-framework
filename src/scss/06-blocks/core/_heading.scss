@@ -1,6 +1,6 @@
 @for $i from 1 through 6 {
     h#{$i},
     .is-style-h#{$i} {
-        @include heading($i);
+        @include heading(h#{$i});
     }
 }

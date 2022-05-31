@@ -32,22 +32,6 @@
     text-transform: uppercase;
 }
 
-// Remove the border of blockquotes inside the classic block.
-.wp-block-freeform.block-library-rich-text__tinymce blockquote {
-    border: none;
-}
-
-// Adjust the position of the quote symbol for blockquotes inside the classic block.
-.wp-block-freeform.block-library-rich-text__tinymce blockquote::before {
-    left: 5px;
-}
-
-// Backend Classic editor container
-.mce-content-body {
-    max-width: var(--responsive--alignwide-width);
-    margin: var(--spacing--block-1)/2;
-}
-
 /*
  ** Alignments
  */

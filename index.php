@@ -54,22 +54,28 @@
 	<h4>Title h4</h4>
 	<h5>Title h5</h5>
 	<h6>Title h6</h6>
+
 	<p>Fusce a quam. Donec mollis hendrerit risus. Nam commodo suscipit quam. Maecenas nec odio et ante tincidunt tempus. Praesent egestas tristique nibh.</p>
+
 	<ul>
-		<li>Fusce a quam. Donec mollis hendrerit risus.</li><li> Nam commodo suscipit quam. </li><li>Maecenas nec odio et ante tincidunt tempus. Praesent egestas tristique nibh.</li>
+		<li>Fusce a quam. Donec mollis hendrerit risus.</li>
+		<li> Nam commodo suscipit quam. </li>
+		<li>Maecenas nec odio et ante tincidunt tempus. Praesent egestas tristique nibh.</li>
 	</ul>
+
 	<ol>
-		<li>Fusce a quam. Donec mollis hendrerit risus.</li><li> Nam commodo suscipit quam. </li><li>Maecenas nec odio et ante tincidunt tempus. Praesent egestas tristique nibh</li>
+		<li>Fusce a quam. Donec mollis hendrerit risus.</li>
+		<li> Nam commodo suscipit quam. </li>
+		<li>Maecenas nec odio et ante tincidunt tempus. Praesent egestas tristique nibh</li>
 	</ol>
 
 	<div class="wp-container-8 wp-block-group has-cyan-bluish-gray-background-color has-background">
 		<div class="wp-container-7 wp-block-buttons">
-		<div class="wp-block-button is-style-fill"><a class="wp-block-button__link">primary</a></div>
-	
-	<div class="wp-block-button is-style-outline"><a class="wp-block-button__link">outline</a></div>
-	<div class="wp-block-button is-style-fill"><a class="wp-block-button__link">reverse</a></div>
-	<div class="wp-block-button is-style-outline"><a class="wp-block-button__link">revere-outline</a></div>
-	</div>
+			<div class="wp-block-button is-style-fill"><a class="wp-block-button__link">primary</a></div>
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link">outline</a></div>
+			<div class="wp-block-button is-style-fill"><a class="wp-block-button__link">reverse</a></div>
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link">revere-outline</a></div>
+		</div>
 	</div>
 </div>
 

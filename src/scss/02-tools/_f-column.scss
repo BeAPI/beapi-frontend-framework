@@ -38,9 +38,9 @@
     }
 
     $preset: map-get($column-preset, $device);
-    $gutter-width: map-get($preset, gutterwidth);
-    $column-width: map-get($preset, columnwidth);
-    $total-column: column-set-var($total-column, $device, totalcolumn);
+    $gutter-width: map-get($preset, gutter-width);
+    $column-width: map-get($preset, column-width);
+    $total-column: column-set-var($total-column, $device, total-column);
 
     @if $nb-gutter == null {
         $nb-gutter: $nb-column - 1;
@@ -66,8 +66,8 @@
     }
 
     $preset: map-get($column-preset, $device);
-    $gutter-width: map-get($preset, gutterwidth);
-    $column-width: map-get($preset, columnwidth);
+    $gutter-width: map-get($preset, gutter-width);
+    $column-width: map-get($preset, column-width);
 
     @if $nb-gutter == null {
         $nb-gutter: $nb-column - 1;
@@ -93,9 +93,9 @@
     }
 
     $preset: map-get($column-preset, $device);
-    $gutter-width: map-get($preset, gutterwidth);
-    $column-width: map-get($preset, columnwidth);
-    $total-column: map-get($preset, totalcolumn);
+    $gutter-width: map-get($preset, gutter-width);
+    $column-width: map-get($preset, column-width);
+    $total-column: map-get($preset, total-column);
 
     $width: column-px($device, $nb-column, $nb-gutter, true);
 

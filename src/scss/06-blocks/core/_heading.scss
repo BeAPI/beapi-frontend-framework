@@ -3,12 +3,4 @@
     .is-style-h#{$i} {
         @include heading($i);
     }
-
-    @include editor-only {
-        .wp-block-heading h#{$i} {
-            @include heading($i);
-
-            clear: both;
-        }
-    }
 }

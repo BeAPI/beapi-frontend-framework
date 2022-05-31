@@ -1,0 +1,26 @@
+/**
+ * get-svg-url
+ *
+ * exemples :
+ *      get-svg-url("arrow")
+ *      get-svg-url("arrow", $color-primary)
+ *
+ */
+
+@function get-svg-url($name: null, $fill: $color-dark, $opacity: 1, $style: "") {
+
+    $svgs: (
+        // name-of-the-svg: (viewBox, content of the svg element)
+        "arrow": ("0 0 18 14", "%3Cpath d='M17.25 7 10.37.12l-.96.97 5.2 5.22H.76V7.7h13.87L9.4 12.9l.96.96L17.25 7Z'/%3E")
+    );
+
+    @if map-has-key($svgs, $name) == null {
+        @return "";
+    }
+
+    @if ($style != "") {
+        $style: " style='" + $style + "'";
+    }
+
+    @return url("data:image/svg+xml;charset=utf8, %3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(#{red($fill), green($fill), blue($fill), $opacity})'" + $style + " viewBox='" + nth(map-get($svgs, $name), 1) + "'%3E%" + nth(map-get($svgs, $name), 2) + "%3C/svg%3E");
+}

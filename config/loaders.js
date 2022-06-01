@@ -1,9 +1,10 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const srcPath = path.resolve(__dirname, '../src')
 
 const SCSSLoader = {
   test: /\.(scss|css)$/,
-  exclude: [/node_modules/],
+  include: srcPath + '/scss',
   use: [
     MiniCssExtractPlugin.loader,
     {
@@ -62,12 +63,14 @@ const SCSSLoader = {
 const FontsLoader = {
   test: /\.(woff|woff2)$/,
   type: 'asset/resource',
+  include: srcPath + '/fonts',
 }
 
 const ImagesLoader = {
   test: /\.(png|jpe?g|gif|svg)$/,
   type: 'asset/resource',
   exclude: /icons/,
+  include: srcPath + '/img',
   use: [
     {
       loader: 'image-webpack-loader',
@@ -93,7 +96,7 @@ const ImagesLoader = {
 
 const JSLoader = {
   test: /\.js$/i,
-  exclude: /node_modules/,
+  include: srcPath + '/js',
   use: {
     loader: 'esbuild-loader',
     options: {
@@ -104,7 +107,8 @@ const JSLoader = {
 }
 
 const SVGLoader = {
-  test: /icons\/.*\.svg$/,
+  test: /\.svg$/,
+  include: srcPath + '/img/icons',
   use: [
     {
       loader: 'svg-sprite-loader',

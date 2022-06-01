@@ -11,9 +11,7 @@
         font-style: $font-style;
         font-weight: $font-weight;
         font-stretch: $font-stretch;
-        src:
-            local("#{$font-family}"), /* search for the locally installed font first */
-            url(#{$font-filename}.woff2) format("woff2");
+        src: url(#{$font-filename}.woff2) format("woff2");
         font-display: swap;
         unicode-range: U+0-10FFFF; /* cutting of the font file for better loading */
     }

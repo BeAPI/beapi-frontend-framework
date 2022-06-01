@@ -5,13 +5,17 @@
 .header {
     $el: &;
 
-    position: fixed;
-    top: 0;
-    z-index: 10000;
-    width: 100%;
-    background: var(--wp--preset--color--cyan-bluish-gray);
+    height: 76px;
 
-    > .container {
+    &__inner {
+        position: fixed;
+        top: 0;
+        z-index: 10000;
+        width: 100%;
+        background: var(--wp--preset--color--cyan-bluish-gray);
+    }
+
+    .container {
         padding-top: 26px;
         padding-bottom: 28px;
     }
@@ -159,13 +163,13 @@
         }
     }
 
-    .admin-bar & {
+    .admin-bar &__inner {
         top: $wp-admin-bar-mobile-height;
     }
 
-    .scroll-up &,
-    .scroll-down &,
-    .scroll-bottom & {
+    .scroll-up &__inner,
+    .scroll-down &__inner,
+    .scroll-bottom &__inner {
         top: 0;
     }
 
@@ -228,13 +232,13 @@
     }
 
     @include breakpoints(admin-bar) {
-        .admin-bar & {
+        .admin-bar &__inner {
             top: $wp-admin-bar-desktop-height;
         }
     }
 
     @include breakpoints(lg) {
-        > .container {
+        .container {
             display: flex;
             align-items: flex-start;
             justify-content: space-between;

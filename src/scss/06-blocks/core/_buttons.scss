@@ -1,14 +1,26 @@
 .wp-block {
-    &-search__button,
-    &-button .wp-block-button__link {
-        @extend %button-block;
-    }
 
-    &-button.is-style-outline .wp-block-button__link {
-        @extend %button-block-outline;
-    }
+    // ----
+    // container
+    // ----
+    // &-buttons {
+    //
+    // }
 
-    &-button.has-custom-font-size .wp-block-button__link {
-        font-size: inherit;
+    // ----
+    // button
+    // ----
+    &-button {
+        .wp-block-button__link {
+            @extend %button-block;
+        }
+
+        &.is-style-outline .wp-block-button__link {
+            @extend %button-block-outline;
+        }
+
+        &.has-custom-font-size .wp-block-button__link {
+            font-size: inherit;
+        }
     }
 }

@@ -126,9 +126,7 @@ const SVGLoader = {
 }
 
 module.exports = {
-  FontsLoader,
-  ImagesLoader,
-  JSLoader,
-  SCSSLoader,
-  SVGLoader,
+  get: function () {
+    return [FontsLoader, ImagesLoader, JSLoader, SCSSLoader, SVGLoader]
+  },
 }

@@ -8,5 +8,5 @@ module.exports = merge(common, {
   output: {
     filename: '[name].[chunkhash:8].min.js',
   },
-  plugins: [plugins.ManifestPlugin, plugins.MiniCssExtractPluginProd],
+  plugins: plugins.get('production'),
 })

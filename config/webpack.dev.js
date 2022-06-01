@@ -10,5 +10,5 @@ module.exports = merge(common, {
   devServer: {
     contentBase: path.join(__dirname, 'public'),
   },
-  plugins: [plugins.BrowserSyncPlugin, plugins.MiniCssExtractPluginDev],
+  plugins: plugins.get('development'),
 })

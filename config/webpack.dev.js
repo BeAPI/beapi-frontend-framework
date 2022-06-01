@@ -12,7 +12,7 @@ module.exports = merge(common, {
     contentBase: path.join(__dirname, 'public'),
   },
   module: {
-    rules: [loaders.SCSSLoaderDev, loaders.SVGLoader].concat(common.module.rules),
+    rules: [loaders.EditorSCSSLoader, loaders.SCSSLoaderDev, loaders.SVGLoader].concat(common.module.rules),
   },
   plugins: [plugins.BrowserSyncPlugin, plugins.MiniCssExtractPluginDev],
 })

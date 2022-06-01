@@ -10,7 +10,7 @@ module.exports = merge(common, {
     filename: '[name].[chunkhash:8].min.js',
   },
   module: {
-    rules: [loaders.SCSSLoaderProd, loaders.SVGLoader].concat(common.module.rules),
+    rules: [loaders.EditorSCSSLoader, loaders.SCSSLoaderProd, loaders.SVGLoader].concat(common.module.rules),
   },
   plugins: [plugins.ManifestPlugin, plugins.MiniCssExtractPluginProd],
 })

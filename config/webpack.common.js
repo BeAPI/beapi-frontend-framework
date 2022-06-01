@@ -1,6 +1,5 @@
 const path = require('path')
 const entries = require('./entries')
-const loaders = require('./loaders')
 
 module.exports = {
   entry: entries,
@@ -12,8 +11,5 @@ module.exports = {
   },
   externals: {
     jquery: 'window.jQuery',
-  },
-  module: {
-    rules: loaders.get(),
   },
 }

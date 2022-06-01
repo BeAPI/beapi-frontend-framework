@@ -173,5 +173,40 @@
 	</div>
 </div>
 
+<div class="container" style="padding: 100px 0">
+	<form>
+		<div style="margin-bottom: 32px">
+			<label>Checkboxes</label>
+			<input type="checkbox" id="checkbox-1" name="checkbox" value="0" />
+			<label for="checkbox-1">Checkbox 1</label>
+			<input type="checkbox" id="checkbox-2" name="checkbox" value="1" />
+			<label for="checkbox-2">Checkbox 2</label>
+		</div>
+		<div style="margin-bottom: 32px">
+			<label>Radios</label>
+			<input type="radio" id="radio-1" name="radio" value="0" />
+			<label for="radio-1">Radio 1</label>
+			<input type="radio" id="radio-2" name="radio" value="1" />
+			<label for="radio-2">Radio 2</label>
+		</div>
+		<div style="margin-bottom: 32px">
+			<label>Input text</label>
+			<input type="text" />
+		</div>
+		<div style="margin-bottom: 32px">
+			<label>Select</label>
+			<select>
+				<option>Option 1</option>
+				<option>Option 2</option>
+			</select>
+		</div>
+		<div>
+			<button class="button-block">Button submit</button>
+			<input type="submit" value="Input submit">
+			<input type="reset" value="Input reset">
+		</div>
+	</form>
+</div>
+
 <?php
 	get_footer();

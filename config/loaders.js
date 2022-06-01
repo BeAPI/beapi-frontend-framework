@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const SCSSLoaderDev = {
   test: /\.(scss|css)$/,
-  exclude: /node_modules/,
+  exclude: [/node_modules/, /src\/scss\/editor.scss/],
   use: [
     MiniCssExtractPlugin.loader,
     {
@@ -31,7 +31,7 @@ const SCSSLoaderDev = {
 
 const SCSSLoaderProd = {
   test: /\.(scss|css)$/,
-  exclude: /node_modules/,
+  exclude: [/node_modules/, /src\/scss\/editor.scss/],
   use: [
     MiniCssExtractPlugin.loader,
     {
@@ -52,6 +52,37 @@ const SCSSLoaderProd = {
       loader: 'sass-loader',
       options: {
         sourceMap: true,
+      },
+    },
+  ],
+}
+
+const EditorSCSSLoader = {
+  test: /editor\.scss$/,
+  exclude: /node_modules/,
+  use: [
+    MiniCssExtractPlugin.loader,
+    {
+      loader: 'css-loader',
+      options: {
+        importLoaders: 1,
+      },
+    },
+    {
+      loader: 'postcss-loader',
+      options: {
+        postcssOptions: {
+          config: path.resolve(__dirname, 'postcss.dev.config.js'),
+        },
+      },
+    },
+    {
+      loader: 'sass-loader',
+      options: {
+        sourceMap: true,
+        sassOptions: {
+          outputStyle: 'expanded',
+        },
       },
     },
   ],
@@ -120,6 +151,7 @@ const SVGLoader = {
 }
 
 module.exports = {
+  EditorSCSSLoader,
   FontsLoader,
   ImagesLoader,
   JSLoader,

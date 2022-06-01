@@ -59,5 +59,8 @@
     "portfinder": "^1.0.28",
     "prettier": "^2.2.1",
     "webpack-bundle-analyzer": "^4.4.1"
+  },
+  "volta": {
+    "node": "16.15.0"
   }
 }

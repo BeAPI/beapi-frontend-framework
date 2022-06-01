@@ -25,9 +25,6 @@ class Menu_Walker extends \Walker_Nav_Menu {
 		if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
 			$output .= '<button class="header__sub-menu-toggle" type="button"><span class="sr-only">Toggle menu</span>' . get_the_icon( 'down' ) . '</button>';
 			$output .= '<div class="header__sub-menu header__sub-menu-level-' . $depth . '"><div>';
-			$output .= '<div class="header__sub-menu-title"><a class="header__sub-menu-link" href="' . esc_url( $item->url ) . '"><span>' . esc_html( $item->title ) . '</span>';
-			$output .= ! empty( $item->description ) ? esc_html( $item->description ) : '';
-			$output .= '</a></div>';
 			$output .= '<ul>';
 		}
 	}

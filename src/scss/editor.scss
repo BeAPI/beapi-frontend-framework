@@ -19,8 +19,9 @@ $entry-file-name: "editor";
  * == Contain generic styles such as normalize or reset.
  */
 
+@import "03-base/variables";
+@import "03-base/reset";
 @import "03-base/svg-icons";
-@import "03-base/vertical-spacing";
 @import "03-base/links";
 
 /**

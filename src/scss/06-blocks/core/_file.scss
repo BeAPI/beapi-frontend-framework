@@ -1,6 +1,7 @@
 .wp-block-file {
-    &__button {
-        @include button;
-        @include button-block;
+    $el: &;
+
+    #{$el}__button {
+        @extend %button-block;
     }
 }

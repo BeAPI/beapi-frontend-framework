@@ -15,7 +15,7 @@ module.exports = {
     jquery: 'window.jQuery',
   },
   module: {
-    rules: [loaders.FontsLoader, loaders.ImagesLoader, loaders.JSLoader],
+    rules: [loaders.FontsLoader, loaders.ImagesLoader, loaders.JSLoader, loaders.SCSSLoader, loaders.SVGLoader],
   },
   plugins: [
     plugins.CleanWebpackPlugin,

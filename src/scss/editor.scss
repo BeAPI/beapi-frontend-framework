@@ -36,6 +36,13 @@ $entry-file-name: "editor";
  * == Gutenberg core blocks styles, style for front-end layout and editor.
  */
 
+@import "05-components/button";
+
+/**
+ * Blocks
+ * == Gutenberg core blocks styles, style for front-end layout and editor.
+ */
+
 @import "06-blocks/gutenberg";
 @import "06-blocks/blocks";
 

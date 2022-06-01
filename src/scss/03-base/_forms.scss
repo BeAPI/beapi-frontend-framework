@@ -17,13 +17,13 @@ textarea {
 textarea {
     box-sizing: border-box;
     width: 100%;
-    padding: var(--spacing--block-1);
+    padding: 15px 25px;
     font-family: $font-family-primary;
     line-height: 1;
     color: $color-text;
     background: darken($color-light, 5%);
     border: 1px solid $color-grey-500;
-    border-radius: 0; //reset border radius for ios
+    border-radius: 10px; //reset border radius for ios
     transition: border-color .5s ease;
     appearance: none;
 
@@ -52,7 +52,8 @@ select {
     @include select-custom;
 }
 
-input[type="checkbox"] {
+input[type="checkbox"],
+input[type="radio"] {
     @include checkbox-custom;
 
     &:checked {
@@ -62,8 +63,12 @@ input[type="checkbox"] {
 
 input[type="radio"] {
     @include radio-custom;
+}
 
-    &:checked {
-        @include radio-custom-checked;
-    }
+input[type="submit"] {
+    @extend %button-block;
+}
+
+input[type="reset"] {
+    @extend %button-block-outline;
 }

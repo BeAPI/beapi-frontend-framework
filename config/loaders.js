@@ -1,9 +1,9 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const SCSSLoaderDev = {
+const SCSSLoader = {
   test: /\.(scss|css)$/,
-  exclude: [/node_modules/, /src\/scss\/editor.scss/],
+  exclude: [/node_modules/],
   use: [
     MiniCssExtractPlugin.loader,
     {
@@ -15,73 +15,44 @@ const SCSSLoaderDev = {
     {
       loader: 'postcss-loader',
       options: {
-        postcssOptions: {
-          config: path.resolve(__dirname, 'postcss.dev.config.js'),
-        },
-      },
-    },
-    {
-      loader: 'sass-loader',
-      options: {
-        sourceMap: true,
-      },
-    },
-  ],
-}
+        postcssOptions: function (loaderContext) {
+          const isProduction = loaderContext.mode === 'production'
+          const isEditor = loaderContext.resource.indexOf('editor.scss') > -1
+          let obj = {
+            plugins: {
+              'postcss-import': {},
+              'postcss-preset-env': {
+                browsers: 'last 2 versions',
+                stage: 0,
+              },
+              'postcss-pxtorem': { propWhiteList: [] },
+              'postcss-sort-media-queries': {},
+            },
+          }
 
-const SCSSLoaderProd = {
-  test: /\.(scss|css)$/,
-  exclude: [/node_modules/, /src\/scss\/editor.scss/],
-  use: [
-    MiniCssExtractPlugin.loader,
-    {
-      loader: 'css-loader',
-      options: {
-        importLoaders: 1,
-      },
-    },
-    {
-      loader: 'postcss-loader',
-      options: {
-        postcssOptions: {
-          config: path.resolve(__dirname, 'postcss.prod.config.js'),
-        },
-      },
-    },
-    {
-      loader: 'sass-loader',
-      options: {
-        sourceMap: true,
-      },
-    },
-  ],
-}
+          if (isProduction && !isEditor) {
+            obj.plugins.cssnano = {}
+          }
 
-const EditorSCSSLoader = {
-  test: /editor\.scss$/,
-  exclude: /node_modules/,
-  use: [
-    MiniCssExtractPlugin.loader,
-    {
-      loader: 'css-loader',
-      options: {
-        importLoaders: 1,
-      },
-    },
-    {
-      loader: 'postcss-loader',
-      options: {
-        postcssOptions: {
-          config: path.resolve(__dirname, 'postcss.dev.config.js'),
+          return obj
         },
       },
     },
     {
       loader: 'sass-loader',
       options: {
-        sourceMap: true,
-        sassOptions: {
-          outputStyle: 'expanded',
+        sassOptions: function (loaderContext) {
+          const isProduction = loaderContext.mode === 'production'
+          const isEditor = loaderContext.resource.indexOf('editor.scss') > -1
+          let obj = {
+            sourceMap: true,
+          }
+
+          if (isProduction && isEditor) {
+            obj.outputStyle = 'expanded'
+          }
+
+          return obj
         },
       },
     },
@@ -151,11 +122,9 @@ const SVGLoader = {
 }
 
 module.exports = {
-  EditorSCSSLoader,
   FontsLoader,
   ImagesLoader,
   JSLoader,
-  SCSSLoaderDev,
-  SCSSLoaderProd,
+  SCSSLoader,
   SVGLoader,
 }

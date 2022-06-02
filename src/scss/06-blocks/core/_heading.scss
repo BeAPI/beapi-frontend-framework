@@ -3,4 +3,8 @@
     .is-style-h#{$i} {
         @include heading(h#{$i});
     }
+
+    .has-h-#{$i}-font-size {
+        font-size: var(--font-size-h#{i});
+    }
 }

@@ -41,7 +41,9 @@
 }
 
 @mixin checkbox-custom-checked {
-    &::after {
-        opacity: 1;
+    + label {
+        &::after {
+            opacity: 1;
+        }
     }
 }

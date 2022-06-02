@@ -40,12 +40,39 @@ $color-text: $color-grey-900;
 // ==========
 // Sizes
 // ==========
+$column-preset : (
+    /* preset for desktop */
+    d : (
+        column-width: 60,
+        gutter-width: 40,
+        total-column: 12
+    ),
+    /* preset for tablet */
+    t : (
+        column-width: 60,
+        gutter-width: 34,
+        total-column: 8
+    ),
+    /* preset for mobile */
+    m : (
+        column-width: 58,
+        gutter-width: 31,
+        total-column: 4
+    )
+);
 
 // ----
 // Containers
 // ----
-$container-default: 800px;
-$container-wide: 1280px;
+$container-default-column-length: 8;
+$container-default: (
+    map-get(map-get($column-preset, d), column-width) * $container-default-column-length +
+    map-get(map-get($column-preset, d), gutter-width) * ($container-default-column-length - 1)
+) * 1px;
+$container-wide: (
+    map-get(map-get($column-preset, d), column-width) * map-get(map-get($column-preset, d), total-column) +
+    map-get(map-get($column-preset, d), gutter-width) * (map-get(map-get($column-preset, d), total-column) - 1)
+) * 1px;
 $external-gutter: 25px;
 
 // ----
@@ -58,26 +85,6 @@ $breakpoints : (
     admin-bar: 784,
     md: 1024,
     lg: $container-wide + $external-gutter,
-);
-
-$column-preset : (
-    /* preset for desktop */
-    d : (
-        columnwidth: 76,
-        gutterwidth: 22,
-        totalcolumn: 12
-    ),
-    t: (
-        columnwidth: 76,
-        gutterwidth: 22,
-        totalcolumn: 8
-    ),
-    /* preset for mobile */
-    m : (
-        columnwidth: 76,
-        gutterwidth: 22,
-        totalcolumn: 4
-    )
 );
 
 // ----

@@ -1,7 +1,7 @@
 /* eslint-disable */
 import AbstractDomElement from './AbstractDomElement'
 import each from '../utils/each'
-import { Tween, ThrottledEvent } from 'oneloop.js'
+import { Tween } from 'oneloop.js'
 
 class Header extends AbstractDomElement {
   constructor(element, options) {
@@ -16,28 +16,31 @@ class Header extends AbstractDomElement {
     const el = this._element
     const toggle = el.getElementsByClassName('header__menu-toggle')[0]
     const menuList = el.getElementsByClassName('header__menu-list')[0]
-    const liWithChidren = menuList.getElementsByClassName('menu-item-has-children')
+    const liWithChidren = el.getElementsByClassName('menu-item-has-children')
     let i
 
     this._menu = el.getElementsByClassName('header__menu')[0]
     this._openedSubMenu = null
     this._mouseTimers = {}
 
-    each(menuList.children, function (li) {
-      li.addEventListener('mouseenter', onMouseEnterFirstLevelLi.bind(that))
-    })
+    // avoid error for empty theme
+    if (menuList) {
+      each(menuList.children, function (li) {
+        li.addEventListener('mouseenter', onMouseEnterFirstLevelLi.bind(that))
+      })
 
-    each(liWithChidren, function (li) {
-      const subMenuToggle = li.children[1]
-      li.addEventListener('mouseenter', onMouseEnterLi.bind(that))
-      li.addEventListener('mouseleave', onMouseLeaveLi.bind(that))
+      each(liWithChidren, function (li) {
+        const subMenuToggle = li.children[1]
+        li.addEventListener('mouseenter', onMouseEnterLi.bind(that))
+        li.addEventListener('mouseleave', onMouseLeaveLi.bind(that))
 
-      subMenuToggle.addEventListener('keypress', onKeyPressSubMenuToggle.bind(that))
-      subMenuToggle.addEventListener('touchstart', onTouchStartSubMenuToggle.bind(that))
-    })
+        subMenuToggle.addEventListener('keypress', onKeyPressSubMenuToggle.bind(that))
+        subMenuToggle.addEventListener('touchstart', onTouchStartSubMenuToggle.bind(that))
+      })
 
-    toggle.addEventListener('click', onClickToggle.bind(this))
-    document.addEventListener('keyup', onKeyup.bind(this))
+      toggle.addEventListener('click', onClickToggle.bind(this))
+      document.addEventListener('keyup', onKeyup.bind(this))
+    }
   }
 
   openMenu() {

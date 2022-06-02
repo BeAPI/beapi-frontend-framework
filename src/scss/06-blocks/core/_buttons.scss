@@ -1,48 +1,25 @@
 .wp-block {
-    $el: &;
+    // ----
+    // container
+    // ----
+    // &-buttons {
+    //
+    // }
 
-    &-buttons {
-        margin-top: 0;
-    }
-
+    // ----
+    // button
+    // ----
     &-button {
-        &__link {
-            @include button;
-            @include button-block;
+        .wp-block-button__link {
+            @extend %button-block;
         }
 
-        &.is-style-reverse {
-            #{$el}-button__link {
-                @include button;
-                @include button-block;
-
-                color: $color-dark;
-                background: $color-light;
-            }
+        &.is-style-outline .wp-block-button__link {
+            @extend %button-block-outline;
         }
 
-        &.is-style-outline {
-            #{$el}-button__link {
-                @include button;
-                @include button-block-outline;
-            }
-        }
-
-        &.is-style-outline-reverse {
-            #{$el}-button__link {
-                @include button;
-                @include button-block-outline;
-
-                color: $color-light;
-            }
-        }
-
-        @include breakpoints(sm,max) {
-            width: 100%;
-
-            &__link {
-                width: 100%;
-            }
+        &.has-custom-font-size .wp-block-button__link {
+            font-size: inherit;
         }
     }
 }

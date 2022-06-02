@@ -1,22 +1,6 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.is-style-h1,
-.is-style-h2,
-.is-style-h3,
-.is-style-h4,
-.is-style-h5,
-.is-style-h6 {
-    color: $color-text;
-}
-
 @for $i from 1 through 6 {
     h#{$i},
-    .is-style-h#{$i},
-    .has-h-#{$i}-font-size {
-        @include heading($i);
+    .is-style-h#{$i} {
+        @include heading(h#{$i});
     }
 }

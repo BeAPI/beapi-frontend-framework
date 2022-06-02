@@ -1,0 +1,27 @@
+/**
+ * get-svg-url
+ *
+ * exemples :
+ *      get-svg-url("arrow")
+ *      get-svg-url("arrow", $color-primary)
+ *
+ */
+
+@function get-svg-url($name: null, $fill: $color-dark, $opacity: 1, $style: "") {
+
+    $svgs: (
+        // name-of-the-svg: (viewBox, content of the svg element)
+        "arrow": ("0 0 18 14", "%3Cpath d='M17.25 7 10.37.12l-.96.97 5.2 5.22H.76V7.7h13.87L9.4 12.9l.96.96L17.25 7Z'/%3E"),
+        "down": ("0 0 11.2 6.7", "3Cpath d='M0 .5C0 .4.1.2.2.1c.2-.2.5-.1.7.1l4.6 5.3.1.1s.1 0 .1-.1L10.3.1c.2-.1.5-.2.7 0 .2.2.2.5.1.7L6.5 6.2c-.2.3-.5.5-.9.5s-.7-.2-.9-.6L.1.8C0 .7 0 .6 0 .5z'/%3E")
+    );
+
+    @if map-has-key($svgs, $name) == null {
+        @return "";
+    }
+
+    @if ($style != "") {
+        $style: " style='" + $style + "'";
+    }
+
+    @return url("data:image/svg+xml;charset=utf8, %3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(#{red($fill), green($fill), blue($fill), $opacity})'" + $style + " viewBox='" + nth(map-get($svgs, $name), 1) + "'%3E%" + nth(map-get($svgs, $name), 2) + "%3C/svg%3E");
+}

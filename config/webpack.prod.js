@@ -1,16 +1,17 @@
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common.js')
-const loaders = require('./loaders')
 const plugins = require('./plugins')
+const loaders = require('./loaders')
+const mode = 'production'
 
 module.exports = merge(common, {
-  mode: 'production',
+  mode: mode,
   stats: 'minimal',
   output: {
     filename: '[name].[chunkhash:8].min.js',
   },
+  plugins: plugins.get(mode),
   module: {
-    rules: [loaders.EditorSCSSLoader, loaders.SCSSLoaderProd, loaders.SVGLoader].concat(common.module.rules),
+    rules: loaders.get(mode),
   },
-  plugins: [plugins.ManifestPlugin, plugins.MiniCssExtractPluginProd],
 })

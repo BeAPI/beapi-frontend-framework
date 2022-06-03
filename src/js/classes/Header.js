@@ -17,11 +17,27 @@ class Header extends AbstractDomElement {
     const toggle = el.getElementsByClassName('header__menu-toggle')[0]
     const menuList = el.getElementsByClassName('header__menu-list')[0]
     const liWithChidren = el.getElementsByClassName('menu-item-has-children')
-    let i
+    const menu = el.getElementsByClassName('header__menu')[0]
 
-    this._menu = el.getElementsByClassName('header__menu')[0]
+    this._menu = menu
     this._openedSubMenu = null
     this._mouseTimers = {}
+    this._menuTween = new Tween({
+      autoStart: false,
+      reverse: true,
+      duration: 1000,
+      easing: 'easeInOutExpo',
+      onUpdate: function (timestamp, tick, percent) {
+        const direction = window.innerWidth >= 768 ? -1 : 1
+        menu.style.transform = 'translateX(' + 100 * (percent - 1) * direction + '%)'
+      },
+      onComplete: function (timestamp, tick, lastValue) {
+        if (lastValue === 0) {
+          menu.style.display = ''
+          menu.style.transform = ''
+        }
+      },
+    })
 
     // avoid error for empty theme
     if (menuList) {
@@ -44,40 +60,16 @@ class Header extends AbstractDomElement {
   }
 
   openMenu() {
-    const menu = this._menu
-    const direction = window.innerWidth >= 768 ? 1 : -1
-
-    menu.style.display = 'block'
+    this._menu.style.display = 'block'
     this._element.classList.add(this._settings.menuOpenedClass)
-
-    new Tween({
-      duration: 1000,
-      easing: 'easeInOutExpo',
-      onUpdate: function (timestamp, tick, percent) {
-        menu.style.transform = 'translateX(' + 100 * (1 - percent) * direction + '%)'
-      },
-    })
+    this._menuTween.start()
 
     return this
   }
 
   closeMenu() {
-    const menu = this._menu
-    const direction = window.innerWidth >= 768 ? 1 : -1
-
     this._element.classList.remove(this._settings.menuOpenedClass)
-
-    new Tween({
-      duration: 1000,
-      easing: 'easeInOutExpo',
-      onUpdate: function (timestamp, tick, percent) {
-        menu.style.transform = 'translateX(' + 100 * percent * direction + '%)'
-      },
-      onComplete: function () {
-        menu.style.display = ''
-        menu.style.transform = ''
-      },
-    })
+    this._menuTween.start()
 
     return this
   }

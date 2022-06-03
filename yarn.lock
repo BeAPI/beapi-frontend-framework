@@ -4820,10 +4820,10 @@ once@^1.3.0, once@^1.3.1, once@^1.4.0:
   dependencies:
     wrappy "1"
 
-oneloop.js@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/oneloop.js/-/oneloop.js-2.2.2.tgz#5b6d9dcc54cf8a4adb5b062419288bbd17b71059"
-  integrity sha512-mTkg7tQHECGu9P+wQU4ZkkJLJK0+b/cMU13jZTyZSSoFAQI5fJwjk1sQ1Qa0My/WQMlhjNqxHmQuZCej31hjjw==
+oneloop.js@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/oneloop.js/-/oneloop.js-3.0.0.tgz#a335e4ad586100fcd7675758d531be3263995170"
+  integrity sha512-hr4piTW10sY61AN7CE1XiCJjBHb7uYxyvCgXQoCCxQUMegJXIztoHOfR77cCOCJT4iI3Bv2VDBKKPXuaIXFB2Q==
 
 onetime@^5.1.0, onetime@^5.1.2:
   version "5.1.2"

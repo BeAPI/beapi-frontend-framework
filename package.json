@@ -14,7 +14,7 @@
   },
   "license": "GPL-2.0",
   "dependencies": {
-    "oneloop.js": "^2.2.2",
+    "oneloop.js": "^3.0.0",
     "lazysizes": "^5.3.2",
     "what-input": "^5.2.10"
   },

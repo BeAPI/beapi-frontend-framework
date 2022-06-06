@@ -14,7 +14,7 @@ use BEA\Theme\Framework\Helpers\Accessible_Menu_Walker;
 				<span class="sr-only"><?php esc_html_e( 'Open/Close the menu', 'beapi-frontend-framework' ); ?></span>
 			</button>
 
-			<nav id="menu" class="header__menu" aria-label="<?php esc_attr_e ( 'Main navigation', 'beapi-frontend-framework' ); ?>" role="navigation">
+			<nav id="menu" class="header__menu" aria-label="<?php esc_attr_e( 'Main navigation', 'beapi-frontend-framework' ); ?>" role="navigation">
 				<div>
 					<?php
 					wp_nav_menu(

@@ -1,5 +1,6 @@
-<?php get_header(); ?>
-
+<?php
+get_header();
+?>
 <div class="intro">
 	<style>
 		.intro {
@@ -207,6 +208,5 @@
 		</div>
 	</form>
 </div>
-
 <?php
-	get_footer();
+get_footer();

@@ -202,20 +202,13 @@ class Editor implements Service {
 
 	private function register_custom_block_styles() {
 		//button
-		register_block_style(
-			'core/button',
-			[
-				'name'  => 'reverse',
-				'label' => 'Reverse',
-			]
-		);
-		register_block_style(
-			'core/button',
-			[
-				'name'  => 'outline-reverse',
-				'label' => 'Outline reverse',
-			]
-		);
+		//      register_block_style(
+		//          'core/button',
+		//          [
+		//              'name'  => 'reverse',
+		//              'label' => __( 'Reverse', 'beapi-frontend-framework' ),
+		//          ]
+		//      );
 	}
 
 	/**

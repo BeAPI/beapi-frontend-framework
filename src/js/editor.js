@@ -31,28 +31,28 @@ if (window.acf) {
 
 wp.hooks.addFilter('blocks.registerBlockType', 'beapi-framework', function (settings, name) {
   if (name === 'core/list') {
+    // compact preview for block list
     settings.example.attributes.values = '<li><a>Lorem ipsum</a></li><li><a>Dolor sit amet</a></li>'
   }
 
   if (name === 'core/paragraph') {
+    // compact preview for block paragraph
     settings.example.attributes.content = 'Lorem ipsum dolor'
     settings.example.attributes.dropCap = false
   }
 
-  if (name === 'core/table') {
+  if (name === 'core/separator' || name === 'core/quote' || name === 'core/pullquote' || name === 'core/table') {
+    // remove custom styles
     settings.styles = []
   }
 
   if (name === 'core/image') {
+    // remove custom styles
     settings.styles = []
-
+    // set default aligment for images to null
     settings.attributes.align = {
       type: 'string',
     }
-  }
-
-  if (name === 'core/separator' || name === 'core/quote' || name === 'core/pullquote') {
-    settings.styles = []
   }
 
   return settings

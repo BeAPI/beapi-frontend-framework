@@ -73,22 +73,22 @@ class Editor implements Service {
 			'editor-color-palette',
 			[
 				[
-					'name'  => 'dark',
+					'name'  => __( 'Dark', 'beapi-frontend-framework' ),
 					'slug'  => 'dark',
 					'color' => '#000000',
 				],
 				[
-					'name'  => 'light',
+					'name'  => __( 'Light', 'beapi-frontend-framework' ),
 					'slug'  => 'light',
 					'color' => '#ffffff',
 				],
 				[
-					'name'  => 'primary',
+					'name'  => __( 'Primary', 'beapi-frontend-framework' ),
 					'slug'  => 'primary',
 					'color' => '#ffff00',
 				],
 				[
-					'name'  => 'secondary',
+					'name'  => __( 'Secondary', 'beapi-frontend-framework' ),
 					'slug'  => 'secondary',
 					'color' => '#00ffff',
 				],
@@ -99,37 +99,37 @@ class Editor implements Service {
 			'editor-font-sizes',
 			[
 				[
-					'name'      => 'Title 6',
+					'name'      => __( 'Title 6', 'beapi-frontend-framework' ),
 					'shortName' => 'h6',
 					'size'      => 14,
 					'slug'      => 'h6',
 				],
 				[
-					'name'      => 'Title 5',
+					'name'      => __( 'Title 5', 'beapi-frontend-framework' ),
 					'shortName' => 'h5',
 					'size'      => 16,
 					'slug'      => 'h5',
 				],
 				[
-					'name'      => 'Title 4',
+					'name'      => __( 'Title 4', 'beapi-frontend-framework' ),
 					'shortName' => 'h4',
 					'size'      => 18,
 					'slug'      => 'h4',
 				],
 				[
-					'name'      => 'Title 3',
+					'name'      => __( 'Title 3', 'beapi-frontend-framework' ),
 					'shortName' => 'h3',
 					'size'      => 24,
 					'slug'      => 'h3',
 				],
 				[
-					'name'      => 'Title 2',
+					'name'      => __( 'Title 2', 'beapi-frontend-framework' ),
 					'shortName' => 'h2',
 					'size'      => 40,
 					'slug'      => 'h2',
 				],
 				[
-					'name'      => 'Title 1',
+					'name'      => __( 'Title 1', 'beapi-frontend-framework' ),
 					'shortName' => 'h1',
 					'size'      => 58,
 					'slug'      => 'h1',

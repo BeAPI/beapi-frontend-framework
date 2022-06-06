@@ -23,6 +23,6 @@
 	get_template_part( 'components/blocks/skip-links' );
 	get_template_part( 'components/blocks/header' );
 	?>
-	<main id="content" role="main" tabindex="-1" aria-label="<?php _e('Main content','beapi-frontend-framework');?>">
+	<main id="content" role="main" tabindex="-1" aria-label="<?php _e( 'Main content', 'beapi-frontend-framework' ); ?>">
 <?php
 	wp_body_open();

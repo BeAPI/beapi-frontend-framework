@@ -55,7 +55,7 @@ class Editor implements Service {
 		/**
 		 * White list of gutenberg blocks
 		 */
-		// add_filter( 'allowed_block_types', [ $this, 'gutenberg_blocks_allowed' ], 10, 2 );
+		add_filter( 'allowed_block_types', [ $this, 'gutenberg_blocks_allowed' ], 10, 2 );
 	}
 
 	/**

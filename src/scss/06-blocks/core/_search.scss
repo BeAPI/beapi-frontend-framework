@@ -1,0 +1,11 @@
+.wp-block-search {
+    $el: &;
+
+    #{$el}__input {
+        width: auto;
+    }
+
+    &__button {
+        @extend %button-block;
+    }
+}

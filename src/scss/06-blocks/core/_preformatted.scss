@@ -1,0 +1,11 @@
+.wp-block-preformatted {
+    overflow-x: auto;
+
+    @include style-only {
+        white-space: pre;
+    }
+
+    @include editor-only {
+        white-space: pre !important;
+    }
+}

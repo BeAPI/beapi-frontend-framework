@@ -1,0 +1,11 @@
+.wp-block-image {
+    > img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    figcaption {
+        font-size: var($font-size-xs);
+        color: var($color-grey-600);
+    }
+}

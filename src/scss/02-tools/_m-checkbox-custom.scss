@@ -1,0 +1,49 @@
+/**
+ * Checkbox custom
+ */
+
+@mixin checkbox-custom($color: $color-primary, $size: 18px, $border-width: 1px) {
+    @include sr-only;
+
+    + label {
+        position: relative;
+        display: block;
+        padding-left: $size + 20;
+        cursor: pointer;
+
+        &::before {
+            position: absolute;
+            top: 1px;
+            left: 0;
+            width: $size;
+            height: $size;
+            margin: 0;
+            content: "";
+            background-color: $color-light;
+            border: $border-width solid $color;
+        }
+
+        &::after {
+            position: absolute;
+            top: 7px;
+            left: round($size / 2);
+            width: round($size / 1.5);
+            height: round($size / 2.5);
+            content: "";
+            border-color: $color;
+            border-style: solid;
+            border-width: 0 0 2px 2px;
+            opacity: 0;
+            transition: opacity .2s;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    }
+}
+
+@mixin checkbox-custom-checked {
+    + label {
+        &::after {
+            opacity: 1;
+        }
+    }
+}

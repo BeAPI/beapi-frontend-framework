@@ -1,0 +1,25 @@
+.wp-block {
+    // ----
+    // container
+    // ----
+    // &-buttons {
+    //
+    // }
+
+    // ----
+    // button
+    // ----
+    &-button {
+        .wp-block-button__link {
+            @extend %button-block;
+        }
+
+        &.is-style-outline .wp-block-button__link {
+            @extend %button-block-outline;
+        }
+
+        &.has-custom-font-size .wp-block-button__link {
+            font-size: inherit;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+@for $i from 1 through 6 {
+    h#{$i},
+    .is-style-h#{$i} {
+        @include heading(h#{$i});
+    }
+
+    .has-h-#{$i}-font-size {
+        font-size: var(--font-size-h#{i});
+    }
+}

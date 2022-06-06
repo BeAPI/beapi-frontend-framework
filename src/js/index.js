@@ -2,13 +2,9 @@ import lazySizes from 'lazysizes'
 import 'lazysizes/plugins/native-loading/ls.native-loading'
 import 'lazysizes/plugins/object-fit/ls.object-fit'
 import 'what-input'
-import 'svg4everybody'
+import './classes/ScrollDirection'
 import './classes/ButtonSeoClick'
-import './post-build'
-import AccessibleMenu from './classes/AccessibleMenu'
-
-// Initializations
-AccessibleMenu.initFromPreset()
+import './classes/Header'
 
 /**
  * LazySizes configuration

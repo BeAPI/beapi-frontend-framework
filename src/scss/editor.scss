@@ -1,67 +1,54 @@
 $entry-file-name: "editor";
 
-// Abstract
+/**
+ * Abstract
+ * == Contain SCSS and CSS variables and webfonts declarations.
+ */
 
-@import "abstract/index";
+@import "01-abstract/abstract";
 
-// Base
+/**
+ * Tools
+ * == Contains functions and mixins.
+ */
 
-@import "base/sr-only";
-@import "base/fonts";
-@import "base/box-sizing";
-@import "base/text";
+@import "02-tools/tools";
 
-// Components
+/**
+ * Base
+ * == Contain generic styles such as normalize or reset.
+ */
 
-@import "components/btn";
+@import "03-base/variables";
+@import "03-base/reset";
+@import "03-base/svg-icons";
+@import "03-base/links";
 
-// Wordpress
+/**
+ * Utilities
+ * == Utility classes that are not assigned to a specific component.
+ */
 
-@import "wp/img";
-//@import "wp/gallery"; Enable if Gutenberg is not used
+@import "04-utilities/utilities";
 
-@import "wp/wysiwyg";
-@import "wp/gutenberg";
+/**
+ * Blocks
+ * == Gutenberg core blocks styles, style for front-end layout and editor.
+ */
 
-// Backend Classic editor container
-.mce-content-body {
-    max-width: $container-width;
-    margin: $base-spacing/2;
-}
+@import "05-components/button";
 
-// Backend Gutenberg editor container
-.wp-block {
-    &:not([data-align="full"]) {
-        max-width: $container-width;
-    }
+/**
+ * Blocks
+ * == Gutenberg core blocks styles, style for front-end layout and editor.
+ */
 
-    &[data-align="wide"] {
-        max-width: $container-width * 1.5;
-    }
-}
+@import "06-blocks/gutenberg";
+@import "06-blocks/blocks";
 
-// Render Post/Page Title as FrontEnd view
-.editor-post-title {
-    &__block {
-        .editor-post-title {
-            &__input {
+/**
+ * Vendor
+ * == Plugins or libraries custom styles.
+ */
 
-                @include title(XXL);
-            }
-        }
-
-    }
-}
-
-// Exact style between BO/FO for lists
-.block-library-list {
-    ul {
-
-        @include wysiwyg-list();
-    }
-
-    ol {
-
-        @include wysiwyg-list(ol);
-    }
-}
+@import "08-vendor/vendor";

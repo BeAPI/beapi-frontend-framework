@@ -1,0 +1,92 @@
+/**
+ * Math functions - from https://www.unindented.org/blog/trigonometry-in-sass/
+ *
+ *      math-pow
+ *      math-fact
+ *      math-pi
+ *      math-rad
+ *      math-sin
+ *      math-cos
+ *      math-tan
+ *      math-sqrt from : https://www.antimath.info/css/sass-sqrt-function/
+ */
+
+@function math-pow($number, $exp) {
+    $value: 1;
+
+    @if $exp > 0 {
+        @for $i from 1 through $exp {
+            $value: $value * $number;
+        }
+    } @else if $exp < 0 {
+        @for $i from 1 through -$exp {
+            $value: $value / $number;
+        }
+    }
+
+    @return $value;
+}
+
+@function math-fact($number) {
+    $value: 1;
+    @if $number > 0 {
+        @for $i from 1 through $number {
+            $value: $value * $i;
+        }
+    }
+
+    @return $value;
+}
+
+@function math-pi() {
+    @return 3.14159265359;
+}
+
+@function math-rad($angle) {
+    $unit: unit($angle);
+    $unitless: $angle / ($angle * 0 + 1);
+    // If the angle has 'deg' as unit, convert to radians.
+    @if $unit == deg {
+        $unitless: $unitless / 180 * pi();
+    }
+
+    @return $unitless;
+}
+
+@function math-sin($angle) {
+    $sin: 0;
+    $angle: math-rad($angle);
+    // Iterate a bunch of times.
+    @for $i from 0 through 10 {
+        $sin: $sin + math-pow(-1, $i) * math-pow($angle, (2 * $i + 1)) / math-fact(2 * $i + 1);
+    }
+
+    @return $sin;
+}
+  
+@function math-cos($angle) {
+    $cos: 0;
+    $angle: math-rad($angle);
+    // Iterate a bunch of times.
+    @for $i from 0 through 10 {
+        $cos: $cos + math-pow(-1, $i) * math-pow($angle, 2 * $i) / math-fact(2 * $i);
+    }
+
+    @return $cos;
+}
+  
+@function math-tan($angle) {
+    @return math-sin($angle) / math-cos($angle);
+}
+
+@function math-sqrt($r) {
+    $x0: 1;
+    $x1: $x0;
+   
+    @for $i from 1 through 10 {
+        $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+        $x0: $x1;
+    }
+
+    @return $x1;
+}

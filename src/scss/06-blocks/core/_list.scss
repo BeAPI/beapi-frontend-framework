@@ -1,0 +1,42 @@
+#{context-selector('.blocks-container', '.is-root-container')} {
+    ul,
+    ol {
+        // Utility classes
+        &.aligncenter {
+            padding: 0;
+            list-style-position: inside;
+        }
+
+        &.alignright {
+            padding: 0;
+            text-align: right;
+            list-style-position: inside;
+        }
+    }
+
+    ul {
+        &:not([class*="is-style-"], .no-list-style) {
+            list-style-type: disc;
+
+            li {
+                &::marker {
+                    color: $color-primary;
+                }
+            }
+        }
+    }
+
+    ol {
+        &:not([class*="is-style-"]) {
+            list-style-type: decimal;
+
+            &::marker {
+                color: $color-primary;
+            }
+        }
+    }
+
+    dd {
+        margin: 0;
+    }
+}

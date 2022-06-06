@@ -1,0 +1,16 @@
+@each
+    $name, $color
+    in (
+        "primary": $color-primary,
+        "secondary": $color-secondary,
+        "dark" : $color-dark,
+        "light" : $color-light,
+    ) {
+    .has-#{$name}-color {
+        color: #{$color};
+    }
+
+    .has-#{$name}-background-color {
+        background-color: #{$color};
+    }
+}

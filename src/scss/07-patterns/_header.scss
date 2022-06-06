@@ -1,0 +1,376 @@
+/**
+ * Header
+ */
+
+.header {
+    $el: &;
+
+    height: 76px;
+
+    &__inner {
+        position: fixed;
+        top: 0;
+        z-index: 10000;
+        width: 100%;
+        background: var(--wp--preset--color--cyan-bluish-gray);
+    }
+
+    .container {
+        padding-top: 26px;
+        padding-bottom: 28px;
+    }
+
+    &__logo-link {
+        display: block;
+        width: 124px;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    &__menu-toggle {
+        position: absolute;
+        top: 14px;
+        right: $external-gutter;
+        z-index: 2;
+        width: 46px;
+        height: 46px;
+        padding: 0;
+        cursor: pointer;
+        background: $color-text;
+        border: none;
+        border-radius: 50%;
+
+        > span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 2px;
+            margin: -1px 0 0 -10px;
+            background: $color-light;
+            border-radius: 2px;
+            transition: background-color .5s $ease-in-out-expo;
+
+            &::before,
+            &::after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                content: "";
+                background: $color-light;
+                border-radius: inherit;
+                transition: transform .5s $ease-in-out-expo;
+            }
+
+            &::before {
+                transform: translateY(-6px);
+            }
+
+            &::after {
+                transform: translateY(6px);
+            }
+        }
+    }
+
+    &__menu-list {
+        margin: 0;
+        font-size: 14px;
+        letter-spacing: 1px;
+        list-style: none;
+
+        li + li {
+            margin-top: 22px;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .menu-item-has-children {
+            position: relative;
+
+            > a {
+                display: inline-block;
+                max-width: calc(100% - 50px);
+            }
+        }
+
+        .has-sub-menu-open {
+            > #{$el}__sub-menu-toggle .icon {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &__sub-menu-toggle {
+        position: absolute;
+        top: 7px;
+        right: -18px;
+        z-index: 1;
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        color: $color-dark;
+        vertical-align: middle;
+        cursor: pointer;
+        background: none;
+        border: none;
+
+        .icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 6px;
+            margin: -3px 0 0 -5px;
+            fill: currentColor;
+            transition: fill .25s, transform .5s $ease-in-out-expo;
+        }
+    }
+
+    &__sub-menu {
+        &-level-0,
+        &-level-1,
+        // sub menu after level 1 will not be displayed
+        &-level-2 {
+            display: none;
+            overflow: hidden;
+        }
+
+        #{$el}__sub-menu-toggle {
+            top: -15px;
+        }
+    }
+
+    &--menu-is-open {
+        #{$el}__menu-toggle {
+            > span {
+                background: rgba($color-light, 0);
+
+                &::before {
+                    transform: rotate(135deg);
+                }
+    
+                &::after {
+                    transform: rotate(-135deg);
+                }
+            }
+        }
+    }
+
+    .admin-bar &__inner {
+        top: $wp-admin-bar-mobile-height;
+    }
+
+    .scroll-up &__inner,
+    .scroll-down &__inner,
+    .scroll-bottom &__inner {
+        top: 0;
+    }
+
+    @include breakpoints(lg, max) {
+        &__menu {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            display: none;
+            width: 100%;
+            height: 100vh;
+            overflow: auto;
+            background: $color-primary;
+            transform: translateX(-100%);
+
+            > div {
+                padding: 76px #{$external-gutter * 2} 25px;
+            }
+        }
+
+        &__menu-list {
+            width: 100%;
+            padding-bottom: 22px;
+        
+            > li {
+                padding-top: 22px;
+
+                + li {
+                    border-top: 1px solid $color-dark;
+                }
+            }
+        }
+
+        &__sub-menu > div {
+            padding-top: 38px;
+            padding-bottom: 10px;
+        }
+    }
+
+    @include breakpoints(sm) {
+        &__menu {
+            #{$el}__logo-link {
+                display: none;
+            }
+        }
+    }
+
+    @include breakpoints(sm, lg) {
+        #{$el}__menu {
+            right: 0;
+            left: auto;
+            width: column(6);
+            transform: translateX(100%);
+
+            > div {
+                padding: column(2, 2) column(1, 1, 6);
+            }
+        }
+    }
+
+    @include breakpoints(admin-bar) {
+        .admin-bar &__inner {
+            top: $wp-admin-bar-desktop-height;
+        }
+    }
+
+    @include breakpoints(lg) {
+        .container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        &__logo-link {
+            width: 146px;
+        }
+
+        &__menu-toggle {
+            display: none;
+        }
+
+        &__menu {
+            width: column(9);
+
+            > div {
+                text-align: right;
+            }
+        }
+
+        &__menu-list {
+            color: $color-text;
+
+            li + li {
+                margin-top: 12px;
+            }
+
+            > li {
+                display: inline;
+                text-align: left;
+
+                + li {
+                    margin-left: 28px;
+                }
+
+                &.menu-item-has-children {
+                    padding-bottom: 38px;
+
+                    > a {
+                        max-width: none;
+                        margin-right: 14px;
+                    }
+                }
+            }
+
+            .menu-item-has-children {
+                @include hover {
+                    > #{$el}__sub-menu {
+                        .no-js & {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__sub-menu-toggle {
+            top: 8px;
+            right: 0;
+            width: 7px;
+            height: 4px;
+
+            .icon {
+                width: 100%;
+                height: 100%;
+                margin: -2px 0 0 -3px;
+            }
+        }
+
+        &__sub-menu {
+            > div {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            &-level-0 {
+                position: absolute;
+                top: calc(100% - 20px);
+                left: 50%;
+                z-index: 1;
+                width: 314px;
+                margin-left: -157px;
+
+                &::before,
+                &::after {
+                    position: absolute;
+                    content: "";
+                    background: $color-primary;
+                }
+
+                &::before {
+                    top: 19px;
+                    left: 0;
+                    z-index: -1;
+                    width: 100%;
+                    height: calc(100% - 19px);
+                }
+
+                &::after {
+                    top: 19px;
+                    left: 50%;
+                    width: 20px;
+                    height: 20px;
+                    border-width: 1px 1px 0 0;
+                    transform: translate(-50%, -50%) rotate(-45deg);
+                }
+
+                > div {
+                    padding: (36px + 19px) 30px 36px;
+
+                    > ul {
+                        > li {
+                            &.menu-item-has-children {
+                                a {
+                                    max-width: calc(100% - 25px);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            a {
+                display: block;
+            }
+
+            #{$el}__sub-menu-toggle {
+                top: .7em;
+                right: 0;
+                color: inherit;
+            }
+        }
+    }
+}

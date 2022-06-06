@@ -1,0 +1,59 @@
+:root {
+    /*
+     * Heading
+     */
+    // Font size
+    --heading--font-size-h1: 56px;
+    --heading--font-size-h2: 48px;
+    --heading--font-size-h3: 36px;
+    --heading--font-size-h4: 32px;
+    --heading--font-size-h5: 24px;
+    --heading--font-size-h6: 18px;
+
+    // Line height
+    --heading--line-height-h1: 1.25;
+    --heading--line-height-h2: 1.25;
+    --heading--line-height-h3: 1.25;
+    --heading--line-height-h4: 1.25;
+    --heading--line-height-h5: 1.25;
+    --heading--line-height-h6: 1.25;
+
+    /*
+     * Spacing
+     */
+    --spacing--block-1: 16px;
+    --spacing--block-2: 32px;
+    --spacing--block-3: 48px;
+    --spacing--block-4: 64px;
+
+    /*
+     * Alignments
+     */
+    --responsive--aligndefault-width: calc(100% - #{$external-gutter * 2});
+    --responsive--alignwide-width: calc(100% - #{$external-gutter * 2});
+    --responsive--alignfull-width: 100%;
+
+    /*
+     * Alignments breakpoints
+     */
+    @media screen and (min-width: #{$container-default + $external-gutter * 2}) {
+        --responsive--aligndefault-width: #{$container-default};
+    }
+
+    @media screen and (min-width: #{$container-wide + $external-gutter * 2}) {
+        --responsive--alignwide-width: #{$container-wide};
+    }
+
+    /*
+     * Global breakpoints
+     */
+    @include breakpoints(md) {
+        /*
+         * Spacing
+         */
+        --spacing--block-1: 32px;
+        --spacing--block-2: 64px;
+        --spacing--block-3: 96px;
+        --spacing--block-4: 128px;
+    }
+}

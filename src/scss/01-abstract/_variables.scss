@@ -1,0 +1,126 @@
+/**
+ * Variables
+ */
+
+// ==========
+// Colors
+// ==========
+
+// ----
+// Dark/Light colors
+// ----
+$color-light: #fff;
+$color-dark: #000;
+
+// ----
+// Grey colors
+// ----
+$color-grey-100: #eee;
+$color-grey-200: #ccc;
+$color-grey-300: #aaa;
+$color-grey-400: #999;
+$color-grey-500: #888;
+$color-grey-600: #777;
+$color-grey-700: #555;
+$color-grey-800: #333;
+$color-grey-900: #111;
+
+// ----
+// Palette colors
+// ----
+$color-yellow-500: #ffe600;
+
+// ----
+// Theme colors
+// ----
+$color-primary: $color-yellow-500;
+$color-secondary: $color-grey-400;
+$color-text: $color-grey-900;
+
+// ==========
+// Sizes
+// ==========
+$column-preset : (
+    /* preset for desktop */
+    d : (
+        column-width: 60,
+        gutter-width: 40,
+        total-column: 12
+    ),
+    /* preset for tablet */
+    t : (
+        column-width: 60,
+        gutter-width: 34,
+        total-column: 8
+    ),
+    /* preset for mobile */
+    m : (
+        column-width: 58,
+        gutter-width: 31,
+        total-column: 4
+    )
+);
+
+// ----
+// Containers
+// ----
+$container-default-column-length: 8;
+$container-default: (
+    map-get(map-get($column-preset, d), column-width) * $container-default-column-length +
+    map-get(map-get($column-preset, d), gutter-width) * ($container-default-column-length - 1)
+) * 1px;
+$container-wide: (
+    map-get(map-get($column-preset, d), column-width) * map-get(map-get($column-preset, d), total-column) +
+    map-get(map-get($column-preset, d), gutter-width) * (map-get(map-get($column-preset, d), total-column) - 1)
+) * 1px;
+$external-gutter: 25px;
+
+// ----
+// Breakpoints
+// ----
+$breakpoints : (
+    xs: 480,
+    s: 600,
+    sm: 768,
+    admin-bar: 784,
+    md: 1024,
+    lg: $container-wide + $external-gutter,
+);
+
+// ----
+// wp admin bar
+// ----
+$wp-admin-bar-mobile-height: 46px;
+$wp-admin-bar-desktop-height: 32px;
+
+// ----
+// border
+// ----
+$base-border-color: $color-grey-800;
+$base-border: 1px solid $base-border-color;
+$base-border-radius: 3px;
+
+// ==========
+// Fonts
+// ==========
+// ----
+// Font Family
+// ----
+$font-family-primary: poppins, sans-serif;
+
+// ----
+// Font Size
+// ----
+$font-size-base: 16px;
+$font-size-xs: 14px;
+$font-size-sm: 16px;
+$font-size-md: 18px;
+$font-size-lg: 24px;
+$font-size-xl: 32px;
+$font-size-xxl: 48px;
+$font-size-xxxl: 56px;
+
+// ----
+// Line Height
+// ----
+$line-height-base: 1.4;

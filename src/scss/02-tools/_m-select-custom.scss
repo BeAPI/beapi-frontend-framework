@@ -1,0 +1,57 @@
+/**
+ * Select custom
+ */
+
+@mixin select-custom {
+    display: block;
+    width: 100%;
+    max-width: 100%; /* useful when width is set to anything other than 100% */
+    padding: 15px 25px;
+    margin: 0;
+    font-size: 16px; // prevent iOS zoom
+    line-height: 1.15;
+    color: $color-text;
+    background-color: $color-light;
+    background-image: get-svg-url("down"), linear-gradient(to bottom, $color-light 0%, $color-light 100%);
+    background-repeat: no-repeat, repeat;
+    background-position: right 10px top 50%, 0 0;
+    background-size: 10px auto, 100%;
+    border: 1px solid $color-grey-500;
+    border-radius: 10px;
+    appearance: none;
+
+    // Set options to normal weight
+    option {
+        font-weight: 400;
+    }
+
+    // Hide arrow icon in IE browsers
+    &::-ms-expand {
+        display: none;
+    }
+
+    // Hover style
+    &:hover {
+        border-color: darken($color-grey-500, 10%);
+    }
+
+    // Focus style
+    &:focus {
+        color: darken($color-text, 10%);
+        border-color: darken($color-grey-500, 20%);
+        outline: none;
+        box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+        box-shadow: 0 0 0 3px -moz-mac-focusring;
+
+        option {
+            outline: none;
+        }
+    }
+
+    // Support for rtl text, explicit support for Arabic and Hebrew
+    *[dir="rtl"] &,
+    :root:lang(ar) &,
+    :root:lang(iw) & {
+        background-position: left 10px top 50%, 0 0;
+    }
+}

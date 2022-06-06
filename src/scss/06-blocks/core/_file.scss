@@ -1,0 +1,7 @@
+.wp-block-file {
+    $el: &;
+
+    #{$el}__button {
+        @extend %button-block;
+    }
+}

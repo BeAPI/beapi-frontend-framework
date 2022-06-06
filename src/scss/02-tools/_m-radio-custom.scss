@@ -1,0 +1,28 @@
+/**
+ * Radio custom, must be used with checkbox custom
+ */
+
+@mixin radio-custom($include-checkbox-style: false, $color: $color-primary, $size: 18px, $border-width: 1px) {
+    @if ($include-checkbox-style) {
+        @include checkbox-custom($color, $size, $border-width);
+    }
+
+    + label {
+        &::before {
+            border-radius: 50%;
+        }
+
+        &::after {
+            top: #{1px + $size / 2};
+            width: $size / 2;
+            height: $size / 2;
+            background: $color;
+            border: none;
+            border-radius: 50%;
+        }
+    }
+}
+
+@mixin radio-custom-checked() {
+    @include checkbox-custom-checked;
+}

@@ -1,0 +1,25 @@
+%button {
+    @include button;
+}
+
+%button-block {
+    @extend %button;
+    @include button-block;
+}
+
+%button-block-outline {
+    @extend %button-block;
+    @include button-block-outline;
+}
+
+.button {
+    @extend %button;
+}
+
+.button-block {
+    @extend %button-block;
+}
+
+.button-outline {
+    @extend %button-block-outline;
+}

@@ -1,0 +1,11 @@
+/**
+ * Clearflex : clear:left for flexbox
+ */
+
+@mixin clearflex {
+    &::after {
+        display: flex;
+        margin-left: auto;
+        content: "";
+    }
+}

@@ -5,9 +5,8 @@ use BEA\Theme\Framework\Helpers\Accessible_Menu_Walker;
 	<div class="header__inner">
 		<div class="container">
 			<a class="header__logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<!-- TODO : add logo here -->
-				<strong>Logo</strong>
-				<span class="sr-only"><?php wp_title(); ?></span>
+				<strong><?php echo esc_attr( get_bloginfo( 'name' ) ); ?></strong>
+				<span class="sr-only"><?php echo esc_attr( get_bloginfo( 'name' ) ); ?></span>
 			</a>
 
 			<button class="header__menu-toggle">

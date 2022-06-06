@@ -1,3 +1,6 @@
+# 5.1
+- Big update of the SCSS folder content and organization
+
 # 5.0.9
 - Add invisible scrollbar SCSS mixin
 

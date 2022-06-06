@@ -3,16 +3,16 @@
 		<div class="container">
 			<a class="header__logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
 				<!-- TODO : add logo here -->
-				<strong>Un joli logo</strong>
+				<strong>Logo</strong>
 				<span class="sr-only"><?php wp_title(); ?></span>
 			</a>
 
 			<button class="header__menu-toggle">
 				<span aria-hidden="true"></span>
-				<span class="sr-only">Ouvrir/Fermer le menu</span>
+				<span class="sr-only"><?php _e('Open/Close the menu','beapi-frontend-framework');?></span>
 			</button>
 
-			<nav id="menu" class="header__menu" aria-label="Main navigation" role="navigation">
+			<nav id="menu" class="header__menu" aria-label="<?php _e('Main navigation','beapi-frontend-framework');?>" role="navigation">
 				<div>
 					<?php
 					wp_nav_menu(

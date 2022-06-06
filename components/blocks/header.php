@@ -11,10 +11,10 @@ use BEA\Theme\Framework\Helpers\Accessible_Menu_Walker;
 
 			<button class="header__menu-toggle">
 				<span aria-hidden="true"></span>
-				<span class="sr-only"><?php _e( 'Open/Close the menu', 'beapi-frontend-framework' ); ?></span>
+				<span class="sr-only"><?php esc_html_e( 'Open/Close the menu', 'beapi-frontend-framework' ); ?></span>
 			</button>
 
-			<nav id="menu" class="header__menu" aria-label="<?php _e( 'Main navigation', 'beapi-frontend-framework' ); ?>" role="navigation">
+			<nav id="menu" class="header__menu" aria-label="<?php esc_html_e( 'Main navigation', 'beapi-frontend-framework' ); ?>" role="navigation">
 				<div>
 					<?php
 					wp_nav_menu(

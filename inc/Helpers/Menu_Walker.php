@@ -23,7 +23,7 @@ class Accessible_Menu_Walker extends \Walker_Nav_Menu {
 		parent::start_el( $output, $item, $depth, $args, $id );
 
 		if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
-			$output .= '<button class="header__sub-menu-toggle" type="button"><span class="sr-only">' . esc_attr_( 'Toggle menu', 'beapi-frontend-framework' ) . '</span>' . get_the_icon( 'down' ) . '</button>';
+			$output .= '<button class="header__sub-menu-toggle" type="button"><span class="sr-only">' . esc_html__( 'Toggle menu', 'beapi-frontend-framework' ) . '</span>' . get_the_icon( 'down' ) . '</button>';
 			$output .= '<div class="header__sub-menu header__sub-menu-level-' . $depth . '"><div>';
 			$output .= '<ul>';
 		}

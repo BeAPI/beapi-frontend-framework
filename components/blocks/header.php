@@ -1,7 +1,7 @@
 <?php
 use BEA\Theme\Framework\Helpers\Accessible_Menu_Walker;
 ?>
-<header id="header" class="header" role="banner" aria-label="Entête de page">
+<header id="header" class="header" role="banner" aria-label="<?php esc_attr_e( 'Header', 'beapi-frontend-framework' ); ?>">
 	<div class="header__inner">
 		<div class="container">
 			<a class="header__logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -14,7 +14,7 @@ use BEA\Theme\Framework\Helpers\Accessible_Menu_Walker;
 				<span class="sr-only"><?php esc_html_e( 'Open/Close the menu', 'beapi-frontend-framework' ); ?></span>
 			</button>
 
-			<nav id="menu" class="header__menu" aria-label="<?php esc_html_e( 'Main navigation', 'beapi-frontend-framework' ); ?>" role="navigation">
+			<nav id="menu" class="header__menu" aria-label="<?php esc_attr_e ( 'Main navigation', 'beapi-frontend-framework' ); ?>" role="navigation">
 				<div>
 					<?php
 					wp_nav_menu(

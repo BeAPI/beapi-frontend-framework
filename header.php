@@ -16,8 +16,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-	<script type="module" src="//localhost:3000/@vite/client"></script>
-	<script type="module" src="//localhost:3000/src/js/index.js"></script>
+	<script type="module" src="https://vite.beapi-frontend-framework.lndo.site:3000/@vite/client"></script>
+	<script type="module" src="https://vite.beapi-frontend-framework.lndo.site:3000/src/js/index.js"></script>
+	<link rel="stylesheet" href="https://vite.beapi-frontend-framework.lndo.site:3000/src/scss/style.scss">
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

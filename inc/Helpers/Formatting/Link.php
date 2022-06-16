@@ -150,13 +150,7 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 	$attributes = apply_filters( 'bea_theme_framework_link_attributes', $attributes, $settings );
 
 	// revove empty attributes
-
-	if ( empty( $attributes['title'] ) ) {
-		unset( $attributes['title'] );
-	}
-	if ( empty( $attributes['target'] ) ) {
-		unset( $attributes['target'] );
-	}
+	$attributes = array_filter( $attributes );
 
 	$settings = wp_parse_args(
 		$settings,

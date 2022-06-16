@@ -29,7 +29,7 @@ class Assets_JS_Async implements Service {
 	 */
 	public function boot( Service_Container $container ): void {
 		if ( current_theme_supports( 'async-js' ) && ! is_admin() ) {
-			add_filter( 'script_loader_tag', array( $this, 'script_loader_tag' ), 20, 2 );
+			add_filter( 'script_loader_tag', [ $this, 'script_loader_tag' ], 20, 2 );
 		}
 
 		/**

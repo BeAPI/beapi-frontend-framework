@@ -12,8 +12,9 @@
     <file>.</file>
 
     <!-- Exclude the Composer Vendor directory. -->
-    <exclude-pattern>web/app/themes/*/src/</exclude-pattern>
-    <exclude-pattern>web/app/themes/*/autoload.php</exclude-pattern>
+    <exclude-pattern>src/</exclude-pattern>
+    <exclude-pattern>vendor/</exclude-pattern>
+    <exclude-pattern>autoload.php</exclude-pattern>
 
     <rule ref="WordPress-Extra">
         <!-- Exclude as we use a custom autoloader. -->

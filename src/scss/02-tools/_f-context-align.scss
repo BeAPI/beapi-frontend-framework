@@ -22,7 +22,7 @@
 $function-context-align-last-value: "";
 
 @function context-align($value: null, $suffix: " > ") {
-    @if ($value == null) {
+    @if not $value {
         @if ($entry-file-name == "style") {
             @return ".align" + $function-context-align-last-value;
         }

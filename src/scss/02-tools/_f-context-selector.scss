@@ -61,7 +61,7 @@
         $full-selector: $parent + " " + $selector;
     } @else if (type-of($selector) == "list") {
         @each $s in $selector {
-            $full-selector: $full-selector +  $parent + " " + $s;
+            $full-selector: $full-selector + $parent + " " + $s;
         }
     } @else {
         $full-selector: $parent;

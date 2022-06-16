@@ -1,3 +1,5 @@
+@use "sass:color";
+
 // All inputs variables
 $text-inputs-list: 'input[type="color"]', 'input[type="date"]',
     'input[type="datetime"]', 'input[type="datetime-local"]',
@@ -21,23 +23,23 @@ textarea {
     font-family: $font-family-primary;
     line-height: 1;
     color: $color-text;
-    background: darken($color-light, 5%);
+    background: color.adjust($color-light, $lightness: -5%);
     border: 1px solid $color-grey-500;
     border-radius: 10px; //reset border radius for ios
     transition: border-color .5s ease;
     appearance: none;
 
     @include placeholder {
-        color: lighten($color-text, 50%);
+        color: color.adjust($color-text, $lightness: 50%);
     }
 
     &:hover {
-        border-color: darken($color-grey-500, 10%);
+        border-color: color.adjust($color-grey-500, $lightness: -10%);
     }
 
     &:focus {
-        color: darken($color-text, 10%);
-        border-color: darken($color-grey-500, 20%);
+        color: color.adjust($color-text, $lightness: -10%);
+        border-color: color.adjust($color-grey-500, $lightness: -20%);
     }
 }
 

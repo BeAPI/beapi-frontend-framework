@@ -50,6 +50,13 @@ sftp-config-alt*.json
 ### NodeJS ###
 node_modules/
 bower_components/
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
 ### PictureFill/Retina images/Timthumb ###
 ### on dev need to specify themes path like : wp-content/themes/name_of_your_theme/assets/img/sample/cache ###

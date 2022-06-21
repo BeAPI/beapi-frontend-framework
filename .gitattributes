@@ -9,3 +9,5 @@ composer.lock export-ignore
 grumphp.yml export-ignore
 phpcs.xml export-ignore
 psalm.xml export-ignore
+/.yarn/releases/** binary
+/.yarn/plugins/** binary

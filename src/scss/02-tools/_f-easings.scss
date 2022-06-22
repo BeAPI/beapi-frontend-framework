@@ -58,8 +58,8 @@
 $easings-const-c1: 1.70158;
 $easings-const-c2: $easings-const-c1 * 1.525;
 $easings-const-c3: $easings-const-c1 + 1;
-$easings-const-c4: (2 * math.$pi) / 3;
-$easings-const-c5: (2 * math.$pi) / 4.5;
+$easings-const-c4: math.div(2 * math.$pi, 3);
+$easings-const-c5: math.div(2 * math.$pi, 4.5);
 
 // ==========
 // Quad
@@ -137,7 +137,7 @@ $easings-const-c5: (2 * math.$pi) / 4.5;
     @if ($x < .5) {
         @return 16 * $x * $x * $x * $x * $x;
     } @else {
-        @return 1 - math.pow(-2 * $x + 2, 5) / 2;
+        @return 1 - math.div(math.pow(-2 * $x + 2, 5), 2);
     }
 }
 
@@ -146,15 +146,15 @@ $easings-const-c5: (2 * math.$pi) / 4.5;
 // ==========
 
 @function ease-in-sine($x) {
-    @return 1 - math.cos(($x * math.$pi) / 2);
+    @return 1 - math.cos(math.div($x * math.$pi), 2);
 }
 
 @function ease-out-sine($x) {
-    @return math.sin(($x * math.$pi) / 2);
+    @return math.sin(math.div($x * math.$pi), 2);
 }
 
 @function ease-in-out-sine($x) {
-    @return -(math.cos(math.$pi * $x) - 1) / 2;
+    @return -math.div((math.cos(math.$pi * $x) - 1), 2);
 }
 
 // ==========

@@ -1,4 +1,5 @@
 @use "sass:map";
+@use "sass:math";
 
 /**
  * Column
@@ -52,7 +53,7 @@
         $total-gutter: $total-column - 1;
     }
 
-    @return ($nb-column * $column-width + $nb-gutter * $gutter-width) / ($total-column * $column-width + $total-gutter * $gutter-width) * 100%;
+    @return math.div($nb-column * $column-width + $nb-gutter * $gutter-width, $total-column * $column-width + $total-gutter * $gutter-width) * 100%;
 }
 
 // ----
@@ -101,5 +102,5 @@
 
     $width: column-px($device, $nb-column, $nb-gutter, true);
 
-    @return calc((100% - #{$external-gutter * 2}) * #{$width / ($gutter-width * ($total-column - 1) + $column-width * $total-column)});
+    @return calc((100% - #{$external-gutter * 2}) * #{math.div($width, ($gutter-width * ($total-column - 1) + $column-width * $total-column))});
 }

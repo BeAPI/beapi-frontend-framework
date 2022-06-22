@@ -28,9 +28,9 @@
         &::after {
             position: absolute;
             top: 7px;
-            left: math.round($size / 2);
-            width: math.round($size / 1.5);
-            height: math.round($size / 2.5);
+            left: math.round(math.div($size, 2));
+            width: math.round(math.div($size, 1.5));
+            height: math.round(math.div($size, 2.5));
             content: "";
             border-color: $color;
             border-style: solid;

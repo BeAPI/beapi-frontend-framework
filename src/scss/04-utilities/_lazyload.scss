@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .lazyload,
 .lazyloading {
     background: $color-primary;
@@ -34,8 +36,8 @@ $loading-dimensions: 50px;
 
     &::after {
         position: absolute;
-        top: calc(50% - #{$loading-dimensions / 2});
-        left: calc(50% - #{$loading-dimensions / 2});
+        top: calc(50% - #{math.div($loading-dimensions, 2)});
+        left: calc(50% - #{math.div($loading-dimensions, 2)});
         z-index: 3;
         width: $loading-dimensions;
         height: $loading-dimensions;

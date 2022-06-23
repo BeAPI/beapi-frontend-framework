@@ -2,7 +2,7 @@
  * Heading mixins
  */
 
-@mixin heading($name: h1) {
+@mixin heading($name: h1, $style: default) {
     font-family: $font-family-primary;
     font-weight: 400;
 

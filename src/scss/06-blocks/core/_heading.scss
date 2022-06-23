@@ -1,7 +1,52 @@
-@for $i from 1 through 6 {
+/**
+ * Headings
+ *
+ * examples :
+ *  $headings: (
+ *      "1": (
+ *          "numbered"
+ *      ),
+ *      "2": (
+ *          "numbered",
+ *          "regular"
+ *      ),
+ *      "3": (
+ *          "numbered",
+ *          "regular"
+ *      ),
+ *      "4": (
+ *           "numbered",
+ *          "regular"
+ *      ),
+ *      "5": (
+ *          "numbered"
+ *      ),
+ *      "6": (
+ *          "numbered"
+ *      ),
+ *  );
+ *
+ */
+ 
+ $headings: (
+    "1": (),
+    "2": (),
+    "3": (),
+    "4": (),
+    "5": (),
+    "6": (),
+);
+
+@each $i, $styles in $headings {
     h#{$i},
     .is-style-h#{$i} {
         @include heading(h#{$i});
+
+        @each $style in $styles {
+            &.is-style-#{$style} {
+                @include heading(h#{$i}, $style);
+            }
+        }
     }
 
     .has-h-#{$i}-font-size {

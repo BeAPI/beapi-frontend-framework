@@ -199,7 +199,10 @@ function generateDefaultImage(sizes, filename) {
       context.drawImage(image, (width - logoWidth) / 2, (height - logoHeight) / 2, logoWidth, logoHeight)
 
       const buffer = canvas.toBuffer('image/jpeg')
-      fs.writeFileSync(dir.defaultImages + filename, buffer)
+
+      if (typeof buffer !== 'undefined') {
+        fs.writeFileSync(dir.defaultImages + filename, buffer)
+      }
     })
   } catch (err) {
     console.error(err)

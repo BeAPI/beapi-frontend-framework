@@ -31,17 +31,17 @@ h6 {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
- 
+
 /**
   * Apply generic border-box to all elements.
   * See:
   * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
   */
- 
+
 html {
     /* Apply border-box across the entire page. */
     box-sizing: border-box;
- 
+
     // HTML resets
     font-family: $font-family-primary;
     line-height: $line-height-base;
@@ -55,7 +55,7 @@ html {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: auto;
 }
- 
+
 /**
   * Relax the definition a bit, to allow components to override it manually.
   */

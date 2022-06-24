@@ -52,7 +52,7 @@ body.login {
     // notice block border-left color
     .message,
     .success,
-    #login_error {
+    #login_error { // stylelint-disable-line selector-id-pattern
         border-left-color: $login-text-color;
     }
 

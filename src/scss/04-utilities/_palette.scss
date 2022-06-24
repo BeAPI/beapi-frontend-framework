@@ -1,5 +1,4 @@
-@each
-    $name, $color
+@each $name, $color
     in (
         "primary": $color-primary,
         "secondary": $color-secondary,

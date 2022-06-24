@@ -1,3 +1,5 @@
+@use "sass:map";
+
 /**
  * Variables
  */
@@ -40,7 +42,7 @@ $color-text: $color-grey-900;
 // ==========
 // Sizes
 // ==========
-$column-preset : (
+$column-preset: (
     /* preset for desktop */
     d : (
         column-width: 60,
@@ -66,19 +68,17 @@ $column-preset : (
 // ----
 $container-default-column-length: 8;
 $container-default: (
-    map-get(map-get($column-preset, d), column-width) * $container-default-column-length +
-    map-get(map-get($column-preset, d), gutter-width) * ($container-default-column-length - 1)
+    map.get(map.get($column-preset, d), column-width) * $container-default-column-length + map.get(map.get($column-preset, d), gutter-width) * ($container-default-column-length - 1)
 ) * 1px;
 $container-wide: (
-    map-get(map-get($column-preset, d), column-width) * map-get(map-get($column-preset, d), total-column) +
-    map-get(map-get($column-preset, d), gutter-width) * (map-get(map-get($column-preset, d), total-column) - 1)
+    map.get(map.get($column-preset, d), column-width) * map.get(map.get($column-preset, d), total-column) + map.get(map.get($column-preset, d), gutter-width) * (map.get(map.get($column-preset, d), total-column) - 1)
 ) * 1px;
 $external-gutter: 25px;
 
 // ----
 // Breakpoints
 // ----
-$breakpoints : (
+$breakpoints: (
     xs: 480,
     s: 600,
     sm: 768,

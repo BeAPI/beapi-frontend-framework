@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /**
  * Radio custom, must be used with checkbox custom
  */
@@ -13,9 +15,9 @@
         }
 
         &::after {
-            top: #{1px + $size / 2};
-            width: $size / 2;
-            height: $size / 2;
+            top: #{1px + math.div($size, 2)};
+            width: math.div($size, 2);
+            height: math.div($size, 2);
             background: $color;
             border: none;
             border-radius: 50%;

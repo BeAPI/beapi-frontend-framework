@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "sass:math";
+
 /**
  * Column
  *
@@ -14,9 +17,9 @@
 
 @function column-set-var($var, $device, $prop) {
 
-    @if ($var == null) {
+    @if not $var {
 
-        @return map-get(map-get($column-preset, $device), $prop);
+        @return map.get(map.get($column-preset, $device), $prop);
     } @else {
 
         @return $var;
@@ -37,20 +40,20 @@
         $device: d;
     }
 
-    $preset: map-get($column-preset, $device);
-    $gutter-width: map-get($preset, gutter-width);
-    $column-width: map-get($preset, column-width);
+    $preset: map.get($column-preset, $device);
+    $gutter-width: map.get($preset, gutter-width);
+    $column-width: map.get($preset, column-width);
     $total-column: column-set-var($total-column, $device, total-column);
 
-    @if $nb-gutter == null {
+    @if not $nb-gutter {
         $nb-gutter: $nb-column - 1;
     }
 
-    @if $total-gutter == null {
+    @if not $total-gutter {
         $total-gutter: $total-column - 1;
     }
 
-    @return ($nb-column * $column-width + $nb-gutter * $gutter-width) / ($total-column * $column-width + $total-gutter * $gutter-width) * 100%;
+    @return math.div($nb-column * $column-width + $nb-gutter * $gutter-width, $total-column * $column-width + $total-gutter * $gutter-width) * 100%;
 }
 
 // ----
@@ -65,11 +68,11 @@
         $device: d;
     }
 
-    $preset: map-get($column-preset, $device);
-    $gutter-width: map-get($preset, gutter-width);
-    $column-width: map-get($preset, column-width);
+    $preset: map.get($column-preset, $device);
+    $gutter-width: map.get($preset, gutter-width);
+    $column-width: map.get($preset, column-width);
 
-    @if $nb-gutter == null {
+    @if $nb-gutter {
         $nb-gutter: $nb-column - 1;
     }
 
@@ -92,12 +95,12 @@
         $device: d;
     }
 
-    $preset: map-get($column-preset, $device);
-    $gutter-width: map-get($preset, gutter-width);
-    $column-width: map-get($preset, column-width);
-    $total-column: map-get($preset, total-column);
+    $preset: map.get($column-preset, $device);
+    $gutter-width: map.get($preset, gutter-width);
+    $column-width: map.get($preset, column-width);
+    $total-column: map.get($preset, total-column);
 
     $width: column-px($device, $nb-column, $nb-gutter, true);
 
-    @return calc((100% - #{$external-gutter * 2}) * #{$width / ($gutter-width * ($total-column - 1) + $column-width * $total-column)});
+    @return calc((100% - #{$external-gutter * 2}) * #{math.div($width, ($gutter-width * ($total-column - 1) + $column-width * $total-column))});
 }

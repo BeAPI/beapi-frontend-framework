@@ -1,3 +1,5 @@
+@use "sass:color";
+
 /**
  * Select custom
  */
@@ -32,13 +34,13 @@
 
     // Hover style
     &:hover {
-        border-color: darken($color-grey-500, 10%);
+        border-color: color.adjust($color-grey-500, $lightness: -10%);
     }
 
     // Focus style
     &:focus {
-        color: darken($color-text, 10%);
-        border-color: darken($color-grey-500, 20%);
+        color: color.adjust($color-text, $lightness: -10%);
+        border-color: color.adjust($color-grey-500, $lightness: -20%);
         outline: none;
         box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
         box-shadow: 0 0 0 3px -moz-mac-focusring;

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /**
  * Checkbox custom
  */
@@ -26,9 +28,9 @@
         &::after {
             position: absolute;
             top: 7px;
-            left: round($size / 2);
-            width: round($size / 1.5);
-            height: round($size / 2.5);
+            left: math.round(math.div($size, 2));
+            width: math.round(math.div($size, 1.5));
+            height: math.round(math.div($size, 2.5));
             content: "";
             border-color: $color;
             border-style: solid;

@@ -34,8 +34,8 @@ class Menu implements Service {
 
 	public function register_menus(): void {
 		$nav_menu = [
-			'menu-main'   => __( 'Main menu' ),
-			'menu-footer' => __( 'Footer menu' ),
+			'menu-main'   => __( 'Main menu', 'beapi-frontend-framework' ),
+			'menu-footer' => __( 'Footer menu', 'beapi-frontend-framework' ),
 		];
 		register_nav_menus( $nav_menu );
 	}

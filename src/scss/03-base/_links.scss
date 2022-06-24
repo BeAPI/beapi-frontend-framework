@@ -3,11 +3,7 @@ a {
     text-decoration: underline;
     cursor: pointer;
 
-    &:hover {
+    @include hover {
         text-decoration: none;
-    }
-
-    &:focus {
-        background-color: $color-grey-200;
     }
 }

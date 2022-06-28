@@ -11,15 +11,15 @@
  *
  */
 
-@mixin pseudo($el: before, $width: "", $height: "", $content: "", $pos: absolute, $display: block) {
+@mixin pseudo($el: before, $width: null, $height: null, $content: "", $pos: absolute, $display: block) {
     @if $el == before or $el == after {
         &::#{$el} {
             position: $pos;
             display: $display;
-            @if $width != "" {
+            @if $width {
                 width: $width;
             }
-            @if $height != "" {
+            @if $height {
                 height: $height;
             }
             content: $content;

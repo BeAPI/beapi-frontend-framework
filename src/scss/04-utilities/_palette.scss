@@ -1,15 +1,11 @@
-@each $name, $color
-    in (
-        "primary": $color-primary,
-        "secondary": $color-secondary,
-        "dark" : $color-dark,
-        "light" : $color-light,
-    ) {
+@use "sass:map";
+
+@each $name, $colors in $palette {
     .has-#{$name}-color {
-        color: #{$color};
+        color: map.get($colors, color);
     }
 
     .has-#{$name}-background-color {
-        background-color: #{$color};
+        background-color: map.get($colors, color);
     }
 }

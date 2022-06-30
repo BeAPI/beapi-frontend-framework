@@ -4,7 +4,7 @@ namespace BEA\Theme\Framework\Helpers;
 
 use function BEA\Theme\Framework\Helpers\Svg\get_the_icon;
 
-class Accessible_Menu_Walker extends \Walker_Nav_Menu {
+class Custom_Menu_Walker extends \Walker_Nav_Menu {
 
 	/**
 	 * @param       $output

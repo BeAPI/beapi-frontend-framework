@@ -1,0 +1,28 @@
+/**
+ * Reduced-motion
+ *
+ * exemples :
+ *
+ *      @include reduced-motion { ... }
+ *          return @media screen and (prefers-reduced-motion : reduce) { ... }
+ *
+ *      you can add heavy animation using :
+ *
+ *      @include reduced-motion (false) { ... }
+ *          return @media screen and (prefers-reduced-motion : no-preference) { ... }
+ */
+
+@mixin reduced-motion ($reduce: true) {
+
+    @if ($reduce == true) {
+
+        @media screen and (prefers-reduced-motion: reduce) {
+            @content;
+        }
+    } @else {
+
+        @media screen and (prefers-reduced-motion: no-preference) {
+            @content;
+        }
+    }
+}

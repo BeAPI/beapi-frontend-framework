@@ -3,7 +3,7 @@
  *
  * Example :
  *
- *    @include pseudo(after, 100%, 1px) {
+ *    @include pseudo-element(after, 100%, 1px) {
  *        top: 0;
  *        left: 0;
  *        ... your css
@@ -11,7 +11,7 @@
  *
  */
 
-@mixin pseudo($el: before, $width: null, $height: null, $content: "", $pos: absolute, $display: block) {
+@mixin pseudo-element($el: before, $width: null, $height: null, $content: "", $pos: absolute, $display: block) {
     @if $el == before or $el == after {
         &::#{$el} {
             position: $pos;

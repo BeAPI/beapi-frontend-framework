@@ -47,6 +47,13 @@ $entry-file-name: "editor";
 @import "06-blocks/blocks";
 
 /**
+ * Patterns
+ * == Contains styles for site patterns.
+ */
+
+@import "07-patterns/patterns";
+
+/**
  * Vendor
  * == Plugins or libraries custom styles.
  */

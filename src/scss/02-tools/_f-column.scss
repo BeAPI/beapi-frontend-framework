@@ -72,7 +72,7 @@
     $gutter-width: map.get($preset, gutter-width);
     $column-width: map.get($preset, column-width);
 
-    @if $nb-gutter {
+    @if not $nb-gutter {
         $nb-gutter: $nb-column - 1;
     }
 

@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/beapi-frontend-"
 "framework\n"
 "POT-Creation-Date: 2022-06-30T08:09:55+00:00\n"
-"PO-Revision-Date: 2022-06-30 10:20+0200\n"
+"PO-Revision-Date: 2022-07-08 17:01+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1\n"
 "X-Domain: beapi-frontend-framework\n"
 
 #. Theme Name of the theme
@@ -56,7 +56,7 @@ msgstr "Liens d’accès rapide"
 
 #: components/blocks/skip-links.php:6
 msgid "Main navigation menu"
-msgstr "Menu de navigation personne"
+msgstr "Menu de navigation principal"
 
 #: components/blocks/skip-links.php:9 header.php:26
 msgid "Main content"
@@ -84,7 +84,7 @@ msgstr "Partager par email"
 
 #: inc/Helpers/Menu_Walker.php:26
 msgid "Toggle menu"
-msgstr "Menu "
+msgstr "Ouvrir/Fermer le menu"
 
 #: inc/Services/Editor.php:76
 msgid "Dark"
@@ -104,27 +104,27 @@ msgstr "Secondaire"
 
 #: inc/Services/Editor.php:102
 msgid "Title 6"
-msgstr "Titre 6"
+msgstr "Titre de niveau 6"
 
 #: inc/Services/Editor.php:108
 msgid "Title 5"
-msgstr "Titre 5"
+msgstr "Titre de niveau 5"
 
 #: inc/Services/Editor.php:114
 msgid "Title 4"
-msgstr "Titre 4"
+msgstr "Titre de niveau 4"
 
 #: inc/Services/Editor.php:120
 msgid "Title 3"
-msgstr "Titre 3"
+msgstr "Titre de niveau 3"
 
 #: inc/Services/Editor.php:126
 msgid "Title 2"
-msgstr "Titre 2"
+msgstr "Titre de niveau 2"
 
 #: inc/Services/Editor.php:132
 msgid "Title 1"
-msgstr "Titre 1"
+msgstr "Titre de niveau 1"
 
 #: inc/Services/Editor_Patterns.php:40
 msgid "Common"
@@ -135,18 +135,24 @@ msgstr "Général"
 msgid ""
 "Could not register file \"%s\" as a block pattern (\"Slug\" field missing)"
 msgstr ""
+"Impossible de déclarer la composition de blocs à partir du fichier \"%s"
+"\" (Le champ \"Slug\" est manquant)"
 
 #. translators: %1s: file name; %2s: slug value found.
 #: inc/Services/Editor_Patterns.php:138
 msgid ""
 "Could not register file \"%1$s\" as a block pattern (invalid slug \"%2$s\")"
 msgstr ""
+"Impossible de déclarer la composition de blocs à partir du fichier \"%1$s"
+"\" (Le slug \"%2$s\" n'est pas valide)"
 
 #. translators: %1s: file name; %2s: slug value found.
 #: inc/Services/Editor_Patterns.php:155
 msgid ""
 "Could not register file \"%s\" as a block pattern (\"Title\" field missing)"
 msgstr ""
+"Impossible de déclarer la composition de blocs à partir du fichier \"%s"
+"\" (Le champ \"Title\" est manquant)"
 
 #: inc/Services/Menu.php:37
 msgid "Main menu"

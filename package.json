@@ -40,7 +40,7 @@
     "postcss": "8.4.14",
     "postcss-import": "^14.0.1",
     "postcss-loader": "^5.2.0",
-    "postcss-preset-env": "^6.7.0",
+    "postcss-preset-env": "7.7.2",
     "postcss-pxtorem": "^6.0.0",
     "postcss-scss": "^4.0.4",
     "postcss-sort-media-queries": "^3.8.9",

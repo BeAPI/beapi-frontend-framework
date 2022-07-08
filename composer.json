@@ -26,5 +26,11 @@
         "psr-4": {
             "BEA\\Theme\\Framework\\": "inc/"
         }
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpro/grumphp-shim": true
+        }
     }
 }

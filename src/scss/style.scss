@@ -5,61 +5,61 @@ $entry-file-name: "style";
  * == Contain SCSS and CSS variables and webfonts declarations.
  */
 
-@import "01-abstract/abstract";
+@import "./01-abstract/abstract";
 
 /**
  * Tools
  * == Contains functions and mixins.
  */
 
-@import "02-tools/tools";
+@import "./02-tools/tools";
 
 /**
  * Base
  * == Contain generic styles such as normalize or reset.
  */
 
-@import "03-base/base";
+@import "./03-base/base";
 
 /**
  * Utilities
  * == Utility classes that are not assigned to a specific component.
  */
 
-@import "04-utilities/utilities";
+@import "./04-utilities/utilities";
 
 /**
  * Components
  * == Contain any default component. Just give the components some basic styles.
  */
 
-@import "05-components/components";
+@import "./05-components/components";
 
 /**
- * Blocks
- * == Gutenberg core blocks styles, style for front-end layout and editor.
+ * Gutenberg
+ * == Gutenberg core/custom blocks and patterns styles, style for front-end layout and editor.
  */
 
-@import "06-blocks/gutenberg";
-@import "06-blocks/blocks";
+@import "./06-gutenberg/common";
+@import "./06-gutenberg/gutenberg";
 
 /**
  * Patterns
  * == Contains styles for site patterns such as header, footer or menu.
  */
 
-@import "07-patterns/patterns";
+@import "./07-patterns/patterns";
 
 /**
  * Vendor
  * == Plugins or libraries custom styles.
  */
 
-@import "08-vendor/vendor";
+@import "./08-vendor/vendor";
 
 /**
  * Pages
  * == If you want to add custom styles for specifics page templates.
  */
 
-@import "09-pages/pages";
+@import "./09-pages/pages";

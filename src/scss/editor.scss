@@ -5,51 +5,58 @@ $entry-file-name: "editor";
  * == Contain SCSS and CSS variables and webfonts declarations.
  */
 
-@import "01-abstract/abstract";
+@import "./01-abstract/abstract";
 
 /**
  * Tools
  * == Contains functions and mixins.
  */
 
-@import "02-tools/tools";
+@import "./02-tools/tools";
 
 /**
  * Base
  * == Contain generic styles such as normalize or reset.
  */
 
-@import "03-base/fonts";
-@import "03-base/variables";
-@import "03-base/reset";
-@import "03-base/svg-icons";
-@import "03-base/links";
+@import "./03-base/fonts";
+@import "./03-base/variables-css";
+@import "./03-base/reset";
+@import "./03-base/svg-icons";
+@import "./03-base/links";
 
 /**
  * Utilities
  * == Utility classes that are not assigned to a specific component.
  */
 
-@import "04-utilities/utilities";
+@import "./04-utilities/utilities";
 
 /**
  * Blocks
  * == Gutenberg core blocks styles, style for front-end layout and editor.
  */
 
-@import "05-components/button";
+@import "./05-components/button";
 
 /**
- * Blocks
- * == Gutenberg core blocks styles, style for front-end layout and editor.
+ * Gutenberg
+ * == Gutenberg core/custom blocks and patterns styles, style for front-end layout and editor.
  */
 
-@import "06-blocks/gutenberg";
-@import "06-blocks/blocks";
+@import "./06-gutenberg/common";
+@import "./06-gutenberg/gutenberg";
+
+/**
+ * Patterns
+ * == Contains styles for site patterns.
+ */
+
+@import "./07-patterns/patterns";
 
 /**
  * Vendor
  * == Plugins or libraries custom styles.
  */
 
-@import "08-vendor/vendor";
+@import "./08-vendor/vendor";

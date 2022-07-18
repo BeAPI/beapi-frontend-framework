@@ -1,0 +1,28 @@
+// Gutenberg
+// - These styles replace key Gutenberg Block styles with font, color, and
+//   spacing with CSS-variables overrides
+// - In the future the Block styles may get compiled to individual .css
+//   files and conditionally loaded
+
+@import "./core/audio";
+@import "./core/buttons";
+@import "./core/code";
+@import "./core/columns";
+@import "./core/cover";
+@import "./core/file";
+@import "./core/freeform";
+@import "./core/gallery";
+@import "./core/group";
+@import "./core/heading";
+@import "./core/image";
+@import "./core/list";
+@import "./core/media-text";
+@import "./core/paragraph";
+@import "./core/preformatted";
+@import "./core/pullquote";
+@import "./core/quote";
+@import "./core/separator";
+@import "./core/search";
+@import "./core/spacer";
+@import "./core/table";
+@import "./core/video";

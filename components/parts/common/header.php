@@ -1,5 +1,5 @@
 <?php
-use BEA\Theme\Framework\Helpers\Accessible_Menu_Walker;
+use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 ?>
 <header id="header" class="header" role="banner" aria-label="<?php esc_attr_e( 'Header', 'beapi-frontend-framework' ); ?>">
 	<div class="header__inner">
@@ -23,7 +23,7 @@ use BEA\Theme\Framework\Helpers\Accessible_Menu_Walker;
 							'container'      => 'none',
 							'menu_class'     => 'header__menu-list',
 							'fallback_cb'    => false,
-							'walker'         => new Accessible_Menu_Walker(),
+							'walker'         => new Custom_Menu_Walker(),
 						]
 					);
 					?>

@@ -108,4 +108,12 @@
             margin-top: var(--spacing--block-1);
         }
     }
+
+    @include editor-only {
+        > * {
+            &:last-child {
+                margin-bottom: var(--spacing--block-1);
+            }
+        }
+    }
 }

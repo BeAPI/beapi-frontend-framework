@@ -55,7 +55,7 @@ class Editor implements Service {
 		/**
 		 * White list of gutenberg blocks
 		 */
-		add_filter( 'allowed_block_types', [ $this, 'gutenberg_blocks_allowed' ], 10, 2 );
+		add_filter( 'allowed_block_types_all', [ $this, 'gutenberg_blocks_allowed' ], 10, 2 );
 	}
 
 	/**
@@ -215,11 +215,11 @@ class Editor implements Service {
 	 * Allow some core Gutenberg blocks
 	 *
 	 * @param bool|array $allowed_blocks
-	 * @param \Wp_post $post
+	 * @param \WP_Block_Editor_Context $block_editor_context
 	 *
 	 * @return array
 	 */
-	public function gutenberg_blocks_allowed( $allowed_blocks, \Wp_post $post ): array {
+	public function gutenberg_blocks_allowed( $allowed_blocks, \WP_Block_Editor_Context $block_editor_context ): array {
 
 		$allowed = [
 			//base

@@ -44,12 +44,12 @@ $entry-file-name: "editor";
  * == Gutenberg core/custom blocks and patterns styles, style for front-end layout and editor.
  */
 
-@import "./06-gutenberg/common";
-@import "./06-gutenberg/gutenberg";
+@import "./06-blocks/gutenberg";
+@import "./06-blocks/blocks";
 
 /**
  * Patterns
- * == Contains styles for site patterns.
+ * == Contains styles for gutenberg patterns.
  */
 
 @import "./07-patterns/patterns";
@@ -59,4 +59,4 @@ $entry-file-name: "editor";
  * == Plugins or libraries custom styles.
  */
 
-@import "./08-vendor/vendor";
+@import "./10-vendor/vendor";

@@ -40,26 +40,33 @@ $entry-file-name: "style";
  * == Gutenberg core/custom blocks and patterns styles, style for front-end layout and editor.
  */
 
-@import "./06-gutenberg/common";
 @import "./06-gutenberg/gutenberg";
+@import "./06-gutenberg/blocks";
 
 /**
  * Patterns
- * == Contains styles for site patterns such as header, footer or menu.
+ * == Contains styles for gutenberg patterns.
  */
 
 @import "./07-patterns/patterns";
+
+/**
+ * Template parts
+ * == If you want to add custom styles for specific page templates parts.
+ */
+
+@import "./08-template-parts/template-parts";
+
+/**
+ * Pages
+ * == If you want to add custom styles for specific page templates.
+ */
+
+@import "./09-templates/templates";
 
 /**
  * Vendor
  * == Plugins or libraries custom styles.
  */
 
-@import "./08-vendor/vendor";
-
-/**
- * Pages
- * == If you want to add custom styles for specifics page templates.
- */
-
-@import "./09-pages/pages";
+@import "./10-vendor/vendor";

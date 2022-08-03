@@ -37,10 +37,7 @@
     /*
      * Animation speeds
      */
-    --speed-1: .35s;
-    --speed-2: .5s;
-    --speed-3: 1s;
-    --speed-4: 3s;
+    --speed: 1s;
 
     /*
      * Alignments breakpoints
@@ -57,10 +54,7 @@
      * A11y reduced motion
      */
     @include reduced-motion {
-        --speed-1: 0s;
-        --speed-2: 0s;
-        --speed-3: 0s;
-        --speed-4: 0s;
+        --speed: 0s;
     }
 
     /*

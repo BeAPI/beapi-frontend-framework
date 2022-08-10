@@ -50,6 +50,7 @@ class ScrollDirection extends AbstractDomElement {
   }
 
   lock(delay) {
+    clearTimeout(this._timer)
     this._isEditable = false
 
     if (typeof delay !== 'undefined') {

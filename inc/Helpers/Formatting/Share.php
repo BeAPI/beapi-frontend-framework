@@ -48,7 +48,7 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 	}
 
 	$networks = [
-		'facebook' => [
+		'facebook'  => [
 			'attributes' => [
 				'title' => __( 'Share on Facebook', 'beapi-frontend-framework' ),
 				'href'  => 'http://www.facebook.com/sharer.php',
@@ -59,7 +59,7 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				'u' => $link_to_share,
 			],
 		],
-		'twitter'  => [
+		'twitter'   => [
 			'attributes' => [
 				'title' => __( 'Share on Twitter', 'beapi-frontend-framework' ),
 				'href'  => 'https://twitter.com/intent/tweet',
@@ -70,7 +70,7 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				'url' => $link_to_share,
 			],
 		],
-		'linkedin' => [
+		'linkedin'  => [
 			'attributes' => [
 				'title' => __( 'Share on Linkedin', 'beapi-frontend-framework' ),
 				'href'  => 'https://www.linkedin.com/shareArticle',
@@ -81,7 +81,29 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				'url' => $link_to_share,
 			],
 		],
-		'email'    => [
+		'instagram' => [
+			'attributes' => [
+				'title' => __( 'Share on Instagram', 'beapi-frontend-framework' ),
+				'href'  => 'https://www.instagram.com/',
+				'class' => 'share__link',
+			],
+			'icon'       => 'instagram',
+			'params'     => [
+				'url' => $link_to_share,
+			],
+		],
+		'xing'      => [
+			'attributes' => [
+				'title' => __( 'Share on Xing', 'beapi-frontend-framework' ),
+				'href'  => 'https://www.xing.com/spi/shares/new',
+				'class' => 'share__link',
+			],
+			'icon'       => 'xing',
+			'params'     => [
+				'url' => $link_to_share,
+			],
+		],
+		'email'     => [
 			'attributes' => [
 				'title' => __( 'Share on Email', 'beapi-frontend-framework' ),
 				'href'  => 'mailto:',
@@ -102,15 +124,15 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 	}
 
 	$network['params'] = wp_parse_args(
-		$network['params'] ?? [],
-		$share_attributes
+		$share_attributes,
+		$network['params'] ?? []
 	);
 
 	$network['attributes']['href']     = add_query_arg( $network['params'], $network['attributes']['href'] ?? '' );
 	$network['attributes']['target']   = '_blank';
 	$network['attributes']['tabindex'] = '-1';
 
-	$attributes = wp_parse_args( $network['attributes'], $attributes );
+	$attributes = wp_parse_args( $attributes, $network['attributes'] );
 
 	$attributes = apply_filters( 'bea_theme_framework_share_attributes', $attributes, $name, $link_to_share, $share_attributes, $settings );
 

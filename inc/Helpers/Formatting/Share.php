@@ -102,8 +102,8 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 	}
 
 	$network['params'] = wp_parse_args(
-		$network['params'] ?? [],
-		$share_attributes
+		$share_attributes,
+		$network['params'] ?? []
 	);
 
 	$network['attributes']['href']     = add_query_arg( $network['params'], $network['attributes']['href'] ?? '' );

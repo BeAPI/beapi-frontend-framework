@@ -110,7 +110,7 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 	$network['attributes']['target']   = '_blank';
 	$network['attributes']['tabindex'] = '-1';
 
-	$attributes = wp_parse_args( $network['attributes'], $attributes );
+	$attributes = wp_parse_args( $attributes, $network['attributes'] );
 
 	$attributes = apply_filters( 'bea_theme_framework_share_attributes', $attributes, $name, $link_to_share, $share_attributes, $settings );
 

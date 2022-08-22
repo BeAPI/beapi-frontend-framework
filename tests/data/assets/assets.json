@@ -1,0 +1,8 @@
+{
+  "app.css" : "app.min.css",
+  "app.js" : "app.min.js",
+  "editor.js" : "editor.min.js",
+  "editor.css" : "editor.min.css",
+  "login.css" : "login.min.css",
+  "custom.css" : "custom.min.css"
+}

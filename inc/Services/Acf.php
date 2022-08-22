@@ -52,7 +52,7 @@ class Acf implements Service {
 			return;
 		}
 
-		wp_die( sprintf( __( 'This theme can\'t work without ACF plugin. <a href="%s">Please login to admin</a>, and activate it !', 'framework-textdomain' ), esc_url( wp_login_url() ) ) ); // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment, WordPress.Security.EscapeOutput.OutputNotEscaped
+		\wp_die( sprintf( __( 'This theme can\'t work without ACF plugin. <a href="%s">Please login to admin</a>, and activate it !', 'framework-textdomain' ), esc_url( wp_login_url() ) ) ); // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment, WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
@@ -147,7 +147,6 @@ class Acf implements Service {
 			if ( ! is_file( get_theme_file_path( $this->path . $file . '.php' ) ) ) {
 				continue;
 			}
-
 			require_once get_theme_file_path( $this->path . $file . '.php' );
 		}
 	}

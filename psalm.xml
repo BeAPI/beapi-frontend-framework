@@ -13,6 +13,7 @@
             <directory name="src" />
             <directory name="dist" />
             <directory name="config" />
+            <directory name="tests" />
         </ignoreFiles>
     </projectFiles>
 

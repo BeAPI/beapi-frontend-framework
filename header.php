@@ -19,10 +19,9 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+	<?php wp_body_open(); ?>
 	<?php
 	get_template_part( 'components/parts/common/skip-links' );
 	get_template_part( 'components/parts/common/header' );
 	?>
 	<main id="content" role="main" tabindex="-1" aria-label="<?php esc_html_e( 'Main content', 'beapi-frontend-framework' ); ?>">
-<?php
-	wp_body_open();

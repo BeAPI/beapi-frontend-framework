@@ -36,7 +36,6 @@ module.exports = {
       plugins.push(
         new WebpackManifestPlugin({
           fileName: 'assets.json',
-          filter: (file) => !file.isAsset,
         }),
         new MiniCssExtractPlugin({
           filename: '[name].[contenthash:8].min.css',

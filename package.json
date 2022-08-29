@@ -7,10 +7,10 @@
     "url": "https://github.com/BeAPI/beapi-frontend-framework"
   },
   "scripts": {
-    "start": "node_modules/.bin/webpack --watch --config config/webpack.dev.js",
-    "build": "node_modules/.bin/webpack --config config/webpack.prod.js",
-    "bundle-report": "node_modules/.bin/webpack --config config/webpack.prod.js --json=dist/stats.json && node_modules/.bin/webpack-bundle-analyzer dist/stats.json",
-    "image": "node config/image-sizes.js"
+    "start": "yarn webpack --watch --config config/webpack.dev.js",
+    "build": "yarn webpack --config config/webpack.prod.js",
+    "bundle-report": "yarn webpack --config config/webpack.prod.js --json=dist/stats.json && yarn webpack-bundle-analyzer dist/stats.json",
+    "image": "yarn node config/image-sizes.js"
   },
   "license": "GPL-2.0",
   "dependencies": {
@@ -26,7 +26,7 @@
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "css-loader": "^5.2.4",
     "cssnano": "^5.0.1",
-    "esbuild-loader": "^2.13.1",
+    "esbuild-loader": "^2.19.0",
     "eslint": "^7.24.0",
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-prettier": "^3.4.0",
@@ -37,19 +37,19 @@
     "mini-css-extract-plugin": "^1.5.0",
     "ora": "^5.4.0",
     "portfinder": "^1.0.28",
-    "postcss": "8.4.14",
+    "postcss": "^8.4.14",
     "postcss-import": "^14.0.1",
-    "postcss-loader": "^5.2.0",
-    "postcss-preset-env": "7.7.2",
+    "postcss-loader": "^7.0.0",
+    "postcss-preset-env": "^7.7.2",
     "postcss-pxtorem": "^6.0.0",
-    "postcss-scss": "^4.0.4",
-    "postcss-sort-media-queries": "^3.8.9",
+    "postcss-sort-media-queries": "^4.2.1",
     "prettier": "^2.2.1",
     "sass": "^1.52.3",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
     "stylelint": "14.9.1",
     "stylelint-config-recess-order": "3.0.0",
+    "stylelint-scss": "^4.2.0",
     "stylelint-webpack-plugin": "3.3.0",
     "svg-sprite-loader": "^6.0.10",
     "svgo-loader": "^3.0.0",
@@ -61,6 +61,8 @@
     "webpackbar": "^5.0.0-3"
   },
   "volta": {
-    "node": "16.15.0"
-  }
+    "node": "16.15.0",
+    "yarn": "1.22.19"
+  },
+  "packageManager": "yarn@3.2.1"
 }

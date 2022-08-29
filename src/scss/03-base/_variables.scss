@@ -33,6 +33,12 @@
     --responsive--alignwide-width: calc(100% - #{$external-gutter * 2});
     --responsive--alignfull-width: 100%;
 
+
+    /*
+     * Animation speeds
+     */
+    --speed: 1s;
+
     /*
      * Alignments breakpoints
      */
@@ -42,6 +48,13 @@
 
     @media screen and (min-width: #{$container-wide + $external-gutter * 2}) {
         --responsive--alignwide-width: #{$container-wide};
+    }
+
+    /*
+     * A11y reduced motion
+     */
+    @include reduced-motion {
+        --speed: 0s;
     }
 
     /*

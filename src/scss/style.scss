@@ -40,8 +40,8 @@ $entry-file-name: "style";
  * == Gutenberg core/custom blocks and patterns styles, style for front-end layout and editor.
  */
 
-@import "./06-gutenberg/gutenberg";
-@import "./06-gutenberg/blocks";
+@import "./06-blocks/gutenberg";
+@import "./06-blocks/blocks";
 
 /**
  * Patterns

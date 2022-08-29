@@ -5,6 +5,10 @@ grumphp:
       keywords:
         - "var_dump("
         - "<<<<<<< HEAD"
+        - "beapi.top"
+        - "beapi.space"
+        - "beapi.science"
+        - "beapi.xyz"
       whitelist_patterns: []
       triggered_by: ['php']
       regexp_type: G
@@ -13,7 +17,7 @@ grumphp:
       jobs: ~
       triggered_by: ['php', 'phtml', 'php3', 'php4', 'php5', 'php7']
     phpcs:
-      standard: ['phpcs.xml']
+      standard: ['phpcs.xml.dist']
       triggered_by: [php]
     composer:
       no_check_all: true
@@ -25,5 +29,6 @@ grumphp:
     psalm:
       config: psalm.xml
       triggered_by: ['php']
+      show_info: true
   testsuites: []
   extensions: []

@@ -1,21 +1,20 @@
 <?xml version="1.0"?>
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          name="Beapi frontend framework"
-         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd"
-         >
+         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
 
     <description>A custom set of rules to check for a WPized WordPress project</description>
 
     <!-- Scan only PHP files -->
     <arg name="extensions" value="php"/>
 
-    <!-- Exclude the plugins -->
+    <!-- Scan all files in directory -->
+    <file>.</file>
+
+    <!-- Exclude the Composer Vendor directory. -->
+    <exclude-pattern>src/</exclude-pattern>
     <exclude-pattern>vendor/</exclude-pattern>
     <exclude-pattern>dist/</exclude-pattern>
-    <exclude-pattern>src/</exclude-pattern>
-    <exclude-pattern>scripts/</exclude-pattern>
-
-    <!-- <<< EXCLUDE EXTERNAL (MU-)PLUGINS OR THEMES HERE >>> -->
 
     <rule ref="WordPress-Extra">
         <!-- Exclude as we use a custom autoloader. -->
@@ -31,23 +30,7 @@
         <exclude name="WordPress.PHP.DisallowShortTernary.Found"/>
     </rule>
 
-    <rule ref="WordPress.Security.EscapeOutput">
-        <properties>
-            <property name="customAutoEscapedFunctions" type="array">
-                <element value="\BEA\Theme\Framework\Helpers\Svg\get_the_icon"/>
-                <element value="\BEA\Theme\Framework\Helpers\Svg\the_icon"/>
-                <element value="bea_get_attachment_image"/>
-                <element value="get_the_image"/>
-                <element value="get_the_link"/>
-                <element value="get_acf_link"/>
-                <element value="get_share_link"/>
-                <element value="get_terms_name"/>
-                <element value="get_terms_list"/>
-                <element value="get_the_text"/>
-            </property>
-        </properties>
-    </rule>
-
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
 
     <!-- Show sniff name in report. -->
     <arg value="sp"/>
@@ -61,7 +44,23 @@
     <!-- Set ini. -->
     <ini name="memory_limit" value="512M"/>
     <ini name="max_execution_time" value="-1"/>
-
     <rule ref="PHPCompatibility"/>
-    <config name="testVersion" value="7.4-"/>
+
+    <rule ref="WordPress.Security.EscapeOutput">
+        <properties>
+            <property name="customAutoEscapedFunctions" type="array">
+                <element value="bea_get_attachment_image" />
+                <element value="get_the_icon"/>
+                <element value="get_the_image"/>
+                <element value="get_the_image"/>
+                <element value="get_the_link"/>
+                <element value="get_acf_link"/>
+                <element value="get_share_link"/>
+                <element value="get_the_text"/>
+                <element value="get_terms_list"/>
+                <element value="get_languages_list"/>
+                <element value="get_languages_list_selector"/>
+            </property>
+        </properties>
+    </rule>
 </ruleset>

@@ -17,7 +17,7 @@ class Template_Parts implements Service {
 	 * @var array
 	 * @author Maxime Culea
 	 */
-	private $vars = array();
+	private $vars = [];
 
 	/**
 	 * @param Service_Container $container

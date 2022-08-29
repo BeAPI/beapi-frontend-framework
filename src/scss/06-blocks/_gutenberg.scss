@@ -1,126 +1,126 @@
 @include editor-only {
-	// ----
-	// Post title style
-	// ----
-	.editor-post-title {
+    // ----
+    // Post title style
+    // ----
+    .editor-post-title {
 
-		@include heading(h1);
+        @include heading(h1);
 
-		max-width: var(--responsive--aligndefault-width);
-		margin-bottom: var(--spacing--block-3);
-	}
+        max-width: var(--responsive--aligndefault-width);
+        margin-bottom: var(--spacing--block-3);
+    }
 
-	// ----
-	// Editor UI font styles
-	// ----
-	.wp-block.block-editor-default-block-appender > textarea {
-		font-family: var(--global--font-secondary);
-		font-size: var($font-size-md);
-	}
+    // ----
+    // Editor UI font styles
+    // ----
+    .wp-block.block-editor-default-block-appender > textarea {
+        font-family: var(--global--font-secondary);
+        font-size: var($font-size-md);
+    }
 }
 
 // ----
 // Drop cap
 // ----
 .has-drop-cap:not(:focus)::first-letter {
-	float: left;
-	margin: 0.1em 0.1em 0 0;
-	font-family: var($font-family-primary);
-	font-size: calc(1.2 * var(--heading--font-size-h1));
-	font-style: normal;
-	font-weight: var(--heading--font-weight);
-	line-height: 0.66;
-	text-transform: uppercase;
+    float: left;
+    margin: .1em .1em 0 0;
+    font-family: var($font-family-primary);
+    font-size: calc(1.2 * var(--heading--font-size-h1));
+    font-style: normal;
+    font-weight: var(--heading--font-weight);
+    line-height: .66;
+    text-transform: uppercase;
 }
 
 #{context-selector(".blocks-container", ".is-root-container")} {
-	// ----
-	// Alignements horizontaux
-	// ----
-	> :where(*) {
-		max-width: var(--responsive--aligndefault-width);
-		margin-right: auto;
-		margin-left: auto;
-	}
+    // ----
+    // Alignements horizontaux
+    // ----
+    > :where(*) {
+        max-width: var(--responsive--aligndefault-width);
+        margin-right: auto;
+        margin-left: auto;
+    }
 
-	#{context-selector(".alignwide", "[data-align='wide']")} {
-		max-width: var(--responsive--alignwide-width);
-	}
+    #{context-selector(".alignwide", "[data-align='wide']")} {
+        max-width: var(--responsive--alignwide-width);
+    }
 
-	#{context-selector(".alignfull", "[data-align='full']")} {
-		max-width: var(--responsive--alignfull-width);
-	}
+    #{context-selector(".alignfull", "[data-align='full']")} {
+        max-width: var(--responsive--alignfull-width);
+    }
 
-	.alignleft {
+    .alignleft {
 
-		@include align;
-	}
+        @include align;
+    }
 
-	.alignright {
+    .alignright {
 
-		@include align(right);
-	}
+        @include align(right);
+    }
 
-	.aligncenter {
-		display: block;
-		margin-right: auto;
-		margin-left: auto;
-		clear: both;
-	}
+    .aligncenter {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        clear: both;
+    }
 
-	.alignleft,
-	.alignright,
-	.aligncenter {
-		margin-bottom: var(--spacing--block-1);
-	}
+    .alignleft,
+    .alignright,
+    .aligncenter {
+        margin-bottom: var(--spacing--block-1);
+    }
 
-	// ----
-	// Alignements verticaux
-	// ----
-	> *,
-	[class*="inner-container"] > * {
-		margin-top: var(--spacing--block-1);
-		margin-bottom: var(--spacing--block-1);
+    // ----
+    // Alignements verticaux
+    // ----
+    > *,
+    [class*="inner-container"] > * {
+        margin-top: var(--spacing--block-1);
+        margin-bottom: var(--spacing--block-1);
 
-		&:first-child {
-			margin-top: 0;
-		}
+        &:first-child {
+            margin-top: 0;
+        }
 
-		&:last-child {
-			margin-bottom: 0;
-		}
+        &:last-child {
+            margin-bottom: 0;
+        }
 
-		&.alignleft,
-		&.alignright,
-		&.alignleft:first-child + *,
-		&.alignright:first-child + *,
-		&.alignfull.has-background {
-			margin-top: 0;
-		}
+        &.alignleft,
+        &.alignright,
+        &.alignleft:first-child + *,
+        &.alignright:first-child + *,
+        &.alignfull.has-background {
+            margin-top: 0;
+        }
 
-		&:last-child,
-		&.alignfull.has-background {
-			margin-bottom: 0;
-		}
+        &:last-child,
+        &.alignfull.has-background {
+            margin-bottom: 0;
+        }
 
-		/* Reset alignleft and alignright margins after alignfull */
-		&.alignfull + .alignleft,
-		&.alignfull + .alignright {
-			margin-top: var(--spacing--block-1);
-		}
-	}
+        /* Reset alignleft and alignright margins after alignfull */
+        &.alignfull + .alignleft,
+        &.alignfull + .alignright {
+            margin-top: var(--spacing--block-1);
+        }
+    }
 
-	@include editor-only {
+    @include editor-only {
 
-		> * {
+        > * {
 
-			&:last-child {
-				margin-bottom: var(--spacing--block-1);
-			}
-		}
+            &:last-child {
+                margin-bottom: var(--spacing--block-1);
+            }
+        }
 
-		[class*="inner-container"] > * {
-			max-width: none;
-		}
-	}
+        [class*="inner-container"] > * {
+            max-width: none;
+        }
+    }
 }

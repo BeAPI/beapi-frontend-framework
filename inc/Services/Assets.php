@@ -57,16 +57,19 @@ class Assets implements Service {
 		}
 		$theme = wp_get_theme();
 
-		// Js theme
-		// Theme js dependencies
-		$scripts_dependencies = [ 'jquery' ];
-
-		// Async and footer
-		$file = $this->is_minified() ? $this->get_min_file( 'js' ) : 'app.js';
-
-		// Do not add version if minified
+		// Do not add a versioning query param in assets URLs if minified
 		$version = $this->is_minified() ? null : $theme->get( 'Version' );
-		$this->assets_tools->register_script( 'scripts', 'dist/' . $file, $scripts_dependencies, $version, true );
+
+		// Js
+		$file       = $this->is_minified() ? $this->get_min_file( 'js' ) : 'app.js';
+		$asset_data = $this->get_asset_data( $file );
+		$this->assets_tools->register_script(
+			'scripts',
+			'dist/' . $file,
+			array_merge( [ 'jquery' ], $asset_data['dependencies'] ), // ensure jQuery dependency is set even if not declared explicitly in the JS
+			$asset_data['version'],
+			true
+		);
 
 		// CSS
 		wp_register_style( 'theme-style', get_stylesheet_uri(), [], $version );

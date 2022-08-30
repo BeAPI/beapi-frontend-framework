@@ -19,7 +19,10 @@
     "what-input": "^5.2.10"
   },
   "devDependencies": {
+    "@wordpress/blocks": "^11.15.0",
     "@wordpress/dependency-extraction-webpack-plugin": "^4.0.0",
+    "@wordpress/dom-ready": "^3.16.0",
+    "@wordpress/hooks": "^3.16.0",
     "@wordpress/stylelint-config": "^20.0.2",
     "browser-sync": "^2.27.10",
     "browser-sync-webpack-plugin": "^2.3.0",

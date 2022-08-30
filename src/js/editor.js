@@ -1,6 +1,9 @@
 import lazySizes from 'lazysizes'
 import 'lazysizes/plugins/native-loading/ls.native-loading'
 import 'lazysizes/plugins/object-fit/ls.object-fit'
+import domReady from '@wordpress/dom-ready'
+import { addFilter } from '@wordpress/hooks'
+import { unregisterBlockStyle, getBlockVariations, unregisterBlockVariation } from '@wordpress/blocks'
 
 /**
  * LazySizes configuration
@@ -11,25 +14,23 @@ lazySizes.cfg.nativeLoading = {
 }
 
 // Native Gutenberg
-if (typeof wp !== 'undefined') {
-  wp.domReady(() => {
-    wp.blocks.unregisterBlockStyle('core/separator', ['wide', 'dots'])
-    // whitelist core embeds
-    const allowedEmbedVariants = ['youtube', 'vimeo', 'dailymotion']
-    wp.blocks.getBlockVariations('core/embed').forEach((variant) => {
-      if (!allowedEmbedVariants.includes(variant.name)) {
-        wp.blocks.unregisterBlockVariation('core/embed', variant.name)
-      }
-    })
+domReady(() => {
+  unregisterBlockStyle('core/separator', ['wide', 'dots'])
+  // whitelist core embeds
+  const allowedEmbedVariants = ['youtube', 'vimeo', 'dailymotion']
+  getBlockVariations('core/embed').forEach((variant) => {
+    if (!allowedEmbedVariants.includes(variant.name)) {
+      unregisterBlockVariation('core/embed', variant.name)
+    }
   })
-}
+})
 
 // ACF Blocks
 if (window.acf) {
   // Do stuff
 }
 
-wp.hooks.addFilter('blocks.registerBlockType', 'beapi-framework', function (settings, name) {
+addFilter('blocks.registerBlockType', 'beapi-framework', function (settings, name) {
   if (name === 'core/list') {
     // compact preview for block list
     settings.example.attributes.values = '<li><a>Lorem ipsum</a></li><li><a>Dolor sit amet</a></li>'

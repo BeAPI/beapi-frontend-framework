@@ -215,7 +215,7 @@ class Assets implements Service {
 	 * @return bool
 	 * @author Nicolas JUEN
 	 */
-	private function is_minified(): bool {
+	public function is_minified(): bool {
 		return ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false );
 	}
 

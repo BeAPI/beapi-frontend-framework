@@ -16,7 +16,7 @@ use const JSON_ERROR_NONE;
 class Assets implements Service {
 
 	/**
-	 * @var \BEA\Theme\Framework\Tools\Assets
+	 * @var Assets_Tools
 	 */
 	private $assets_tools;
 
@@ -165,6 +165,45 @@ class Assets implements Service {
 		}
 
 		return $file;
+	}
+
+	/**
+	 * Retrieve data for a compiled asset file.
+	 *
+	 * Asset data are produced by the webpack dependencies extraction plugin. They contain for each asset the list of
+	 * dependencies use by the asset and a hash representing the current version of the asset.
+	 *
+	 * @param string $file The asset name including its extension, eg: app.js, app-min.js
+	 *
+	 * @return array{dependencies: string[], version:string} The asset data if available or an array with the default keys.
+	 */
+	public function get_asset_data( string $file ): array {
+		static $cache_data;
+
+		$empty_asset_data = [
+			'dependencies' => [],
+			'version'      => '',
+		];
+
+		$file = trim( $file );
+		if ( empty( $file ) ) {
+			return $empty_asset_data;
+		}
+
+		if ( isset( $cache_data[ $file ] ) ) {
+			return $cache_data[ $file ];
+		}
+
+		$filename = strtok( $file, '.' );
+		$file     = sprintf( '/dist/%s.asset.php', $filename );
+		if ( ! file_exists( \get_theme_file_path( $file ) ) ) {
+			$cache_data[ $file ] = $empty_asset_data;
+			return $cache_data[ $file ];
+		}
+
+		$cache_data[ $file ] = require \get_theme_file_path( $file );
+
+		return $cache_data[ $file ];
 	}
 
 	/**

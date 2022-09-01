@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@wordpress/stylelint-config": "^20.0.2",
-    "browser-sync": "^2.26.14",
+    "browser-sync": "^2.27.10",
     "browser-sync-webpack-plugin": "^2.3.0",
     "canvas": "^2.9.2",
     "clean-webpack-plugin": "^4.0.0-alpha.0",

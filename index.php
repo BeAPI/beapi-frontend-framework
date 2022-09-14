@@ -3,22 +3,22 @@ get_header();
 ?>
 	<div class="intro">
 		<style>
-            .intro {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                text-align: center;
-            }
+			.intro {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+				text-align: center;
+			}
 
-            .intro svg {
-                width: 200px;
-            }
+			.intro svg {
+				width: 200px;
+			}
 
-            .intro h1 {
-                color: #000;
-            }
+			.intro h1 {
+				color: #000;
+			}
 		</style>
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212 225">
 			<path fill="#ffe600"
@@ -31,39 +31,39 @@ get_header();
 
 	<div class="animations-example">
 		<style>
-            .animations-example {
-                background-color: #f3f3f3;
-                overflow: hidden;
-            }
+			.animations-example {
+				background-color: #f3f3f3;
+				overflow: hidden;
+			}
 
-            .animations-example .container > * {
-                margin-top: 100px;
-                margin-bottom: 100px;
-            }
+			.animations-example .container > * {
+				margin-top: 100px;
+				margin-bottom: 100px;
+			}
 
-            .animations-example .animation-1,
-            .animations-example .animation-2,
-            .animations-example .animation-3,
-            .animations-example .animation-4 {
-                padding: 100px 20px;
-                text-align: center;
-                font-size: 30px;
-                color: #fff;
-                font-weight: 700;
-            }
+			.animations-example .animation-1,
+			.animations-example .animation-2,
+			.animations-example .animation-3,
+			.animations-example .animation-4 {
+				padding: 100px 20px;
+				text-align: center;
+				font-size: 30px;
+				color: #fff;
+				font-weight: 700;
+			}
 
-            .animations-example .animation-1 {
-                background-color: #2e4dc4;
-            }
+			.animations-example .animation-1 {
+				background-color: #2e4dc4;
+			}
 
-            .animations-example .animation-2,
-            .animations-example .animation-3 {
-                background-color: #e56522;
-            }
+			.animations-example .animation-2,
+			.animations-example .animation-3 {
+				background-color: #e56522;
+			}
 
-            .animations-example .animation-4 {
-                background-color: #21b085;
-            }
+			.animations-example .animation-4 {
+				background-color: #21b085;
+			}
 		</style>
 
 		<div class="container">

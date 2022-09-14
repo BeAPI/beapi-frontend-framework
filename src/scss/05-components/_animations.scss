@@ -1,0 +1,23 @@
+// ----
+// Hide element on load if js is enabled
+// ----
+%hide-element-on-load {
+    @include style-only {
+        html.js & {
+            visibility: hidden;
+        }
+    }
+}
+
+.is-hidden {
+    @extend %hide-element-on-load;
+}
+
+// ----
+// Line by line animation
+// ----
+.animate-line-by-line {
+    .st-line {
+        display: inline-block;
+    }
+}

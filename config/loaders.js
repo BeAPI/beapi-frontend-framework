@@ -95,6 +95,7 @@ module.exports = {
             options: {
               sassOptions: function (loaderContext) {
                 let obj = {
+                  quietDeps: true,
                   sourceMap: true,
                 }
 

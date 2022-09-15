@@ -27,7 +27,7 @@
  *  );
  *
  */
- 
+
 $headings: (
     "1": (),
     "2": (),
@@ -38,8 +38,7 @@ $headings: (
 );
 
 @each $i, $styles in $headings {
-    h#{$i},
-    .is-style-h#{$i} {
+    h#{$i} {
         @include heading(h#{$i});
 
         @each $style in $styles {
@@ -47,6 +46,10 @@ $headings: (
                 @include heading(h#{$i}, $style);
             }
         }
+    }
+
+    .is-style-h#{$i} {
+        @include heading(h#{$i});
     }
 
     .has-h-#{$i}-font-size {

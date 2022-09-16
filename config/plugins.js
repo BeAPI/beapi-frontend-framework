@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 const WebpackBar = require('webpackbar')
+const DependencyExtractionWebpackPlugin = require('@wordpress/dependency-extraction-webpack-plugin')
 
 const browsersyncConfig = require('./browsersync.config')
 
@@ -30,6 +31,7 @@ module.exports = {
       new WebpackBar({
         color: '#ffe600',
       }),
+      new DependencyExtractionWebpackPlugin({ injectPolyfill: true }),
     ]
 
     if (mode === 'production') {

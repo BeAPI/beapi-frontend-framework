@@ -8,7 +8,10 @@ module.exports = merge(common, {
   mode: mode,
   stats: 'minimal',
   output: {
-    filename: '[name].[chunkhash:8].min.js',
+    filename: '[name]-min.js',
+  },
+  optimization: {
+    concatenateModules: true,
   },
   plugins: plugins.get(mode),
   module: {

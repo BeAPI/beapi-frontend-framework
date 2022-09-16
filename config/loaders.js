@@ -51,6 +51,7 @@ module.exports = {
           options: {
             loader: 'js',
             target: 'es2016',
+            legalComments: 'inline',
           },
         },
       },

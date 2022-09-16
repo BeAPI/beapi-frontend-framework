@@ -16,7 +16,7 @@ use const JSON_ERROR_NONE;
 class Assets implements Service {
 
 	/**
-	 * @var \BEA\Theme\Framework\Tools\Assets
+	 * @var Assets_Tools
 	 */
 	private $assets_tools;
 
@@ -57,16 +57,19 @@ class Assets implements Service {
 		}
 		$theme = wp_get_theme();
 
-		// Js theme
-		// Theme js dependencies
-		$scripts_dependencies = [ 'jquery' ];
-
-		// Async and footer
-		$file = $this->is_minified() ? $this->get_min_file( 'js' ) : 'app.js';
-
-		// Do not add version if minified
+		// Do not add a versioning query param in assets URLs if minified
 		$version = $this->is_minified() ? null : $theme->get( 'Version' );
-		$this->assets_tools->register_script( 'scripts', 'dist/' . $file, $scripts_dependencies, $version, true );
+
+		// Js
+		$file       = $this->is_minified() ? $this->get_min_file( 'js' ) : 'app.js';
+		$asset_data = $this->get_asset_data( $file );
+		$this->assets_tools->register_script(
+			'scripts',
+			'dist/' . $file,
+			array_merge( [ 'jquery' ], $asset_data['dependencies'] ), // ensure jQuery dependency is set even if not declared explicitly in the JS
+			$asset_data['version'],
+			true
+		);
 
 		// CSS
 		wp_register_style( 'theme-style', get_stylesheet_uri(), [], $version );
@@ -168,12 +171,51 @@ class Assets implements Service {
 	}
 
 	/**
+	 * Retrieve data for a compiled asset file.
+	 *
+	 * Asset data are produced by the webpack dependencies extraction plugin. They contain for each asset the list of
+	 * dependencies use by the asset and a hash representing the current version of the asset.
+	 *
+	 * @param string $file The asset name including its extension, eg: app.js, app-min.js
+	 *
+	 * @return array{dependencies: string[], version:string} The asset data if available or an array with the default keys.
+	 */
+	public function get_asset_data( string $file ): array {
+		static $cache_data;
+
+		$empty_asset_data = [
+			'dependencies' => [],
+			'version'      => '',
+		];
+
+		$file = trim( $file );
+		if ( empty( $file ) ) {
+			return $empty_asset_data;
+		}
+
+		if ( isset( $cache_data[ $file ] ) ) {
+			return $cache_data[ $file ];
+		}
+
+		$filename = strtok( $file, '.' );
+		$file     = sprintf( '/dist/%s.asset.php', $filename );
+		if ( ! file_exists( \get_theme_file_path( $file ) ) ) {
+			$cache_data[ $file ] = $empty_asset_data;
+			return $cache_data[ $file ];
+		}
+
+		$cache_data[ $file ] = require \get_theme_file_path( $file );
+
+		return $cache_data[ $file ];
+	}
+
+	/**
 	 * Check if we are on minified environment.
 	 *
 	 * @return bool
 	 * @author Nicolas JUEN
 	 */
-	private function is_minified(): bool {
+	public function is_minified(): bool {
 		return ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false );
 	}
 

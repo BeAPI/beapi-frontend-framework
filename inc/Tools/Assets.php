@@ -2,8 +2,6 @@
 
 namespace BEA\Theme\Framework\Tools;
 
-use phpDocumentor\Reflection\DocBlock\Tags\TagWithType;
-
 /**
  * Class Assets
  *

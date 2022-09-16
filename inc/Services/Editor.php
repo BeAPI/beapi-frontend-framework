@@ -1,15 +1,15 @@
 <?php
 
-
 namespace BEA\Theme\Framework\Services;
 
 use BEA\Theme\Framework\Framework;
 use BEA\Theme\Framework\Service;
 use BEA\Theme\Framework\Service_Container;
+use BEA\Theme\Framework\Tools\Assets as Assets_Tools;
 
 class Editor implements Service {
 	/**
-	 * @var \BEA\Theme\Framework\Tools\Assets $assets_tools
+	 * @var Assets_Tools $assets_tools
 	 */
 	private $assets_tools;
 
@@ -22,7 +22,7 @@ class Editor implements Service {
 	 * @param Service_Container $container
 	 */
 	public function register( Service_Container $container ): void {
-		$this->assets_tools = new \BEA\Theme\Framework\Tools\Assets();
+		$this->assets_tools = new Assets_Tools();
 		$this->assets       = Framework::get_container()->get_service( 'assets' );
 	}
 
@@ -142,19 +142,7 @@ class Editor implements Service {
 	 * editor style
 	 */
 	private function style(): void {
-		/**
-		 * Default file
-		 **/
-		$file = 'editor.css';
-
-		/**
-		 * @var Assets $assets
-		 **/
-		$assets = Framework::get_container()->get_service( 'assets' );
-
-		if ( ( ! defined( 'SCRIPT_DEBUG' ) || false === SCRIPT_DEBUG ) && false !== $assets ) {
-			$file = $assets->get_min_file( 'editor.css' );
-		}
+		$file = $this->assets->is_minified() ? $this->assets->get_min_file( 'editor.css' ) : 'editor.css';
 
 		/**
 		 * Do not enqueue a inexistant file on admin
@@ -170,27 +158,19 @@ class Editor implements Service {
 	 * Editor script
 	 */
 	public function admin_editor_script(): void {
-		/**
-		 * @var Assets $assets
-		 **/
-		$assets = Framework::get_container()->get_service( 'assets' );
-
-		$theme    = wp_get_theme();
-		$file     = ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false ) ? $assets->get_min_file( 'editor.js' ) : 'editor.js';
+		$file     = $this->assets->is_minified() ? $this->assets->get_min_file( 'editor.js' ) : 'editor.js';
 		$filepath = 'dist/' . $file;
 
 		if ( ! file_exists( get_theme_file_path( $filepath ) ) ) {
 			return;
 		}
 
+		$asset_data = $this->assets->get_asset_data( $file );
 		$this->assets_tools->register_script(
 			'theme-admin-editor-script',
 			$filepath,
-			[
-				'wp-blocks',
-				'wp-dom',
-			],
-			$theme->get( 'Version' ),
+			$asset_data['dependencies'],
+			$asset_data['version'],
 			true
 		);
 		$this->assets_tools->enqueue_script( 'theme-admin-editor-script' );

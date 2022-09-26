@@ -20,6 +20,7 @@ class Header extends AbstractDomElement {
     const menu = el.getElementsByClassName('header__menu')[0]
 
     this._menu = menu
+    this._toggle = toggle
     this._openedSubMenu = null
     this._mouseTimers = {}
     this._menuTween = new Tween({
@@ -62,6 +63,7 @@ class Header extends AbstractDomElement {
   openMenu() {
     this._menu.style.display = 'block'
     this._element.classList.add(this._settings.menuOpenedClass)
+    this._toggle.setAttribute('aria-expanded', 'true')
     this._menuTween.start()
 
     return this
@@ -69,6 +71,7 @@ class Header extends AbstractDomElement {
 
   closeMenu() {
     this._element.classList.remove(this._settings.menuOpenedClass)
+    this._toggle.setAttribute('aria-expanded', 'false')
     this._menuTween.start()
 
     return this

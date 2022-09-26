@@ -9,7 +9,7 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 				<span class="sr-only"><?php echo esc_attr( get_bloginfo( 'name' ) ); ?></span>
 			</a>
 
-			<button class="header__menu-toggle">
+			<button class="header__menu-toggle" aria-expanded="false" aria-controls="menu">
 				<span aria-hidden="true"></span>
 				<span class="sr-only"><?php esc_html_e( 'Open/Close the menu', 'beapi-frontend-framework' ); ?></span>
 			</button>

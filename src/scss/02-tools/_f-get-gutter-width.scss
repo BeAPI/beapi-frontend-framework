@@ -1,0 +1,15 @@
+@use "sass:map";
+
+/**
+ * Get Gutter width
+ *
+ * get the value of gutter according to the preset
+ */
+
+@function get-gutter($preset: d) {
+    @return map.get(map.get($column-preset, $preset), gutter-width);
+}
+
+@function get-gutter-width($preset: d) {
+    @return get-gutter($preset) * 1px;
+}

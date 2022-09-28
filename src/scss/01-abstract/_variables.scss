@@ -108,6 +108,7 @@ $breakpoints: (
     md: 1024,
     lg: $container-wide + $external-gutter,
 );
+// /!\ WARNING: If you use a breakpoint of 1280px, it causes a bug under Window Edge with a device pixel ratio higher than 1. Prefer to use the value 1279px.
 
 // ----
 // wp admin bar

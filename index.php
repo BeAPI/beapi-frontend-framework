@@ -179,24 +179,21 @@ get_header();
 		</figure>
 
 		<figure class="wp-block-audio">
-			<audio controls=""
-				   src="https://soundcloud.com/dj-toilettiquette/bensound-the-elevator-bossa-nova?utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing"></audio>
+			<audio controls="" src="https://soundcloud.com/dj-toilettiquette/bensound-the-elevator-bossa-nova?utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing"></audio>
 		</figure>
 
 		<div class="wp-block-cover alignfull">
-			<span aria-hidden="true"
-				  class="has-black-background-color has-background-dim-100 wp-block-cover__gradient-background has-background-dim"></span>
+			<span aria-hidden="true" class="has-black-background-color has-background-dim-100 wp-block-cover__gradient-background has-background-dim"></span>
 			<div class="wp-block-cover__inner-container">
 				<h2 class="has-text-align-center">Un titre de bannière</h2>
 				<p class="has-text-align-center">Un texte</p>
 			</div>
 		</div>
 
-		<div class="wp-block-file"><a id="wp-block-file--media-6fc0216b-4375-46cf-a04e-747f342fd18a"
-									  href="https://bff.lndo.site/app/uploads/2022/05/fulltext01.pdf">fulltext01</a><a
-					href="https://bff.lndo.site/app/uploads/2022/05/fulltext01.pdf" class="wp-block-file__button"
-					download=""
-					aria-describedby="wp-block-file--media-6fc0216b-4375-46cf-a04e-747f342fd18a">Télécharger</a></div>
+		<div class="wp-block-file">
+			<a id="wp-block-file--media-6fc0216b-4375-46cf-a04e-747f342fd18a" href="https://bff.lndo.site/app/uploads/2022/05/fulltext01.pdf">fulltext01</a>
+			<a href="https://bff.lndo.site/app/uploads/2022/05/fulltext01.pdf" class="wp-block-file__button" download="" aria-describedby="wp-block-file--media-6fc0216b-4375-46cf-a04e-747f342fd18a">Télécharger</a>
+		</div>
 
 		<div class="wp-block-media-text is-stacked-on-mobile">
 			<figure class="wp-block-media-text__media"><img loading="lazy"

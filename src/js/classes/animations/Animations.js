@@ -1,6 +1,6 @@
-import AbstractDomElement from './AbstractDomElement'
-import noop from '../utils/noop'
-import each from '../utils/each'
+import AbstractDomElement from '../AbstractDomElement'
+import noop from '../../utils/noop'
+import each from '../../utils/each'
 import { ScrollObserver, Tween, easings, SplittedText } from 'oneloop.js'
 
 // ----
@@ -18,6 +18,11 @@ class Animations extends AbstractDomElement {
     // avoid double init :
     if (!instance.isNewInstance()) {
       return instance
+    }
+
+    // avoid launch animation if prefers-reduced-motion is active
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return
     }
 
     const that = this

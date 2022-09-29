@@ -7,11 +7,11 @@ import './classes/ButtonSeoClick'
 import './classes/Header'
 
 // Animations
-import './classes/Animations'
-import './animations/generic/LineByLine'
-import './animations/generic/Opacity'
-import './animations/generic/FadeUp'
-import './animations/Custom'
+import './classes/animations/Animations'
+import './classes/animations/generic/LineByLine'
+import './classes/animations/generic/Opacity'
+import './classes/animations/generic/FadeUp'
+import './classes/animations/custom/CustomExample'
 
 /**
  * LazySizes configuration

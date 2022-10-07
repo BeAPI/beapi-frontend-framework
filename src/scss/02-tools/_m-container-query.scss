@@ -1,0 +1,41 @@
+@use "sass:map";
+
+/**
+ * Container Query
+ *
+ * examples :
+ *
+ *      @include container-query(sm, md, name) { ... }
+ *          return @container name (min-width: 768px) and (max-width: 1024px) { ... }
+ *
+ *      @include container-query(sm, max, name) { ... }
+ *          return @container (max-width: 767px) { ... }
+ *
+ *      @include container-query(sm, min, name) { ... }
+ *          return @container name (min-width: 768px) { ... }
+ *
+ */
+
+@mixin container-query($breakpoint, $min-or-max-or-breakpoint: min, $container-name: "") {
+    $font-size: 16px; // don't use em function whitout param, $font-size-base can be modified
+
+    @if (type-of(map.get($breakpoints, $min-or-max-or-breakpoint)) == "number") {
+
+        @container #{$container-name} (min-width: #{em(map.get($breakpoints, $breakpoint), $font-size)}) and (max-width: #{em(map.get($breakpoints, $min-or-max-or-breakpoint) - 1, $font-size)}) {
+
+            @content;
+        }
+    } @else if ($min-or-max-or-breakpoint == max) {
+
+        @container #{$container-name} (max-width: #{em(map.get($breakpoints, $breakpoint) - 1, $font-size)}) {
+
+            @content;
+        }
+    } @else {
+
+        @container #{$container-name} (min-width: #{em(map.get($breakpoints, $breakpoint), $font-size)}) {
+
+            @content;
+        }
+    }
+}

@@ -49,10 +49,11 @@ body.login {
         }
     }
 
-    // notice block border-left color
+    // notice block border-left colo
+    /* stylelint-disable-next-line selector-id-pattern */
+    #login_error,
     .message,
-    .success,
-    #login_error { // stylelint-disable-line selector-id-pattern
+    .success {
         border-left-color: $login-text-color;
     }
 

@@ -38,6 +38,9 @@ get_header();
 
 	<h6>Titre de niveau 6</h6>
 
+	<h2>Fusce a quam. Donec mollis hendrerit risus. Nam commodo suscipit quam. Maecenas nec odio et ante tincidunt
+		tempus. Praesent egestas tristique nibh.</h2>
+
 	<p>Fusce a quam. Donec mollis hendrerit risus. Nam commodo suscipit quam. Maecenas nec odio et ante tincidunt
 		tempus. Praesent egestas tristique nibh.</p>
 
@@ -52,6 +55,18 @@ get_header();
 		<li>Nam commodo suscipit quam.</li>
 		<li>Maecenas nec odio et ante tincidunt tempus. Praesent egestas tristique nibh</li>
 	</ol>
+
+	<ul class="card-list">
+		<li>
+			<div class="card"></div>
+		</li>
+		<li>
+			<div class="card"></div>
+		</li>
+		<li>
+			<div class="card"></div>
+		</li>
+	</ul>
 
 	<div class="wp-container-2 wp-block-group has-cyan-bluish-gray-background-color has-background">
 		<div class="wp-block-group__inner-container">

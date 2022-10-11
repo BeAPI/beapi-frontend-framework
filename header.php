@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html class="no-js" <?php language_attributes(); ?>>
+<html class="no-js no-js-animation" <?php language_attributes(); ?>>
 <head>
 	<script type="text/javascript">
 		//<![CDATA[
 		(function(){
-			var c = document.documentElement.className;
-			c = c.replace(/no-js/, 'js');
-			document.documentElement.className = c;
+			function replaceHtmlClass(regexp, str) {
+				var h = document.documentElement;
+				h.className = h.className.replace(regexp, str);
+			}
+
+			replaceHtmlClass(/no-js/, 'js');
+
+			if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+				replaceHtmlClass(/no-js-animation/, 'js-animation');
+			}
 		})();
 		//]]>
 	</script>

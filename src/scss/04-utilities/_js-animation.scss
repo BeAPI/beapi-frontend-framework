@@ -1,0 +1,95 @@
+%js-animation-opacity-init {
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+%js-animation-translation-init {
+    > * {
+        opacity: 0;
+        transition: opacity .5s, transform .5s $ease-in-out-expo;
+        transform: translateY(100px);
+    }
+}
+
+%js-animation-title-init {
+    visibility: hidden;
+}
+
+.js-animation {
+    $el: &;
+
+    #{$el}-opacity {
+        @extend %js-animation-opacity-init;
+
+        &.is-visible {
+            opacity: 1;
+        }
+    }
+
+    #{$el}-title {
+        @extend %js-animation-title-init;
+
+        .st-line {
+            display: inline-block;
+            overflow: hidden;
+
+            > span {
+                display: inline-block;
+                transition: transform .75s $ease-out-expo;
+                transform: translateY(150%);
+            }
+        }
+
+        &.is-ready {
+            visibility: visible;
+        }
+
+        &.is-visible {
+            .st-line {
+                > span {
+                    transform: translateY(0);
+                }
+            }
+        }
+    }
+
+    #{$el}-translation {
+        @extend %js-animation-translation-init;
+
+        &.is-visible {
+            > * {
+                opacity: 1;
+                transform: translateY(0) !important;
+            }
+        }
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @extend %js-animation-title-init;
+    }
+
+    h1,
+    p {
+        @extend %js-animation-opacity-init;
+    }
+
+    .card-list {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .card-list li {
+        @extend %js-animation-translation-init;
+
+        width: 32%;
+    }
+
+    .card {
+        height: 300px;
+        background: #000;
+    }
+}

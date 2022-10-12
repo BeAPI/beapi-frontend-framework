@@ -56,18 +56,6 @@ get_header();
 		<li>Maecenas nec odio et ante tincidunt tempus. Praesent egestas tristique nibh</li>
 	</ol>
 
-	<ul class="card-list">
-		<li>
-			<div class="card"></div>
-		</li>
-		<li>
-			<div class="card"></div>
-		</li>
-		<li>
-			<div class="card"></div>
-		</li>
-	</ul>
-
 	<div class="wp-container-2 wp-block-group has-cyan-bluish-gray-background-color has-background">
 		<div class="wp-block-group__inner-container">
 			<div class="wp-container-1 wp-block-buttons">
@@ -187,6 +175,24 @@ get_header();
 			<h2 class="has-white-color has-text-color">Groupe</h2>
 		</div>
 	</div>
+</div>
+
+<div class="container" style="padding: 100px 0">
+	<h1 class="js-animation-title">Exemples d'animation</h1>
+	<p class="js-animation-opacity">Fusce a quam. Donec mollis hendrerit risus. Nam commodo suscipit quam. Maecenas nec odio et ante tincidunt
+		tempus. Praesent egestas tristique nibh.</p>
+
+	<ul style="display: flex; justify-content: space-between; list-style: none; margin-top: 50px">
+		<li class="js-animation-translation" style="width: 32%">
+			<div style="background: #000; height: 450px;"></div>
+		</li>
+		<li class="js-animation-translation" style="width: 32%">
+			<div style="background: #000; height: 450px;"></div>
+		</li>
+		<li class="js-animation-translation" style="width: 32%">
+			<div style="background: #000; height: 450px;"></div>
+		</li>
+	</ul>
 </div>
 
 <div class="container" style="padding: 100px 0">

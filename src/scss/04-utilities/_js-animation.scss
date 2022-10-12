@@ -1,8 +1,41 @@
+/**
+ * js-animation
+ *
+ * How it work :
+ *      .js-animation and .no-js-animation are toggled on html element
+ *      Animation are triggered in javascript if prefered reduce motion != reduce
+ *
+ * How to use :
+ *      You can use the class directly on the dom element : <h2 class="js-animation-opacity">
+ *
+ *      Or
+ *
+ *      extend your element with the init class and add it to Animation.js preset
+ *      (use js-animation class accordingly to user preference)
+ *              .js-animation h2 {
+ *                  @extend %js-animation-opacity-init;
+ *              }
+ *
+ *      in the js file Animation.js, add you selector
+ *              Animation.preset = {
+ *                  '.js-animation .js-animation-opacity, .js-animation h2': ...
+ *
+ *      the class js-animation-opacity will be added by the js so only the init styles are required
+ *
+ */
+// ====
+// Animation abstract init class
+// ====
+// ----
+// opacity animation
+// ----
 %js-animation-opacity-init {
     opacity: 0;
     transition: opacity .5s;
 }
-
+// ----
+// vertical translation + opacity animation
+// ----
 %js-animation-translation-init {
     > * {
         opacity: 0;
@@ -10,14 +43,22 @@
         transform: translateY(100px);
     }
 }
-
+// ----
+// title animation
+// ----
 %js-animation-title-init {
     visibility: hidden;
 }
 
+// ====
+// css animation
+// ====
 .js-animation {
     $el: &;
 
+    // ----
+    // opacity animation
+    // ----
     #{$el}-opacity {
         @extend %js-animation-opacity-init;
 
@@ -26,6 +67,9 @@
         }
     }
 
+    // ----
+    // title animation
+    // ----
     #{$el}-title {
         @extend %js-animation-title-init;
 
@@ -53,6 +97,9 @@
         }
     }
 
+    // ----
+    // vertical translation + opacity animation
+    // ----
     #{$el}-translation {
         @extend %js-animation-translation-init;
 
@@ -62,34 +109,5 @@
                 transform: translateY(0) !important;
             }
         }
-    }
-
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        @extend %js-animation-title-init;
-    }
-
-    h1,
-    p {
-        @extend %js-animation-opacity-init;
-    }
-
-    .card-list {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .card-list li {
-        @extend %js-animation-translation-init;
-
-        width: 32%;
-    }
-
-    .card {
-        height: 300px;
-        background: #000;
     }
 }

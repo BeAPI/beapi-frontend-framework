@@ -5,6 +5,7 @@ import noop from '../utils/noop'
 // ----
 // shared variables
 // ----
+const instances = []
 let scrollObserver
 
 // ----
@@ -24,6 +25,13 @@ class Animation extends AbstractDomElement {
     const s = this._settings
     const start = getValue(el, s.start)
     const end = getValue(el, s.end)
+    const callbacksSharedData = {}
+
+    this._isVisible = false
+    this._callbacksSharedData = callbacksSharedData
+
+    // add to instances
+    instances.push(this)
 
     // init scrollObserver
     if (!scrollObserver) {
@@ -34,7 +42,7 @@ class Animation extends AbstractDomElement {
     el.classList.add(s.animationClass)
 
     // intialize callback
-    s.onInit(el)
+    s.onInit(el, scrollObserver.getScrollInfos(), callbacksSharedData)
 
     // add element to scrollObserver
     scrollObserver.observe(el, {
@@ -42,16 +50,16 @@ class Animation extends AbstractDomElement {
         if (percentRTE >= start && percentRTE <= end && !that._isVisible) {
           // show element
           that._isVisible = true
-          s.onShow(el, scrollInfos)
+          s.onShow(el, scrollInfos, callbacksSharedData)
           el.classList.add(s.visibleClass)
 
-          // destroy if plaOnce = true
+          // destroy if playOnce = true
           if (s.playOnce) {
-            that.destroy(scrollInfos)
+            that.destroy(el, scrollInfos, callbacksSharedData)
           }
         } else if ((percentRTE < start || (percentRTE > end && s.hideOnReachEnd)) && that._isVisible) {
           that._isVisible = false
-          s.onHide(el, scrollInfos)
+          s.onHide(el, scrollInfos, callbacksSharedData)
           el.classList.remove(s.visibleClass)
         }
       },
@@ -62,14 +70,24 @@ class Animation extends AbstractDomElement {
     return this._isVisible
   }
 
-  destroy(scrollInfos) {
+  destroy() {
     const el = this._element
     const s = this._settings
+    const index = instances.indexOf(this)
+    const callbacksSharedData = this._callbacksSharedData
+    let scrollInfos
+
+    if (index === -1) {
+      return
+    }
 
     super.destroy()
 
+    scrollInfos = scrollObserver.getScrollInfos()
+    instances.splice(index, 1)
+
     if (s.showOnDestroy) {
-      s.onShow(el, scrollInfos || scrollObserver.getScrollInfos())
+      s.onShow(el, scrollInfos, callbacksSharedData)
       el.classList.add(s.visibleClass)
     }
 
@@ -79,7 +97,13 @@ class Animation extends AbstractDomElement {
       scrollObserver.destroy()
     }
 
-    this._settings.onDestroy(el)
+    this._settings.onDestroy(el, scrollInfos, callbacksSharedData)
+  }
+
+  static destroy() {
+    while (instances.length) {
+      instances[0].destroy()
+    }
   }
 }
 
@@ -92,7 +116,8 @@ Animation.defaults = {
   start: 0.25,
   end: 0.75,
   playOnce: false,
-  hideOnReachEnd: true,
+  hideOnReachEnd: false,
+  showOnDestroy: true,
   onInit: noop,
   onShow: noop,
   onHide: noop,
@@ -118,34 +143,31 @@ function getValue(element, value) {
 // presets
 // ----
 Animation.preset = {
-  'h1, p': undefined,
-  '.card-list li': {
+  '.js-animation .js-animation-opacity': undefined,
+  '.js-animation .js-animation-translation': {
     animationClass: 'js-animation-translation',
     start: [0.2, 0.25],
     end: [0.75, 0.8],
-    onInit: function (el) {
-      const child = el.children[0]
-      child.dataset.translate = Math.round(Math.random() * 100 + 100)
-      child.style.transitionDuration = Math.random() * 0.75 + 0.75 + 's'
+    onInit: function (el, scrollInfos, data) {
+      data.translate = Math.round(Math.random() * 100 + 100) * -1
+      el.children[0].style.transitionDuration = Math.random() * 0.75 + 0.75 + 's'
     },
-    onShow: function (el, scrollInfos) {
-      const child = el.children[0]
-      child.style.transform = 'translateY(' + scrollInfos.directionY * -1 * child.dataset.translate + 'px)'
+    onShow: function (el, scrollInfos, data) {
+      el.children[0].style.transform = 'translateY(' + scrollInfos.directionY * data.translate + 'px)'
     },
-    onHide: function (el, scrollInfos) {
-      const child = el.children[0]
-      child.style.transform = 'translateY(' + scrollInfos.directionY * -1 * child.dataset.translate + 'px)'
+    onHide: function (el, scrollInfos, data) {
+      el.children[0].style.transform = 'translateY(' + scrollInfos.directionY * data.translate + 'px)'
     },
   },
-  'h2, h3, h4, h5, h6': {
+  '.js-animation .js-animation-title': {
     animationClass: 'js-animation-title',
-    onInit: function (el) {
+    onInit: function (el, scrollInfos, data) {
       document.fonts.ready.then(function () {
-        new SplittedText(el, {
+        data.splittedText = new SplittedText(el, {
           byLine: true,
-          lineWrapper: function(line) {
-            return '<span class="st-line"><span>' + line + '</span></span>';
-          }
+          lineWrapper: function (line) {
+            return '<span class="st-line"><span>' + line + '</span></span>'
+          },
         })
 
         const children = el.children
@@ -154,16 +176,22 @@ Animation.preset = {
 
         if (length > 1) {
           for (i = 0; i < length; i++) {
-            children[i].children[0].style.transitionDelay = (i / (length - 1)) / 5  + 's'
+            children[i].children[0].style.transitionDelay = i / (length - 1) / 5 + 's'
           }
         }
 
         el.classList.add('is-ready')
       })
     },
+    onDestroy: function (el, scrollInfos, data) {
+      data.splittedText.destroy()
+    },
   },
 }
 
+// ----
+// presets
+// ----
 Animation.initFromPreset()
 
 // ----

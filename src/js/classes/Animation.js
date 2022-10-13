@@ -58,6 +58,7 @@ class Animation extends AbstractDomElement {
             that.destroy(el, scrollInfos, callbacksSharedData)
           }
         } else if ((percentRTE < start || (percentRTE > end && s.hideOnReachEnd)) && that._isVisible) {
+          // hide element
           that._isVisible = false
           s.onHide(el, scrollInfos, callbacksSharedData)
           el.classList.remove(s.visibleClass)
@@ -111,13 +112,21 @@ class Animation extends AbstractDomElement {
 // defaults
 // ----
 Animation.defaults = {
+  // wanted animation, the class will be added on the element if already on it
   animationClass: 'js-animation-opacity',
+  // class added when the element is visible
   visibleClass: 'is-visible',
+  // start (relative to bottom of the screen), can be a float, a function (element) {} or an array of two values []
   start: 0.25,
+  // end (relative to bottom of the screen), can be a float, a function (element) {} or an array of two values []
   end: 0.75,
+  // if true, the instance will be destroyed after the element is visible
   playOnce: false,
+  // if true, remove the visible class when the element reach the end paramter value
   hideOnReachEnd: false,
+  // if true, set the element visible on destroy whatever the current scroll value
   showOnDestroy: true,
+  // for each callback : function (element, scrollInfos, callbacksSharedData)
   onInit: noop,
   onShow: noop,
   onHide: noop,

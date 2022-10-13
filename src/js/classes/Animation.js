@@ -112,13 +112,13 @@ class Animation extends AbstractDomElement {
 // defaults
 // ----
 Animation.defaults = {
-  // wanted animation, the class will be added on the element if already on it
+  // wanted animation, the class will be added on the element if is not already on it
   animationClass: 'js-animation-opacity',
-  // class added when the element is visible
+  // class added when the element is in the start/end range
   visibleClass: 'is-visible',
-  // start (relative to bottom of the screen), can be a float, a function (element) {} or an array of two values []
+  // start (relative to bottom of the screen), can be a float, a function (element) {} or an array of two values (range) []
   start: 0.25,
-  // end (relative to bottom of the screen), can be a float, a function (element) {} or an array of two values []
+  // end (relative to bottom of the screen), can be a float, a function (element) {} or an array of two values (range) []
   end: 0.75,
   // if true, the instance will be destroyed after the element is visible
   playOnce: false,

@@ -38,6 +38,9 @@ get_header();
 
 	<h6>Titre de niveau 6</h6>
 
+	<h2>Fusce a quam. Donec mollis hendrerit risus. Nam commodo suscipit quam. Maecenas nec odio et ante tincidunt
+		tempus. Praesent egestas tristique nibh.</h2>
+
 	<p>Fusce a quam. Donec mollis hendrerit risus. Nam commodo suscipit quam. Maecenas nec odio et ante tincidunt
 		tempus. Praesent egestas tristique nibh.</p>
 
@@ -172,6 +175,24 @@ get_header();
 			<h2 class="has-white-color has-text-color">Groupe</h2>
 		</div>
 	</div>
+</div>
+
+<div class="container" style="padding: 100px 0">
+	<h1 class="js-animation-title">Exemples d'animation</h1>
+	<p class="js-animation-opacity">Fusce a quam. Donec mollis hendrerit risus. Nam commodo suscipit quam. Maecenas nec odio et ante tincidunt
+		tempus. Praesent egestas tristique nibh.</p>
+
+	<ul style="display: flex; justify-content: space-between; list-style: none; margin-top: 50px">
+		<li class="js-animation-translation" style="width: 32%">
+			<div style="background: #000; height: 450px;"></div>
+		</li>
+		<li class="js-animation-translation" style="width: 32%">
+			<div style="background: #000; height: 450px;"></div>
+		</li>
+		<li class="js-animation-translation" style="width: 32%">
+			<div style="background: #000; height: 450px;"></div>
+		</li>
+	</ul>
 </div>
 
 <div class="container" style="padding: 100px 0">

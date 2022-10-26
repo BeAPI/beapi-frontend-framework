@@ -179,7 +179,7 @@ Animation.preset = {
           },
         })
 
-        const children = el.children
+        const children = el.getElementsByClassName('st-line')
         const length = children.length
         let i
 

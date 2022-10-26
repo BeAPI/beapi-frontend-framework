@@ -47,7 +47,7 @@ class Animation extends AbstractDomElement {
     // add element to scrollObserver
     scrollObserver.observe(el, {
       onVisible: function (scrollInfos, percentRTW, percentRTE) {
-        if (percentRTE.y >= start && percentRTE.y <= end && !that._isVisible) {
+        if (!that._isVisible && percentRTE.y >= start && percentRTE.y <= end) {
           // show element
           that._isVisible = true
           s.onShow(el, scrollInfos, callbacksSharedData)
@@ -57,7 +57,7 @@ class Animation extends AbstractDomElement {
           if (s.playOnce) {
             that.destroy(el, scrollInfos, callbacksSharedData)
           }
-        } else if ((percentRTE.y < start || (percentRTE.y > end && s.hideOnReachEnd)) && that._isVisible) {
+        } else if (that._isVisible && (percentRTE.y < start || (percentRTE.y > end && s.hideOnReachEnd))) {
           // hide element
           that._isVisible = false
           s.onHide(el, scrollInfos, callbacksSharedData)
@@ -123,7 +123,7 @@ Animation.defaults = {
   // if true, the instance will be destroyed after the element is visible
   playOnce: false,
   // if true, remove the visible class when the element reach the end paramter value
-  hideOnReachEnd: false,
+  hideOnReachEnd: true,
   // if true, set the element visible on destroy whatever the current scroll value
   showOnDestroy: true,
   // for each callback : function (element, scrollInfos, callbacksSharedData)

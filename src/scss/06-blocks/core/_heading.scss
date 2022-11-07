@@ -53,6 +53,6 @@ $headings: (
     }
 
     .has-h-#{$i}-font-size {
-        font-size: var(--font-size-h#{i});
+        font-size: var(--heading--font-size-h#{$i});
     }
 }

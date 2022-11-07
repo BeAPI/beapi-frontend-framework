@@ -29,7 +29,7 @@ textarea {
     transition: border-color .5s ease;
     appearance: none;
 
-    @include placeholder {
+    &::placeholder {
         color: color.adjust($color-text, $lightness: 50%);
     }
 

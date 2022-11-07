@@ -54,5 +54,6 @@ $headings: (
 
     .has-h-#{$i}-font-size {
         font-size: var(--heading--font-size-h#{$i});
+        line-height: var(--heading--line-height-h#{$i});
     }
 }

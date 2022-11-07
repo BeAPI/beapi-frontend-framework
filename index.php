@@ -100,7 +100,7 @@ get_header();
 
 	<pre class="wp-block-verse">Bloc couplet</pre>
 
-	<figure class="wp-block-image size-large"><img src="https://picsum.photos/1600/800" alt="">
+	<figure class="wp-block-image size-large"><img class="a42-ac-replace-img" alt="image de remplacement" src="https://picsum.photos/1600/800" alt="">
 		<figcaption>Une légende</figcaption>
 	</figure>
 

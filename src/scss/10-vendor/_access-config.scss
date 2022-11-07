@@ -1,0 +1,754 @@
+@charset "UTF-8";
+
+/* stylelint-disable */
+/*! AccessConfig | Access42 | accessconfig.a11y.fr */
+
+/**
+ ***************************
+ * AccessConfig modal window
+ ***************************
+ */
+#a42-ac {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: .75rem 1.5rem 1.5rem;
+    background-color: #fff;
+    border: 1px solid #fff;
+    overflow: auto;
+    font-size: 1rem;
+
+    /* Hide AccessConfig by default */
+    display: none;
+
+    /* Access42 colors */
+    color: #0b1b34;
+}
+
+@media screen and (max-width: 29.9em) {
+
+    #a42-ac {
+        border: 0;
+        padding: .75rem;
+    }
+}
+
+#a42-ac,
+#a42-ac *,
+#a42-ac *::after,
+#a42-ac *::before {
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 50em) {
+    #a42-ac {
+        width: 90%;
+        top: 10%;
+        left: 50%;
+        right: auto;
+        bottom: auto;
+        margin-left: -45%;
+    }
+}
+
+@media screen and (min-width: 64em) {
+    #a42-ac {
+        width: 58.750em;
+        margin-left: -29.375rem;
+    }
+}
+
+
+/**
+ * AccessConfig main title
+ */
+#a42-ac h1 {
+    margin: 0 3rem 0 0;
+    font-size: 1.75em;
+    line-height: 1.3;
+
+    /* Access42 colors */
+    color: #0b1b34;
+}
+
+
+/**
+ * Improved .sr-only
+ * Copyright (c) 2019 by ffoodd (https://codepen.io/ffoodd/pen/gwKZyq)
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+#a42-ac .sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+
+#a42-ac .sr-only-focusable:focus,
+#a42-ac .sr-only-focusable:active {
+    clip: auto !important;
+    -webkit-clip-path: none !important;
+    clip-path: none !important;
+    height: auto !important;
+    margin: auto !important;
+    overflow: visible !important;
+    width: auto !important;
+    white-space: normal !important;
+}
+
+
+/**
+ * AccessConfig close button
+ */
+#a42-ac-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    border: 0;
+}
+
+#a42-ac-close,
+#a42-ac #a42-ac-close {
+    overflow: hidden;
+}
+
+#a42-ac-close::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: block;
+    margin-left: -.75rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMjQgNC4yLTQuMS00LjFoLS4xbC03LjggNy43LTcuOC03LjhoLS4xbC00LjEgNC4xIDcuOSA3LjktNy45IDcuOCA0LjEgNC4yaC4xbDcuOC03LjggNy44IDcuN2MwIC4xIDAgLjEuMSAwbDQuMS00LjEtNy44LTcuOHoiIGZpbGw9IiMzMTQ4NmUiLz48L3N2Zz4=') no-repeat 50% 50%;
+}
+
+
+#a42-ac-close:hover,
+#a42-ac-close:focus,
+#a42-ac-close:active {
+    opacity: .6;
+    background-color: transparent !important;
+}
+
+
+/**
+ * AccessConfig forms
+ */
+
+/* First, some normalize.css imports */
+#a42-ac button,
+#a42-ac input,
+#a42-ac optgroup,
+#a42-ac select,
+#a42-ac textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+#a42-ac button,
+#a42-ac input {
+    overflow: visible;
+}
+
+#a42-ac button,
+#a42-ac select {
+    text-transform: none;
+}
+
+#a42-ac button,
+#a42-ac [type="button"],
+#a42-ac [type="submit"] {
+    -webkit-appearance: button;
+}
+
+#a42-ac button::-moz-focus-inner,
+#a42-ac [type="button"]::-moz-focus-inner,
+#a42-ac [type="reset"]::-moz-focus-inner,
+#a42-ac [type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+#a42-ac button:-moz-focusring,
+#a42-ac [type="button"]:-moz-focusring,
+#a42-ac [type="reset"]:-moz-focusring,
+#a42-ac [type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText;
+}
+
+#a42-ac legend {
+    box-sizing: border-box;
+    color: inherit;
+    display: table;
+    max-width: 100%;
+    padding: 0;
+    white-space: normal;
+}
+
+#a42-ac [type="checkbox"],
+#a42-ac [type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+/* Then, AccessConfig custom styles */
+#a42-ac fieldset {
+    margin: 1em 0 0 0;
+    padding: 1em .5em 1em 1em;
+    border-width: 0 0 0 .625em;
+    border-style: solid;
+
+    /* Access42 colors */
+    border-color: #cedae6;
+    background-color: #e3ebf2;
+}
+
+@media screen and (min-width: 50em) {
+
+    #a42-ac .a42-ac-content {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    #a42-ac fieldset {
+        width: 45%;
+        width: calc(50% - .5em);
+        align-self: stretch;
+    }
+
+    #a42-ac fieldset:nth-child(odd) {
+        clear: left;
+        margin-right: .5em;
+    }
+
+    #a42-ac fieldset:nth-child(even) {
+        margin-left: .5em;
+    }
+}
+
+@media screen and (max-width: 29.9em) {
+
+    #a42-ac fieldset {
+        font-size: .875em; /* 14px */
+        padding: .5em;
+        border-left-width: .357em;
+    }
+}
+
+#a42-ac legend {
+    float: left;
+    width: 100%;
+    margin: 0;
+    padding-bottom: .364em;
+    font-weight: bold;
+    font-size: 1.375em;
+
+    /* Access42 colors */
+    color: #0b1b34;
+}
+
+#a42-ac legend + *:first-child {
+    clear: left;
+}
+
+#a42-ac label {
+    margin: 0 1em .533em .5em;
+    padding-top: .067em;
+    padding-bottom: .067em;
+    font-size: 0.938em; /* 15px */
+    line-height: 1.6;
+}
+
+/* Fake radios */
+#a42-ac input[type="radio"] {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+
+#a42-ac input[type="radio"] + label {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0;
+    padding-left: 2.267em;
+}
+
+#a42-ac input[type="radio"] + label::after,
+#a42-ac input[type="radio"] + label::before {
+    content: '';
+    position: absolute;
+    display: block;
+    border-radius: 100%;
+}
+
+#a42-ac input[type="radio"] + label::after {
+    top: .33334em; /* 5px */
+    left: .33334em; /* 5px */
+    width: .933em; /* 14px */
+    height: .933em; /* 14px */
+    transition: all 0.2s;
+
+    /* Access42 colors */
+    background-color: #31486e;
+}
+
+#a42-ac input[type="radio"] + label::before {
+    top: 0;
+    left: 0;
+    width: 1.6em; /* 24px */
+    height: 1.6em; /* 24px */
+    border-width: .2em;
+    border-style: solid;
+
+    /* Access42 colors */
+    border-color: #a0b0bd;
+    background-color: #f9fcff;
+}
+
+@media screen and (max-width: 29.9em) {
+
+    #a42-ac input[type="radio"] + label::after {
+        top: .357em;
+        left: .357em;
+        width: 1em;
+        height: 1em;
+    }
+
+    #a42-ac input[type="radio"] + label::before {
+        width: 1.714em;
+        height: 1.714em;
+    }
+}
+
+#a42-ac input[type="radio"]:focus + label {
+    outline: 1px dotted;
+}
+
+#a42-ac input[type="radio"]:checked + label::before {
+    /* Access42 colors */
+    border-color: #31486e;
+}
+
+#a42-ac input[type="radio"]:not(:checked) + label::after {
+    opacity: 0;
+    -webkit-transform: scale(0); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+    -ms-transform: scale(0); /* IE 9 */
+    transform: scale(0); /* IE 10, Fx 16+, Op 12.1+ */
+}
+
+#a42-ac input[type="radio"]:disabled + label {
+    opacity: .5;
+}
+
+#a42-ac input[type="radio"]:disabled + label:hover {
+    cursor: not-allowed;
+}
+
+
+/**
+ *****************************
+ * When AccessConfig is active
+ *****************************
+ */
+body.a42-ac-active {
+    overflow: hidden;
+}
+
+
+/**
+ ***************************
+ * AccessConfig page overlay
+ ***************************
+*/
+.a42-ac-overlay {
+    position: fixed; /* could also be absolute */
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(11, 27, 52, 0.8);
+    z-index: 998;
+    display: none;
+}
+
+.a42-ac-active .a42-ac-overlay {
+    display: block;
+}
+
+.a42-ac-inv-contrast .a42-ac-overlay {
+    background-color: rgba(0, 13, 99, 0.8) !important;
+}
+
+.a42-ac-high-contrast .a42-ac-overlay {
+    background-color: rgba(32, 33, 41, 0.8) !important;
+}
+
+
+/**
+ ******************************************
+ * AccessConfig accessibility user settings
+ ******************************************
+ */
+
+/**
+ * Common styles to enforced and inverted contrasts
+ */
+
+/* Cancel background images and image borders which may cause contrast problems */
+.a42-ac-high-contrast *,
+.a42-ac-inv-contrast *,
+.a42-ac-high-contrast *::after,
+.a42-ac-inv-contrast *::after,
+.a42-ac-high-contrast *::before,
+.a42-ac-inv-contrast *::before {
+    border-image: none !important;
+    text-shadow: none !important;
+}
+
+/* Let SVG elements adapt to the chosen color scheme */
+.a42-ac-high-contrast path,
+.a42-ac-high-contrast polygon,
+.a42-ac-high-contrast svg,
+.a42-ac-high-contrast svg *,
+.a42-ac-inv-contrast path,
+.a42-ac-inv-contrast polygon,
+.a42-ac-inv-contrast svg,
+.a42-ac-inv-contrast svg * {
+    fill: currentColor;
+}
+
+/* Add a border on form elements when custom contrasts are on */
+.a42-ac-high-contrast input,
+.a42-ac-high-contrast textarea,
+.a42-ac-high-contrast select,
+.a42-ac-high-contrast form button,
+.a42-ac-inv-contrast input,
+.a42-ac-inv-contrast textarea,
+.a42-ac-inv-contrast select,
+.a42-ac-inv-contrast form button {
+    border-width: 1px !important;
+    border-style: solid !important;
+}
+
+/* Change color of ::first-letter pseudo-elements if needed */
+.a42-ac-high-contrast *::first-letter,
+.a42-ac-inv-contrast *::first-letter {
+    color: inherit !important;
+}
+
+/* input[type="range"] */
+.a42-ac-high-contrast input[type="range"],
+.a42-ac-inv-contrast input[type="range"] {
+    border: 0 !important;
+}
+
+.a42-ac-high-contrast input[type="range"]::-webkit-slider-thumb,
+.a42-ac-inv-contrast input[type="range"]::-webkit-slider-thumb {
+    margin-top: -.25em; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+
+@supports (-ms-ime-align: auto) { /* Dirty hack to target Edge only */
+    .a42-ac-high-contrast input[type="range"]::-webkit-slider-thumb,
+    .a42-ac-inv-contrast input[type="range"]::-webkit-slider-thumb {
+        margin-top: 0;
+    }
+}
+
+.a42-ac-high-contrast input[type="range"]::-webkit-slider-runnable-track,
+.a42-ac-inv-contrast input[type="range"]::-webkit-slider-runnable-track {
+    height: 0.313em;
+}
+
+
+/**
+ * Enforced contrast (.a42-ac-high-contrast)
+ */
+.a42-ac-high-contrast,
+.a42-ac-high-contrast * {
+    background-color: #343643 !important;
+    color: white !important;
+}
+
+.a42-ac-high-contrast,
+.a42-ac-high-contrast *,
+.a42-ac-high-contrast *::before,
+.a42-ac-high-contrast *::after {
+    border-color: white !important;
+}
+
+.a42-ac-high-contrast #a42-ac-close::after {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMjQgNC4yLTQuMS00LjFoLS4xbC03LjggNy43LTcuOC03LjhoLS4xbC00LjEgNC4xIDcuOSA3LjktNy45IDcuOCA0LjEgNC4yaC4xbDcuOC03LjggNy44IDcuN2MwIC4xIDAgLjEuMSAwbDQuMS00LjEtNy44LTcuOHoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=');
+}
+
+.a42-ac-high-contrast #a42-ac input[type="radio"] + label::before {
+    border-color: #f9fcff !important;
+    background-color: transparent !important;
+}
+
+.a42-ac-high-contrast #a42-ac input[type="radio"] + label::after {
+    background-color: #f9fcff !important;
+}
+
+/* Add a border on form elements when high contrast is on */
+.a42-ac-high-contrast input,
+.a42-ac-high-contrast textarea,
+.a42-ac-high-contrast select {
+    border-color: #f9fcff !important;
+    color: inherit !important;
+}
+
+/* High contrast placeholder */
+.a42-ac-high-contrast *::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: white !important;
+}
+
+.a42-ac-high-contrast *::-moz-placeholder { /* Firefox 19+ */
+    color: white !important;
+    opacity: 1 !important;
+}
+
+.a42-ac-high-contrast *:-ms-input-placeholder { /* IE 10+ */
+    color: white !important;
+}
+
+.a42-ac-high-contrast *:-moz-placeholder { /* Firefox 18- */
+    color: white !important;
+    opacity: 1 !important;
+}
+
+/* High contrast for input[type="date"] */
+.a42-ac-high-contrast *::-webkit-datetime-edit-text {
+    color: white !important;
+}
+
+.a42-ac-high-contrast *::-webkit-datetime-edit-month-field {
+    color: white !important;
+}
+
+.a42-ac-high-contrast *::-webkit-datetime-edit-day-field {
+    color: white !important;
+}
+
+.a42-ac-high-contrast *::-webkit-datetime-edit-year-field {
+    color: white !important;
+}
+
+.a42-ac-high-contrast ::-webkit-calendar-picker-indicator {
+    background: #343643 !important;
+}
+
+/* High contrast for input[type="range"] */
+.a42-ac-high-contrast input[type="range"]::-webkit-slider-runnable-track { /* Webkit */
+    background: white !important;
+}
+
+.a42-ac-high-contrast input[type="range"]::-moz-range-track { /* Firefox */
+    background: white !important;
+}
+
+.a42-ac-high-contrast input[type="range"]::-moz-range-thumb {
+    background: black !important;
+    border: .15em solid white !important;
+}
+
+.a42-ac-high-contrast input[type="range"]::-ms-fill-lower { /* IE/Edge */
+    background: white !important;
+}
+
+.a42-ac-high-contrast input[type="range"]::-ms-fill-upper {
+    background: white !important;
+}
+
+.a42-ac-high-contrast input[type="range"]:focus::-ms-fill-lower {
+    background: white !important;
+}
+
+.a42-ac-high-contrast input[type="range"]:focus::-ms-fill-upper {
+    background: white !important;
+}
+
+.a42-ac-high-contrast input[type="range"]::-ms-thumb {
+    background: black !important;
+    border: .15em solid white !important;
+}
+
+
+/**
+ * Inverted contrast (.a42-ac-inv-contrast)
+ */
+.a42-ac-inv-contrast,
+.a42-ac-inv-contrast * {
+    background-color: #000080 !important;
+    color: #FFFF00 !important;
+}
+
+.a42-ac-inv-contrast,
+.a42-ac-inv-contrast *,
+.a42-ac-inv-contrast *::before,
+.a42-ac-inv-contrast *::after {
+    border-color: #FFFF00 !important;
+}
+
+.a42-ac-inv-contrast #a42-ac-close::after {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMjQgNC4yLTQuMS00LjFoLS4xbC03LjggNy43LTcuOC03LjhoLS4xbC00LjEgNC4xIDcuOSA3LjktNy45IDcuOCA0LjEgNC4yaC4xbDcuOC03LjggNy44IDcuN2MwIC4xIDAgLjEuMSAwbDQuMS00LjEtNy44LTcuOHoiIGZpbGw9IiNmZjAiLz48L3N2Zz4=');
+}
+
+.a42-ac-inv-contrast #a42-ac input[type="radio"] + label::before {
+    border-color: #FFFF00 !important;
+    background-color: transparent !important;
+}
+
+.a42-ac-inv-contrast #a42-ac input[type="radio"] + label::after {
+    background-color: #FFFF00 !important;
+}
+
+/* Add a border on form elements when high contrast is on */
+.a42-ac-inv-contrast input,
+.a42-ac-inv-contrast textarea,
+.a42-ac-inv-contrast select {
+    border-color: #FFFF00 !important;
+}
+
+/* Inverted contrast placeholder */
+.a42-ac-inv-contrast *::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #FFFF00 !important;
+}
+
+.a42-ac-inv-contrast *::-moz-placeholder { /* Firefox 19+ */
+    color: #FFFF00 !important;
+    opacity: 1 !important;
+}
+
+.a42-ac-inv-contrast *:-ms-input-placeholder { /* IE 10+ */
+    color: #FFFF00 !important;
+}
+
+.a42-ac-inv-contrast *:-moz-placeholder { /* Firefox 18- */
+    color: #FFFF00 !important;
+    opacity: 1 !important;
+}
+
+/* Inverted contrast for input[type="date"] */
+.a42-ac-inv-contrast *::-webkit-datetime-edit-text {
+    color: #FFFF00 !important;
+}
+
+.a42-ac-inv-contrast *::-webkit-datetime-edit-month-field {
+    color: #FFFF00 !important;
+}
+
+.a42-ac-inv-contrast *::-webkit-datetime-edit-day-field {
+    color: #FFFF00 !important;
+}
+
+.a42-ac-inv-contrast *::-webkit-datetime-edit-year-field {
+    color: #FFFF00 !important;
+}
+
+.a42-ac-inv-contrast ::-webkit-calendar-picker-indicator {
+    background: #000080 !important;
+}
+
+/* Inverted contrast for input[type="range"] */
+.a42-ac-inv-contrast input[type="range"]::-webkit-slider-runnable-track {
+    background: #FFFF00 !important;
+}
+
+.a42-ac-inv-contrast input[type="range"]::-moz-range-track { /* Firefox */
+    background: #FFFF00 !important;
+}
+
+.a42-ac-inv-contrast input[type="range"]::-moz-range-thumb {
+    background: #000080 !important;
+    border: .15em solid #FFFF00 !important;
+}
+
+.a42-ac-inv-contrast input[type="range"]::-ms-fill-lower { /* IE/Edge */
+    background: #FFFF00 !important;
+}
+
+.a42-ac-inv-contrast input[type="range"]::-ms-fill-upper {
+    background: #FFFF00 !important;
+}
+
+.a42-ac-inv-contrast input[type="range"]:focus::-ms-fill-lower {
+    background: #FFFF00 !important;
+}
+
+.a42-ac-inv-contrast input[type="range"]:focus::-ms-fill-upper {
+    background: #FFFF00 !important;
+}
+
+.a42-ac-inv-contrast input[type="range"]::-ms-thumb {
+    background: #000080 !important;
+    border: .15em solid #FFFF00 !important;
+}
+
+
+/**
+ * Dyslexia font 
+ */
+@include declare-font-face("opendys", "../fonts/access-config/opendyslexic-regular-webfont", normal);
+
+body.a42-ac-dys-font,
+body.a42-ac-dys-font * {
+    font-family: 'opendys' !important;
+}
+
+
+/** 
+ * Dyslexia line-spacing 
+ */
+.a42-ac-dys-spacing,
+.a42-ac-dys-spacing * {
+    line-height: 1.5 !important;
+}
+
+
+/**
+ * Dyslexia justification 
+ */
+.a42-ac-cancel-justification,
+.a42-ac-cancel-justification * {
+    text-align: left !important;
+}
+
+
+/**
+ * Replace images by their alternatives 
+ */
+.a42-ac-replace-style {
+    border: 5px solid !important;
+    padding: .2em;
+}

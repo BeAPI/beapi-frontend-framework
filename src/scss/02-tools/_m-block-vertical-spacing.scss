@@ -1,0 +1,15 @@
+/**
+ * Block vertical spacing
+ */
+
+@mixin block-vertical-spacing($type : margin, $spacing : var(--spacing--block-3)) {
+    #{context-selector(".blocks-container > &", ".is-root-container &")} {
+        #{$type}-top: $spacing;
+        #{$type}-bottom: $spacing;
+
+        @if $type == padding {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+}

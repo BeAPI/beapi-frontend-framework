@@ -1,43 +1,43 @@
 .wp-block-columns {
-    &:not(.alignwide):not(.alignfull) {
-        clear: both;
-    }
+    @include breakpoints(sm, mdl) {
+        flex-wrap: wrap !important;
 
-    @include style-only {
-        .wp-block-column {
-            > * {
-                &:first-child {
-                    margin-top: 0;
-                }
-
-                &:last-child {
-                    margin-bottom: 0;
-                }
+        &.is-style-stroke {
+            .wp-block-column {
+                flex-basis: calc(50% - #{get-gutter-width()}) !important;
             }
+        }
 
-            &:last-child {
-                margin-bottom: 0;
-            }
-
-            @include breakpoints(sm) {
-                &:not(:first-child) {
-                    margin-left: column(t, 0, 1);
-                }
-            }
-
-            @include breakpoints(md) {
-                &:not(:first-child) {
-                    margin-left: column(0, 1);
-                }
+        &:not(.is-style-stroke) { // For override the WP style at 782px
+            .wp-block-column {
+                flex-basis: calc(50% - #{get-gutter-width() * .5}) !important;
+                flex-grow: 0 !important;
             }
         }
     }
 
-    @include editor-only {
-        .wp-block,
-        .wp-block-column {
-            // Allow Gutenberg to set the width of a block that lives inside the columns block.
-            max-width: inherit;
+    @include breakpoints(sm) {
+        gap: get-gutter-width() !important;
+
+        &.is-style-stroke {
+            gap: get-gutter-width() * 2 !important;
+            overflow: hidden;
+
+            .wp-block-column {
+                position: relative;
+
+                &::after {
+                    position: absolute;
+                    top: 0;
+                    right: -#{get-gutter-width()};
+                    left: inherit;
+                    width: 1px;
+                    height: 100%;
+                    content: "";
+                    background: $color-grey-200;
+                    opacity: 1;
+                }
+            }
         }
     }
 }

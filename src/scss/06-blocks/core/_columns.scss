@@ -24,18 +24,20 @@
             overflow: hidden;
 
             .wp-block-column {
-                position: relative;
+                &:not(:empty) {
+                    position: relative;
 
-                &::after {
-                    position: absolute;
-                    top: 0;
-                    right: -#{get-gutter-width()};
-                    left: inherit;
-                    width: 1px;
-                    height: 100%;
-                    content: "";
-                    background: $color-grey-200;
-                    opacity: 1;
+                    &::after {
+                        position: absolute;
+                        top: 0;
+                        right: -#{get-gutter-width()};
+                        left: inherit;
+                        width: 1px;
+                        height: 100%;
+                        content: "";
+                        background: $color-grey-200;
+                        opacity: 1;
+                    }
                 }
             }
         }

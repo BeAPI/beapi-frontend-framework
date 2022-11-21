@@ -181,15 +181,6 @@ class Editor implements Service {
 	 */
 
 	private function register_custom_block_styles() {
-		// Columns
-		register_block_style(
-			'core/columns',
-			[
-				'name'  => 'stroke',
-				'label' => __( 'Stroke', 'beapi-frontend-framework' ),
-			]
-		);
-
 		// Buttons
 		//      register_block_style(
 		//          'core/button',

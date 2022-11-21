@@ -1,43 +1,22 @@
 .wp-block-columns {
-    @include breakpoints(sm, mdl) {
-        flex-wrap: wrap !important;
+    gap: get-gutter-width() !important;
 
-        &.is-style-stroke {
-            .wp-block-column {
-                flex-basis: calc(50% - #{get-gutter-width()}) !important;
+    &:not(.is-not-stacked-on-mobile) {
+        .wp-block-column {
+            margin-left: 0 !important;
+
+            &:not(:only-child) {
+                flex-basis: 100% !important;
             }
         }
 
-        &:not(.is-style-stroke) { // For override the WP style at 782px
-            .wp-block-column {
-                flex-basis: calc(50% - #{get-gutter-width() * .5}) !important;
-                flex-grow: 0 !important;
-            }
-        }
-    }
-
-    @include breakpoints(sm) {
-        gap: get-gutter-width() !important;
-
-        &.is-style-stroke {
-            gap: get-gutter-width() * 2 !important;
-            overflow: hidden;
+        @include breakpoints(sm, mdl) {
+            flex-wrap: wrap !important;
 
             .wp-block-column {
-                &:not(:empty) {
-                    position: relative;
-
-                    &::after {
-                        position: absolute;
-                        top: 0;
-                        right: -#{get-gutter-width()};
-                        left: inherit;
-                        width: 1px;
-                        height: 100%;
-                        content: "";
-                        background: $color-grey-200;
-                        opacity: 1;
-                    }
+                &:not(:only-child) {
+                    flex-basis: calc(50% - #{get-gutter-width() * .5}) !important;
+                    flex-grow: 0 !important;
                 }
             }
         }

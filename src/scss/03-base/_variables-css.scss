@@ -33,15 +33,20 @@
     --responsive--alignwide-width: calc(100% - #{$external-gutter * 2});
     --responsive--alignfull-width: 100%;
 
-
     /*
      * Animation speeds
      */
     --speed: 1s;
 
     /*
+     * Admin bar
+     */
+    --wp-admin-bar-height: 46px;
+
+    /*
      * Alignments breakpoints
      */
+
     @media screen and (min-width: #{$container-default + $external-gutter * 2}) {
         --responsive--aligndefault-width: #{$container-default};
     }
@@ -60,6 +65,14 @@
     /*
      * Global breakpoints
      */
+
+    @include breakpoints(admin-bar) {
+        /*
+         * Admin bar
+         */
+        --wp-admin-bar-height: 32px;
+    }
+
     @include breakpoints(md) {
         /*
          * Spacing

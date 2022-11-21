@@ -1,0 +1,23 @@
+/**
+ * Background fullwidth mixin in a container
+ */
+
+@mixin bg-fullwidth($color: $color-grey-100) {
+    position: relative;
+
+    &::before {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 100vw;
+        height: 100%;
+        pointer-events: none;
+        content: "";
+        background-color: $color;
+        transform: translate3d(-50%, 0, 0);
+
+        @include style-only {
+            z-index: -1;
+        }
+    }
+}

@@ -11,17 +11,6 @@ html {
         }
     }
 
-    [data-seo-container] {
-        &:focus-within {
-            outline: 1px solid currentColor;
-            outline-offset: .5rem;
-        }
-
-        *:focus {
-            outline: none;
-        }
-    }
-
     &:not([data-whatintent="keyboard"]) {
         a,
         button,
@@ -33,12 +22,23 @@ html {
                 outline: none;
             }
         }
+    }
+}
 
-        [data-seo-container] {
-            &:focus-within,
-            *:focus {
-                outline: none;
-            }
+%focus-seo-container {
+    &:focus-within {
+        outline: 2px solid currentColor;
+        outline-offset: .5rem;
+    }
+
+    *:focus {
+        outline: none;
+    }
+
+    html:not([data-whatintent="keyboard"]) & {
+        &:focus-within,
+        *:focus {
+            outline: none;
         }
     }
 }

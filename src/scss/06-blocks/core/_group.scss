@@ -1,5 +1,16 @@
 .wp-block-group {
+    $el: &;
+
     display: flow-root;
+
+    &--no-inner-margin {
+        #{$el}__inner-container {
+            > * {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+    }
 }
 
 @include editor-only {

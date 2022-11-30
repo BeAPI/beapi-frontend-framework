@@ -54,7 +54,7 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				'href'  => 'http://www.facebook.com/sharer.php',
 				'class' => 'share__link',
 			],
-			'icon'       => 'facebook',
+			'icon'       => 'social/facebook',
 			'params'     => [
 				'u' => $link_to_share,
 			],
@@ -65,7 +65,7 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				'href'  => 'https://twitter.com/intent/tweet',
 				'class' => 'share__link',
 			],
-			'icon'       => 'twitter',
+			'icon'       => 'social/twitter',
 			'params'     => [
 				'url' => $link_to_share,
 			],
@@ -76,7 +76,7 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				'href'  => 'https://www.linkedin.com/shareArticle',
 				'class' => 'share__link',
 			],
-			'icon'       => 'linkedin',
+			'icon'       => 'social/linkedin',
 			'params'     => [
 				'url' => $link_to_share,
 			],
@@ -87,7 +87,7 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				'href'  => 'https://www.instagram.com/',
 				'class' => 'share__link',
 			],
-			'icon'       => 'instagram',
+			'icon'       => 'social/instagram',
 			'params'     => [
 				'url' => $link_to_share,
 			],
@@ -98,7 +98,7 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				'href'  => 'https://www.xing.com/spi/shares/new',
 				'class' => 'share__link',
 			],
-			'icon'       => 'xing',
+			'icon'       => 'social/xing',
 			'params'     => [
 				'url' => $link_to_share,
 			],
@@ -109,7 +109,7 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				'href'  => 'mailto:',
 				'class' => 'share__link',
 			],
-			'icon'       => 'email',
+			'icon'       => 'social/email',
 			'params'     => [
 				'body' => $link_to_share,
 			],

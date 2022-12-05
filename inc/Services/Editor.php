@@ -181,7 +181,7 @@ class Editor implements Service {
 	 */
 
 	private function register_custom_block_styles() {
-		//button
+		// Buttons
 		//      register_block_style(
 		//          'core/button',
 		//          [

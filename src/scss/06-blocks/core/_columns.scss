@@ -1,43 +1,24 @@
 .wp-block-columns {
-    &:not(.alignwide):not(.alignfull) {
-        clear: both;
-    }
+    gap: get-gutter-width() !important;
 
-    @include style-only {
+    &:not(.is-not-stacked-on-mobile) {
         .wp-block-column {
-            > * {
-                &:first-child {
-                    margin-top: 0;
-                }
+            margin-left: 0 !important;
 
-                &:last-child {
-                    margin-bottom: 0;
-                }
-            }
-
-            &:last-child {
-                margin-bottom: 0;
-            }
-
-            @include breakpoints(sm) {
-                &:not(:first-child) {
-                    margin-left: column(t, 0, 1);
-                }
-            }
-
-            @include breakpoints(md) {
-                &:not(:first-child) {
-                    margin-left: column(0, 1);
-                }
+            &:not(:only-child) {
+                flex-basis: 100% !important;
             }
         }
-    }
 
-    @include editor-only {
-        .wp-block,
-        .wp-block-column {
-            // Allow Gutenberg to set the width of a block that lives inside the columns block.
-            max-width: inherit;
+        @include breakpoints(sm, mdl) {
+            flex-wrap: wrap !important;
+
+            .wp-block-column {
+                &:not(:only-child) {
+                    flex-basis: calc(50% - #{get-gutter-width() * .5}) !important;
+                    flex-grow: 0 !important;
+                }
+            }
         }
     }
 }

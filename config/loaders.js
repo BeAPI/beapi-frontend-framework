@@ -117,8 +117,8 @@ module.exports = {
             loader: 'svg-sprite-loader',
             options: {
               extract: true,
-              publicPath: 'img/icons/',
-              spriteFilename: (svgPath) => `icons${svgPath.substr(-4)}`,
+              publicPath: 'icons/',
+              spriteFilename: (svgPath) => `${/icons([\\|/])(.*?)\1/gm.exec(svgPath)[2]}.svg`,
               symbolId: (filePath) => `icon-${path.basename(filePath).slice(0, -4)}`,
             },
           },

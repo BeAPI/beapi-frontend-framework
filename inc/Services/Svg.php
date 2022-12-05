@@ -43,12 +43,19 @@ class Svg implements Service {
 			return '';
 		}
 
+		$sprite_name = 'icons';
+
+		if ( false !== strpos( $icon_class, '/' ) ) {
+			$sprite_name = strtok( $icon_class, '/' );
+			$icon_class  = substr( $icon_class, strpos( $icon_class, '/' ) + 1 );
+		}
+
 		$icon_slug = strpos( $icon_class, 'icon-' ) === 0 ? $icon_class : sprintf( 'icon-%s', $icon_class );
 		$classes   = [ 'icon', $icon_slug ];
 		$classes   = array_merge( $classes, $additionnal_classes );
 		$classes   = array_map( 'sanitize_html_class', $classes );
 
-		return sprintf( '<svg class="%s" aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="%s#%s"></use></svg>', implode( ' ', $classes ), \get_theme_file_uri( '/dist/img/icons/icons.svg' ), $icon_slug ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		return sprintf( '<svg class="%s" aria-hidden="true" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="%s#%s"></use></svg>', implode( ' ', $classes ), \get_theme_file_uri( sprintf( '/dist/icons/%s.svg', $sprite_name ) ), $icon_slug ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**

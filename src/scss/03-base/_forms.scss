@@ -61,10 +61,34 @@ input[type="radio"] {
     &:checked {
         @include checkbox-custom-checked;
     }
+
+    /*
+    --------------------
+    For complianz plugin
+    --------------------
+
+    *:not(.cmplz-banner-checkbox) > & {
+        @include checkbox-custom;
+
+        &:checked {
+            @include checkbox-custom-checked;
+        }
+    }
+    */
 }
 
 input[type="radio"] {
-    @include radio-custom;
+    @include radio-custom(true);
+
+    /*
+    --------------------
+    For complianz plugin
+    --------------------
+
+    *:not(.cmplz-banner-checkbox) > & {
+        @include radio-custom(true);
+    }
+    */
 }
 
 input[type="submit"] {

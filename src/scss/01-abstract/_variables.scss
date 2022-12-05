@@ -102,9 +102,9 @@ $external-gutter: 25px;
 // ----
 $breakpoints: (
     xs: 480,
-    s: 600,
+    s: 601,         // 601px is a wordpress breakpoint (admin-bar become sticky)
     sm: 768,
-    admin-bar: 784,
+    admin-bar: 784, // admin bar height change
     md: 1024,
     mdl: 1200,
     lg: $container-wide + $external-gutter,

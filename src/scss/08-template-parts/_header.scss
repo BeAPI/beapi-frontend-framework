@@ -9,7 +9,7 @@
 
     &__inner {
         position: fixed;
-        top: 0;
+        top: var(--wp-admin-bar-height);
         z-index: 10000;
         width: 100%;
         background: var(--wp--preset--color--cyan-bluish-gray);
@@ -163,16 +163,6 @@
         }
     }
 
-    .admin-bar &__inner {
-        top: var(--wp-admin-bar-height);
-    }
-
-    .scroll-up &__inner,
-    .scroll-down &__inner,
-    .scroll-bottom &__inner {
-        top: 0;
-    }
-
     @include breakpoints(lg, max) {
         &__menu {
             position: absolute;
@@ -207,6 +197,14 @@
         &__sub-menu > div {
             padding-top: 38px;
             padding-bottom: 10px;
+        }
+    }
+
+    @include breakpoints(s, max) {
+        .scroll-up &__inner,
+        .scroll-down &__inner,
+        .scroll-bottom &__inner {
+            top: 0;
         }
     }
 

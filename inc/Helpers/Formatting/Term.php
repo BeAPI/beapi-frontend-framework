@@ -13,7 +13,7 @@ use function BEA\Theme\Framework\Helpers\Formatting\Escape\escape_content_value;
 function get_terms_name( $post_id, string $taxonomy ): array {
 	$terms = get_the_terms( $post_id, $taxonomy );
 
-	if ( false !== $terms || is_wp_error( $terms ) ) {
+	if ( false === $terms || is_wp_error( $terms ) ) {
 		return [];
 	}
 

@@ -36,7 +36,7 @@
                 "length-zero-no-unit": [
                     true,
                     {
-                        "ingore": ["custom-properties"],
+                        "ignore": ["custom-properties"],
                         "ignoreFunctions": ["var", "/^--/"]
                     }
                 ]

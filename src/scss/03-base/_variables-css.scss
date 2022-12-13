@@ -41,7 +41,7 @@
     /*
      * Admin bar
      */
-    --wp-admin-bar-height: 46px;
+    --wp-admin-bar-height: 0;
 
     /*
      * Alignments breakpoints
@@ -60,17 +60,6 @@
      */
     @include reduced-motion {
         --speed: 0s;
-    }
-
-    /*
-     * Global breakpoints
-     */
-
-    @include breakpoints(admin-bar) {
-        /*
-         * Admin bar
-         */
-        --wp-admin-bar-height: 32px;
     }
 
     @include breakpoints(md) {

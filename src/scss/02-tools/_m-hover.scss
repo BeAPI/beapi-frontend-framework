@@ -1,13 +1,13 @@
-/**
- * Hover
- *
- *          Hover Active Focus pseudo selector mixin
- */
+@use "sass:list";
 
-@mixin hover {
-    &:hover,
-    &:active,
-    &:focus {
+/// Add active, focus and hover pseudo selectors to element
+///
+/// @param {list} $additionalSelectors
+///   List of additional selectors
+@mixin hover($additionalSelectors: ()) {
+    $selectors: list.join(("&:hover", "&:active", "&:focus"), $additionalSelectors, comma);
+
+    #{$selectors} {
         @content;
     }
 }

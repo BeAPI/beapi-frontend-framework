@@ -32,7 +32,14 @@
                 "custom-property-pattern": null,
                 "indentation": 4,
                 "number-leading-zero": "never",
-                "string-quotes": "double"
+                "string-quotes": "double",
+                "length-zero-no-unit": [
+                    true,
+                    {
+                        "ignore": ["custom-properties"],
+                        "ignoreFunctions": ["var", "/^--/"]
+                    }
+                ]
             }
         }
     ]

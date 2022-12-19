@@ -41,7 +41,11 @@
     /*
      * Admin bar
      */
-    --wp-admin-bar-height: 46px;
+    --wp-admin-bar-height: 0rem;
+
+    .admin-bar {
+        --wp-admin-bar-height: 46px;
+    }
 
     /*
      * Alignments breakpoints
@@ -70,7 +74,9 @@
         /*
          * Admin bar
          */
-        --wp-admin-bar-height: 32px;
+        .admin-bar {
+            --wp-admin-bar-height: 32px;
+        }
     }
 
     @include breakpoints(md) {

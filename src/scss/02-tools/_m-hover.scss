@@ -2,10 +2,19 @@
 
 /// Add active, focus and hover pseudo selectors to element
 ///
-/// @param {list} $additionalSelectors
+/// @param {string||list} $additionalSelectors
 ///   List of additional selectors
-@mixin hover($additionalSelectors: ()) {
-    $selectors: list.join(("&:hover", "&:active", "&:focus"), $additionalSelectors, comma);
+@mixin hover($additionalSelectors: null) {
+    $selectors: "&:hover", "&:active", "&:focus";
+
+    @if ($additionalSelectors) {
+        @if (type-of($additional-selectors) == "string") {
+            $selectors: $selectors "," $additionalSelectors;
+        }
+        @else if (type-of($additional-selectors) == "list") {
+            $selectors: list.join($selectors, $additionalSelectors, comma);
+        }
+    }
 
     #{$selectors} {
         @content;

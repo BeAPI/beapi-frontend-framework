@@ -8,10 +8,10 @@
     $selectors: "&:hover", "&:active", "&:focus";
 
     @if ($additionalSelectors) {
-        @if (type-of($additional-selectors) == "string") {
+        @if (type-of($additionalSelectors) == "string") {
             $selectors: $selectors "," $additionalSelectors;
         }
-        @else if (type-of($additional-selectors) == "list") {
+        @else if (type-of($additionalSelectors) == "list") {
             $selectors: list.join($selectors, $additionalSelectors, comma);
         }
     }

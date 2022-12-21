@@ -4,8 +4,6 @@ namespace BEA\Theme\Framework\Helpers;
 
 class Custom_Menu_Walker extends \Walker_Nav_Menu {
 
-	private static $sub_menu_counter = 0;
-
 	/**
 	 * @param       $output
 	 * @param int   $depth
@@ -23,13 +21,11 @@ class Custom_Menu_Walker extends \Walker_Nav_Menu {
 		parent::start_el( $output, $item, $depth, $args, $id );
 
 		if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
-			$output .= '<button class="header__sub-menu-toggle" type="button" aria-expanded="false" aria-controls="header-sub-menu-' . self::$sub_menu_counter . '">';
+			$output .= '<button class="header__sub-menu-toggle" type="button" aria-expanded="false" aria-controls="header-sub-menu-' . $item->ID . '">';
 			$output .= esc_html__( 'Toggle menu', 'beapi-frontend-framework' );
 			$output .= '</button>';
-			$output .= '<div id="header-sub-menu-' . self::$sub_menu_counter . '" class="header__sub-menu header__sub-menu-level-' . $depth . '"><div>';
+			$output .= '<div id="header-sub-menu-' . $item->ID . '" class="header__sub-menu header__sub-menu-level-' . $depth . '"><div>';
 			$output .= '<ul>';
-
-			self::$sub_menu_counter++;
 		}
 	}
 

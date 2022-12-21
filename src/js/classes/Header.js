@@ -86,6 +86,7 @@ class Header extends AbstractDomElement {
   }
 
   openSubMenu(liParent) {
+    const toggle = liParent.children[1]
     const subMenu = liParent.children[2]
     var childHeight
 
@@ -96,6 +97,7 @@ class Header extends AbstractDomElement {
     childHeight = subMenu.children[0].offsetHeight
 
     liParent.classList.add(this._settings.liSubMenuOpenedClass)
+    toggle.setAttribute('aria-expanded', 'true');
 
     new Tween({
       duration: 500,
@@ -112,6 +114,7 @@ class Header extends AbstractDomElement {
   }
 
   closeSubMenu(liParent) {
+    const toggle = liParent.children[1]
     const subMenu = liParent.children[2]
     const currentHeight = subMenu.offsetHeight
 
@@ -120,6 +123,7 @@ class Header extends AbstractDomElement {
     subMenu.style.height = currentHeight
 
     liParent.classList.remove(this._settings.liSubMenuOpenedClass)
+    toggle.setAttribute('aria-expanded', 'false');
 
     new Tween({
       duration: 500,
@@ -153,7 +157,16 @@ Header.defaults = {
 function onKeyup(e) {
   const activeElement = document.activeElement
 
-  if (e.keyCode === 9 && !activeElement.classList.contains('header__sub-menu-toggle')) {
+  // escape
+  if (e.keyCode === 27) {
+    if (this._openedSubMenu && this._openedSubMenu.contains(activeElement)) {
+      this.closeSubMenu(this._openedSubMenu.parentNode)
+    } else if (this.isMenuOpen()) {
+      this.closeMenu()
+    }
+  }
+  // tab
+  else if (e.keyCode === 9 && !activeElement.classList.contains('header__sub-menu-toggle')) {
     if (this._openedSubMenu && !this._openedSubMenu.contains(activeElement)) {
       this.closeSubMenu(this._openedSubMenu.parentNode)
     }

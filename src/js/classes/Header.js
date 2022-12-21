@@ -1,4 +1,3 @@
-/* eslint-disable */
 import AbstractDomElement from './AbstractDomElement'
 import each from '../utils/each'
 import { Tween } from 'oneloop.js'
@@ -97,7 +96,7 @@ class Header extends AbstractDomElement {
     childHeight = subMenu.children[0].offsetHeight
 
     liParent.classList.add(this._settings.liSubMenuOpenedClass)
-    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-expanded', 'true')
 
     new Tween({
       duration: 500,
@@ -123,7 +122,7 @@ class Header extends AbstractDomElement {
     subMenu.style.height = currentHeight
 
     liParent.classList.remove(this._settings.liSubMenuOpenedClass)
-    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-expanded', 'false')
 
     new Tween({
       duration: 500,
@@ -230,18 +229,18 @@ function onMouseLeaveLi(e) {
   clearTimeout(this._mouseTimers[li.id])
 
   if (subMenu.style.display === 'block') {
-    this._mouseTimers[li.id] = setTimeout(function () {
-      that.closeSubMenu(li)
-    }, isFirstLevel ? 1500 : 250)
+    this._mouseTimers[li.id] = setTimeout(
+      function () {
+        that.closeSubMenu(li)
+      },
+      isFirstLevel ? 1500 : 250
+    )
   }
 }
 
 function onClickToggle() {
   this.toggleMenu()
 }
-// ----
-// utils
-// ----
 
 // ----
 // init

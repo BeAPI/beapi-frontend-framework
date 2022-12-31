@@ -31,14 +31,7 @@ if (window.acf) {
 }
 
 addFilter('blocks.registerBlockType', 'beapi-framework', function (settings, name) {
-  if (name === 'core/list') {
-    // compact preview for block list
-    settings.example.attributes.values = '<li><a>Lorem ipsum</a></li><li><a>Dolor sit amet</a></li>'
-  }
-
   if (name === 'core/paragraph') {
-    // compact preview for block paragraph
-    settings.example.attributes.content = 'Lorem ipsum dolor'
     settings.example.attributes.dropCap = false
   }
 

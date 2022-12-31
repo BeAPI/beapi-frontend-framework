@@ -130,7 +130,6 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 
 	$network['attributes']['href']     = add_query_arg( $network['params'], $network['attributes']['href'] ?? '' );
 	$network['attributes']['target']   = '_blank';
-	$network['attributes']['tabindex'] = '-1';
 
 	$attributes = wp_parse_args( $attributes, $network['attributes'] );
 

@@ -21,10 +21,12 @@ class Custom_Menu_Walker extends \Walker_Nav_Menu {
 		parent::start_el( $output, $item, $depth, $args, $id );
 
 		if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
-			$output .= '<button class="header__sub-menu-toggle" type="button" aria-expanded="false" aria-controls="header-sub-menu-' . $item->ID . '">';
+			$sub_menu_id = 'header-sub-menu-' . $item->ID;
+
+			$output .= '<button class="header__sub-menu-toggle" type="button" aria-expanded="false" aria-controls="' . esc_attr( $sub_menu_id ) . '">';
 			$output .= esc_html__( 'Toggle menu', 'beapi-frontend-framework' );
 			$output .= '</button>';
-			$output .= '<div id="header-sub-menu-' . $item->ID . '" class="header__sub-menu header__sub-menu-level-' . $depth . '"><div>';
+			$output .= sprintf( '<div id="%s" class="header__sub-menu %s"><div>', esc_attr( $sub_menu_id ), esc_attr( 'header__sub-menu-level-' . $depth ) );
 			$output .= '<ul>';
 		}
 	}

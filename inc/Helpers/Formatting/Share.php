@@ -50,10 +50,10 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 	$networks = [
 		'facebook'  => [
 			'attributes' => [
-				'title' => __( 'Share on Facebook', 'beapi-frontend-framework' ),
 				'href'  => 'http://www.facebook.com/sharer.php',
 				'class' => 'share__link',
 			],
+			'content' => __( 'Share on Facebook', 'beapi-frontend-framework' ),
 			'icon'       => 'social/facebook',
 			'params'     => [
 				'u' => $link_to_share,
@@ -61,10 +61,10 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 		],
 		'twitter'   => [
 			'attributes' => [
-				'title' => __( 'Share on Twitter', 'beapi-frontend-framework' ),
 				'href'  => 'https://twitter.com/intent/tweet',
 				'class' => 'share__link',
 			],
+			'content' => __( 'Share on Twitter', 'beapi-frontend-framework' ),
 			'icon'       => 'social/twitter',
 			'params'     => [
 				'url' => $link_to_share,
@@ -72,10 +72,10 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 		],
 		'linkedin'  => [
 			'attributes' => [
-				'title' => __( 'Share on Linkedin', 'beapi-frontend-framework' ),
 				'href'  => 'https://www.linkedin.com/shareArticle',
 				'class' => 'share__link',
 			],
+			'content' => __( 'Share on Linkedin', 'beapi-frontend-framework' ),
 			'icon'       => 'social/linkedin',
 			'params'     => [
 				'url' => $link_to_share,
@@ -83,10 +83,10 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 		],
 		'instagram' => [
 			'attributes' => [
-				'title' => __( 'Share on Instagram', 'beapi-frontend-framework' ),
 				'href'  => 'https://www.instagram.com/',
 				'class' => 'share__link',
 			],
+			'content' => __( 'Share on Instagram', 'beapi-frontend-framework' ),
 			'icon'       => 'social/instagram',
 			'params'     => [
 				'url' => $link_to_share,
@@ -94,10 +94,10 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 		],
 		'xing'      => [
 			'attributes' => [
-				'title' => __( 'Share on Xing', 'beapi-frontend-framework' ),
 				'href'  => 'https://www.xing.com/spi/shares/new',
 				'class' => 'share__link',
 			],
+			'content' => __( 'Share on Xing', 'beapi-frontend-framework' ),
 			'icon'       => 'social/xing',
 			'params'     => [
 				'url' => $link_to_share,
@@ -105,10 +105,10 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 		],
 		'email'     => [
 			'attributes' => [
-				'title' => __( 'Share on Email', 'beapi-frontend-framework' ),
 				'href'  => 'mailto:',
 				'class' => 'share__link',
 			],
+			'content' => __( 'Share by email', 'beapi-frontend-framework' ),
 			'icon'       => 'social/email',
 			'params'     => [
 				'body' => $link_to_share,
@@ -130,7 +130,6 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 
 	$network['attributes']['href']     = add_query_arg( $network['params'], $network['attributes']['href'] ?? '' );
 	$network['attributes']['target']   = '_blank';
-	$network['attributes']['tabindex'] = '-1';
 
 	$attributes = wp_parse_args( $attributes, $network['attributes'] );
 
@@ -145,7 +144,7 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 			'content' => sprintf(
 				'%s<span class="sr-only">%s</span>',
 				get_the_icon( $network['icon'] ),
-				$network['attributes']['title']
+				$network['content']
 			),
 			'mode'    => 'button',
 			'before'  => '<li>',

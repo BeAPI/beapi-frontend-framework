@@ -1,3 +1,6 @@
+/* eslint-disable-next-line */
+__webpack_public_path__ = window.themeInfos.templateDirectoryUri + '/dist/'; // webpack right public path for dynamic import
+
 import lazySizes from 'lazysizes'
 import 'lazysizes/plugins/native-loading/ls.native-loading'
 import 'lazysizes/plugins/object-fit/ls.object-fit'

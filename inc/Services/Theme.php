@@ -18,6 +18,9 @@ class Theme implements Service {
 	 */
 	public function boot( Service_Container $container ): void {
 		$this->after_setup_theme();
+
+		// expose theme infos
+		add_action( 'wp', [ $this, 'expose_theme_infos' ], 0 );
 	}
 
 	/**
@@ -73,5 +76,23 @@ class Theme implements Service {
 	private function i18n(): void {
 		// Load theme texdomain
 		load_theme_textdomain( 'framework-textdomain', \get_theme_file_path( '/languages' ) );
+	}
+
+	/**
+	 * Expose current theme infos
+	 */
+	public function expose_theme_infos():void {
+		if ( is_admin() ) {
+			return;
+		}
+
+		wp_register_script( 'theme-infos', '', [], null, false ); // phpcs:ignore
+		wp_enqueue_script( 'theme-infos' );
+
+		$json = [
+			'templateDirectoryUri' => get_template_directory_uri(),
+		];
+
+		wp_add_inline_script( 'theme-infos', 'window.themeInfos = ' . wp_json_encode( $json ) );
 	}
 }

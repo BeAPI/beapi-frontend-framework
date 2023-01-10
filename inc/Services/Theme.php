@@ -90,7 +90,8 @@ class Theme implements Service {
 		wp_enqueue_script( 'theme-infos' );
 
 		$json = [
-			'templateDirectoryUri' => get_template_directory_uri(),
+			'templateDirectoryUri'   => get_template_directory_uri(),
+			'stylesheetDirectoryUri' => get_stylesheet_directory_uri(),
 		];
 
 		wp_add_inline_script( 'theme-infos', 'window.themeInfos = ' . wp_json_encode( $json ) );

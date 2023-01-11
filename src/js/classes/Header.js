@@ -4,14 +4,7 @@ import each from '../utils/each'
 import { Tween } from 'oneloop.js'
 
 class Header extends AbstractDomElement {
-  constructor(element, options) {
-    const instance = super(element, options)
-
-    // avoid double init :
-    if (!instance.isNewInstance()) {
-      return instance
-    }
-
+  init() {
     const that = this
     const el = this._element
     const toggle = el.getElementsByClassName('header__menu-toggle')[0]

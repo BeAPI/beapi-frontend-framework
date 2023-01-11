@@ -2,14 +2,7 @@ import AbstractDomElement from './AbstractDomElement.js'
 import { ScrollObserver } from 'oneloop.js'
 
 class ScrollDirection extends AbstractDomElement {
-  constructor(element, options) {
-    const instance = super(element, options)
-
-    // avoid double init :
-    if (!instance.isNewInstance()) {
-      return instance
-    }
-
+  init() {
     const that = this
 
     this._scrollObserver = new ScrollObserver()

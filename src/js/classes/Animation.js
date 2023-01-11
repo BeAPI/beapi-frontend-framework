@@ -5,21 +5,13 @@ import noop from '../utils/noop'
 // ----
 // shared variables
 // ----
-const instances = []
 let scrollObserver
 
 // ----
 // class Animation
 // ----
 class Animation extends AbstractDomElement {
-  constructor(element, options) {
-    const instance = super(element, options)
-
-    // avoid double init :
-    if (!instance.isNewInstance()) {
-      return instance
-    }
-
+  init() {
     const that = this
     const el = this._element
     const s = this._settings
@@ -29,9 +21,6 @@ class Animation extends AbstractDomElement {
 
     this._isVisible = false
     this._callbacksSharedData = callbacksSharedData
-
-    // add to instances
-    instances.push(this)
 
     // init scrollObserver
     if (!scrollObserver) {
@@ -74,18 +63,12 @@ class Animation extends AbstractDomElement {
   destroy() {
     const el = this._element
     const s = this._settings
-    const index = instances.indexOf(this)
     const callbacksSharedData = this._callbacksSharedData
     let scrollInfos
-
-    if (index === -1) {
-      return
-    }
 
     super.destroy()
 
     scrollInfos = scrollObserver.getScrollInfos()
-    instances.splice(index, 1)
 
     if (s.showOnDestroy) {
       s.onShow(el, scrollInfos, callbacksSharedData)
@@ -99,12 +82,6 @@ class Animation extends AbstractDomElement {
     }
 
     this._settings.onDestroy(el, scrollInfos, callbacksSharedData)
-  }
-
-  static destroy() {
-    while (instances.length) {
-      instances[0].destroy()
-    }
   }
 }
 
@@ -121,7 +98,7 @@ Animation.defaults = {
   // end (relative to bottom of the screen), can be a float, a function (element) {} or an array of two values (range) []
   end: 0.75,
   // if true, the instance will be destroyed after the element is visible
-  playOnce: false,
+  playOnce: true,
   // if true, remove the visible class when the element reach the end paramter value
   hideOnReachEnd: false,
   // if true, set the element visible on destroy whatever the current scroll value
@@ -151,7 +128,7 @@ function getValue(element, value) {
 // ----
 // presets
 // ----
-Animation.preset = {
+Animation.presets = {
   '.js-animation .js-animation-opacity': undefined,
   '.js-animation .js-animation-translation': {
     animationClass: 'js-animation-translation',
@@ -201,7 +178,7 @@ Animation.preset = {
 // ----
 // presets
 // ----
-Animation.initFromPreset()
+Animation.init()
 
 // ----
 // export

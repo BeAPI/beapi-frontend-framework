@@ -5,14 +5,7 @@ import openUrlInNewTab from '../utils/openUrlInNewTab'
 // class
 // ----
 class ButtonSeoClick extends AbstractDomElement {
-  constructor(element, options) {
-    const instance = super(element, options)
-
-    // avoid double init :
-    if (!instance.isNewInstance()) {
-      return instance
-    }
-
+  init() {
     this._element.addEventListener('click', onClickButton)
   }
 }

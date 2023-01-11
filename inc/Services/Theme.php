@@ -18,8 +18,14 @@ class Theme implements Service {
 	 */
 	public function boot( Service_Container $container ): void {
 		$this->after_setup_theme();
-		add_filter( 'ari_responsive_image_default_img_path', [ $this, 'set_ari_responsive_image_default_img_path' ] );
-		add_filter( 'ari_responsive_image_default_img_name', [ $this, 'set_ari_responsive_image_default_img_name' ] );
+		/**
+		 * @psalm-suppress PossiblyInvalidMethodCall
+		 * @psalm-suppress UndefinedInterfaceMethod
+		 */
+		if ( Framework::get_container()->get_service( 'assets' )->is_minified() ) {
+			add_filter( 'ari_responsive_image_default_img_path', [ $this, 'set_ari_responsive_image_default_img_path' ] );
+			add_filter( 'ari_responsive_image_default_img_name', [ $this, 'set_ari_responsive_image_default_img_name' ] );
+		}
 	}
 
 	/**
@@ -86,14 +92,6 @@ class Theme implements Service {
 	 *
 	 */
 	public function set_ari_responsive_image_default_img_path( string $attr ): string {
-		/**
-		 * @psalm-suppress PossiblyInvalidMethodCall
-		 * @psalm-suppress UndefinedInterfaceMethod
-		 */
-		if ( ! Framework::get_container()->get_service( 'assets' )->is_minified() ) {
-			return $attr;
-		}
-
 		return '/dist/';
 	}
 
@@ -106,15 +104,7 @@ class Theme implements Service {
 	 *
 	 */
 	public function set_ari_responsive_image_default_img_name( string $default_img ): string {
-		/**
-		 * @psalm-suppress PossiblyInvalidMethodCall
-		 * @psalm-suppress UndefinedInterfaceMethod
-		 */
-		if ( ! Framework::get_container()->get_service( 'assets' )->is_minified() ) {
-			return $default_img;
-		}
-
-		return $this->get_min_image( $default_img );
+		return $this->get_min_default_image( $default_img );
 	}
 
 	/**
@@ -124,24 +114,9 @@ class Theme implements Service {
 	 *
 	 * @return string
 	 *
+	 * @author Léonard Phoumpakka
 	 */
-	protected function get_min_image( string $original_image ): string {
-
-		if ( empty( $original_image ) ) {
-			return $original_image;
-		}
-
-		if ( ! file_exists( \get_theme_file_path( '/dist/assets.json' ) ) ) {
-			return $original_image;
-		}
-
-		$json   = file_get_contents( \get_theme_file_path( '/dist/assets.json' ) ); //phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-		$assets = json_decode( $json, true );
-
-		if ( empty( $assets ) || JSON_ERROR_NONE !== json_last_error() ) {
-			return $original_image;
-		}
-
-		return $assets[ 'assets/' . $original_image ] ?: $original_image;
+	public function get_min_default_image( string $original_image ): string {
+		return Framework::get_container()->get_service( 'assets' )->get_min_file( 'assets/' . $original_image );
 	}
 }

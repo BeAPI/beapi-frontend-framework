@@ -203,10 +203,12 @@ class Editor implements Service {
 
 		$allowed = [
 			//base
+			'core/block',
 			'core/heading',
 			'core/paragraph',
 			'core/image',
 			'core/list',
+			'core/list-item',
 			'core/quote',
 			'core/pullquote',
 			'core/table',

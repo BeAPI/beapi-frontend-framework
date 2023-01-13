@@ -10,7 +10,7 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 			</a>
 
 			<button class="header__menu-toggle" aria-expanded="false" aria-controls="menu">
-				<span aria-hidden="true"></span>
+				<span></span>
 				<span class="sr-only aria-expanded-false-text"><?php esc_html_e( 'Open the menu', 'beapi-frontend-framework' ); ?></span>
 				<span class="sr-only aria-expanded-true-text"><?php esc_html_e( 'Close the menu', 'beapi-frontend-framework' ); ?></span>
 			</button>

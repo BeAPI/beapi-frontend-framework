@@ -5,8 +5,8 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 	<div class="header__inner">
 		<div class="container">
 			<a class="header__logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<strong><?php echo esc_attr( get_bloginfo( 'name' ) ); ?></strong>
-				<span class="sr-only"><?php echo esc_attr( get_bloginfo( 'name' ) ); ?></span>
+				<strong><?php echo esc_html( get_bloginfo( 'name' ) ); ?></strong>
+				<span class="sr-only"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
 			</a>
 
 			<button class="header__menu-toggle" aria-expanded="false" aria-controls="menu">

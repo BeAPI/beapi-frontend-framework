@@ -205,14 +205,6 @@
         }
     }
 
-    @include breakpoints(s, max) {
-        .scroll-up &__inner,
-        .scroll-down &__inner,
-        .scroll-bottom &__inner {
-            top: 0;
-        }
-    }
-
     @include breakpoints(sm) {
         &__menu {
             #{$el}__logo-link {

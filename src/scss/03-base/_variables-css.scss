@@ -70,6 +70,17 @@
      * Global breakpoints
      */
 
+    @include breakpoints(s, max) {
+        /*
+         * Admin bar become not sticky
+         */
+        &:not(.scroll-top) {
+            .admin-bar {
+                --wp-admin-bar-height: 0rem;
+            }
+        }
+    }
+
     @include breakpoints(admin-bar) {
         /*
          * Admin bar

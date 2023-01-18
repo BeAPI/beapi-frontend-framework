@@ -20,17 +20,14 @@
         "semi": [2, "never"],
         "no-new": 0,
         "prettier/prettier": [
-            2,
             "error",
             {
                 "trailingComma": "es5",
                 "singleQuote": true,
                 "printWidth": 120,
-                "semi": false,
-                "useTabs": true
+                "semi": false
             }
-        ],
-        "indent": ["error", "tab"]
+        ]
     },
     "globals": {
         "jQuery": true,

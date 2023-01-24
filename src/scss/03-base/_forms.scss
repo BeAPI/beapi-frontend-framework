@@ -10,91 +10,94 @@ $text-inputs-list: 'input[type="color"]', 'input[type="date"]',
 
 $all-text-inputs: assign-inputs($text-inputs-list);
 
-// Textarea
-textarea {
-    resize: vertical;
-}
-
-#{$all-text-inputs},
-textarea {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 15px 25px;
-    font-family: $font-family-primary;
-    line-height: 1;
-    color: $color-text;
-    background: color.adjust($color-light, $lightness: -5%);
-    border: 1px solid $color-grey-500;
-    border-radius: 10px; //reset border radius for ios
-    transition: border-color .5s ease;
-    appearance: none;
-
-    &::placeholder {
-        color: color.adjust($color-text, $lightness: 50%);
+// Not apply style to ACF fields
+*:not([class*="acf-"]) > {
+    // Textarea
+    textarea {
+        resize: vertical;
     }
 
-    &:hover {
-        border-color: color.adjust($color-grey-500, $lightness: -10%);
+    #{$all-text-inputs},
+    textarea {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 15px 25px;
+        font-family: $font-family-primary;
+        line-height: 1;
+        color: $color-text;
+        background: color.adjust($color-light, $lightness: -5%);
+        border: 1px solid $color-grey-500;
+        border-radius: 10px; //reset border radius for ios
+        transition: border-color .5s ease;
+        appearance: none;
+
+        &::placeholder {
+            color: color.adjust($color-text, $lightness: 50%);
+        }
+
+        &:hover {
+            border-color: color.adjust($color-grey-500, $lightness: -10%);
+        }
+
+        &:focus {
+            color: color.adjust($color-text, $lightness: -10%);
+            border-color: color.adjust($color-grey-500, $lightness: -20%);
+        }
     }
 
-    &:focus {
-        color: color.adjust($color-text, $lightness: -10%);
-        border-color: color.adjust($color-grey-500, $lightness: -20%);
-    }
-}
-
-// Label
-label {
-    display: inline-block;
-    font-weight: 700;
-}
-
-// Custom select
-select {
-    @include select-custom;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-    @include checkbox-custom;
-
-    &:checked {
-        @include checkbox-custom-checked;
+    // Label
+    label {
+        display: inline-block;
+        font-weight: 700;
     }
 
-    /*
-    --------------------
-    For complianz plugin
-    --------------------
+    // Custom select
+    select {
+        @include select-custom;
+    }
 
-    *:not(.cmplz-banner-checkbox) > & {
+    input[type="checkbox"],
+    input[type="radio"] {
         @include checkbox-custom;
 
         &:checked {
             @include checkbox-custom-checked;
         }
+
+        /*
+        --------------------
+        For complianz plugin
+        --------------------
+
+        *:not(.cmplz-banner-checkbox) > & {
+            @include checkbox-custom;
+
+            &:checked {
+                @include checkbox-custom-checked;
+            }
+        }
+        */
     }
-    */
-}
 
-input[type="radio"] {
-    @include radio-custom(true);
-
-    /*
-    --------------------
-    For complianz plugin
-    --------------------
-
-    *:not(.cmplz-banner-checkbox) > & {
+    input[type="radio"] {
         @include radio-custom(true);
+
+        /*
+        --------------------
+        For complianz plugin
+        --------------------
+
+        *:not(.cmplz-banner-checkbox) > & {
+            @include radio-custom(true);
+        }
+        */
     }
-    */
-}
 
-input[type="submit"] {
-    @extend %button-block;
-}
+    input[type="submit"] {
+        @extend %button-block;
+    }
 
-input[type="reset"] {
-    @extend %button-block-outline;
+    input[type="reset"] {
+        @extend %button-block-outline;
+    }
 }

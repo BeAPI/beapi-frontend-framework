@@ -6,15 +6,15 @@
  *
  */
 
-@mixin bg($filname, $retina: true, $position: center center, $size: auto 100%, $type: "png" ) {
-    background-image: url(../img/static/#{$filname}.#{$type});
+@mixin bg($filename, $retina: true, $position: center center, $size: auto 100%, $type: "png" ) {
+    background-image: url(../img/static/#{$filename}.#{$type});
     background-repeat: no-repeat;
     background-position: $position;
     background-size: $size;
 
     @if ($retina) {
         @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            background-image: url(../img/static/#{$filname}@2x.#{$type});
+            background-image: url(../img/static/#{$filename}@2x.#{$type});
         }
     }
 }

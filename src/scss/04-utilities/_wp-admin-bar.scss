@@ -1,0 +1,5 @@
+#wpadminbar {
+    @include breakpoints(sm, max) {
+        overflow: scroll;
+    }
+}

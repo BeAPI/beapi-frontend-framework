@@ -13,7 +13,7 @@
     }
 
     @include breakpoints(sm, max) {
-        &--full-with-mobile {
+        &--full-mobile {
             max-width: 100% !important;
         }
     }

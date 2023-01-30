@@ -11,6 +11,12 @@
             }
         }
     }
+
+    @include breakpoints(sm, max) {
+        &--full-mobile {
+            max-width: 100% !important;
+        }
+    }
 }
 
 @include editor-only {

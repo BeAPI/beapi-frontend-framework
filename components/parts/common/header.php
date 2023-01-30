@@ -8,7 +8,7 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 				<strong><?php echo esc_html( get_bloginfo( 'name' ) ); ?></strong>
 				<span class="sr-only"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
 			</a>
-
+			<?php if ( has_nav_menu( 'menu-main' ) ) : ?>
 			<button class="header__menu-toggle" aria-expanded="false" aria-controls="menu">
 				<span></span>
 				<span class="sr-only aria-expanded-false-text"><?php esc_html_e( 'Open the menu', 'beapi-frontend-framework' ); ?></span>
@@ -30,6 +30,7 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 					?>
 				</div>
 			</nav>
+			<?php endif; ?>
 		</div>
 	</div>
 </header>

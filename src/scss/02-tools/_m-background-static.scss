@@ -1,12 +1,13 @@
 /**
  * Background retina
+ * Use with caution
  *
  * examples :
- *      @include bg("your-image");
+ *      @include background-static("your-image");
  *
  */
 
-@mixin bg($filename, $retina: true, $position: center center, $size: auto 100%, $type: "png" ) {
+@mixin background-static($filename, $retina: true, $position: center center, $size: auto 100%, $type: "png" ) {
     background-image: url(../img/static/#{$filename}.#{$type});
     background-repeat: no-repeat;
     background-position: $position;

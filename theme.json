@@ -26,7 +26,27 @@
 					"slug": "secondary",
 					"color": "#00ffff",
 					"name": "Secondary"
-				}
+				},
+                {
+                    "slug": "grey-100",
+                    "color": "#eee",
+                    "name": "Grey 100"
+                },
+                {
+                    "slug": "grey-300",
+                    "color": "#aaa",
+                    "name": "Grey 300"
+                },
+                {
+                    "slug": "grey-500",
+                    "color": "#888",
+                    "name": "Grey 500"
+                },
+                {
+                    "slug": "grey-700",
+                    "color": "#555",
+                    "name": "Grey 700"
+                }
 			]
 		},
 		"custom": {
@@ -263,7 +283,15 @@
                         "text": "var(--wp--preset--color--primary)"
                     }
                 }
-			}
+			},
+            "caption": {
+                "typography": {
+                    "fontSize": "var(--wp--preset--font-size--x-small)"
+                },
+                "color": {
+                    "text": "var(--wp--preset--color--grey-700)"
+                }
+            }
 		},
 		"blocks": {
             "core/file": {

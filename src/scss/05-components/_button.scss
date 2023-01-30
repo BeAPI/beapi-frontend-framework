@@ -16,10 +16,6 @@
     @extend %button;
 }
 
-.button-block {
-    @extend %button-block;
-}
-
 .button-outline {
     @extend %button-block-outline;
 }

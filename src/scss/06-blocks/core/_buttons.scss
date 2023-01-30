@@ -9,12 +9,8 @@
     // button
     // ----
     &-button {
-        .wp-block-button__link {
-            @extend %button-block;
-        }
-
         &.is-style-outline .wp-block-button__link {
-            @extend %button-block-outline;
+            padding: var(--wp--custom--spacing--small);
         }
 
         &.has-custom-font-size .wp-block-button__link {

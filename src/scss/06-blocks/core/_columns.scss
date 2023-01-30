@@ -1,5 +1,5 @@
 .wp-block-columns {
-    gap: get-gutter-width() !important;
+    gap: var(--wp--style--block-gap);
 
     &:not(.is-not-stacked-on-mobile) {
         .wp-block-column {

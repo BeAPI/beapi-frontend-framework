@@ -223,7 +223,7 @@ get_header();
 			</select>
 		</div>
 		<div>
-			<button class="button-block">Button submit</button>
+			<button class="wp-element-button">Button submit</button>
 			<input type="submit" value="Input submit">
 			<input type="reset" value="Input reset">
 		</div>

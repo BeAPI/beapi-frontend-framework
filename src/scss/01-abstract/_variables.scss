@@ -39,27 +39,6 @@ $color-primary: $color-yellow-500;
 $color-secondary: $color-grey-400;
 $color-text: $color-grey-900;
 
-// ----
-// Gutenberg palette
-// ----
-$palette: (
-    "primary": (
-        "color": $color-primary,
-        "isColorLight": true,
-    ),
-    "secondary": (
-        "color": $color-secondary,
-        "isColorLight": false,
-    ),
-    "dark": (
-        "color":  $color-dark,
-        "isColorLight": false,
-    ),
-    "light": (
-        "color":  $color-light,
-        "isColorLight": true,
-    ),
-);
 
 // ==========
 // Sizes

@@ -42,10 +42,6 @@ html {
     /* Apply border-box across the entire page. */
     box-sizing: border-box;
 
-    // HTML resets
-    font-family: $font-family-primary;
-    line-height: $line-height-base;
-
     // Scroll resets
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
@@ -65,16 +61,6 @@ html {
     &::after {
         box-sizing: inherit;
     }
-}
-
-// body resets
-body {
-    font-family: $font-family-primary;
-    font-size: $font-size-base;
-    font-weight: normal;
-    color: $color-text;
-    text-align: left;
-    background-color: $color-light;
 }
 
 button {

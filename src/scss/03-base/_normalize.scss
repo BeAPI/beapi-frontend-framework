@@ -37,9 +37,11 @@ main {
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 
-h1 {
-    margin: .67em 0;
-    font-size: 2em;
+#{context-selector("article", "section")} {
+    h1 {
+        margin: .67em 0;
+        font-size: 2em;
+    }
 }
 
 /* Grouping content

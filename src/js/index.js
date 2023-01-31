@@ -6,6 +6,7 @@ import './classes/ScrollDirection'
 import './classes/ButtonSeoClick'
 import './classes/Header'
 import './classes/Animation'
+import './classes/GravityForms'
 
 /**
  * LazySizes configuration

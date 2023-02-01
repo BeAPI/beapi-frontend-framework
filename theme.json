@@ -1,11 +1,11 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/theme.json",
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 2,
 	"settings": {
 		"appearanceTools": true,
-        "useRootPaddingAwareAlignments": true,
+		"useRootPaddingAwareAlignments": true,
 		"color": {
-            "custom": false,
+			"custom": false,
 			"palette": [
 				{
 					"slug": "dark",
@@ -27,26 +27,26 @@
 					"color": "#00ffff",
 					"name": "Secondary"
 				},
-                {
-                    "slug": "grey-100",
-                    "color": "#eee",
-                    "name": "Grey 100"
-                },
-                {
-                    "slug": "grey-300",
-                    "color": "#aaa",
-                    "name": "Grey 300"
-                },
-                {
-                    "slug": "grey-500",
-                    "color": "#888",
-                    "name": "Grey 500"
-                },
-                {
-                    "slug": "grey-700",
-                    "color": "#555",
-                    "name": "Grey 700"
-                }
+				{
+					"slug": "grey-100",
+					"color": "#eee",
+					"name": "Grey 100"
+				},
+				{
+					"slug": "grey-300",
+					"color": "#aaa",
+					"name": "Grey 300"
+				},
+				{
+					"slug": "grey-500",
+					"color": "#888",
+					"name": "Grey 500"
+				},
+				{
+					"slug": "grey-700",
+					"color": "#555",
+					"name": "Grey 700"
+				}
 			]
 		},
 		"custom": {
@@ -66,8 +66,8 @@
 			}
 		},
 		"spacing": {
-            "blockGap": true,
-            "customSpacingSize": false,
+			"blockGap": true,
+			"customSpacingSize": false,
 			"units": [
 				"%",
 				"px",
@@ -77,148 +77,164 @@
 				"vw"
 			]
 		},
-        "typography": {
-            "customFontSize": false,
-            "fluid": true,
-            "fontFamilies": [
-                {
-                    "fontFamily": "\"Poppins\", sans-serif",
-                    "name": "Poppins",
-                    "slug": "primary",
-                    "fontFace": [
-                        {
-                            "fontFamily": "Poppins",
-                            "fontWeight": "400",
-                            "fontStyle": "normal",
-                            "fontStretch": "normal",
-                            "src": [ "file:./assets/fonts/Poppins-Regular.woff2" ]
-                        },
-                        {
-                            "fontFamily": "Poppins",
-                            "fontWeight": "400",
-                            "fontStyle": "italic",
-                            "fontStretch": "normal",
-                            "src": [ "file:./assets/fonts/Poppins-Italic.woff2" ]
-                        },
-                        {
-                            "fontFamily": "Poppins",
-                            "fontWeight": "300",
-                            "fontStyle": "normal",
-                            "fontStretch": "normal",
-                            "src": [ "file:./assets/fonts/Poppins-Light.woff2" ]
-                        },
-                        {
-                            "fontFamily": "Poppins",
-                            "fontWeight": "300",
-                            "fontStyle": "italic",
-                            "fontStretch": "normal",
-                            "src": [ "file:./assets/fonts/Poppins-LightItalic.woff2" ]
-                        },
-                        {
-                            "fontFamily": "Poppins",
-                            "fontWeight": "500",
-                            "fontStyle": "normal",
-                            "fontStretch": "normal",
-                            "src": [ "file:./assets/fonts/Poppins-Medium.woff2" ]
-                        },
-                        {
-                            "fontFamily": "Poppins",
-                            "fontWeight": "500",
-                            "fontStyle": "italic",
-                            "fontStretch": "normal",
-                            "src": [ "file:./assets/fonts/Poppins-MediumItalic.woff2" ]
-                        },
-                        {
-                            "fontFamily": "Poppins",
-                            "fontWeight": "700",
-                            "fontStyle": "normal",
-                            "fontStretch": "normal",
-                            "src": [ "file:./assets/fonts/Poppins-Bold.woff2" ]
-                        },
-                        {
-                            "fontFamily": "Poppins",
-                            "fontWeight": "700",
-                            "fontStyle": "italic",
-                            "fontStretch": "normal",
-                            "src": [ "file:./assets/fonts/Poppins-BoldItalic.woff2" ]
-                        }
-                    ]
-                }
-            ],
-            "fontSizes": [
-                {
-                    "size": "0.75rem",
-                    "slug": "x-small",
-                    "name": "Très petit"
-                },
-                {
-                    "size": "1rem",
-                    "slug": "small",
-                    "name": "Petit"
-                },
-                {
-                    "size": "1.125rem",
-                    "slug": "medium",
-                    "name": "Texte / H6"
-                },
-                {
-                    "size": "1.5rem",
-                    "slug": "large",
-                    "name": "H5"
-                },
-                {
-                    "size": "clamp(1.625rem, 2vw + 1rem, 2rem);",
-                    "slug": "x-large",
-                    "name": "H4"
-                },
-                {
-                    "size": "clamp(2.125rem, 2vw + 1rem, 2.25rem);",
-                    "slug": "huge",
-                    "name": "H3"
-                },
-                {
-                    "size": "clamp(2.375rem, 3vw + 1rem, 3rem);",
-                    "slug": "gigantic",
-                    "name": "H2"
-                },
-                {
-                    "size": "clamp(2.5rem, 3vw + 1rem, 3.5rem);",
-                    "slug": "colossal",
-                    "name": "H1"
-                }
-            ]
-        },
+		"typography": {
+			"customFontSize": false,
+			"fluid": true,
+			"fontFamilies": [
+				{
+					"fontFamily": "\"Poppins\", sans-serif",
+					"name": "Poppins",
+					"slug": "primary",
+					"fontFace": [
+						{
+							"fontFamily": "Poppins",
+							"fontWeight": "400",
+							"fontStyle": "normal",
+							"fontStretch": "normal",
+							"src": [
+								"file:./assets/fonts/Poppins-Regular.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontWeight": "400",
+							"fontStyle": "italic",
+							"fontStretch": "normal",
+							"src": [
+								"file:./assets/fonts/Poppins-Italic.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontWeight": "300",
+							"fontStyle": "normal",
+							"fontStretch": "normal",
+							"src": [
+								"file:./assets/fonts/Poppins-Light.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontWeight": "300",
+							"fontStyle": "italic",
+							"fontStretch": "normal",
+							"src": [
+								"file:./assets/fonts/Poppins-LightItalic.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontWeight": "500",
+							"fontStyle": "normal",
+							"fontStretch": "normal",
+							"src": [
+								"file:./assets/fonts/Poppins-Medium.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontWeight": "500",
+							"fontStyle": "italic",
+							"fontStretch": "normal",
+							"src": [
+								"file:./assets/fonts/Poppins-MediumItalic.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontWeight": "700",
+							"fontStyle": "normal",
+							"fontStretch": "normal",
+							"src": [
+								"file:./assets/fonts/Poppins-Bold.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontWeight": "700",
+							"fontStyle": "italic",
+							"fontStretch": "normal",
+							"src": [
+								"file:./assets/fonts/Poppins-BoldItalic.woff2"
+							]
+						}
+					]
+				}
+			],
+			"fontSizes": [
+				{
+					"size": "0.75rem",
+					"slug": "x-small",
+					"name": "Très petit"
+				},
+				{
+					"size": "1rem",
+					"slug": "small",
+					"name": "Petit"
+				},
+				{
+					"size": "1.125rem",
+					"slug": "medium",
+					"name": "Texte / H6"
+				},
+				{
+					"size": "1.5rem",
+					"slug": "large",
+					"name": "H5"
+				},
+				{
+					"size": "clamp(1.625rem, 2vw + 1rem, 2rem);",
+					"slug": "x-large",
+					"name": "H4"
+				},
+				{
+					"size": "clamp(2.125rem, 2vw + 1rem, 2.25rem);",
+					"slug": "huge",
+					"name": "H3"
+				},
+				{
+					"size": "clamp(2.375rem, 3vw + 1rem, 3rem);",
+					"slug": "gigantic",
+					"name": "H2"
+				},
+				{
+					"size": "clamp(2.5rem, 3vw + 1rem, 3.5rem);",
+					"slug": "colossal",
+					"name": "H1"
+				}
+			]
+		},
 		"layout": {
 			"contentSize": "760px",
 			"wideSize": "1160px"
 		}
 	},
 	"styles": {
-        "typography": {
+		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--primary)",
 			"lineHeight": "var(--wp--custom--typography--line-height--normal)",
 			"fontSize": "var(--wp--preset--font-size--small)",
-            "fontWeight": "400"
+			"fontWeight": "400"
 		},
-        "color": {
+		"color": {
 			"background": "var(--wp--preset--color--light)",
 			"text": "var(--wp--preset--color--dark)"
 		},
-        "spacing": {
+		"spacing": {
 			"blockGap": "2.5rem",
-            "padding": {
+			"padding": {
 				"top": "1rem",
 				"right": "1rem",
 				"bottom": "1rem",
 				"left": "1rem"
 			}
 		},
-        "elements": {
-            "heading": {
-                "typography": {
-                    "fontWeight": "400"
-                }
-            },
+		"elements": {
+			"heading": {
+				"typography": {
+					"fontWeight": "400"
+				}
+			},
 			"h1": {
 				"typography": {
 					"lineHeight": "var(--wp--custom--typography--line-height--tiny)",
@@ -260,41 +276,41 @@
 					"text": "var(--wp--preset--color--dark)"
 				}
 			},
-            "button": {
-                "border": {
+			"button": {
+				"border": {
 					"radius": "10px",
-                    "width": "0px"
+					"width": "0px"
 				},
-                "spacing": {
-                    "padding": "var(--wp--custom--spacing--medium)"
-                },
+				"spacing": {
+					"padding": "var(--wp--custom--spacing--medium)"
+				},
 				"color": {
 					"background": "var(--wp--preset--color--primary)",
 					"text": "var(--wp--preset--color--dark)"
 				},
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--x-small)",
-                    "fontWeight": "700",
-                    "lineHeight": "1"
+					"fontWeight": "700",
+					"lineHeight": "1"
 				},
-                ":hover": {
-                    "color": {
-                        "background": "var(--wp--preset--color--dark)",
-                        "text": "var(--wp--preset--color--primary)"
-                    }
-                }
+				":hover": {
+					"color": {
+						"background": "var(--wp--preset--color--dark)",
+						"text": "var(--wp--preset--color--primary)"
+					}
+				}
 			},
-            "caption": {
-                "typography": {
-                    "fontSize": "var(--wp--preset--font-size--x-small)"
-                },
-                "color": {
-                    "text": "var(--wp--preset--color--grey-700)"
-                }
-            }
+			"caption": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--x-small)"
+				},
+				"color": {
+					"text": "var(--wp--preset--color--grey-700)"
+				}
+			}
 		},
 		"blocks": {
-            "core/file": {
+			"core/file": {
 				"elements": {
 					"button": {
 						"typography": {

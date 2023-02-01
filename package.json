@@ -7,10 +7,11 @@
     "url": "https://github.com/BeAPI/beapi-frontend-framework"
   },
   "scripts": {
-    "start": "yarn webpack --watch --config config/webpack.dev.js",
+    "start": "concurrently \"yarn webpack --watch --config config/webpack.dev.js\" \"nodemon --watch src/theme-json src/theme-json/compile.js\"",
     "build": "yarn webpack --config config/webpack.prod.js",
     "bundle-report": "yarn webpack --config config/webpack.prod.js --json=dist/stats.json && yarn webpack-bundle-analyzer dist/stats.json",
-    "image": "yarn node config/image-sizes.js"
+    "image": "yarn node config/image-sizes.js",
+    "json-theme": "yarn node src/theme-json/compile.js"
   },
   "license": "GPL-2.0",
   "dependencies": {
@@ -28,6 +29,7 @@
     "browser-sync-webpack-plugin": "^2.3.0",
     "canvas": "^2.9.2",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "concurrently": "^7.6.0",
     "css-loader": "^5.2.4",
     "cssnano": "^5.0.1",
     "esbuild-loader": "^2.19.0",
@@ -39,6 +41,7 @@
     "js-yaml": "^4.1.0",
     "json2csv": "^5.0.6",
     "mini-css-extract-plugin": "^1.5.0",
+    "nodemon": "^2.0.20",
     "ora": "^5.4.0",
     "portfinder": "^1.0.28",
     "postcss": "^8.4.16",

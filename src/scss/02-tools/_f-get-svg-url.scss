@@ -5,7 +5,7 @@
  *
  * examples :
  *      get-svg-url("arrow")
- *      get-svg-url("arrow", $color-primary)
+ *      get-svg-url("arrow", var(--wp--custom--color--primary))
  *
  */
 

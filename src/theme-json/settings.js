@@ -6,47 +6,63 @@ module.exports = {
     "palette": [
       {
         "slug": "dark",
-        "color": "#000000",
+        "color": "var(--wp--custom--color--dark)",
         "name": "Dark"
       },
       {
         "slug": "light",
-        "color": "#ffffff",
+        "color": "var(--wp--custom--color--light)",
         "name": "Background"
       },
       {
         "slug": "primary",
-        "color": "#ffe600",
+        "color": "var(--wp--custom--color--primary)",
         "name": "Primary"
       },
       {
         "slug": "secondary",
-        "color": "#00ffff",
+        "color": "var(--wp--custom--color--secondary)",
         "name": "Secondary"
       },
       {
         "slug": "grey-100",
-        "color": "#eee",
+        "color": "var(--wp--custom--color--grey-100)",
         "name": "Grey 100"
       },
       {
         "slug": "grey-300",
-        "color": "#aaa",
+        "color": "var(--wp--custom--color--grey-300)",
         "name": "Grey 300"
       },
       {
         "slug": "grey-500",
-        "color": "#888",
+        "color": "var(--wp--custom--color--grey-500)",
         "name": "Grey 500"
       },
       {
         "slug": "grey-700",
-        "color": "#555",
+        "color": "var(--wp--custom--color--grey-700)",
         "name": "Grey 700"
       }
     ]
   },
   "custom": {
+    "color": {
+      "grey-100": "#eee",
+      "grey-200": "#ccc",
+      "grey-300": "#aaa",
+      "grey-400": "#999",
+      "grey-500": "#888",
+      "grey-600": "#777",
+      "grey-700": "#555",
+      "grey-800": "#333",
+      "grey-900": "#111",
+      "text": "var(--wp--custom--color--grey-900)",
+      "light": "#fff",
+      "dark": "#000",
+      "primary": "#ffe600",
+      "secondary": "var(--wp--custom--color--grey-400)"
+    },
     "spacing": {
       "small": "0.8125rem 1.4375rem",
       "medium": "0.9375rem 1.5625rem",

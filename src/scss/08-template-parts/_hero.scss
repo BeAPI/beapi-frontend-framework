@@ -12,7 +12,7 @@
         position: relative;
         z-index: 4;
         padding: 20px;
-        background: rgba($color-light, .5);
+        background: rgba(var(--wp--custom--color--light), .5);
     }
 
     &__img {

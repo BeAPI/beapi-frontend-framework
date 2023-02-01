@@ -4,7 +4,7 @@
  * Checkbox custom
  */
 
-@mixin checkbox-custom($color: $color-primary, $size: 18px, $border-width: 1px) {
+@mixin checkbox-custom($color: var(--wp--custom--color--primary), $size: 18px, $border-width: 1px) {
     @include sr-only;
 
     + label {
@@ -21,7 +21,7 @@
             height: $size;
             margin: 0;
             content: "";
-            background-color: $color-light;
+            background-color: var(--wp--custom--color--light);
             border: $border-width solid $color;
         }
 

@@ -39,7 +39,7 @@
         height: 46px;
         padding: 0;
         cursor: pointer;
-        background: $color-text;
+        background: var(--wp--custom--color--text);
         border: none;
         border-radius: 50%;
 
@@ -50,7 +50,7 @@
             width: 20px;
             height: 2px;
             margin: -1px 0 0 -10px;
-            background: $color-light;
+            background: var(--wp--custom--color--light);
             border-radius: 2px;
             transition: background-color .5s $ease-in-out-expo;
 
@@ -62,7 +62,7 @@
                 width: 100%;
                 height: 100%;
                 content: "";
-                background: $color-light;
+                background: var(--wp--custom--color--light);
                 border-radius: inherit;
                 transition: transform .5s $ease-in-out-expo;
             }
@@ -155,7 +155,7 @@
     &--menu-is-open {
         #{$el}__menu-toggle {
             > span {
-                background: rgba($color-light, 0);
+                background: rgba(var(--wp--custom--color--light), 0);
 
                 &::before {
                     transform: rotate(135deg);
@@ -178,7 +178,7 @@
             width: 100%;
             height: 100vh;
             overflow: auto;
-            background: $color-primary;
+            background: var(--wp--custom--color--primary);
             transform: translateX(-100%);
 
             > div {
@@ -258,7 +258,7 @@
         }
 
         &__menu-list {
-            color: $color-text;
+            color: var(--wp--custom--color--text);
 
             li + li {
                 margin-top: 12px;
@@ -318,7 +318,7 @@
                 &::after {
                     position: absolute;
                     content: "";
-                    background: $color-primary;
+                    background: var(--wp--custom--color--primary);
                 }
 
                 &::before {

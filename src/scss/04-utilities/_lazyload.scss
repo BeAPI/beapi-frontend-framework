@@ -2,7 +2,7 @@
 
 .lazyload,
 .lazyloading {
-    background: $color-primary;
+    background: var(--wp--custom--color--primary);
     opacity: 0;
 }
 
@@ -30,7 +30,7 @@ $loading-dimensions: 50px;
         left: 0;
         z-index: 2;
         content: "";
-        background: $color-primary;
+        background: var(--wp--custom--color--primary);
         transition: opacity .5s, z-index .5s ease .5s;
     }
 
@@ -42,7 +42,7 @@ $loading-dimensions: 50px;
         width: $loading-dimensions;
         height: $loading-dimensions;
         content: "";
-        border: 5px solid $color-light;
+        border: 5px solid var(--wp--custom--color--light);
         border-top-color: transparent;
         border-radius: $loading-dimensions;
         opacity: 1;

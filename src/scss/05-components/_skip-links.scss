@@ -5,8 +5,8 @@
     z-index: 10;
     display: flex;
     padding: .5rem 1rem;
-    color: $color-text;
-    background-color: $color-primary;
+    color: var(--wp--custom--color--text);
+    background-color: var(--wp--custom--color--primary);
     transition: transform .3s ease-in-out;
     transform: translate3d(0, -100%, 0);
 

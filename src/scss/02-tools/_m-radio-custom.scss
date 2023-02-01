@@ -4,7 +4,7 @@
  * Radio custom, must be used with checkbox custom
  */
 
-@mixin radio-custom($include-checkbox-style: false, $color: $color-primary, $size: 18px, $border-width: 1px) {
+@mixin radio-custom($include-checkbox-style: false, $color: var(--wp--custom--color--primary), $size: 18px, $border-width: 1px) {
     @if ($include-checkbox-style) {
         @include checkbox-custom($color, $size, $border-width);
     }

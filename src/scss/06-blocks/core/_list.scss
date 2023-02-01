@@ -19,7 +19,7 @@
             list-style-type: disc;
 
             li::marker {
-                color: $color-primary;
+                color: var(--wp--custom--color--primary);
             }
         }
     }
@@ -29,7 +29,7 @@
             list-style-type: decimal;
 
             li::marker {
-                color: $color-primary;
+                color: var(--wp--custom--color--primary);
             }
         }
     }

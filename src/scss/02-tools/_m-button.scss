@@ -28,7 +28,7 @@
     line-height: 16px;
     color: $color-dark;
     text-align: center;
-    background-color: $color-primary;
+    background-color: var(--wp--custom--color--primary);
     border-radius: 10px;
 
     @include hover {
@@ -39,7 +39,7 @@
 // hover of the button block
 
 @mixin button-block-hover {
-    color: $color-primary;
+    color: var(--wp--custom--color--primary);
     background-color: $color-dark;
 }
 

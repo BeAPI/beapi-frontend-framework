@@ -12,13 +12,13 @@
     margin: 0;
     font-size: 16px; // prevent iOS zoom
     line-height: 1.15;
-    color: $color-text;
-    background-color: $color-light;
-    background-image: get-svg-url("down"), linear-gradient(to bottom, $color-light 0%, $color-light 100%);
+    color: var(--wp--custom--color--text);
+    background-color: var(--wp--custom--color--light);
+    background-image: get-svg-url("down"), linear-gradient(to bottom, var(--wp--custom--color--light) 0%, var(--wp--custom--color--light) 100%);
     background-repeat: no-repeat, repeat;
     background-position: right 10px top 50%, 0 0;
     background-size: 10px auto, 100%;
-    border: 1px solid $color-grey-500;
+    border: 1px solid var(--wp--custom--color--grey-500);
     border-radius: 10px;
     appearance: none;
 
@@ -34,13 +34,13 @@
 
     // Hover style
     &:hover {
-        border-color: color.adjust($color-grey-500, $lightness: -10%);
+        border-color: var(--wp--custom--color--grey-500);
     }
 
     // Focus style
     &:focus {
-        color: color.adjust($color-text, $lightness: -10%);
-        border-color: color.adjust($color-grey-500, $lightness: -20%);
+        color: var(--wp--custom--color--grey-900);
+        border-color: var(--wp--custom--color--grey-700);
         outline: none;
         box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
         box-shadow: 0 0 0 3px -moz-mac-focusring;

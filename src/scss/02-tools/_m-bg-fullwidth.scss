@@ -2,7 +2,7 @@
  * Background fullwidth mixin in a container
  */
 
-@mixin bg-fullwidth($color: $color-grey-100) {
+@mixin bg-fullwidth($color: var(--wp--custom--color--grey-100)) {
     position: relative;
 
     &::before {

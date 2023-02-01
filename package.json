@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "concurrently \"yarn webpack --watch --config config/webpack.dev.js\" \"nodemon --watch src/theme-json src/theme-json/compile.js\"",
-    "build": "yarn webpack --config config/webpack.prod.js",
+    "build": "yarn webpack --config config/webpack.prod.js && yarn node src/theme-json/compile.js",
     "bundle-report": "yarn webpack --config config/webpack.prod.js --json=dist/stats.json && yarn webpack-bundle-analyzer dist/stats.json",
     "image": "yarn node config/image-sizes.js",
     "json-theme": "yarn node src/theme-json/compile.js"

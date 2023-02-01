@@ -30,14 +30,14 @@ $color-grey-900: #111;
 // ----
 // Palette colors
 // ----
-$color-yellow-500: #ffe600;
+$color-yellow-500: var(--wp--custom--color--primary);
 
 // ----
 // Theme colors
 // ----
 $color-primary: $color-yellow-500;
-$color-secondary: $color-grey-400;
-$color-text: $color-grey-900;
+$color-secondary: var(--wp--custom--color--grey-400);
+$color-text: var(--wp--custom--color--text);
 
 
 // ==========
@@ -93,7 +93,7 @@ $breakpoints: (
 // ----
 // border
 // ----
-$base-border-color: $color-grey-800;
+$base-border-color: var(--wp--custom--color--grey-800);
 $base-border: 1px solid $base-border-color;
 $base-border-radius: 3px;
 
@@ -103,7 +103,7 @@ $base-border-radius: 3px;
 // ----
 // Font Family
 // ----
-$font-family-primary: poppins, sans-serif;
+$font-family-primary: var(--wp--preset--font-family--primary);
 
 // ----
 // Font Size

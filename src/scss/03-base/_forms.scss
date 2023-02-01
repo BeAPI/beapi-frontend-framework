@@ -20,26 +20,26 @@ textarea {
     box-sizing: border-box;
     width: 100%;
     padding: 15px 25px;
-    font-family: $font-family-primary;
+    font-family: var(--wp--preset--font-family--primary);
     line-height: 1;
-    color: $color-text;
-    background: color.adjust($color-light, $lightness: -5%);
-    border: 1px solid $color-grey-500;
+    color: var(--wp--custom--color--text);
+    background: var(--wp--custom--color--grey-100);
+    border: 1px solid var(--wp--custom--color--grey-500);
     border-radius: 10px; //reset border radius for ios
     transition: border-color .5s ease;
     appearance: none;
 
     &::placeholder {
-        color: color.adjust($color-text, $lightness: 50%);
+        color: var(--wp--custom--color--grey-900);
     }
 
     &:hover {
-        border-color: color.adjust($color-grey-500, $lightness: -10%);
+        border-color: var(--wp--custom--color--grey-500);
     }
 
     &:focus {
-        color: color.adjust($color-text, $lightness: -10%);
-        border-color: color.adjust($color-grey-500, $lightness: -20%);
+        color: var(--wp--custom--color--grey-900);
+        border-color: var(--wp--custom--color--grey-700);
     }
 }
 

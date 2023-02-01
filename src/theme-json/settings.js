@@ -30,11 +30,6 @@ module.exports = {
         "name": "Grey 100"
       },
       {
-        "slug": "grey-300",
-        "color": "var(--wp--custom--color--grey-300)",
-        "name": "Grey 300"
-      },
-      {
         "slug": "grey-500",
         "color": "var(--wp--custom--color--grey-500)",
         "name": "Grey 500"
@@ -64,12 +59,24 @@ module.exports = {
       "secondary": "var(--wp--custom--color--grey-400)"
     },
     "spacing": {
+      "block-1": "clamp(1rem, 0.6479rem + 1.5023vw, 2rem)", // 16 to 32px
+      "block-2": "clamp(2rem, 1.2958rem + 3.0047vw, 4rem)", // 32 to 64px
+      "block-3": "clamp(3rem, 1.9437rem + 4.5070vw, 6rem)", // 48 to 96px
+      "block-4": "clamp(4rem, 2.5915rem + 6.0094vw, 8rem)", // 64 to 128px
       "small": "0.8125rem 1.4375rem",
-      "medium": "0.9375rem 1.5625rem",
-      "large": "clamp(4rem, 10vw, 8rem)",
-      "outer": "var(--wp--custom--spacing--small, 1.25rem)"
+      "medium": "0.9375rem 1.5625rem"
     },
     "typography": {
+      "font-size": {
+        "x-small": "0.75rem",
+        "small": "1rem",
+        "h-6": "1.125rem",
+        "h-5": "1.5rem",
+        "h-4": "clamp(1.625rem, 2vw + 1rem, 2rem)",
+        "h-3": "clamp(2.125rem, 2vw + 1rem, 2.25rem)",
+        "h-2": "clamp(2.375rem, 3vw + 1rem, 2.875rem)",
+        "h-1": "clamp(2.875rem, 3vw + 1rem, 3.5rem)"
+      },
       "line-height": {
         "tiny": 1.15,
         "small": 1.2,
@@ -160,42 +167,42 @@ module.exports = {
     ],
     "fontSizes": [
       {
-        "size": "0.75rem",
+        "size": "var(--wp--custom--typography--font-size--x-small)",
         "slug": "x-small",
         "name": "Très petit"
       },
       {
-        "size": "1rem",
+        "size": "var(--wp--custom--typography--font-size--small)",
         "slug": "small",
         "name": "Petit"
       },
       {
-        "size": "1.125rem",
+        "size": "var(--wp--custom--typography--font-size--h-6)",
         "slug": "medium",
-        "name": "Texte / H6"
+        "name": "H6"
       },
       {
-        "size": "1.5rem",
+        "size": "var(--wp--custom--typography--font-size--h-5)",
         "slug": "large",
         "name": "H5"
       },
       {
-        "size": "clamp(1.625rem, 2vw + 1rem, 2rem);",
+        "size": "var(--wp--custom--typography--font-size--h-4)",
         "slug": "x-large",
         "name": "H4"
       },
       {
-        "size": "clamp(2.125rem, 2vw + 1rem, 2.25rem);",
+        "size": "var(--wp--custom--typography--font-size--h-3)",
         "slug": "huge",
         "name": "H3"
       },
       {
-        "size": "clamp(2.375rem, 3vw + 1rem, 3rem);",
+        "size": "var(--wp--custom--typography--font-size--h-2)",
         "slug": "gigantic",
         "name": "H2"
       },
       {
-        "size": "clamp(2.5rem, 3vw + 1rem, 3.5rem);",
+        "size": "var(--wp--custom--typography--font-size--h-1)",
         "slug": "colossal",
         "name": "H1"
       }

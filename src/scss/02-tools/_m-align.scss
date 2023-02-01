@@ -8,8 +8,8 @@
     float: $direction;
 
     @if ($direction == left) {
-        margin-right: var(--spacing--block-1);
+        margin-right: var(--wp--custom--spacing--block-1);
     } @else {
-        margin-left: var(--spacing--block-1);
+        margin-left: var(--wp--custom--spacing--block-1);
     }
 }

@@ -21,6 +21,7 @@ const regex = {
 const imageSettings = {
   fill: '#f1e25b',
   logo: './src/img/static/logo-beapi.svg',
+  logoOpacity: 1,
   logoScale: 0.5,
 }
 const locations = {}
@@ -196,6 +197,7 @@ function generateDefaultImage(sizes, filename) {
         logoHeight = (logoWidth * image.naturalHeight) / image.naturalWidth
       }
 
+      context.globalAlpha = imageSettings.logoOpacity
       context.drawImage(image, (width - logoWidth) / 2, (height - logoHeight) / 2, logoWidth, logoHeight)
 
       const buffer = canvas.toBuffer('image/jpeg')

@@ -68,44 +68,54 @@ module.exports = {
   ],
   "fontSizes": [
     {
-      "size": "var(--wp--custom--typography--font-size--x-small)",
-      "slug": "x-small",
-      "name": "Très petit"
+      "size": "var(--wp--custom--typography--size--xs)",
+      "slug": "xs",
+      "name": "Très petit (12px)",
+      "fluid": false
     },
     {
-      "size": "var(--wp--custom--typography--font-size--small)",
-      "slug": "small",
-      "name": "Petit"
+      "size": "var(--wp--custom--typography--size--s)",
+      "slug": "s",
+      "name": "Petit (16px)",
+      "fluid": false
     },
     {
-      "size": "var(--wp--custom--typography--font-size--h-6)",
-      "slug": "medium",
-      "name": "H6"
+      "size": "var(--wp--custom--typography--size--m)",
+      "slug": "m",
+      "name": "Normal (18px)",
+      "fluid": false
     },
     {
-      "size": "var(--wp--custom--typography--font-size--h-5)",
-      "slug": "large",
-      "name": "H5"
+      "size": "var(--wp--custom--typography--size--l)",
+      "slug": "l",
+      "name": "Large (20px)",
+      "fluid": false
     },
     {
-      "size": "var(--wp--custom--typography--font-size--h-4)",
-      "slug": "x-large",
-      "name": "H4"
+      "size": "var(--wp--custom--typography--size--xl)",
+      "slug": "xl",
+      "name": "X Large (24px)",
+      "fluid": false
     },
     {
-      "size": "var(--wp--custom--typography--font-size--h-3)",
-      "slug": "huge",
-      "name": "H3"
+      "size": "var(--wp--custom--typography--size--xxl)",
+      "slug": "xxl",
+      "name": "XX Large (40px)"
     },
     {
-      "size": "var(--wp--custom--typography--font-size--h-2)",
+      "size": "var(--wp--custom--typography--size--huge)",
+      "slug": "xxxl",
+      "name": "Énorme (64px)"
+    },
+    {
+      "size": "var(--wp--custom--typography--size--gigantic)",
       "slug": "gigantic",
-      "name": "H2"
+      "name": "Gigantesque (80px)"
     },
     {
-      "size": "var(--wp--custom--typography--font-size--h-1)",
+      "size": "var(--wp--custom--typography--size--colossal)",
       "slug": "colossal",
-      "name": "H1"
+      "name": "Colossal (128px)"
     }
   ]
 }

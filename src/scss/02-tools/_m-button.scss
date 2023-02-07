@@ -26,7 +26,7 @@
     overflow: hidden;
     font-weight: 700;
     line-height: 16px;
-    color: $color-dark;
+    color: var(--wp--custom--color--dark);
     text-align: center;
     background-color: var(--wp--custom--color--primary);
     border-radius: 10px;
@@ -40,7 +40,7 @@
 
 @mixin button-block-hover {
     color: var(--wp--custom--color--primary);
-    background-color: $color-dark;
+    background-color: var(--wp--custom--color--dark);
 }
 
 // Coloring

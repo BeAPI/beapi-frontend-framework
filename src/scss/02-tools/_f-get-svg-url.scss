@@ -9,7 +9,7 @@
  *
  */
 
-@function get-svg-url($name: null, $fill: $color-dark, $opacity: 1, $style: "") {
+@function get-svg-url($name: null, $fill: #000, $opacity: 1, $style: "") {
 
     $svgs: (
         // name-of-the-svg: (viewBox, content of the svg element)

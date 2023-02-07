@@ -1,5 +1,8 @@
 module.exports= {
   "custom": false,
+  "defaultPalette": false,
+  "customGradient": false,
+  "defaultGradients": false,
   "palette": [
     {
       "slug": "dark",
@@ -35,6 +38,13 @@ module.exports= {
       "slug": "grey-700",
       "color": "var(--wp--custom--color--grey-700)",
       "name": "Grey 700"
+    }
+  ],
+  "gradients": [
+    {
+        "slug": "primary-secondary",
+        "gradient": "linear-gradient(to right, var(--wp--custom--color--primary) 50%, var(--wp--custom--color--secondary) 50%)",
+        "name": "Primary Secondary"
     }
   ]
 }

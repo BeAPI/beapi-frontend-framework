@@ -7,7 +7,7 @@
         @include heading(h1);
 
         max-width: var(--responsive--aligndefault-width);
-        margin-bottom: var(--wp--custom--wp--custom--spacing--block-2);
+        margin-bottom: var(--wp--preset--spacing--48);
     }
 
     // ----
@@ -26,7 +26,7 @@
     float: left;
     margin: .1em .1em 0 0;
     font-family: var(--wp--preset--font-family--primary);
-    font-size: calc(1.2 * var(--wp--custom--typography--font-size--h-1));
+    font-size: calc(1.2 * var(--heading--font-size-h1));
     font-style: normal;
     font-weight: var(--heading--font-weight);
     line-height: .66;
@@ -51,6 +51,10 @@
         max-width: var(--responsive--alignfull-width);
     }
 
+    .is-layout-constrained > * + p {
+        margin-block-start: 0;
+    }
+
     .alignleft {
 
         @include align;
@@ -71,7 +75,7 @@
     .alignleft,
     .alignright,
     .aligncenter {
-        margin-bottom: var(--wp--custom--spacing--block-1);
+        margin-bottom: var(--wp--custom--spacing--small);
     }
 
     // ----
@@ -79,8 +83,10 @@
     // ----
     > *,
     [class*="inner-container"] > * {
-        margin-top: var(--wp--custom--spacing--block-1);
-        margin-bottom: var(--wp--custom--spacing--block-1);
+        &:not(p, .wp-block-quote, .wp-block-pullquote) {
+            margin-top: var(--wp--preset--spacing--32);
+            margin-bottom: var(--wp--preset--spacing--32);
+        }
 
         &:first-child {
             margin-top: 0;
@@ -106,8 +112,14 @@
         /* Reset alignleft and alignright margins after alignfull */
         &.alignfull + .alignleft,
         &.alignfull + .alignright {
-            margin-top: var(--wp--custom--spacing--block-1);
+            margin-top: var(--wp--preset--spacing--16);
         }
+    }
+
+    > p,
+    [class*="inner-container"] > p {
+        margin-top: var(--wp--preset--spacing--16);
+        margin-bottom: var(--wp--preset--spacing--16);
     }
 
     @include editor-only {
@@ -115,7 +127,7 @@
         > * {
 
             &:last-child {
-                margin-bottom: var(--wp--custom--spacing--block-1);
+                margin-bottom: var(--wp--preset--spacing--16);
             }
         }
 

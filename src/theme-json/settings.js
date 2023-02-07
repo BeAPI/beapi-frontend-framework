@@ -1,7 +1,10 @@
-const color = require('./settings/color.js')
+// See https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/#settings
+
+const color = require('./settings/color')
 const custom = require('./settings/custom')
 const spacing = require('./settings/spacing')
 const typography = require('./settings/typography')
+const blocks = require('./settings/blocks/blocks.js')
 
 module.exports = {
   "appearanceTools": true,
@@ -13,5 +16,6 @@ module.exports = {
   "custom": custom,
   "color": color,
   "spacing": spacing,
-  "typography": typography
+  "typography": typography,
+  "blocks": blocks
 }

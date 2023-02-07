@@ -4,41 +4,6 @@
  * Variables
  */
 
-// ==========
-// Colors
-// ==========
-
-// ----
-// Dark/Light colors
-// ----
-$color-light: #fff;
-$color-dark: #000;
-
-// ----
-// Grey colors
-// ----
-$color-grey-100: #eee;
-$color-grey-200: #ccc;
-$color-grey-300: #aaa;
-$color-grey-400: #999;
-$color-grey-500: #888;
-$color-grey-600: #777;
-$color-grey-700: #555;
-$color-grey-800: #333;
-$color-grey-900: #111;
-
-// ----
-// Palette colors
-// ----
-$color-yellow-500: var(--wp--custom--color--primary);
-
-// ----
-// Theme colors
-// ----
-$color-primary: $color-yellow-500;
-$color-secondary: var(--wp--custom--color--grey-400);
-$color-text: var(--wp--custom--color--text);
-
 
 // ==========
 // Sizes
@@ -90,20 +55,10 @@ $breakpoints: (
 );
 // /!\ WARNING: If you use a breakpoint of 1280px, it causes a bug under Window Edge with a device pixel ratio higher than 1. Prefer to use the value 1279px.
 
-// ----
-// border
-// ----
-$base-border-color: var(--wp--custom--color--grey-800);
-$base-border: 1px solid $base-border-color;
-$base-border-radius: 3px;
 
 // ==========
 // Fonts
 // ==========
-// ----
-// Font Family
-// ----
-$font-family-primary: var(--wp--preset--font-family--primary);
 
 // ----
 // Font Size
@@ -116,8 +71,3 @@ $font-size-lg: 24px;
 $font-size-xl: 32px;
 $font-size-xxl: 48px;
 $font-size-xxxl: 56px;
-
-// ----
-// Line Height
-// ----
-$line-height-base: 1.4;

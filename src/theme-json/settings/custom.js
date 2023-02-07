@@ -1,44 +1,43 @@
+// See https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/#custom
+
 module.exports = {
   "color": {
-    "grey-100": "#eee",
-    "grey-200": "#ccc",
-    "grey-300": "#aaa",
-    "grey-400": "#999",
-    "grey-500": "#888",
-    "grey-600": "#777",
-    "grey-700": "#555",
-    "grey-800": "#333",
-    "grey-900": "#111",
-    "text": "var(--wp--custom--color--grey-900)",
+    "grey-100": "#F3F5F7",
+    "grey-500": "#C2D0D9",
+    "grey-700": "#4A5B65",
+    "grey-900": "#1E1E1E",
+    "text": "var(--wp--custom--color--grey-700)",
     "light": "#fff",
-    "dark": "#000",
-    "primary": "#ffe600",
-    "secondary": "var(--wp--custom--color--grey-400)"
+    "dark": "#1E1E1E",
+    "primary": "#FFE600",
+    "secondary": "var(--wp--custom--color--dark)"
   },
   "spacing": {
-    "block-1": "clamp(1rem, 0.6479rem + 1.5023vw, 2rem)", // 16 to 32px
-    "block-2": "clamp(2rem, 1.2958rem + 3.0047vw, 4rem)", // 32 to 64px
-    "block-3": "clamp(3rem, 1.9437rem + 4.5070vw, 6rem)", // 48 to 96px
-    "block-4": "clamp(4rem, 2.5915rem + 6.0094vw, 8rem)", // 64 to 128px
-    "small": "0.8125rem 1.4375rem",
-    "medium": "0.9375rem 1.5625rem"
+    "xxsmall": "0.25rem", // 4px
+    "xsmall": "0.5rem", // 8px
+    "small": "1rem", // 16px
+    "medium": "1.5rem", // 24px
+    "large": "2rem", // 32px
+    "xlarge": "3rem", // 48px
+    "xxlarge": "4rem"// 64px
   },
   "typography": {
-    "font-size": {
-      "x-small": "0.75rem",
-      "small": "1rem",
-      "h-6": "1.125rem",
-      "h-5": "1.5rem",
-      "h-4": "clamp(1.625rem, 2vw + 1rem, 2rem)",
-      "h-3": "clamp(2.125rem, 2vw + 1rem, 2.25rem)",
-      "h-2": "clamp(2.375rem, 3vw + 1rem, 2.875rem)",
-      "h-1": "clamp(2.875rem, 3vw + 1rem, 3.5rem)"
+    "size": {
+      "xs": "0.75rem",  // 12px
+      "s": "1rem",      // 16px
+      "m": "1.125rem",  // 18px h5/h6
+      "l": "1.25rem",   // 20px h4
+      "xl": "1.5rem",   // 24px h3
+      "xxl": "clamp(2rem, 1.8239rem + 0.7512vw, 2.5rem)",     // 32px to 40px h2
+      "huge": "clamp(2.5rem, 1.9718rem + 2.2535vw, 4rem)",    // 40px to 64px 
+      "gigantic": "clamp(3rem, 2.2958rem + 3.0047vw, 5rem);", // 48px to 80px h1
+      "colossal": "clamp(4rem, 2.5915rem + 6.0094vw, 8rem);"  // 64px to 128px
     },
     "line-height": {
-      "tiny": 1.15,
+      "tiny": 1.1,
       "small": 1.2,
-      "medium": 1.4,
-      "normal": 1.6
+      "medium": 1.25,
+      "normal": 1.5
     }
   }
 }

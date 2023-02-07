@@ -115,7 +115,7 @@
         width: 50px;
         height: 50px;
         padding: 0;
-        color: $color-dark;
+        color: var(--wp--custom--color--dark);
         text-indent: -10000px;
         vertical-align: middle;
         cursor: pointer;
@@ -194,7 +194,7 @@
                 padding-top: 22px;
 
                 + li {
-                    border-top: 1px solid $color-dark;
+                    border-top: 1px solid var(--wp--custom--color--dark);
                 }
             }
         }

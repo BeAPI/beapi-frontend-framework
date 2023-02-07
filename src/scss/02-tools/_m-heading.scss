@@ -7,32 +7,32 @@
     font-weight: 400;
 
     @if $name == h1 {
-        font-size: var(--wp--custom--typography--font-size--h-1);
-        line-height: var(--wp--custom--typography--line-height--h-1);
+        font-size: var(--wp--custom--typography--size--gigantic);
+        line-height: var(--wp--custom--typography--line-height--tiny);
     }
 
     @if $name == h2 {
-        font-size: var(--wp--custom--typography--font-size--h-2);
-        line-height: var(--wp--custom--typography--line-height--h-2);
+        font-size: var(--wp--custom--typography--size--xxl);
+        line-height: var(--wp--custom--typography--line-height--small);
     }
 
     @if $name == h3 {
-        font-size: var(--wp--custom--typography--font-size--h-3);
-        line-height: var(--wp--custom--typography--line-height--h-3);
+        font-size: var(--wp--custom--typography--size--xl);
+        line-height: var(--wp--custom--typography--line-height--medium);
     }
 
     @if $name == h4 {
-        font-size: var(--wp--custom--typography--font-size--h-4);
-        line-height: var(--wp--custom--typography--line-height--h-4);
+        font-size: var(--wp--custom--typography--size--l);
+        line-height: var(--wp--custom--typography--line-height--small);
     }
 
     @if $name == h5 {
-        font-size: var(--wp--custom--typography--font-size--h-5);
-        line-height: var(--wp--custom--typography--line-height--h-5);
+        font-size: var(--wp--custom--typography--size--m);
+        line-height: var(--wp--custom--typography--line-height--normal);
     }
 
     @if $name == h6 {
-        font-size: var(--wp--custom--typography--font-size--h-6);
-        line-height: var(--wp--custom--typography--line-height--h-6);
+        font-size: var(--wp--custom--typography--size--s);
+        line-height: var(--wp--custom--typography--line-height--small);
     }
 }

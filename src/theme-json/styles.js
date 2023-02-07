@@ -1,5 +1,7 @@
+// See https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/#styles
+
 const elements = require('./styles/elements.js')
-const blocks = require('./styles/blocks.js')
+const blocks = require('./styles/blocks/blocks.js')
 
 module.exports = {
   "typography": {

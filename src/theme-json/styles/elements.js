@@ -1,80 +1,88 @@
+// See https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/#element-styles
+
 module.exports = {
   "heading": {
+    "color": {
+      "text": "var(--wp--custom--color--dark)"
+    },
     "typography": {
-      "fontWeight": "400"
+      "fontWeight": "600"
     }
   },
   "h1": {
     "typography": {
       "lineHeight": "var(--wp--custom--typography--line-height--tiny)",
-      "fontSize": "var(--wp--custom--typography--font-size--h-1)"
+      "fontSize": "var(--wp--custom--typography--size--gigantic)"
     }
   },
   "h2": {
     "typography": {
       "lineHeight": "var(--wp--custom--typography--line-height--small)",
-      "fontSize": "var(--wp--custom--typography--font-size--h-2)"
+      "fontSize": "var(--wp--custom--typography--size--xxl)"
     }
   },
   "h3": {
     "typography": {
-      "lineHeight": "var(--wp--custom--typography--line-height--tiny)",
-      "fontSize": "var(--wp--custom--typography--font-size--h-3)"
+      "lineHeight": "var(--wp--custom--typography--line-height--medium)",
+      "fontSize": "var(--wp--custom--typography--size--xl)",
+      "fontWeight": "400"
     }
   },
   "h4": {
     "typography": {
-      "lineHeight": "var(--wp--custom--typography--line-height--tiny)",
-      "fontSize": "var(--wp--custom--typography--font-size--h-4)"
+      "lineHeight": "var(--wp--custom--typography--line-height--small)",
+      "fontSize": "var(--wp--custom--typography--size--l)"
     }
   },
   "h5": {
     "typography": {
       "lineHeight": "var(--wp--custom--typography--line-height--normal)",
-      "fontSize": "var(--wp--custom--typography--font-size--h-5)"
+      "fontSize": "var(--wp--custom--typography--size--m)"
     }
   },
   "h6": {
     "typography": {
-      "lineHeight": "var(--wp--custom--typography--line-height--normal)",
-      "fontSize": "var(--wp--custom--typography--font-size--h-6)"
+      "lineHeight": "var(--wp--custom--typography--line-height--small)",
+      "fontSize": "var(--wp--custom--typography--size--s)"
     }
   },
   "link": {
     "color": {
-      "text": "var(--wp--custom--color--dark)"
+      "text": "var(--wp--preset--color--dark)"
     }
   },
   "button": {
     "border": {
-      "radius": "10px",
+      "radius": "25px",
       "width": "0px"
     },
     "spacing": {
-      "padding": "var(--wp--custom--spacing--medium)"
+      "padding": "1.15rem var(--wp--custom--spacing--medium) var(--wp--custom--spacing--small) var(--wp--custom--spacing--medium)"
     },
     "color": {
       "background": "var(--wp--custom--color--primary)",
-      "text": "var(--wp--custom--color--dark)"
+      "gradient": "var(--wp--preset--gradient--primary-secondary)",
+      "text": "var(--wp--custom--color--secondary)"
     },
     "typography": {
-      "fontSize": "var(--wp--custom--typography--font-size--x-small)",
+      "fontFamily": "var(--wp--preset--font-family--secondary)",
+      "fontSize": "var(--wp--custom--typography--size--m)",
       "fontWeight": "700",
       "lineHeight": "1"
     },
     ":hover": {
       "color": {
-        "background": "var(--wp--custom--color--dark)",
-        "text": "var(--wp--custom--color--primary)"
+        "background": "var(--wp--custom--color--secondary)",
+        "text": "var(--wp--custom--color--light)"
       }
     }
   },
   "caption": {
     "typography": {
-      "fontSize": "var(--wp--custom--typography--font-size--x-small)"
+      "fontSize": "var(--wp--preset--font-size--x-small)"
     },
     "color": {
-      "text": "var(--wp--custom--color--grey-700)"
+      "text": "var(--wp--preset--color--grey-700)"
     }
   }
 }

@@ -61,7 +61,6 @@ module.exports = {
     },
     "color": {
       "background": "var(--wp--custom--color--primary)",
-      "gradient": "var(--wp--preset--gradient--primary-secondary)",
       "text": "var(--wp--custom--color--secondary)"
     },
     "typography": {

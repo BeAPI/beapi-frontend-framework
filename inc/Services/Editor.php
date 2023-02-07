@@ -68,6 +68,10 @@ class Editor implements Service {
 	 */
 	private function after_theme_setup(): void {
 
+		/**
+		 * Enable HTML template parts (/parts/xxx.html) and admin Appearance > Template parts
+		 */
+		add_theme_support( 'block-template-parts' );
 	}
 
 	/**

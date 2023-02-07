@@ -6,11 +6,6 @@ module.exports = {
 			"name": "footer",
 			"title": "Footer",
 			"area": "footer"
-		},
-    {
-			"name": "header",
-			"title": "Header",
-			"area": "header"
 		}
   ]
 }

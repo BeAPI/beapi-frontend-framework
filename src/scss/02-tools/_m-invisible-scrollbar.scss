@@ -1,0 +1,14 @@
+/**
+ * Invisible scrollbar
+ *
+ *      /!\ ALERT : Don't use this mixin neither on the html element, nor on the body element to avoid deteriorating the accessibility
+ */
+
+@mixin invisible-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

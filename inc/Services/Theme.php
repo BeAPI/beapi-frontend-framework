@@ -8,6 +8,8 @@ use BEA\Theme\Framework\Service_Container;
 
 class Theme implements Service {
 
+	protected $asset;
+
 	/**
 	 * @param Service_Container $container
 	 */
@@ -17,12 +19,13 @@ class Theme implements Service {
 	 * @param Service_Container $container
 	 */
 	public function boot( Service_Container $container ): void {
+		$this->asset = $container->get_service( 'assets' );
 		$this->after_setup_theme();
 		/**
 		 * @psalm-suppress PossiblyInvalidMethodCall
 		 * @psalm-suppress UndefinedInterfaceMethod
 		 */
-		if ( Framework::get_container()->get_service( 'assets' )->is_minified() ) {
+		if ( $this->asset->is_minified() ) {
 			add_filter( 'ari_responsive_image_default_img_path', [ $this, 'set_ari_responsive_image_default_img_path' ] );
 			add_filter( 'ari_responsive_image_default_img_name', [ $this, 'set_ari_responsive_image_default_img_name' ] );
 		}
@@ -117,6 +120,6 @@ class Theme implements Service {
 	 * @author Léonard Phoumpakka
 	 */
 	public function get_min_default_image( string $original_image ): string {
-		return Framework::get_container()->get_service( 'assets' )->get_min_file( 'assets/' . $original_image );
+		return $this->asset->get_min_file( 'assets/' . $original_image );
 	}
 }

@@ -6,3 +6,4 @@
     %%sources%%
     <img %%srcgif%% %%attributes%%/>
 </picture>
+<figcaption>%%caption%%</figcaption>

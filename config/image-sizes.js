@@ -37,7 +37,9 @@ let nbSizes = 0
  */
 function getTemplateFileNames() {
   return fs.readdirSync(dir.tpl).filter(function (tpl) {
-    return tpl !== 'default-picture.tpl'
+    if (tpl !== 'default-picture.tpl' && tpl !== 'default-picture-caption.tpl') {
+      return tpl
+    }
   })
 }
 

@@ -39,7 +39,7 @@
 %js-animation-translation-init {
     > * {
         opacity: 0;
-        transition: opacity .5s, transform .5s $ease-in-out-expo;
+        transition: opacity .5s, transform .5s $ease-out-expo;
         transform: translateY(100px);
     }
 }

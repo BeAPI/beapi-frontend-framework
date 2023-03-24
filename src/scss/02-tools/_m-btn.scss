@@ -2,7 +2,7 @@
  * Button
  */
 
-@mixin button {
+@mixin btn {
     display: inline;
     padding: 0;
     font-family: inherit;
@@ -18,7 +18,7 @@
 // button block
 // ----
 
-@mixin button-block {
+@mixin btn-block {
     position: relative;
     z-index: 1;
     display: inline-block;
@@ -33,20 +33,20 @@
     border-radius: 10px;
 
     @include hover {
-        @include button-block-hover;
+        @include btn-block-hover;
     }
 }
 
 // hover of the button block
 
-@mixin button-block-hover {
+@mixin btn-block-hover {
     color: $color-primary;
     background-color: $color-dark;
 }
 
 // Coloring
 
-@mixin button-block-colored($background-color, $color) {
+@mixin btn-block-colored($background-color, $color) {
     color: $color;
     background-color: $background-color;
 
@@ -58,16 +58,16 @@
 
 // Outline style
 
-@mixin button-block-outline {
+@mixin btn-block-outline {
     padding: 13px 23px;
     background-color: transparent;
     border: 2px solid currentColor; // Force button width VS Gutenberg CSS
 
     @include hover {
-        @include button-block-outline-hover;
+        @include btn-block-outline-hover;
     }
 }
 
-@mixin button-block-outline-hover {
+@mixin btn-block-outline-hover {
     background-color: transparent;
 }

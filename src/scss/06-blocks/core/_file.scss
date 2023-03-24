@@ -2,6 +2,6 @@
     $el: &;
 
     #{$el}__button {
-        @extend %button-block;
+        @extend %btn-block;
     }
 }

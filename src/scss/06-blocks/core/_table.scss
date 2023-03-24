@@ -1,6 +1,16 @@
-table,
-.wp-block-table {
+%table {
     width: 100%;
     min-width: 240px;
     border-collapse: collapse;
+}
+
+.wp-block-table {
+    @extend %table;
+}
+
+// Not apply style to ACF fields
+@include not-acf {
+    table {
+        @extend %table;
+    }
 }

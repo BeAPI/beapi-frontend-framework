@@ -94,10 +94,10 @@ $all-text-inputs: assign-inputs($text-inputs-list);
     }
 
     input[type="submit"] {
-        @extend %button-block;
+        @extend %btn-block;
     }
 
     input[type="reset"] {
-        @extend %button-block-outline;
+        @extend %btn-block-outline;
     }
 }

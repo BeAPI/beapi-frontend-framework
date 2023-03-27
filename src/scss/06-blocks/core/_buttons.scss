@@ -10,11 +10,11 @@
     // ----
     &-button {
         .wp-block-button__link {
-            @extend %button-block;
+            @extend %btn-block;
         }
 
         &.is-style-outline .wp-block-button__link {
-            @extend %button-block-outline;
+            @extend %btn-block-outline;
         }
 
         &.has-custom-font-size .wp-block-button__link {

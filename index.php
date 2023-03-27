@@ -223,7 +223,8 @@ get_header();
 			</select>
 		</div>
 		<div>
-			<button class="button-block">Button submit</button>
+			<button class="btn-block">Button submit</button>
+			<button class="btn-outline">Button submit outline</button>
 			<input type="submit" value="Input submit">
 			<input type="reset" value="Input reset">
 		</div>

@@ -46,8 +46,8 @@ class Animation extends AbstractDomElement {
 
     // add element to scrollObserver
     scrollObserver.observe(el, {
-      onVisible: function (scrollInfos, percentRTE) {
-        if (percentRTE >= start && percentRTE <= end && !that._isVisible) {
+      onVisible: function (scrollInfos, percentRTW, percentRTE) {
+        if (percentRTE.y >= start && percentRTE.y <= end && !that._isVisible) {
           // show element
           that._isVisible = true
           s.onShow(el, scrollInfos, callbacksSharedData)
@@ -57,7 +57,7 @@ class Animation extends AbstractDomElement {
           if (s.playOnce) {
             that.destroy(el, scrollInfos, callbacksSharedData)
           }
-        } else if ((percentRTE < start || (percentRTE > end && s.hideOnReachEnd)) && that._isVisible) {
+        } else if ((percentRTE.y < start || (percentRTE.y > end && s.hideOnReachEnd)) && that._isVisible) {
           // hide element
           that._isVisible = false
           s.onHide(el, scrollInfos, callbacksSharedData)
@@ -162,10 +162,10 @@ Animation.preset = {
       el.children[0].style.transitionDuration = Math.random() * 0.75 + 0.75 + 's'
     },
     onShow: function (el, scrollInfos, data) {
-      el.children[0].style.transform = 'translateY(' + scrollInfos.directionY * data.translate + 'px)'
+      el.children[0].style.transform = 'translateY(' + scrollInfos.direction.y * data.translate + 'px)'
     },
     onHide: function (el, scrollInfos, data) {
-      el.children[0].style.transform = 'translateY(' + scrollInfos.directionY * data.translate + 'px)'
+      el.children[0].style.transform = 'translateY(' + scrollInfos.direction.y * data.translate + 'px)'
     },
   },
   '.js-animation .js-animation-title': {

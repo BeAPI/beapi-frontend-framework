@@ -19,16 +19,16 @@ class ScrollDirection extends AbstractDomElement {
     this._timer = null
 
     this._scrollObserver.observe(this._element, {
-      onAlways: function (scroll, percent, percent2) {
-        const p = Math.min(Math.round(percent2 * 100), 100)
+      onAlways: function (scroll, percentRTW, percentRTE) {
+        const p = Math.min(Math.round(percentRTE.y * 100), 100)
 
         if (p === 0) {
           that.set('top')
         } else if (p === 100) {
           that.set('bottom')
-        } else if (scroll.directionY === -1) {
+        } else if (scroll.direction.y === -1) {
           that.set('up')
-        } else if (scroll.directionY === 1) {
+        } else if (scroll.direction.y === 1) {
           that.set('down')
         }
       },

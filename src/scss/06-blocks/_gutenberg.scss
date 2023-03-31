@@ -24,14 +24,10 @@
     // ----
     .acf-block-preview {
         > .block {
-            a {
-                pointer-events: none;
-            }
-
             a,
             button,
             [data-seo-container] {
-                cursor: default;
+                pointer-events: none;
             }
         }
     }

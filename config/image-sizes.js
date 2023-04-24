@@ -1,6 +1,6 @@
 const fs = require('fs')
 const ora = require('ora')
-const { createCanvas, loadImage } = require('canvas')
+const sharp = require('sharp')
 const Json2csvParser = require('json2csv').Parser
 const fields = ['location', 'sizes.width', 'sizes.height', 'sizes.retina', 'sizes.ratio']
 const dir = {
@@ -9,21 +9,20 @@ const dir = {
   defaultImages: './src/img/default/',
 }
 const path = {
-  imagesSizesCsv: dir.conf + 'images-sizes.csv',
-  imagesSizesJson: dir.conf + 'image-sizes.json',
-  imageLocationsJson: dir.conf + 'image-locations.json',
+  imagesSizesCsv: `${dir.conf}images-sizes.csv`,
+  imagesSizesJson: `${dir.conf}image-sizes.json`,
+  imageLocationsJson: `${dir.conf}image-locations.json`,
 }
 const regex = {
   srcset: /data-srcset="(.[^"]*)"/gm,
   crop: /crop="(.[^"]*)"/gm,
   img: /img-\d*-\d*/gm,
 }
-const imageSettings = {
-  fill: '#f1e25b',
-  logo: './src/img/static/logo-beapi.svg',
-  logoOpacity: 1,
-  logoScale: 0.5,
-}
+//the default image
+const defaultFile = './src/img/static/default.jpg'
+// the default image quality
+const compression = 70
+
 const locations = {}
 const sizes = {}
 
@@ -36,7 +35,7 @@ let nbSizes = 0
  * @return {array}
  */
 function getTemplateFileNames() {
-  return fs.readdirSync(dir.tpl).filter(function (tpl) {
+  return fs.readdirSync(dir.tpl).filter((tpl) => {
     if (tpl !== 'default-picture.tpl' && tpl !== 'default-picture-caption.tpl') {
       return tpl
     }
@@ -77,7 +76,7 @@ function removeFileExtension(name) {
  * @return {String}
  */
 function getDefaultImgName(str) {
-  return str.replace('img', 'default') + '.jpg'
+  return `${str.replace('img', 'default')}.jpg`
 }
 
 /**
@@ -114,7 +113,7 @@ function createFile(filename, json) {
 function imageLocationsFromTpl() {
   const templateFileNames = getTemplateFileNames()
 
-  templateFileNames.forEach(function (tplName) {
+  templateFileNames.forEach((tplName) => {
     nbLocations += 1
     const tplContent = getTemplateFileContent(tplName)
     const srcsetArr = tplContent.match(regex.srcset)
@@ -146,13 +145,12 @@ function imageLocationsFromTpl() {
           sizes[size] = {
             width: splitSize[1],
             height: splitSize[2],
-            crop: crop,
+            crop,
           }
 
           nbSizes += 1
         }
 
-        // console.log('[imageLocationsFromTpl]', CROP_STORE.length - 1, size, crop)
         storage.srcsets.push(srcsetObj)
         storage.default_img = getDefaultImgName(size)
         storage.img_base = size
@@ -172,8 +170,9 @@ function imageLocationsFromTpl() {
  * @returns {void}
  */
 function generateDefaultImage(sizes, filename) {
+  const outputFile = dir.defaultImages + filename
   try {
-    if (fs.existsSync(dir.defaultImages + filename)) {
+    if (fs.existsSync(outputFile)) {
       return
     }
 
@@ -184,30 +183,19 @@ function generateDefaultImage(sizes, filename) {
       return
     }
 
-    const canvas = createCanvas(width, height)
-    const context = canvas.getContext('2d')
-
-    context.fillStyle = imageSettings.fill
-    context.fillRect(0, 0, width, height)
-
-    loadImage(imageSettings.logo).then((image) => {
-      let logoHeight = height * imageSettings.logoScale
-      let logoWidth = (logoHeight * image.naturalWidth) / image.naturalHeight
-
-      if (image.naturalWidth > image.naturalHeight) {
-        logoWidth = width * imageSettings.logoScale
-        logoHeight = (logoWidth * image.naturalHeight) / image.naturalWidth
-      }
-
-      context.globalAlpha = imageSettings.logoOpacity
-      context.drawImage(image, (width - logoWidth) / 2, (height - logoHeight) / 2, logoWidth, logoHeight)
-
-      const buffer = canvas.toBuffer('image/jpeg')
-
-      if (typeof buffer !== 'undefined') {
-        fs.writeFileSync(dir.defaultImages + filename, buffer)
-      }
-    })
+    sharp(defaultFile)
+      .resize(width, height, {
+        fit: 'cover',
+        position: 'center',
+      })
+      .jpeg({ quality: compression, chromaSubsampling: '4:4:4' })
+      .toFile(outputFile, (err, info) => {
+        if (err) {
+          console.error(err)
+        } else {
+          console.log(`Created ${info.width}x${info.height} image at ${outputFile}`)
+        }
+      })
   } catch (err) {
     console.error(err)
   }
@@ -239,8 +227,8 @@ function exportCSV() {
 
       CSVObj.sizes.push({
         retina: val.srcset === '2x' ? '✓' : '×',
-        width: splitSize[1] + 'px',
-        height: splitSize[2] + 'px',
+        width: `${splitSize[1]}px`,
+        height: `${splitSize[2]}px`,
         ratio: splitSize[1] / splitSize[2],
       })
     })

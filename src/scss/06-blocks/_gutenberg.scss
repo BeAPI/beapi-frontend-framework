@@ -17,6 +17,19 @@
         font-family: var(--global--font-secondary);
         font-size: var($font-size-md);
     }
+
+    // ----
+    // Disable links in ACF blocks
+    // The template block must have a ".block" class. Example : <div class="block block--my-custom-block">
+    // ----
+    .acf-block-preview {
+        > .block {
+            a,
+            button {
+                pointer-events: none;
+            }
+        }
+    }
 }
 
 // ----

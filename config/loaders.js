@@ -13,8 +13,14 @@ module.exports = {
     return [
       /* FontsLoader */ {
         test: /\.(woff|woff2)$/,
-        type: 'asset/resource',
-        include: srcPath + '/fonts',
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'assets',
+            },
+          },
+        ],
       },
       /* ImagesLoader */ {
         test: /\.(png|jpe?g|gif|svg)$/,

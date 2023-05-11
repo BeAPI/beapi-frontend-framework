@@ -21,27 +21,6 @@ module.exports = {
         type: 'asset/resource',
         exclude: /icons/,
         include: srcPath + '/img',
-        use: [
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                progressive: true,
-                quality: 65,
-              },
-              pngquant: {
-                quality: [0.65, 0.9],
-                speed: 4,
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-              webp: {
-                quality: 75,
-              },
-            },
-          },
-        ],
       },
       /* JSLoader */ {
         test: /\.js$/i,

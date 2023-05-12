@@ -103,24 +103,6 @@ module.exports = {
           },
         ],
       },
-      /* SVGLoader */ {
-        test: /\.svg$/,
-        include: srcPath + '/img/icons',
-        use: [
-          {
-            loader: 'svg-sprite-loader',
-            options: {
-              extract: true,
-              publicPath: 'icons/',
-              spriteFilename: (svgPath) => `${/icons([\\|/])(.*?)\1/gm.exec(svgPath)[2]}.svg`,
-              symbolId: (filePath) => `icon-${path.basename(filePath).slice(0, -4)}`,
-            },
-          },
-          {
-            loader: 'svgo-loader',
-          },
-        ],
-      },
     ]
   },
 }

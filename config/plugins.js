@@ -5,7 +5,6 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 const WebpackBar = require('webpackbar')
 const DependencyExtractionWebpackPlugin = require('@wordpress/dependency-extraction-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
@@ -20,9 +19,6 @@ module.exports = {
         overrideConfigFile: path.resolve(__dirname, '../.eslintrc'),
         context: path.resolve(__dirname, '../src/js'),
         files: '**/*.js',
-      }),
-      new SpriteLoaderPlugin({
-        plainSprite: true,
       }),
       new StyleLintPlugin({
         configFile: path.resolve(__dirname, '../.stylelintrc'),

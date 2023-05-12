@@ -33,41 +33,30 @@ class Svg implements Service {
 	}
 
 	/**
-	 * @param string $icon_class
-	 * @param array  $additionnal_classes
+	 * @param string $icon_name
 	 *
 	 * @return string
 	 */
-	public function get_the_icon( string $icon_class, array $additionnal_classes = [] ): string {
-		if ( empty( $icon_class ) ) {
+	public function get_the_icon( string $icon_name ): string {
+		if ( empty( $icon_name ) ) {
 			return '';
 		}
 
-		// acf-svg-icon already return sprite-name.svg#icon-name, ex: social.svg#icon-facebook
-		// format the string to obtain sprite-name/icon-name
-		$icon_class = str_replace( '.svg#icon-', '/', $icon_class );
+		$icon_path = sprintf( '/dist/%s', $this->get_icon_from_manifest( sprintf( 'assets/%s.svg', $icon_name ) ) );
 
-		$sprite_name = 'sprite';
-
-		if ( false !== strpos( $icon_class, '/' ) ) {
-			$sprite_name = strtok( $icon_class, '/' );
-			$icon_class  = substr( $icon_class, strpos( $icon_class, '/' ) + 1 );
+		if ( ! file_exists( \get_theme_file_path( $icon_path ) ) ) {
+			return '';
 		}
 
-		$icon_slug = strpos( $icon_class, 'icon-' ) === 0 ? $icon_class : sprintf( 'icon-%s', $icon_class );
-		$classes   = [ 'icon', $icon_slug ];
-		$classes   = array_merge( $classes, $additionnal_classes );
-		$classes   = array_map( 'sanitize_html_class', $classes );
-
-		return sprintf( '<svg class="%s" aria-hidden="true" focusable="false"><use href="%s#%s"></use></svg>', implode( ' ', $classes ), \get_theme_file_uri( sprintf( '/dist/icons/%s.svg', $sprite_name ) ), $icon_slug ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		return file_get_contents( \get_theme_file_path( $icon_path ) );
 	}
 
 	/**
-	 * @param string $icon_class
-	 * @param array $additionnal_classes
+	 * @param string $icon_name
+	 *
 	 */
-	public function the_icon( string $icon_class, array $additionnal_classes = [] ): void {
-		echo $this->get_the_icon( $icon_class, $additionnal_classes ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	public function the_icon( string $icon_name ): void {
+		echo $this->get_the_icon( $icon_name ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
@@ -102,5 +91,31 @@ class Svg implements Service {
 		];
 
 		return $tags;
+	}
+
+		/**
+	 * Get the compiled SVG path from JSON manifest
+	 *
+	 * @param $icon_path
+	 *
+	 * @return string
+	 *
+	 * @author Milan RICOUL
+	 */
+	public function get_icon_from_manifest( string $icon_path ): string {
+		$json   = file_get_contents( \get_theme_file_path( '/dist/assets.json' ) ); //phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$assets = json_decode( $json, true );
+
+		if ( empty( $assets ) || JSON_ERROR_NONE !== json_last_error() ) {
+			return '';
+		}
+
+		$file = $assets[ $icon_path ];
+
+		if ( empty( $file ) ) {
+			return '';
+		}
+
+		return $file;
 	}
 }

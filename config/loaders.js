@@ -46,6 +46,19 @@ module.exports = {
                       name: 'preset-default',
                     },
                     {
+                      name: 'addAttributesToSVGElement',
+                      params: {
+                        attributes: [
+                          {
+                            focusable: false,
+                          },
+                          {
+                            'aria-hidden': true,
+                          },
+                        ],
+                      },
+                    },
+                    {
                       name: 'addClassesToSVGElement',
                       params: {
                         className: 'icon',

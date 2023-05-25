@@ -38,5 +38,5 @@
 }
 
 @mixin placeholder-media-size($width, $height) {
-    padding-bottom: calc(math.div($height, $width) * 100%);
+    padding-bottom: math.div($height, $width) * 100%;
 }

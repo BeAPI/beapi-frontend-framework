@@ -1,5 +1,6 @@
+import { ScrollObserver, ThrottledEvent } from 'oneloop.js'
+
 import AbstractDomElement from './AbstractDomElement.js'
-import { ScrollObserver } from 'oneloop.js'
 
 class ScrollDirection extends AbstractDomElement {
   constructor(element, options) {
@@ -13,6 +14,7 @@ class ScrollDirection extends AbstractDomElement {
     const that = this
 
     this._scrollObserver = new ScrollObserver()
+    this._throttledScroll = new ThrottledEvent(window, 'scroll')
     this._directions = ['top', 'bottom', 'up', 'down']
     this._current = null
     this._isEditable = true
@@ -32,6 +34,14 @@ class ScrollDirection extends AbstractDomElement {
           that.set('down')
         }
       },
+    })
+
+    this._throttledScroll.add('scrollstart', () => {
+      this._element.classList.add('scrolling')
+    })
+
+    this._throttledScroll.add('scrollend', () => {
+      this._element.classList.remove('scrolling')
     })
 
     that.set('top')

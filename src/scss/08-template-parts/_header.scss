@@ -10,7 +10,7 @@
     &__inner {
         position: fixed;
         top: var(--wp-admin-bar-height);
-        z-index: 10000;
+        z-index: 10;
         width: 100%;
         background: var(--wp--preset--color--cyan-bluish-gray);
     }

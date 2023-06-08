@@ -73,8 +73,12 @@ body {
     font-size: $font-size-base;
     font-weight: normal;
     color: $color-text;
-    text-align: left;
     background-color: $color-light;
+
+    *:not([dir="rtl"]) &,
+    :root:not(:lang(ar)):not(:lang(iw)) & {
+        text-align: left;
+    }
 }
 
 button {

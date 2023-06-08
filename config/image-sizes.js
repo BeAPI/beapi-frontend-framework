@@ -4,8 +4,8 @@ const sharp = require('sharp')
 const Json2csvParser = require('json2csv').Parser
 const fields = ['location', 'sizes.width', 'sizes.height', 'sizes.retina', 'sizes.ratio']
 const dir = {
-  conf: './src/conf-img/',
-  tpl: './src/conf-img/tpl/',
+  conf: './assets/conf-img/',
+  tpl: './assets/conf-img/tpl/',
   defaultImages: './src/img/default/',
 }
 const path = {

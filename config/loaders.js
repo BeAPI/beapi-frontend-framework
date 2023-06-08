@@ -15,12 +15,18 @@ module.exports = {
         test: /\.(woff|woff2)$/,
         type: 'asset/resource',
         include: srcPath + '/fonts',
+        generator: {
+          filename: 'fonts/[name][ext][query]',
+        },
       },
       /* ImagesLoader */ {
         test: /\.(png|jpe?g|gif|svg)$/,
         type: 'asset/resource',
         exclude: /icons/,
         include: srcPath + '/img',
+        generator: {
+          filename: 'images/[name][ext][query]',
+        },
       },
       /* JSLoader */ {
         test: /\.js$/i,
@@ -42,6 +48,8 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
+              url: true,
+              esModule: false,
               importLoaders: 1,
             },
           },

@@ -18,7 +18,7 @@
         &:not([class*="is-style-"], .no-list-style) {
             list-style-type: disc;
 
-            li::marker {
+            & li::marker {
                 color: $color-primary;
             }
         }
@@ -28,7 +28,7 @@
         &:not([class*="is-style-"]) {
             list-style-type: decimal;
 
-            li::marker {
+            & li::marker {
                 color: $color-primary;
             }
         }

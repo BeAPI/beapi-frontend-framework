@@ -24,8 +24,8 @@
     // ----
     .acf-block-preview {
         > .block {
-            a,
-            button {
+            & a,
+            & button {
                 pointer-events: none;
             }
         }

@@ -14,7 +14,7 @@
         transform: translate3d(0, 0, 0);
     }
 
-    li:not(:last-of-type) {
+    & li:not(:last-of-type) {
         margin-right: 1rem;
     }
 }

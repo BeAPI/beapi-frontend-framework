@@ -24,7 +24,7 @@
         display: block;
         width: 124px;
 
-        img {
+        & img {
             max-width: 100%;
             height: auto;
         }
@@ -83,11 +83,11 @@
         letter-spacing: 1px;
         list-style: none;
 
-        li + li {
+        & li + li {
             margin-top: 22px;
         }
 
-        a {
+        & a {
             color: inherit;
         }
 
@@ -252,7 +252,7 @@
         &__menu-list {
             color: $color-text;
 
-            li + li {
+            & li + li {
                 margin-top: 12px;
             }
 
@@ -336,7 +336,7 @@
                     > ul {
                         > li {
                             &.menu-item-has-children {
-                                a {
+                                & a {
                                     max-width: calc(100% - 25px);
                                 }
                             }
@@ -345,7 +345,7 @@
                 }
             }
 
-            a {
+            & a {
                 display: block;
             }
 

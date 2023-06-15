@@ -27,7 +27,7 @@ body.login {
     background: $login-body-bg-color;
 
     // logo (before login form) path and size
-    h1 a {
+    & h1 a {
         display: block;
         width: 100%;
         height: $login-logo-height;
@@ -38,7 +38,7 @@ body.login {
     }
 
     // default link styles
-    a {
+    & a {
         color: $login-link-color;
         text-decoration: none;
 
@@ -58,14 +58,14 @@ body.login {
     }
 
     // remember input checkbox check color
-    input[type="checkbox"]:checked::before {
+    & input[type="checkbox"]:checked::before {
         color: $login-remember-input-check-color;
     }
 
     // link after login form styles
     #nav,
     #backtoblog {
-        a {
+        & a {
             color: $login-link-color;
 
             &:focus,

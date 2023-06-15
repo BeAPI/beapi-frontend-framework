@@ -1,9 +1,9 @@
 html {
-    a,
-    button,
-    input,
-    select,
-    textarea,
+    & a,
+    & button,
+    & input,
+    & select,
+    & textarea,
     [tabindex] {
         &:focus {
             outline: 2px solid currentColor;
@@ -12,11 +12,11 @@ html {
     }
 
     &:not([data-whatintent="keyboard"]) {
-        a,
-        button,
-        input,
-        select,
-        textarea,
+        & a,
+        & button,
+        & input,
+        & select,
+        & textarea,
         [tabindex] {
             &:focus {
                 outline: none;

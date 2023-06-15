@@ -1,5 +1,5 @@
 .wp-block-audio {
-    audio {
+    & audio {
         &::-webkit-media-controls-panel {
             background-color: $color-primary;
         }

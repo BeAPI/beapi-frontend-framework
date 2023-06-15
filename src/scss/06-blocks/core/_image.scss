@@ -4,7 +4,7 @@
         height: auto;
     }
 
-    figcaption {
+    & figcaption {
         font-size: $font-size-xs;
         color: $color-grey-600;
     }

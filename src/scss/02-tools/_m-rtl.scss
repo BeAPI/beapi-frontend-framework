@@ -1,0 +1,9 @@
+// Support for rtl text, explicit support for Arabic and Hebrew
+
+@mixin rtl() {
+    *[dir="rtl"] &,
+    :root:lang(ar) &,
+    :root:lang(iw) & {
+        @content;
+    }
+}

@@ -69,7 +69,7 @@ $all-text-inputs: assign-inputs($text-inputs-list);
         For complianz plugin
         --------------------
 
-        *:not(.cmplz-banner-checkbox) > & {
+        span:not(.cmplz-banner-checkbox) > & {
             @include checkbox-custom;
 
             &:checked {
@@ -87,7 +87,7 @@ $all-text-inputs: assign-inputs($text-inputs-list);
         For complianz plugin
         --------------------
 
-        *:not(.cmplz-banner-checkbox) > & {
+        span:not(.cmplz-banner-checkbox) > & {
             @include radio-custom(true);
         }
         */

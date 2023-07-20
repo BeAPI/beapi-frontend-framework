@@ -128,8 +128,8 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 		$network['params'] ?? []
 	);
 
-	$network['attributes']['href']     = add_query_arg( $network['params'], $network['attributes']['href'] ?? '' );
-	$network['attributes']['target']   = '_blank';
+	$network['attributes']['href']   = add_query_arg( $network['params'], $network['attributes']['href'] ?? '' );
+	$network['attributes']['target'] = '_blank';
 
 	$attributes = wp_parse_args( $attributes, $network['attributes'] );
 
@@ -198,5 +198,5 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
  * @return void Echo the markup of the share link
  */
 function the_share_link( string $name, string $link_to_share, array $share_attributes = [], array $attributes = [], array $settings = [] ): void {
-	echo get_share_link( $name, $link_to_share, $share_attributes, $attributes, $settings );
+	echo get_share_link( $name, $link_to_share, $share_attributes, $attributes, $settings ); // phpcs:ignore
 }

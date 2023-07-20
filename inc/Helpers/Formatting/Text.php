@@ -19,7 +19,7 @@ use function BEA\Theme\Framework\Helpers\Formatting\Escape\escape_content_value;
  * @return void
  */
 function the_text( string $value, array $settings = [] ): void {
-	echo get_the_text( $value, $settings );
+	echo get_the_text( $value, $settings ); // phpcs:ignore
 }
 
 /**

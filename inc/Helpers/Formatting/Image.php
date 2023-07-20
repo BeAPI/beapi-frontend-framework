@@ -110,5 +110,5 @@ function get_the_image( int $image_id, array $attributes, array $settings = [] )
  * @return void Echo of the image markup
  */
 function the_image( int $image_id, array $attributes, array $settings = [] ): void {
-	echo get_the_image( $image_id, $attributes, $settings );
+	echo get_the_image( $image_id, $attributes, $settings );  // phpcs:ignore
 }

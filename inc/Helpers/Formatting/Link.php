@@ -243,7 +243,7 @@ function get_the_link( array $attributes, array $settings = [] ): string {
  * @return void Echo of the link markup
  */
 function the_link( array $attributes, array $settings = [] ): void {
-	echo get_the_link( $attributes, $settings );
+	echo get_the_link( $attributes, $settings ); // phpcs:ignore
 }
 
 /**

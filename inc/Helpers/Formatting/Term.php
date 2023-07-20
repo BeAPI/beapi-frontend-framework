@@ -95,5 +95,5 @@ function get_terms_list( $post, string $taxonomy, array $settings = [] ): string
  * }
  */
 function the_terms_list( $post, string $taxonomy, array $settings = [] ): void {
-	echo get_terms_list( $post, $taxonomy, $settings );
+	echo get_terms_list( $post, $taxonomy, $settings ); // phpcs:ignore
 }

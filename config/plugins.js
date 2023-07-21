@@ -31,7 +31,7 @@ module.exports = {
       new WebpackBar({
         color: '#ffe600',
       }),
-      new DependencyExtractionWebpackPlugin({ injectPolyfill: true }),
+      new DependencyExtractionWebpackPlugin(),
     ]
 
     if (mode === 'production') {

@@ -14,33 +14,18 @@ module.exports = {
       /* FontsLoader */ {
         test: /\.(woff|woff2)$/,
         type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext][query]',
+        },
       },
       /* ImagesLoader */ {
         test: /\.(png|jpe?g|gif|svg)$/,
         type: 'asset/resource',
         exclude: /icons/,
         include: srcPath + '/img',
-        use: [
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                progressive: true,
-                quality: 65,
-              },
-              pngquant: {
-                quality: [0.65, 0.9],
-                speed: 4,
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-              webp: {
-                quality: 75,
-              },
-            },
-          },
-        ],
+        generator: {
+          filename: 'images/[name][ext][query]',
+        },
       },
       /* JSLoader */ {
         test: /\.js$/i,
@@ -62,6 +47,8 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
+              url: true,
+              esModule: false,
               importLoaders: 1,
             },
           },

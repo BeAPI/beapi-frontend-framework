@@ -1830,10 +1830,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/poppins@npm:^4.5.10":
-  version: 4.5.10
-  resolution: "@fontsource/poppins@npm:4.5.10"
-  checksum: 873ea31740a9819cbc39bf5895159101e87674e3c9da03629b6331e7752b657f3704cd1c6ae81ac9af2f5aa4a9d85847eae8015c926bb48e1f7a5bbacfeca8ee
+"@fontsource/poppins@npm:^5.0.5":
+  version: 5.0.5
+  resolution: "@fontsource/poppins@npm:5.0.5"
+  checksum: aafb41250a8aab42ae2f8a435913889c6ee3a3ce3ff6b792bc3e9033877ca7999a98ccdc43feb17e43cfd3fdfa610ec64d6c203d005522e9416f61d5ce0a032e
   languageName: node
   linkType: hard
 
@@ -3162,7 +3162,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "beapi-frontend-framework@workspace:."
   dependencies:
-    "@fontsource/poppins": ^4.5.10
+    "@fontsource/poppins": ^5.0.5
     "@wordpress/blocks": ^11.16.0
     "@wordpress/dependency-extraction-webpack-plugin": ^4.0.0
     "@wordpress/dom-ready": ^3.17.0

@@ -1,38 +1,33 @@
 /**
  * Fontsource
- * Fonts list : https://fontsource.org/fonts
- * Documentation : https://fontsource.org/docs/sass/mixins
- * For variable font : https://fontsource.org/docs/sass/variable-mixins
+ * Fonts list : https://fontsource.org/
+ * Documentation : https://fontsource.org/docs/getting-started/faces-mixin
  *
  * examples :
  *
  *      1 - Install the font by the command :
- *          yarn add @fontsource/lexend
+ *          // For Classic font
+ *          yarn add @fontsource/myFont
+ *
+ *          // For Variable font
+ *          yarn add @fontsource-variable/myFont
  *
  *      2 - Declare font-face :
- *          @use "~@fontsource/lexend/scss/mixins" as Lexend;
- *
  *          // For Classic font
- *          @include Lexend.fontFace($weight: 400);
- *          @include Lexend.fontFace($weight: 400, $style: italic);
- *          @include Lexend.fontFace($weight: 700);
+ *          @use "~@fontsource/myFont/scss/mixins" as MyFont;
+ *          @include MyFont.faces($weights: (400, 700));
  *          ...
  *
  *          // For Variable font
- *          @include Lexend.fontFaceVariable($weight: 100 900);
+ *          @use "~@fontsource-variable/myFont/scss/mixins" as MyFont;
+ *          @include MyFont.faces($weights: 100 900);
  *          ...
  */
 
 @use "~@fontsource/poppins/scss/mixins" as Poppins;
 
-@include Poppins.fontFace($weight: 300);
-@include Poppins.fontFace($weight: 300, $style: italic);
-@include Poppins.fontFace($weight: 400);
-@include Poppins.fontFace($weight: 400, $style: italic);
-@include Poppins.fontFace($weight: 500);
-@include Poppins.fontFace($weight: 500, $style: italic);
-@include Poppins.fontFace($weight: 700);
-@include Poppins.fontFace($weight: 700, $style: italic);
+@include Poppins.faces($weights: (300, 400, 500, 700), $styles: normal);
+@include Poppins.faces($weights: (300, 400, 500, 700), $styles: italic);
 
 /**
  * Custom font here

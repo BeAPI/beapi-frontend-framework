@@ -6,14 +6,26 @@
     "type": "git",
     "url": "https://github.com/BeAPI/beapi-frontend-framework"
   },
+  "type": "module",
   "scripts": {
     "start": "yarn webpack --watch --config config/webpack.dev.js",
     "build": "yarn webpack --config config/webpack.prod.js",
     "bundle-report": "yarn webpack --config config/webpack.prod.js --json=dist/stats.json && yarn webpack-bundle-analyzer dist/stats.json",
-    "image": "yarn node config/image-sizes.js"
+    "image": "yarn node config/image-sizes.js",
+    "esbuild": "yarn node config/esbuild.prod.js",
+    "eswatch": "yarn node config/esbuild.dev.js"
   },
   "license": "GPL-2.0",
   "dependencies": {
+    "@deanc/esbuild-plugin-postcss": "^1.0.2",
+    "crypto": "^1.0.1",
+    "esbuild": "^0.18.14",
+    "esbuild-plugin-eslint": "^0.3.6",
+    "esbuild-plugin-manifest": "^0.6.0",
+    "esbuild-plugin-postcss": "^0.2.1",
+    "esbuild-plugin-sass": "^1.0.1",
+    "esbuild-plugin-stylelint": "^0.0.2",
+    "eslint-plugin-import": "^2.27.5",
     "lazysizes": "^5.3.2",
     "oneloop.js": "^5.0.0",
     "what-input": "^5.2.10"
@@ -30,7 +42,8 @@
     "css-loader": "^5.2.4",
     "cssnano": "^5.0.1",
     "esbuild-loader": "^2.19.0",
-    "eslint": "^8.23.1",
+    "esbuild-style-plugin": "^1.6.2",
+    "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-webpack-plugin": "^3.2.0",
@@ -59,8 +72,10 @@
     "style-loader": "^2.0.0",
     "stylelint": "^14.13.0",
     "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-formatter-pretty": "^3.2.0",
     "stylelint-scss": "^4.3.0",
     "stylelint-webpack-plugin": "^3.3.0",
+    "supports-color": "^9.4.0",
     "svg-sprite-loader": "^6.0.10",
     "svgo": "^3.0.2",
     "svgo-loader": "^3.0.0",
@@ -74,7 +89,7 @@
   },
   "volta": {
     "node": "18.12.1",
-    "yarn": "1.22.19"
+    "yarn": "3.6.1"
   },
-  "packageManager": "yarn@3.2.3"
+  "packageManager": "yarn@3.6.1"
 }

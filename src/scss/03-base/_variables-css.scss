@@ -41,10 +41,10 @@
     /*
      * Admin bar
      */
-    --wp-admin-bar-height: 0rem;
+    --wp-admin-bar-height: var(--wp-admin--admin-bar--height, 0rem);
 
     .admin-bar {
-        --wp-admin-bar-height: 46px;
+        --wp-admin-bar-height: var(--wp-admin--admin-bar--height, 46px);
     }
 
     /*
@@ -76,7 +76,7 @@
          */
         &:not(.scroll-top) {
             .admin-bar {
-                --wp-admin-bar-height: 0rem;
+                --wp-admin-bar-height: var(--wp-admin--admin-bar--height, 0rem);
             }
         }
     }
@@ -86,7 +86,7 @@
          * Admin bar
          */
         .admin-bar {
-            --wp-admin-bar-height: 32px;
+            --wp-admin-bar-height: var(--wp-admin--admin-bar--height, 32px);
         }
     }
 

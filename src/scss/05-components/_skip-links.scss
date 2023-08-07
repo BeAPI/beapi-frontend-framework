@@ -1,6 +1,6 @@
 .skip-links {
     position: absolute;
-    top: 0;
+    top: var(--wp-admin-bar-height);
     left: 0;
     z-index: 10;
     display: flex;

@@ -65,12 +65,12 @@
             &:not([class*="is-style-"]) {
                 li {
                     position: relative;
-                    padding-left: 30px;
+                    padding-left: 40px;
                     margin-bottom: calc(.5 * var(--spacing--block-1));
                     counter-increment: section;
 
                     @include rtl {
-                        padding-right: 30px;
+                        padding-right: 40px;
                         padding-left: 0;
                     }
 

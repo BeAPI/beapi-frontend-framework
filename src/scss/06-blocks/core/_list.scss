@@ -1,35 +1,127 @@
-#{context-selector('.blocks-container', '.is-root-container')} {
-    ul,
-    ol {
-        // Utility classes
-        &.aligncenter {
-            padding: 0;
-            list-style-position: inside;
-        }
+%bullet {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    content: "";
+    background-color: $color-dark;
+    border-radius: 100%;
 
-        &.alignright {
-            padding: 0;
-            text-align: right;
-            list-style-position: inside;
-        }
+    @include rtl {
+        right: -15px;
+        left: inherit;
     }
+}
 
-    ul {
-        &:not([class*="is-style-"], .no-list-style) {
-            list-style-type: disc;
+#{context-selector('.blocks-container', '.is-root-container')} {
+    ul:not(.not-custom-list),
+    ol:not(.not-custom-list) {
+        &:not([class*="is-style-"]):not([class*="no-list-style"]):not([role="list"]) {
+            font-size: var(--paragraph--font-size-default, $font-size-base);
+            line-height: var(--paragraph--line-height-default, $line-height-base);
 
-            li::marker {
-                color: $color-primary;
+            ul,
+            ol {
+                margin-top: var(--spacing--block-1);
+                margin-bottom: var(--spacing--block-1);
             }
         }
     }
 
-    ol {
-        &:not([class*="is-style-"]) {
-            list-style-type: decimal;
+    ul:not(.not-custom-list) {
+        &:not([class*="is-style-"], .no-list-style,[role="list"]) {
+            list-style-type: none;
 
-            li::marker {
-                color: $color-primary;
+            li {
+                position: relative;
+                padding-left: 30px;
+                margin-bottom: calc(.5 * var(--spacing--block-1));
+
+                @include rtl {
+                    padding-right: 30px;
+                    padding-left: 0;
+                }
+
+                &::before {
+                    @extend %bullet;
+                }
+            }
+
+            ul {
+                margin-top: calc(.5 * var(--spacing--block-1));
+                margin-bottom: calc(.5 * var(--spacing--block-1));
+            }
+        }
+    }
+
+    ol:not(.not-custom-list) {
+        &:not([class*="is-style-"], .no-list-style,[role="list"]) {
+            list-style: none;
+            counter-reset: section;
+
+            &:not([class*="is-style-"]) {
+                li {
+                    position: relative;
+                    padding-left: 30px;
+                    margin-bottom: calc(.5 * var(--spacing--block-1));
+                    counter-increment: section;
+
+                    @include rtl {
+                        padding-right: 30px;
+                        padding-left: 0;
+                    }
+
+                    &::before {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        font-family: $font-family-secondary;
+                        font-size: var(--paragraph--font-size-default, $font-size-base);
+                        font-weight: 400;
+                        line-height: var(--paragraph--line-height-default, $line-height-base);
+                        color: $color-dark;
+                        text-align: center;
+                        letter-spacing: -.06em;
+                        content: counters(section, "", decimal-leading-zero) " ";
+
+                        @include rtl {
+                            right: 0;
+                            left: inherit;
+                            transform: translateX(100%);
+                        }
+                    }
+
+                    ol {
+                        margin-top: calc(.5 * var(--spacing--block-1));
+                        margin-bottom: calc(.5 * var(--spacing--block-1));
+                        counter-reset: subsection;
+
+                        li {
+                            counter-increment: subsection;
+
+                            &::before {
+                                content: counters(subsection, ".", lower-alpha) ". ";
+                            }
+                        }
+                    }
+
+                    ul {
+                        margin-top: calc(.5 * var(--spacing--block-1));
+                        margin-bottom: calc(.5 * var(--spacing--block-1));
+                        counter-reset: section;
+
+                        li {
+                            padding-top: 0;
+
+                            &::before {
+                                @extend %bullet;
+                                transform: translateX(0);
+                            }
+                        }
+                    }
+
+                }
             }
         }
     }

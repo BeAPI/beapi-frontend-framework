@@ -19,6 +19,21 @@
     --heading--line-height-h6: 1.25;
 
     /*
+     * paragraph
+    */
+    // Font size
+    --paragraph--font-size-huge: 32px;
+    --paragraph--font-size-large: 24px;
+    --paragraph--font-size-small: 14px;
+    --paragraph--font-size-default: 16px;
+
+    // line height
+    --paragraph--line-height-huge: 1.4;
+    --paragraph--line-height-large: 1.4;
+    --paragraph--line-height-small: 1.4;
+    --paragraph--line-height-default: 1.4;
+
+    /*
      * Spacing
      */
     --spacing--block-1: 16px;

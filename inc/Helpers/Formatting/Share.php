@@ -59,13 +59,13 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				'u' => $link_to_share,
 			],
 		],
-		'twitter'   => [
+		'x'         => [
 			'attributes' => [
-				'title' => __( 'Share on Twitter', 'beapi-frontend-framework' ),
+				'title' => __( 'Share on X', 'beapi-frontend-framework' ),
 				'href'  => 'https://twitter.com/intent/tweet',
 				'class' => 'share__link',
 			],
-			'icon'       => 'social/twitter',
+			'icon'       => 'social/x',
 			'params'     => [
 				'url' => $link_to_share,
 			],
@@ -88,17 +88,6 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				'class' => 'share__link',
 			],
 			'icon'       => 'social/instagram',
-			'params'     => [
-				'url' => $link_to_share,
-			],
-		],
-		'xing'      => [
-			'attributes' => [
-				'title' => __( 'Share on Xing', 'beapi-frontend-framework' ),
-				'href'  => 'https://www.xing.com/spi/shares/new',
-				'class' => 'share__link',
-			],
-			'icon'       => 'social/xing',
 			'params'     => [
 				'url' => $link_to_share,
 			],
@@ -128,8 +117,8 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 		$network['params'] ?? []
 	);
 
-	$network['attributes']['href']     = add_query_arg( $network['params'], $network['attributes']['href'] ?? '' );
-	$network['attributes']['target']   = '_blank';
+	$network['attributes']['href']   = add_query_arg( $network['params'], $network['attributes']['href'] ?? '' );
+	$network['attributes']['target'] = '_blank';
 
 	$attributes = wp_parse_args( $attributes, $network['attributes'] );
 

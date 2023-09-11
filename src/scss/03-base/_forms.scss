@@ -63,35 +63,29 @@ $all-text-inputs: assign-inputs($text-inputs-list);
         &:checked {
             @include checkbox-custom-checked;
         }
+    }
 
-        /*
-        --------------------
-        For complianz plugin
-        --------------------
+    input[type="radio"] {
+        @include radio-custom(true);
+    }
 
-        *:not(.cmplz-banner-checkbox) > & {
+    /*
+    // For complianz plugin
+    *:not(.cmplz-banner-checkbox) > {
+        input[type="checkbox"],
+        input[type="radio"] {
             @include checkbox-custom;
 
             &:checked {
                 @include checkbox-custom-checked;
             }
         }
-        */
-    }
 
-    input[type="radio"] {
-        @include radio-custom(true);
-
-        /*
-        --------------------
-        For complianz plugin
-        --------------------
-
-        *:not(.cmplz-banner-checkbox) > & {
+        input[type="radio"] {
             @include radio-custom(true);
         }
-        */
     }
+    */
 
     input[type="submit"] {
         @extend %btn-block;

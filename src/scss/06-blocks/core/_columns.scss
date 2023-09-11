@@ -1,22 +1,23 @@
 .wp-block-columns {
     gap: get-gutter-width() !important;
 
+    .wp-block-column {
+        &.has-background {
+            padding: var(--spacing--block-1);
+        }
+    }
+
     &:not(.is-not-stacked-on-mobile) {
         .wp-block-column {
             margin-left: 0 !important;
-
-            &:not(:only-child) {
-                flex-basis: 100% !important;
-            }
         }
 
-        @include breakpoints(sm, mdl) {
+        @include breakpoints(md, max) {
             flex-wrap: wrap !important;
 
             .wp-block-column {
                 &:not(:only-child) {
-                    flex-basis: calc(50% - #{get-gutter-width() * .5}) !important;
-                    flex-grow: 0 !important;
+                    flex-basis: 100% !important;
                 }
             }
         }

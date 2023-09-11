@@ -1,10 +1,47 @@
-// Poppins
+/**
+ * Fontsource
+ * Fonts list : https://fontsource.org/
+ * Documentation : https://fontsource.org/docs/getting-started/faces-mixin
+ *
+ * examples :
+ *
+ *      1 - Install the font by the command :
+ *          // For Classic font
+ *          yarn add @fontsource/myFont
+ *
+ *          // For Variable font
+ *          yarn add @fontsource-variable/myFont
+ *
+ *      2 - Declare font-face :
+ *          // For Classic font
+ *          @use "~@fontsource/myFont/scss/mixins" as MyFont;
+ *          @include MyFont.faces($weights: (400, 700));
+ *          ...
+ *
+ *          // For Variable font
+ *          @use "~@fontsource-variable/myFont/scss/mixins" as MyFont;
+ *          @include MyFont.faces($weights: 100 900);
+ *          ...
+ */
 
-@include declare-font-face("Poppins", "../fonts/poppins-v15-latin/poppins-v15-latin-300", 300);
-@include declare-font-face("Poppins", "../fonts/poppins-v15-latin/poppins-v15-latin-300italic", 300, italic);
-@include declare-font-face("Poppins", "../fonts/poppins-v15-latin/poppins-v15-latin-regular");
-@include declare-font-face("Poppins", "../fonts/poppins-v15-latin/poppins-v15-latin-italic", 400, italic);
-@include declare-font-face("Poppins", "../fonts/poppins-v15-latin/poppins-v15-latin-500", 500);
-@include declare-font-face("Poppins", "../fonts/poppins-v15-latin/poppins-v15-latin-500italic", 500, italic);
-@include declare-font-face("Poppins", "../fonts/poppins-v15-latin/poppins-v15-latin-700", 700);
-@include declare-font-face("Poppins", "../fonts/poppins-v15-latin/poppins-v15-latin-700italic", 700, italic);
+@use "~@fontsource/poppins/scss/mixins" as Poppins;
+
+@include Poppins.faces($weights: (300, 400, 500, 700), $styles: normal);
+@include Poppins.faces($weights: (300, 400, 500, 700), $styles: italic);
+
+/**
+ * Custom font here
+ *
+ * examples :
+ *
+ *      // For Classic font
+ *      @include declare-font-face("My classic font", "../fonts/gmy-classic-font-regular", 400);
+ *      @include declare-font-face("My classic font", "../fonts/gmy-classic-font-regular-italic", 400, italic);
+ *      @include declare-font-face("My classic font", "../fonts/gmy-classic-font-bold", 700);
+ *      ...
+ *
+ *      // For Variable font
+ *      @include declare-font-face("My variable font", "../fonts/my-variable-font", 100 950, normal, normal, "woff2-variations");
+ *      ...
+ *
+ */

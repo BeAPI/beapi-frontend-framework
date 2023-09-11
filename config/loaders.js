@@ -1,6 +1,7 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const srcPath = path.resolve(__dirname, '../src')
+const nodeModulesPath = path.resolve(__dirname, '../node_modules')
 
 function isEditor(loaderContext) {
   return loaderContext.resource.indexOf('editor.scss') > -1
@@ -14,7 +15,7 @@ module.exports = {
       /* FontsLoader */ {
         test: /\.(woff|woff2)$/,
         type: 'asset/resource',
-        include: srcPath + '/fonts',
+        include: [srcPath + '/fonts', nodeModulesPath + '/@fontsource-variable', nodeModulesPath + '/@fontsource'],
         generator: {
           filename: 'fonts/[name][ext][query]',
         },

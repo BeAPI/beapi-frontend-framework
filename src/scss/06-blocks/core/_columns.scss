@@ -1,4 +1,5 @@
 .wp-block-columns {
+    @include block-vertical-spacing();
     gap: get-gutter-width() !important;
 
     .wp-block-column {

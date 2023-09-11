@@ -189,6 +189,32 @@ class Editor implements Service {
 		//              'label' => __( 'Reverse', 'beapi-frontend-framework' ),
 		//          ]
 		//      );
+
+		// Paragraph
+
+		register_block_style(
+			'core/paragraph',
+			[
+				'name'  => 'small',
+				'label' => __( 'Small', 'beapi-frontend-framework' ),
+			]
+		);
+
+		register_block_style(
+			'core/paragraph',
+			[
+				'name'  => 'large',
+				'label' => __( 'Large', 'beapi-frontend-framework' ),
+			]
+		);
+
+		register_block_style(
+			'core/paragraph',
+			[
+				'name'  => 'huge',
+				'label' => __( 'Huge', 'beapi-frontend-framework' ),
+			]
+		);
 	}
 
 	/**

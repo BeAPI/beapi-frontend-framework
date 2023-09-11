@@ -2,7 +2,7 @@
  * Block vertical spacing
  */
 
-@mixin block-vertical-spacing($type : margin, $spacing : var(--spacing--block-3)) {
+@mixin block-vertical-spacing($type : margin, $spacing : var(--spacing--block-4)) {
     #{context-selector(".blocks-container > &", ".is-root-container &")} {
         #{$type}-top: $spacing;
         #{$type}-bottom: $spacing;

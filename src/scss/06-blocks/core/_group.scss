@@ -1,7 +1,12 @@
 .wp-block-group {
     $el: &;
 
+    @include block-vertical-spacing();
     display: flow-root;
+
+    &.has-background {
+        padding: var(--spacing--block-1);
+    }
 
     &--no-inner-margin {
         #{$el}__inner-container {

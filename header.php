@@ -11,7 +11,7 @@
 
 			replaceHtmlClass(/no-js/, 'js');
 
-			if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+			if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('screen').matches) {
 				replaceHtmlClass(/no-js-animation/, 'js-animation');
 			}
 		})();

@@ -6,12 +6,18 @@ import noop from '../utils/noop'
 // shared variables
 // ----
 const instances = []
+const animationClass = 'js-animation'
 let scrollObserver
 
 // ----
 // class Animation
 // ----
 class Animation extends AbstractDomElement {
+  /**
+   * Animation constructor
+   * @param {HTMLElement} element
+   * @param {object} options
+   */
   constructor(element, options) {
     const instance = super(element, options)
 
@@ -32,6 +38,11 @@ class Animation extends AbstractDomElement {
 
     // add to instances
     instances.push(this)
+
+    if (instances.length === 1) {
+      window.addEventListener('beforeprint', onBeforePrint)
+      window.addEventListener('afterprint', onAfterPrint)
+    }
 
     // init scrollObserver
     if (!scrollObserver) {
@@ -67,10 +78,18 @@ class Animation extends AbstractDomElement {
     })
   }
 
+  /**
+   * Is visible
+   * @returns {boolean}
+   */
   isVisible() {
     return this._isVisible
   }
 
+  /**
+   * Destroy
+   * @returns {undefined}
+   */
   destroy() {
     const el = this._element
     const s = this._settings
@@ -98,13 +117,30 @@ class Animation extends AbstractDomElement {
       scrollObserver.destroy()
     }
 
+    if (instances.length === 0) {
+      window.removeEventListener('beforeprint', onBeforePrint)
+      window.removeEventListener('afterprint', onAfterPrint)
+    }
+
     this._settings.onDestroy(el, scrollInfos, callbacksSharedData)
   }
 
+  /**
+   * Static destroy
+   * @returns {undefined}
+   */
   static destroy() {
     while (instances.length) {
       instances[0].destroy()
     }
+  }
+
+  /**
+   * Static are animations enabled
+   * @returns {boolean}
+   */
+  static areAnimationsEnbaled() {
+    return document.documentElement.classList.contains(animationClass)
   }
 }
 
@@ -136,6 +172,12 @@ Animation.defaults = {
 // ----
 // utils
 // ----
+/**
+ * get value
+ * @param {HTMLElement} element
+ * @param {mixed} value
+ * @returns {mixed}
+ */
 function getValue(element, value) {
   let rt = value
 
@@ -146,6 +188,24 @@ function getValue(element, value) {
   }
 
   return rt
+}
+
+// ----
+// events
+// ----
+/**
+ * On before print
+ * @returns undefined
+ */
+function onBeforePrint() {
+  document.documentElement.classList.remove(animationClass)
+}
+/**
+ * On after print
+ * @returns undefined
+ */
+function onAfterPrint() {
+  document.documentElement.classList.add(animationClass)
 }
 
 // ----

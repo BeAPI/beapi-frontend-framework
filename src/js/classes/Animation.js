@@ -195,14 +195,14 @@ function getValue(element, value) {
 // ----
 /**
  * On before print
- * @returns undefined
+ * @returns {undefined}
  */
 function onBeforePrint() {
   document.documentElement.classList.remove(animationClass)
 }
 /**
  * On after print
- * @returns undefined
+ * @returns {undefined}
  */
 function onAfterPrint() {
   document.documentElement.classList.add(animationClass)

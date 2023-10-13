@@ -32,3 +32,7 @@
 	get_template_part( 'components/parts/common/header' );
 	?>
 	<main id="content" role="main" tabindex="-1" aria-label="<?php esc_attr_e( 'Main content', 'beapi-frontend-framework' ); ?>">
+	<?php
+	if ( ! is_front_page() && ! is_search() ) {
+		get_template_part( 'components/parts/common/breadcrumb' );
+	}

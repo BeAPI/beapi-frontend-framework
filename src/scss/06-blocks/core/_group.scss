@@ -1,31 +1,3 @@
 .wp-block-group {
-    $el: &;
-
-    display: flow-root;
-
-    &--no-inner-margin {
-        #{$el}__inner-container {
-            > * {
-                margin-top: 0;
-                margin-bottom: 0;
-            }
-        }
-    }
-
-    @include breakpoints(sm, max) {
-        &--full-mobile {
-            max-width: 100% !important;
-        }
-    }
-}
-
-@include editor-only {
-    .wp-block-group {
-        display: flow-root;
-
-        .wp-block-group.has-background > .block-editor-block-list__layout > [data-align="full"] {
-            width: 100%;
-            margin: 0;
-        }
-    }
+    @include block-vertical-spacing;
 }

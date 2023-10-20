@@ -9,12 +9,16 @@
   "scripts": {
     "start": "yarn webpack --watch --config config/webpack.dev.js",
     "build": "yarn webpack --config config/webpack.prod.js",
+    "lint:css": "node_modules/.bin/stylelint \"src/scss/**/*.scss\"",
+    "lint:js": "node_modules/.bin/eslint \"src/js/**/*.js\"",
+    "lint": "node_modules/.bin/concurrently \"yarn lint:css\" \"yarn lint:js\"",
     "bundle-report": "yarn webpack --config config/webpack.prod.js --json=dist/stats.json && yarn webpack-bundle-analyzer dist/stats.json",
     "image": "yarn node config/image-sizes.js"
   },
   "license": "GPL-2.0",
   "dependencies": {
     "@fontsource/poppins": "^5.0.5",
+    "concurrently": "^8.2.2",
     "lazysizes": "^5.3.2",
     "oneloop.js": "^5.0.0",
     "what-input": "^5.2.10"

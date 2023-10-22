@@ -1,5 +1,29 @@
 [
   {
+    "hero-priority": [
+      {
+        "srcsets": [
+          {
+            "srcset": "",
+            "size": "img-400-1330"
+          },
+          {
+            "srcset": "2x",
+            "size": "img-800-2660"
+          },
+          {
+            "srcset": "",
+            "size": "img-400-375"
+          },
+          {
+            "srcset": "2x",
+            "size": "img-800-750"
+          }
+        ],
+        "default_img": "default-800-750.jpg",
+        "img_base": "img-800-750"
+      }
+    ],
     "square": [
       {
         "srcsets": [

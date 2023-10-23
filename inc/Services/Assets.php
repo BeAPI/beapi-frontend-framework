@@ -71,6 +71,15 @@ class Assets implements Service {
 			true
 		);
 
+		wp_add_inline_script(
+			'scripts',
+			'const THEME_DATA = ' . wp_json_encode(
+				[
+					'themeUri' => get_template_directory_uri(),
+				]
+			),
+		);
+
 		// CSS
 		wp_register_style( 'theme-style', get_stylesheet_uri(), [], $version );
 	}

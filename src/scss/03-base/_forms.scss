@@ -94,4 +94,17 @@ $all-text-inputs: assign-inputs($text-inputs-list);
     input[type="reset"] {
         @extend %btn-block-outline;
     }
+
+    input[type="search"] {
+        &::-webkit-search-cancel-button {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            background-image: get-svg-url("close", $color-dark);
+            background-size: contain;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+    }
 }

@@ -9,6 +9,9 @@
   "scripts": {
     "start": "yarn webpack --watch --config config/webpack.dev.js",
     "build": "yarn webpack --config config/webpack.prod.js",
+    "lint:css": "node_modules/.bin/stylelint \"src/scss/**/*.scss\"",
+    "lint:js": "node_modules/.bin/eslint \"src/js/**/*.js\"",
+    "lint": "node_modules/.bin/concurrently \"yarn lint:css\" \"yarn lint:js\"",
     "bundle-report": "yarn webpack --config config/webpack.prod.js --json=dist/stats.json && yarn webpack-bundle-analyzer dist/stats.json",
     "image": "yarn node config/image-sizes.js"
   },
@@ -28,6 +31,7 @@
     "browser-sync": "^2.27.10",
     "browser-sync-webpack-plugin": "^2.3.0",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "concurrently": "^8.2.2",
     "css-loader": "^5.2.4",
     "cssnano": "^5.0.1",
     "esbuild-loader": "^2.19.0",

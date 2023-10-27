@@ -1,7 +1,7 @@
 		</main>
-		<?php
-		get_template_part( 'components/parts/common/footer' );
-		wp_footer();
-		?>
+		<footer id="footer" class="footer" role="contentinfo" aria-label="<?php esc_attr_e( 'Footer', 'beapi-frontend-framework' ); ?>">
+
+		</footer>
+		<?php wp_footer(); ?>
 	</body>
 </html>

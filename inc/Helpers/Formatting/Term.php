@@ -3,7 +3,7 @@ namespace BEA\Theme\Framework\Helpers\Formatting\Term;
 
 use function BEA\Theme\Framework\Helpers\Formatting\Escape\escape_content_value;
 /**
- * @usage Fncuma\Theme\FncumaUas\Helpers\Formatting\Term\get_terms_name( $terms );
+ * @usage BEA\Theme\Framework\Helpers\Formatting\Term\get_terms_name( $terms );
  *
  * @param \WP_Term[] $terms list of terms
  *
@@ -31,7 +31,7 @@ function get_terms_name( array $terms ): array {
  *
  * @return string
  */
-function get_terms_list( array $terms , array $settings = [] ): string {
+function get_terms_list( array $terms, array $settings = [] ): string {
 	$attributes = apply_filters( 'bea_theme_framework_term_list_attributes', $terms, $settings );
 	$terms      = get_terms_name( $terms );
 

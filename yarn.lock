@@ -3227,7 +3227,6 @@ __metadata:
     webpack-manifest-plugin: 5.0.0
     webpack-merge: ^5.7.3
     webpackbar: ^5.0.0-3
-    what-input: ^5.2.10
   languageName: unknown
   linkType: soft
 
@@ -12755,13 +12754,6 @@ __metadata:
   peerDependencies:
     webpack: 3 || 4 || 5
   checksum: 214a734b1d4d391eb8271ed1b11085f0efe6831e93f641229b292abfd6fea871422dce121612511c17ae8047522be6d65c1a2666cabb396c79549816a3612338
-  languageName: node
-  linkType: hard
-
-"what-input@npm:^5.2.10":
-  version: 5.2.12
-  resolution: "what-input@npm:5.2.12"
-  checksum: 05edbb24c8a5a3711cec647cdc36686924e13829b63d8b5ca46a95be9eb0663b767b1b1e229b7b0707a63bffe5fb5225935aaf098db56ebe1f7728ed792988a1
   languageName: node
   linkType: hard
 

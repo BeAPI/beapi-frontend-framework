@@ -78,7 +78,7 @@
     "webpackbar": "^5.0.0-3"
   },
   "volta": {
-    "node": "18.12.1",
+    "node": "20.9.0",
     "yarn": "1.22.19"
   },
   "packageManager": "yarn@3.2.3"

@@ -25,5 +25,9 @@
         $style: " style='" + $style + "'";
     }
 
-    @return url("data:image/svg+xml;charset=utf8, %3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(#{red($fill), green($fill), blue($fill), $opacity})'" + $style + " viewBox='" + nth(map.get($svgs, $name), 1) + "'%3E%" + nth(map.get($svgs, $name), 2) + "%3C/svg%3E");
+    @if ($fill != "") {
+        $fill: " fill='rgba(#{red($fill), green($fill), blue($fill), $opacity})'";
+    }
+
+    @return url("data:image/svg+xml;charset=utf8, %3Csvg xmlns='http://www.w3.org/2000/svg'" + $fill + $style + " viewBox='" + nth(map.get($svgs, $name), 1) + "'%3E%" + nth(map.get($svgs, $name), 2) + "%3C/svg%3E");  /* stylelint-disable-line */
 }

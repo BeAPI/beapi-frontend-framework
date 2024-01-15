@@ -1,19 +1,10 @@
 // Use the no-list-style class in your theme if you want the basic style
 
-%bullet {
-    position: absolute;
-    top: 9px;
-    left: 0;
-    width: 5px;
-    height: 5px;
-    content: "";
-    background-color: $color-dark;
-    border-radius: 100%;
-
-    @include rtl {
-        right: -15px;
-        left: inherit;
-    }
+%marker {
+    font-size: var(--paragraph--font-size-default, $font-size-base);
+    font-weight: 400;
+    line-height: var(--paragraph--line-height-default, $line-height-base);
+    color: $color-dark;
 }
 
 #{context-selector('.blocks-container', '.is-root-container')} {
@@ -22,6 +13,18 @@
         &:not([class*="is-style-"]):not([class*="no-list-style"]):not([role="list"]) {
             font-size: var(--paragraph--font-size-default, $font-size-base);
             line-height: var(--paragraph--line-height-default, $line-height-base);
+
+            li {
+                padding-left: 15px;
+                margin-left: 15px;
+
+                @include rtl {
+                    padding-right: 15px;
+                    padding-left: 0;
+                    margin-right: 15px;
+                    margin-left: 0;
+                }
+            }
 
             ul,
             ol {
@@ -33,20 +36,13 @@
 
     ul {
         &:not([class*="is-style-"]):not([class*="no-list-style"]):not([role="list"]) {
-            list-style-type: none;
-
             li {
                 position: relative;
-                padding-left: 30px;
                 margin-bottom: calc(.5 * var(--spacing--block-1));
+                list-style-type: disc;
 
-                @include rtl {
-                    padding-right: 30px;
-                    padding-left: 0;
-                }
-
-                &::before {
-                    @extend %bullet;
+                &::marker {
+                    @extend %marker;
                 }
             }
 
@@ -64,25 +60,11 @@
 
             li {
                 position: relative;
-                padding-left: 40px;
                 margin-bottom: calc(.5 * var(--spacing--block-1));
                 counter-increment: section;
 
-                @include rtl {
-                    padding-right: 40px;
-                    padding-left: 0;
-                }
-
-                &::before {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    font-size: var(--paragraph--font-size-default, $font-size-base);
-                    font-weight: 400;
-                    line-height: var(--paragraph--line-height-default, $line-height-base);
-                    color: $color-dark;
-                    text-align: center;
-                    letter-spacing: -.06em;
+                &::marker {
+                    @extend %marker;
                     content: counters(section, "", decimal-leading-zero) " ";
 
                     @include rtl {
@@ -100,7 +82,7 @@
                     li {
                         counter-increment: subsection;
 
-                        &::before {
+                        &::marker {
                             content: counters(subsection, ".", lower-alpha) ". ";
                         }
                     }
@@ -114,8 +96,8 @@
                     li {
                         padding-top: 0;
 
-                        &::before {
-                            @extend %bullet;
+                        &::marker {
+                            @extend %marker;
                             transform: translateX(0);
                         }
                     }

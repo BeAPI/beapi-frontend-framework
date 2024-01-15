@@ -66,7 +66,7 @@ module.exports = {
                     {
                       name: 'addClassesToSVGElement',
                       params: {
-                        classNames: ['icon', '$name'],
+                        classNames: ['icon', '$class_names'],
                       },
                     },
                   ],

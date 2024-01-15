@@ -53,7 +53,7 @@ class Svg implements Service {
 
 		$html = file_get_contents( \get_theme_file_path( $icon_path ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 
-		return preg_replace( '/\$name/i', $classes, $html );
+		return preg_replace( '/\$class_names/i', $classes, $html );
 	}
 
 	/**

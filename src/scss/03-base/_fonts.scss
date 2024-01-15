@@ -20,7 +20,7 @@
  *
  *          // For Variable font
  *          @use "~@fontsource-variable/myFont/scss/mixins" as MyFont;
- *          @include MyFont.faces($weights: 100 900);
+ *          @include MyFont.faces($weights: 100 900, $axes: all);
  *          ...
  */
 

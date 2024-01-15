@@ -1,8 +1,8 @@
-// Use the not-custom-list class in your theme if you want the basic style
+// Use the no-list-style class in your theme if you want the basic style
 
 %bullet {
     position: absolute;
-    top: 12px;
+    top: 9px;
     left: 0;
     width: 5px;
     height: 5px;
@@ -17,8 +17,8 @@
 }
 
 #{context-selector('.blocks-container', '.is-root-container')} {
-    ul:not(.not-custom-list),
-    ol:not(.not-custom-list) {
+    ul,
+    ol {
         &:not([class*="is-style-"]):not([class*="no-list-style"]):not([role="list"]) {
             font-size: var(--paragraph--font-size-default, $font-size-base);
             line-height: var(--paragraph--line-height-default, $line-height-base);
@@ -31,8 +31,8 @@
         }
     }
 
-    ul:not(.not-custom-list) {
-        &:not([class*="is-style-"], .no-list-style,[role="list"]) {
+    ul {
+        &:not([class*="is-style-"]):not([class*="no-list-style"]):not([role="list"]) {
             list-style-type: none;
 
             li {
@@ -57,73 +57,70 @@
         }
     }
 
-    ol:not(.not-custom-list) {
-        &:not([class*="is-style-"], .no-list-style,[role="list"]) {
+    ol {
+        &:not([class*="is-style-"]):not([class*="no-list-style"]):not([role="list"]) {
             list-style: none;
             counter-reset: section;
 
-            &:not([class*="is-style-"]) {
-                li {
-                    position: relative;
-                    padding-left: 40px;
-                    margin-bottom: calc(.5 * var(--spacing--block-1));
-                    counter-increment: section;
+            li {
+                position: relative;
+                padding-left: 40px;
+                margin-bottom: calc(.5 * var(--spacing--block-1));
+                counter-increment: section;
+
+                @include rtl {
+                    padding-right: 40px;
+                    padding-left: 0;
+                }
+
+                &::before {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    font-size: var(--paragraph--font-size-default, $font-size-base);
+                    font-weight: 400;
+                    line-height: var(--paragraph--line-height-default, $line-height-base);
+                    color: $color-dark;
+                    text-align: center;
+                    letter-spacing: -.06em;
+                    content: counters(section, "", decimal-leading-zero) " ";
 
                     @include rtl {
-                        padding-right: 40px;
-                        padding-left: 0;
+                        right: 0;
+                        left: inherit;
+                        transform: translateX(100%);
                     }
-
-                    &::before {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        font-family: $font-family-secondary;
-                        font-size: var(--paragraph--font-size-default, $font-size-base);
-                        font-weight: 400;
-                        line-height: var(--paragraph--line-height-default, $line-height-base);
-                        color: $color-dark;
-                        text-align: center;
-                        letter-spacing: -.06em;
-                        content: counters(section, "", decimal-leading-zero) " ";
-
-                        @include rtl {
-                            right: 0;
-                            left: inherit;
-                            transform: translateX(100%);
-                        }
-                    }
-
-                    ol {
-                        margin-top: calc(.5 * var(--spacing--block-1));
-                        margin-bottom: calc(.5 * var(--spacing--block-1));
-                        counter-reset: subsection;
-
-                        li {
-                            counter-increment: subsection;
-
-                            &::before {
-                                content: counters(subsection, ".", lower-alpha) ". ";
-                            }
-                        }
-                    }
-
-                    ul {
-                        margin-top: calc(.5 * var(--spacing--block-1));
-                        margin-bottom: calc(.5 * var(--spacing--block-1));
-                        counter-reset: section;
-
-                        li {
-                            padding-top: 0;
-
-                            &::before {
-                                @extend %bullet;
-                                transform: translateX(0);
-                            }
-                        }
-                    }
-
                 }
+
+                ol {
+                    margin-top: calc(.5 * var(--spacing--block-1));
+                    margin-bottom: calc(.5 * var(--spacing--block-1));
+                    counter-reset: subsection;
+
+                    li {
+                        counter-increment: subsection;
+
+                        &::before {
+                            content: counters(subsection, ".", lower-alpha) ". ";
+                        }
+                    }
+                }
+
+                ul {
+                    margin-top: calc(.5 * var(--spacing--block-1));
+                    margin-bottom: calc(.5 * var(--spacing--block-1));
+                    counter-reset: section;
+
+                    li {
+                        padding-top: 0;
+
+                        &::before {
+                            @extend %bullet;
+                            transform: translateX(0);
+                        }
+                    }
+                }
+
             }
         }
     }

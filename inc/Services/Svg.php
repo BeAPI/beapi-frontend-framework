@@ -34,10 +34,11 @@ class Svg implements Service {
 
 	/**
 	 * @param string $icon_name
+	 * @param array  $additionnal_classes
 	 *
 	 * @return string
 	 */
-	public function get_the_icon( string $icon_name ): string {
+	public function get_the_icon( string $icon_name, array $additionnal_classes = [] ): string {
 		if ( empty( $icon_name ) ) {
 			return '';
 		}
@@ -48,17 +49,20 @@ class Svg implements Service {
 			return '';
 		}
 
+		$classes = implode( ' ', array_map( 'sanitize_html_class', array_merge( [ 'icon-' . $icon_name ], $additionnal_classes ) ) );
+
 		$html = file_get_contents( \get_theme_file_path( $icon_path ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 
-		return preg_replace( '/icon-\[name\]/i', 'icon-' . $icon_name, $html );
+		return preg_replace( '/\$name/i', $classes, $html );
 	}
 
 	/**
 	 * @param string $icon_name
+	 * @param array  $additionnal_classes
 	 *
 	 */
-	public function the_icon( string $icon_name ): void {
-		echo $this->get_the_icon( $icon_name ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	public function the_icon( string $icon_name, array $additionnal_classes = [] ): void {
+		echo $this->get_the_icon( $icon_name, $additionnal_classes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**

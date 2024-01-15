@@ -11,7 +11,7 @@ use BEA\Theme\Framework\Services\Svg;
  *
  * @return string
  */
-function get_the_icon( string $icon_name, array $additionnal_classes ): string {
+function get_the_icon( string $icon_name, array $additionnal_classes = [] ): string {
 	/**
 	* @var Svg $svg
 	*/
@@ -26,7 +26,7 @@ function get_the_icon( string $icon_name, array $additionnal_classes ): string {
  * @param array  $additionnal_classes
  *
  */
-function the_icon( string $icon_name, array $additionnal_classes ): void {
+function the_icon( string $icon_name, array $additionnal_classes = [] ): void {
 	/**
 	* @var Svg $svg
 	*/

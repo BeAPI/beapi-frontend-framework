@@ -32,6 +32,11 @@ module.exports = {
       },
       {
         test: /\.svg$/,
+        type: 'asset/resource',
+        include: srcPath + '/img/icons',
+        generator: {
+          filename: 'images/icons/[name][ext][query]',
+        },
         use: {
           loader: ImageMinimizerPlugin.loader,
           options: {
@@ -61,7 +66,7 @@ module.exports = {
                     {
                       name: 'addClassesToSVGElement',
                       params: {
-                        className: 'icon',
+                        classNames: ['icon', 'icon-[name]'],
                       },
                     },
                   ],

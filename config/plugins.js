@@ -28,6 +28,9 @@ module.exports = {
       new WebpackBar({
         color: '#ffe600',
       }),
+      new WebpackManifestPlugin({
+        fileName: 'assets.json',
+      }),
       new DependencyExtractionWebpackPlugin(),
     ]
 
@@ -36,11 +39,6 @@ module.exports = {
         new BundleAnalyzerPlugin({
           analyzerMode: 'json',
           generateStatsFile: true,
-        })
-      )
-      plugins.push(
-        new WebpackManifestPlugin({
-          fileName: 'assets.json',
         }),
         new MiniCssExtractPlugin({
           filename: '[name].[contenthash:8].min.css',

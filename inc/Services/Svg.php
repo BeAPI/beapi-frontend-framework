@@ -42,13 +42,15 @@ class Svg implements Service {
 			return '';
 		}
 
-		$icon_path = sprintf( '/dist/%s', $this->get_icon_from_manifest( sprintf( 'assets/%s.svg', $icon_name ) ) );
+		$icon_path = sprintf( '/dist/%s', $this->get_icon_from_manifest( sprintf( 'images/icons/%s.svg', $icon_name ) ) );
 
 		if ( ! file_exists( \get_theme_file_path( $icon_path ) ) ) {
 			return '';
 		}
 
-		return file_get_contents( \get_theme_file_path( $icon_path ) );
+		$html = file_get_contents( \get_theme_file_path( $icon_path ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+
+		return preg_replace( '/icon-\[name\]/i', 'icon-' . $icon_name, $html );
 	}
 
 	/**
@@ -56,7 +58,7 @@ class Svg implements Service {
 	 *
 	 */
 	public function the_icon( string $icon_name ): void {
-		echo $this->get_the_icon( $icon_name ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $this->get_the_icon( $icon_name ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**

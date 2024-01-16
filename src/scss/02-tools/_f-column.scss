@@ -2,12 +2,48 @@
 @use "sass:math";
 
 /**
- * Column
+ * 1/ Column - Make a column that return a percent value
  *
- * examples :
+ * @author Nicolas Langle
+ *
+ * @param $device (based on $column-preset variable)
+ * @param $nb-column
+ * @param $nb-gutter
+ * @param $total-column
+ * @param $total-gutter
+ *
+ * Examples :
  *      column(6) 			-> return 6 column + 5 gutter of desktop preset
- * 		column('m', 6) 		-> return 6 column + 5 gutter of mobile preset
- * 		column(6, 5, 8)		-> return 6 column + 5 gutter of 8 grid size of desktop
+ *      column('m', 6) 		-> return 6 column + 5 gutter of mobile preset
+ *      column(6, 5, 8)		-> return 6 column + 5 gutter of 8 grid size of desktop
+ *
+ * ------------------------------------------------------------------------------------
+ *
+ * 2/ Column px - Make a column that return a pixel value
+ *
+ * @author Nicolas Langle
+ *
+ * @param $device (based on $column-preset variable)
+ * @param $nb-column
+ * @param $nb-gutter
+ * @param $unitless
+ *
+ * Examples :
+ *      column(6) 			-> return 6 column + 5 gutter of desktop preset with px unit
+ *      column(6, true) 	-> return 6 column + 5 gutter of desktop preset without px unit
+ *
+ * ------------------------------------------------------------------------------------
+ *
+ * 2/ Column full - Make a column that return a percent value of the full width container (100%) minus mobile external gutter width * 2
+ *
+ * @author Nicolas Langle
+ *
+ * @param $device (based on $column-preset variable)
+ * @param $nb-column
+ * @param $nb-gutter
+ *
+ * Examples :
+ *      column(6) -> return 6 column + 5 gutter of desktop preset
  *
  */
 

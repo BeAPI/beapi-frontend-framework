@@ -1,4 +1,18 @@
-// Not apply style to ACF fields
+/**
+ * Not apply style to ACF fields
+ *
+ * @author Cédric Andrietti
+ *
+ * Examples :
+ *
+ *      @include not-acf {
+ *          table {
+ *              ... your css
+ *          }
+ *      }
+ *
+ */
+
 @mixin not-acf() {
     #{context-selector(":where(body)", ":where(*:not([class*="acf-"])) >")} {
         @content;

@@ -1,7 +1,16 @@
 /**
- * Autofill
+ * Autofill - Styling the webkit autofill
  *
- * webkit autofill
+ * @author Nicolas Langle
+ *
+ * Examples :
+ *
+ *      .input {
+ *          @include autofill {
+ *              border: 3px solid darkorange;
+ *          }
+ *      }
+ *
  */
 
 @mixin autofill {

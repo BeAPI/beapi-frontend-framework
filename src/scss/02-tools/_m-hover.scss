@@ -1,14 +1,44 @@
 @use "sass:list";
 
 /**
- * Add active, focus and hover pseudo selectors to element
- * @param {string||list} $additionalSelectors
- * List of additional selectors
+ * Hover
  *
- * @param {boolean} $onlyNoTouch
- * The hover style will only work when the user is using a tool device like a mouse or a trackpad.
+ * Add active, focus and hover pseudo selectors to element
+ * With $onlyNoTouch set to true, the hover style will only work when the user is using a tool device like a mouse or a trackpad.
  * https://defensivecss.dev/tip/hover-media/
  * https://developer.mozilla.org/fr/docs/Web/CSS/@media/hover
+ *
+ * @author Cédric Andrietti
+ *
+ * @param $onlyNoTouch
+ * @param $additionalSelectors
+ *
+ * Examples :
+ *
+ *      .my-element {
+ *          @include hover {
+ *              ... your css
+ *          }
+ *      }
+ *
+ *      .my-element {
+ *          @include hover(false, "&:focus-within") {
+ *              ... your css
+ *          }
+ *      }
+ *
+ *      .my-element {
+ *          @include hover(true, "&:focus-within") {
+ *              ... your css
+ *          }
+ *      }
+ *
+ *      .my-element {
+ *          @include hover(true) {
+ *              ... your css
+ *          }
+ *      }
+ *
  */
 @mixin hover($onlyNoTouch: null, $additionalSelectors: null) {
     $selectors: "&:hover", "&:active", "&:focus";

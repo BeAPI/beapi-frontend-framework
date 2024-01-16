@@ -1,7 +1,16 @@
 /**
  * Invisible scrollbar
  *
- *      /!\ ALERT : Don't use this mixin neither on the html element, nor on the body element to avoid deteriorating the accessibility
+ * ALERT : Don't use this mixin neither on the html element, nor on the body element to avoid deteriorating the accessibility
+ *
+ * @author François Thibaud
+ *
+ * Examples :
+ *
+ *      .my-scrollbar {
+ *          @include invisible-scrollbar;
+ *      }
+ *
  */
 
 @mixin invisible-scrollbar {

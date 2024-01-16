@@ -2,6 +2,23 @@
 
 /**
  * Checkbox custom
+ *
+ * @author Nicolas Langle
+ *
+ * @param $color
+ * @param $size
+ * @param $border-width
+ *
+ * Examples :
+ *
+ *      input[type="checkbox"] {
+ *          @include checkbox-custom;
+ *
+ *          &:checked {
+ *              @include checkbox-custom-checked;
+ *          }
+ *      }
+ *
  */
 
 @mixin checkbox-custom($color: $color-primary, $size: 18px, $border-width: 1px) {

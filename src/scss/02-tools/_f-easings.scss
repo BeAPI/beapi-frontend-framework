@@ -1,12 +1,17 @@
 @use "sass:math";
 
 /**
- * Easings
+ * Easings - for CSS animations
  *
- *      converted from source: https://github.com/ai/easings.net/blob/master/src/easings/easingsFunctions.ts
- *      each ease receive a value $x in a range of 0 to 1
+ * @author Nicolas Langle
  *
- *      examples :
+ * @param $value
+ * @param $suffix
+ *
+ * converted from source: https://github.com/ai/easings.net/blob/master/src/easings/easingsFunctions.ts
+ * each ease receive a value $x in a range of 0 to 1
+ *
+ * Examples :
  *
  *      @for (dollar)i from 0 through 10 {
  *          .test {
@@ -55,6 +60,7 @@
  *      ease-in-out-bounce
  *
  */
+
 $easings-const-c1: 1.70158;
 $easings-const-c2: $easings-const-c1 * 1.525;
 $easings-const-c3: $easings-const-c1 + 1;

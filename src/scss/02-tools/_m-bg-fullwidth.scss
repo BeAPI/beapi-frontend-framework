@@ -1,5 +1,16 @@
 /**
- * Background fullwidth mixin in a container
+ * Background fullwidth - Make a fullwidth background in a container element
+ *
+ * @author Cédric Andrietti
+ *
+ * @param $color
+ *
+ * Examples :
+ *
+ *      .test {
+ *          @include bg-fullwidth($color-dark);
+ *      }
+ *
  */
 
 @mixin bg-fullwidth($color: $color-grey-100) {

@@ -1,7 +1,29 @@
 @use "sass:math";
 
 /**
- * Radio custom, must be used with checkbox custom
+ * Radio custom - must be used with checkbox custom
+ *
+ * @author Nicolas Langle
+ *
+ * @param $include-checkbox-style
+ * @param $color
+ * @param $size
+ * @param $border-width
+ *
+ * Examples :
+ *
+ *      input[type="radio"] {
+ *          @include checkbox-custom;
+ *
+ *          &:checked {
+ *              @include checkbox-custom-checked;
+ *          }
+ *      }
+ *
+ *      input[type="radio"] {
+ *          @include radio-custom(true);
+ *      }
+ *
  */
 
 @mixin radio-custom($include-checkbox-style: false, $color: $color-primary, $size: 18px, $border-width: 1px) {

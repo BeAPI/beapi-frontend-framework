@@ -3,7 +3,12 @@
 /**
  * Breakpoints
  *
- * examples :
+ * @author Milan Ricoul
+ *
+ * @param $breakpoint
+ * @param $min-or-max-or-breakpoint
+ *
+ * Examples :
  *
  *      @include breakpoints(sm, md) { ... }
  *          return @media screen and (min-width: 768px) and (max-width: 1024px) { ... }

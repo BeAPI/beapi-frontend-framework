@@ -1,13 +1,20 @@
 /**
- * Style only
+ * Style style only
+ *
+ * @author Nicolas Langle
+ *
+ * Examples :
  *
  *      Style inside the mixin while be writed only for style.scss
  *
- *      @include style-only {
- *          ... css only for the front office
+ *      .my-pattern {
+ *          @include style-only {
+ *              ... css only for the front office
+ *          }
  *      }
  *
  *      the variable $entry-file-name is defined in style.scss and editor.scss
+ *
  */
 
 @mixin style-only {

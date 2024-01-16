@@ -1,9 +1,15 @@
 /**
- * Background retina
- * Use with caution
+ * Background retina - Make an alignment (left or right)
  *
- * examples :
- *      @include background-static("your-image");
+ * @author Cédric Andrietti
+ *
+ * @param $direction
+ *
+ * Examples :
+ *
+ *      .test {
+ *          @include background-static("your-image");
+ *      }
  *
  */
 

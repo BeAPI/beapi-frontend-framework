@@ -2,6 +2,25 @@
  * Block vertical spacing
  */
 
+/**
+ * Block vertical spacing - Make a top and bottom spacing between blocks
+ *
+ * @author Cédric Andrietti
+ *
+ * @param $type
+ * @param $spacing
+ *
+ * Examples :
+ *
+ *      .my-block {
+ *          @include block-vertical-spacing(var(--spacing--block-6));
+ *      }
+ *
+ *      .my-block {
+ *          @include block-vertical-spacing(padding, var(--spacing--block-4));
+ *      }
+ *
+ */
 @mixin block-vertical-spacing($type : margin, $spacing : var(--spacing--block-3)) {
     #{context-selector(".blocks-container > &", ".is-root-container &")} {
         #{$type}-top: $spacing;

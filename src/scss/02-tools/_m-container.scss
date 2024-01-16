@@ -1,8 +1,19 @@
 /**
  * Container
+ *
+ * @author Nicolas Langle
+ *
+ * @param $size
+ *
+ * Examples :
+ *
+ *      .container {
+ *          @include container;
+ *      }
+ *
  */
 
-@mixin container {
-    width: min(#{$container-wide}, 100% - #{$external-gutter * 2});
+@mixin container($size: $container-wide) {
+    width: min(#{$size}, 100% - #{$external-gutter * 2});
     margin-inline: auto;
 }

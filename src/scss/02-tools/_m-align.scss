@@ -1,7 +1,20 @@
 /**
- * Align
+ * Align - Make an alignment (left or right)
  *
- * default: float left
+ * @author Nicolas Langle
+ *
+ * @param $direction
+ *
+ * Examples :
+ *
+ *      .alignleft {
+ *          @include align();
+ *      }
+ *
+ *      .alignright {
+ *          @include align(right);
+ *      }
+ *
  */
 
 @mixin align($direction: left) {

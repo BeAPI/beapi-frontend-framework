@@ -1,7 +1,27 @@
 /**
- * Declare font face
+ * Declare font face - used in src/scss/03-base/_fonts.scss
  *
- * used in base/_fonts.scss
+ * @author Nicolas Langle
+ *
+ * @param $font-family
+ * @param $font-filename
+ * @param $font-weight
+ * @param $font-style
+ * @param $font-stretch
+ * @param $font-format
+ *
+ * Examples :
+ *
+ *      // For Classic font
+ *      @include declare-font-face("My classic font", "../fonts/gmy-classic-font-regular", 400);
+ *      @include declare-font-face("My classic font", "../fonts/gmy-classic-font-regular-italic", 400, italic);
+ *      @include declare-font-face("My classic font", "../fonts/gmy-classic-font-bold", 700);
+ *      ...
+ *
+ *      // For Variable font
+ *      @include declare-font-face("My variable font", "../fonts/my-variable-font", 100 950, normal, normal, "woff2-variations");
+ *      ...
+ *
  */
 
 @mixin declare-font-face($font-family, $font-filename, $font-weight : normal, $font-style : normal, $font-stretch : normal, $font-format : "woff2") {

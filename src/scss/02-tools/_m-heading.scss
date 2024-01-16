@@ -1,5 +1,44 @@
 /**
- * Heading mixins
+ * Heading - Used in src/scss/06-blocks/core/_heading.scss
+ *
+ * @author Milan Ricoul
+ *
+ * @param $name
+ * @param $style
+ *
+ * Examples :
+ *
+ *      .my-heading {
+ *          @include heading(h3);
+ *      }
+ *
+ *
+ * Examples for use heading style variation (depend of projects):
+ * https://github.com/BeAPI/beapi-frontend-framework/pull/247
+ *
+ *      mixin :
+ *      @if $name == h3 {
+ *          font-size: var(--heading--font-size-h3);
+ *          line-height: var(--heading--line-height-h3);
+ *
+ *          @if $style == uppercase {
+ *              text-transform: uppercase;
+ *          }
+ *
+ *          @if $style == bold {
+ *              font-weight: 700;
+ *          }
+ *      }
+ *
+ *      scss :
+ *      .my-heading-uppercase {
+ *          @include heading(h3, "uppercase");
+ *      }
+ *
+ *      .my-heading-bold {
+ *          @include heading(h3, "bold");
+ *      }
+ *
  */
 
 @mixin heading($name: h1, $style: default) {

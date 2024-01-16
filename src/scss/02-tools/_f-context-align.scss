@@ -1,21 +1,25 @@
 /**
- * Align
+ * Align - Make a context align (editor / style)
  *
- * examples :
+ * @author Nicolas Langle
  *
+ * @param $value
+ * @param $suffix
+ *
+ * Examples :
  *      #{ context-align("wide") } .block#{ context-align() } {
  *          ... your css
  *      }
  *
-  *      return for style.scss :
- *          .block.alignwide {
- *              ... your css
- *          }
+ *      return for style.scss :
+ *      .block.alignwide {
+ *          ... your css
+ *      }
  *
  *      return for editor.scss :
- *          [data-align="wide"] > .block {
- *              ... your css
- *          }
+ *      [data-align="wide"] > .block {
+ *          ... your css
+ *      }
  *
  */
 

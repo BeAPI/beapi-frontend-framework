@@ -1,4 +1,17 @@
-// Support for rtl text, explicit support for Arabic and Hebrew
+/**
+ * Support for rtl text, explicit support for Arabic and Hebrew
+ *
+ * @author Cédric Andrietti
+ *
+ * Examples :
+ *
+ *      .my-element {
+ *          @include rtl() {
+ *              ... your css
+ *          }
+ *      }
+ *
+ */
 
 @mixin rtl {
     *[dir="rtl"] &,

@@ -2,6 +2,15 @@
 
 /**
  * Select custom
+ *
+ * @author Nicolas Langle
+ *
+ * Examples :
+ *
+ *      select {
+ *          @include select-custom;
+ *      }
+ *
  */
 
 @mixin select-custom {

@@ -1,7 +1,32 @@
 /**
- * Scrollbar invisible
+ * Scrollbar - Make an invisible scrollbar and custom the scrollbar color
  *
- *      /!\ ALERT : Don't use this mixin neither on the html element, nor on the body element to avoid deteriorating accessibility
+ * ALERT : Don't use this mixin neither on the html element, nor on the body element to avoid deteriorating the accessibility
+ *
+ * @author Milan Ricoul
+ *
+ * 1/ Invisible scrollbar
+ *
+ * Examples :
+ *
+ *      .my-scrollbar {
+ *          @include scrollbar-invisible;
+ *      }
+ *
+ * ------------------------------------------------------------------------
+ *
+ * 1/ Scrollbar color
+ *
+ * @param $size
+ * @param $scrollbar-color
+ * @param $track-color
+ *
+ * Examples :
+ *
+ *      .my-scrollbar-custom {
+ *          @include scrollbar-color(10px, $color-primary, $color-dark);
+ *      }
+ *
  */
 
 @mixin scrollbar-invisible {
@@ -12,10 +37,6 @@
         display: none;
     }
 }
-
-/**
- * Scrollbar color
- */
 
 @mixin scrollbar-color($size, $scrollbar-color, $track-color) {
     &::-webkit-scrollbar {

@@ -1,5 +1,16 @@
 /**
- * Text mixins
+ * Text - Used in src/scss/06-blocks/core/_paragraph.scss and src/scss/03-base/_text.scss
+ *
+ * @author Cédric Andrietti
+ *
+ * @param $name
+ *
+ * Examples :
+ *
+ *      .my-text {
+ *          @include text(large);
+ *      }
+ *
  */
 
 @mixin text($name: default) {

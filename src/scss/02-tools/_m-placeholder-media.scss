@@ -1,7 +1,21 @@
 @use "sass:math";
 
 /**
- * Placeholder media
+ * Placeholder media. Make placeholder for images or videos
+ *
+ * @author Nicolas Langle
+ *
+ * @param $width
+ * @param $height
+ * @param $targets
+ * @param $object-fit
+ *
+ * Examples :
+ *
+ *      .placeholder-media {
+ *          @include placeholder-media($width: 800px, $height: 400px, $object-fit: cover);
+ *      }
+ *
  */
 
 @mixin placeholder-media($width, $height, $targets: "img", $object-fit: "") {

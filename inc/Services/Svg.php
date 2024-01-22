@@ -2,6 +2,7 @@
 
 namespace BEA\Theme\Framework\Services;
 
+use BEA\Theme\Framework\Framework;
 use BEA\Theme\Framework\Service;
 use BEA\Theme\Framework\Service_Container;
 
@@ -11,11 +12,16 @@ use BEA\Theme\Framework\Service_Container;
  * @package BEA\Theme\Framework
  */
 class Svg implements Service {
+	/**
+	 * @var Assets;
+	 */
+	private $assets;
 
 	/**
 	 * @param Service_Container $container
 	 */
 	public function register( Service_Container $container ): void {
+		$this->assets = Framework::get_container()->get_service( 'assets' );
 		add_filter( 'wp_kses_allowed_html', [ $this, 'allow_svg_tag' ] );
 	}
 
@@ -43,7 +49,7 @@ class Svg implements Service {
 			return '';
 		}
 
-		$icon_path = sprintf( '/dist/%s', $this->get_icon_from_manifest( sprintf( 'images/icons/%s.svg', $icon_name ) ) );
+		$icon_path = sprintf( '/dist/%s', $this->assets->get_min_file( sprintf( 'images/icons/%s.svg', $icon_name ) ) );
 
 		if ( ! file_exists( \get_theme_file_path( $icon_path ) ) ) {
 			return '';
@@ -97,31 +103,5 @@ class Svg implements Service {
 		];
 
 		return $tags;
-	}
-
-		/**
-	 * Get the compiled SVG path from JSON manifest
-	 *
-	 * @param $icon_path
-	 *
-	 * @return string
-	 *
-	 * @author Milan RICOUL
-	 */
-	public function get_icon_from_manifest( string $icon_path ): string {
-		$json   = file_get_contents( \get_theme_file_path( '/dist/assets.json' ) ); //phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-		$assets = json_decode( $json, true );
-
-		if ( empty( $assets ) || JSON_ERROR_NONE !== json_last_error() ) {
-			return '';
-		}
-
-		$file = $assets[ $icon_path ];
-
-		if ( empty( $file ) ) {
-			return '';
-		}
-
-		return $file;
 	}
 }

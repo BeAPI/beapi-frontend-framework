@@ -6,4 +6,12 @@
     //     cite {
     //          ...
     //     }
+
+    // For WordPress base wp-block-quote style
+    @include rtl {
+        padding-right: 1em;
+        padding-left: 0;
+        border-right: .25em solid currentColor;
+        border-left: 0;
+    }
 }

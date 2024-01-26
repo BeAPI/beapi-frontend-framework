@@ -3,9 +3,6 @@
  */
 
 @mixin container {
-    width: $container-wide;
-    max-width: calc(100% - #{$external-gutter * 2});
-    padding: 0;
-    margin-right: auto;
-    margin-left: auto;
+    width: min($container-wide, 100% - #{$external-gutter * 2});
+    margin-inline: auto;
 }

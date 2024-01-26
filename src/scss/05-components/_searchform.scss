@@ -7,6 +7,11 @@
 
     &__field[type="search"] {
         padding-right: var(--spacing--block-1);
+
+        @include rtl {
+            padding-right: 0;
+            padding-left: var(--spacing--block-1);
+        }
     }
 
     &__submit {

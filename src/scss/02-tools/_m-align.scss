@@ -22,7 +22,17 @@
 
     @if ($direction == left) {
         margin-right: var(--spacing--block-1);
+
+        @include rtl {
+            margin-right: 0;
+            margin-left: var(--spacing--block-1);
+        }
     } @else {
         margin-left: var(--spacing--block-1);
+
+        @include rtl {
+            margin-right: var(--spacing--block-1);
+            margin-left: 0;
+        }
     }
 }

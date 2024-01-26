@@ -18,5 +18,10 @@
 
     li:not(:last-of-type) {
         margin-right: 1rem;
+
+        @include rtl {
+            margin-right: 0;
+            margin-left: 1rem;
+        }
     }
 }

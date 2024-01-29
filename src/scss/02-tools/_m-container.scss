@@ -3,6 +3,6 @@
  */
 
 @mixin container {
-    width: min($container-wide, 100% - #{$external-gutter * 2});
+    width: min(#{$container-wide}, 100% - #{$external-gutter * 2});
     margin-inline: auto;
 }

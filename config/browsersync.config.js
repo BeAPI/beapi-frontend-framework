@@ -26,6 +26,7 @@ const browserSyncOptions = {
   files: ['*.php', '**/*.php', 'dist/*.css', 'dist/*.js', 'dist/img/icons/*.svg'],
   startPath: '/',
   notify: true,
+  open: false,
 }
 
 // Plugin options

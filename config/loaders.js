@@ -1,4 +1,5 @@
 const path = require('path')
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const srcPath = path.resolve(__dirname, '../src')
 const nodeModulesPath = path.resolve(__dirname, '../node_modules')
@@ -12,7 +13,7 @@ module.exports = {
     const isProduction = mode === 'production'
 
     return [
-      /* FontsLoader */ {
+      {
         test: /\.(woff|woff2)$/,
         type: 'asset/resource',
         include: [srcPath + '/fonts', nodeModulesPath + '/@fontsource-variable', nodeModulesPath + '/@fontsource'],
@@ -20,7 +21,7 @@ module.exports = {
           filename: 'fonts/[name][ext][query]',
         },
       },
-      /* ImagesLoader */ {
+      {
         test: /\.(png|jpe?g|gif|svg)$/,
         type: 'asset/resource',
         exclude: /icons/,
@@ -29,7 +30,53 @@ module.exports = {
           filename: 'images/[name][ext][query]',
         },
       },
-      /* JSLoader */ {
+      {
+        test: /\.svg$/,
+        type: 'asset/resource',
+        include: srcPath + '/img/icons',
+        generator: {
+          filename: 'images/icons/[name][ext][query]',
+        },
+        use: {
+          loader: ImageMinimizerPlugin.loader,
+          options: {
+            minimizer: {
+              implementation: ImageMinimizerPlugin.svgoMinify,
+              options: {
+                encodeOptions: {
+                  // Pass over SVGs multiple times to ensure all optimizations are applied. False by default
+                  multipass: true,
+                  plugins: [
+                    {
+                      name: 'preset-default',
+                    },
+                    {
+                      name: 'addAttributesToSVGElement',
+                      params: {
+                        attributes: [
+                          {
+                            focusable: false,
+                          },
+                          {
+                            'aria-hidden': true,
+                          },
+                        ],
+                      },
+                    },
+                    {
+                      name: 'addClassesToSVGElement',
+                      params: {
+                        classNames: ['icon', '$class_names'],
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+          },
+        },
+      },
+      {
         test: /\.js$/i,
         include: srcPath + '/js',
         use: {
@@ -41,7 +88,7 @@ module.exports = {
           },
         },
       },
-      /* SCSSLoader */ {
+      {
         test: /\.(scss|css)$/,
         include: srcPath + '/scss',
         use: [
@@ -94,24 +141,6 @@ module.exports = {
                 return obj
               },
             },
-          },
-        ],
-      },
-      /* SVGLoader */ {
-        test: /\.svg$/,
-        include: srcPath + '/img/icons',
-        use: [
-          {
-            loader: 'svg-sprite-loader',
-            options: {
-              extract: true,
-              publicPath: 'icons/',
-              spriteFilename: (svgPath) => `${/icons([\\|/])(.*?)\1/gm.exec(svgPath)[2]}.svg`,
-              symbolId: (filePath) => `icon-${path.basename(filePath).slice(0, -4)}`,
-            },
-          },
-          {
-            loader: 'svgo-loader',
           },
         ],
       },

@@ -131,8 +131,15 @@ class Assets implements Service {
 	 * @return string
 	 */
 	public function get_min_file( string $type ): string {
+		static $cache_data;
+
+		if ( isset( $cache_data[ $type ] ) ) {
+			return $cache_data[ $type ];
+		}
+
 		if ( empty( $type ) ) {
-			return '';
+			$cache_data[ $type ] = '';
+			return $cache_data[ $type ];
 		}
 
 		if ( ! file_exists( \get_theme_file_path( '/dist/assets.json' ) ) ) {
@@ -176,7 +183,9 @@ class Assets implements Service {
 			return '';
 		}
 
-		return $file;
+		$cache_data[ $type ] = $file;
+
+		return $cache_data[ $type ];
 	}
 
 	/**

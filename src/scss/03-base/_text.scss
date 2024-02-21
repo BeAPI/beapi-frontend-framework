@@ -1,5 +1,3 @@
-$text: "default", "small", "large", "huge";
-
 b,
 strong {
     font-weight: 700;
@@ -19,10 +17,4 @@ pre {
 
 sup {
     vertical-align: super;
-}
-
-@each $style in $text {
-    .is-style-#{$style} {
-        @include text(#{$style});
-    }
 }

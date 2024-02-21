@@ -1,7 +1,15 @@
+$paragraphs: "default", "small", "large", "huge";
+
 p {
     @include text(default);
 
     &.has-background {
         padding: 20px;
+    }
+
+    @each $style in $paragraphs {
+        &.is-style-#{$style} {
+            @include text(#{$style});
+        }
     }
 }

@@ -1,29 +1,23 @@
 /**
  * Headings
  *
+ * See https://github.com/BeAPI/beapi-frontend-framework/pull/247 for used heading style variation (depend of projects)
+ *
  * examples :
  *  $headings: (
- *      "1": (
- *          "numbered"
- *      ),
+ *      "1": (),
  *      "2": (
- *          "numbered",
- *          "regular"
+ *          "uppercase"
  *      ),
  *      "3": (
- *          "numbered",
- *          "regular"
+ *          "uppercase"
  *      ),
  *      "4": (
- *           "numbered",
- *          "regular"
+ *          "uppercase",
+ *          "bold"
  *      ),
- *      "5": (
- *          "numbered"
- *      ),
- *      "6": (
- *          "numbered"
- *      ),
+ *      "5": (),
+ *      "6": (),
  *  );
  *
  */

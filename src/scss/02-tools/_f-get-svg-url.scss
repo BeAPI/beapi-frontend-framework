@@ -1,11 +1,32 @@
 @use "sass:map";
 
 /**
- * get-svg-url
+ * Get svg url - Display a svg in background image
  *
- * examples :
- *      get-svg-url("arrow")
- *      get-svg-url("arrow", $color-primary)
+ * @author Nicolas Langle
+ *
+ * @param $name
+ * @param $fill
+ * @param $opacity
+ * @param $style
+ *
+ * Examples :
+ *
+ *      .my-icon {
+ *          background-image: get-svg-url("arrow", $color-primary);
+ *          background-repeat: no-repeat;
+ *          background-position: center;
+ *          background-size: 20px;
+ *      }
+ *
+ *      // With css mask (for icon with current color)
+ *      .my-icon {
+ *          width; 20px;
+ *          height: 20px;
+ *          background-color: currentColor;
+ *          -webkit-mask-image: get-svg-url("arrow", "");
+ *          mask-image: get-svg-url("arrow", "");
+ *      }
  *
  */
 

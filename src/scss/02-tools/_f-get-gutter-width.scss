@@ -1,9 +1,26 @@
 @use "sass:map";
 
 /**
- * Get Gutter width
+ * Get Gutter width - Get the value of gutter according to the preset
  *
- * get the value of gutter according to the preset
+ * @author Milan Ricoul
+ *
+ * @param $preset (based on $column-preset variable)
+ *
+ * Examples :
+ *
+ *      .test {
+ *          display: grid;
+ *          grid-template-column: repeat(3, 1fr);
+ *          gap: get-gutter-width(); // return gutter width desktop preset
+ *      }
+ *
+ *      .test {
+ *          display: grid;
+ *          grid-template-column: repeat(3, 1fr);
+ *          gap: get-gutter-width('m'); // return gutter width mobile preset
+ *      }
+ *
  */
 
 @function get-gutter($preset: d) {

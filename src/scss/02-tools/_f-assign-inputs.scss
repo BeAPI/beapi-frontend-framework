@@ -2,7 +2,28 @@
 @use "sass:string";
 
 /**
- * Assign inputs
+ * Assign inputs - Make a variable selector with multiple inputs
+ *
+ * @author Nicolas Langle
+ *
+ * @param $inputs
+ * @param $pseudo
+ *
+ * Examples :
+ *      $text-inputs-list: 'input[type="color"]', 'input[type="date"]',
+ *         'input[type="datetime"]', 'input[type="datetime-local"]',
+ *         'input[type="email"]', 'input[type="month"]', 'input[type="number"]',
+ *         'input[type="password"]', 'input[type="search"]', 'input[type="tel"]',
+ *         'input[type="text"]', 'input[type="time"]', 'input[type="url"]',
+ *         'input[type="week"]', "input:not([type])", "textarea";
+ *
+ *      $all-text-inputs: assign-inputs($text-inputs-list);
+ *
+ *      And use as a selector :
+ *      #{(dollar)all-text-inputs} {
+ *          ...
+ *      }
+ *
  */
 
 @function assign-inputs($inputs, $pseudo: null) {

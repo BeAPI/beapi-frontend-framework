@@ -3,7 +3,13 @@
 /**
  * Container Query
  *
- * examples :
+ * @author Milan Ricoul
+ *
+ * @param $breakpoint
+ * @param $min-or-max-or-breakpoint
+ * @param $container-name
+ *
+ * Examples :
  *
  *      @include container-query(sm, md, name) { ... }
  *          return @container name (min-width: 768px) and (max-width: 1024px) { ... }

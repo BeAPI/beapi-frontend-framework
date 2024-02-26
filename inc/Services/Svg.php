@@ -43,6 +43,10 @@ class Svg implements Service {
 			return '';
 		}
 
+		// acf-svg-icon already return sprite-name.svg#icon-name, ex: social.svg#icon-facebook
+		// format the string to obtain sprite-name/icon-name
+		$icon_class = str_replace( '.svg#icon-', '/', $icon_class );
+
 		$sprite_name = 'icons';
 
 		if ( false !== strpos( $icon_class, '/' ) ) {

@@ -90,7 +90,7 @@ class Facet_WP implements Service {
 			$output .= '<span class="facetwp-pager-label sr-only">' . "$text_page $page $text_of $total_pages</span>";
 
 			if ( $page > 1 ) {
-				$output .= '<a href="#" class="facetwp-page previouspostslink" data-page="' . ( $page - 1 ) . '">Précédent</a>';
+				$output .= '<a href="#" class="facetwp-page previouspostslink" data-page="' . ( $page - 1 ) . '">' . __( 'Previous', 'framework-textdomain' ) . '</a>';
 			} else {
 				$output .= '<span class="facetwp-page previouspostslink" aria-hidden="true" tabindex="-1" style="visibility: hidden"></span>';
 			}
@@ -107,16 +107,16 @@ class Facet_WP implements Service {
 
 			for ( $i = 2; $i > 0; $i -- ) {
 				if ( 0 < ( $page - $i ) ) {
-					$output .= '<a href="#" class="facetwp-page" data-page="' . ( $page - $i ) . '"><span class="sr-only">Page</span> ' . ( $page - $i ) . '</a>';
+					$output .= '<a href="#" class="facetwp-page" data-page="' . ( $page - $i ) . '"><span class="sr-only">' . __( 'Page', 'framework-textdomain' ) . '</span> ' . ( $page - $i ) . '</a>';
 				}
 			}
 
 			// Current page
-			$output .= '<a href="#" class="facetwp-page active" aria-current="true" data-page="' . $page . '"><span class="sr-only">Page courante</span> ' . $page . '</a>';
+			$output .= '<a href="#" class="facetwp-page active" aria-current="true" data-page="' . $page . '"><span class="sr-only">' . __( 'Current page', 'framework-textdomain' ) . '</span> ' . $page . '</a>';
 
 			for ( $i = 1; $i <= 2; $i ++ ) {
 				if ( $total_pages >= ( $page + $i ) ) {
-					$output .= '<a href="#" class="facetwp-page" data-page="' . ( $page + $i ) . '"><span class="sr-only">Page</span> ' . ( $page + $i ) . '</a>';
+					$output .= '<a href="#" class="facetwp-page" data-page="' . ( $page + $i ) . '"><span class="sr-only">' . __( 'Page', 'framework-textdomain' ) . '</span> ' . ( $page + $i ) . '</a>';
 				}
 			}
 
@@ -126,13 +126,13 @@ class Facet_WP implements Service {
 
 			if ( $total_pages > ( $page + 2 ) ) {
 				$output .= '<a href="#" class="facetwp-page last-page" data-page="' . $total_pages . '">
-        <span class="sr-only">Dernière page</span>
+        <span class="sr-only">' . __( 'Last page', 'framework-textdomain' ) . '</span>
         <span aria-hidden="true">' . $total_pages . '</span>
         </a>';
 			}
 
 			if ( $page < $total_pages && $total_pages > 1 ) {
-				$output .= '<a href="#" class="facetwp-page nextpostslink" data-page="' . ( $page + 1 ) . '">Suivant</a>';
+				$output .= '<a href="#" class="facetwp-page nextpostslink" data-page="' . ( $page + 1 ) . '">' . __( 'Next', 'framework-textdomain' ) . '</a>';
 			} else {
 				$output .= '<span class="facetwp-page nextpostslink" aria-hidden="true" style="visibility: hidden;" tabindex="-1"></span>';
 			}
@@ -157,7 +157,17 @@ class Facet_WP implements Service {
 		];
 
 		if ( ( true === in_array( $args['facet']['type'], $show_label_not_empty, true ) && ! empty( $args['values'] ) ) || false === in_array( $args['facet']['type'], $show_label_not_empty, true ) ) {
-			$html = sprintf( '<label class="facetwp-label" for="%s">%s</label>%s', esc_attr( $args['facet']['name'] ), esc_html( $args['facet']['label'] ), $html );
+			$label = $args['facet']['label'];
+			if ( function_exists( 'facetwp_i18n' ) ) {
+				$label = facetwp_i18n( $label );
+			}
+
+			$html = sprintf( '<label class="facetwp-label" for="%s">%s</label>%s', esc_attr( $args['facet']['name'] ), esc_html( $label ), $html );
+
+			// Add id attribute to per_page select
+			if ( 'per_page' === $args['facet']['name'] ) {
+				$html = str_replace( '<select class="facetwp-per-page-select">', '<select class="facetwp-per-page-select" id="per_page">', $html );
+			}
 		}
 
 		return $html;

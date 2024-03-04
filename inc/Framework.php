@@ -4,6 +4,7 @@ namespace BEA\Theme\Framework;
 
 use BEA\Theme\Framework\Services\Acf;
 use BEA\Theme\Framework\Services\Assets;
+use BEA\Theme\Framework\Services\Facet_WP;
 use BEA\Theme\Framework\Services\Performance;
 use BEA\Theme\Framework\Services\Assets_JS_Async;
 use BEA\Theme\Framework\Services\Editor;
@@ -40,6 +41,7 @@ class Framework {
 		Svg::class,
 		Acf::class,
 		Menu::class,
+		Facet_WP::class,
 
 		// Services as Tools
 		Body_Class::class,

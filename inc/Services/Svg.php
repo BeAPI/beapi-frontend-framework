@@ -47,7 +47,7 @@ class Svg implements Service {
 		// format the string to obtain sprite-name/icon-name
 		$icon_class = str_replace( '.svg#icon-', '/', $icon_class );
 
-		$sprite_name = 'icons';
+		$sprite_name = 'sprite';
 
 		if ( false !== strpos( $icon_class, '/' ) ) {
 			$sprite_name = strtok( $icon_class, '/' );

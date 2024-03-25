@@ -13,6 +13,11 @@
         padding-left: $size + 20;
         cursor: pointer;
 
+        @include rtl {
+            padding-right: $size + 20;
+            padding-left: 0;
+        }
+
         &::before {
             position: absolute;
             top: 1px;
@@ -23,6 +28,11 @@
             content: "";
             background-color: $color-light;
             border: $border-width solid $color;
+
+            @include rtl {
+                right: 0;
+                left: auto;
+            }
         }
 
         &::after {
@@ -38,6 +48,12 @@
             opacity: 0;
             transition: opacity .2s;
             transform: translate(-50%, -50%) rotate(-45deg);
+
+            @include rtl {
+                right: math.round(math.div($size, 2));
+                left: auto;
+                transform: translate(50%, -50%) rotate(-45deg);
+            }
         }
     }
 }

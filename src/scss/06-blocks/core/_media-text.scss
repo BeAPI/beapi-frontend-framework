@@ -1,4 +1,8 @@
 .wp-block-media-text {
+    @include rtl {
+        direction: rtl; // Force direction RTL, because WP force LTR direction on RTL view
+    }
+
     @include style-only {
         &.alignfull {
             margin-top: 0;

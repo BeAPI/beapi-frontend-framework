@@ -12,7 +12,7 @@
         font-weight: $font-weight;
         font-stretch: $font-stretch;
         src: url(#{$font-filename}.woff2) format("#{$font-format}");
-        font-display: swap;
+        font-display: fallback;
         unicode-range: U+0-10FFFF; /* cutting of the font file for better loading */
     }
 }

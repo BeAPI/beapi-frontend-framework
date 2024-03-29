@@ -58,6 +58,10 @@
      */
     --wp-admin-bar-height: var(--wp-admin--admin-bar--height, 0rem);
 
+    body:not(.admin-bar) {
+        --wp-admin-bar-height: 0rem; // for wp admin bar hider extension
+    }
+
     /*
      * Alignments breakpoints
      */

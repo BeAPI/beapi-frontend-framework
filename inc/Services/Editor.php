@@ -200,21 +200,27 @@ class Editor implements Service {
 			true
 		);
 
-		$this->assets_tools->add_inline_script( 'theme-admin-editor-script', 'const BFFEditorSettings = ' . json_encode( array(
-			'disableAllBlocksStyles' => apply_filters( 'bff/editor/disable_all_blocks_styles', [
-				'core/separator',
-				'core/quote',
-				'core/pullquote',
-				'core/table',
-				'core/image'
-			] ),
-			'disabledBlocksStyles' => apply_filters( 'bff/editor/disabled_blocks_styles', [
-				// 'core/button' => [ 'outline' ]
-			] ),
-			'allowedBlocksVariations' => apply_filters( 'bff/editor/allowed_blocks_variations', [
-				'core/embed' => [ 'youtube', 'vimeo', 'dailymotion' ],
-			] ),
-		) ), 'before' );
+		$this->assets_tools->add_inline_script(
+			'theme-admin-editor-script',
+			'const BFFEditorSettings = ' . wp_json_encode(
+				[
+					'disableAllBlocksStyles'  => apply_filters( 'bff/editor/disable_all_blocks_styles', [
+						'core/separator',
+						'core/quote',
+						'core/pullquote',
+						'core/table',
+						'core/image',
+					] ),
+					'disabledBlocksStyles'    => apply_filters( 'bff/editor/disabled_blocks_styles', [
+						// 'core/button' => [ 'outline' ]
+					] ),
+					'allowedBlocksVariations' => apply_filters( 'bff/editor/allowed_blocks_variations', [
+						'core/embed' => [ 'youtube', 'vimeo', 'dailymotion' ],
+					] ),
+				]
+			),
+		'before'
+		);
 
 		$this->assets_tools->enqueue_script( 'theme-admin-editor-script' );
 	}

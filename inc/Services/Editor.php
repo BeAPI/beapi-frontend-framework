@@ -228,7 +228,7 @@ class Editor implements Service {
 					),
 				]
 			),
-		'before'
+			'before'
 		);
 
 		$this->assets_tools->enqueue_script( 'theme-admin-editor-script' );

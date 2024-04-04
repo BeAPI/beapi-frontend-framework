@@ -49,6 +49,11 @@ class Editor implements Service {
 		$this->register_custom_block_styles();
 
 		/**
+		 * Customize theme.json settings
+		 */
+		add_filter( 'wp_theme_json_data_theme', [ $this, 'filter_theme_json_theme' ], 10, 1 );
+
+		/**
 		 * Load editor JS for ADMIN
 		 */
 		add_action( 'enqueue_block_editor_assets', [ $this, 'admin_editor_script' ] );
@@ -155,6 +160,27 @@ class Editor implements Service {
 	}
 
 	/**
+	 * Theme.json settings
+	 * See https://developer.wordpress.org/block-editor/reference-guides/theme-json-reference/theme-json-living/
+	 *
+	 * @param WP_Theme_JSON_Data $theme_json Class to access and update the underlying data.
+	 *
+	 * return WP_Theme_JSON_Data
+	 */
+	public function filter_theme_json_theme( $theme_json ): \WP_Theme_JSON_Data {
+		$custom_theme_json = [
+			'version'  => 2,
+			'settings' => [
+				'typography' => [
+					'dropCap' => false,
+				],
+			],
+		];
+
+		return $theme_json->update_with( $custom_theme_json );
+	}
+
+	/**
 	 * Editor script
 	 */
 	public function admin_editor_script(): void {
@@ -173,6 +199,23 @@ class Editor implements Service {
 			$asset_data['version'],
 			true
 		);
+
+		$this->assets_tools->add_inline_script( 'theme-admin-editor-script', 'const BFFEditorSettings = ' . json_encode( array(
+			'disableAllBlocksStyles' => apply_filters( 'bff/editor/disable_all_blocks_styles', [
+				'core/separator',
+				'core/quote',
+				'core/pullquote',
+				'core/table',
+				'core/image'
+			] ),
+			'disabledBlocksStyles' => apply_filters( 'bff/editor/disabled_blocks_styles', [
+				// 'core/button' => [ 'outline' ]
+			] ),
+			'allowedBlocksVariations' => apply_filters( 'bff/editor/allowed_blocks_variations', [
+				'core/embed' => [ 'youtube', 'vimeo', 'dailymotion' ],
+			] ),
+		) ), 'before' );
+
 		$this->assets_tools->enqueue_script( 'theme-admin-editor-script' );
 	}
 

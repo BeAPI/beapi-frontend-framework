@@ -1,3 +1,5 @@
+/*global BFFEditorSettings*/
+
 import lazySizes from 'lazysizes'
 import 'lazysizes/plugins/native-loading/ls.native-loading'
 import 'lazysizes/plugins/object-fit/ls.object-fit'
@@ -15,14 +17,23 @@ lazySizes.cfg.nativeLoading = {
 
 // Native Gutenberg
 domReady(() => {
-  unregisterBlockStyle('core/separator', ['wide', 'dots'])
-  // whitelist core embeds
-  const allowedEmbedVariants = ['youtube', 'vimeo', 'dailymotion']
-  getBlockVariations('core/embed').forEach((variant) => {
-    if (!allowedEmbedVariants.includes(variant.name)) {
-      unregisterBlockVariation('core/embed', variant.name)
-    }
-  })
+  // Disable specific block styles
+  if (BFFEditorSettings.disabledBlocksStyles) {
+    Object.entries(BFFEditorSettings.disabledBlocksStyles).forEach(([block, styles]) => {
+      unregisterBlockStyle(block, styles)
+    })
+  }
+
+  // Allow blocks variations
+  if (BFFEditorSettings.allowedBlocksVariations) {
+    Object.entries(BFFEditorSettings.allowedBlocksVariations).forEach(([block, variations]) => {
+      getBlockVariations(block).forEach((variant) => {
+        if (!variations.includes(variant.name)) {
+          unregisterBlockVariation(block, variant.name)
+        }
+      })
+    })
+  }
 })
 
 // ACF Blocks
@@ -31,22 +42,9 @@ if (window.acf) {
 }
 
 addFilter('blocks.registerBlockType', 'beapi-framework', function (settings, name) {
-  if (name === 'core/paragraph') {
-    settings.example.attributes.dropCap = false
-  }
-
-  if (name === 'core/separator' || name === 'core/quote' || name === 'core/pullquote' || name === 'core/table') {
-    // remove custom styles
+  // Disable all styles
+  if (BFFEditorSettings.disableAllBlocksStyles && BFFEditorSettings.disableAllBlocksStyles.includes(name)) {
     settings.styles = []
-  }
-
-  if (name === 'core/image') {
-    // remove custom styles
-    settings.styles = []
-    // set default aligment for images to null
-    settings.attributes.align = {
-      type: 'string',
-    }
   }
 
   return settings

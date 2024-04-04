@@ -26,6 +26,19 @@ class Assets {
 	}
 
 	/**
+	 * Add inline script to a registered script.
+	 *
+	 * @param string $handle
+	 * @param string $data
+	 * @param string $position
+	 *
+	 * @return bool
+	 */
+	public function add_inline_script( string $handle, string $data, string $position = 'after' ): bool {
+		return \wp_add_inline_script( $handle, $data, $position );
+	}
+
+	/**
 	 * @param string $handle
 	 */
 	public function enqueue_script( string $handle ): void {

@@ -23,7 +23,7 @@ const browserSyncOptions = {
   proxy: `https://${landoProjectName}.lndo.site/`,
   https: true,
   injectChanges: true,
-  files: ['*.php', '**/*.php', 'dist/*.css', 'dist/*.js', 'dist/img/icons/*.svg'],
+  files: ['*.php', '**/*.php', 'dist/*.css', 'dist/*.js', 'dist/icons/*.svg'],
   startPath: '/',
   notify: true,
   open: false,

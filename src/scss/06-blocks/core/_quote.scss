@@ -1,4 +1,10 @@
 .wp-block-quote {
+    // Override for WordPress base wp-block-quote style for RTL compatibility
+    padding-left: 0;
+    padding-inline-start: 20px; // stylelint-disable-line order/properties-order
+    border-left: 0;
+    border-inline-start: 5px solid currentColor; // stylelint-disable-line order/properties-order
+
     //     p {
     //          ...
     //     }
@@ -6,12 +12,4 @@
     //     cite {
     //          ...
     //     }
-
-    // For WordPress base wp-block-quote style
-    @include rtl {
-        padding-right: 1em;
-        padding-left: 0;
-        border-right: .25em solid currentColor;
-        border-left: 0;
-    }
 }

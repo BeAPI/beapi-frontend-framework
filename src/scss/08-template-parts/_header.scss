@@ -284,12 +284,7 @@
                 }
 
                 + li {
-                    margin-left: 28px;
-
-                    @include rtl {
-                        margin-right: 28px;
-                        margin-left: 0;
-                    }
+                    margin-inline-start: 28px;
                 }
 
                 &.menu-item-has-children {
@@ -297,12 +292,7 @@
 
                     > a {
                         max-width: none;
-                        margin-right: 14px;
-
-                        @include rtl {
-                            margin-right: 0;
-                            margin-left: 14px;
-                        }
+                        margin-inline-end: 14px;
                     }
                 }
             }

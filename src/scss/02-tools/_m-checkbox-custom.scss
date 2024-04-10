@@ -27,13 +27,8 @@
     + label {
         position: relative;
         display: block;
-        padding-left: $size + 20;
+        padding-inline-start: $size + 20;
         cursor: pointer;
-
-        @include rtl {
-            padding-right: $size + 20;
-            padding-left: 0;
-        }
 
         &::before {
             position: absolute;

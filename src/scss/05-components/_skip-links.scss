@@ -1,15 +1,29 @@
 .skip-links {
-    position: absolute;
+    position: fixed;
     top: var(--wp-admin-bar-height);
     left: 0;
-    z-index: 10;
-    display: flex;
-    padding: .5rem 1rem;
-    color: $color-text;
+    z-index: 11; // Under header
+    width: 100%;
+    padding: 8px 10px 10px;
     background-color: $color-primary;
     opacity: 0;
     transition: transform .3s $ease-out-expo, opacity .3s;
     transform: translate3d(0, -100%, 0);
+
+    ul {
+        display: flex;
+        list-style: none;
+    }
+
+    a {
+        font-size: 13px;
+        color: $color-text;
+        text-decoration: none;
+
+        &:focus {
+            outline-offset: 3px;
+        }
+    }
 
     &:focus-within {
         opacity: 1;
@@ -17,11 +31,6 @@
     }
 
     li:not(:last-of-type) {
-        margin-right: 1rem;
-
-        @include rtl {
-            margin-right: 0;
-            margin-left: 1rem;
-        }
+        margin-inline-end: 1rem;
     }
 }

@@ -1,5 +1,16 @@
 /**
- * Row fullwidth
+ * Row fullwidth -  Make a row fullwidth in a container element
+ *
+ * @author Nicolas Langle
+ *
+ * @param $position
+ *
+ * Examples :
+ *
+ *      .test {
+ *          @include row-fullwidth();
+ *      }
+ *
  */
 
 @mixin row-fullwidth($position: relative) {

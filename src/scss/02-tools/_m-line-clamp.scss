@@ -1,8 +1,19 @@
-/// Truncates text at a specific number of lines.
-/// https://css-tricks.com/almanac/properties/l/line-clamp/
-///
-/// @param {number} $lines
-///   The number of lines for the text.
+/**
+ * Truncates text at a specific number of lines.
+ * Source : https://css-tricks.com/almanac/properties/l/line-clamp/
+ *
+ * @author Milan Ricoul
+ *
+ * @param $lines
+ *
+ * Examples :
+ *
+ *      .my-text {
+ *          @include line-clamp(4);
+ *      }
+ *
+ */
+
 @mixin line-clamp($lines: 2) {
     display: -webkit-box;
     overflow: hidden;

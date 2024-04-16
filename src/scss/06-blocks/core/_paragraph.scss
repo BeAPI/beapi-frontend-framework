@@ -1,8 +1,4 @@
-/**
- * Paragraph
- */
-
-$text: "default", "small", "large", "huge";
+$paragraphs: "default", "small", "large", "huge";
 
 p {
     @include text(default);
@@ -10,10 +6,10 @@ p {
     &.has-background {
         padding: 20px;
     }
-}
 
-@each $style in $text {
-    p.is-style-#{$style} {
-        @include text(#{$style});
+    @each $style in $paragraphs {
+        &.is-style-#{$style} {
+            @include text(#{$style});
+        }
     }
 }

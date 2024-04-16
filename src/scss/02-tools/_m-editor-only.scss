@@ -1,13 +1,20 @@
 /**
  * Editor style only
  *
+ * @author Nicolas Langle
+ *
+ * Examples :
+ *
  *      Style inside the mixin while be writed only for editor.scss
  *
- *      @include editor-only {
- *          ... css only for the gutenberg editor
+ *      .my-pattern {
+ *          @include editor-only {
+ *              ... css only for the gutenberg editor
+ *          }
  *      }
  *
  *      the variable $entry-file-name is defined in style.scss and editor.scss
+ *
  */
 
 @mixin editor-only {

@@ -1,7 +1,18 @@
 @use "sass:math";
 
 /**
- * Strip units
+ * Strip units - Remove unit
+ *
+ * @author Nicolas Langle
+ *
+ * @param $value
+ *
+ * Examples :
+ *
+ *      strip-units(10px)  -> return 10
+ *      strip-units(10%)   -> return 10
+ *      strip-units(10)    -> return 10
+ *
  */
 
 @function strip-units($value) {

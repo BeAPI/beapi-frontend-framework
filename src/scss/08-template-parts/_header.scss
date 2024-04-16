@@ -43,6 +43,11 @@
         border: none;
         border-radius: 50%;
 
+        @include rtl {
+            right: auto;
+            left: $external-gutter;
+        }
+
         > span {
             position: absolute;
             top: 50%;
@@ -181,6 +186,10 @@
             background: $color-primary;
             transform: translateX(-100%);
 
+            @include rtl {
+                transform: translateX(100%);
+            }
+
             > div {
                 padding: 76px #{$external-gutter * 2} 25px;
             }
@@ -220,6 +229,12 @@
             width: column(6);
             transform: translateX(100%);
 
+            @include rtl {
+                right: auto;
+                left: 0;
+                transform: translateX(-100%);
+            }
+
             > div {
                 padding: column(2, 2) column(1, 1, 6);
             }
@@ -246,6 +261,10 @@
 
             > div {
                 text-align: right;
+
+                @include rtl {
+                    text-align: left;
+                }
             }
         }
 
@@ -260,8 +279,12 @@
                 display: inline;
                 text-align: left;
 
+                @include rtl {
+                    text-align: right;
+                }
+
                 + li {
-                    margin-left: 28px;
+                    margin-inline-start: 28px;
                 }
 
                 &.menu-item-has-children {
@@ -269,7 +292,7 @@
 
                     > a {
                         max-width: none;
-                        margin-right: 14px;
+                        margin-inline-end: 14px;
                     }
                 }
             }
@@ -290,6 +313,11 @@
             right: 0;
             width: 6px;
             height: 6px;
+
+            @include rtl {
+                right: auto;
+                left: 0;
+            }
         }
 
         &__sub-menu {

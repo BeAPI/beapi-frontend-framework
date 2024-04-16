@@ -64,6 +64,12 @@ module.exports = {
                     'postcss-preset-env': {
                       browsers: 'last 2 versions, > 2%, not dead',
                       stage: 2,
+                      features: {
+                        // https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values
+                        // https://stackoverflow.com/questions/64565180/how-to-prevent-postcss-preset-env-from-removing-css-logical-properties#answer-66966232
+                        // Use stage 2 features + disable logical properties and values rule
+                        'logical-properties-and-values': false,
+                      },
                     },
                     'postcss-pxtorem': { propWhiteList: [] },
                     'postcss-sort-media-queries': {},

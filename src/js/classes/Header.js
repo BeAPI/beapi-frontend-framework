@@ -1,6 +1,7 @@
 import AbstractDomElement from './AbstractDomElement'
 import each from '../utils/each'
 import { Tween } from 'oneloop.js'
+import isRTL from '../utils/isRTL'
 
 class Header extends AbstractDomElement {
   constructor(element, options) {
@@ -28,7 +29,13 @@ class Header extends AbstractDomElement {
       duration: 1000,
       easing: 'easeInOutExpo',
       onUpdate: function (timestamp, tick, percent) {
-        const direction = window.innerWidth >= 768 ? -1 : 1
+        const bp = 768
+        let direction = window.innerWidth >= bp ? -1 : 1
+
+        if (isRTL()) {
+          direction = window.innerWidth >= bp ? 1 : -1
+        }
+
         menu.style.transform = 'translateX(' + 100 * (percent - 1) * direction + '%)'
       },
       onComplete: function (timestamp, tick, lastValue) {

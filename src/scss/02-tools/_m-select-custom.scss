@@ -31,6 +31,10 @@
     border-radius: 10px;
     appearance: none;
 
+    @include rtl {
+        background-position: left 10px top 50%, 0 0;
+    }
+
     // Set options to normal weight
     option {
         font-weight: 400;

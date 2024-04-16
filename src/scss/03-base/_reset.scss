@@ -39,6 +39,9 @@ h6 {
   */
 
 html {
+    /* Set automatic RTL direction depending on lang attribute */
+    @include set-rtl-direction;
+
     /* Apply border-box across the entire page. */
     box-sizing: border-box;
 

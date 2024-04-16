@@ -101,6 +101,7 @@ $all-text-inputs: assign-inputs($text-inputs-list);
             height: 16px;
             cursor: pointer;
             background-image: get-svg-url("close", $color-dark);
+            background-repeat: no-repeat;
             background-size: contain;
             -webkit-appearance: none;
             -moz-appearance: none;

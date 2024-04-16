@@ -20,3 +20,10 @@
         @content;
     }
 }
+
+@mixin set-rtl-direction {
+    &:lang(ar),
+    &:lang(iw) {
+        direction: rtl;
+    }
+}

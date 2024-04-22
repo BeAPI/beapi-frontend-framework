@@ -64,12 +64,19 @@
     }
 
     /* remove useless content */
+    .skip-links,
     .header,
     .footer,
     .widget-area,
     .breadcrumb,
     .wp-pagenavi {
         display: none !important;
+    }
+
+    /* show hidden content */
+    .wp-block-beapi-accordion-panel,
+    .wp-block-beapi-faq-block .faq__panel {
+        display: block !important;
     }
 
     /* reset width */

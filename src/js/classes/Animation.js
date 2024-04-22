@@ -1,5 +1,5 @@
 import AbstractDomElement from './AbstractDomElement'
-import { ScrollObserver, SplittedText } from 'oneloop.js'
+import { ScrollObserver, SplittedText, ThrottledEvent } from 'oneloop.js'
 import noop from '../utils/noop'
 
 // ----
@@ -8,6 +8,7 @@ import noop from '../utils/noop'
 const instances = []
 const animationClass = 'js-animation'
 let scrollObserver
+let resize
 
 // ----
 // class Animation
@@ -33,6 +34,9 @@ class Animation extends AbstractDomElement {
     const end = getValue(el, s.end)
     const callbacksSharedData = {}
 
+    this._elementHeight = this._element.offsetHeight
+    this._windowHeight = window.innerHeight
+    this._onResize = onResize.bind(this)
     this._isVisible = false
     this._callbacksSharedData = callbacksSharedData
 
@@ -44,10 +48,13 @@ class Animation extends AbstractDomElement {
       window.addEventListener('afterprint', onAfterPrint)
     }
 
-    // init scrollObserver
+    // init scrollObserver and throttledEvent
     if (!scrollObserver) {
       scrollObserver = new ScrollObserver()
+      resize = new ThrottledEvent(window, 'resize')
     }
+
+    resize.add('resize', this._onResize)
 
     // add animation class
     el.classList.add(s.animationClass)
@@ -57,8 +64,11 @@ class Animation extends AbstractDomElement {
 
     // add element to scrollObserver
     scrollObserver.observe(el, {
-      onVisible: function (scrollInfos, percentRTW, percentRTE) {
-        if (!that._isVisible && percentRTE.y >= start && percentRTE.y <= end) {
+      onVisible: function (scrollInfos, percentRTW) {
+        const pStart = (this.distanceRTW.y * percentRTW.y) / that._windowHeight
+        const pEnd = (this.distanceRTW.y * percentRTW.y) / (that._windowHeight + that._elementHeight)
+
+        if (!that._isVisible && pStart >= start && pEnd <= end) {
           // show element
           that._isVisible = true
           s.onShow(el, scrollInfos, callbacksSharedData)
@@ -68,7 +78,7 @@ class Animation extends AbstractDomElement {
           if (s.playOnce) {
             that.destroy(el, scrollInfos, callbacksSharedData)
           }
-        } else if (that._isVisible && (percentRTE.y < start || (percentRTE.y > end && s.hideOnReachEnd))) {
+        } else if (that._isVisible && (pStart < start || (pEnd > end && s.hideOnReachEnd))) {
           // hide element
           that._isVisible = false
           s.onHide(el, scrollInfos, callbacksSharedData)
@@ -112,9 +122,11 @@ class Animation extends AbstractDomElement {
     }
 
     scrollObserver.unobserve(el)
+    resize.remove('resize', this._onResize)
 
     if (!scrollObserver.hasEntry) {
-      scrollObserver.destroy()
+      scrollObserver = scrollObserver.destroy()
+      resize = resize.destroy()
     }
 
     if (instances.length === 0) {
@@ -159,7 +171,7 @@ Animation.defaults = {
   // if true, the instance will be destroyed after the element is visible
   playOnce: false,
   // if true, remove the visible class when the element reach the end paramter value
-  hideOnReachEnd: true,
+  hideOnReachEnd: false,
   // if true, set the element visible on destroy whatever the current scroll value
   showOnDestroy: true,
   // for each callback : function (element, scrollInfos, callbacksSharedData)
@@ -167,6 +179,34 @@ Animation.defaults = {
   onShow: noop,
   onHide: noop,
   onDestroy: noop,
+}
+
+// ----
+// events
+// ----
+/**
+ * onResize
+ * @param {Object} event
+ * @returns {undefined}
+ */
+function onResize() {
+  this._elementHeight = this._element.offsetHeight
+  this._windowHeight = window.innerHeight
+}
+
+/**
+ * On before print
+ * @returns {undefined}
+ */
+function onBeforePrint() {
+  document.documentElement.classList.remove(animationClass)
+}
+/**
+ * On after print
+ * @returns {undefined}
+ */
+function onAfterPrint() {
+  document.documentElement.classList.add(animationClass)
 }
 
 // ----
@@ -188,24 +228,6 @@ function getValue(element, value) {
   }
 
   return rt
-}
-
-// ----
-// events
-// ----
-/**
- * On before print
- * @returns {undefined}
- */
-function onBeforePrint() {
-  document.documentElement.classList.remove(animationClass)
-}
-/**
- * On after print
- * @returns {undefined}
- */
-function onAfterPrint() {
-  document.documentElement.classList.add(animationClass)
 }
 
 // ----

@@ -25,6 +25,9 @@ function jsAnimationOpacity() {
   const elements = document.querySelectorAll('.js-animation .js-animation-opacity')
 
   each(elements, function (element) {
+    // add animation class
+    element.classList.add('js-animation-opacity')
+
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: element,

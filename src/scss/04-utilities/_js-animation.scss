@@ -31,17 +31,15 @@
 // ----
 %js-animation-opacity-init {
     opacity: 0;
-    transition: opacity .5s;
+    transition: opacity 1s $ease-out-expo;
 }
 // ----
 // vertical translation + opacity animation
 // ----
 %js-animation-translation-init {
-    > * {
-        opacity: 0;
-        transition: opacity .5s, transform .5s $ease-out-expo;
-        transform: translateY(100px);
-    }
+    opacity: 0;
+    transition: opacity 1s, transform 1s $ease-out-expo;
+    transform: translateY(100px);
 }
 // ----
 // title animation
@@ -104,10 +102,8 @@
         @extend %js-animation-translation-init;
 
         &.is-visible {
-            > * {
-                opacity: 1;
-                transform: translateY(0) !important;
-            }
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 }

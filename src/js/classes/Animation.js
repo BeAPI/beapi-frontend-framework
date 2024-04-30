@@ -1,5 +1,4 @@
 import AbstractDomElement from './AbstractDomElement'
-import each from '../utils/each'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import noop from '../utils/noop'
@@ -16,22 +15,16 @@ class Animation extends AbstractDomElement {
       return instance
     }
 
+    // Register gsap plugins
     gsap.registerPlugin(ScrollTrigger)
 
-    this.jsAnimationOpacity()
-  }
-
-  jsAnimationOpacity() {
+    const el = this._element
     const settings = this._settings
-    const that = this
-    const elements = document.querySelectorAll('.js-animation .js-animation-opacity')
 
-    each(elements, function (element) {
-      // add animation class
-      element.classList.add(settings.animationClass)
+    // add animation class
+    el.classList.add(settings.animationClass)
 
-      that.scrollTrigger(element)
-    })
+    this.scrollTrigger(el)
   }
 
   scrollTrigger(element) {
@@ -44,6 +37,8 @@ class Animation extends AbstractDomElement {
       markers: true, // Markers is a visual aid that helps us set start and end points.
       toggleClass: settings.visibleClass,
       once: settings.playOnce,
+      onEnter: ({ progress, direction, isActive }) => settings.onEnter(progress, direction, isActive),
+      onLeave: ({ progress, direction, isActive }) => settings.onLeave(progress, direction, isActive),
     })
 
     /*
@@ -83,9 +78,19 @@ Animation.defaults = {
 }
 
 // ----
-// init
+// presets
 // ----
-Animation.init('body')
+Animation.preset = {
+  '.js-animation .js-animation-opacity': undefined,
+  '.js-animation .js-animation-translation': {
+    animationClass: 'js-animation-translation',
+  },
+}
+
+// ----
+// presets
+// ----
+Animation.initFromPreset()
 
 // ----
 // export

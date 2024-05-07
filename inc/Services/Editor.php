@@ -203,30 +203,24 @@ class Editor implements Service {
 		$this->assets_tools->add_inline_script(
 			'theme-admin-editor-script',
 			'const BFFEditorSettings = ' . wp_json_encode(
-				[
-					'disableAllBlocksStyles'  => apply_filters(
-						'bff_editor_disable_all_blocks_styles',
-						[
+				apply_filters(
+					'bff_editor_custom_settings',
+					[
+						'disableAllBlocksStyles' => [
 							'core/separator',
 							'core/quote',
 							'core/pullquote',
 							'core/table',
 							'core/image',
-						]
-					),
-					'disabledBlocksStyles'    => apply_filters(
-						'bff_editor_disabled_blocks_styles',
-						[
+						],
+						'disabledBlocksStyles' => [
 							// 'core/button' => [ 'outline' ]
-						]
-					),
-					'allowedBlocksVariations' => apply_filters(
-						'bff_editor_allowed_blocks_variations',
-						[
+						],
+						'allowedBlocksVariations' => [
 							'core/embed' => [ 'youtube', 'vimeo', 'dailymotion' ],
-						]
-					),
-				]
+						],
+					]
+				)
 			),
 			'before'
 		);

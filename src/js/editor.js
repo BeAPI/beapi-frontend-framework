@@ -1,4 +1,6 @@
-/*global BFFEditorSettings*/
+/* global BFFEditorSettings */
+
+/* Customize BFFEditorSettings in inc/Services/Editor.php or with `bff_editor_custom_settings` filter (see readme). */
 
 import lazySizes from 'lazysizes'
 import 'lazysizes/plugins/native-loading/ls.native-loading'

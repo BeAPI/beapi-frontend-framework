@@ -109,3 +109,25 @@ You can launch a bundle report with the following command :
 ```bash
 yarn bundle-report
 ```
+
+## WordPress Editor (Gutenberg)
+
+### Customize blocks
+
+The `bff_editor_custom_settings` filter allow you to customize blocks styles and variations. For example:
+
+```php
+add_filter( 'bff_editor_custom_settings', 'customize_editor_settings', 10, 1 );
+function customize_editor_settings( $settings ) {
+	// Disable all block styles for Separator block
+	$settings[ 'disableAllBlocksStyles' ] = [ 'core/separator' ];
+
+	// Disable specific block style for Button block
+	$settings[ 'disabledBlocksStyles' ]   = [ 'core/button' => [ 'outline' ] ];
+
+	// Allow only YouTube variation for Embed block
+	$settings[ 'allowedBlocksVariations' ] = [ 'core/embed' => [ 'youtube' ] ];
+
+	return $settings;
+}
+```

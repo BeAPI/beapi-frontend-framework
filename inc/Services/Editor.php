@@ -167,7 +167,7 @@ class Editor implements Service {
 	 *
 	 * return WP_Theme_JSON_Data
 	 */
-	public function filter_theme_json_theme( $theme_json ): \WP_Theme_JSON_Data {
+	public function filter_theme_json_theme( \WP_Theme_JSON_Data $theme_json  ): \WP_Theme_JSON_Data {
 		$custom_theme_json = [
 			'version'  => 2,
 			'settings' => [

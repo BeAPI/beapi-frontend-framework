@@ -61,23 +61,48 @@ $palette: (
     ),
 );
 
-// ==========
-// Sizes
-// ==========
+/**
+* Sizes
+*
+* If is fluid website and for example you have a container of 1304px on figma -> column : 72px and gutter -> 40px
+*
+* The max width of the fluid size container is for example 2200px.
+*
+*     $column-preset: (
+*         // preset for desktop
+*         d : (
+*             column-width: 121.4724, // (2220 * 72 / 1304)  - Container width : 2200px (1304px on 1440px viewport) - Column width : 121px (72px on 1440px viewport)
+*             gutter-width: 67.4846, // (2200 * 40 / 1304) - Gutter width : 67px (40px on 1440px viewport)
+*             total-column: 12
+*         ),
+*         // preset for tablet
+*         t : (
+*             column-width: 121.4724,
+*             gutter-width: 67.4846,
+*             total-column: 12
+*         ),
+*         // preset for mobile
+*         m : (
+*             column-width: 36,
+*             gutter-width: 24,
+*             total-column: 6
+*         )
+*     );
+*/
 $column-preset: (
-    /* preset for desktop */
+    // preset for desktop
     d : (
         column-width: 60,
         gutter-width: 40,
         total-column: 12
     ),
-    /* preset for tablet */
+    // preset for tablet
     t : (
         column-width: 60,
         gutter-width: 34,
         total-column: 8
     ),
-    /* preset for mobile */
+    // preset for mobile
     m : (
         column-width: 58,
         gutter-width: 31,
@@ -95,7 +120,8 @@ $container-default: (
 $container-wide: (
     map.get(map.get($column-preset, d), column-width) * map.get(map.get($column-preset, d), total-column) + map.get(map.get($column-preset, d), gutter-width) * (map.get(map.get($column-preset, d), total-column) - 1)
 ) * 1px;
-$external-gutter: 25px;
+$external-gutter: 50px;
+$external-gutter-mobile: 20px;
 
 // ----
 // Breakpoints
@@ -107,7 +133,8 @@ $breakpoints: (
     admin-bar: 784, // admin bar height change
     md: 1024,
     mdl: 1200,
-    lg: $container-wide + $external-gutter,
+    container-default: $container-default + $external-gutter-mobile * 2,
+    container-wide: $container-wide + $external-gutter * 2,
 );
 // /!\ WARNING: If you use a breakpoint of 1280px, it causes a bug under Window Edge with a device pixel ratio higher than 1. Prefer to use the value 1279px.
 

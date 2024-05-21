@@ -1,4 +1,9 @@
 /* Main Layout */
-.container {
+.container,
+.container-wide {
     @include container;
+}
+
+.container-default {
+    @include container($container-default);
 }

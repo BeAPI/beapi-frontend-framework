@@ -4,6 +4,10 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 <!DOCTYPE html>
 <html class="no-js no-js-animation" <?php language_attributes(); ?>>
 <head>
+	<meta charset="<?php bloginfo( 'charset' ); ?>" />
+	<meta http-equiv="Content-Type" content="text/html; charset=<?php bloginfo( 'charset' ); ?>" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<script type="text/javascript">
 		//<![CDATA[
 		(function(){
@@ -20,11 +24,6 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 		})();
 		//]]>
 	</script>
-
-	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta http-equiv="Content-Type" content="text/html; charset=<?php bloginfo( 'charset' ); ?>" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
 
 	<?php wp_head(); ?>
 </head>

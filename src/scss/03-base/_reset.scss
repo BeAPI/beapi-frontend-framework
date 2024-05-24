@@ -57,6 +57,10 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: auto;
+
+    &:has(main form) {
+        scroll-behavior: auto; // Prevent not display error on required field on Chromium : https://issues.chromium.org/issues/40196176 / https://stackoverflow.com/questions/69015407/html5-form-validation-message-doesnt-show-when-scroll-behaviour-is-set-to-smoo
+    }
 }
 
 /**

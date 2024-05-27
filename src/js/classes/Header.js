@@ -1,6 +1,6 @@
 import AbstractDomElement from './AbstractDomElement'
 import each from '../utils/each'
-import { Tween } from 'oneloop.js'
+import gsap from 'gsap'
 import isRTL from '../utils/isRTL'
 
 class Header extends AbstractDomElement {
@@ -17,34 +17,12 @@ class Header extends AbstractDomElement {
     const toggle = el.getElementsByClassName('header__menu-toggle')[0]
     const menuList = el.getElementsByClassName('header__menu-list')[0]
     const liWithChidren = el.getElementsByClassName('menu-item-has-children')
-    const menu = el.getElementsByClassName('header__menu')[0]
 
-    this._menu = menu
+    this._menu = el.getElementsByClassName('header__menu')[0]
     this._toggle = toggle
     this._openedSubMenu = null
     this._mouseTimers = {}
-    this._menuTween = new Tween({
-      autoStart: false,
-      reverse: true,
-      duration: 1000,
-      easing: 'easeInOutExpo',
-      onUpdate: function (timestamp, tick, percent) {
-        const bp = 768
-        let direction = window.innerWidth >= bp ? -1 : 1
-
-        if (isRTL()) {
-          direction = window.innerWidth >= bp ? 1 : -1
-        }
-
-        menu.style.transform = 'translateX(' + 100 * (percent - 1) * direction + '%)'
-      },
-      onComplete: function (timestamp, tick, lastValue) {
-        if (lastValue === 0) {
-          menu.style.display = ''
-          menu.style.transform = ''
-        }
-      },
-    })
+    this._menuTween = null
 
     // avoid error for empty theme
     if (menuList) {
@@ -70,15 +48,44 @@ class Header extends AbstractDomElement {
     this._menu.style.display = 'block'
     this._element.classList.add(this._settings.menuOpenedClass)
     this._toggle.setAttribute('aria-expanded', 'true')
-    this._menuTween.start()
+
+    if (this._menuTween) {
+      this._menuTween.kill()
+    }
+
+    this._menuTween = gsap.to(this._menu, {
+      x: '0%',
+      duration: 1,
+      ease: 'expo.out',
+    })
 
     return this
   }
 
   closeMenu() {
+    const bp = 768
+    let direction = window.innerWidth >= bp ? -1 : 1
+
+    if (isRTL()) {
+      direction = window.innerWidth >= bp ? 1 : -1
+    }
+
     this._element.classList.remove(this._settings.menuOpenedClass)
     this._toggle.setAttribute('aria-expanded', 'false')
-    this._menuTween.start()
+
+    if (this._menuTween) {
+      this._menuTween.kill()
+    }
+
+    this._menuTween = gsap.to(this._menu, {
+      x: -100 * direction + '%',
+      duration: 1,
+      ease: 'expo.out',
+      onComplete: () => {
+        this._menu.style.display = ''
+        this._menu.style.transform = ''
+      },
+    })
 
     return this
   }
@@ -105,13 +112,11 @@ class Header extends AbstractDomElement {
     liParent.classList.add(this._settings.liSubMenuOpenedClass)
     toggle.setAttribute('aria-expanded', 'true')
 
-    new Tween({
-      duration: 500,
-      easing: 'easeOutExpo',
-      onUpdate: function (timestamp, tick, percent) {
-        subMenu.style.height = childHeight * percent + 'px'
-      },
-      onComplete: function () {
+    gsap.to(subMenu, {
+      height: childHeight + 'px',
+      duration: 0.5,
+      ease: 'expo.out',
+      onComplete: () => {
         subMenu.style.height = 'auto'
       },
     })
@@ -131,13 +136,11 @@ class Header extends AbstractDomElement {
     liParent.classList.remove(this._settings.liSubMenuOpenedClass)
     toggle.setAttribute('aria-expanded', 'false')
 
-    new Tween({
-      duration: 500,
-      easing: 'easeOutExpo',
-      onUpdate: function (timestamp, tick, percent) {
-        subMenu.style.height = currentHeight * (1 - percent) + 'px'
-      },
-      onComplete: function () {
+    gsap.to(subMenu, {
+      height: '0px',
+      duration: 0.5,
+      ease: 'expo.out',
+      onComplete: () => {
         subMenu.style.display = ''
       },
     })

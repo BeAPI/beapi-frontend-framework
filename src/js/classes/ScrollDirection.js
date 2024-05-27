@@ -1,5 +1,6 @@
 import AbstractDomElement from './AbstractDomElement.js'
-import { ScrollObserver } from 'oneloop.js'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger.js'
 
 class ScrollDirection extends AbstractDomElement {
   constructor(element, options) {
@@ -10,31 +11,31 @@ class ScrollDirection extends AbstractDomElement {
       return instance
     }
 
-    const that = this
+    gsap.registerPlugin(ScrollTrigger)
 
-    this._scrollObserver = new ScrollObserver()
     this._directions = ['top', 'bottom', 'up', 'down']
     this._current = null
     this._isEditable = true
     this._timer = null
-
-    this._scrollObserver.observe(this._element, {
-      onAlways: function (scroll, percentRTW, percentRTE) {
-        const p = Math.min(Math.round(percentRTE.y * 100), 100)
+    this._scrollTrigger = ScrollTrigger.create({
+      trigger: this._element,
+      start: 'top top',
+      end: 'bottom bottom',
+      markers: false,
+      onUpdate: (self) => {
+        const p = self.progress
 
         if (p === 0) {
-          that.set('top')
-        } else if (p === 100) {
-          that.set('bottom')
-        } else if (scroll.direction.y === -1) {
-          that.set('up')
-        } else if (scroll.direction.y === 1) {
-          that.set('down')
+          this.set('top')
+        } else if (p === 1) {
+          this.set('bottom')
+        } else if (self.direction === -1) {
+          this.set('up')
+        } else if (self.direction === 1) {
+          this.set('down')
         }
       },
     })
-
-    that.set('top')
   }
 
   set(direction) {
@@ -77,7 +78,7 @@ class ScrollDirection extends AbstractDomElement {
 
   destroy() {
     super.destroy()
-    this._scrollObserver.unobserve(this._element)
+    this._scrollTrigger.kill()
     this._element.classList.remove('scroll-' + this._directions[this._current])
   }
 }

@@ -3,6 +3,8 @@ import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import noop from '../utils/noop'
 
+const instances = []
+
 // ----
 // class - à supprimer ?
 // ----
@@ -34,11 +36,36 @@ class Animation extends AbstractDomElement {
       onEnter: ({ progress, direction, isActive }) => settings.onEnter(progress, direction, isActive),
       onLeave: ({ progress, direction, isActive }) => settings.onLeave(progress, direction, isActive),
     })
+
+    if (instances.length === 0) {
+      window.addEventListener('beforeprint', onBeforePrint)
+      window.addEventListener('afterprint', onAfterPrint)
+    }
+
+    instances.push(this)
   }
 
   destroy() {
     this._scrollTrigger.kill()
+
+    instances.splice(instances.indexOf(this), 1)
+
+    if (instances.length === 0) {
+      window.removeEventListener('beforeprint', onBeforePrint)
+      window.removeEventListener('afterprint', onAfterPrint)
+    }
   }
+}
+
+// ----
+// events
+// ----
+function onBeforePrint() {
+  document.documentElement.classList.remove('js-animation')
+}
+
+function onAfterPrint() {
+  document.documentElement.classList.add('js-animation')
 }
 
 // ----

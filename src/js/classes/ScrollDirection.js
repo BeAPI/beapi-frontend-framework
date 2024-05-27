@@ -36,6 +36,8 @@ class ScrollDirection extends AbstractDomElement {
         }
       },
     })
+
+    this.set('top')
   }
 
   set(direction) {

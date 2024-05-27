@@ -1,10 +1,10 @@
 import AbstractDomElement from './AbstractDomElement'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import noop from '../utils/noop'
 
 // ----
-// class
+// class - à supprimer ?
 // ----
 class Animation extends AbstractDomElement {
   constructor(element, options) {
@@ -24,38 +24,20 @@ class Animation extends AbstractDomElement {
     // add animation class
     el.classList.add(settings.animationClass)
 
-    this.scrollTrigger(el)
-  }
-
-  scrollTrigger(element) {
-    const settings = this._settings
-
-    ScrollTrigger.create({
+    this._scrollTrigger = ScrollTrigger.create({
       trigger: element,
       start: settings.start,
       end: settings.end,
-      markers: true, // Markers is a visual aid that helps us set start and end points.
+      markers: false, // Markers is a visual aid that helps us set start and end points.
       toggleClass: settings.visibleClass,
       once: settings.playOnce,
       onEnter: ({ progress, direction, isActive }) => settings.onEnter(progress, direction, isActive),
       onLeave: ({ progress, direction, isActive }) => settings.onLeave(progress, direction, isActive),
     })
+  }
 
-    /*
-    // TODO : animation en JS ou en CSS ?
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: element,
-        start: 'top 85%', // when the top of the trigger hits 75% of the top of the viewport
-        end: 'bottom 15%',
-        markers: true, // Markers is a visual aid that helps us set start and end points.
-        toggleClass: 'is-visible',
-        once: false,
-      },
-    })
-
-    timeline.fromTo(element, { opacity: 0 }, { opacity: 1, duration: 1 })
-    */
+  destroy() {
+    this._scrollTrigger.kill()
   }
 }
 

@@ -2,6 +2,23 @@
 @use "sass:math";
 @use "sass:string";
 
+/**
+ * To number - convert string to number
+ *
+ * @author: Stackoverflow - https://stackoverflow.com/questions/47630616/scss-arithmetic-operation-with-string
+ *
+ * @param string $value
+ *
+ * Examples :
+ *          @for $i from 1 through 6 {
+ *              &[data-per-line="#{$i}"] {
+ *                  .card {
+ *                      width: column(to-number(#{math.div(12, $i + 1)}));
+ *                  }
+ *              }
+ *          }
+ */
+
 @function to-number($value) {
     @if type-of($value) == "number" {
         @return $value;

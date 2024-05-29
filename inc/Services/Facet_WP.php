@@ -14,7 +14,7 @@ class Facet_WP implements Service {
 		add_filter( 'facetwp_load_a11y', '__return_true' );
 		add_filter( 'facetwp_facets', [ $this, 'register_facets' ], 40 );
 		add_filter( 'facetwp_pager_html', [ $this, 'accessible_facetwp_pager_html' ], 10, 2 );
-		add_filter( 'facetwp_facet_html', [ $this, 'accessible_facetwp_labels' ], 10, 2 );
+		add_filter( 'facetwp_facet_pager_link', [ $this, 'facetwp_facet_pager_link' ], 10, 2 );
 	}
 
 	/**
@@ -60,6 +60,8 @@ class Facet_WP implements Service {
 
 	/**
 	 * Add custom and accessible FacetWP pagination.
+	 * This function apply only with the old way to display a pager : facetwp_display( 'pager' );
+	 * For customization of the pagination facet, see facetwp_facet_pager_link function.
 	 *
 	 * @param $output
 	 * @param $params
@@ -90,33 +92,37 @@ class Facet_WP implements Service {
 			$output .= '<span class="facetwp-pager-label sr-only">' . "$text_page $page $text_of $total_pages</span>";
 
 			if ( $page > 1 ) {
-				$output .= '<a href="#" class="facetwp-page previouspostslink" data-page="' . ( $page - 1 ) . '">' . __( 'Previous', 'framework-textdomain' ) . '</a>';
+				$output .= sprintf(
+					'<button class="btn facetwp-page previouspostslink" data-page="%s">' . __( 'Previous', 'framework-textdomain' ) . '</button>',
+					( $page - 1 )
+				);
 			} else {
 				$output .= '<span class="facetwp-page previouspostslink" aria-hidden="true" tabindex="-1" style="visibility: hidden"></span>';
 			}
 
 			if ( 3 < $page ) {
-				$output .= '<a href="#" class="facetwp-page first-page" data-page="1">
-        <span class="sr-only">Première page</span>
-        <span aria-hidden="true">1</span>
-        </a>';
+				$output .= sprintf(
+					'<button class="btn facetwp-page first-page" data-page="1"><span class="sr-only">%s</span><span aria-hidden="true">1</span></button>',
+					__( 'First page', 'framework-textdomain' )
+				);
 			}
+
 			if ( 1 < ( $page - $step ) ) {
 				$output .= '<span class="facetwp-page-more" aria-hidden="true">...</span>';
 			}
 
 			for ( $i = 2; $i > 0; $i -- ) {
 				if ( 0 < ( $page - $i ) ) {
-					$output .= '<a href="#" class="facetwp-page" data-page="' . ( $page - $i ) . '"><span class="sr-only">' . __( 'Page', 'framework-textdomain' ) . '</span> ' . ( $page - $i ) . '</a>';
+					$output .= '<button class="btn facetwp-page" data-page="' . ( $page - $i ) . '"><span class="sr-only">' . __( 'Page', 'framework-textdomain' ) . '</span> ' . ( $page - $i ) . '</button>';
 				}
 			}
 
 			// Current page
-			$output .= '<a href="#" class="facetwp-page active" aria-current="true" data-page="' . $page . '"><span class="sr-only">' . __( 'Current page', 'framework-textdomain' ) . '</span> ' . $page . '</a>';
+			$output .= '<span class="facetwp-page active" aria-current="true" data-page="' . $page . '"><span class="sr-only">' . __( 'Current page', 'framework-textdomain' ) . '</span> ' . $page . '</span>';
 
 			for ( $i = 1; $i <= 2; $i ++ ) {
 				if ( $total_pages >= ( $page + $i ) ) {
-					$output .= '<a href="#" class="facetwp-page" data-page="' . ( $page + $i ) . '"><span class="sr-only">' . __( 'Page', 'framework-textdomain' ) . '</span> ' . ( $page + $i ) . '</a>';
+					$output .= '<button class="btn facetwp-page" data-page="' . ( $page + $i ) . '"><span class="sr-only">' . __( 'Page', 'framework-textdomain' ) . '</span> ' . ( $page + $i ) . '</button>';
 				}
 			}
 
@@ -125,14 +131,15 @@ class Facet_WP implements Service {
 			}
 
 			if ( $total_pages > ( $page + 2 ) ) {
-				$output .= '<a href="#" class="facetwp-page last-page" data-page="' . $total_pages . '">
-        <span class="sr-only">' . __( 'Last page', 'framework-textdomain' ) . '</span>
-        <span aria-hidden="true">' . $total_pages . '</span>
-        </a>';
+				$output .= sprintf(
+					'<button class="btn facetwp-page last-page" data-page="%1$s"><span class="sr-only">%2$s</span><span aria-hidden="true">%1$s</span></button>',
+					$total_pages,
+					__( 'Last page', 'framework-textdomain' )
+				);
 			}
 
 			if ( $page < $total_pages && $total_pages > 1 ) {
-				$output .= '<a href="#" class="facetwp-page nextpostslink" data-page="' . ( $page + 1 ) . '">' . __( 'Next', 'framework-textdomain' ) . '</a>';
+				$output .= '<button class="btn facetwp-page nextpostslink" data-page="' . ( $page + 1 ) . '">' . __( 'Next', 'framework-textdomain' ) . '</button>';
 			} else {
 				$output .= '<span class="facetwp-page nextpostslink" aria-hidden="true" style="visibility: hidden;" tabindex="-1"></span>';
 			}
@@ -142,32 +149,33 @@ class Facet_WP implements Service {
 	}
 
 	/**
-	 * Fix Labels for supported facets.
-	 * Put in show_label_not_empty the facets that only need to be visible in they have results.
+	 * Customize pagination facet output
+	 * This function apply only on pagination facets : facetwp_display( 'facet', 'pagination' );
+	 * For customization of the old way to display a pager, see accessible_facetwp_pager_html function.
 	 *
-	 * @param string $html
-	 * @param array $args
+	 * https://facetwp.com/help-center/developers/hooks/output-hooks/facetwp_facet_pager_link/
+	 *
+	 * @param $output
+	 * @param $params
 	 *
 	 * @return string
+	 *
+	 * @author Marie Comet
+	 *
 	 */
-	public function accessible_facetwp_labels( string $html, array $args ): string {
-		$show_label_not_empty = [
-			'checkboxes',
-			'radio',
-		];
+	public function facetwp_facet_pager_link( $html, $params ): string {
+		// Replace current link by a span
+		if ( str_contains( $html, 'active' ) ) {
+			$html = str_replace( '<a', '<span', $html );
+			$html = str_replace( '</a>', '</span>', $html );
+		}
 
-		if ( ( true === in_array( $args['facet']['type'], $show_label_not_empty, true ) && ! empty( $args['values'] ) ) || false === in_array( $args['facet']['type'], $show_label_not_empty, true ) ) {
-			$label = $args['facet']['label'];
-			if ( function_exists( 'facetwp_i18n' ) ) {
-				$label = facetwp_i18n( $label );
-			}
+		// Replace links by buttons and add class
+		$html = str_replace( [ '<a class="', '/a>' ], [ '<button class="btn ', '/button>' ], $html );
 
-			$html = sprintf( '<label class="facetwp-label" for="%s">%s</label>%s', esc_attr( $args['facet']['name'] ), esc_html( $label ), $html );
-
-			// Add id attribute to per_page select
-			if ( 'per_page' === $args['facet']['name'] ) {
-				$html = str_replace( '<select class="facetwp-per-page-select">', '<select class="facetwp-per-page-select" id="per_page">', $html );
-			}
+		// Remove link tag for dots
+		if ( 'dots' === $params['extra_class'] ) {
+			$html = str_replace( '<a class="facetwp-page dots">…</a>', '<span class="facetwp-page dots">…</span>', $html );
 		}
 
 		return $html;

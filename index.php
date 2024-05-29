@@ -184,13 +184,13 @@ get_header();
 
 	<ul style="display: flex; justify-content: space-between; list-style: none; margin-top: 50px">
 		<li class="js-animation-translation" style="width: 32%">
-			<div style="background: #000; height: 450px;"></div>
+			<div style="background: #000; height: 450px;"><img style="height:100%;object-fit:cover;width:100%;" src="https://picsum.photos/1600/800" alt=""></div>
 		</li>
 		<li class="js-animation-translation" style="width: 32%">
-			<div style="background: #000; height: 450px;"></div>
+			<div style="background: #000; height: 450px;"><img style="height:100%;object-fit:cover;width:100%;" src="https://picsum.photos/1600/800" alt=""></div>
 		</li>
 		<li class="js-animation-translation" style="width: 32%">
-			<div style="background: #000; height: 450px;"></div>
+			<div style="background: #000; height: 450px;"><img style="height:100%;object-fit:cover;width:100%;" src="https://picsum.photos/1600/800" alt=""></div>
 		</li>
 	</ul>
 </div>

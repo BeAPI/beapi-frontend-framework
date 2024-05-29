@@ -19,8 +19,7 @@
   "dependencies": {
     "@fontsource/poppins": "^5.0.5",
     "gsap": "^3.12.5",
-    "lazysizes": "^5.3.2",
-    "oneloop.js": "^5.0.0"
+    "lazysizes": "^5.3.2"
   },
   "devDependencies": {
     "@wordpress/blocks": "^11.16.0",

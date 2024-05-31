@@ -133,6 +133,10 @@ class Assets implements Service {
 
 		$assets = $this->get_assets_json_index_file();
 
+		if ( empty( $assets ) ) {
+			return '';
+		}
+
 		switch ( $type ) {
 			case 'css':
 				$file = $assets['app.css'] ?? '';

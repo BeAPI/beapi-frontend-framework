@@ -8,6 +8,9 @@ use BEA\Theme\Framework\Service_Container;
 
 class Theme implements Service {
 
+	/**
+	 * @var Service|bool
+	 */
 	protected $asset;
 
 	/**
@@ -89,12 +92,9 @@ class Theme implements Service {
 	/**
 	 * Set default path for ARI for minified files
 	 *
-	 * @param string $attr
-	 *
 	 * @return string
-	 *
 	 */
-	public function set_ari_responsive_image_default_img_path( string $attr ): string {
+	public function set_ari_responsive_image_default_img_path(): string {
 		return '/dist/';
 	}
 

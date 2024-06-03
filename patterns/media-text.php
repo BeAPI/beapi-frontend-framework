@@ -2,7 +2,8 @@
 /**
  * Title: Media Text
  * Slug: beapi-frontend-framework/media-text
- * categories: common
+ * Categories: common
+ * Viewport Width: 1304
  */
 ?>
 <!-- wp:media-text {"align":"","mediaType":"image"} -->

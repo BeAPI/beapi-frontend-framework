@@ -28,7 +28,7 @@ class Acf implements Service {
 	public function boot( Service_Container $container ): void {
 		add_action( 'template_redirect', [ $this, 'warning' ], 0 );
 		add_action( 'init', [ $this, 'init' ], 0 );
-		add_action( 'init', [ $this, 'init_acf' ] );
+		add_action( 'init', [ $this, 'init_acf' ], 4 );
 	}
 
 	/**

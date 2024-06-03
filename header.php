@@ -78,6 +78,6 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 	</header>
 	<main id="content" role="main" tabindex="-1" aria-label="<?php esc_attr_e( 'Main content', 'beapi-frontend-framework' ); ?>">
 	<?php
-	if ( ! is_front_page() && ! is_search() ) {
+	if ( ! is_front_page() && ! is_search() && ! is_404() ) {
 		get_template_part( 'components/parts/common/breadcrumb' );
 	}

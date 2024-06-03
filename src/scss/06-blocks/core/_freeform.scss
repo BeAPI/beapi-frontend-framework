@@ -12,6 +12,7 @@
 
         // Backend Classic editor container
         .mce-content-body {
+            width: #{$container-wide};
             max-width: var(--responsive--alignwide-width);
             margin: 0;
         }

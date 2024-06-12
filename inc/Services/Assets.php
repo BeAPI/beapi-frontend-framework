@@ -36,7 +36,7 @@ class Assets implements Service {
 		 */
 		add_action( 'wp', [ $this, 'register_assets' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
-		add_action( 'wp_print_styles', [ $this, 'enqueue_styles' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_styles' ] );
 		add_filter( 'stylesheet_uri', [ $this, 'stylesheet_uri' ] );
 		add_filter( 'wp_login_page_theme_css', [ $this, 'login_stylesheet_uri' ] );
 	}

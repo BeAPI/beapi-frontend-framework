@@ -1,4 +1,4 @@
-# Copyright (C) 2022 BeAPI
+# Copyright (C) 2024 BeAPI
 # This file is distributed under the .
 msgid ""
 msgstr ""
@@ -9,10 +9,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-06-30T08:09:55+00:00\n"
+"POT-Creation-Date: 2024-03-04T09:37:43+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.6.0\n"
-"X-Domain: beapi-frontend-framework\n"
+"X-Generator: WP-CLI 2.9.0\n"
+"X-Domain: framework-textdomain\n"
 
 #. Theme Name of the theme
 #. Description of the theme
@@ -31,123 +31,32 @@ msgstr ""
 msgid "http://www.beapi.fr"
 msgstr ""
 
-#: components/blocks/footer.php:4
-#: components/blocks/skip-links.php:12
-msgid "Footer"
+#: inc/Services/Acf.php:55
+msgid "This theme can't work without ACF plugin. <a href=\"%s\">Please login to admin</a>, and activate it !"
 msgstr ""
 
-#: components/blocks/header.php:4
-msgid "Header"
+#: inc/Services/Facet_WP.php:93
+msgid "Previous"
 msgstr ""
 
-#: components/blocks/header.php:14
-msgid "Open/Close the menu"
+#: inc/Services/Facet_WP.php:110
+#: inc/Services/Facet_WP.php:119
+msgid "Page"
 msgstr ""
 
-#: components/blocks/header.php:17
-msgid "Main navigation"
+#: inc/Services/Facet_WP.php:115
+msgid "Current page"
 msgstr ""
 
-#: components/blocks/skip-links.php:4
-msgid "Fast access links"
+#: inc/Services/Facet_WP.php:129
+msgid "Last page"
 msgstr ""
 
-#: components/blocks/skip-links.php:6
-msgid "Main navigation menu"
+#: inc/Services/Facet_WP.php:135
+msgid "Next"
 msgstr ""
 
-#: components/blocks/skip-links.php:9
-#: header.php:26
-msgid "Main content"
-msgstr ""
-
-#: inc/Helpers/Formatting/Link.php:144
-msgid "New window"
-msgstr ""
-
-#: inc/Helpers/Formatting/Share.php:53
-msgid "Share on Facebook"
-msgstr ""
-
-#: inc/Helpers/Formatting/Share.php:64
-msgid "Share on Twitter"
-msgstr ""
-
-#: inc/Helpers/Formatting/Share.php:75
-msgid "Share on Linkedin"
-msgstr ""
-
-#: inc/Helpers/Formatting/Share.php:86
-msgid "Share on Email"
-msgstr ""
-
-#: inc/Helpers/Menu_Walker.php:26
-msgid "Toggle menu"
-msgstr ""
-
-#: inc/Services/Editor.php:76
-msgid "Dark"
-msgstr ""
-
-#: inc/Services/Editor.php:81
-msgid "Light"
-msgstr ""
-
-#: inc/Services/Editor.php:86
-msgid "Primary"
-msgstr ""
-
-#: inc/Services/Editor.php:91
-msgid "Secondary"
-msgstr ""
-
-#: inc/Services/Editor.php:102
-msgid "Title 6"
-msgstr ""
-
-#: inc/Services/Editor.php:108
-msgid "Title 5"
-msgstr ""
-
-#: inc/Services/Editor.php:114
-msgid "Title 4"
-msgstr ""
-
-#: inc/Services/Editor.php:120
-msgid "Title 3"
-msgstr ""
-
-#: inc/Services/Editor.php:126
-msgid "Title 2"
-msgstr ""
-
-#: inc/Services/Editor.php:132
-msgid "Title 1"
-msgstr ""
-
-#: inc/Services/Editor_Patterns.php:40
-msgid "Common"
-msgstr ""
-
-#. translators: %s: file name.
-#: inc/Services/Editor_Patterns.php:125
-msgid "Could not register file \"%s\" as a block pattern (\"Slug\" field missing)"
-msgstr ""
-
-#. translators: %1s: file name; %2s: slug value found.
-#: inc/Services/Editor_Patterns.php:138
-msgid "Could not register file \"%1$s\" as a block pattern (invalid slug \"%2$s\")"
-msgstr ""
-
-#. translators: %1s: file name; %2s: slug value found.
-#: inc/Services/Editor_Patterns.php:155
-msgid "Could not register file \"%s\" as a block pattern (\"Title\" field missing)"
-msgstr ""
-
-#: inc/Services/Menu.php:37
-msgid "Main menu"
-msgstr ""
-
-#: inc/Services/Menu.php:38
-msgid "Footer menu"
+#: patterns/media-text.php
+msgctxt "Pattern title"
+msgid "Media Text"
 msgstr ""

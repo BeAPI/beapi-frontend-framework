@@ -2,6 +2,7 @@
 
 namespace BEA\Theme\Framework\Services;
 
+use BEA\Theme\Framework\Framework;
 use BEA\Theme\Framework\Service;
 use BEA\Theme\Framework\Service_Container;
 
@@ -11,11 +12,16 @@ use BEA\Theme\Framework\Service_Container;
  * @package BEA\Theme\Framework
  */
 class Svg implements Service {
+	/**
+	 * @var Assets;
+	 */
+	private $assets;
 
 	/**
 	 * @param Service_Container $container
 	 */
 	public function register( Service_Container $container ): void {
+		$this->assets = Framework::get_container()->get_service( 'assets' );
 		add_filter( 'wp_kses_allowed_html', [ $this, 'allow_svg_tag' ] );
 	}
 
@@ -33,41 +39,36 @@ class Svg implements Service {
 	}
 
 	/**
-	 * @param string $icon_class
+	 * @param string $icon_name
 	 * @param array  $additionnal_classes
 	 *
 	 * @return string
 	 */
-	public function get_the_icon( string $icon_class, array $additionnal_classes = [] ): string {
-		if ( empty( $icon_class ) ) {
+	public function get_the_icon( string $icon_name, array $additionnal_classes = [] ): string {
+		if ( empty( $icon_name ) ) {
 			return '';
 		}
 
-		// acf-svg-icon already return sprite-name.svg#icon-name, ex: social.svg#icon-facebook
-		// format the string to obtain sprite-name/icon-name
-		$icon_class = str_replace( '.svg#icon-', '/', $icon_class );
+		$icon_path = sprintf( '/dist/%s', $this->assets->get_min_file( sprintf( 'images/icons/%s.svg', $icon_name ) ) );
 
-		$sprite_name = 'sprite';
-
-		if ( false !== strpos( $icon_class, '/' ) ) {
-			$sprite_name = strtok( $icon_class, '/' );
-			$icon_class  = substr( $icon_class, strpos( $icon_class, '/' ) + 1 );
+		if ( ! file_exists( \get_theme_file_path( $icon_path ) ) ) {
+			return '';
 		}
 
-		$icon_slug = strpos( $icon_class, 'icon-' ) === 0 ? $icon_class : sprintf( 'icon-%s', $icon_class );
-		$classes   = [ 'icon', $icon_slug ];
-		$classes   = array_merge( $classes, $additionnal_classes );
-		$classes   = array_map( 'sanitize_html_class', $classes );
+		$classes = implode( ' ', array_map( 'sanitize_html_class', array_merge( [ 'icon-' . $icon_name ], $additionnal_classes ) ) );
 
-		return sprintf( '<svg class="%s" aria-hidden="true" focusable="false"><use href="%s#%s"></use></svg>', implode( ' ', $classes ), \get_theme_file_uri( sprintf( '/dist/icons/%s.svg', $sprite_name ) ), $icon_slug ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		$html = file_get_contents( \get_theme_file_path( $icon_path ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+
+		return preg_replace( '/\$class_names/i', $classes, $html );
 	}
 
 	/**
-	 * @param string $icon_class
-	 * @param array $additionnal_classes
+	 * @param string $icon_name
+	 * @param array  $additionnal_classes
+	 *
 	 */
-	public function the_icon( string $icon_class, array $additionnal_classes = [] ): void {
-		echo $this->get_the_icon( $icon_class, $additionnal_classes ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	public function the_icon( string $icon_name, array $additionnal_classes = [] ): void {
+		echo $this->get_the_icon( $icon_name, $additionnal_classes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**

@@ -82,3 +82,6 @@ package-lock.json
 ### config
 /vendor/
 composer.lock
+
+### conf-img
+assets/conf-img/*.json

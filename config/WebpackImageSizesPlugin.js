@@ -22,12 +22,12 @@ class WebpackImageSizesPlugin {
 
     if (options.watch) {
       fs.watch(this._tplFolder, () => {
-        this.runImageSizeScript()
+        this.generateImageJsonFiles()
         this.generateDefaultImages()
       })
     }
 
-    this.runImageSizeScript()
+    this.generateImageJsonFiles()
   }
 
   /**
@@ -41,9 +41,9 @@ class WebpackImageSizesPlugin {
   }
 
   /**
-   * Image size script
+   * Generate image-sises.json and image-location.json
    */
-  runImageSizeScript() {
+  generateImageJsonFiles() {
     const that = this
     const regex = {
       srcset: /data-srcset="(.[^"]*)"/gm,

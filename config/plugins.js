@@ -11,6 +11,7 @@ const DependencyExtractionWebpackPlugin = require('@wordpress/dependency-extract
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const browsersyncConfig = require('./browsersync.config')
+const WebpackImageSizesPlugin = require('./WebpackImageSizesPlugin')
 
 module.exports = {
   get: function (mode) {
@@ -33,6 +34,9 @@ module.exports = {
         color: '#ffe600',
       }),
       new DependencyExtractionWebpackPlugin(),
+      new WebpackImageSizesPlugin({
+        watch: mode !== 'production',
+      }),
     ]
 
     if (mode === 'production') {

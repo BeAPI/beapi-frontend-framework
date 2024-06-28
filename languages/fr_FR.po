@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Be API Frontend Framework 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/beapi-frontend-"
 "framework\n"
-"POT-Creation-Date: 2022-06-30T08:09:55+00:00\n"
-"PO-Revision-Date: 2022-07-08 17:01+0200\n"
+"POT-Creation-Date: 2024-06-28T07:38:00+00:00\n"
+"PO-Revision-Date: 2024-06-28 09:39+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -14,53 +14,81 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.1\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Domain: beapi-frontend-framework\n"
 
 #. Theme Name of the theme
 #. Description of the theme
+#: style.css
 msgid "Be API Frontend Framework"
 msgstr ""
 
 #. Theme URI of the theme
+#: style.css
 msgid "https://github.com/BeAPI/beapi-frontend-framework"
 msgstr ""
 
 #. Author of the theme
+#: style.css
 msgid "BeAPI"
 msgstr ""
 
 #. Author URI of the theme
+#: style.css
 msgid "http://www.beapi.fr"
 msgstr ""
 
-#: components/blocks/footer.php:4 components/blocks/skip-links.php:12
+#: components/parts/common/breadcrumb.php:7
+msgid "Breadcrumb"
+msgstr "Fil d’ariane"
+
+#: footer.php:2
 msgid "Footer"
 msgstr "Pied de Page"
 
-#: components/blocks/header.php:4
-msgid "Header"
-msgstr "Entête"
-
-#: components/blocks/header.php:14
-msgid "Open/Close the menu"
-msgstr "Ouvrir/Fermer le menu"
-
-#: components/blocks/header.php:17
-msgid "Main navigation"
-msgstr "Navigation principale"
-
-#: components/blocks/skip-links.php:4
+#: header.php:33
 msgid "Fast access links"
 msgstr "Liens d’accès rapide"
 
-#: components/blocks/skip-links.php:6
-msgid "Main navigation menu"
-msgstr "Menu de navigation principal"
+#: header.php:36
+msgid "Go to main navigation menu"
+msgstr "Aller au menu de navigation principal"
 
-#: components/blocks/skip-links.php:9 header.php:26
+#: header.php:39
+msgid "Go to main content"
+msgstr "Aller au contenu principal"
+
+#: header.php:42
+msgid "Go to footer"
+msgstr "Aller au pied de page"
+
+#: header.php:46
+msgid "Header"
+msgstr "Entête"
+
+#: header.php:56
+msgid "Open the menu"
+msgstr "Ouvrir le menu"
+
+#: header.php:57
+msgid "Close the menu"
+msgstr "Fermer le menu"
+
+#: header.php:60
+msgid "Main navigation"
+msgstr "Navigation principale"
+
+#: header.php:79
 msgid "Main content"
 msgstr "Contenu principal"
+
+#: inc/Helpers/Custom_Menu_Walker.php:27
+msgid "Open menu"
+msgstr "Ouvrir le menu"
+
+#: inc/Helpers/Custom_Menu_Walker.php:28
+msgid "Close menu"
+msgstr "Fermer le menu"
 
 #: inc/Helpers/Formatting/Link.php:144
 msgid "New window"
@@ -71,60 +99,72 @@ msgid "Share on Facebook"
 msgstr "Partager sur Facebook"
 
 #: inc/Helpers/Formatting/Share.php:64
-msgid "Share on Twitter"
-msgstr "Partager sur Twitter"
+msgid "Share on X"
+msgstr "Partager sur X"
 
 #: inc/Helpers/Formatting/Share.php:75
 msgid "Share on Linkedin"
 msgstr "Partager sur Linkedin"
 
 #: inc/Helpers/Formatting/Share.php:86
+msgid "Share on Instagram"
+msgstr "Partager sur Instagram"
+
+#: inc/Helpers/Formatting/Share.php:97
 msgid "Share on Email"
 msgstr "Partager par email"
 
-#: inc/Helpers/Menu_Walker.php:26
-msgid "Toggle menu"
-msgstr "Ouvrir/Fermer le menu"
-
-#: inc/Services/Editor.php:76
+#: inc/Services/Editor.php:81
 msgid "Dark"
 msgstr "Sombre"
 
-#: inc/Services/Editor.php:81
+#: inc/Services/Editor.php:86
 msgid "Light"
 msgstr "Clair"
 
-#: inc/Services/Editor.php:86
+#: inc/Services/Editor.php:91
 msgid "Primary"
 msgstr "Primaire"
 
-#: inc/Services/Editor.php:91
+#: inc/Services/Editor.php:96
 msgid "Secondary"
 msgstr "Secondaire"
 
-#: inc/Services/Editor.php:102
+#: inc/Services/Editor.php:107
 msgid "Title 6"
 msgstr "Titre de niveau 6"
 
-#: inc/Services/Editor.php:108
+#: inc/Services/Editor.php:113
 msgid "Title 5"
 msgstr "Titre de niveau 5"
 
-#: inc/Services/Editor.php:114
+#: inc/Services/Editor.php:119
 msgid "Title 4"
 msgstr "Titre de niveau 4"
 
-#: inc/Services/Editor.php:120
+#: inc/Services/Editor.php:125
 msgid "Title 3"
 msgstr "Titre de niveau 3"
 
-#: inc/Services/Editor.php:126
+#: inc/Services/Editor.php:131
 msgid "Title 2"
 msgstr "Titre de niveau 2"
 
-#: inc/Services/Editor.php:132
+#: inc/Services/Editor.php:137
 msgid "Title 1"
 msgstr "Titre de niveau 1"
+
+#: inc/Services/Editor.php:251
+msgid "Small"
+msgstr "Petit"
+
+#: inc/Services/Editor.php:259
+msgid "Large"
+msgstr "Grand"
+
+#: inc/Services/Editor.php:267
+msgid "Huge"
+msgstr "Énorme"
 
 #: inc/Services/Editor_Patterns.php:40
 msgid "Common"
@@ -135,24 +175,24 @@ msgstr "Général"
 msgid ""
 "Could not register file \"%s\" as a block pattern (\"Slug\" field missing)"
 msgstr ""
-"Impossible de déclarer la composition de blocs à partir du fichier \"%s"
-"\" (Le champ \"Slug\" est manquant)"
+"Impossible de déclarer la composition de blocs à partir du fichier "
+"\"%s\" (Le champ \"Slug\" est manquant)"
 
 #. translators: %1s: file name; %2s: slug value found.
 #: inc/Services/Editor_Patterns.php:138
 msgid ""
 "Could not register file \"%1$s\" as a block pattern (invalid slug \"%2$s\")"
 msgstr ""
-"Impossible de déclarer la composition de blocs à partir du fichier \"%1$s"
-"\" (Le slug \"%2$s\" n'est pas valide)"
+"Impossible de déclarer la composition de blocs à partir du fichier "
+"\"%1$s\" (Le slug \"%2$s\" n'est pas valide)"
 
 #. translators: %1s: file name; %2s: slug value found.
 #: inc/Services/Editor_Patterns.php:155
 msgid ""
 "Could not register file \"%s\" as a block pattern (\"Title\" field missing)"
 msgstr ""
-"Impossible de déclarer la composition de blocs à partir du fichier \"%s"
-"\" (Le champ \"Title\" est manquant)"
+"Impossible de déclarer la composition de blocs à partir du fichier "
+"\"%s\" (Le champ \"Title\" est manquant)"
 
 #: inc/Services/Menu.php:37
 msgid "Main menu"
@@ -161,3 +201,11 @@ msgstr "Menu principal"
 #: inc/Services/Menu.php:38
 msgid "Footer menu"
 msgstr "Menu pied de page"
+
+#: patterns/media-text.php
+msgctxt "Pattern title"
+msgid "Media Text"
+msgstr "Média et texte"
+
+#~ msgid "Toggle menu"
+#~ msgstr "Ouvrir/Fermer le menu"

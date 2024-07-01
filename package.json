@@ -12,8 +12,7 @@
     "lint:css": "node_modules/.bin/stylelint \"src/scss/**/*.scss\"",
     "lint:js": "node_modules/.bin/eslint \"src/js/**/*.js\"",
     "lint": "node_modules/.bin/concurrently \"npx yarn lint:css\" \"npx yarn lint:js\"",
-    "bundle-report": "yarn build && yarn webpack-bundle-analyzer dist/stats.json",
-    "image": "yarn node config/image-sizes.js"
+    "bundle-report": "yarn build && yarn webpack-bundle-analyzer dist/stats.json"
   },
   "license": "GPL-2.0",
   "dependencies": {
@@ -45,9 +44,7 @@
     "imagemin-optipng": "^8.0.0",
     "imagemin-svgo": "^10.0.1",
     "js-yaml": "^4.1.0",
-    "json2csv": "^5.0.6",
     "mini-css-extract-plugin": "^1.5.0",
-    "ora": "^5.4.0",
     "portfinder": "^1.0.28",
     "postcss": "^8.4.24",
     "postcss-import": "^15.1.0",

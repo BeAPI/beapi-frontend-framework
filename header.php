@@ -22,7 +22,6 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 	</script>
 
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta http-equiv="Content-Type" content="text/html; charset=<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 
@@ -30,20 +29,20 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 </head>
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
-	<nav class="skip-links skip-links--hidden" role="navigation" aria-label="<?php esc_attr_e( 'Fast access links', 'beapi-frontend-framework' ); ?>">
+	<nav class="skip-links skip-links--hidden" aria-label="<?php esc_attr_e( 'Fast access links', 'beapi-frontend-framework' ); ?>">
 		<ul>
 			<li>
-				<a href="#menu"><?php esc_html_e( 'Main navigation menu', 'beapi-frontend-framework' ); ?></a>
+				<a href="#menu"><?php esc_html_e( 'Go to main navigation menu', 'beapi-frontend-framework' ); ?></a>
 			</li>
 			<li>
-				<a href="#content"><?php esc_html_e( 'Main content', 'beapi-frontend-framework' ); ?></a>
+				<a href="#content"><?php esc_html_e( 'Go to main content', 'beapi-frontend-framework' ); ?></a>
 			</li>
 			<li>
-				<a href="#footer"><?php esc_html_e( 'Footer', 'beapi-frontend-framework' ); ?></a>
+				<a href="#footer"><?php esc_html_e( 'Go to footer', 'beapi-frontend-framework' ); ?></a>
 			</li>
 		</ul>
 	</nav>
-	<header id="header" class="header" role="banner" aria-label="<?php esc_attr_e( 'Header', 'beapi-frontend-framework' ); ?>">
+	<header id="header" class="header" aria-label="<?php esc_attr_e( 'Header', 'beapi-frontend-framework' ); ?>">
 		<div class="header__inner">
 			<div class="container">
 				<a class="header__logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -57,7 +56,7 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 						<span class="sr-only aria-expanded-true-text"><?php esc_html_e( 'Close the menu', 'beapi-frontend-framework' ); ?></span>
 					</button>
 
-					<nav id="menu" class="header__menu" aria-label="<?php esc_attr_e( 'Main navigation', 'beapi-frontend-framework' ); ?>" role="navigation">
+					<nav id="menu" class="header__menu" aria-label="<?php esc_attr_e( 'Main navigation', 'beapi-frontend-framework' ); ?>">
 						<div>
 							<?php
 							wp_nav_menu(
@@ -76,7 +75,7 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 			</div>
 		</div>
 	</header>
-	<main id="content" role="main" tabindex="-1" aria-label="<?php esc_attr_e( 'Main content', 'beapi-frontend-framework' ); ?>">
+	<main id="content" tabindex="-1" aria-label="<?php esc_attr_e( 'Main content', 'beapi-frontend-framework' ); ?>">
 	<?php
 	if ( ! is_front_page() && ! is_search() && ! is_404() ) {
 		get_template_part( 'components/parts/common/breadcrumb' );

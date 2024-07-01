@@ -1,4 +1,4 @@
-# Copyright (C) 2022 BeAPI
+# Copyright (C) 2024 BeAPI
 # This file is distributed under the .
 msgid ""
 msgstr ""
@@ -9,56 +9,82 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-06-30T08:09:55+00:00\n"
+"POT-Creation-Date: 2024-06-28T07:38:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.6.0\n"
+"X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: beapi-frontend-framework\n"
 
 #. Theme Name of the theme
 #. Description of the theme
+#: style.css
 msgid "Be API Frontend Framework"
 msgstr ""
 
 #. Theme URI of the theme
+#: style.css
 msgid "https://github.com/BeAPI/beapi-frontend-framework"
 msgstr ""
 
 #. Author of the theme
+#: style.css
 msgid "BeAPI"
 msgstr ""
 
 #. Author URI of the theme
+#: style.css
 msgid "http://www.beapi.fr"
 msgstr ""
 
-#: components/blocks/footer.php:4
-#: components/blocks/skip-links.php:12
+#: components/parts/common/breadcrumb.php:7
+msgid "Breadcrumb"
+msgstr ""
+
+#: footer.php:2
 msgid "Footer"
 msgstr ""
 
-#: components/blocks/header.php:4
-msgid "Header"
-msgstr ""
-
-#: components/blocks/header.php:14
-msgid "Open/Close the menu"
-msgstr ""
-
-#: components/blocks/header.php:17
-msgid "Main navigation"
-msgstr ""
-
-#: components/blocks/skip-links.php:4
+#: header.php:33
 msgid "Fast access links"
 msgstr ""
 
-#: components/blocks/skip-links.php:6
-msgid "Main navigation menu"
+#: header.php:36
+msgid "Go to main navigation menu"
 msgstr ""
 
-#: components/blocks/skip-links.php:9
-#: header.php:26
+#: header.php:39
+msgid "Go to main content"
+msgstr ""
+
+#: header.php:42
+msgid "Go to footer"
+msgstr ""
+
+#: header.php:46
+msgid "Header"
+msgstr ""
+
+#: header.php:56
+msgid "Open the menu"
+msgstr ""
+
+#: header.php:57
+msgid "Close the menu"
+msgstr ""
+
+#: header.php:60
+msgid "Main navigation"
+msgstr ""
+
+#: header.php:79
 msgid "Main content"
+msgstr ""
+
+#: inc/Helpers/Custom_Menu_Walker.php:27
+msgid "Open menu"
+msgstr ""
+
+#: inc/Helpers/Custom_Menu_Walker.php:28
+msgid "Close menu"
 msgstr ""
 
 #: inc/Helpers/Formatting/Link.php:144
@@ -70,7 +96,7 @@ msgid "Share on Facebook"
 msgstr ""
 
 #: inc/Helpers/Formatting/Share.php:64
-msgid "Share on Twitter"
+msgid "Share on X"
 msgstr ""
 
 #: inc/Helpers/Formatting/Share.php:75
@@ -78,51 +104,63 @@ msgid "Share on Linkedin"
 msgstr ""
 
 #: inc/Helpers/Formatting/Share.php:86
+msgid "Share on Instagram"
+msgstr ""
+
+#: inc/Helpers/Formatting/Share.php:97
 msgid "Share on Email"
 msgstr ""
 
-#: inc/Helpers/Menu_Walker.php:26
-msgid "Toggle menu"
-msgstr ""
-
-#: inc/Services/Editor.php:76
+#: inc/Services/Editor.php:81
 msgid "Dark"
 msgstr ""
 
-#: inc/Services/Editor.php:81
+#: inc/Services/Editor.php:86
 msgid "Light"
 msgstr ""
 
-#: inc/Services/Editor.php:86
+#: inc/Services/Editor.php:91
 msgid "Primary"
 msgstr ""
 
-#: inc/Services/Editor.php:91
+#: inc/Services/Editor.php:96
 msgid "Secondary"
 msgstr ""
 
-#: inc/Services/Editor.php:102
+#: inc/Services/Editor.php:107
 msgid "Title 6"
 msgstr ""
 
-#: inc/Services/Editor.php:108
+#: inc/Services/Editor.php:113
 msgid "Title 5"
 msgstr ""
 
-#: inc/Services/Editor.php:114
+#: inc/Services/Editor.php:119
 msgid "Title 4"
 msgstr ""
 
-#: inc/Services/Editor.php:120
+#: inc/Services/Editor.php:125
 msgid "Title 3"
 msgstr ""
 
-#: inc/Services/Editor.php:126
+#: inc/Services/Editor.php:131
 msgid "Title 2"
 msgstr ""
 
-#: inc/Services/Editor.php:132
+#: inc/Services/Editor.php:137
 msgid "Title 1"
+msgstr ""
+
+#: inc/Services/Editor.php:251
+msgid "Small"
+msgstr ""
+
+#: inc/Services/Editor.php:259
+msgid "Large"
+msgstr ""
+
+#: inc/Services/Editor.php:267
+msgid "Huge"
 msgstr ""
 
 #: inc/Services/Editor_Patterns.php:40
@@ -150,4 +188,9 @@ msgstr ""
 
 #: inc/Services/Menu.php:38
 msgid "Footer menu"
+msgstr ""
+
+#: patterns/media-text.php
+msgctxt "Pattern title"
+msgid "Media Text"
 msgstr ""

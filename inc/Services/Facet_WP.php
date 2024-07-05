@@ -182,8 +182,9 @@ class Facet_WP implements Service {
 	}
 
 	/**
-	 * Add fake labels to all facets
-	 * Put in $add_label_if_not_empty the facets types for which you want to display the label *only* if the facet is not empty.
+	 * Add labels or aria-label to facets
+	 * Put in $excluded_facet_names the facets names for which you want to do not add the label.
+	 * Put in $excluded_empty_facets the facets types for which you want to hide the label if the facet is empty.
 	 *
 	 * @param string $html
 	 * @param array $args
@@ -191,21 +192,41 @@ class Facet_WP implements Service {
 	 * @return string
 	 */
 	public function facetwp_add_labels( string $html, array $args ): string {
-		$add_label_if_not_empty = [
+		$facet_name  = $args['facet']['name'];
+		$facet_label = $args['facet']['label'];
+		if ( function_exists( 'facetwp_i18n' ) ) {
+			$facet_label = facetwp_i18n( $facet_label );
+		}
+
+		// Return default HTML if the facet is excluded by its name
+		$excluded_facet_names = [];
+		if ( true === in_array( $facet_name, $excluded_facet_names, true ) ) {
+			return $html;
+		}
+
+		// Add aria-label attribute to per_page select
+		if ( 'per_page' === $facet_name ) {
+			return str_replace(
+				'<select class="facetwp-per-page-select">',
+				sprintf(
+					'<select class="facetwp-per-page-select" aria-label="%s">',
+					esc_attr( $facet_label )
+				),
+				$html
+			);
+		}
+
+		// Return default HTML if these facets are empty
+		$excluded_empty_facets = [
 			'checkboxes',
 			'pager',
 			'reset',
 		];
-
-		if ( ( true === in_array( $args['facet']['type'], $add_label_if_not_empty, true ) && ! empty( $args['values'] ) ) || false === in_array( $args['facet']['type'], $add_label_if_not_empty, true ) ) {
-			$label = $args['facet']['label'];
-			if ( function_exists( 'facetwp_i18n' ) ) {
-				$label = facetwp_i18n( $label );
-			}
-
-			$html = sprintf( '<p aria-hidden="true" class="facetwp-label">%s</p>%s', esc_html( $label ), $html );
+		if ( true === in_array( $args['facet']['type'], $excluded_empty_facets, true ) && empty( $args['values'] ) ) {
+			return $html;
 		}
 
-		return $html;
+		// Add fake labels
+		return sprintf( '<p aria-hidden="true" class="facetwp-label">%s</p>%s', esc_html( $facet_label ), $html );
 	}
 }

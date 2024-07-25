@@ -47,11 +47,13 @@ class Facet_WP implements Service {
 		}
 
 		$facet_content = \json_decode( $facet_content, true );
-		if (
-			JSON_ERROR_NONE !== \json_last_error()
-			|| ! is_array( $facet_content )
-			|| empty( $facet_content['facets'] )
-		) {
+		try {
+			$facet_content = \json_decode( $facet_content, true, 512, JSON_THROW_ON_ERROR );
+		} catch ( \JSONException $e ) {
+			return $facets;
+		}
+
+		if ( ! is_array( $facet_content ) || empty( $facet_content['facets'] ) ) {
 			return $facets;
 		}
 
@@ -199,8 +201,8 @@ class Facet_WP implements Service {
 		}
 
 		// Return default HTML if the facet is excluded by its name
-		$excluded_facet_names = [];
-		if ( true === in_array( $facet_name, $excluded_facet_names, true ) ) {
+		$excluded_facet_names = apply_filters( 'facetwp_a11y_excluded_facet_names', [] );
+		if ( in_array( $facet_name, $excluded_facet_names, true ) ) {
 			return $html;
 		}
 
@@ -217,12 +219,12 @@ class Facet_WP implements Service {
 		}
 
 		// Return default HTML if these facets are empty
-		$excluded_empty_facets = [
+		$excluded_empty_facets = apply_filters( 'facetwp_a11y_excluded_empty_facets', [
 			'checkboxes',
 			'pager',
 			'reset',
-		];
-		if ( true === in_array( $args['facet']['type'], $excluded_empty_facets, true ) && empty( $args['values'] ) ) {
+		] );
+		if ( in_array( $args['facet']['type'], $excluded_empty_facets, true ) && empty( $args['values'] ) ) {
 			return $html;
 		}
 

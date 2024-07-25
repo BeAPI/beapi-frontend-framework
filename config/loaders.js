@@ -21,7 +21,7 @@ module.exports = {
         },
       },
       /* ImagesLoader */ {
-        test: /\.(png|jpe?g|gif|svg)$/,
+        test: /\.(png|jpe?g|gif|svg|avif|webp)$/,
         type: 'asset/resource',
         exclude: /icons/,
         include: srcPath + '/img',

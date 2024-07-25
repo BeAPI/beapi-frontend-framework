@@ -1,0 +1,38 @@
+/**
+ * Fluid size
+ *
+ * Converted from source:  : https://www.aleksandrhovhannisyan.com/blog/fluid-type-scale-with-css-clamp/
+ *
+ * Convert value px to fluid typography and spacing using clamp
+ *
+ * @author Cédric Andrietti
+ *
+ * @param $min-size -> Minimal display size (mobile)
+ * @param $max-size -> Maximal display size (Desktop)
+ * @param $fluid-breakpoint-start -> Start fluid after this value
+ * @param $fluid-breakpoint-end -> End fluid after this value - To be defined with designer
+ *
+ * Examples :
+ *
+ *      h1 {
+ *          font-size: #{fluid-size(58px, 156px)};
+ *          line-height: #{fluid-size(1.05, 1.2)};
+ *      }
+ *
+ */
+
+@use "sass:math";
+
+@function fluid-size($min-size, $max-size, $fluid-breakpoint-start: 375, $fluid-breakpoint-end: 1440) {
+    $default_scale_factor : 1;
+    $view_port_width_offset : math.div($fluid-breakpoint-start, 100) * 1px;
+    $linear_factor : 100 * math.div(( $max-size - $min-size ), ( $fluid-breakpoint-end - $fluid-breakpoint-start ));
+    $linear_factor_scaled : strip-units($linear_factor * $default_scale_factor);
+    $fluid_target_font_size : #{$min-size}#{" + ((1vw - "}#{$view_port_width_offset}#{") * "}#{$linear_factor_scaled}#{")"};
+
+    @return clamp(
+        #{$min-size},
+        #{$fluid_target_font_size},
+        #{$max-size}
+    );
+}

@@ -33,7 +33,7 @@
     &__menu-toggle {
         position: absolute;
         top: 14px;
-        right: $external-gutter;
+        right: var(--responsive--gutter);
         z-index: 2;
         width: 46px;
         height: 46px;
@@ -45,7 +45,7 @@
 
         @include rtl {
             right: auto;
-            left: $external-gutter;
+            left: var(--responsive--gutter);
         }
 
         > span {
@@ -173,7 +173,7 @@
         }
     }
 
-    @include breakpoints(lg, max) {
+    @include breakpoints(mdl, max) {
         &__menu {
             position: absolute;
             top: 0;
@@ -191,7 +191,7 @@
             }
 
             > div {
-                padding: 76px #{$external-gutter * 2} 25px;
+                padding: 76px calc(var(--responsive--gutter) * 2) 25px;
             }
         }
 
@@ -222,7 +222,7 @@
         }
     }
 
-    @include breakpoints(sm, lg) {
+    @include breakpoints(sm, mdl) {
         #{$el}__menu {
             right: 0;
             left: auto;
@@ -241,7 +241,7 @@
         }
     }
 
-    @include breakpoints(lg) {
+    @include breakpoints(mdl) {
         .container {
             display: flex;
             align-items: flex-start;

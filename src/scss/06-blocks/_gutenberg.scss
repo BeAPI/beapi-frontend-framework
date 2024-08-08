@@ -102,11 +102,16 @@
         margin-bottom: var(--spacing--block-1);
     }
 
+    :where(.is-layout-flex),
+    :where(.is-layout-grid) {
+        gap: get-gutter-width();
+    }
+
     // ----
     // Alignements verticaux
     // ----
     > *,
-    [class*="inner-container"] > * {
+    [class*="inner-container"]:not(.is-layout-grid) > * {
         margin-top: var(--spacing--block-1);
         margin-bottom: var(--spacing--block-1);
 

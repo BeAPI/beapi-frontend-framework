@@ -1,7 +1,9 @@
 .wp-block-group {
     $el: &;
 
-    display: flow-root;
+    &:not(.is-layout-grid) {
+        display: flow-root;
+    }
 
     &--no-inner-margin {
         #{$el}__inner-container {
@@ -21,7 +23,9 @@
 
 @include editor-only {
     .wp-block-group {
-        display: flow-root;
+        &:not(.is-layout-grid) {
+            display: flow-root;
+        }
 
         .wp-block-group.has-background > .block-editor-block-list__layout > [data-align="full"] {
             width: 100%;

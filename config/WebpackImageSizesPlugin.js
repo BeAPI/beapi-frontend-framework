@@ -46,7 +46,7 @@ class WebpackImageSizesPlugin {
   generateImageJsonFiles() {
     const that = this
     const regex = {
-      srcset: /data-srcset="(.[^"]*)"/gm,
+      srcset: /srcset="(.[^"]*)"/gm,
       crop: /crop="(.[^"]*)"/gm,
       img: /img-\d*-\d*/gm,
     }

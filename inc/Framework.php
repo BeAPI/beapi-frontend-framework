@@ -8,6 +8,7 @@ use BEA\Theme\Framework\Services\Performance;
 use BEA\Theme\Framework\Services\Assets_JS_Async;
 use BEA\Theme\Framework\Services\Editor;
 use BEA\Theme\Framework\Services\Editor_Patterns;
+use BEA\Theme\Framework\Services\Gravity_Forms;
 use BEA\Theme\Framework\Services\Menu;
 use BEA\Theme\Framework\Services\Sidebar;
 use BEA\Theme\Framework\Services\Svg;
@@ -37,6 +38,7 @@ class Framework {
 		Assets_JS_Async::class,
 		Editor::class,
 		Editor_Patterns::class,
+		Gravity_Forms::class,
 		Svg::class,
 		Acf::class,
 		Menu::class,

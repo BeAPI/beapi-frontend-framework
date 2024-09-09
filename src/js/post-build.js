@@ -6,4 +6,4 @@ function requireAll(r) {
 requireAll(require.context('../img/icons', true, /\.svg$/))
 
 // STATIC
-requireAll(require.context('../img/static', true, /\.(png|jpe?g|gif)$/))
+requireAll(require.context('../img/static', true, /\.(png|jpe?g|gif|svg|avif|webp)$/))

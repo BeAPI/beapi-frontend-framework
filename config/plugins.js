@@ -37,6 +37,9 @@ module.exports = {
       new WebpackImageSizesPlugin({
         watch: mode !== 'production',
       }),
+      new WebpackManifestPlugin({
+        fileName: 'assets.json',
+      }),
     ]
 
     if (mode === 'production') {
@@ -47,9 +50,6 @@ module.exports = {
         })
       )
       plugins.push(
-        new WebpackManifestPlugin({
-          fileName: 'assets.json',
-        }),
         new MiniCssExtractPlugin({
           filename: '[name].[contenthash:8].min.css',
         })

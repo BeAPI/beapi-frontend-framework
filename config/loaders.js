@@ -112,7 +112,7 @@ module.exports = {
             options: {
               extract: true,
               publicPath: 'icons/',
-              spriteFilename: (svgPath) => `${/icons([\\|/])(.*?)\1/gm.exec(svgPath)[2]}.svg`,
+              spriteFilename: (svgPath) => `${/icons([\\|/])(.*?)\1/gm.exec(svgPath)[2]}.[hash].svg`,
               symbolId: (filePath) => `icon-${path.basename(filePath).slice(0, -4)}`,
             },
           },

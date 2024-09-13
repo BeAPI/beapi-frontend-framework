@@ -124,7 +124,7 @@ class Animation extends AbstractDomElement {
     scrollObserver.unobserve(el)
     resize.remove('resize', this._onResize)
 
-    if (!scrollObserver.hasEntry) {
+    if (!scrollObserver.hasEntry()) {
       scrollObserver = scrollObserver.destroy()
       resize = resize.destroy()
     }

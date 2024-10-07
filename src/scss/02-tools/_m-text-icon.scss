@@ -1,0 +1,33 @@
+/**
+ * Add icon before text with mask to have the same color of the text
+ *
+ * @author Cédric Andrietti
+ *
+ * @param $icon
+ *
+ * Examples :
+ *
+ *      .my-element {
+ *          @include text-icon('search');
+ *      }
+ *
+ */
+
+@mixin text-icon($icon: "arrow", $position: after, $color: currentColor, $size: 12px) {
+    position: relative;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+
+    &::#{$position} {
+        display: block;
+        width: $size;
+        height: $size;
+        content: "";
+        background-color: $color;
+        mask-image: get-svg-url($icon);
+        mask-position: center;
+        mask-repeat: no-repeat;
+        transition: background-color .5s $ease-out-expo;
+    }
+}

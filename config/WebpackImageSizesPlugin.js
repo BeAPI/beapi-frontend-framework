@@ -68,7 +68,12 @@ class WebpackImageSizesPlugin {
      */
     function getTemplateFileNames() {
       return fs.readdirSync(that._tplFolder).filter((tpl) => {
-        if (tpl !== 'default-picture.tpl' && tpl !== 'default-picture-caption.tpl') {
+        if (
+          tpl !== 'default-picture.tpl' &&
+          tpl !== 'default-picture-caption.tpl' &&
+          tpl !== 'default-picture-nolazyload.tpl' &&
+          tpl !== 'default-picture-nolazyload-caption.tpl'
+        ) {
           return tpl
         }
       })

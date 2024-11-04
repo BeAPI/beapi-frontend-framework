@@ -1,4 +1,5 @@
 %seo-container {
+    @extend %focus-seo-container;
     position: relative;
     z-index: 1;
     cursor: pointer;

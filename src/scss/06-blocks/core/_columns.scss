@@ -1,5 +1,8 @@
+@use "../../02-tools/m-block-vertical-spacing";
+@use "../../02-tools/m-breakpoint";
+
 .wp-block-columns {
-    @include block-vertical-spacing();
+    @include m-block-vertical-spacing.block-vertical-spacing();
 
     .wp-block-column {
         &.has-background {
@@ -12,7 +15,7 @@
             margin-left: 0 !important;
         }
 
-        @include breakpoints(md, max) {
+        @include m-breakpoint.breakpoints(md, max) {
             flex-wrap: wrap !important;
 
             .wp-block-column {

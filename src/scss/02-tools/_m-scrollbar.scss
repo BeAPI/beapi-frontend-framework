@@ -1,3 +1,5 @@
+@use "m-hover";
+
 /**
  * Scrollbar - Make an invisible scrollbar and custom the scrollbar color
  *
@@ -55,7 +57,7 @@
         border-radius: 20px;
     }
 
-    @include hover {
+    @include m-hover.hover {
         &::-webkit-scrollbar {
             display: block;
         }

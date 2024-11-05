@@ -1,10 +1,14 @@
+@use "../../01-abstract/variables";
+@use "../../02-tools/f-context-selector";
+@use "../../02-tools/m-rtl";
+
 // Use the no-list-style class in your theme if you want the basic style
 
 %marker-ol-default {
     font-size: 16px;
     font-weight: 700;
     line-height: 1.3;
-    color: $color-dark;
+    color: variables.$color-dark;
 }
 
 %marker-ul-default {
@@ -14,24 +18,24 @@
     width: 6px;
     height: 6px;
     content: "";
-    background-color: $color-dark;
+    background-color: variables.$color-dark;
     border-radius: 100%;
 
-    @include rtl {
+    @include m-rtl.rtl {
         right: -15px;
         left: inherit;
     }
 }
 
-#{context-selector('.blocks-container', '.is-root-container')} {
+#{f-context-selector.context-selector('.blocks-container', '.is-root-container')} {
     --offset-item: 30px;
     --vertical-spaging-item: 16px;
 
     ul,
     ol {
         &:not([class*="no-list-style"]):not([role="list"]):not(.chosen-choices):not(.chosen-results) {
-            font-size: var(--paragraph--font-size-default, $font-size-base);
-            line-height: var(--paragraph--line-height-default, $line-height-base);
+            font-size: var(--paragraph--font-size-default, variables.$font-size-base);
+            line-height: var(--paragraph--line-height-default, variables.$line-height-base);
 
             ul,
             ol {
@@ -50,7 +54,7 @@
                 padding-left: var(--offset-item);
                 margin-bottom: var(--vertical-spaging-item);
 
-                @include rtl {
+                @include m-rtl.rtl {
                     padding-right: var(--offset-item);
                     padding-left: 0;
                 }
@@ -76,7 +80,7 @@
                 margin-bottom: var(--vertical-spaging-item);
                 margin-left: calc(var(--offset-item)  * .5);
 
-                @include rtl {
+                @include m-rtl.rtl {
                     padding-right: calc(var(--offset-item)  * .5);
                     padding-left: 0;
                     margin-right: calc(var(--offset-item)  * .5);

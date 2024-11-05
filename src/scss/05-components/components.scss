@@ -2,6 +2,6 @@
  * Elements folder entry file
  */
 
-@import "./btn";
-@import "./searchform";
-@import "./skip-links";
+@use "btn";
+@use "searchform";
+@use "skip-links";

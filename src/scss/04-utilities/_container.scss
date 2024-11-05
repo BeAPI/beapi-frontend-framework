@@ -1,9 +1,12 @@
+@use "../01-abstract/variables";
+@use "../02-tools/m-container";
+
 /* Main Layout */
 .container,
 .container-wide {
-    @include container;
+    @include m-container.container;
 }
 
 .container-default {
-    @include container($container-default);
+    @include m-container.container(variables.$container-default);
 }

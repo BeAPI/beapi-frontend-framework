@@ -1,3 +1,6 @@
+@use "../01-abstract/variables";
+@use "m-checkbox-custom";
+
 @use "sass:math";
 
 /**
@@ -26,9 +29,9 @@
  *
  */
 
-@mixin radio-custom($include-checkbox-style: false, $color: $color-primary, $size: 18px, $border-width: 1px) {
+@mixin radio-custom($include-checkbox-style: false, $color: variables.$color-primary, $size: 18px, $border-width: 1px) {
     @if ($include-checkbox-style) {
-        @include checkbox-custom($color, $size, $border-width);
+        @include m-checkbox-custom.checkbox-custom($color, $size, $border-width);
     }
 
     + label {
@@ -48,5 +51,5 @@
 }
 
 @mixin radio-custom-checked() {
-    @include checkbox-custom-checked;
+    @include m-checkbox-custom.checkbox-custom-checked;
 }

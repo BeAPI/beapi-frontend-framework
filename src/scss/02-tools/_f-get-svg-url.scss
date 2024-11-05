@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "sass:list";
+@use "../01-abstract/variables";
+
 @use "sass:map";
 
 /**
@@ -30,7 +34,7 @@
  *
  */
 
-@function get-svg-url($name: null, $fill: $color-dark, $opacity: 1, $style: "") {
+@function get-svg-url($name: null, $fill: variables.$color-dark, $opacity: 1, $style: "") {
 
     $svgs: (
         // name-of-the-svg: (viewBox, content of the svg element)
@@ -40,7 +44,7 @@
         "close": ("0 0 20 20", "3Cpath d='M5.442 5.442 5 5.883l2.058 2.059L9.116 10l-2.058 2.058L5 14.117l.442.441.441.442 2.059-2.058L10 10.884l2.058 2.058L14.117 15l.441-.442.442-.441-2.058-2.059L10.884 10l2.058-2.058L15 5.883l-.442-.441L14.117 5l-2.059 2.058L10 9.116 7.942 7.058 5.883 5l-.441.442'/%3E"),
     );
 
-    @if not map-has-key($svgs, $name) {
+    @if not map.has-key($svgs, $name) {
         @return "";
     }
 
@@ -49,8 +53,8 @@
     }
 
     @if ($fill != "") {
-        $fill: " fill='rgba(#{red($fill), green($fill), blue($fill), $opacity})'";
+        $fill: " fill='rgba(#{color.channel($fill, 'red'), color.channel($fill, 'green'), color.channel($fill, 'blue'), $opacity})'";
     }
 
-    @return url("data:image/svg+xml;charset=utf8, %3Csvg xmlns='http://www.w3.org/2000/svg'" + $fill + $style + " viewBox='" + nth(map.get($svgs, $name), 1) + "'%3E%" + nth(map.get($svgs, $name), 2) + "%3C/svg%3E");  /* stylelint-disable-line */
+    @return url("data:image/svg+xml;charset=utf8, %3Csvg xmlns='http://www.w3.org/2000/svg'" + $fill + $style + " viewBox='" + list.nth(map.get($svgs, $name), 1) + "'%3E%" + list.nth(map.get($svgs, $name), 2) + "%3C/svg%3E");  /* stylelint-disable-line */
 }

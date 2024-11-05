@@ -1,3 +1,5 @@
+@use "../01-abstract/variables";
+
 /**
  * Editor style only
  *
@@ -18,7 +20,7 @@
  */
 
 @mixin editor-only {
-    @if ($entry-file-name == "editor") {
+    @if (variables.$entry-file-name == "editor") {
         @content;
     }
 }

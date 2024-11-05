@@ -1,11 +1,14 @@
+@use "../../02-tools/m-editor-only";
+@use "../../02-tools/m-style-only";
+
 .wp-block-preformatted {
     overflow-x: auto;
 
-    @include style-only {
+    @include m-style-only.style-only {
         white-space: pre;
     }
 
-    @include editor-only {
+    @include m-editor-only.editor-only {
         white-space: pre !important;
     }
 }

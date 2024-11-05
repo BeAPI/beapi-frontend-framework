@@ -1,9 +1,13 @@
+@use "../01-abstract/variables";
+@use "../02-tools/m-breakpoint";
+@use "../02-tools/m-row-fullwidth";
+
 /**
  * Hero
  */
 
 .hero {
-    @include row-fullwidth;
+    @include m-row-fullwidth.row-fullwidth;
 
     padding: var(--spacing--block-1) 0;
     margin-bottom: var(--spacing--block-1);
@@ -12,7 +16,7 @@
         position: relative;
         z-index: 4;
         padding: 20px;
-        background: rgba($color-light, .5);
+        background: rgba(variables.$color-light, .5);
     }
 
     &__img {
@@ -26,7 +30,7 @@
         height: 100%;
     }
 
-    @include breakpoints(md) {
+    @include m-breakpoint.breakpoints(md) {
         padding: 100px 0;
     }
 }

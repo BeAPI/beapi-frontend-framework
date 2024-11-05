@@ -1,3 +1,8 @@
+@use "../01-abstract/variables";
+@use "../02-tools/f-fluid-size";
+@use "../02-tools/m-breakpoint";
+@use "../02-tools/m-reduced-motion";
+
 :root {
     /*
      * Heading
@@ -13,11 +18,11 @@
     /**
     * Font size fluid -> /!\ IMPORTANT /!\ : no add media query to defined different values. The function make it
     *
-    * --heading--font-size-h1: #{fluid-size(58px, 156px)};
-    * --heading--font-size-h2: #{fluid-size(47px, 96px)};
-    * --heading--font-size-h3: #{fluid-size(38px, 52px)};
-    * --heading--font-size-h4: #{fluid-size(32px, 45px)};
-    * --heading--font-size-h5: #{fluid-size(28px, 34px)};
+    * --heading--font-size-h1: #{f-fluid-size.fluid-size(58px, 156px)};
+    * --heading--font-size-h2: #{f-fluid-size.fluid-size(47px, 96px)};
+    * --heading--font-size-h3: #{f-fluid-size.fluid-size(38px, 52px)};
+    * --heading--font-size-h4: #{f-fluid-size.fluid-size(32px, 45px)};
+    * --heading--font-size-h5: #{f-fluid-size.fluid-size(28px, 34px)};
     */
 
     // Line height
@@ -40,10 +45,10 @@
     /**
     * Font size fluid -> /!\ IMPORTANT /!\ : no add media query to defined different values. The function make it
     *
-    *  --paragraph--font-size-huge: #{fluid-size(28px, 32px)};
-    *  --paragraph--font-size-large: #{fluid-size(20px, 24px)};
-    *  --paragraph--font-size-small: #{fluid-size(12px, 14px)};
-    *  --paragraph--font-size-default: #{fluid-size(14px, 16px)};
+    *  --paragraph--font-size-huge: #{f-fluid-size.fluid-size(28px, 32px)};
+    *  --paragraph--font-size-large: #{f-fluid-size.fluid-size(20px, 24px)};
+    *  --paragraph--font-size-small: #{f-fluid-size.fluid-size(12px, 14px)};
+    *  --paragraph--font-size-default: #{f-fluid-size.fluid-size(14px, 16px)};
     */
 
     // line height
@@ -64,10 +69,10 @@
     * Spacing fluid -> /!\ IMPORTANT /!\ : no add media query to defined different values. The function make it
     *
     * Fluid spacing :
-    * --spacing--block-1: #{fluid-size(16px, 32px)};
-    * --spacing--block-2: #{fluid-size(32px, 64px)};
-    * --spacing--block-3: #{fluid-size(48px, 96px)};
-    * --spacing--block-4: #{fluid-size(64px, 128px)};
+    * --spacing--block-1: #{f-fluid-size.fluid-size(16px, 32px)};
+    * --spacing--block-2: #{f-fluid-size.fluid-size(32px, 64px)};
+    * --spacing--block-3: #{f-fluid-size.fluid-size(48px, 96px)};
+    * --spacing--block-4: #{f-fluid-size.fluid-size(64px, 128px)};
     *
     * Fixed spacings :
     * --spacing--fixed--block-1: 16px;
@@ -77,7 +82,7 @@
     /*
      * Gutters
      */
-    --responsive--gutter: #{$external-gutter-mobile};
+    --responsive--gutter: #{variables.$external-gutter-mobile};
 
     /*
      * Alignments
@@ -103,7 +108,7 @@
     /*
      * A11y reduced motion
      */
-    @include reduced-motion {
+    @include m-reduced-motion.reduced-motion {
         --speed: 0s;
     }
 
@@ -111,7 +116,7 @@
      * Global breakpoints
      */
 
-    @include breakpoints(s, max) {
+    @include m-breakpoint.breakpoints(s, max) {
         /*
          * Admin bar become not sticky
          */
@@ -122,7 +127,7 @@
         }
     }
 
-    @include breakpoints(md) {
+    @include m-breakpoint.breakpoints(md) {
         /*
          * Spacing
          * /!\ IMPORTANT : Remove it if you use fluid size function instead /!\
@@ -135,6 +140,6 @@
         /*
          * Gutters
          */
-        --responsive--gutter: #{$external-gutter};
+        --responsive--gutter: #{variables.$external-gutter};
     }
 }

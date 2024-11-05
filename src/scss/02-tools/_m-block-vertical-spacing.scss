@@ -1,3 +1,5 @@
+@use "f-context-selector";
+
 /**
  * Block vertical spacing
  */
@@ -22,7 +24,7 @@
  *
  */
 @mixin block-vertical-spacing($type : margin, $spacing : var(--spacing--block-3)) {
-    #{context-selector(".blocks-container > &", ".is-root-container &")} {
+    #{f-context-selector.context-selector(".blocks-container > &", ".is-root-container &")} {
         #{$type}-top: $spacing;
         #{$type}-bottom: $spacing;
 

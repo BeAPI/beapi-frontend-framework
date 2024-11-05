@@ -1,3 +1,14 @@
+%focus-seo-container {
+    &:has(:focus-visible) {
+        outline: 2px solid currentColor;
+        outline-offset: .5rem;
+    }
+
+    *:focus {
+        outline: none;
+    }
+}
+
 %seo-container {
     @extend %focus-seo-container;
     position: relative;

@@ -2,13 +2,13 @@
  * Base folder entry file
  */
 
-@import "./fonts";
-@import "./variables-css";
-@import "./normalize";
-@import "./body";
-@import "./svg-icons";
-@import "./forms";
-@import "./links";
-@import "./media";
-@import "./text";
-@import "./print";
+@use "fonts";
+@use "variables-css";
+@use "normalize";
+@use "body";
+@use "svg-icons";
+@use "forms";
+@use "links";
+@use "media";
+@use "text";
+@use "print";

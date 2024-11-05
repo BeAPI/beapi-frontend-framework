@@ -1,3 +1,6 @@
+@use "../01-abstract/constants";
+@use "../01-abstract/variables";
+
 .skip-links {
     position: fixed;
     top: var(--wp-admin-bar-height);
@@ -5,9 +8,9 @@
     z-index: 11; // Under header
     width: 100%;
     padding: 8px 10px 10px;
-    background-color: $color-primary;
+    background-color: variables.$color-primary;
     opacity: 0;
-    transition: transform .3s $ease-out-expo, opacity .3s;
+    transition: transform .3s constants.$ease-out-expo, opacity .3s;
     transform: translate3d(0, -100%, 0);
 
     ul {
@@ -17,7 +20,7 @@
 
     a {
         font-size: 13px;
-        color: $color-text;
+        color: variables.$color-text;
         text-decoration: none;
 
         &:focus {

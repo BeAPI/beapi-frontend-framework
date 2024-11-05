@@ -1,3 +1,7 @@
+@use "../01-abstract/variables";
+@use "m-rtl";
+@use "m-sr-only";
+
 @use "sass:math";
 
 /**
@@ -21,8 +25,8 @@
  *
  */
 
-@mixin checkbox-custom($color: $color-primary, $size: 18px, $border-width: 1px) {
-    @include sr-only;
+@mixin checkbox-custom($color: variables.$color-primary, $size: 18px, $border-width: 1px) {
+    @include m-sr-only.sr-only;
 
     + label {
         position: relative;
@@ -38,10 +42,10 @@
             height: $size;
             margin: 0;
             content: "";
-            background-color: $color-light;
+            background-color: variables.$color-light;
             border: $border-width solid $color;
 
-            @include rtl {
+            @include m-rtl.rtl {
                 right: 0;
                 left: auto;
             }
@@ -61,7 +65,7 @@
             transition: opacity .2s;
             transform: translate(-50%, -50%) rotate(-45deg);
 
-            @include rtl {
+            @include m-rtl.rtl {
                 right: math.round(math.div($size, 2));
                 left: auto;
                 transform: translate(50%, -50%) rotate(-45deg);

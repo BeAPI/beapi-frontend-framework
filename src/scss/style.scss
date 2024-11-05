@@ -1,72 +1,70 @@
-$entry-file-name: "style";
-
 /**
  * Abstract
  * == Contain SCSS and CSS variables and webfonts declarations.
  */
 
-@import "./01-abstract/abstract";
+@use "01-abstract/abstract";
 
 /**
  * Tools
  * == Contains functions and mixins.
  */
 
-@import "./02-tools/tools";
+@use "02-tools/tools";
 
 /**
  * Base
  * == Contain generic styles such as normalize or reset.
  */
 
-@import "./03-base/base";
+@use "03-base/base";
 
 /**
  * Utilities
  * == Utility classes that are not assigned to a specific component.
  */
 
-@import "./04-utilities/utilities";
+@use "04-utilities/utilities";
 
 /**
  * Components
  * == Contain any default component. Just give the components some basic styles.
  */
 
-@import "./05-components/components";
+@use "05-components/components";
 
 /**
  * Gutenberg
  * == Gutenberg core/custom blocks and patterns styles, style for front-end layout and editor.
  */
 
-@import "./06-blocks/gutenberg";
-@import "./06-blocks/blocks";
+@use "06-blocks/gutenberg";
+@use "06-blocks/blocks";
 
 /**
  * Patterns
  * == Contains styles for gutenberg patterns.
  */
 
-@import "./07-patterns/patterns";
+@use "07-patterns/patterns";
 
 /**
  * Template parts
  * == If you want to add custom styles for specific page templates parts.
  */
 
-@import "./08-template-parts/template-parts";
+@use "08-template-parts/template-parts";
 
 /**
  * Pages
  * == If you want to add custom styles for specific page templates.
  */
 
-@import "./09-templates/templates";
+@use "09-templates/templates";
 
 /**
  * Vendor
  * == Plugins or libraries custom styles.
  */
 
-@import "./10-vendor/vendor";
+@use "10-vendor/vendor";

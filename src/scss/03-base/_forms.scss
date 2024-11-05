@@ -1,3 +1,12 @@
+@use "../01-abstract/variables";
+@use "../02-tools/f-assign-inputs";
+@use "../02-tools/f-get-svg-url";
+@use "../02-tools/m-checkbox-custom";
+@use "../02-tools/m-not-acf";
+@use "../02-tools/m-radio-custom";
+@use "../02-tools/m-select-custom";
+@use "../05-components/btn";
+
 @use "sass:color";
 
 // All inputs variables
@@ -8,10 +17,10 @@ $text-inputs-list: 'input[type="color"]', 'input[type="date"]',
     'input[type="text"]', 'input[type="time"]', 'input[type="url"]',
     'input[type="week"]', "input:not([type])", "textarea";
 
-$all-text-inputs: assign-inputs($text-inputs-list);
+$all-text-inputs: f-assign-inputs.assign-inputs($text-inputs-list);
 
 // Not apply style to ACF fields
-@include not-acf {
+@include m-not-acf.not-acf {
     // Textarea
     textarea {
         resize: vertical;
@@ -22,26 +31,26 @@ $all-text-inputs: assign-inputs($text-inputs-list);
         box-sizing: border-box;
         width: 100%;
         padding: 15px 25px;
-        font-family: $font-family-primary;
+        font-family: variables.$font-family-primary;
         line-height: 1;
-        color: $color-text;
-        background: color.adjust($color-light, $lightness: -5%);
-        border: 1px solid $color-grey-500;
+        color: variables.$color-text;
+        background: color.adjust(variables.$color-light, $lightness: -5%);
+        border: 1px solid variables.$color-grey-500;
         border-radius: 10px; //reset border radius for ios
         transition: border-color .5s ease;
         appearance: none;
 
         &::placeholder {
-            color: color.adjust($color-text, $lightness: 50%);
+            color: color.adjust(variables.$color-text, $lightness: 50%);
         }
 
         &:hover {
-            border-color: color.adjust($color-grey-500, $lightness: -10%);
+            border-color: color.adjust(variables.$color-grey-500, $lightness: -10%);
         }
 
         &:focus {
-            color: color.adjust($color-text, $lightness: -10%);
-            border-color: color.adjust($color-grey-500, $lightness: -20%);
+            color: color.adjust(variables.$color-text, $lightness: -10%);
+            border-color: color.adjust(variables.$color-grey-500, $lightness: -20%);
         }
     }
 
@@ -53,20 +62,20 @@ $all-text-inputs: assign-inputs($text-inputs-list);
 
     // Custom select
     select {
-        @include select-custom;
+        @include m-select-custom.select-custom;
     }
 
     input[type="checkbox"],
     input[type="radio"] {
-        @include checkbox-custom;
+        @include m-checkbox-custom.checkbox-custom;
 
         &:checked {
-            @include checkbox-custom-checked;
+            @include m-checkbox-custom.checkbox-custom-checked;
         }
     }
 
     input[type="radio"] {
-        @include radio-custom(true);
+        @include m-radio-custom.radio-custom(true);
     }
 
     /*
@@ -100,7 +109,7 @@ $all-text-inputs: assign-inputs($text-inputs-list);
             width: 16px;
             height: 16px;
             cursor: pointer;
-            background-image: get-svg-url("close", $color-dark);
+            background-image: f-get-svg-url.get-svg-url("close", variables.$color-dark);
             background-repeat: no-repeat;
             background-size: contain;
             -webkit-appearance: none;

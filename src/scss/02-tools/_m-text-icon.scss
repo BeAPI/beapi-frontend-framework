@@ -1,3 +1,6 @@
+@use "../01-abstract/constants";
+@use "f-get-svg-url";
+
 /**
  * Add icon before text with mask to have the same color of the text
  *
@@ -25,10 +28,10 @@
         height: $size;
         content: "";
         background-color: $color;
-        mask-image: get-svg-url($icon);
+        mask-image: f-get-svg-url.get-svg-url($icon);
         mask-position: center;
         mask-repeat: no-repeat;
-        transition: background-color .5s $ease-out-expo;
+        transition: background-color .5s constants.$ease-out-expo;
     }
 }
 

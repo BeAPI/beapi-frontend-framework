@@ -1,3 +1,6 @@
+@use "../01-abstract/variables";
+@use "f-strip-units";
+
 /**
  * Fluid size
  *
@@ -25,8 +28,8 @@
 @use "sass:math";
 
 @function fluid-size($min, $max, $start: xs, $end: sm) {
-    $start: math.div(map.get($breakpoints, $start), 100);
-    $end: math.div(map.get($breakpoints, $end), 100);
+    $start: math.div(map.get(variables.$breakpoints, $start), 100);
+    $end: math.div(map.get(variables.$breakpoints, $end), 100);
 
-    @return clamp(#{$min}, #{$min} + (1vw - #{$start}px) / #{$end - $start} * #{strip-units($max - $min)}, #{$max});
+    @return clamp(#{$min}, #{$min} + (1vw - #{$start}px) / #{$end - $start} * #{f-strip-units.strip-units($max - $min)}, #{$max});
 }

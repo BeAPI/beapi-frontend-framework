@@ -1,5 +1,7 @@
+@use "../02-tools/m-breakpoint";
+
 #wpadminbar {
-    @include breakpoints(sm, max) {
+    @include m-breakpoint.breakpoints(sm, max) {
         overflow: scroll;
     }
 }

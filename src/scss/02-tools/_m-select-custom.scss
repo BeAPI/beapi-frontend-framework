@@ -1,3 +1,7 @@
+@use "../01-abstract/variables";
+@use "f-get-svg-url";
+@use "m-rtl";
+
 @use "sass:color";
 
 /**
@@ -21,17 +25,17 @@
     margin: 0;
     font-size: 16px; // prevent iOS zoom
     line-height: 1.15;
-    color: $color-text;
-    background-color: $color-light;
-    background-image: get-svg-url("down"), linear-gradient(to bottom, $color-light 0%, $color-light 100%);
+    color: variables.$color-text;
+    background-color: variables.$color-light;
+    background-image: f-get-svg-url.get-svg-url("down"), linear-gradient(to bottom, variables.$color-light 0%, variables.$color-light 100%);
     background-repeat: no-repeat, repeat;
     background-position: right 10px top 50%, 0 0;
     background-size: 10px auto, 100%;
-    border: 1px solid $color-grey-500;
+    border: 1px solid variables.$color-grey-500;
     border-radius: 10px;
     appearance: none;
 
-    @include rtl {
+    @include m-rtl.rtl {
         background-position: left 10px top 50%, 0 0;
     }
 
@@ -47,13 +51,13 @@
 
     // Hover style
     &:hover {
-        border-color: color.adjust($color-grey-500, $lightness: -10%);
+        border-color: color.adjust(variables.$color-grey-500, $lightness: -10%);
     }
 
     // Focus style
     &:focus {
-        color: color.adjust($color-text, $lightness: -10%);
-        border-color: color.adjust($color-grey-500, $lightness: -20%);
+        color: color.adjust(variables.$color-text, $lightness: -10%);
+        border-color: color.adjust(variables.$color-grey-500, $lightness: -20%);
         outline: none;
         box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
         box-shadow: 0 0 0 3px -moz-mac-focusring;
@@ -63,7 +67,7 @@
         }
     }
 
-    @include rtl {
+    @include m-rtl.rtl {
         background-position: left 10px top 50%, 0 0;
     }
 }

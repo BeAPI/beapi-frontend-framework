@@ -1,8 +1,11 @@
+@use "../../02-tools/m-block-vertical-spacing";
+@use "../../02-tools/m-breakpoint";
+
 .wp-block-columns {
     --wp-block-columns-row-gap: var(--spacing--block-2);
     --wp-block-columns-column-gap: #{get_gutter-width()};
 
-    @include block-vertical-spacing();
+    @include m-block-vertical-spacing.block-vertical-spacing();
 
     row-gap: var(--wp-block-columns-row-gap);
     column-gap: var(--wp-block-columns-column-gap) !important;
@@ -19,7 +22,7 @@
             margin-left: 0 !important;
         }
 
-        @include breakpoints(md, max) {
+        @include m-breakpoint.breakpoints(md, max) {
             flex-wrap: wrap !important;
 
             .wp-block-column {

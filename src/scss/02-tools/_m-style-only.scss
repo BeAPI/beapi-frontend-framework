@@ -1,3 +1,5 @@
+@use "../01-abstract/variables";
+
 /**
  * Style for Frontend UI only
  *
@@ -18,7 +20,7 @@
  */
 
 @mixin style-only {
-    @if ($entry-file-name == "style") {
+    @if (variables.$entry-file-name == "style") {
         @content;
     }
 }

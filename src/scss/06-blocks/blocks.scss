@@ -4,25 +4,25 @@
 // - In the future the Block styles may get compiled to individual .css
 //   files and conditionally loaded
 
-@import "./core/audio";
-@import "./core/buttons";
-@import "./core/code";
-@import "./core/columns";
-@import "./core/cover";
-@import "./core/file";
-@import "./core/freeform";
-@import "./core/gallery";
-@import "./core/group";
-@import "./core/heading";
-@import "./core/image";
-@import "./core/list";
-@import "./core/media-text";
-@import "./core/paragraph";
-@import "./core/preformatted";
-@import "./core/pullquote";
-@import "./core/quote";
-@import "./core/separator";
-@import "./core/search";
-@import "./core/spacer";
-@import "./core/table";
-@import "./core/video";
+@use "core/audio";
+@use "core/buttons";
+@use "core/code";
+@use "core/columns";
+@use "core/cover";
+@use "core/file";
+@use "core/freeform";
+@use "core/gallery";
+@use "core/group";
+@use "core/heading";
+@use "core/image";
+@use "core/list";
+@use "core/media-text";
+@use "core/paragraph";
+@use "core/preformatted";
+@use "core/pullquote";
+@use "core/quote";
+@use "core/separator";
+@use "core/search";
+@use "core/spacer";
+@use "core/table";
+@use "core/video";

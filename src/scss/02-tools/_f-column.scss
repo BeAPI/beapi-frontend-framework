@@ -1,3 +1,6 @@
+@use "sass:meta";
+@use "../01-abstract/variables";
+
 @use "sass:map";
 @use "sass:math";
 
@@ -55,7 +58,7 @@
 
     @if not $var {
 
-        @return map.get(map.get($column-preset, $device), $prop);
+        @return map.get(map.get(variables.$column-preset, $device), $prop);
     } @else {
 
         @return $var;
@@ -68,7 +71,7 @@
 
 @function column($device, $nb-column: null, $nb-gutter: null, $total-column: null, $total-gutter: null) {
     // shift vars if $device is number
-    @if type-of($device) == "number" {
+    @if meta.type-of($device) == "number" {
         $total-gutter: $total-column;
         $total-column: $nb-gutter;
         $nb-gutter: $nb-column;
@@ -76,7 +79,7 @@
         $device: d;
     }
 
-    $preset: map.get($column-preset, $device);
+    $preset: map.get(variables.$column-preset, $device);
     $gutter-width: map.get($preset, gutter-width);
     $column-width: map.get($preset, column-width);
     $total-column: column-set-var($total-column, $device, total-column);
@@ -98,13 +101,13 @@
 
 @function column-px($device, $nb-column: null, $nb-gutter: null, $unitless: false) {
     // shift vars if $device is number
-    @if type-of($device) == "number" {
+    @if meta.type-of($device) == "number" {
         $nb-gutter: $nb-column;
         $nb-column: $device;
         $device: d;
     }
 
-    $preset: map.get($column-preset, $device);
+    $preset: map.get(variables.$column-preset, $device);
     $gutter-width: map.get($preset, gutter-width);
     $column-width: map.get($preset, column-width);
 
@@ -125,13 +128,13 @@
 
 @function column-full($device, $nb-column: null, $nb-gutter: null) {
     // shift vars if $device is number
-    @if type-of($device) == "number" {
+    @if meta.type-of($device) == "number" {
         $nb-gutter: $nb-column;
         $nb-column: $device;
         $device: d;
     }
 
-    $preset: map.get($column-preset, $device);
+    $preset: map.get(variables.$column-preset, $device);
     $gutter-width: map.get($preset, gutter-width);
     $column-width: map.get($preset, column-width);
     $total-column: map.get($preset, total-column);

@@ -1,5 +1,8 @@
+@use "../../01-abstract/variables";
+@use "../../02-tools/m-editor-only";
+
 .wp-block-freeform {
-    @include editor-only {
+    @include m-editor-only.editor-only {
         // Remove the border of blockquotes inside the classic block.
         &.block-library-rich-text__tinymce blockquote {
             border: none;
@@ -12,7 +15,7 @@
 
         // Backend Classic editor container
         .mce-content-body {
-            width: #{$container-wide};
+            width: #{variables.$container-wide};
             max-width: var(--responsive--alignwide-width);
             margin: 0;
         }

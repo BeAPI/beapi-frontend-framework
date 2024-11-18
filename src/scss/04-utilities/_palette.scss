@@ -1,6 +1,8 @@
+@use "../01-abstract/variables";
+
 @use "sass:map";
 
-@each $name, $colors in $palette {
+@each $name, $colors in variables.$palette {
     .has-#{$name}-color {
         color: map.get($colors, color);
     }

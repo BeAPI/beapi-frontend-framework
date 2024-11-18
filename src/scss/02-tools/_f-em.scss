@@ -1,3 +1,6 @@
+@use "../01-abstract/variables";
+@use "f-strip-units";
+
 @use "sass:math";
 
 /**
@@ -20,14 +23,14 @@
  *
  */
 
-@function em($pxval, $base: $font-size-base) {
+@function em($pxval, $base: variables.$font-size-base) {
 
-    @if not unitless($pxval) {
-        $pxval: strip-units($pxval);
+    @if not math.is-unitless($pxval) {
+        $pxval: f-strip-units.strip-units($pxval);
     }
 
-    @if not unitless($base) {
-        $base: strip-units($base);
+    @if not math.is-unitless($base) {
+        $base: f-strip-units.strip-units($base);
     }
 
     @return math.div($pxval, $base) * 1em;

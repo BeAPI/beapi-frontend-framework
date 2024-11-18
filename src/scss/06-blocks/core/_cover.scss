@@ -1,17 +1,20 @@
+@use "../../02-tools/m-editor-only";
+@use "../../02-tools/m-style-only";
+
 .wp-block-cover,
 .wp-block-cover-image {
     &:not(.alignwide):not(.alignfull) {
         clear: both;
     }
 
-    @include style-only {
+    @include m-style-only.style-only {
         &.alignfull {
             margin-top: 0;
             margin-bottom: 0;
         }
     }
 
-    @include editor-only {
+    @include m-editor-only.editor-only {
         [data-align="full"] & {
             margin-top: 0;
             margin-bottom: 0;

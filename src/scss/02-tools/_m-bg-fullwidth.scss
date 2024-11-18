@@ -1,3 +1,6 @@
+@use "../01-abstract/variables";
+@use "m-style-only";
+
 /**
  * Background fullwidth - Make a fullwidth background in a container element
  *
@@ -13,7 +16,7 @@
  *
  */
 
-@mixin bg-fullwidth($color: $color-grey-100) {
+@mixin bg-fullwidth($color: variables.$color-grey-100) {
     position: relative;
 
     &::before {
@@ -27,7 +30,7 @@
         background-color: $color;
         transform: translate3d(-50%, 0, 0);
 
-        @include style-only {
+        @include m-style-only.style-only {
             z-index: -1;
         }
     }

@@ -126,18 +126,20 @@ $external-gutter-mobile: 20px;
 
 // ----
 // Breakpoints
+// Based on WordPress breakpoints (https://github.com/WordPress/gutenberg/blob/trunk/packages/base-styles/_breakpoints.scss)
 // ----
 $breakpoints: (
     xs: 480,
     s: 601,         // 601px is a wordpress breakpoint (admin-bar become sticky)
-    sm: 768,
+    sm: 782,
     admin-bar: 784, // admin bar height change
-    md: 1024,
-    mdl: 1200,
+    m: 960,
+    md: 1080,
+    mdl: 1279, // Do not use 1280px, it causes a bug under Window Edge with a device pixel ratio higher than 1
+    l: 1440,
     container-default: math.div($container-default + $external-gutter-mobile * 2, 1px),
     container-wide: math.div($container-wide + $external-gutter * 2, 1px),
 );
-// /!\ WARNING: If you use a breakpoint of 1280px, it causes a bug under Window Edge with a device pixel ratio higher than 1. Prefer to use the value 1279px.
 
 // ----
 // border

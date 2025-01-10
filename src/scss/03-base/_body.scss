@@ -19,6 +19,17 @@ html {
     text-rendering: auto;
 }
 
+/**
+  * Relax the definition a bit, to allow components to override it manually.
+  */
+* {
+    &,
+    &::before,
+    &::after {
+        box-sizing: inherit;
+    }
+}
+
 body {
     font-family: $font-family-primary;
     font-size: $font-size-base;

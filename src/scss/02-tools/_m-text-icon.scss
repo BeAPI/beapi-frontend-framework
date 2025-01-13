@@ -33,7 +33,7 @@
 }
 
 @mixin text-external-icon($icon: "external", $position: after, $color: currentColor, $size: 12px, $gap: 8px) {
-    @include text-icon($icon);
+    @include text-icon($icon, $position, $color, $size);
     display: inline;
 
     &::#{$position} {

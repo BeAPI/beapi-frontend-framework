@@ -4,7 +4,7 @@ a {
     cursor: pointer;
 
     &[target="_blank"] {
-        @include text-icon("external");
+        @include text-external-icon;
     }
 
     @include hover {
@@ -13,5 +13,5 @@ a {
 }
 
 .link-external {
-    @include text-icon("external");
+    @include text-external-icon;
 }

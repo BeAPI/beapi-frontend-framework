@@ -260,11 +260,7 @@
             width: column(9);
 
             > div {
-                text-align: right;
-
-                @include rtl {
-                    text-align: left;
-                }
+                text-align: end;
             }
         }
 
@@ -277,11 +273,7 @@
 
             > li {
                 display: inline;
-                text-align: left;
-
-                @include rtl {
-                    text-align: right;
-                }
+                text-align: start;
 
                 + li {
                     margin-inline-start: 28px;

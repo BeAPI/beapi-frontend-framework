@@ -7,16 +7,17 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 	<script type="text/javascript">
 		//<![CDATA[
 		(function(){
-			function replaceHtmlClass(regexp, str) {
-				var h = document.documentElement;
-				h.className = h.className.replace(regexp, str);
-			}
-
-			replaceHtmlClass(/no-js/, 'js');
-
-			if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-				replaceHtmlClass(/no-js-animation/, 'js-animation');
-			}
+			const html = document.documentElement;
+			html.className = html.className.replace(/no-js/, 'js');
+			<?php
+			if ( ! isset( $_GET['js_animation'] ) || $_GET['js_animation'] !== 'false' ) :
+				?>
+				if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+					html.className = html.className.replace(/no-js-animation/, 'js-animation');
+				}
+				<?php
+			endif;
+			?>
 		})();
 		//]]>
 	</script>

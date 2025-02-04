@@ -17,12 +17,12 @@ class Assets {
 	 * @param $src : Have to be a relative filename
 	 * @param array $deps
 	 * @param mixed $ver
-	 * @param bool $in_footer
+	 * @param array $strategy
 	 *
 	 * @return bool
 	 */
-	public function register_script( string $handle, string $src, array $deps = [], $ver = false, bool $in_footer = false ): bool {
-		return \wp_register_script( $handle, \get_theme_file_uri( $src ), $deps, $ver, $in_footer );
+	public function register_script( string $handle, string $src, array $deps = [], $ver = false, array $strategy = [ 'strategy' => 'defer' ] ): bool {
+		return \wp_register_script( $handle, \get_theme_file_uri( $src ), $deps, $ver, $strategy );
 	}
 
 	/**

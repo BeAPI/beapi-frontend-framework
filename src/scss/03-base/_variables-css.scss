@@ -96,10 +96,6 @@
      */
     --wp-admin-bar-height: var(--wp-admin--admin-bar--height, 0rem);
 
-    &:not(.admin-bar) {
-        --wp-admin-bar-height: 0rem; // for wp admin bar hider extension
-    }
-
     /*
      * A11y reduced motion
      */

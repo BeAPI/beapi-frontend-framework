@@ -6,11 +6,9 @@ export default function extend() {
   const deep = firstArgIsBool ? args[0] : false
   const start = firstArgIsBool ? 1 : 0
   const rt = isPlainObject(args[start]) ? args[start] : {}
-  var i
-  var prop
 
-  for (i = start + 1; i < args.length; i++) {
-    for (prop in args[i]) {
+  for (let i = start + 1; i < args.length; i++) {
+    for (let prop in args[i]) {
       if (deep && isPlainObject(args[i][prop])) {
         rt[prop] = extend(true, {}, rt[prop], args[i][prop])
       } else if (typeof args[i][prop] !== 'undefined') {

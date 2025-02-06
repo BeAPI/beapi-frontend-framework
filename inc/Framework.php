@@ -5,12 +5,10 @@ namespace BEA\Theme\Framework;
 use BEA\Theme\Framework\Services\Acf;
 use BEA\Theme\Framework\Services\Assets;
 use BEA\Theme\Framework\Services\Performance;
-use BEA\Theme\Framework\Services\Assets_JS_Async;
 use BEA\Theme\Framework\Services\Editor;
 use BEA\Theme\Framework\Services\Editor_Patterns;
 use BEA\Theme\Framework\Services\Gravity_Forms;
 use BEA\Theme\Framework\Services\Menu;
-use BEA\Theme\Framework\Services\Sidebar;
 use BEA\Theme\Framework\Services\Svg;
 use BEA\Theme\Framework\Services\Theme;
 use BEA\Theme\Framework\Tools\Body_Class;
@@ -35,7 +33,6 @@ class Framework {
 		Theme::class,
 		Assets::class,
 		Performance::class,
-		Assets_JS_Async::class,
 		Editor::class,
 		Editor_Patterns::class,
 		Gravity_Forms::class,

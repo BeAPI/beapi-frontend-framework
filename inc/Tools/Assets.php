@@ -21,7 +21,7 @@ class Assets {
 	 *
 	 * @return bool
 	 */
-	public function register_script( string $handle, string $src, array $deps = [], $ver = false, array $strategy = [ 'strategy' => 'defer' ] ): bool {
+	public function register_script( string $handle, string $src, array $deps = [], $ver = false, array $strategy = [] ): bool {
 		return \wp_register_script( $handle, \get_theme_file_uri( $src ), $deps, $ver, $strategy );
 	}
 

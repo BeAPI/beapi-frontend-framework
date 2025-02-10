@@ -68,7 +68,7 @@ class Assets implements Service {
 			'dist/' . $file,
 			array_merge( [ 'jquery' ], $asset_data['dependencies'] ), // ensure jQuery dependency is set even if not declared explicitly in the JS
 			$asset_data['version'],
-			true
+			[ 'strategy' => 'defer' ]
 		);
 
 		wp_add_inline_script(

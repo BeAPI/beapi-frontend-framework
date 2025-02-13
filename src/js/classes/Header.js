@@ -1,5 +1,4 @@
 import AbstractDomElement from './AbstractDomElement'
-import each from '../utils/each'
 import { Tween } from 'oneloop.js'
 import isRTL from '../utils/isRTL'
 
@@ -14,10 +13,10 @@ class Header extends AbstractDomElement {
 
     const that = this
     const el = this._element
-    const toggle = el.getElementsByClassName('header__menu-toggle')[0]
-    const menuList = el.getElementsByClassName('header__menu-list')[0]
-    const liWithChidren = el.getElementsByClassName('menu-item-has-children')
-    const menu = el.getElementsByClassName('header__menu')[0]
+    const toggle = el.querySelector('.header__menu-toggle')
+    const menuList = el.querySelector('.header__menu-list')
+    const liWithChidren = el.querySelectorAll('.menu-item-has-children')
+    const menu = el.querySelector('.header__menu')
 
     this._menu = menu
     this._toggle = toggle
@@ -30,11 +29,7 @@ class Header extends AbstractDomElement {
       easing: 'easeInOutExpo',
       onUpdate: function (timestamp, tick, percent) {
         const bp = 768
-        let direction = window.innerWidth >= bp ? -1 : 1
-
-        if (isRTL()) {
-          direction = window.innerWidth >= bp ? 1 : -1
-        }
+        let direction = (window.innerWidth >= bp ? -1 : 1) * (isRTL() ? -1 : 1)
 
         menu.style.transform = 'translateX(' + 100 * (percent - 1) * direction + '%)'
       },
@@ -48,18 +43,18 @@ class Header extends AbstractDomElement {
 
     // avoid error for empty theme
     if (menuList) {
-      each(menuList.children, function (li) {
+      for (const li of menuList.children) {
         li.addEventListener('mouseenter', onMouseEnterFirstLevelLi.bind(that))
-      })
+      }
 
-      each(liWithChidren, function (li) {
+      for (const li of liWithChidren) {
         const subMenuToggle = li.children[1]
         li.addEventListener('mouseenter', onMouseEnterLi.bind(that))
         li.addEventListener('mouseleave', onMouseLeaveLi.bind(that))
 
         subMenuToggle.addEventListener('keypress', onKeyPressSubMenuToggle.bind(that))
         subMenuToggle.addEventListener('touchstart', onTouchStartSubMenuToggle.bind(that))
-      })
+      }
 
       toggle.addEventListener('click', onClickToggle.bind(this))
       document.addEventListener('keyup', onKeyup.bind(this))

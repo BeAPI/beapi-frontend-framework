@@ -1,4 +1,4 @@
-export default function isRTL() {
+export default function isRTL(container = document.documentElement) {
   const rtlLanguages = [
     'ar', // Arabic
     'fa', // Persian (Farsi)
@@ -13,5 +13,5 @@ export default function isRTL() {
     'yi', // Yiddish
   ]
 
-  return document.documentElement.dir === 'rtl' || rtlLanguages.includes(document.documentElement.lang)
+  return container.dir === 'rtl' || rtlLanguages.includes(container.lang)
 }

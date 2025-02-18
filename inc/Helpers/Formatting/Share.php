@@ -92,6 +92,17 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				'url' => $link_to_share,
 			],
 		],
+		'bluesky' => [
+			'attributes' => [
+				'title' => __( 'Share on Bluesky', 'beapi-frontend-framework' ),
+				'href'  => 'https://bsky.app/intent/compose',
+				'class' => 'share__link',
+			],
+			'icon'       => 'social/bluesky',
+			'params'     => [
+				'text' => $link_to_share,
+			],
+		],
 		'email'     => [
 			'attributes' => [
 				'title' => __( 'Share on Email', 'beapi-frontend-framework' ),

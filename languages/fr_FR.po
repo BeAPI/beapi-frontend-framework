@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Be API Frontend Framework 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/beapi-frontend-"
 "framework\n"
-"POT-Creation-Date: 2024-06-28T07:38:00+00:00\n"
-"PO-Revision-Date: 2024-06-28 09:39+0200\n"
+"POT-Creation-Date: 2025-02-18T15:06:50+00:00\n"
+"PO-Revision-Date: 2025-02-18 16:08+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.1.1\n"
 "X-Domain: beapi-frontend-framework\n"
 
 #. Theme Name of the theme
@@ -111,6 +111,10 @@ msgid "Share on Instagram"
 msgstr "Partager sur Instagram"
 
 #: inc/Helpers/Formatting/Share.php:97
+msgid "Share on Bluesky"
+msgstr "Partager sur Bluesky"
+
+#: inc/Helpers/Formatting/Share.php:108
 msgid "Share on Email"
 msgstr "Partager par email"
 
@@ -175,24 +179,24 @@ msgstr "Général"
 msgid ""
 "Could not register file \"%s\" as a block pattern (\"Slug\" field missing)"
 msgstr ""
-"Impossible de déclarer la composition de blocs à partir du fichier "
-"\"%s\" (Le champ \"Slug\" est manquant)"
+"Impossible de déclarer la composition de blocs à partir du fichier \"%s"
+"\" (Le champ \"Slug\" est manquant)"
 
 #. translators: %1s: file name; %2s: slug value found.
 #: inc/Services/Editor_Patterns.php:138
 msgid ""
 "Could not register file \"%1$s\" as a block pattern (invalid slug \"%2$s\")"
 msgstr ""
-"Impossible de déclarer la composition de blocs à partir du fichier "
-"\"%1$s\" (Le slug \"%2$s\" n'est pas valide)"
+"Impossible de déclarer la composition de blocs à partir du fichier \"%1$s"
+"\" (Le slug \"%2$s\" n'est pas valide)"
 
 #. translators: %1s: file name; %2s: slug value found.
 #: inc/Services/Editor_Patterns.php:155
 msgid ""
 "Could not register file \"%s\" as a block pattern (\"Title\" field missing)"
 msgstr ""
-"Impossible de déclarer la composition de blocs à partir du fichier "
-"\"%s\" (Le champ \"Title\" est manquant)"
+"Impossible de déclarer la composition de blocs à partir du fichier \"%s"
+"\" (Le champ \"Title\" est manquant)"
 
 #: inc/Services/Menu.php:37
 msgid "Main menu"

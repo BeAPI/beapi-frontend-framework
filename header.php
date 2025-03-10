@@ -9,15 +9,10 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 		(function(){
 			const html = document.documentElement;
 			html.className = html.className.replace(/no-js/, 'js');
-			<?php
-			if ( ! isset( $_GET['js_animation'] ) || $_GET['js_animation'] !== 'false' ) :
-				?>
-				if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-					html.className = html.className.replace(/no-js-animation/, 'js-animation');
-				}
-				<?php
-			endif;
-			?>
+
+			if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && !window.location.hash.includes('no-js-animation')) {
+				html.className = html.className.replace(/no-js-animation/, 'js-animation');
+			}
 		})();
 		//]]>
 	</script>

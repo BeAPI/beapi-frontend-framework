@@ -1,12 +1,19 @@
-@include editor-only {
+@use "../01-abstract/variables";
+@use "../02-tools/f-context-selector";
+@use "../02-tools/f-get-gutter-width";
+@use "../02-tools/m-align";
+@use "../02-tools/m-editor-only";
+@use "../02-tools/m-heading";
+
+@include m-editor-only.editor-only {
     // ----
     // Post title style
     // ----
     .editor-post-title {
 
-        @include heading(h1);
+        @include m-heading.heading(h1);
 
-        width: #{$container-wide};
+        width: #{variables.$container-wide};
         max-width: var(--responsive--alignwide-width);
         margin-bottom: var(--spacing--block-3);
     }
@@ -16,7 +23,7 @@
     // ----
     .wp-block.block-editor-default-block-appender > textarea {
         font-family: var(--global--font-secondary);
-        font-size: $font-size-md;
+        font-size: variables.$font-size-md;
     }
 
     // ----
@@ -39,7 +46,7 @@
 .has-drop-cap:not(:focus)::first-letter {
     float: left;
     margin: .1em .1em 0 0;
-    font-family: var($font-family-primary);
+    font-family: var(variables.$font-family-primary);
     font-size: calc(1.2 * var(--heading--font-size-h1));
     font-style: normal;
     font-weight: var(--heading--font-weight);
@@ -47,35 +54,59 @@
     text-transform: uppercase;
 }
 
-#{context-selector(".blocks-container", ".is-root-container")} {
+#{f-context-selector.context-selector(".blocks-container", ".is-root-container")} {
     // ----
     // Alignements horizontaux
     // ----
     > :where(*) {
-        width: #{$container-default};
+        width: #{variables.$container-default};
         max-width: var(--responsive--aligndefault-width);
         margin-right: auto;
         margin-left: auto;
     }
 
-    #{context-selector(".alignwide", "[data-align='wide']")} {
-        width: #{$container-wide};
+    @include m-editor-only.editor-only {
+        > .wp-block[class*="wp-block-acf"],
+        > .wp-block[class*="wp-block-beapi-manual-block"],
+        > .wp-block[class*="wp-block-beapi-dynamic-block"] {
+            width: 100%;
+            max-width: none;
+        }
+
+        > .wp-block[class*="wp-block-acf"].is-selected {
+            width: #{variables.$container-wide};
+            max-width: var(--responsive--alignwide-width);
+        }
+
+        // The template block must have a ".block" class. Example : <div class="block block--my-custom-block">
+        > :where(.wp-block[class*="wp-block-acf"]) :where(.block),
+        > :where(.wp-block[class*="wp-block-beapi-manual-block"]) :where(.block),
+        > :where(.wp-block[class*="wp-block-beapi-dynamic-block"]) :where(.block) {
+            width: variables.$container-default;
+            max-width: var(--responsive--aligndefault-width);
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+
+    #{f-context-selector.context-selector(".alignwide", "[data-align='wide']")} {
+        width: #{variables.$container-wide};
         max-width: var(--responsive--alignwide-width);
     }
 
-    #{context-selector(".alignfull", "[data-align='full']")} {
+    #{f-context-selector.context-selector(".alignfull", "[data-align='full']")} {
         width: 100%;
         max-width: var(--responsive--alignfull-width);
     }
 
     .alignleft {
 
-        @include align;
+        @include m-align.align;
     }
 
     .alignright {
 
-        @include align(right);
+        @include m-align.align(right);
     }
 
     .aligncenter {
@@ -93,7 +124,7 @@
 
     :where(.is-layout-flex),
     :where(.is-layout-grid) {
-        gap: get-gutter-width();
+        gap: f-get-gutter-width.get-gutter-width();
     }
 
     // ----
@@ -132,7 +163,7 @@
         }
     }
 
-    @include editor-only {
+    @include m-editor-only.editor-only {
 
         > * {
 

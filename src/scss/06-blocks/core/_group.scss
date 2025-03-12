@@ -1,3 +1,6 @@
+@use "../../02-tools/m-breakpoint";
+@use "../../02-tools/m-editor-only";
+
 .wp-block-group {
     $el: &;
 
@@ -14,14 +17,14 @@
         }
     }
 
-    @include breakpoints(sm, max) {
+    @include m-breakpoint.breakpoints(sm, max) {
         &--full-mobile {
             max-width: 100% !important;
         }
     }
 }
 
-@include editor-only {
+@include m-editor-only.editor-only {
     .wp-block-group {
         &:not(.is-layout-grid) {
             display: flow-root;

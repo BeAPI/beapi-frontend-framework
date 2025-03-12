@@ -1,3 +1,5 @@
+@use "../../01-abstract/variables";
+
 .wp-block-image {
     > img {
         max-width: 100%;
@@ -5,7 +7,7 @@
     }
 
     figcaption {
-        font-size: $font-size-xs;
-        color: $color-grey-600;
+        font-size: variables.$font-size-xs;
+        color: variables.$color-grey-600;
     }
 }

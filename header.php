@@ -52,7 +52,7 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 						<span class="sr-only aria-expanded-true-text"><?php esc_html_e( 'Close the menu', 'beapi-frontend-framework' ); ?></span>
 					</button>
 
-					<nav id="menu" class="header__menu" aria-label="<?php esc_attr_e( 'Main navigation', 'beapi-frontend-framework' ); ?>">
+					<nav id="menu" tabindex="-1" class="header__menu" aria-label="<?php esc_attr_e( 'Main navigation', 'beapi-frontend-framework' ); ?>">
 						<div>
 							<?php
 							wp_nav_menu(

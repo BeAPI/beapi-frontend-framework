@@ -15,7 +15,7 @@ class ImageBlock extends AbstractDomElement {
     const el = this._element
     const figure = el.closest('.wp-block-image')
 
-    figure.setAttribute('role', 'group')
+    figure.setAttribute('role', 'figure')
     figure.setAttribute('aria-label', el.textContent)
   }
 }

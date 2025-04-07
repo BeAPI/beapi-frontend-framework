@@ -47,7 +47,7 @@ class WebpackImageSizesPlugin {
     const that = this
     const regex = {
       srcset: /srcset="(.[^"]*)"/gm,
-      crop: /crop="(.[^"]*)"/gm,
+      crop: /data-crop="(.[^"]*)"/gm,
       img: /img-\d*-\d*/gm,
     }
 
@@ -164,7 +164,7 @@ class WebpackImageSizesPlugin {
         srcsetArr.forEach((src) => {
           const dimensions = src.match(regex.img)
           const retina = isRetina(src)
-          const crop = !(cropArr && cropArr[0] === 'crop="false"')
+          const crop = !(cropArr && cropArr[0] === 'data-crop="false"')
 
           dimensions.forEach((size, index) => {
             const splitSize = size.split('-')

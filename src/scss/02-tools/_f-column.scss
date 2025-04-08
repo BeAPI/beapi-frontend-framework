@@ -1,5 +1,5 @@
 @use "sass:meta";
-@use "../01-abstract/variables";
+@use "../01-abstract/variables" as *;
 
 @use "sass:map";
 @use "sass:math";
@@ -58,7 +58,7 @@
 
     @if not $var {
 
-        @return map.get(map.get(variables.$column-preset, $device), $prop);
+        @return map.get(map.get($column-preset, $device), $prop);
     } @else {
 
         @return $var;
@@ -79,7 +79,7 @@
         $device: d;
     }
 
-    $preset: map.get(variables.$column-preset, $device);
+    $preset: map.get($column-preset, $device);
     $gutter-width: map.get($preset, gutter-width);
     $column-width: map.get($preset, column-width);
     $total-column: column-set-var($total-column, $device, total-column);
@@ -107,7 +107,7 @@
         $device: d;
     }
 
-    $preset: map.get(variables.$column-preset, $device);
+    $preset: map.get($column-preset, $device);
     $gutter-width: map.get($preset, gutter-width);
     $column-width: map.get($preset, column-width);
 
@@ -134,7 +134,7 @@
         $device: d;
     }
 
-    $preset: map.get(variables.$column-preset, $device);
+    $preset: map.get($column-preset, $device);
     $gutter-width: map.get($preset, gutter-width);
     $column-width: map.get($preset, column-width);
     $total-column: map.get($preset, total-column);

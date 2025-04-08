@@ -1,4 +1,4 @@
-@use "../../02-tools/m-editor-only";
+@use "../../02-tools/m-editor-only" as *;
 
 hr {
     margin-right: auto;
@@ -11,7 +11,7 @@ hr {
     }
 }
 
-@include m-editor-only.editor-only {
+@include editor-only {
     .wp-block-separator,
     hr {
         clear: both;

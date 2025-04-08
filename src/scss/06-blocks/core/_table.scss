@@ -1,4 +1,4 @@
-@use "../../02-tools/m-not-acf";
+@use "../../02-tools/m-not-acf" as *;
 
 %table {
     width: 100%;
@@ -11,7 +11,7 @@
 }
 
 // Not apply style to ACF fields
-@include m-not-acf.not-acf {
+@include not-acf {
     table {
         @extend %table;
     }

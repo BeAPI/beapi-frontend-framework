@@ -1,17 +1,17 @@
-@use "../02-tools/m-btn";
+@use "../02-tools/m-btn" as *;
 
 %btn {
-    @include m-btn.btn;
+    @include btn;
 }
 
 %btn-block {
     @extend %btn;
-    @include m-btn.btn-block;
+    @include btn-block;
 }
 
 %btn-block-outline {
     @extend %btn-block;
-    @include m-btn.btn-block-outline;
+    @include btn-block-outline;
 }
 
 .btn {

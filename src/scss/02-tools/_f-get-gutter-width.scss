@@ -1,5 +1,4 @@
-@use "../01-abstract/variables";
-
+@use "../01-abstract/variables" as *;
 @use "sass:map";
 
 /**
@@ -26,7 +25,7 @@
  */
 
 @function get-gutter($preset: d) {
-    @return map.get(map.get(variables.$column-preset, $preset), gutter-width);
+    @return map.get(map.get($column-preset, $preset), gutter-width);
 }
 
 @function get-gutter-width($preset: d) {

@@ -1,13 +1,13 @@
-@use "../../01-abstract/variables";
+@use "../../01-abstract/variables" as *;
 
 .wp-block-audio {
     audio {
         &::-webkit-media-controls-panel {
-            background-color: variables.$color-primary;
+            background-color: $color-primary;
         }
 
         &:focus {
-            outline: 2px solid variables.$color-primary;
+            outline: 2px solid $color-primary;
             outline-offset: 5px;
         }
     }

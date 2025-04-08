@@ -1,4 +1,4 @@
-@use "../01-abstract/constants";
+@use "../01-abstract/constants" as *;
 
 /**
  * js-animation
@@ -41,7 +41,7 @@
 %js-animation-translation-init {
     > * {
         opacity: 0;
-        transition: opacity .5s, transform .5s constants.$ease-out-expo;
+        transition: opacity .5s, transform .5s $ease-out-expo;
         transform: translateY(100px);
     }
 }
@@ -81,7 +81,7 @@
 
             > span {
                 display: inline-block;
-                transition: transform .75s constants.$ease-out-expo;
+                transition: transform .75s $ease-out-expo;
                 transform: translateY(150%);
             }
         }

@@ -1,9 +1,9 @@
-@use "../01-abstract/variables";
+@use "../01-abstract/variables" as *;
 
 @media print {
     * {
         font-family: Arial, Helvetica, sans-serif !important;
-        color: variables.$color-dark !important;
+        color: $color-dark !important;
         text-decoration: none;
         text-shadow: none !important;
         background: transparent !important;

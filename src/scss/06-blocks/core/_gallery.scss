@@ -1,5 +1,5 @@
-@use "../../02-tools/f-get-gutter-width";
+@use "../../02-tools/f-get-gutter-width" as *;
 
 .wp-block-gallery {
-    --wp--style--gallery-gap-default: #{f-get-gutter-width.get-gutter-width()} !important;
+    --wp--style--gallery-gap-default: #{get-gutter-width()} !important;
 }

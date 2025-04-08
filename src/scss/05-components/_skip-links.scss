@@ -1,5 +1,5 @@
-@use "../01-abstract/constants";
-@use "../01-abstract/variables";
+@use "../01-abstract/constants" as *;
+@use "../01-abstract/variables" as *;
 
 .skip-links {
     position: fixed;
@@ -8,9 +8,9 @@
     z-index: 11; // Under header
     width: 100%;
     padding: 8px 10px 10px;
-    background-color: variables.$color-primary;
+    background-color: $color-primary;
     opacity: 0;
-    transition: transform .3s constants.$ease-out-expo, opacity .3s;
+    transition: transform .3s $ease-out-expo, opacity .3s;
     transform: translate3d(0, -100%, 0);
 
     ul {
@@ -20,7 +20,7 @@
 
     a {
         font-size: 13px;
-        color: variables.$color-text;
+        color: $color-text;
         text-decoration: none;
 
         &:focus {

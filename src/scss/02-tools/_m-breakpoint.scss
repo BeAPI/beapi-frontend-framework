@@ -1,6 +1,6 @@
 @use "sass:meta";
-@use "../01-abstract/variables";
-@use "f-em";
+@use "../01-abstract/variables" as *;
+@use "f-em" as *;
 
 @use "sass:map";
 
@@ -28,19 +28,19 @@
 @mixin breakpoints($breakpoint, $min-or-max-or-breakpoint: min) {
     $font-size: 16px; // don't use em function whitout param, $font-size-base can be modified
 
-    @if (meta.type-of(map.get(variables.$breakpoints, $min-or-max-or-breakpoint)) == "number") {
+    @if (meta.type-of(map.get($breakpoints, $min-or-max-or-breakpoint)) == "number") {
 
-        @media screen and (min-width: f-em.em(map.get(variables.$breakpoints, $breakpoint), $font-size)) and (max-width: f-em.em(map.get(variables.$breakpoints, $min-or-max-or-breakpoint) - 1, $font-size)) {
+        @media screen and (min-width: em(map.get($breakpoints, $breakpoint), $font-size)) and (max-width: em(map.get($breakpoints, $min-or-max-or-breakpoint) - 1, $font-size)) {
             @content;
         }
     } @else if ($min-or-max-or-breakpoint == max) {
 
-        @media screen and (max-width: f-em.em(map.get(variables.$breakpoints, $breakpoint) - 1, $font-size)) {
+        @media screen and (max-width: em(map.get($breakpoints, $breakpoint) - 1, $font-size)) {
             @content;
         }
     } @else {
 
-        @media screen and (min-width: f-em.em(map.get(variables.$breakpoints, $breakpoint), $font-size)) {
+        @media screen and (min-width: em(map.get($breakpoints, $breakpoint), $font-size)) {
             @content;
         }
     }

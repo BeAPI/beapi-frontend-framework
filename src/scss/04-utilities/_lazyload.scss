@@ -1,10 +1,9 @@
-@use "../01-abstract/variables";
-
+@use "../01-abstract/variables" as *;
 @use "sass:math";
 
 .lazyload,
 .lazyloading {
-    background: variables.$color-primary;
+    background: $color-primary;
     opacity: 0;
 }
 
@@ -32,7 +31,7 @@ $loading-dimensions: 50px;
         left: 0;
         z-index: 2;
         content: "";
-        background: variables.$color-primary;
+        background: $color-primary;
         transition: opacity .5s, z-index .5s ease .5s;
     }
 
@@ -44,7 +43,7 @@ $loading-dimensions: 50px;
         width: $loading-dimensions;
         height: $loading-dimensions;
         content: "";
-        border: 5px solid variables.$color-light;
+        border: 5px solid $color-light;
         border-top-color: transparent;
         border-radius: $loading-dimensions;
         opacity: 1;

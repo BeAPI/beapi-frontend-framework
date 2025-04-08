@@ -1,3 +1,5 @@
+@use "../../02-tools/m-text" as *;
+
 $paragraphs: "default", "small", "large", "huge";
 
 p {

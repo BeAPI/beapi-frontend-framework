@@ -1,3 +1,6 @@
+@use "../../01-abstract/variables" as *;
+@use "../../02-tools/m-editor-only" as *;
+
 .wp-block-freeform {
     @include editor-only {
         // Remove the border of blockquotes inside the classic block.

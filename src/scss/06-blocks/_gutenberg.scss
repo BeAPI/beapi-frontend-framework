@@ -1,3 +1,10 @@
+@use "../01-abstract/variables" as *;
+@use "../02-tools/f-context-selector" as *;
+@use "../02-tools/f-get-gutter-width" as *;
+@use "../02-tools/m-align" as *;
+@use "../02-tools/m-editor-only" as *;
+@use "../02-tools/m-heading" as *;
+
 @include editor-only {
     // ----
     // Post title style
@@ -56,6 +63,30 @@
         max-width: var(--responsive--aligndefault-width);
         margin-right: auto;
         margin-left: auto;
+    }
+
+    @include editor-only {
+        > .wp-block[class*="wp-block-acf"],
+        > .wp-block[class*="wp-block-beapi-manual-block"],
+        > .wp-block[class*="wp-block-beapi-dynamic-block"] {
+            width: 100%;
+            max-width: none;
+        }
+
+        > .wp-block[class*="wp-block-acf"].is-selected {
+            width: #{$container-wide};
+            max-width: var(--responsive--alignwide-width);
+        }
+
+        // The template block must have a ".block" class. Example : <div class="block block--my-custom-block">
+        > :where(.wp-block[class*="wp-block-acf"]) :where(.block),
+        > :where(.wp-block[class*="wp-block-beapi-manual-block"]) :where(.block),
+        > :where(.wp-block[class*="wp-block-beapi-dynamic-block"]) :where(.block) {
+            width: $container-default;
+            max-width: var(--responsive--aligndefault-width);
+            margin-right: auto;
+            margin-left: auto;
+        }
     }
 
     #{context-selector(".alignwide", "[data-align='wide']")} {

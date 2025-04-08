@@ -1,3 +1,6 @@
+@use "../01-abstract/variables" as *;
+@use "../02-tools/m-rtl" as *;
+
 html {
     /* Set automatic RTL direction depending on lang attribute */
     @include set-rtl-direction;

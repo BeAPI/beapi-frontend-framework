@@ -1,3 +1,5 @@
+@use "../02-tools/m-btn" as *;
+
 %btn {
     @include btn;
 }

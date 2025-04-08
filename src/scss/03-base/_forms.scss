@@ -1,3 +1,12 @@
+@use "../01-abstract/variables" as *;
+@use "../02-tools/f-assign-inputs" as *;
+@use "../02-tools/f-get-svg-url" as *;
+@use "../02-tools/m-checkbox-custom" as *;
+@use "../02-tools/m-not-acf" as *;
+@use "../02-tools/m-radio-custom" as *;
+@use "../02-tools/m-select-custom" as *;
+@use "../05-components/btn";
+
 @use "sass:color";
 
 // All inputs variables

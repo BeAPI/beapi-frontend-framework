@@ -1,3 +1,6 @@
+@use "sass:meta";
+@use "../01-abstract/variables" as *;
+
 /**
  * Context selector - Make a context selector (editor / style)
  *
@@ -61,9 +64,9 @@
         @return $selector;
     }
 
-    @if (type-of($selector) == "string") {
+    @if (meta.type-of($selector) == "string") {
         $full-selector: $parent + " " + $selector;
-    } @else if (type-of($selector) == "list") {
+    } @else if (meta.type-of($selector) == "list") {
         @each $s in $selector {
             $full-selector: $full-selector + $parent + " " + $s;
         }

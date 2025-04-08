@@ -1,3 +1,6 @@
+@use "../01-abstract/constants" as *;
+@use "../01-abstract/variables" as *;
+
 .skip-links {
     position: fixed;
     top: var(--wp-admin-bar-height);

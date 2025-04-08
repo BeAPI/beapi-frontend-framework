@@ -1,5 +1,5 @@
-@use "../01-abstract/variables";
-@use "m-hover";
+@use "../01-abstract/variables" as *;
+@use "m-hover" as *;
 
 /**
  * Button - All mixins for buttons - Used in src/scss/05-components/_btn.scss
@@ -34,12 +34,12 @@
     font-size: 12px;
     font-weight: 700;
     line-height: 16px;
-    color: variables.$color-dark;
+    color: $color-dark;
     text-align: center;
-    background-color: variables.$color-primary;
+    background-color: $color-primary;
     border-radius: 10px;
 
-    @include m-hover.hover {
+    @include hover {
         @include btn-block-hover;
     }
 }
@@ -47,8 +47,8 @@
 // hover of the button block
 
 @mixin btn-block-hover {
-    color: variables.$color-primary;
-    background-color: variables.$color-dark;
+    color: $color-primary;
+    background-color: $color-dark;
 }
 
 // Coloring
@@ -57,7 +57,7 @@
     color: $color;
     background-color: $background-color;
 
-    @include m-hover.hover {
+    @include hover {
         color: $background-color;
         background-color: $color;
     }
@@ -70,7 +70,7 @@
     background-color: transparent;
     border: 2px solid currentColor; // Force button width VS Gutenberg CSS
 
-    @include m-hover.hover {
+    @include hover {
         @include btn-block-outline-hover;
     }
 }

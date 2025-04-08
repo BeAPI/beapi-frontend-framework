@@ -1,9 +1,9 @@
-@use "../../02-tools/m-text";
+@use "../../02-tools/m-text" as *;
 
 $paragraphs: "default", "small", "large", "huge";
 
 p {
-    @include m-text.text(default);
+    @include text(default);
 
     &.has-background {
         padding: 20px;
@@ -11,7 +11,7 @@ p {
 
     @each $style in $paragraphs {
         &.is-style-#{$style} {
-            @include m-text.text(#{$style});
+            @include text(#{$style});
         }
     }
 }

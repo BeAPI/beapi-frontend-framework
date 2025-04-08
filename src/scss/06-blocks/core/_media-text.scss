@@ -1,20 +1,20 @@
-@use "../../02-tools/m-editor-only";
-@use "../../02-tools/m-rtl";
-@use "../../02-tools/m-style-only";
+@use "../../02-tools/m-editor-only" as *;
+@use "../../02-tools/m-rtl" as *;
+@use "../../02-tools/m-style-only" as *;
 
 .wp-block-media-text {
-    @include m-rtl.rtl {
+    @include rtl {
         direction: rtl; // Force direction RTL, because WP force LTR direction on RTL view
     }
 
-    @include m-style-only.style-only {
+    @include style-only {
         &.alignfull {
             margin-top: 0;
             margin-bottom: 0;
         }
     }
 
-    @include m-editor-only.editor-only {
+    @include editor-only {
         [data-align="full"] & {
             margin-top: 0;
             margin-bottom: 0;

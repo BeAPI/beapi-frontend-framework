@@ -1,4 +1,4 @@
-@use "../../02-tools/m-heading";
+@use "../../02-tools/m-heading" as *;
 
 /**
  * Headings
@@ -35,17 +35,17 @@ $headings: (
 
 @each $i, $styles in $headings {
     h#{$i} {
-        @include m-heading.heading(h#{$i});
+        @include heading(h#{$i});
 
         @each $style in $styles {
             &.is-style-#{$style} {
-                @include m-heading.heading(h#{$i}, $style);
+                @include heading(h#{$i}, $style);
             }
         }
     }
 
     .is-style-h#{$i} {
-        @include m-heading.heading(h#{$i});
+        @include heading(h#{$i});
     }
 
     .has-h-#{$i}-font-size {

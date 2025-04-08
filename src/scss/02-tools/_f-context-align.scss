@@ -1,4 +1,4 @@
-@use "../01-abstract/variables";
+@use "../01-abstract/variables" as *;
 
 /**
  * Align - Make a context align (editor / style)
@@ -29,13 +29,13 @@ $function-context-align-last-value: "";
 
 @function context-align($value: null, $suffix: " > ") {
     @if not $value {
-        @if (variables.$entry-file-name == "style") {
+        @if ($entry-file-name == "style") {
             @return ".align" + $function-context-align-last-value;
         }
     } @else {
         $function-context-align-last-value: $value !global;
 
-        @if (variables.$entry-file-name == "editor") {
+        @if ($entry-file-name == "editor") {
             @return "[data-align=\"" + $value + "\"]" + $suffix;
         }
     }

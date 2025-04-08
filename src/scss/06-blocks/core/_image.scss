@@ -1,4 +1,4 @@
-@use "../../01-abstract/variables";
+@use "../../01-abstract/variables" as *;
 
 .wp-block-image {
     > img {
@@ -7,7 +7,7 @@
     }
 
     figcaption {
-        font-size: variables.$font-size-xs;
-        color: variables.$color-grey-600;
+        font-size: $font-size-xs;
+        color: $color-grey-600;
     }
 }

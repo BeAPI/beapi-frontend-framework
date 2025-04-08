@@ -1,4 +1,4 @@
-@use "../01-abstract/variables";
+@use "../01-abstract/variables" as *;
 
 /**
  * Container
@@ -15,7 +15,7 @@
  *
  */
 
-@mixin container($size: variables.$container-wide) {
+@mixin container($size: $container-wide) {
     width: min(#{$size}, 100% - calc(var(--responsive--gutter) * 2));
     margin-inline: auto;
 }

@@ -1,16 +1,16 @@
-@use "../01-abstract/variables";
-@use "../02-tools/m-rtl";
+@use "../01-abstract/variables" as *;
+@use "../02-tools/m-rtl" as *;
 
 html {
     /* Set automatic RTL direction depending on lang attribute */
-    @include m-rtl.set-rtl-direction;
+    @include set-rtl-direction;
 
     /* Apply border-box across the entire page. */
     box-sizing: border-box;
 
     // HTML resets
-    font-family: variables.$font-family-primary;
-    line-height: variables.$line-height-base;
+    font-family: $font-family-primary;
+    line-height: $line-height-base;
 
     // Scroll resets
     -webkit-overflow-scrolling: touch;
@@ -34,9 +34,9 @@ html {
 }
 
 body {
-    font-family: variables.$font-family-primary;
-    font-size: variables.$font-size-base;
+    font-family: $font-family-primary;
+    font-size: $font-size-base;
     font-weight: normal;
-    color: variables.$color-text;
-    background-color: variables.$color-light;
+    color: $color-text;
+    background-color: $color-light;
 }

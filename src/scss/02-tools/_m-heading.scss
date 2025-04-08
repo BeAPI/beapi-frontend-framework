@@ -1,4 +1,4 @@
-@use "../01-abstract/variables";
+@use "../01-abstract/variables" as *;
 
 /**
  * Heading - Used in src/scss/06-blocks/core/_heading.scss
@@ -44,7 +44,7 @@
  */
 
 @mixin heading($name: h1, $style: default) {
-    font-family: variables.$font-family-primary;
+    font-family: $font-family-primary;
     font-weight: 400;
 
     @if $name == h1 {

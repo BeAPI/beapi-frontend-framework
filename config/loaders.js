@@ -2,6 +2,7 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const srcPath = path.resolve(__dirname, '../src')
 const nodeModulesPath = path.resolve(__dirname, '../node_modules')
+const browserslistConfig = require('@wordpress/browserslist-config')
 
 function isEditor(loaderContext) {
   return loaderContext.resource.indexOf('editor.scss') > -1
@@ -62,7 +63,7 @@ module.exports = {
                   plugins: {
                     'postcss-import': {},
                     'postcss-preset-env': {
-                      browsers: 'last 2 versions, > 2%, not dead',
+                      browsers: browserslistConfig,
                       stage: 2,
                       features: {
                         // https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values

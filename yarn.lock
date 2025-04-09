@@ -1394,6 +1394,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@wordpress/browserslist-config@npm:^6.21.0":
+  version: 6.21.0
+  resolution: "@wordpress/browserslist-config@npm:6.21.0"
+  checksum: 10/cc7d517b6aac44fee8a00b4f54746909edcb5ece14730fb34d8ad1f302d44df64398624332e459aee2db32fa3602c649a3526f61e5db03959cfdc997687507bd
+  languageName: node
+  linkType: hard
+
 "@wordpress/compose@npm:^5.20.0":
   version: 5.20.0
   resolution: "@wordpress/compose@npm:5.20.0"
@@ -2094,6 +2101,7 @@ __metadata:
   dependencies:
     "@fontsource/poppins": "npm:^5.0.5"
     "@wordpress/blocks": "npm:^11.16.0"
+    "@wordpress/browserslist-config": "npm:^6.21.0"
     "@wordpress/dependency-extraction-webpack-plugin": "npm:^4.0.0"
     "@wordpress/dom-ready": "npm:^3.17.0"
     "@wordpress/hooks": "npm:^3.17.0"

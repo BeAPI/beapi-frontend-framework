@@ -4,10 +4,26 @@
 	width: 100%;
 	min-width: 240px;
 	border-collapse: collapse;
+
+	th {
+		font-weight: 700;
+	}
+
+	figcaption,
+	caption {
+		margin-bottom: var(--spacing--block-1);
+		font-size: var(--paragraph--font-size-default);
+		font-weight: 700;
+		line-height: var(--paragraph--line-height-default);
+		text-align: left;
+	}
 }
 
 .wp-block-table {
 	@extend %table;
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: flex-start;
 }
 
 // Not apply style to ACF fields

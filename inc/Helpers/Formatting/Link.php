@@ -180,6 +180,7 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 		$link_markup                  = '<button %s>%s%s</button>';
 		$attributes['data-seo-click'] = 'true';
 		$attributes['type']           = 'button';
+		$attributes['role']           = 'link';
 		$attributes['data-href']      = $attributes['href'];
 		$attributes['data-rel']       = $attributes['rel'];
 		$attributes['data-target']    = $attributes['target'];

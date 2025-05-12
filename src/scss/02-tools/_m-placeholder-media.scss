@@ -28,11 +28,6 @@
         content: "";
     }
 
-    .lazyload,
-    .lazyloading {
-        height: 0;
-    }
-
     #{$targets} {
         position: absolute;
         top: 0;

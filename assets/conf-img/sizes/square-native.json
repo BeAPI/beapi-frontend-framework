@@ -1,0 +1,12 @@
+[
+    {
+        "width": 500,
+        "height": 500,
+        "crop": true
+    },
+    {
+        "width": 1000,
+        "height": 1000,
+        "crop": true
+    }
+]

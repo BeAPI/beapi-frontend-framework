@@ -9,7 +9,7 @@ const WebpackBar = require('webpackbar')
 const DependencyExtractionWebpackPlugin = require('@wordpress/dependency-extraction-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
-const WebpackImageSizesPlugin = require('./WebpackImageSizesPlugin')
+const WebpackImageSizesPlugin = require('./webpack-image-sizes-plugin')
 
 module.exports = {
   get: function (mode) {
@@ -33,7 +33,15 @@ module.exports = {
       }),
       new DependencyExtractionWebpackPlugin(),
       new WebpackImageSizesPlugin({
-        watch: mode !== 'production',
+        confImgPath: 'assets/conf-img', // Path to the conf-img folder
+        sizesSubdir: 'sizes', // Subdirectory containing the sizes JSON files
+        tplSubdir: 'tpl', // Subdirectory containing TPL templates
+        outputImageLocations: 'image-locations.json', // Output locations file name
+        outputImageSizes: 'image-sizes.json', // Output sizes file name
+        generateDefaultImages: true, // Generate default images
+        defaultImageSource: 'src/img/static/default.jpg', // Source image for generation
+        defaultImagesOutputDir: 'dist/images', // Default images output directory
+        defaultImageFormat: 'jpg', // Generated image format (jpg, png, webp, avif)
       }),
     ]
 

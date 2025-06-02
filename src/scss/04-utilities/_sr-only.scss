@@ -1,3 +1,5 @@
+@use "../02-tools/m-sr-only" as *;
+
 %sr-only {
     @include sr-only;
 }

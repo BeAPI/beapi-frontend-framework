@@ -1,3 +1,7 @@
+@use "../../02-tools/m-editor-only" as *;
+@use "../../02-tools/m-rtl" as *;
+@use "../../02-tools/m-style-only" as *;
+
 .wp-block-media-text {
     @include rtl {
         direction: rtl; // Force direction RTL, because WP force LTR direction on RTL view

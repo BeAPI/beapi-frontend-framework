@@ -1,3 +1,6 @@
+@use "../../02-tools/m-editor-only" as *;
+@use "../../02-tools/m-style-only" as *;
+
 .wp-block-cover,
 .wp-block-cover-image {
     &:not(.alignwide):not(.alignfull) {

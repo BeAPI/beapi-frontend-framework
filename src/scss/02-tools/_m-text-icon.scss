@@ -1,3 +1,6 @@
+@use "../01-abstract/constants" as *;
+@use "f-get-svg-url" as *;
+
 /**
  * Add icon before text with mask to have the same color of the text
  *

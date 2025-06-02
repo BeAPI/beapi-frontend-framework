@@ -1,72 +1,110 @@
-$entry-file-name: "style";
-
 /**
  * Abstract
  * == Contain SCSS and CSS variables and webfonts declarations.
  */
 
-@import "./01-abstract/abstract";
+@use "01-abstract/constants";
+@use "01-abstract/variables";
 
-/**
- * Tools
- * == Contains functions and mixins.
- */
-
-@import "./02-tools/tools";
+variables.$entry-file-name: "style";
 
 /**
  * Base
  * == Contain generic styles such as normalize or reset.
  */
 
-@import "./03-base/base";
+@use "03-base/fonts";
+@use "03-base/variables-css";
+@use "03-base/normalize";
+@use "03-base/body";
+@use "03-base/svg-icons";
+@use "03-base/forms";
+@use "03-base/links";
+@use "03-base/media";
+@use "03-base/text";
+@use "03-base/print";
 
 /**
  * Utilities
  * == Utility classes that are not assigned to a specific component.
  */
 
-@import "./04-utilities/utilities";
+@use "04-utilities/wp-admin-bar";
+@use "04-utilities/focus";
+@use "04-utilities/lazyload";
+@use "04-utilities/seo";
+@use "04-utilities/video-wrapper";
+@use "04-utilities/palette";
+@use "04-utilities/container";
+@use "04-utilities/sr-only";
+@use "04-utilities/js-animation";
+@use "04-utilities/aria";
 
 /**
  * Components
  * == Contain any default component. Just give the components some basic styles.
  */
 
-@import "./05-components/components";
+@use "05-components/btn";
+@use "05-components/searchform";
+@use "05-components/skip-links";
 
 /**
  * Gutenberg
  * == Gutenberg core/custom blocks and patterns styles, style for front-end layout and editor.
  */
 
-@import "./06-blocks/gutenberg";
-@import "./06-blocks/blocks";
+@use "06-blocks/gutenberg";
+@use "06-blocks/core/audio";
+@use "06-blocks/core/buttons";
+@use "06-blocks/core/code";
+@use "06-blocks/core/columns";
+@use "06-blocks/core/cover";
+@use "06-blocks/core/file";
+@use "06-blocks/core/freeform";
+@use "06-blocks/core/gallery";
+@use "06-blocks/core/group";
+@use "06-blocks/core/heading";
+@use "06-blocks/core/image";
+@use "06-blocks/core/list";
+@use "06-blocks/core/media-text";
+@use "06-blocks/core/paragraph";
+@use "06-blocks/core/preformatted";
+@use "06-blocks/core/pullquote";
+@use "06-blocks/core/quote";
+@use "06-blocks/core/separator";
+@use "06-blocks/core/search";
+@use "06-blocks/core/spacer";
+@use "06-blocks/core/table";
+@use "06-blocks/core/video";
 
 /**
  * Patterns
  * == Contains styles for gutenberg patterns.
  */
 
-@import "./07-patterns/patterns";
+// @use "07-patterns/...";
 
 /**
  * Template parts
  * == If you want to add custom styles for specific page templates parts.
  */
 
-@import "./08-template-parts/template-parts";
+@use "08-template-parts/header";
+@use "08-template-parts/footer";
+@use "08-template-parts/hero";
 
 /**
  * Pages
  * == If you want to add custom styles for specific page templates.
  */
 
-@import "./09-templates/templates";
+@use "09-templates/home";
+@use "09-templates/default";
 
 /**
  * Vendor
  * == Plugins or libraries custom styles.
  */
 
-@import "./10-vendor/vendor";
+// @use "10-vendor/...";

@@ -1,3 +1,6 @@
+@use "../../02-tools/m-breakpoint" as *;
+@use "../../02-tools/m-editor-only" as *;
+
 .wp-block-group {
     $el: &;
 

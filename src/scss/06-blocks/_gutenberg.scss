@@ -1,3 +1,10 @@
+@use "../01-abstract/variables" as *;
+@use "../02-tools/f-context-selector" as *;
+@use "../02-tools/f-get-gutter-width" as *;
+@use "../02-tools/m-align" as *;
+@use "../02-tools/m-editor-only" as *;
+@use "../02-tools/m-heading" as *;
+
 @include editor-only {
     // ----
     // Post title style

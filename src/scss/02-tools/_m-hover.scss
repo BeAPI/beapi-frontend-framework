@@ -1,3 +1,4 @@
+@use "sass:meta";
 @use "sass:list";
 
 /**
@@ -44,10 +45,10 @@
     $selectors: "&:hover", "&:active", "&:focus";
 
     @if ($additionalSelectors) {
-        @if (type-of($additionalSelectors) == "string") {
+        @if (meta.type-of($additionalSelectors) == "string") {
             $selectors: $selectors "," $additionalSelectors;
         }
-        @else if (type-of($additionalSelectors) == "list") {
+        @else if (meta.type-of($additionalSelectors) == "list") {
             $selectors: list.join($selectors, $additionalSelectors, comma);
         }
     }

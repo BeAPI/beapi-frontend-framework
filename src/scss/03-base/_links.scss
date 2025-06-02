@@ -1,10 +1,13 @@
+@use "../02-tools/m-hover" as *;
+@use "../02-tools/m-text-icon" as *;
+
 a {
     color: currentColor;
     text-decoration: underline;
     cursor: pointer;
 
     &[target="_blank"] {
-        @include text-external-icon;
+        @include text-icon("external");
     }
 
     @include hover {
@@ -13,5 +16,5 @@ a {
 }
 
 .link-external {
-    @include text-external-icon;
+    @include text-icon("external");
 }

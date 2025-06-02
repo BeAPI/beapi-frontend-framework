@@ -1,3 +1,5 @@
+@use "../../01-abstract/variables" as *;
+
 .wp-block-image {
     > img {
         max-width: 100%;

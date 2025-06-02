@@ -1,3 +1,5 @@
+@use "f-context-selector";
+
 /**
  * Not apply style to ACF fields
  *
@@ -14,7 +16,7 @@
  */
 
 @mixin not-acf() {
-    #{context-selector(":where(body)", ":where(*:not([class*="acf-"])) >")} {
+    #{f-context-selector.context-selector(":where(body)", ":where(*:not([class*="acf-"])) >")} {
         @content;
     }
 }

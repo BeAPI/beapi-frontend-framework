@@ -1,5 +1,3 @@
-import 'lazysizes'
-import 'lazysizes/plugins/print/ls.print'
 import './classes/ScrollDirection'
 import './classes/ButtonSeoClick'
 import './classes/Header'

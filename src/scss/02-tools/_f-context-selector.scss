@@ -53,26 +53,26 @@
  */
 
 @function context-selector($default: null, $editor: null, $selector: null) {
-    $full-selector: "";
-    $parent: "";
+	$full-selector: "";
+	$parent: "";
 
-    @if ($entry-file-name == "editor" and $editor) {
-        $parent: $editor;
-    } @else if ($entry-file-name == "style" and $default) {
-        $parent: $default;
-    } @else {
-        @return $selector;
-    }
+	@if ($entry-file-name == "editor" and $editor) {
+		$parent: $editor;
+	} @else if ($entry-file-name == "style" and $default) {
+		$parent: $default;
+	} @else {
+		@return $selector;
+	}
 
-    @if (meta.type-of($selector) == "string") {
-        $full-selector: $parent + " " + $selector;
-    } @else if (meta.type-of($selector) == "list") {
-        @each $s in $selector {
-            $full-selector: $full-selector + $parent + " " + $s;
-        }
-    } @else {
-        $full-selector: $parent;
-    }
+	@if (meta.type-of($selector) == "string") {
+		$full-selector: $parent + " " + $selector;
+	} @else if (meta.type-of($selector) == "list") {
+		@each $s in $selector {
+			$full-selector: $full-selector + $parent + " " + $s;
+		}
+	} @else {
+		$full-selector: $parent;
+	}
 
-    @return $full-selector;
+	@return $full-selector;
 }

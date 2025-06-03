@@ -18,11 +18,11 @@
  */
 
 @mixin align($direction: left) {
-    float: $direction;
+	float: $direction;
 
-    @if ($direction == left) {
-        margin-inline-end: var(--spacing--block-1);
-    } @else {
-        margin-inline-start: var(--spacing--block-1);
-    }
+	@if ($direction == left) {
+		margin-inline-end: var(--spacing--block-1);
+	} @else {
+		margin-inline-start: var(--spacing--block-1);
+	}
 }

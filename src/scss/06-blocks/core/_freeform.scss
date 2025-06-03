@@ -2,22 +2,22 @@
 @use "../../02-tools/m-editor-only" as *;
 
 .wp-block-freeform {
-    @include editor-only {
-        // Remove the border of blockquotes inside the classic block.
-        &.block-library-rich-text__tinymce blockquote {
-            border: none;
-        }
+	@include editor-only {
+		// Remove the border of blockquotes inside the classic block.
+		&.block-library-rich-text__tinymce blockquote {
+			border: none;
+		}
 
-        // Adjust the position of the quote symbol for blockquotes inside the classic block.
-        &.block-library-rich-text__tinymce blockquote::before {
-            left: 5px;
-        }
+		// Adjust the position of the quote symbol for blockquotes inside the classic block.
+		&.block-library-rich-text__tinymce blockquote::before {
+			left: 5px;
+		}
 
-        // Backend Classic editor container
-        .mce-content-body {
-            width: #{$container-wide};
-            max-width: var(--responsive--alignwide-width);
-            margin: 0;
-        }
-    }
+		// Backend Classic editor container
+		.mce-content-body {
+			width: #{$container-wide};
+			max-width: var(--responsive--alignwide-width);
+			margin: 0;
+		}
+	}
 }

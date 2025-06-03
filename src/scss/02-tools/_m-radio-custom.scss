@@ -30,26 +30,26 @@
  */
 
 @mixin radio-custom($include-checkbox-style: false, $color: $color-primary, $size: 18px, $border-width: 1px) {
-    @if ($include-checkbox-style) {
-        @include m-checkbox-custom.checkbox-custom($color, $size, $border-width);
-    }
+	@if ($include-checkbox-style) {
+		@include m-checkbox-custom.checkbox-custom($color, $size, $border-width);
+	}
 
-    + label {
-        &::before {
-            border-radius: 50%;
-        }
+	+ label {
+		&::before {
+			border-radius: 50%;
+		}
 
-        &::after {
-            top: #{1px + math.div($size, 2)};
-            width: math.div($size, 2);
-            height: math.div($size, 2);
-            background: $color;
-            border: none;
-            border-radius: 50%;
-        }
-    }
+		&::after {
+			top: #{1px + math.div($size, 2)};
+			width: math.div($size, 2);
+			height: math.div($size, 2);
+			background: $color;
+			border: none;
+			border-radius: 50%;
+		}
+	}
 }
 
 @mixin radio-custom-checked() {
-    @include m-checkbox-custom.checkbox-custom-checked;
+	@include m-checkbox-custom.checkbox-custom-checked;
 }

@@ -20,7 +20,7 @@
  */
 
 @mixin style-only {
-    @if ($entry-file-name == "style") {
-        @content;
-    }
+	@if ($entry-file-name == "style") {
+		@content;
+	}
 }

@@ -27,25 +27,25 @@
  */
 
 @mixin container-query($breakpoint, $min-or-max-or-breakpoint: min, $container-name: "") {
-    $font-size: 16px; // don't use em function whitout param, $font-size-base can be modified
+	$font-size: 16px; // don't use em function whitout param, $font-size-base can be modified
 
-    @if (meta.type-of(map.get($breakpoints, $min-or-max-or-breakpoint)) == "number") {
+	@if (meta.type-of(map.get($breakpoints, $min-or-max-or-breakpoint)) == "number") {
 
-        @container #{$container-name} (min-width: #{em(map.get($breakpoints, $breakpoint), $font-size)}) and (max-width: #{em(map.get($breakpoints, $min-or-max-or-breakpoint) - 1, $font-size)}) {
+		@container #{$container-name} (min-width: #{em(map.get($breakpoints, $breakpoint), $font-size)}) and (max-width: #{em(map.get($breakpoints, $min-or-max-or-breakpoint) - 1, $font-size)}) {
 
-            @content;
-        }
-    } @else if ($min-or-max-or-breakpoint == max) {
+			@content;
+		}
+	} @else if ($min-or-max-or-breakpoint == max) {
 
-        @container #{$container-name} (max-width: #{em(map.get($breakpoints, $breakpoint) - 1, $font-size)}) {
+		@container #{$container-name} (max-width: #{em(map.get($breakpoints, $breakpoint) - 1, $font-size)}) {
 
-            @content;
-        }
-    } @else {
+			@content;
+		}
+	} @else {
 
-        @container #{$container-name} (min-width: #{em(map.get($breakpoints, $breakpoint), $font-size)}) {
+		@container #{$container-name} (min-width: #{em(map.get($breakpoints, $breakpoint), $font-size)}) {
 
-            @content;
-        }
-    }
+			@content;
+		}
+	}
 }

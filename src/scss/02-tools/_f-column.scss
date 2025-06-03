@@ -56,13 +56,13 @@
 
 @function column-set-var($var, $device, $prop) {
 
-    @if not $var {
+	@if not $var {
 
-        @return map.get(map.get($column-preset, $device), $prop);
-    } @else {
+		@return map.get(map.get($column-preset, $device), $prop);
+	} @else {
 
-        @return $var;
-    }
+		@return $var;
+	}
 }
 
 // ----
@@ -70,29 +70,29 @@
 // ----
 
 @function column($device, $nb-column: null, $nb-gutter: null, $total-column: null, $total-gutter: null) {
-    // shift vars if $device is number
-    @if meta.type-of($device) == "number" {
-        $total-gutter: $total-column;
-        $total-column: $nb-gutter;
-        $nb-gutter: $nb-column;
-        $nb-column: $device;
-        $device: d;
-    }
+	// shift vars if $device is number
+	@if meta.type-of($device) == "number" {
+		$total-gutter: $total-column;
+		$total-column: $nb-gutter;
+		$nb-gutter: $nb-column;
+		$nb-column: $device;
+		$device: d;
+	}
 
-    $preset: map.get($column-preset, $device);
-    $gutter-width: map.get($preset, gutter-width);
-    $column-width: map.get($preset, column-width);
-    $total-column: column-set-var($total-column, $device, total-column);
+	$preset: map.get($column-preset, $device);
+	$gutter-width: map.get($preset, gutter-width);
+	$column-width: map.get($preset, column-width);
+	$total-column: column-set-var($total-column, $device, total-column);
 
-    @if not $nb-gutter {
-        $nb-gutter: $nb-column - 1;
-    }
+	@if not $nb-gutter {
+		$nb-gutter: $nb-column - 1;
+	}
 
-    @if not $total-gutter {
-        $total-gutter: $total-column - 1;
-    }
+	@if not $total-gutter {
+		$total-gutter: $total-column - 1;
+	}
 
-    @return math.div($nb-column * $column-width + $nb-gutter * $gutter-width, $total-column * $column-width + $total-gutter * $gutter-width) * 100%;
+	@return math.div($nb-column * $column-width + $nb-gutter * $gutter-width, $total-column * $column-width + $total-gutter * $gutter-width) * 100%;
 }
 
 // ----
@@ -100,26 +100,26 @@
 // ----
 
 @function column-px($device, $nb-column: null, $nb-gutter: null, $unitless: false) {
-    // shift vars if $device is number
-    @if meta.type-of($device) == "number" {
-        $nb-gutter: $nb-column;
-        $nb-column: $device;
-        $device: d;
-    }
+	// shift vars if $device is number
+	@if meta.type-of($device) == "number" {
+		$nb-gutter: $nb-column;
+		$nb-column: $device;
+		$device: d;
+	}
 
-    $preset: map.get($column-preset, $device);
-    $gutter-width: map.get($preset, gutter-width);
-    $column-width: map.get($preset, column-width);
+	$preset: map.get($column-preset, $device);
+	$gutter-width: map.get($preset, gutter-width);
+	$column-width: map.get($preset, column-width);
 
-    @if not $nb-gutter {
-        $nb-gutter: $nb-column - 1;
-    }
+	@if not $nb-gutter {
+		$nb-gutter: $nb-column - 1;
+	}
 
-    @if $unitless == true {
-        @return $nb-column * $column-width + $nb-gutter * $gutter-width;
-    }
+	@if $unitless == true {
+		@return $nb-column * $column-width + $nb-gutter * $gutter-width;
+	}
 
-    @return #{$nb-column * $column-width + $nb-gutter * $gutter-width}px;
+	@return #{$nb-column * $column-width + $nb-gutter * $gutter-width}px;
 }
 
 // ----
@@ -127,19 +127,19 @@
 // ----
 
 @function column-full($device, $nb-column: null, $nb-gutter: null) {
-    // shift vars if $device is number
-    @if meta.type-of($device) == "number" {
-        $nb-gutter: $nb-column;
-        $nb-column: $device;
-        $device: d;
-    }
+	// shift vars if $device is number
+	@if meta.type-of($device) == "number" {
+		$nb-gutter: $nb-column;
+		$nb-column: $device;
+		$device: d;
+	}
 
-    $preset: map.get($column-preset, $device);
-    $gutter-width: map.get($preset, gutter-width);
-    $column-width: map.get($preset, column-width);
-    $total-column: map.get($preset, total-column);
+	$preset: map.get($column-preset, $device);
+	$gutter-width: map.get($preset, gutter-width);
+	$column-width: map.get($preset, column-width);
+	$total-column: map.get($preset, total-column);
 
-    $width: column-px($device, $nb-column, $nb-gutter, true);
+	$width: column-px($device, $nb-column, $nb-gutter, true);
 
-    @return calc((100% - calc(var(--responsive--gutter) * 2)) * #{math.div($width, ($gutter-width * ($total-column - 1) + $column-width * $total-column))});
+	@return calc((100% - calc(var(--responsive--gutter) * 2)) * #{math.div($width, ($gutter-width * ($total-column - 1) + $column-width * $total-column))});
 }

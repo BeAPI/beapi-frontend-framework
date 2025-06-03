@@ -24,13 +24,13 @@
  *
  */
 @mixin block-vertical-spacing($type : margin, $spacing : var(--spacing--block-3)) {
-    #{f-context-selector.context-selector(".blocks-container > &", ".is-root-container > &, .is-root-container > .wp-block[data-align] > &, .is-root-container > .acf-block-preview > &, .is-root-container > .wp-block-beapi-dynamic-block &, .is-root-container > .wp-block-beapi-manual-block &, .is-root-container > .wp-block[data-align] > .acf-block-preview > &, .is-root-container > .wp-block[data-align] > .wp-block-beapi-dynamic-block &, .is-root-container > .wp-block[data-align] > .wp-block-beapi-manual-block &")} {
-        #{$type}-top: $spacing;
-        #{$type}-bottom: $spacing;
+	#{f-context-selector.context-selector(".blocks-container > &", ".is-root-container > &, .is-root-container > .wp-block[data-align] > &, .is-root-container > .acf-block-preview > &, .is-root-container > .wp-block-beapi-dynamic-block &, .is-root-container > .wp-block-beapi-manual-block &, .is-root-container > .wp-block[data-align] > .acf-block-preview > &, .is-root-container > .wp-block[data-align] > .wp-block-beapi-dynamic-block &, .is-root-container > .wp-block[data-align] > .wp-block-beapi-manual-block &")} {
+		#{$type}-top: $spacing;
+		#{$type}-bottom: $spacing;
 
-        @if $type == padding {
-            margin-top: 0;
-            margin-bottom: 0;
-        }
-    }
+		@if $type == padding {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
 }

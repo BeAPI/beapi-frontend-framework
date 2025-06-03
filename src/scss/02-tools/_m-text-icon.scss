@@ -17,30 +17,30 @@
  */
 
 @mixin text-icon($icon: "arrow", $position: after, $color: currentColor, $size: 12px, $gap: 8px) {
-    position: relative;
-    display: inline-flex;
-    gap: $gap;
-    align-items: center;
+	position: relative;
+	display: inline-flex;
+	gap: $gap;
+	align-items: center;
 
-    &::#{$position} {
-        display: block;
-        width: $size;
-        height: $size;
-        content: "";
-        background-color: $color;
-        mask-image: get-svg-url($icon);
-        mask-position: center;
-        mask-repeat: no-repeat;
-        transition: background-color .5s $ease-out-expo;
-    }
+	&::#{$position} {
+		display: block;
+		width: $size;
+		height: $size;
+		content: "";
+		background-color: $color;
+		mask-image: get-svg-url($icon);
+		mask-position: center;
+		mask-repeat: no-repeat;
+		transition: background-color .5s $ease-out-expo;
+	}
 }
 
 @mixin text-external-icon($icon: "external", $position: after, $color: currentColor, $size: 12px, $gap: 8px) {
-    @include text-icon($icon, $position, $color, $size);
-    display: inline-block;
+	@include text-icon($icon, $position, $color, $size);
+	display: inline-block;
 
-    &::#{$position} {
-        display: inline-block;
-        margin-inline-start: $gap;
-    }
+	&::#{$position} {
+		display: inline-block;
+		margin-inline-start: $gap;
+	}
 }

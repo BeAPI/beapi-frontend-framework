@@ -42,29 +42,29 @@
  */
 
 @mixin sr-only($focusable: false) {
-    position: absolute;
-    top: auto !important;
-    left: -10000px !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
-    clip-path: inset(50%) !important; /* 2 */
-    white-space: nowrap !important; /* 3 */
-    border: 0 !important;
+	position: absolute;
+	top: auto !important;
+	left: -10000px !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+	clip-path: inset(50%) !important; /* 2 */
+	white-space: nowrap !important; /* 3 */
+	border: 0 !important;
 
-    @if $focusable {
-        &:focus,
-        &:active {
-            width: auto !important;
-            height: auto !important;
-            margin: auto !important;
-            overflow: visible !important;
-            clip: auto !important;
-            clip-path: none !important;
-            white-space: normal !important;
-        }
-    }
+	@if $focusable {
+		&:focus,
+		&:active {
+			width: auto !important;
+			height: auto !important;
+			margin: auto !important;
+			overflow: visible !important;
+			clip: auto !important;
+			clip-path: none !important;
+			white-space: normal !important;
+		}
+	}
 }

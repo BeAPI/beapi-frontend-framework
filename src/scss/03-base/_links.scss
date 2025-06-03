@@ -2,19 +2,19 @@
 @use "../02-tools/m-text-icon" as *;
 
 a {
-    color: currentColor;
-    text-decoration: underline;
-    cursor: pointer;
+	color: currentColor;
+	text-decoration: underline;
+	cursor: pointer;
 
-    &[target="_blank"] {
-        @include text-icon("external");
-    }
+	&[target="_blank"] {
+		@include text-icon("external");
+	}
 
-    @include hover {
-        text-decoration: none;
-    }
+	@include hover {
+		text-decoration: none;
+	}
 }
 
 .link-external {
-    @include text-icon("external");
+	@include text-icon("external");
 }

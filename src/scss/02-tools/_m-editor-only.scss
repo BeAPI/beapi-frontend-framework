@@ -20,7 +20,7 @@
  */
 
 @mixin editor-only {
-    @if ($entry-file-name == "editor") {
-        @content;
-    }
+	@if ($entry-file-name == "editor") {
+		@content;
+	}
 }

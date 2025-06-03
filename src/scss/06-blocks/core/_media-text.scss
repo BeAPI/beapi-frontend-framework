@@ -3,21 +3,21 @@
 @use "../../02-tools/m-style-only" as *;
 
 .wp-block-media-text {
-    @include rtl {
-        direction: rtl; // Force direction RTL, because WP force LTR direction on RTL view
-    }
+	@include rtl {
+		direction: rtl; // Force direction RTL, because WP force LTR direction on RTL view
+	}
 
-    @include style-only {
-        &.alignfull {
-            margin-top: 0;
-            margin-bottom: 0;
-        }
-    }
+	@include style-only {
+		&.alignfull {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
 
-    @include editor-only {
-        [data-align="full"] & {
-            margin-top: 0;
-            margin-bottom: 0;
-        }
-    }
+	@include editor-only {
+		[data-align="full"] & {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
 }

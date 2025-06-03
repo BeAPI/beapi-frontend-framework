@@ -2,11 +2,11 @@
 @use "sass:map";
 
 @each $name, $colors in $palette {
-    .has-#{$name}-color {
-        color: map.get($colors, color);
-    }
+	.has-#{$name}-color {
+		color: map.get($colors, color);
+	}
 
-    .has-#{$name}-background-color {
-        background-color: map.get($colors, color);
-    }
+	.has-#{$name}-background-color {
+		background-color: map.get($colors, color);
+	}
 }

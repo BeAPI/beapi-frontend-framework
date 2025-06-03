@@ -3,20 +3,20 @@
  */
 
 .searchform {
-    position: relative;
+	position: relative;
 
-    &__field[type="search"] {
-        padding-inline-end: var(--spacing--block-1);
-    }
+	&__field[type="search"] {
+		padding-inline-end: var(--spacing--block-1);
+	}
 
-    &__submit {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
+	&__submit {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
 
-        .icon {
-            vertical-align: -15%;
-        }
-    }
+		.icon {
+			vertical-align: -15%;
+		}
+	}
 }

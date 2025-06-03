@@ -16,7 +16,7 @@
  */
 
 @mixin not-acf() {
-    #{f-context-selector.context-selector(":where(body)", ":where(*:not([class*="acf-"])) >")} {
-        @content;
-    }
+	#{f-context-selector.context-selector(":where(body)", ":where(*:not([class*="acf-"])) >")} {
+		@content;
+	}
 }

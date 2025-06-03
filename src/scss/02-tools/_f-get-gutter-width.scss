@@ -25,9 +25,9 @@
  */
 
 @function get-gutter($preset: d) {
-    @return map.get(map.get($column-preset, $preset), gutter-width);
+	@return map.get(map.get($column-preset, $preset), gutter-width);
 }
 
 @function get-gutter-width($preset: d) {
-    @return get-gutter($preset) * 1px;
+	@return get-gutter($preset) * 1px;
 }

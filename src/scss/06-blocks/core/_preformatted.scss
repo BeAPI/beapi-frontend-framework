@@ -2,13 +2,13 @@
 @use "../../02-tools/m-style-only" as *;
 
 .wp-block-preformatted {
-    overflow-x: auto;
+	overflow-x: auto;
 
-    @include style-only {
-        white-space: pre;
-    }
+	@include style-only {
+		white-space: pre;
+	}
 
-    @include editor-only {
-        white-space: pre !important;
-    }
+	@include editor-only {
+		white-space: pre !important;
+	}
 }

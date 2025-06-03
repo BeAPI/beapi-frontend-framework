@@ -14,27 +14,27 @@
  */
 
 @mixin text($name: default) {
-    @if $name == default {
-        font-size: var(--paragraph--font-size-default);
-        font-weight: 400;
-        line-height: var(--paragraph--line-height-default);
-    }
+	@if $name == default {
+		font-size: var(--paragraph--font-size-default);
+		font-weight: 400;
+		line-height: var(--paragraph--line-height-default);
+	}
 
-    @if $name == small {
-        font-size: var(--paragraph--font-size-small);
-        font-weight: 400;
-        line-height: var(--paragraph--line-height-small);
-    }
+	@if $name == small {
+		font-size: var(--paragraph--font-size-small);
+		font-weight: 400;
+		line-height: var(--paragraph--line-height-small);
+	}
 
-    @if $name == large {
-        font-size: var(--paragraph--font-size-large);
-        font-weight: 400;
-        line-height: var(--paragraph--line-height-large);
-    }
+	@if $name == large {
+		font-size: var(--paragraph--font-size-large);
+		font-weight: 400;
+		line-height: var(--paragraph--line-height-large);
+	}
 
-    @if $name == huge {
-        font-size: var(--paragraph--font-size-huge);
-        font-weight: 400;
-        line-height: var(--paragraph--line-height-huge);
-    }
+	@if $name == huge {
+		font-size: var(--paragraph--font-size-huge);
+		font-weight: 400;
+		line-height: var(--paragraph--line-height-huge);
+	}
 }

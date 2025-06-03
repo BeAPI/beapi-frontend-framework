@@ -4,9 +4,9 @@
 /* Main Layout */
 .container,
 .container-wide {
-    @include container;
+	@include container;
 }
 
 .container-default {
-    @include container($container-default);
+	@include container($container-default);
 }

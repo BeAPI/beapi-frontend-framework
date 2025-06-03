@@ -30,7 +30,7 @@
                 "scss/at-if-closing-brace-space-after": null,
                 "no-invalid-position-at-import-rule": null,
                 "custom-property-pattern": null,
-                "indentation": 4,
+                "indentation": "tab",
                 "number-leading-zero": "never",
                 "string-quotes": "double",
                 "length-zero-no-unit": [

@@ -19,33 +19,33 @@
  */
 
 @mixin placeholder-media($width, $height, $targets: "img", $object-fit: "") {
-    position: relative;
+	position: relative;
 
-    &::before {
-        @include placeholder-media-size($width, $height);
+	&::before {
+		@include placeholder-media-size($width, $height);
 
-        display: block;
-        content: "";
-    }
+		display: block;
+		content: "";
+	}
 
-    #{$targets} {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
+	#{$targets} {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
 
-    @if ($object-fit != "") {
-        img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: $object-fit;
-        }
-    }
+	@if ($object-fit != "") {
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: $object-fit;
+		}
+	}
 }
 
 @mixin placeholder-media-size($width, $height) {
-    padding-bottom: math.div($height, $width) * 100%;
+	padding-bottom: math.div($height, $width) * 100%;
 }

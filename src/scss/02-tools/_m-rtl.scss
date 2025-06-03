@@ -14,32 +14,32 @@
  */
 
 $rtl-languages: (
-    "ar",  // Arabic
-    "fa",  // Persian (Farsi)
-    "he",  // Hebrew (modern code)
-    "iw",  // Hebrew (legacy code)
-    "ur",  // Urdu
-    "ps",  // Pashto
-    "sd",  // Sindhi
-    "ug",  // Uyghur
-    "dv",  // Divehi (Maldivian)
-    "ku",  // Kurdish (Sorani)
-    "yi"   // Yiddish
+	"ar",  // Arabic
+	"fa",  // Persian (Farsi)
+	"he",  // Hebrew (modern code)
+	"iw",  // Hebrew (legacy code)
+	"ur",  // Urdu
+	"ps",  // Pashto
+	"sd",  // Sindhi
+	"ug",  // Uyghur
+	"dv",  // Divehi (Maldivian)
+	"ku",  // Kurdish (Sorani)
+	"yi"   // Yiddish
 );
 
 @mixin rtl {
-    @each $lang in $rtl-languages {
-        *[dir="rtl"] &,
-        :root:lang(#{$lang}) & {
-            @content;
-        }
-    }
+	@each $lang in $rtl-languages {
+		*[dir="rtl"] &,
+		:root:lang(#{$lang}) & {
+			@content;
+		}
+	}
 }
 
 @mixin set-rtl-direction {
-    @each $lang in $rtl-languages {
-        &:lang(#{$lang}) {
-            direction: rtl;
-        }
-    }
+	@each $lang in $rtl-languages {
+		&:lang(#{$lang}) {
+			direction: rtl;
+		}
+	}
 }

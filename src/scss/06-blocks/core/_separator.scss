@@ -1,25 +1,25 @@
 @use "../../02-tools/m-editor-only" as *;
 
 hr {
-    margin-right: auto;
-    margin-left: auto;
-    clear: both;
-    border-style: none;
+	margin-right: auto;
+	margin-left: auto;
+	clear: both;
+	border-style: none;
 
-    &.wp-block-separator {
-        // style
-    }
+	&.wp-block-separator {
+		// style
+	}
 }
 
 @include editor-only {
-    .wp-block-separator,
-    hr {
-        clear: both;
+	.wp-block-separator,
+	hr {
+		clear: both;
 
-        [data-align="full"] > &,
-        [data-align="wide"] > & {
-            max-width: inherit;
-        }
+		[data-align="full"] > &,
+		[data-align="wide"] > & {
+			max-width: inherit;
+		}
 
-    }
+	}
 }

@@ -42,6 +42,7 @@ module.exports = {
         defaultImageSource: 'src/img/static/default.jpg', // Source image for generation
         defaultImagesOutputDir: 'dist/images', // Default images output directory
         defaultImageFormat: 'jpg', // Generated image format (jpg, png, webp, avif)
+        silence: true, // Suppress console output
       }),
     ]
 

@@ -6,6 +6,7 @@ let sharp
 try {
   sharp = require('sharp')
 } catch (error) {
+  // Note: This warning is shown before plugin instantiation, so silence option doesn't apply here
   console.warn('⚠️  Sharp not available. Default image generation will be disabled.')
 }
 
@@ -29,6 +30,7 @@ class WebpackImageSizesPlugin {
    * @param {string} [options.defaultImageSource='src/img/static/default.jpg'] - Path to the source image for generating defaults
    * @param {string} [options.defaultImagesOutputDir='dist/images'] - Directory where default images will be generated
    * @param {string} [options.defaultImageFormat='jpg'] - Format for generated images (jpg, png, webp, avif)
+   * @param {boolean} [options.silence=false] - Whether to suppress console output
    * @memberof WebpackImageSizesPlugin
    */
   constructor(options = {}) {
@@ -42,7 +44,21 @@ class WebpackImageSizesPlugin {
       defaultImageSource: options.defaultImageSource || 'src/img/static/default.jpg',
       defaultImagesOutputDir: options.defaultImagesOutputDir || 'dist/images',
       defaultImageFormat: options.defaultImageFormat || 'jpg',
+      silence: options.silence || false,
       ...options,
+    }
+  }
+
+  /**
+   * Logs a message to the console if silence option is not enabled.
+   *
+   * @param {string} level - Log level ('log', 'warn', 'error')
+   * @param {...any} args - Arguments to pass to console method
+   * @memberof WebpackImageSizesPlugin
+   */
+  log(level, ...args) {
+    if (!this.options.silence) {
+      console[level](...args)
     }
   }
 
@@ -61,7 +77,7 @@ class WebpackImageSizesPlugin {
         const sizesPath = path.join(confImgPath, this.options.sizesSubdir)
         const tplPath = path.join(confImgPath, this.options.tplSubdir)
 
-        console.log('🔧 Starting WebpackImageSizesPlugin generation...')
+        this.log('log', '🔧 Starting WebpackImageSizesPlugin generation...')
 
         // Check for deleted/renamed files if output files already exist
         this.checkForDeletedFiles(confImgPath, sizesPath, tplPath)
@@ -79,7 +95,7 @@ class WebpackImageSizesPlugin {
         fs.writeFileSync(imageLocationsPath, JSON.stringify(imageLocations, null, 2))
         fs.writeFileSync(imageSizesPath, JSON.stringify(imageSizes, null, 2))
 
-        console.log(`✅ Generated ${this.options.outputImageLocations} and ${this.options.outputImageSizes}`)
+        this.log('log', `✅ Generated ${this.options.outputImageLocations} and ${this.options.outputImageSizes}`)
 
         // Generate default images if option is enabled
         if (this.options.generateDefaultImages) {
@@ -90,7 +106,7 @@ class WebpackImageSizesPlugin {
           callback()
         }
       } catch (error) {
-        console.error('❌ Error in WebpackImageSizesPlugin:', error)
+        this.log('error', '❌ Error in WebpackImageSizesPlugin:', error)
         if (callback) {
           callback(error)
         }
@@ -102,7 +118,7 @@ class WebpackImageSizesPlugin {
 
     // Hook for rebuilds in watch mode
     compiler.hooks.watchRun.tapAsync('WebpackImageSizesPlugin', (compiler, callback) => {
-      console.log('👀 Watch mode: checking for conf-img changes...')
+      this.log('log', '👀 Watch mode: checking for conf-img changes...')
       runGeneration(null, callback)
     })
 
@@ -117,11 +133,11 @@ class WebpackImageSizesPlugin {
         // Watch configuration directories
         if (fs.existsSync(sizesPath)) {
           compilation.contextDependencies.add(sizesPath)
-          console.log('📁 Added sizes directory to watch dependencies')
+          this.log('log', '📁 Added sizes directory to watch dependencies')
         }
         if (fs.existsSync(tplPath)) {
           compilation.contextDependencies.add(tplPath)
-          console.log('📁 Added tpl directory to watch dependencies')
+          this.log('log', '📁 Added tpl directory to watch dependencies')
         }
       })
     })
@@ -143,12 +159,12 @@ class WebpackImageSizesPlugin {
     const allSizes = new Set() // To avoid duplicates
 
     if (!fs.existsSync(sizesPath)) {
-      console.warn(`⚠️  Sizes directory not found: ${sizesPath}`)
+      this.log('warn', `⚠️  Sizes directory not found: ${sizesPath}`)
       return imageSizes
     }
 
     const sizeFiles = fs.readdirSync(sizesPath).filter((file) => file.endsWith('.json'))
-    console.log(`📋 Processing ${sizeFiles.length} size files: ${sizeFiles.join(', ')}`)
+    this.log('log', `📋 Processing ${sizeFiles.length} size files: ${sizeFiles.join(', ')}`)
 
     sizeFiles.forEach((file) => {
       try {
@@ -170,14 +186,14 @@ class WebpackImageSizesPlugin {
           }
         })
       } catch (error) {
-        console.error(`❌ Error parsing ${file}:`, error)
+        this.log('error', `❌ Error parsing ${file}:`, error)
       }
     })
 
     // Extract additional sizes from TPL files that are not in JSON files
     this.extractSizesFromTPLFiles(tplPath, imageLocations, imageSizes[0], allSizes)
 
-    console.log(`📐 Generated ${Object.keys(imageSizes[0]).length} unique image sizes`)
+    this.log('log', `📐 Generated ${Object.keys(imageSizes[0]).length} unique image sizes`)
     return imageSizes
   }
 
@@ -228,7 +244,7 @@ class WebpackImageSizesPlugin {
             crop: true, // Default crop value for TPL-extracted sizes
           }
 
-          console.log(`🎨 Added size from TPL: ${sizeKey}`)
+          this.log('log', `🎨 Added size from TPL: ${sizeKey}`)
         }
       }
     })
@@ -248,13 +264,13 @@ class WebpackImageSizesPlugin {
     const processedFiles = new Set() // For tracking processed files
 
     if (!fs.existsSync(sizesPath)) {
-      console.warn(`⚠️  Sizes directory not found: ${sizesPath}`)
+      this.log('warn', `⚠️  Sizes directory not found: ${sizesPath}`)
       return imageLocations
     }
 
     // Process JSON files in sizes/ first
     const sizeFiles = fs.readdirSync(sizesPath).filter((file) => file.endsWith('.json'))
-    console.log(`📋 Processing ${sizeFiles.length} JSON files from sizes/: ${sizeFiles.join(', ')}`)
+    this.log('log', `📋 Processing ${sizeFiles.length} JSON files from sizes/: ${sizeFiles.join(', ')}`)
 
     sizeFiles.forEach((file) => {
       try {
@@ -275,14 +291,14 @@ class WebpackImageSizesPlugin {
 
         processedFiles.add(filename)
       } catch (error) {
-        console.error(`❌ Error parsing JSON ${file}:`, error)
+        this.log('error', `❌ Error parsing JSON ${file}:`, error)
       }
     })
 
     // Then process TPL files for unprocessed or missing files
     if (fs.existsSync(tplPath)) {
       const tplFiles = fs.readdirSync(tplPath).filter((file) => file.endsWith('.tpl'))
-      console.log(`📋 Processing ${tplFiles.length} TPL files: ${tplFiles.join(', ')}`)
+      this.log('log', `📋 Processing ${tplFiles.length} TPL files: ${tplFiles.join(', ')}`)
 
       tplFiles.forEach((file) => {
         try {
@@ -307,20 +323,20 @@ class WebpackImageSizesPlugin {
             ]
 
             processedFiles.add(filename)
-            console.log(`📝 Added location from TPL: ${filename}`)
+            this.log('log', `📝 Added location from TPL: ${filename}`)
           }
         } catch (error) {
-          console.error(`❌ Error parsing TPL ${file}:`, error)
+          this.log('error', `❌ Error parsing TPL ${file}:`, error)
         }
       })
     }
 
     const totalEntries = Object.keys(imageLocations[0]).length
-    console.log(`📍 Generated ${totalEntries} image locations (${processedFiles.size} files processed)`)
+    this.log('log', `📍 Generated ${totalEntries} image locations (${processedFiles.size} files processed)`)
 
     // Log processed files for debugging
     if (processedFiles.size > 0) {
-      console.log(`✅ Processed files: ${Array.from(processedFiles).join(', ')}`)
+      this.log('log', `✅ Processed files: ${Array.from(processedFiles).join(', ')}`)
     }
 
     return imageLocations
@@ -335,7 +351,7 @@ class WebpackImageSizesPlugin {
    */
   async generateDefaultImages(compilerContext, imageSizes) {
     if (!sharp) {
-      console.warn('⚠️  Sharp not available. Skipping default image generation.')
+      this.log('warn', '⚠️  Sharp not available. Skipping default image generation.')
       return
     }
 
@@ -343,7 +359,7 @@ class WebpackImageSizesPlugin {
     const outputDir = path.resolve(compilerContext, this.options.defaultImagesOutputDir)
 
     if (!fs.existsSync(sourceImagePath)) {
-      console.warn(`⚠️  Source image not found: ${sourceImagePath}`)
+      this.log('warn', `⚠️  Source image not found: ${sourceImagePath}`)
       return
     }
 
@@ -358,11 +374,12 @@ class WebpackImageSizesPlugin {
     // Validate format
     const supportedFormats = ['jpg', 'jpeg', 'png', 'webp', 'avif']
     if (!supportedFormats.includes(format)) {
-      console.warn(`⚠️  Unsupported format '${format}'. Using 'jpg' instead.`)
+      this.log('warn', `⚠️  Unsupported format '${format}'. Using 'jpg' instead.`)
       this.options.defaultImageFormat = 'jpg'
     }
 
-    console.log(
+    this.log(
+      'log',
       `🖼️  Generating ${sizeKeys.length} default images (${format.toUpperCase()}) from ${
         this.options.defaultImageSource
       }`
@@ -396,14 +413,14 @@ class WebpackImageSizesPlugin {
         const formatOptions = this.getFormatOptions(this.options.defaultImageFormat)
         await sharpInstance[formatOptions.method](formatOptions.options).toFile(outputPath)
 
-        console.log(`✨ Generated: ${outputFilename} (${width}x${height}${size.crop ? ', cropped' : ''})`)
+        this.log('log', `✨ Generated: ${outputFilename} (${width}x${height}${size.crop ? ', cropped' : ''})`)
       } catch (error) {
-        console.error(`❌ Error generating ${outputFilename}:`, error.message)
+        this.log('error', `❌ Error generating ${outputFilename}:`, error.message)
       }
     })
 
     await Promise.all(promises)
-    console.log(`🎉 Default image generation completed!`)
+    this.log('log', `🎉 Default image generation completed!`)
   }
 
   /**
@@ -455,7 +472,7 @@ class WebpackImageSizesPlugin {
 
     // Check if image-locations.json file already exists
     if (!fs.existsSync(imageLocationsPath)) {
-      console.log('📄 No existing image-locations.json found, creating fresh files')
+      this.log('log', '📄 No existing image-locations.json found, creating fresh files')
       return
     }
 
@@ -485,23 +502,23 @@ class WebpackImageSizesPlugin {
       const deletedFiles = existingEntries.filter((entry) => !currentFiles.includes(entry))
 
       if (deletedFiles.length > 0) {
-        console.log(`🗑️  Detected ${deletedFiles.length} deleted/renamed files: ${deletedFiles.join(', ')}`)
-        console.log('   → These entries will be removed from generated files')
+        this.log('log', `🗑️  Detected ${deletedFiles.length} deleted/renamed files: ${deletedFiles.join(', ')}`)
+        this.log('log', '   → These entries will be removed from generated files')
       }
 
       // Detect new files
       const newFiles = currentFiles.filter((file) => !existingEntries.includes(file))
 
       if (newFiles.length > 0) {
-        console.log(`📂 Detected ${newFiles.length} new files: ${newFiles.join(', ')}`)
-        console.log('   → These entries will be added to generated files')
+        this.log('log', `📂 Detected ${newFiles.length} new files: ${newFiles.join(', ')}`)
+        this.log('log', '   → These entries will be added to generated files')
       }
 
       if (deletedFiles.length === 0 && newFiles.length === 0) {
-        console.log('📋 No file changes detected')
+        this.log('log', '📋 No file changes detected')
       }
     } catch (error) {
-      console.warn('⚠️  Could not read existing image-locations.json:', error.message)
+      this.log('warn', '⚠️  Could not read existing image-locations.json:', error.message)
     }
   }
 }

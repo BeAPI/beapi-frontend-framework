@@ -8,35 +8,35 @@ import { unregisterBlockStyle, getBlockVariations, unregisterBlockVariation } fr
 
 // Native Gutenberg
 domReady(() => {
-  // Disable specific block styles
-  if (BFFEditorSettings.disabledBlocksStyles) {
-    Object.entries(BFFEditorSettings.disabledBlocksStyles).forEach(([block, styles]) => {
-      unregisterBlockStyle(block, styles)
-    })
-  }
+	// Disable specific block styles
+	if (BFFEditorSettings.disabledBlocksStyles) {
+		Object.entries(BFFEditorSettings.disabledBlocksStyles).forEach(([block, styles]) => {
+			unregisterBlockStyle(block, styles)
+		})
+	}
 
-  // Allow blocks variations
-  if (BFFEditorSettings.allowedBlocksVariations) {
-    Object.entries(BFFEditorSettings.allowedBlocksVariations).forEach(([block, variations]) => {
-      getBlockVariations(block).forEach((variant) => {
-        if (!variations.includes(variant.name)) {
-          unregisterBlockVariation(block, variant.name)
-        }
-      })
-    })
-  }
+	// Allow blocks variations
+	if (BFFEditorSettings.allowedBlocksVariations) {
+		Object.entries(BFFEditorSettings.allowedBlocksVariations).forEach(([block, variations]) => {
+			getBlockVariations(block).forEach((variant) => {
+				if (!variations.includes(variant.name)) {
+					unregisterBlockVariation(block, variant.name)
+				}
+			})
+		})
+	}
 })
 
 // ACF Blocks
 if (window.acf) {
-  // Do stuff
+	// Do stuff
 }
 
 addFilter('blocks.registerBlockType', 'beapi-framework', function (settings, name) {
-  // Disable all styles
-  if (BFFEditorSettings.disableAllBlocksStyles && BFFEditorSettings.disableAllBlocksStyles.includes(name)) {
-    settings.styles = []
-  }
+	// Disable all styles
+	if (BFFEditorSettings.disableAllBlocksStyles && BFFEditorSettings.disableAllBlocksStyles.includes(name)) {
+		settings.styles = []
+	}
 
-  return settings
+	return settings
 })

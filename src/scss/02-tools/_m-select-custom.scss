@@ -65,8 +65,4 @@
 			outline: none;
 		}
 	}
-
-	@include rtl {
-		background-position: left 10px top 50%, 0 0;
-	}
 }

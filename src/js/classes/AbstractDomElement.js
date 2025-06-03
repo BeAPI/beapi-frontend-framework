@@ -37,7 +37,7 @@ class AbstractDomElement {
 		// provide an explicit spaceName to prevent conflict after minification
 		// MaClass.nameSpace = 'MaClass'
 		this.constructor.nameSpace = this.constructor.nameSpace || this.constructor.name
-		const nameSpace = this.constructor.nameSpace
+		const { nameSpace } = this.constructor
 
 		// if no spacename beapi, create it - avoid futur test
 		if (!element.beapi) {
@@ -110,7 +110,7 @@ class AbstractDomElement {
 	}
 
 	static initFromPreset() {
-		const preset = this.preset
+		const { preset } = this
 		let selector
 
 		for (selector in preset) {
@@ -121,7 +121,7 @@ class AbstractDomElement {
 	}
 
 	static destroyFromPreset() {
-		const preset = this.preset
+		const { preset } = this
 		let selector
 
 		for (selector in preset) {

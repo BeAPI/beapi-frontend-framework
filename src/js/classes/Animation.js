@@ -151,7 +151,7 @@ class Animation extends AbstractDomElement {
 	 * Static are animations enabled
 	 * @returns {boolean}
 	 */
-	static areAnimationsEnbaled() {
+	static areAnimationsEnabled() {
 		return document.documentElement.classList.contains(animationClass)
 	}
 }
@@ -262,7 +262,7 @@ Animation.preset = {
 				})
 
 				const children = el.getElementsByClassName('st-line')
-				const length = children.length
+				const { length } = children
 				let i
 
 				if (length > 1) {

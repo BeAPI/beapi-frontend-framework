@@ -79,6 +79,7 @@ class ScrollDirection extends AbstractDomElement {
 		super.destroy()
 		this._scrollObserver.unobserve(this._element)
 		this._element.classList.remove('scroll-' + this._directions[this._current])
+		clearTimeout(this._timer)
 	}
 }
 

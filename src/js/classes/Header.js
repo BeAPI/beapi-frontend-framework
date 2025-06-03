@@ -89,7 +89,7 @@ class Header extends AbstractDomElement {
 	openSubMenu(liParent) {
 		const toggle = liParent.children[1]
 		const subMenu = liParent.children[2]
-		var childHeight
+		let childHeight
 
 		this._openedSubMenu = subMenu
 
@@ -156,7 +156,7 @@ Header.defaults = {
 // events
 // ----
 function onKeyup(e) {
-	const activeElement = document.activeElement
+	const { activeElement } = document
 
 	// escape
 	if (e.keyCode === 27) {

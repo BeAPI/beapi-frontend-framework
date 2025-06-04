@@ -47,6 +47,8 @@ class WebpackImageSizesPlugin {
       silence: false,
       ...options,
     }
+
+    this.hasBeenBuiltOnce = false
   }
 
   /**
@@ -82,7 +84,7 @@ class WebpackImageSizesPlugin {
 
         // Check if there are any changes in the conf-img directory
         // Assumes that no modified files means the start of the build (yarn start || yarn build)
-        if (WebpackImageSizesPlugin.hasBeenBuiltOnce && compilation.modifiedFiles) {
+        if (this.hasBeenBuiltOnce && compilation.modifiedFiles) {
           for (const filePath of compilation.modifiedFiles) {
             if (filePath.includes(this.options.confImgPath)) {
               hasChanges = true
@@ -90,7 +92,7 @@ class WebpackImageSizesPlugin {
           }
         }
 
-        if (WebpackImageSizesPlugin.hasBeenBuiltOnce && !hasChanges) {
+        if (this.hasBeenBuiltOnce && !hasChanges) {
           this.log('log', `✅ No changes detected in ${this.options.confImgPath}`)
 
           if (callback) {
@@ -100,7 +102,7 @@ class WebpackImageSizesPlugin {
           return
         }
 
-        WebpackImageSizesPlugin.hasBeenBuiltOnce = true
+        this.hasBeenBuiltOnce = true
 
         this.log('log', '🔧 Starting WebpackImageSizesPlugin generation...')
 
@@ -543,11 +545,6 @@ class WebpackImageSizesPlugin {
     }
   }
 }
-
-// ----
-// static properties
-// ----
-WebpackImageSizesPlugin.hasBeenBuiltOnce = false
 
 // ----
 // export

@@ -150,19 +150,16 @@ class WebpackImageSizesPlugin {
     })
 
     // Add directories to watch
-    compiler.hooks.afterEnvironment.tap('WebpackImageSizesPlugin', () => {
-      // Add directories to watched dependencies
-      compiler.hooks.compilation.tap('WebpackImageSizesPlugin', (compilation) => {
-        // Watch configuration directories
-        if (fs.existsSync(sizesPath)) {
-          compilation.contextDependencies.add(sizesPath)
-          this.log('log', '📁 Added sizes directory to watch dependencies')
-        }
-        if (fs.existsSync(tplPath)) {
-          compilation.contextDependencies.add(tplPath)
-          this.log('log', '📁 Added tpl directory to watch dependencies')
-        }
-      })
+    compiler.hooks.compilation.tap('WebpackImageSizesPlugin', (compilation) => {
+      // Watch configuration directories
+      if (fs.existsSync(sizesPath)) {
+        compilation.contextDependencies.add(sizesPath)
+        this.log('log', '📁 Added sizes directory to watch dependencies')
+      }
+      if (fs.existsSync(tplPath)) {
+        compilation.contextDependencies.add(tplPath)
+        this.log('log', '📁 Added tpl directory to watch dependencies')
+      }
     })
   }
 

@@ -72,7 +72,7 @@ class WebpackImageSizesPlugin {
    * @memberof WebpackImageSizesPlugin
    */
   apply(compiler) {
-    const context = compiler.context
+    const { context } = compiler
     const confImgPath = path.resolve(context, this.options.confImgPath)
     const sizesPath = path.join(confImgPath, this.options.sizesSubdir)
     const tplPath = path.join(confImgPath, this.options.tplSubdir)

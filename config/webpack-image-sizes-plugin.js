@@ -35,16 +35,16 @@ class WebpackImageSizesPlugin {
    */
   constructor(options = {}) {
     this.options = {
-      confImgPath: options.confImgPath || 'assets/conf-img',
-      sizesSubdir: options.sizesSubdir || 'sizes',
-      tplSubdir: options.tplSubdir || 'tpl',
-      outputImageLocations: options.outputImageLocations || 'image-locations.json',
-      outputImageSizes: options.outputImageSizes || 'image-sizes.json',
-      generateDefaultImages: options.generateDefaultImages || false,
-      defaultImageSource: options.defaultImageSource || 'src/img/static/default.jpg',
-      defaultImagesOutputDir: options.defaultImagesOutputDir || 'dist/images',
-      defaultImageFormat: options.defaultImageFormat || 'jpg',
-      silence: options.silence || false,
+      confImgPath: 'assets/conf-img',
+      sizesSubdir: 'sizes',
+      tplSubdir: 'tpl',
+      outputImageLocations: 'image-locations.json',
+      outputImageSizes: 'image-sizes.json',
+      generateDefaultImages: false,
+      defaultImageSource: 'src/img/static/default.jpg',
+      defaultImagesOutputDir: 'dist/images',
+      defaultImageFormat: 'jpg',
+      silence: false,
       ...options,
     }
   }

@@ -144,12 +144,12 @@ class WebpackImageSizesPlugin {
     compiler.hooks.emit.tapAsync('WebpackImageSizesPlugin', runGeneration)
 
     // Hook for rebuilds in watch mode
-    compiler.hooks.watchRun.tapAsync('WebpackImageSizesPlugin', (compilation, callback) => {
+    compiler.hooks.watchRun.tapAsync('WebpackImageSizesPlugin', (compiler, callback) => {
       this.log('log', '👀 Watch mode: checking for conf-img changes...')
-      runGeneration(compilation, callback)
+      runGeneration(compiler, callback)
     })
 
-    // Add directories to watch
+    // Add directories to wat
     compiler.hooks.compilation.tap('WebpackImageSizesPlugin', (compilation) => {
       // Watch configuration directories
       if (fs.existsSync(sizesPath)) {

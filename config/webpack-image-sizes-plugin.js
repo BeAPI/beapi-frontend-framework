@@ -84,7 +84,6 @@ class WebpackImageSizesPlugin {
         // Assumes that no modified files means the start of the build (yarn start || yarn build)
         if (WebpackImageSizesPlugin.hasBeenBuiltOnce && compilation.modifiedFiles) {
           for (const filePath of compilation.modifiedFiles) {
-            console.log(this.options.confImgPath, filePath, filePath.includes(this.options.confImgPath))
             if (filePath.includes(this.options.confImgPath)) {
               hasChanges = true
             }
@@ -92,7 +91,7 @@ class WebpackImageSizesPlugin {
         }
 
         if (WebpackImageSizesPlugin.hasBeenBuiltOnce && !hasChanges) {
-          console.log(`✅ No changes detected in ${this.options.confImgPath}`)
+          this.log('log', `✅ No changes detected in ${this.options.confImgPath}`)
 
           if (callback) {
             callback()

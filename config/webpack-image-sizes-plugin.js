@@ -149,7 +149,7 @@ class WebpackImageSizesPlugin {
       runGeneration(compiler, callback)
     })
 
-    // Add directories to wat
+    // Add directories to watch
     compiler.hooks.compilation.tap('WebpackImageSizesPlugin', (compilation) => {
       // Watch configuration directories
       if (fs.existsSync(sizesPath)) {

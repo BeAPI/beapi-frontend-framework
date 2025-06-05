@@ -35,18 +35,20 @@ class WebpackImageSizesPlugin {
    */
   constructor(options = {}) {
     this.options = {
-      confImgPath: options.confImgPath || 'assets/conf-img',
-      sizesSubdir: options.sizesSubdir || 'sizes',
-      tplSubdir: options.tplSubdir || 'tpl',
-      outputImageLocations: options.outputImageLocations || 'image-locations.json',
-      outputImageSizes: options.outputImageSizes || 'image-sizes.json',
-      generateDefaultImages: options.generateDefaultImages || false,
-      defaultImageSource: options.defaultImageSource || 'src/img/static/default.jpg',
-      defaultImagesOutputDir: options.defaultImagesOutputDir || 'dist/images',
-      defaultImageFormat: options.defaultImageFormat || 'jpg',
-      silence: options.silence || false,
+      confImgPath: 'assets/conf-img',
+      sizesSubdir: 'sizes',
+      tplSubdir: 'tpl',
+      outputImageLocations: 'image-locations.json',
+      outputImageSizes: 'image-sizes.json',
+      generateDefaultImages: false,
+      defaultImageSource: 'src/img/static/default.jpg',
+      defaultImagesOutputDir: 'dist/images',
+      defaultImageFormat: 'jpg',
+      silence: false,
       ...options,
     }
+
+    this.hasBeenBuiltOnce = false
   }
 
   /**
@@ -70,12 +72,37 @@ class WebpackImageSizesPlugin {
    * @memberof WebpackImageSizesPlugin
    */
   apply(compiler) {
+    const { context } = compiler
+    const confImgPath = path.resolve(context, this.options.confImgPath)
+    const sizesPath = path.join(confImgPath, this.options.sizesSubdir)
+    const tplPath = path.join(confImgPath, this.options.tplSubdir)
+
     // Execute on first build and each rebuild
     const runGeneration = async (compilation, callback) => {
       try {
-        const confImgPath = path.resolve(compiler.context, this.options.confImgPath)
-        const sizesPath = path.join(confImgPath, this.options.sizesSubdir)
-        const tplPath = path.join(confImgPath, this.options.tplSubdir)
+        let hasChanges = false
+
+        // Check if there are any changes in the conf-img directory
+        // Assumes that no modified files means the start of the build (yarn start || yarn build)
+        if (this.hasBeenBuiltOnce && compilation.modifiedFiles) {
+          for (const filePath of compilation.modifiedFiles) {
+            if (filePath.includes(this.options.confImgPath)) {
+              hasChanges = true
+            }
+          }
+        }
+
+        if (this.hasBeenBuiltOnce && !hasChanges) {
+          this.log('log', `✅ No changes detected in ${this.options.confImgPath}`)
+
+          if (callback) {
+            callback()
+          }
+
+          return
+        }
+
+        this.hasBeenBuiltOnce = true
 
         this.log('log', '🔧 Starting WebpackImageSizesPlugin generation...')
 
@@ -99,7 +126,7 @@ class WebpackImageSizesPlugin {
 
         // Generate default images if option is enabled
         if (this.options.generateDefaultImages) {
-          await this.generateDefaultImages(compiler.context, imageSizes)
+          await this.generateDefaultImages(context, imageSizes)
         }
 
         if (callback) {
@@ -119,27 +146,20 @@ class WebpackImageSizesPlugin {
     // Hook for rebuilds in watch mode
     compiler.hooks.watchRun.tapAsync('WebpackImageSizesPlugin', (compiler, callback) => {
       this.log('log', '👀 Watch mode: checking for conf-img changes...')
-      runGeneration(null, callback)
+      runGeneration(compiler, callback)
     })
 
     // Add directories to watch
-    compiler.hooks.afterEnvironment.tap('WebpackImageSizesPlugin', () => {
-      const confImgPath = path.resolve(compiler.context, this.options.confImgPath)
-      const sizesPath = path.join(confImgPath, this.options.sizesSubdir)
-      const tplPath = path.join(confImgPath, this.options.tplSubdir)
-
-      // Add directories to watched dependencies
-      compiler.hooks.compilation.tap('WebpackImageSizesPlugin', (compilation) => {
-        // Watch configuration directories
-        if (fs.existsSync(sizesPath)) {
-          compilation.contextDependencies.add(sizesPath)
-          this.log('log', '📁 Added sizes directory to watch dependencies')
-        }
-        if (fs.existsSync(tplPath)) {
-          compilation.contextDependencies.add(tplPath)
-          this.log('log', '📁 Added tpl directory to watch dependencies')
-        }
-      })
+    compiler.hooks.compilation.tap('WebpackImageSizesPlugin', (compilation) => {
+      // Watch configuration directories
+      if (fs.existsSync(sizesPath)) {
+        compilation.contextDependencies.add(sizesPath)
+        this.log('log', '📁 Added sizes directory to watch dependencies')
+      }
+      if (fs.existsSync(tplPath)) {
+        compilation.contextDependencies.add(tplPath)
+        this.log('log', '📁 Added tpl directory to watch dependencies')
+      }
     })
   }
 
@@ -523,4 +543,7 @@ class WebpackImageSizesPlugin {
   }
 }
 
+// ----
+// export
+// ----
 module.exports = WebpackImageSizesPlugin

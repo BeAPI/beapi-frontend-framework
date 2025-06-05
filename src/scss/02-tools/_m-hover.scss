@@ -42,26 +42,26 @@
  *
  */
 @mixin hover($onlyNoTouch: null, $additionalSelectors: null) {
-    $selectors: "&:hover", "&:active", "&:focus";
+	$selectors: "&:hover", "&:active", "&:focus";
 
-    @if ($additionalSelectors) {
-        @if (meta.type-of($additionalSelectors) == "string") {
-            $selectors: $selectors "," $additionalSelectors;
-        }
-        @else if (meta.type-of($additionalSelectors) == "list") {
-            $selectors: list.join($selectors, $additionalSelectors, comma);
-        }
-    }
+	@if ($additionalSelectors) {
+		@if (meta.type-of($additionalSelectors) == "string") {
+			$selectors: $selectors "," $additionalSelectors;
+		}
+		@else if (meta.type-of($additionalSelectors) == "list") {
+			$selectors: list.join($selectors, $additionalSelectors, comma);
+		}
+	}
 
-    @if $onlyNoTouch {
-        @media (hover: hover) {
-            #{$selectors} {
-                @content;
-            }
-        }
-    } @else {
-        #{$selectors} {
-            @content;
-        }
-    }
+	@if $onlyNoTouch {
+		@media (hover: hover) {
+			#{$selectors} {
+				@content;
+			}
+		}
+	} @else {
+		#{$selectors} {
+			@content;
+		}
+	}
 }

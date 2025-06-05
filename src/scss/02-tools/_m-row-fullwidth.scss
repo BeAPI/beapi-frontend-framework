@@ -14,9 +14,9 @@
  */
 
 @mixin row-fullwidth($position: relative) {
-    position: $position;
-    left: 50%;
-    z-index: 1;
-    width: 100vw;
-    margin-left: -50vw;
+	position: $position;
+	left: 50%;
+	z-index: 1;
+	width: 100vw;
+	margin-left: -50vw;
 }

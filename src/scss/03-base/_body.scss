@@ -2,41 +2,41 @@
 @use "../02-tools/m-rtl" as *;
 
 html {
-    /* Set automatic RTL direction depending on lang attribute */
-    @include set-rtl-direction;
+	/* Set automatic RTL direction depending on lang attribute */
+	@include set-rtl-direction;
 
-    /* Apply border-box across the entire page. */
-    box-sizing: border-box;
+	/* Apply border-box across the entire page. */
+	box-sizing: border-box;
 
-    // HTML resets
-    font-family: $font-family-primary;
-    line-height: $line-height-base;
+	// HTML resets
+	font-family: $font-family-primary;
+	line-height: $line-height-base;
 
-    // Scroll resets
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
+	// Scroll resets
+	-webkit-overflow-scrolling: touch;
+	scroll-behavior: smooth;
 
-    // Fonts resets
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: auto;
+	// Fonts resets
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: auto;
 }
 
 /**
   * Relax the definition a bit, to allow components to override it manually.
   */
 * {
-    &,
-    &::before,
-    &::after {
-        box-sizing: inherit;
-    }
+	&,
+	&::before,
+	&::after {
+		box-sizing: inherit;
+	}
 }
 
 body {
-    font-family: $font-family-primary;
-    font-size: $font-size-base;
-    font-weight: normal;
-    color: $color-text;
-    background-color: $color-light;
+	font-family: $font-family-primary;
+	font-size: $font-size-base;
+	font-weight: normal;
+	color: $color-text;
+	background-color: $color-light;
 }

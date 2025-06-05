@@ -32,84 +32,84 @@
 // opacity animation
 // ----
 %js-animation-opacity-init {
-    opacity: 0;
-    transition: opacity .5s;
+	opacity: 0;
+	transition: opacity .5s;
 }
 // ----
 // vertical translation + opacity animation
 // ----
 %js-animation-translation-init {
-    > * {
-        opacity: 0;
-        transition: opacity .5s, transform .5s $ease-out-expo;
-        transform: translateY(100px);
-    }
+	> * {
+		opacity: 0;
+		transition: opacity .5s, transform .5s $ease-out-expo;
+		transform: translateY(100px);
+	}
 }
 // ----
 // title animation
 // ----
 %js-animation-title-init {
-    visibility: hidden;
+	visibility: hidden;
 }
 
 // ====
 // css animation
 // ====
 .js-animation {
-    $el: &;
+	$el: &;
 
-    // ----
-    // opacity animation
-    // ----
-    #{$el}-opacity {
-        @extend %js-animation-opacity-init;
+	// ----
+	// opacity animation
+	// ----
+	#{$el}-opacity {
+		@extend %js-animation-opacity-init;
 
-        &.is-visible {
-            opacity: 1;
-        }
-    }
+		&.is-visible {
+			opacity: 1;
+		}
+	}
 
-    // ----
-    // title animation
-    // ----
-    #{$el}-title {
-        @extend %js-animation-title-init;
+	// ----
+	// title animation
+	// ----
+	#{$el}-title {
+		@extend %js-animation-title-init;
 
-        .st-line {
-            display: inline-block;
-            overflow: hidden;
+		.st-line {
+			display: inline-block;
+			overflow: hidden;
 
-            > span {
-                display: inline-block;
-                transition: transform .75s $ease-out-expo;
-                transform: translateY(150%);
-            }
-        }
+			> span {
+				display: inline-block;
+				transition: transform .75s $ease-out-expo;
+				transform: translateY(150%);
+			}
+		}
 
-        &.is-ready {
-            visibility: visible;
-        }
+		&.is-ready {
+			visibility: visible;
+		}
 
-        &.is-visible {
-            .st-line {
-                > span {
-                    transform: translateY(0);
-                }
-            }
-        }
-    }
+		&.is-visible {
+			.st-line {
+				> span {
+					transform: translateY(0);
+				}
+			}
+		}
+	}
 
-    // ----
-    // vertical translation + opacity animation
-    // ----
-    #{$el}-translation {
-        @extend %js-animation-translation-init;
+	// ----
+	// vertical translation + opacity animation
+	// ----
+	#{$el}-translation {
+		@extend %js-animation-translation-init;
 
-        &.is-visible {
-            > * {
-                opacity: 1;
-                transform: translateY(0) !important;
-            }
-        }
-    }
+		&.is-visible {
+			> * {
+				opacity: 1;
+				transform: translateY(0) !important;
+			}
+		}
+	}
 }

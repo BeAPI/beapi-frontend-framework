@@ -1,13 +1,13 @@
 html {
-    a,
-    button,
-    input,
-    select,
-    textarea,
-    [tabindex] {
-        &:focus-visible {
-            outline: 2px solid currentColor;
-            outline-offset: .5rem;
-        }
-    }
+	a,
+	button,
+	input,
+	select,
+	textarea,
+	[tabindex] {
+		&:focus-visible {
+			outline: 2px solid currentColor;
+			outline-offset: .5rem;
+		}
+	}
 }

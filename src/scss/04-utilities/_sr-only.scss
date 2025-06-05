@@ -1,17 +1,17 @@
 @use "../02-tools/m-sr-only" as *;
 
 %sr-only {
-    @include sr-only;
+	@include sr-only;
 }
 
 %sr-only-focusable {
-    @include sr-only(true);
+	@include sr-only(true);
 }
 
 .sr-only {
-    @extend %sr-only;
+	@extend %sr-only;
 }
 
 .sr-only-focusable {
-    @extend %sr-only-focusable;
+	@extend %sr-only-focusable;
 }

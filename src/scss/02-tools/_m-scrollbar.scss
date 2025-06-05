@@ -32,34 +32,34 @@
  */
 
 @mixin scrollbar-invisible {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
 
-    &::-webkit-scrollbar {
-        display: none;
-    }
+	&::-webkit-scrollbar {
+		display: none;
+	}
 }
 
 @mixin scrollbar-color($size, $scrollbar-color, $track-color) {
-    &::-webkit-scrollbar {
-        display: none;
-        width: $size;
-        height: $size;
-    }
+	&::-webkit-scrollbar {
+		display: none;
+		width: $size;
+		height: $size;
+	}
 
-    &::-webkit-scrollbar-thumb {
-        background: $scrollbar-color;
-        border-radius: 20px;
-    }
+	&::-webkit-scrollbar-thumb {
+		background: $scrollbar-color;
+		border-radius: 20px;
+	}
 
-    &::-webkit-scrollbar-track {
-        background: $track-color;
-        border-radius: 20px;
-    }
+	&::-webkit-scrollbar-track {
+		background: $track-color;
+		border-radius: 20px;
+	}
 
-    @include m-hover.hover {
-        &::-webkit-scrollbar {
-            display: block;
-        }
-    }
+	@include m-hover.hover {
+		&::-webkit-scrollbar {
+			display: block;
+		}
+	}
 }

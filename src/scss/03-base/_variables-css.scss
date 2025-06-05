@@ -4,45 +4,45 @@
 @use "../02-tools/m-reduced-motion" as *;
 
 :root {
-    /*
+	/*
      * Heading
      */
-    // Font size
-    --heading--font-size-h1: 56px;
-    --heading--font-size-h2: 48px;
-    --heading--font-size-h3: 36px;
-    --heading--font-size-h4: 32px;
-    --heading--font-size-h5: 24px;
-    --heading--font-size-h6: 18px;
+	// Font size
+	--heading--font-size-h1: 56px;
+	--heading--font-size-h2: 48px;
+	--heading--font-size-h3: 36px;
+	--heading--font-size-h4: 32px;
+	--heading--font-size-h5: 24px;
+	--heading--font-size-h6: 18px;
 
-    /**
-    * Font size fluid -> /!\ IMPORTANT /!\ : no add media query to defined different values. The function make it
-    *
-    * --heading--font-size-h1: #{fluid-size(58px, 156px)};
-    * --heading--font-size-h2: #{fluid-size(47px, 96px)};
-    * --heading--font-size-h3: #{fluid-size(38px, 52px)};
-    * --heading--font-size-h4: #{fluid-size(32px, 45px)};
-    * --heading--font-size-h5: #{fluid-size(28px, 34px)};
+	/**
+     * Font size fluid -> /!\ IMPORTANT /!\ : no add media query to defined different values.  The function make it
+     *
+     * --heading--font-size-h1: #{fluid-size(58px, 156px)};
+     * --heading--font-size-h2: #{fluid-size(47px, 96px)};
+     * --heading--font-size-h3: #{fluid-size(38px, 52px)};
+     * --heading--font-size-h4: #{fluid-size(32px, 45px)};
+     * --heading--font-size-h5: #{fluid-size(28px, 34px)};
     */
 
-    // Line height
-    --heading--line-height-h1: 1.25;
-    --heading--line-height-h2: 1.25;
-    --heading--line-height-h3: 1.25;
-    --heading--line-height-h4: 1.25;
-    --heading--line-height-h5: 1.25;
-    --heading--line-height-h6: 1.25;
+	// Line height
+	--heading--line-height-h1: 1.25;
+	--heading--line-height-h2: 1.25;
+	--heading--line-height-h3: 1.25;
+	--heading--line-height-h4: 1.25;
+	--heading--line-height-h5: 1.25;
+	--heading--line-height-h6: 1.25;
 
-    /*
+	/*
      * paragraph
     */
-    // Font size
-    --paragraph--font-size-huge: 32px;
-    --paragraph--font-size-large: 24px;
-    --paragraph--font-size-small: 14px;
-    --paragraph--font-size-default: 16px;
+	// Font size
+	--paragraph--font-size-huge: 32px;
+	--paragraph--font-size-large: 24px;
+	--paragraph--font-size-small: 14px;
+	--paragraph--font-size-default: 16px;
 
-    /**
+	/**
     * Font size fluid -> /!\ IMPORTANT /!\ : no add media query to defined different values. The function make it
     *
     *  --paragraph--font-size-huge: #{fluid-size(28px, 32px)};
@@ -51,21 +51,21 @@
     *  --paragraph--font-size-default: #{fluid-size(14px, 16px)};
     */
 
-    // line height
-    --paragraph--line-height-huge: 1.4;
-    --paragraph--line-height-large: 1.4;
-    --paragraph--line-height-small: 1.4;
-    --paragraph--line-height-default: 1.4;
+	// line height
+	--paragraph--line-height-huge: 1.4;
+	--paragraph--line-height-large: 1.4;
+	--paragraph--line-height-small: 1.4;
+	--paragraph--line-height-default: 1.4;
 
-    /*
+	/*
      * Spacing
      */
-    --spacing--block-1: 16px;
-    --spacing--block-2: 32px;
-    --spacing--block-3: 48px;
-    --spacing--block-4: 64px;
+	--spacing--block-1: 16px;
+	--spacing--block-2: 32px;
+	--spacing--block-3: 48px;
+	--spacing--block-4: 64px;
 
-    /**
+	/**
     * Spacing fluid -> /!\ IMPORTANT /!\ : no add media query to defined different values. The function make it
     *
     * Fluid spacing :
@@ -79,63 +79,63 @@
     * ...
     */
 
-    /*
+	/*
      * Gutters
      */
-    --responsive--gutter: #{$external-gutter-mobile};
+	--responsive--gutter: #{$external-gutter-mobile};
 
-    /*
+	/*
      * Alignments
      */
-    --responsive--aligndefault-width: calc(100% - calc(var(--responsive--gutter) * 2));
-    --responsive--alignwide-width: calc(100% - calc(var(--responsive--gutter) * 2));
-    --responsive--alignfull-width: 100%;
+	--responsive--aligndefault-width: calc(100% - calc(var(--responsive--gutter) * 2));
+	--responsive--alignwide-width: calc(100% - calc(var(--responsive--gutter) * 2));
+	--responsive--alignfull-width: 100%;
 
-    /*
+	/*
      * Animation speeds
      */
-    --speed: 1s;
+	--speed: 1s;
 
-    /*
+	/*
      * Admin bar
      */
-    --wp-admin-bar-height: var(--wp-admin--admin-bar--height, 0rem);
+	--wp-admin-bar-height: var(--wp-admin--admin-bar--height, 0rem);
 
-    /*
+	/*
      * A11y reduced motion
      */
-    @include reduced-motion {
-        --speed: 0s;
-    }
+	@include reduced-motion {
+		--speed: 0s;
+	}
 
-    /*
+	/*
      * Global breakpoints
      */
 
-    @include breakpoints(s, max) {
-        /*
+	@include breakpoints(s, max) {
+		/*
          * Admin bar become not sticky
          */
-        &:not(.scroll-top) {
-            .admin-bar {
-                --wp-admin-bar-height: 0rem;
-            }
-        }
-    }
+		&:not(.scroll-top) {
+			.admin-bar {
+				--wp-admin-bar-height: 0rem;
+			}
+		}
+	}
 
-    @include breakpoints(md) {
-        /*
+	@include breakpoints(md) {
+		/*
          * Spacing
          * /!\ IMPORTANT : Remove it if you use fluid size function instead /!\
          */
-        --spacing--block-1: 32px;
-        --spacing--block-2: 64px;
-        --spacing--block-3: 96px;
-        --spacing--block-4: 128px;
+		--spacing--block-1: 32px;
+		--spacing--block-2: 64px;
+		--spacing--block-3: 96px;
+		--spacing--block-4: 128px;
 
-        /*
+		/*
          * Gutters
          */
-        --responsive--gutter: #{$external-gutter};
-    }
+		--responsive--gutter: #{$external-gutter};
+	}
 }

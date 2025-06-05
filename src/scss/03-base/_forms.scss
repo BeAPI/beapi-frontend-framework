@@ -11,74 +11,74 @@
 
 // All inputs variables
 $text-inputs-list: 'input[type="color"]', 'input[type="date"]',
-    'input[type="datetime"]', 'input[type="datetime-local"]',
-    'input[type="email"]', 'input[type="month"]', 'input[type="number"]',
-    'input[type="password"]', 'input[type="search"]', 'input[type="tel"]',
-    'input[type="text"]', 'input[type="time"]', 'input[type="url"]',
-    'input[type="week"]', "input:not([type])", "textarea";
+	'input[type="datetime"]', 'input[type="datetime-local"]',
+	'input[type="email"]', 'input[type="month"]', 'input[type="number"]',
+	'input[type="password"]', 'input[type="search"]', 'input[type="tel"]',
+	'input[type="text"]', 'input[type="time"]', 'input[type="url"]',
+	'input[type="week"]', "input:not([type])", "textarea";
 
 $all-text-inputs: assign-inputs($text-inputs-list);
 
 // Not apply style to ACF fields
 @include not-acf {
-    // Textarea
-    textarea {
-        resize: vertical;
-    }
+	// Textarea
+	textarea {
+		resize: vertical;
+	}
 
-    #{$all-text-inputs},
-    textarea {
-        box-sizing: border-box;
-        width: 100%;
-        padding: 15px 25px;
-        font-family: $font-family-primary;
-        line-height: 1;
-        color: $color-text;
-        background: color.adjust($color-light, $lightness: -5%);
-        border: 1px solid $color-grey-500;
-        border-radius: 10px; //reset border radius for ios
-        transition: border-color .5s ease;
-        appearance: none;
+	#{$all-text-inputs},
+	textarea {
+		box-sizing: border-box;
+		width: 100%;
+		padding: 15px 25px;
+		font-family: $font-family-primary;
+		line-height: 1;
+		color: $color-text;
+		background: color.adjust($color-light, $lightness: -5%);
+		border: 1px solid $color-grey-500;
+		border-radius: 10px; //reset border radius for ios
+		transition: border-color .5s ease;
+		appearance: none;
 
-        &::placeholder {
-            color: color.adjust($color-text, $lightness: 50%);
-        }
+		&::placeholder {
+			color: color.adjust($color-text, $lightness: 50%);
+		}
 
-        &:hover {
-            border-color: color.adjust($color-grey-500, $lightness: -10%);
-        }
+		&:hover {
+			border-color: color.adjust($color-grey-500, $lightness: -10%);
+		}
 
-        &:focus {
-            color: color.adjust($color-text, $lightness: -10%);
-            border-color: color.adjust($color-grey-500, $lightness: -20%);
-        }
-    }
+		&:focus {
+			color: color.adjust($color-text, $lightness: -10%);
+			border-color: color.adjust($color-grey-500, $lightness: -20%);
+		}
+	}
 
-    // Label
-    label {
-        display: inline-block;
-        font-weight: 700;
-    }
+	// Label
+	label {
+		display: inline-block;
+		font-weight: 700;
+	}
 
-    // Custom select
-    select {
-        @include select-custom;
-    }
+	// Custom select
+	select {
+		@include select-custom;
+	}
 
-    input[type="checkbox"],
-    input[type="radio"] {
-        @include checkbox-custom;
+	input[type="checkbox"],
+	input[type="radio"] {
+		@include checkbox-custom;
 
-        &:checked {
-            @include checkbox-custom-checked;
-        }
-    }
+		&:checked {
+			@include checkbox-custom-checked;
+		}
+	}
 
-    input[type="radio"] {
-        @include radio-custom(true);
-    }
+	input[type="radio"] {
+		@include radio-custom(true);
+	}
 
-    /*
+	/*
     // For complianz plugin
     *:not(.cmplz-banner-checkbox) > {
         input[type="checkbox"],
@@ -96,25 +96,25 @@ $all-text-inputs: assign-inputs($text-inputs-list);
     }
     */
 
-    input[type="submit"] {
-        @extend %btn-block;
-    }
+	input[type="submit"] {
+		@extend %btn-block;
+	}
 
-    input[type="reset"] {
-        @extend %btn-block-outline;
-    }
+	input[type="reset"] {
+		@extend %btn-block-outline;
+	}
 
-    input[type="search"] {
-        &::-webkit-search-cancel-button {
-            width: 16px;
-            height: 16px;
-            cursor: pointer;
-            background-image: get-svg-url("close", $color-dark);
-            background-repeat: no-repeat;
-            background-size: contain;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-        }
-    }
+	input[type="search"] {
+		&::-webkit-search-cancel-button {
+			width: 16px;
+			height: 16px;
+			cursor: pointer;
+			background-image: get-svg-url("close", $color-dark);
+			background-repeat: no-repeat;
+			background-size: contain;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+		}
+	}
 }

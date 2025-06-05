@@ -14,6 +14,7 @@
         "sourceType": "module"
     },
     "rules": {
+        "indent": ["error", "tab"],
         "no-console": "off",
         "strict": ["error", "global"],
         "curly": "warn",
@@ -26,7 +27,7 @@
                 "singleQuote": true,
                 "printWidth": 120,
                 "semi": false,
-                "useTabs": false
+                "useTabs": true
             }
         ]
     },

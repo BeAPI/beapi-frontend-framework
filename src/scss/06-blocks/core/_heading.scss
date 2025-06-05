@@ -25,31 +25,31 @@
  */
 
 $headings: (
-    "1": (),
-    "2": (),
-    "3": (),
-    "4": (),
-    "5": (),
-    "6": (),
+	"1": (),
+	"2": (),
+	"3": (),
+	"4": (),
+	"5": (),
+	"6": (),
 );
 
 @each $i, $styles in $headings {
-    h#{$i} {
-        @include heading(h#{$i});
+	h#{$i} {
+		@include heading(h#{$i});
 
-        @each $style in $styles {
-            &.is-style-#{$style} {
-                @include heading(h#{$i}, $style);
-            }
-        }
-    }
+		@each $style in $styles {
+			&.is-style-#{$style} {
+				@include heading(h#{$i}, $style);
+			}
+		}
+	}
 
-    .is-style-h#{$i} {
-        @include heading(h#{$i});
-    }
+	.is-style-h#{$i} {
+		@include heading(h#{$i});
+	}
 
-    .has-h-#{$i}-font-size {
-        font-size: var(--heading--font-size-h#{$i});
-        line-height: var(--heading--line-height-h#{$i});
-    }
+	.has-h-#{$i}-font-size {
+		font-size: var(--heading--font-size-h#{$i});
+		line-height: var(--heading--line-height-h#{$i});
+	}
 }

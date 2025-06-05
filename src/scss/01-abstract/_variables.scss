@@ -46,22 +46,22 @@ $color-text: $color-grey-900;
 // Gutenberg palette
 // ----
 $palette: (
-    "primary": (
-        "color": $color-primary,
-        "isColorLight": true,
-    ),
-    "secondary": (
-        "color": $color-secondary,
-        "isColorLight": false,
-    ),
-    "dark": (
-        "color":  $color-dark,
-        "isColorLight": false,
-    ),
-    "light": (
-        "color":  $color-light,
-        "isColorLight": true,
-    ),
+	"primary": (
+		"color": $color-primary,
+		"isColorLight": true,
+	),
+	"secondary": (
+		"color": $color-secondary,
+		"isColorLight": false,
+	),
+	"dark": (
+		"color":  $color-dark,
+		"isColorLight": false,
+	),
+	"light": (
+		"color":  $color-light,
+		"isColorLight": true,
+	),
 );
 
 /**
@@ -93,24 +93,24 @@ $palette: (
 *     );
 */
 $column-preset: (
-    // preset for desktop
-    d : (
-        column-width: 60,
-        gutter-width: 40,
-        total-column: 12
-    ),
-    // preset for tablet
-    t : (
-        column-width: 60,
-        gutter-width: 34,
-        total-column: 8
-    ),
-    // preset for mobile
-    m : (
-        column-width: 58,
-        gutter-width: 31,
-        total-column: 4
-    )
+	// preset for desktop
+	d : (
+		column-width: 60,
+		gutter-width: 40,
+		total-column: 12
+	),
+	// preset for tablet
+	t : (
+		column-width: 60,
+		gutter-width: 34,
+		total-column: 8
+	),
+	// preset for mobile
+	m : (
+		column-width: 58,
+		gutter-width: 31,
+		total-column: 4
+	)
 );
 
 // ----
@@ -118,10 +118,10 @@ $column-preset: (
 // ----
 $container-default-column-length: 8;
 $container-default: (
-    map.get(map.get($column-preset, d), column-width) * $container-default-column-length + map.get(map.get($column-preset, d), gutter-width) * ($container-default-column-length - 1)
+	map.get(map.get($column-preset, d), column-width) * $container-default-column-length + map.get(map.get($column-preset, d), gutter-width) * ($container-default-column-length - 1)
 ) * 1px;
 $container-wide: (
-    map.get(map.get($column-preset, d), column-width) * map.get(map.get($column-preset, d), total-column) + map.get(map.get($column-preset, d), gutter-width) * (map.get(map.get($column-preset, d), total-column) - 1)
+	map.get(map.get($column-preset, d), column-width) * map.get(map.get($column-preset, d), total-column) + map.get(map.get($column-preset, d), gutter-width) * (map.get(map.get($column-preset, d), total-column) - 1)
 ) * 1px;
 $external-gutter: 50px;
 $external-gutter-mobile: 20px;
@@ -131,16 +131,16 @@ $external-gutter-mobile: 20px;
 // Based on WordPress breakpoints (https://github.com/WordPress/gutenberg/blob/trunk/packages/base-styles/_breakpoints.scss)
 // ----
 $breakpoints: (
-    xs: 480,
-    s: 601,         // 601px is a wordpress breakpoint (admin-bar become sticky)
-    sm: 782,
-    admin-bar: 784, // admin bar height change
-    m: 960,
-    md: 1080,
-    mdl: 1279, // Do not use 1280px, it causes a bug under Window Edge with a device pixel ratio higher than 1
-    l: 1440,
-    container-default: math.div($container-default + $external-gutter-mobile * 2, 1px),
-    container-wide: math.div($container-wide + $external-gutter * 2, 1px),
+	xs: 480,
+	s: 601,         // 601px is a wordpress breakpoint (admin-bar become sticky)
+	sm: 782,
+	admin-bar: 784, // admin bar height change
+	m: 960,
+	md: 1080,
+	mdl: 1279, // Do not use 1280px, it causes a bug under Window Edge with a device pixel ratio higher than 1
+	l: 1440,
+	container-default: math.div($container-default + $external-gutter-mobile * 2, 1px),
+	container-wide: math.div($container-wide + $external-gutter * 2, 1px),
 );
 
 // ----

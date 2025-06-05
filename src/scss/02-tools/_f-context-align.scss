@@ -28,17 +28,17 @@
 $function-context-align-last-value: "";
 
 @function context-align($value: null, $suffix: " > ") {
-    @if not $value {
-        @if ($entry-file-name == "style") {
-            @return ".align" + $function-context-align-last-value;
-        }
-    } @else {
-        $function-context-align-last-value: $value !global;
+	@if not $value {
+		@if ($entry-file-name == "style") {
+			@return ".align" + $function-context-align-last-value;
+		}
+	} @else {
+		$function-context-align-last-value: $value !global;
 
-        @if ($entry-file-name == "editor") {
-            @return "[data-align=\"" + $value + "\"]" + $suffix;
-        }
-    }
+		@if ($entry-file-name == "editor") {
+			@return "[data-align=\"" + $value + "\"]" + $suffix;
+		}
+	}
 
-    @return "";
+	@return "";
 }

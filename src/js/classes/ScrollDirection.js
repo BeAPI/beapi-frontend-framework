@@ -2,84 +2,85 @@ import AbstractDomElement from './AbstractDomElement.js'
 import { ScrollObserver } from 'oneloop.js'
 
 class ScrollDirection extends AbstractDomElement {
-  constructor(element, options) {
-    const instance = super(element, options)
+	constructor(element, options) {
+		const instance = super(element, options)
 
-    // avoid double init :
-    if (!instance.isNewInstance()) {
-      return instance
-    }
+		// avoid double init :
+		if (!instance.isNewInstance()) {
+			return instance
+		}
 
-    const that = this
+		const that = this
 
-    this._scrollObserver = new ScrollObserver()
-    this._directions = ['top', 'bottom', 'up', 'down']
-    this._current = null
-    this._isEditable = true
-    this._timer = null
+		this._scrollObserver = new ScrollObserver()
+		this._directions = ['top', 'bottom', 'up', 'down']
+		this._current = null
+		this._isEditable = true
+		this._timer = null
 
-    this._scrollObserver.observe(this._element, {
-      onAlways: function (scroll, percentRTW, percentRTE) {
-        const p = Math.min(Math.round(percentRTE.y * 100), 100)
+		this._scrollObserver.observe(this._element, {
+			onAlways: function (scroll, percentRTW, percentRTE) {
+				const p = Math.min(Math.round(percentRTE.y * 100), 100)
 
-        if (p === 0) {
-          that.set('top')
-        } else if (p === 100) {
-          that.set('bottom')
-        } else if (scroll.direction.y === -1) {
-          that.set('up')
-        } else if (scroll.direction.y === 1) {
-          that.set('down')
-        }
-      },
-    })
+				if (p === 0) {
+					that.set('top')
+				} else if (p === 100) {
+					that.set('bottom')
+				} else if (scroll.direction.y === -1) {
+					that.set('up')
+				} else if (scroll.direction.y === 1) {
+					that.set('down')
+				}
+			},
+		})
 
-    that.set('top')
-  }
+		that.set('top')
+	}
 
-  set(direction) {
-    const newIndex = this._directions.indexOf(direction)
+	set(direction) {
+		const newIndex = this._directions.indexOf(direction)
 
-    if (this._isEditable && newIndex > -1 && this._current !== newIndex) {
-      this._element.classList.remove('scroll-' + this._directions[this._current])
-      this._element.classList.add('scroll-' + this._directions[newIndex])
-      this._current = newIndex
-    }
+		if (this._isEditable && newIndex > -1 && this._current !== newIndex) {
+			this._element.classList.remove('scroll-' + this._directions[this._current])
+			this._element.classList.add('scroll-' + this._directions[newIndex])
+			this._current = newIndex
+		}
 
-    return this
-  }
+		return this
+	}
 
-  lock(delay) {
-    clearTimeout(this._timer)
-    this._isEditable = false
+	lock(delay) {
+		clearTimeout(this._timer)
+		this._isEditable = false
 
-    if (typeof delay !== 'undefined') {
-      this.unlock(delay)
-    }
+		if (typeof delay !== 'undefined') {
+			this.unlock(delay)
+		}
 
-    return this
-  }
+		return this
+	}
 
-  unlock(delay) {
-    const that = this
+	unlock(delay) {
+		const that = this
 
-    if (typeof delay !== 'undefined') {
-      clearTimeout(this._timer)
-      this._timer = setTimeout(function () {
-        that._isEditable = true
-      }, delay)
-    } else {
-      this._isEditable = true
-    }
+		if (typeof delay !== 'undefined') {
+			clearTimeout(this._timer)
+			this._timer = setTimeout(function () {
+				that._isEditable = true
+			}, delay)
+		} else {
+			this._isEditable = true
+		}
 
-    return this
-  }
+		return this
+	}
 
-  destroy() {
-    super.destroy()
-    this._scrollObserver.unobserve(this._element)
-    this._element.classList.remove('scroll-' + this._directions[this._current])
-  }
+	destroy() {
+		super.destroy()
+		this._scrollObserver.unobserve(this._element)
+		this._element.classList.remove('scroll-' + this._directions[this._current])
+		clearTimeout(this._timer)
+	}
 }
 
 // ----

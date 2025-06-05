@@ -5,5 +5,5 @@
  */
 
 export default function isPlainObject(o) {
-  return o?.constructor === Object || Object.getPrototypeOf(o ?? 0) === null
+	return o?.constructor === Object || Object.getPrototypeOf(o ?? 0) === null
 }

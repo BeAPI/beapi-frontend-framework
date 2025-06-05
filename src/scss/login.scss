@@ -16,78 +16,78 @@ $login-btn-hover-bg-color: #222;
 
 html,
 body {
-    &::before,
-    &::after {
-        display: none;
-    }
+	&::before,
+	&::after {
+		display: none;
+	}
 }
 
 body.login {
-    // screen background color
-    background: $login-body-bg-color;
+	// screen background color
+	background: $login-body-bg-color;
 
-    // logo (before login form) path and size
-    h1 a {
-        display: block;
-        width: 100%;
-        height: $login-logo-height;
-        background-image: url(#{$login-logo-path});
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: $login-logo-size;
-    }
+	// logo (before login form) path and size
+	h1 a {
+		display: block;
+		width: 100%;
+		height: $login-logo-height;
+		background-image: url(#{$login-logo-path});
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: $login-logo-size;
+	}
 
-    // default link styles
-    a {
-        color: $login-link-color;
-        text-decoration: none;
+	// default link styles
+	a {
+		color: $login-link-color;
+		text-decoration: none;
 
-        &:hover,
-        &:focus {
-            color: $login-link-hover-color;
-            text-decoration: underline;
-        }
-    }
+		&:hover,
+		&:focus {
+			color: $login-link-hover-color;
+			text-decoration: underline;
+		}
+	}
 
-    // notice block border-left colo
-    /* stylelint-disable-next-line selector-id-pattern */
-    #login_error,
-    .message,
-    .success {
-        border-left-color: $login-text-color;
-    }
+	// notice block border-left colo
+	/* stylelint-disable-next-line selector-id-pattern */
+	#login_error,
+	.message,
+	.success {
+		border-left-color: $login-text-color;
+	}
 
-    // remember input checkbox check color
-    input[type="checkbox"]:checked::before {
-        color: $login-remember-input-check-color;
-    }
+	// remember input checkbox check color
+	input[type="checkbox"]:checked::before {
+		color: $login-remember-input-check-color;
+	}
 
-    // link after login form styles
-    #nav,
-    #backtoblog {
-        a {
-            color: $login-link-color;
+	// link after login form styles
+	#nav,
+	#backtoblog {
+		a {
+			color: $login-link-color;
 
-            &:focus,
-            &:hover {
-                color: $login-link-hover-color;
-                text-decoration: underline;
-            }
-        }
-    }
+			&:focus,
+			&:hover {
+				color: $login-link-hover-color;
+				text-decoration: underline;
+			}
+		}
+	}
 }
 
 // submit login form button styles
 .wp-core-ui {
-    .button-primary {
-        text-shadow: none;
-        background-color: $login-btn-bg-color;
-        border: 0;
-        box-shadow: none;
-        transition: all .2s ease;
+	.button-primary {
+		text-shadow: none;
+		background-color: $login-btn-bg-color;
+		border: 0;
+		box-shadow: none;
+		transition: all .2s ease;
 
-        &:hover {
-            background-color: $login-btn-hover-bg-color;
-        }
-    }
+		&:hover {
+			background-color: $login-btn-hover-bg-color;
+		}
+	}
 }

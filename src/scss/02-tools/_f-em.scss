@@ -25,13 +25,13 @@
 
 @function em($pxval, $base: $font-size-base) {
 
-    @if not math.is-unitless($pxval) {
-        $pxval: strip-units($pxval);
-    }
+	@if not math.is-unitless($pxval) {
+		$pxval: strip-units($pxval);
+	}
 
-    @if not math.is-unitless($base) {
-        $base: strip-units($base);
-    }
+	@if not math.is-unitless($base) {
+		$base: strip-units($base);
+	}
 
-    @return math.div($pxval, $base) * 1em;
+	@return math.div($pxval, $base) * 1em;
 }

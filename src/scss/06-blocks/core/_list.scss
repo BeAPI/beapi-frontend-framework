@@ -5,118 +5,118 @@
 // Use the no-list-style class in your theme if you want the basic style
 
 %marker-ol-default {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.3;
-    color: $color-dark;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.3;
+	color: $color-dark;
 }
 
 %marker-ul-default {
-    position: absolute;
-    top: 7px;
-    left: 0;
-    width: 6px;
-    height: 6px;
-    content: "";
-    background-color: $color-dark;
-    border-radius: 100%;
+	position: absolute;
+	top: 7px;
+	left: 0;
+	width: 6px;
+	height: 6px;
+	content: "";
+	background-color: $color-dark;
+	border-radius: 100%;
 
-    @include rtl {
-        right: -15px;
-        left: inherit;
-    }
+	@include rtl {
+		right: -15px;
+		left: inherit;
+	}
 }
 
 #{context-selector(".blocks-container", ".is-root-container")} {
-    --offset-item: 30px;
-    --vertical-spaging-item: 16px;
+	--offset-item: 30px;
+	--vertical-spaging-item: 16px;
 
-    ul,
-    ol {
-        &:not([class*="no-list-style"]):not([role="list"]):not(.chosen-choices):not(.chosen-results) {
-            font-size: var(--paragraph--font-size-default, $font-size-base);
-            line-height: var(--paragraph--line-height-default, $line-height-base);
+	ul,
+	ol {
+		&:not([class*="no-list-style"]):not([role="list"]):not(.chosen-choices):not(.chosen-results) {
+			font-size: var(--paragraph--font-size-default, $font-size-base);
+			line-height: var(--paragraph--line-height-default, $line-height-base);
 
-            ul,
-            ol {
-                margin-top: var(--vertical-spaging-item);
-                margin-bottom: var(--vertical-spaging-item);
-            }
-        }
-    }
+			ul,
+			ol {
+				margin-top: var(--vertical-spaging-item);
+				margin-bottom: var(--vertical-spaging-item);
+			}
+		}
+	}
 
-    ul {
-        &:not([class*="no-list-style"]):not([role="list"]):not(.chosen-choices):not(.chosen-results) {
-            list-style-type: none;
+	ul {
+		&:not([class*="no-list-style"]):not([role="list"]):not(.chosen-choices):not(.chosen-results) {
+			list-style-type: none;
 
-            li {
-                position: relative;
-                padding-left: var(--offset-item);
-                margin-bottom: var(--vertical-spaging-item);
+			li {
+				position: relative;
+				padding-left: var(--offset-item);
+				margin-bottom: var(--vertical-spaging-item);
 
-                @include rtl {
-                    padding-right: var(--offset-item);
-                    padding-left: 0;
-                }
+				@include rtl {
+					padding-right: var(--offset-item);
+					padding-left: 0;
+				}
 
-                &::before {
-                    @extend %marker-ul-default;
-                }
-            }
+				&::before {
+					@extend %marker-ul-default;
+				}
+			}
 
-            ul {
-                margin-top: var(--vertical-spaging-item);
-                margin-bottom: var(--vertical-spaging-item);
-            }
-        }
-    }
+			ul {
+				margin-top: var(--vertical-spaging-item);
+				margin-bottom: var(--vertical-spaging-item);
+			}
+		}
+	}
 
-    ol {
-        padding-left: 10px;
+	ol {
+		padding-left: 10px;
 
-        &:not([class*="no-list-style"]):not([role="list"]) {
-            > li {
-                padding-left: calc(var(--offset-item)  * .5);
-                margin-bottom: var(--vertical-spaging-item);
-                margin-left: calc(var(--offset-item)  * .5);
+		&:not([class*="no-list-style"]):not([role="list"]) {
+			> li {
+				padding-left: calc(var(--offset-item)  * .5);
+				margin-bottom: var(--vertical-spaging-item);
+				margin-left: calc(var(--offset-item)  * .5);
 
-                @include rtl {
-                    padding-right: calc(var(--offset-item)  * .5);
-                    padding-left: 0;
-                    margin-right: calc(var(--offset-item)  * .5);
-                    margin-left: 0;
-                }
-            }
+				@include rtl {
+					padding-right: calc(var(--offset-item)  * .5);
+					padding-left: 0;
+					margin-right: calc(var(--offset-item)  * .5);
+					margin-left: 0;
+				}
+			}
 
-            li {
-                &::marker {
-                    @extend %marker-ol-default;
-                }
+			li {
+				&::marker {
+					@extend %marker-ol-default;
+				}
 
-                ol {
-                    margin-top: var(--vertical-spaging-item);
-                    margin-bottom: var(--vertical-spaging-item);
-                }
+				ol {
+					margin-top: var(--vertical-spaging-item);
+					margin-bottom: var(--vertical-spaging-item);
+				}
 
-                ul {
-                    margin-top: var(--vertical-spaging-item);
-                    margin-bottom: var(--vertical-spaging-item);
+				ul {
+					margin-top: var(--vertical-spaging-item);
+					margin-bottom: var(--vertical-spaging-item);
 
-                    li {
-                        padding-top: 0;
+					li {
+						padding-top: 0;
 
-                        &::before {
-                            @extend %marker-ul-default;
-                            transform: translateX(0);
-                        }
-                    }
-                }
+						&::before {
+							@extend %marker-ul-default;
+							transform: translateX(0);
+						}
+					}
+				}
 
-            }
-        }
-    }
+			}
+		}
+	}
 
-    dd {
-        margin: 0;
-    }
+	dd {
+		margin: 0;
+	}
 }

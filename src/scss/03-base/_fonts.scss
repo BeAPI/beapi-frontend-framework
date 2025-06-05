@@ -25,7 +25,7 @@
  *          ...
  */
 
-@use "node_modules/@fontsource/poppins/scss/mixins" as Poppins;
+@use "../../../node_modules/@fontsource/poppins/scss/mixins" as Poppins;
 
 @include Poppins.faces($weights: (300, 400, 500, 700), $styles: normal);
 @include Poppins.faces($weights: (300, 400, 500, 700), $styles: italic);

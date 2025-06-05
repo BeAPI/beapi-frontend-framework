@@ -1,13 +1,13 @@
 @use "../../01-abstract/variables" as *;
 
 .wp-block-image {
-    > img {
-        max-width: 100%;
-        height: auto;
-    }
+	> img {
+		max-width: 100%;
+		height: auto;
+	}
 
-    figcaption {
-        font-size: $font-size-xs;
-        color: $color-grey-600;
-    }
+	figcaption {
+		font-size: $font-size-xs;
+		color: $color-grey-600;
+	}
 }

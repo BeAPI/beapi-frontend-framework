@@ -115,14 +115,20 @@ class WebpackImageSizesPlugin {
         // Generate image-sizes.json from JSON files and TPL files
         const imageSizes = this.generateImageSizes(sizesPath, tplPath, imageLocations)
 
+        // Clean image-locations.json from internal properties before writing
+        const cleanedImageLocations = this.cleanImageLocationsForOutput(imageLocations)
+
         // Write output files
         const imageLocationsPath = path.join(confImgPath, this.options.outputImageLocations)
         const imageSizesPath = path.join(confImgPath, this.options.outputImageSizes)
 
-        fs.writeFileSync(imageLocationsPath, JSON.stringify(imageLocations, null, 2))
+        fs.writeFileSync(imageLocationsPath, JSON.stringify(cleanedImageLocations, null, 2))
         fs.writeFileSync(imageSizesPath, JSON.stringify(imageSizes, null, 2))
 
         this.log('log', `✅ Generated ${this.options.outputImageLocations} and ${this.options.outputImageSizes}`)
+
+        // Update last generation timestamp
+        this.lastGenerationTime = Date.now()
 
         // Generate default images if option is enabled
         if (this.options.generateDefaultImages) {
@@ -140,7 +146,7 @@ class WebpackImageSizesPlugin {
       }
     }
 
-    // Hook for initial build
+    // Hook for initial build only
     compiler.hooks.emit.tapAsync('WebpackImageSizesPlugin', runGeneration)
 
     // Hook for rebuilds in watch mode
@@ -178,37 +184,47 @@ class WebpackImageSizesPlugin {
     const imageSizes = [{}]
     const allSizes = new Set() // To avoid duplicates
 
-    if (!fs.existsSync(sizesPath)) {
-      this.log('warn', `⚠️  Sizes directory not found: ${sizesPath}`)
-      return imageSizes
+    // Check if both directories exist
+    const sizesExists = fs.existsSync(sizesPath)
+    const tplExists = fs.existsSync(tplPath)
+
+    if (!sizesExists && !tplExists) {
+      throw new Error(`Both sizes directory (${sizesPath}) and tpl directory (${tplPath}) not found`)
     }
 
-    const sizeFiles = fs.readdirSync(sizesPath).filter((file) => file.endsWith('.json'))
-    this.log('log', `📋 Processing ${sizeFiles.length} size files: ${sizeFiles.join(', ')}`)
+    if (!sizesExists) {
+      this.log('warn', `⚠️  Sizes directory not found: ${sizesPath}, continuing with tpl directory only`)
+    }
 
-    sizeFiles.forEach((file) => {
-      try {
-        const filePath = path.join(sizesPath, file)
-        const sizesData = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+    // Process JSON files only if sizes directory exists
+    if (sizesExists) {
+      const sizeFiles = fs.readdirSync(sizesPath).filter((file) => file.endsWith('.json'))
+      this.log('log', `📋 Processing ${sizeFiles.length} size files: ${sizeFiles.join(', ')}`)
 
-        // Convert sizes to image-sizes.json format
-        sizesData.forEach((size) => {
-          const sizeKey = `img-${size.width}-${size.height}`
+      sizeFiles.forEach((file) => {
+        try {
+          const filePath = path.join(sizesPath, file)
+          const sizesData = JSON.parse(fs.readFileSync(filePath, 'utf8'))
 
-          // Avoid duplicates between files
-          if (!allSizes.has(sizeKey)) {
-            allSizes.add(sizeKey)
-            imageSizes[0][sizeKey] = {
-              width: size.width.toString(),
-              height: size.height.toString(),
-              crop: size.crop,
+          // Convert sizes to image-sizes.json format
+          sizesData.forEach((size) => {
+            const sizeKey = `img-${size.width}-${size.height}`
+
+            // Avoid duplicates between files
+            if (!allSizes.has(sizeKey)) {
+              allSizes.add(sizeKey)
+              imageSizes[0][sizeKey] = {
+                width: size.width.toString(),
+                height: size.height.toString(),
+                crop: size.crop,
+              }
             }
-          }
-        })
-      } catch (error) {
-        this.log('error', `❌ Error parsing ${file}:`, error)
-      }
-    })
+          })
+        } catch (error) {
+          this.log('error', `❌ Error parsing ${file}:`, error)
+        }
+      })
+    }
 
     // Extract additional sizes from TPL files that are not in JSON files
     this.extractSizesFromTPLFiles(tplPath, imageLocations, imageSizes[0], allSizes)
@@ -233,8 +249,9 @@ class WebpackImageSizesPlugin {
       return
     }
 
-    // Extract all unique sizes from image locations
+    // Extract all unique sizes from image locations and collect crop values
     const tplSizes = new Set()
+    const sizeCropMapping = new Map() // Store crop values for each size
 
     Object.values(imageLocations[0]).forEach((locationArray) => {
       locationArray.forEach((location) => {
@@ -242,10 +259,39 @@ class WebpackImageSizesPlugin {
           location.srcsets.forEach((srcset) => {
             if (srcset.size && srcset.size.startsWith('img-')) {
               tplSizes.add(srcset.size)
+              // If srcset has crop info, store it
+              if (srcset.crop !== undefined) {
+                sizeCropMapping.set(srcset.size, srcset.crop)
+              }
             }
           })
         }
       })
+    })
+
+    // Also parse TPL files directly to ensure we catch all sizes and their crop values
+    const tplFiles = fs.readdirSync(tplPath).filter((file) => file.endsWith('.tpl'))
+
+    tplFiles.forEach((file) => {
+      try {
+        const filePath = path.join(tplPath, file)
+        const tplContent = fs.readFileSync(filePath, 'utf8')
+        const locationData = this.parseTPLContent(tplContent)
+
+        if (locationData && locationData.srcsets && locationData.sizeCropMap) {
+          locationData.srcsets.forEach((srcset) => {
+            if (srcset.size && srcset.size.startsWith('img-')) {
+              tplSizes.add(srcset.size)
+              // Store crop value from TPL parsing
+              if (locationData.sizeCropMap[srcset.size] !== undefined) {
+                sizeCropMapping.set(srcset.size, locationData.sizeCropMap[srcset.size])
+              }
+            }
+          })
+        }
+      } catch (error) {
+        this.log('error', `❌ Error extracting sizes from TPL ${file}:`, error)
+      }
     })
 
     // Add sizes that are not already defined
@@ -257,17 +303,121 @@ class WebpackImageSizesPlugin {
           const width = matches[1]
           const height = matches[2]
 
+          // Use the crop value from TPL parsing, default to true if not found
+          const cropValue = sizeCropMapping.get(sizeKey) !== undefined ? sizeCropMapping.get(sizeKey) : true
+
           allSizes.add(sizeKey)
           imageSizesObj[sizeKey] = {
             width: width,
             height: height,
-            crop: true, // Default crop value for TPL-extracted sizes
+            crop: cropValue, // Use the actual crop value from TPL
           }
 
-          this.log('log', `🎨 Added size from TPL: ${sizeKey}`)
+          this.log('log', `🎨 Added size from TPL: ${sizeKey} (crop: ${cropValue})`)
         }
       }
     })
+  }
+
+  /**
+   * Parses TPL content to extract image information including srcsets, default_img, and img_base.
+   *
+   * @param {string} tplContent - Content of the TPL file
+   * @returns {Object|null} Parsed location data or null if no valid data found
+   * @memberof WebpackImageSizesPlugin
+   */
+  parseTPLContent(tplContent) {
+    // Look for source tags with srcset or data-srcset containing image patterns
+    let sourceMatches = tplContent.match(/<source[^>]*(?:data-srcset|srcset)="([^"]*)"[^>]*>/g)
+
+    if (!sourceMatches || sourceMatches.length === 0) {
+      // Fallback to simple image pattern extraction
+      const sizeMatches = tplContent.match(/%%img-(\d+)-(\d+)%%/g)
+      if (sizeMatches) {
+        const srcsets = [...new Set(sizeMatches)].map((match) => {
+          const size = match.replace(/%%/g, '')
+          return { size, srcset: '' }
+        })
+        return { srcsets }
+      }
+      return null
+    }
+
+    // Parse all source tags and extract all sizes from all sources
+    const srcsets = []
+    const allSizes = new Set() // To avoid duplicates
+
+    sourceMatches.forEach((sourceMatch) => {
+      const srcsetMatch = sourceMatch.match(/(?:data-srcset|srcset)="([^"]*)"/)
+      if (srcsetMatch) {
+        const srcsetContent = srcsetMatch[1]
+
+        // Extract data-crop attribute value
+        const cropMatch = sourceMatch.match(/data-crop="([^"]*)"/)
+        const cropValue = cropMatch ? cropMatch[1] === 'true' : true // Default to true if not specified
+
+        // Parse patterns like: %%img-144-144%%, %%img-288-288%% 2x
+        const imageMatches = srcsetContent.match(/%%img-(\d+)-(\d+)%%(\s+2x)?/g)
+
+        if (imageMatches) {
+          imageMatches.forEach((match) => {
+            const sizeMatch = match.match(/%%img-(\d+)-(\d+)%%/)
+            const is2x = match.includes('2x')
+
+            if (sizeMatch) {
+              const width = parseInt(sizeMatch[1])
+              const height = parseInt(sizeMatch[2])
+              const size = `img-${width}-${height}`
+
+              // Avoid duplicates across different sources
+              if (!allSizes.has(size)) {
+                allSizes.add(size)
+                srcsets.push({
+                  srcset: is2x ? '2x' : '',
+                  size: size,
+                  crop: cropValue, // Store crop value for later use
+                })
+              }
+            }
+          })
+        }
+      }
+    })
+
+    // Check if we found any sizes from all sources
+    if (srcsets.length === 0) {
+      return null
+    }
+
+    // All sizes have been processed above, no additional processing needed
+
+    // Determine default_img and img_base (use the largest size, typically the 2x version)
+    const largestSize = srcsets.reduce((largest, current) => {
+      const currentMatch = current.size.match(/img-(\d+)-(\d+)/)
+      const largestMatch = largest.size.match(/img-(\d+)-(\d+)/)
+
+      if (currentMatch && largestMatch) {
+        const currentArea = parseInt(currentMatch[1]) * parseInt(currentMatch[2])
+        const largestArea = parseInt(largestMatch[1]) * parseInt(largestMatch[2])
+        return currentArea > largestArea ? current : largest
+      }
+      return largest
+    })
+
+    // Create a map of size to crop value for later use
+    const sizeCropMap = {}
+    srcsets.forEach((srcset) => {
+      sizeCropMap[srcset.size] = srcset.crop
+    })
+
+    const result = {
+      srcsets: srcsets,
+      default_img: `default-${largestSize.size.replace('img-', '')}.${this.options.defaultImageFormat}`,
+      img_base: largestSize.size,
+      sizeCropMap: sizeCropMap, // Include crop mapping
+    }
+
+    return result
   }
 
   /**
@@ -283,40 +433,49 @@ class WebpackImageSizesPlugin {
     const imageLocations = [{}]
     const processedFiles = new Set() // For tracking processed files
 
-    if (!fs.existsSync(sizesPath)) {
-      this.log('warn', `⚠️  Sizes directory not found: ${sizesPath}`)
-      return imageLocations
+    // Check if both directories exist
+    const sizesExists = fs.existsSync(sizesPath)
+    const tplExists = fs.existsSync(tplPath)
+
+    if (!sizesExists && !tplExists) {
+      throw new Error(`Both sizes directory (${sizesPath}) and tpl directory (${tplPath}) not found`)
     }
 
-    // Process JSON files in sizes/ first
-    const sizeFiles = fs.readdirSync(sizesPath).filter((file) => file.endsWith('.json'))
-    this.log('log', `📋 Processing ${sizeFiles.length} JSON files from sizes/: ${sizeFiles.join(', ')}`)
+    if (!sizesExists) {
+      this.log('warn', `⚠️  Sizes directory not found: ${sizesPath}, continuing with tpl directory only`)
+    }
 
-    sizeFiles.forEach((file) => {
-      try {
-        const filename = path.basename(file, '.json')
-        const filePath = path.join(sizesPath, file)
-        const sizesData = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+    // Process JSON files in sizes/ first (only if directory exists)
+    if (sizesExists) {
+      const sizeFiles = fs.readdirSync(sizesPath).filter((file) => file.endsWith('.json'))
+      this.log('log', `📋 Processing ${sizeFiles.length} JSON files from sizes/: ${sizeFiles.join(', ')}`)
 
-        // Generate srcsets from sizes
-        const srcsets = sizesData.map((size) => ({
-          size: `img-${size.width}-${size.height}`,
-        }))
+      sizeFiles.forEach((file) => {
+        try {
+          const filename = path.basename(file, '.json')
+          const filePath = path.join(sizesPath, file)
+          const sizesData = JSON.parse(fs.readFileSync(filePath, 'utf8'))
 
-        imageLocations[0][filename] = [
-          {
-            srcsets: srcsets,
-          },
-        ]
+          // Generate srcsets from sizes
+          const srcsets = sizesData.map((size) => ({
+            size: `img-${size.width}-${size.height}`,
+          }))
 
-        processedFiles.add(filename)
-      } catch (error) {
-        this.log('error', `❌ Error parsing JSON ${file}:`, error)
-      }
-    })
+          imageLocations[0][filename] = [
+            {
+              srcsets: srcsets,
+            },
+          ]
+
+          processedFiles.add(filename)
+        } catch (error) {
+          this.log('error', `❌ Error parsing JSON ${file}:`, error)
+        }
+      })
+    }
 
     // Then process TPL files for unprocessed or missing files
-    if (fs.existsSync(tplPath)) {
+    if (tplExists) {
       const tplFiles = fs.readdirSync(tplPath).filter((file) => file.endsWith('.tpl'))
       this.log('log', `📋 Processing ${tplFiles.length} TPL files: ${tplFiles.join(', ')}`)
 
@@ -326,24 +485,15 @@ class WebpackImageSizesPlugin {
           const filePath = path.join(tplPath, file)
           const tplContent = fs.readFileSync(filePath, 'utf8')
 
-          // Extract sizes from templates (pattern %%img-width-height%%)
-          const sizeMatches = tplContent.match(/%%img-(\d+)-(\d+)%%/g)
-
           // Process only if not already processed by a JSON file or no JSON match
-          if (sizeMatches && !processedFiles.has(filename)) {
-            const srcsets = [...new Set(sizeMatches)].map((match) => {
-              const size = match.replace(/%%/g, '')
-              return { size }
-            })
+          if (!processedFiles.has(filename)) {
+            const locationData = this.parseTPLContent(tplContent)
 
-            imageLocations[0][filename] = [
-              {
-                srcsets: srcsets,
-              },
-            ]
-
-            processedFiles.add(filename)
-            this.log('log', `📝 Added location from TPL: ${filename}`)
+            if (locationData && locationData.srcsets && locationData.srcsets.length > 0) {
+              imageLocations[0][filename] = [locationData]
+              processedFiles.add(filename)
+              this.log('log', `📝 Added location from TPL: ${filename}`)
+            }
           }
         } catch (error) {
           this.log('error', `❌ Error parsing TPL ${file}:`, error)
@@ -400,10 +550,13 @@ class WebpackImageSizesPlugin {
 
     this.log(
       'log',
-      `🖼️  Generating ${sizeKeys.length} default images (${format.toUpperCase()}) from ${
+      `🖼️  Processing ${sizeKeys.length} default images (${format.toUpperCase()}) from ${
         this.options.defaultImageSource
       }`
     )
+
+    let generatedCount = 0
+    let skippedCount = 0
 
     const promises = sizeKeys.map(async (sizeKey) => {
       const size = sizesObj[sizeKey]
@@ -411,6 +564,26 @@ class WebpackImageSizesPlugin {
       const height = parseInt(size.height)
       const outputFilename = `default-${width}-${height}.${this.options.defaultImageFormat}`
       const outputPath = path.join(outputDir, outputFilename)
+
+      // Check if image needs to be generated or updated
+      if (fs.existsSync(outputPath)) {
+        try {
+          // Compare modification times: regenerate if source is newer
+          const sourceStats = fs.statSync(sourceImagePath)
+          const outputStats = fs.statSync(outputPath)
+
+          if (sourceStats.mtime <= outputStats.mtime) {
+            this.log('log', `⏭️  Skipped existing: ${outputFilename}`)
+            skippedCount++
+            return
+          } else {
+            this.log('log', `🔄 Updating outdated: ${outputFilename}`)
+          }
+        } catch (error) {
+          // If we can't compare timestamps, regenerate to be safe
+          this.log('log', `🔄 Regenerating (timestamp check failed): ${outputFilename}`)
+        }
+      }
 
       try {
         let sharpInstance = sharp(sourceImagePath)
@@ -434,13 +607,14 @@ class WebpackImageSizesPlugin {
         await sharpInstance[formatOptions.method](formatOptions.options).toFile(outputPath)
 
         this.log('log', `✨ Generated: ${outputFilename} (${width}x${height}${size.crop ? ', cropped' : ''})`)
+        generatedCount++
       } catch (error) {
         this.log('error', `❌ Error generating ${outputFilename}:`, error.message)
       }
     })
 
     await Promise.all(promises)
-    this.log('log', `🎉 Default image generation completed!`)
+    this.log('log', `🎉 Default image generation completed! (${generatedCount} generated, ${skippedCount} skipped)`)
   }
 
   /**
@@ -477,6 +651,97 @@ class WebpackImageSizesPlugin {
     }
 
     return formatConfigs[formatLower] || formatConfigs.jpg
+  }
+
+  /**
+   * Cleans image locations data by removing internal properties before output.
+   *
+   * @param {Array} imageLocations - Image locations data with internal properties
+   * @returns {Array} Cleaned image locations data
+   * @memberof WebpackImageSizesPlugin
+   */
+  cleanImageLocationsForOutput(imageLocations) {
+    return imageLocations.map((locationGroup) => {
+      const cleanedGroup = {}
+
+      Object.keys(locationGroup).forEach((key) => {
+        cleanedGroup[key] = locationGroup[key].map((location) => {
+          const cleanedLocation = {
+            srcsets: location.srcsets.map((srcset) => ({
+              srcset: srcset.srcset,
+              size: srcset.size,
+              // Remove crop property from srcsets
+            })),
+            default_img: location.default_img,
+            img_base: location.img_base,
+            // Remove sizeCropMap property
+          }
+
+          return cleanedLocation
+        })
+      })
+
+      return cleanedGroup
+    })
+  }
+
+  /**
+   * Determines if generation should be skipped based on file modification times.
+   *
+   * @param {string} confImgPath - Path to the conf-img directory
+   * @param {string} sizesPath - Path to the sizes directory
+   * @param {string} tplPath - Path to the tpl directory
+   * @returns {boolean} True if generation should be skipped
+   * @memberof WebpackImageSizesPlugin
+   */
+  shouldSkipGeneration(confImgPath, sizesPath, tplPath) {
+    // Skip if never generated before
+    if (this.lastGenerationTime === 0) {
+      return false
+    }
+
+    // Check modification times of directories and files
+    const checkPaths = [
+      { path: sizesPath, isDir: true },
+      { path: tplPath, isDir: true },
+    ]
+
+    for (const { path: checkPath, isDir } of checkPaths) {
+      if (!fs.existsSync(checkPath)) {
+        continue
+      }
+
+      try {
+        if (isDir) {
+          // Check directory modification time and all files within
+          const dirStats = fs.statSync(checkPath)
+          if (dirStats.mtime.getTime() > this.lastGenerationTime) {
+            return false
+          }
+
+          // Check all files in directory
+          const files = fs.readdirSync(checkPath)
+          for (const file of files) {
+            const filePath = path.join(checkPath, file)
+            const fileStats = fs.statSync(filePath)
+            if (fileStats.mtime.getTime() > this.lastGenerationTime) {
+              return false
+            }
+          }
+        } else {
+          // Check single file modification time
+          const stats = fs.statSync(checkPath)
+          if (stats.mtime.getTime() > this.lastGenerationTime) {
+            return false
+          }
+        }
+      } catch (error) {
+        // If we can't check the file, don't skip generation
+        return false
+      }
+    }
+
+    return true
   }
 
   /**

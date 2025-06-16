@@ -4,6 +4,7 @@ namespace BEA\Theme\Framework;
 
 use BEA\Theme\Framework\Services\Acf;
 use BEA\Theme\Framework\Services\Assets;
+use BEA\Theme\Framework\Services\Breadcrumb;
 use BEA\Theme\Framework\Services\Performance;
 use BEA\Theme\Framework\Services\Editor;
 use BEA\Theme\Framework\Services\Editor_Patterns;
@@ -39,6 +40,7 @@ class Framework {
 		Svg::class,
 		Acf::class,
 		Menu::class,
+		Breadcrumb::class,
 
 		// Services as Tools
 		Body_Class::class,

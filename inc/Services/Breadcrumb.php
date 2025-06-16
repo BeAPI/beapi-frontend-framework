@@ -59,7 +59,7 @@ class Breadcrumb implements Service {
 	 */
 	public function replace_breadcrumb_link( $link_output ): string {
 		if ( ! str_contains( $link_output, 'breadcrumb_last' ) ) {
-			return str_replace( '</li>', '<span aria-hidden="true">></span></li>', $link_output );
+			return str_replace( '</li>', '<span class="breadcrumb__separator" aria-hidden="true">></span></li>', $link_output );
 		}
 
 		return $link_output;

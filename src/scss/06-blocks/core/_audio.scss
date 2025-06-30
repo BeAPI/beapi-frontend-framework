@@ -5,10 +5,5 @@
 		&::-webkit-media-controls-panel {
 			background-color: $color-primary;
 		}
-
-		&:focus {
-			outline: 2px solid $color-primary;
-			outline-offset: 5px;
-		}
 	}
 }

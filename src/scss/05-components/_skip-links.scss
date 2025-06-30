@@ -22,10 +22,6 @@
 		font-size: 13px;
 		color: $color-text;
 		text-decoration: none;
-
-		&:focus {
-			outline-offset: 3px;
-		}
 	}
 
 	&:focus-within {

@@ -30,7 +30,7 @@ class TableBlock extends AbstractDomElement {
       if (legend) {
         const caption = document.createElement('caption')
         caption.className = legend.className
-        caption.innerHTML = legend.innerHTML
+        caption.textContent = legend.textContent
         table.insertBefore(caption, table.firstChild)
         legend.remove()
       }

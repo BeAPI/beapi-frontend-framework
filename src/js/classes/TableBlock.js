@@ -24,11 +24,6 @@ class TableBlock extends AbstractDomElement {
 				th.setAttribute('scope', 'col')
 			})
 		}
-
-		// Tableau de mise en forme
-		if (!thead) {
-			table.setAttribute('role', 'presentation')
-		}
 	}
 }
 

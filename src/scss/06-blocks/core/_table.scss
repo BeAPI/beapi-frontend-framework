@@ -4,6 +4,10 @@
 	width: 100%;
 	min-width: 240px;
 	border-collapse: collapse;
+
+	th {
+		font-weight: 700;
+	}
 }
 
 .wp-block-table {

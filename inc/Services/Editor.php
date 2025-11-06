@@ -48,11 +48,6 @@ class Editor implements Service {
 		$this->register_custom_block_styles();
 
 		/**
-		 * Customize theme.json settings
-		 */
-		add_filter( 'wp_theme_json_data_theme', [ $this, 'filter_theme_json_theme' ], 10, 1 );
-
-		/**
 		 * Load editor JS for ADMIN
 		 */
 		add_action( 'enqueue_block_editor_assets', [ $this, 'admin_editor_script' ] );
@@ -76,27 +71,6 @@ class Editor implements Service {
 		}
 
 		add_editor_style( 'dist/' . $file );
-	}
-
-	/**
-	 * Theme.json settings
-	 * See https://developer.wordpress.org/block-editor/reference-guides/theme-json-reference/theme-json-living/
-	 *
-	 * @param \WP_Theme_JSON_Data $theme_json Class to access and update the underlying data.
-	 *
-	 * @return \WP_Theme_JSON_Data
-	 */
-	public function filter_theme_json_theme( \WP_Theme_JSON_Data $theme_json ): \WP_Theme_JSON_Data {
-		$custom_theme_json = [
-			'version'  => 2,
-			'settings' => [
-				'typography' => [
-					'dropCap' => false,
-				],
-			],
-		];
-
-		return $theme_json->update_with( $custom_theme_json );
 	}
 
 	/**

@@ -37,6 +37,7 @@ class Editor implements Service {
 	 * @param Service_Container $container
 	 */
 	public function boot( Service_Container $container ): void {
+		$this->after_theme_setup();
 		/**
 		 * Load editor style css for admin and frontend
 		 */
@@ -55,6 +56,84 @@ class Editor implements Service {
 		 * White list of gutenberg blocks
 		 */
 		add_filter( 'allowed_block_types_all', [ $this, 'gutenberg_blocks_allowed' ], 10, 2 );
+	}
+
+	/**
+	 * Register :
+	 *  - theme_supports
+	 *  - color palettes
+	 *  - font sizes
+	 *  - etc.
+	 *
+	 */
+	private function after_theme_setup(): void {
+
+		//color palettes
+		add_theme_support(
+			'editor-color-palette',
+			[
+				[
+					'name'  => __( 'Black', 'beapi-frontend-framework' ),
+					'slug'  => 'black',
+					'color' => '#000'
+				],
+				[
+					'name'  => __( 'White', 'beapi-frontend-framework' ),
+					'slug'  => 'white',
+					'color' => '#fff'
+				],
+				[
+					'name'  => __( 'Yellow 500', 'beapi-frontend-framework' ),
+					'slug'  => 'yellow-500',
+					'color' => '#ffe600'
+				],
+				[
+					'name'  => __( 'Grey 100', 'beapi-frontend-framework' ),
+					'slug'  => 'grey-100',
+					'color' => '#eee'
+				],
+				[
+					'name'  => __( 'Grey 200', 'beapi-frontend-framework' ),
+					'slug'  => 'grey-200',
+					'color' => '#ccc'
+				],
+				[
+					'name'  => __( 'Grey 300', 'beapi-frontend-framework' ),
+					'slug'  => 'grey-300',
+					'color' => '#aaa'
+				],
+				[
+					'name'  => __( 'Grey 400', 'beapi-frontend-framework' ),
+					'slug'  => 'grey-400',
+					'color' => '#999'
+				],
+				[
+					'name'  => __( 'Grey 500', 'beapi-frontend-framework' ),
+					'slug'  => 'grey-500',
+					'color' => '#888'
+				],
+				[
+					'name'  => __( 'Grey 600', 'beapi-frontend-framework' ),
+					'slug'  => 'grey-600',
+					'color' => '#777'
+				],
+				[
+					'name'  => __( 'Grey 700', 'beapi-frontend-framework' ),
+					'slug'  => 'grey-700',
+					'color' => '#555'
+				],
+				[
+					'name'  => __( 'Grey 800', 'beapi-frontend-framework' ),
+					'slug'  => 'grey-800',
+					'color' => '#333'
+				],
+				[
+					'name'  => __( 'Grey 900', 'beapi-frontend-framework' ),
+					'slug'  => 'grey-900',
+					'color' => '#111'
+				],
+			]
+		);
 	}
 
 	/**

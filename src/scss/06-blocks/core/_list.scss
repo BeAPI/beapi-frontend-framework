@@ -31,8 +31,8 @@
 	--offset-item: 30px;
 	--vertical-spaging-item: 16px;
 
-	ul,
-	ol {
+	ul:where(.wp-block-list),
+	ol:where(.wp-block-list) {
 		&:not([class*="no-list-style"]):not([role="list"]):not(.chosen-choices):not(.chosen-results) {
 			font-size: var(--paragraph--font-size-default, $font-size-base);
 			line-height: var(--paragraph--line-height-default, $line-height-base);
@@ -45,7 +45,7 @@
 		}
 	}
 
-	ul {
+	ul:where(.wp-block-list) {
 		&:not([class*="no-list-style"]):not([role="list"]):not(.chosen-choices):not(.chosen-results) {
 			list-style-type: none;
 
@@ -71,7 +71,7 @@
 		}
 	}
 
-	ol {
+	ol:where(.wp-block-list) {
 		padding-left: 10px;
 
 		&:not([class*="no-list-style"]):not([role="list"]) {

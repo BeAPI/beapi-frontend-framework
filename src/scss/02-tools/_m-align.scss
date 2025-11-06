@@ -21,8 +21,8 @@
 	float: $direction;
 
 	@if ($direction == left) {
-		margin-inline-end: var(--spacing--block-1);
+		margin-inline-end: var(--wp--preset--spacing--sm);
 	} @else {
-		margin-inline-start: var(--spacing--block-1);
+		margin-inline-start: var(--wp--preset--spacing--sm);
 	}
 }

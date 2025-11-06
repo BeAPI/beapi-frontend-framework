@@ -15,8 +15,7 @@
 
 		// Backend Classic editor container
 		.mce-content-body {
-			width: #{$container-wide};
-			max-width: var(--responsive--alignwide-width);
+			max-width: var(--wp--style--global--wide-size);
 			margin: 0;
 		}
 	}

@@ -50,6 +50,6 @@
 
 	// Hover style
 	&:hover {
-		border-color: color.adjust($color-grey-500, $lightness: -10%);
+		border-color: $color-grey-400;
 	}
 }

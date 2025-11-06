@@ -40,7 +40,7 @@
 	&__menu-toggle {
 		position: absolute;
 		top: 14px;
-		right: var(--responsive--gutter);
+		right: var(--responsive--gutter-right);
 		z-index: 2;
 		width: 46px;
 		height: 46px;
@@ -52,7 +52,7 @@
 
 		@include rtl {
 			right: auto;
-			left: var(--responsive--gutter);
+			left: var(--responsive--gutter-left);
 		}
 
 		> span {
@@ -197,7 +197,7 @@
 			}
 
 			> div {
-				padding: 76px calc(var(--responsive--gutter) * 2) 25px;
+				padding: 76px var(--responsive--gutter) 25px;
 			}
 		}
 

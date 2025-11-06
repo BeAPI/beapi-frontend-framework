@@ -8,13 +8,8 @@
 		display: flow-root;
 	}
 
-	&--no-inner-margin {
-		#{$el}__inner-container {
-			> * {
-				margin-top: 0;
-				margin-bottom: 0;
-			}
-		}
+	&.has-background {
+		padding: var(--wp--preset--spacing--sm);
 	}
 
 	@include breakpoints(sm, max) {

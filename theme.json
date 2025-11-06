@@ -1,0 +1,136 @@
+{
+	"version": 3,
+	"settings": {
+		"useRootPaddingAwareAlignments": true,
+		"layout": {
+			"contentSize": "760px",
+			"wideSize": "1160px"
+		},
+		"border": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true
+		},
+		"color": {
+			"palette": [
+				{
+					"name": "Noir",
+					"slug": "black",
+					"color": "#000"
+				},
+				{
+					"name": "Blanc",
+					"slug": "white",
+					"color": "#fff"
+				},
+				{
+					"name": "Jaune 500",
+					"slug": "yellow-500",
+					"color": "#ffe600"
+				},
+				{
+					"name": "Gris 100",
+					"slug": "grey-100",
+					"color": "#eee"
+				},
+				{
+					"name": "Gris 200",
+					"slug": "grey-200",
+					"color": "#ccc"
+				},
+				{
+					"name": "Gris 300",
+					"slug": "grey-300",
+					"color": "#aaa"
+				},
+				{
+					"name": "Gris 400",
+					"slug": "grey-400",
+					"color": "#999"
+				},
+				{
+					"name": "Gris 500",
+					"slug": "grey-500",
+					"color": "#888"
+				},
+				{
+					"name": "Gris 600",
+					"slug": "grey-600",
+					"color": "#777"
+				},
+				{
+					"name": "Gris 700",
+					"slug": "grey-700",
+					"color": "#555"
+				},
+				{
+					"name": "Gris 800",
+					"slug": "grey-800",
+					"color": "#333"
+				},
+				{
+					"name": "Gris 900",
+					"slug": "grey-900",
+					"color": "#111"
+				}
+			],
+			"defaultDuotone": false,
+			"defaultGradients": false,
+			"defaultPalette": false
+		},
+		"shadow": {
+			"defaultPresets": false
+		},
+		"spacing": {
+			"blockGap": true,
+			"margin": true,
+			"padding": true,
+			"units": ["px", "em", "rem", "vh", "vw", "%"],
+			"defaultSpacingSizes": false,
+			"spacingSizes": [
+				{
+					"slug": "xs",
+					"size": "16px",
+					"name": "xs (16px)"
+				},
+				{
+					"slug": "sm",
+					"size": "32px",
+					"name": "sm (32px)"
+				},
+				{
+					"slug": "md",
+					"size": "48px",
+					"name": "md (48px)"
+				},
+				{
+					"slug": "lg",
+					"size": "64px",
+					"name": "lg (64px)"
+				}
+			]
+		},
+		"typography": {
+			"fontSizes": [],
+			"defaultFontSizes": false,
+			"customFontSize": false,
+			"dropCap": false,
+			"fontStyle": false,
+			"fontWeight": false,
+			"letterSpacing": false,
+			"textDecoration": false,
+			"textTransform": false,
+			"fluid": true
+		}
+	},
+	"styles": {
+		"spacing": {
+			"blockGap": "var(--wp--preset--spacing--sm)",
+			"padding": {
+				"right": "clamp(20px, calc(20px + 20 * ((100vw - 400px) / 880)), 40px)",
+				"left": "clamp(20px, calc(20px + 20 * ((100vw - 400px) / 880)), 40px)"
+			}
+		}
+	}
+}

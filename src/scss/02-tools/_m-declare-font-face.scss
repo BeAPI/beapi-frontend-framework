@@ -24,7 +24,7 @@
  *
  */
 
-@mixin declare-font-face($font-family, $font-filename, $font-weight : normal, $font-style : normal, $font-stretch : normal, $font-format : "woff2") {
+@mixin declare-font-face($font-family, $font-filename, $font-weight : normal, $font-style : normal, $font-stretch : normal, $font-format : "woff2", $unicode-range : "U+0-10FFFF") {
 	@font-face {
 		font-family: "#{$font-family}";
 		font-style: $font-style;
@@ -32,6 +32,6 @@
 		font-stretch: $font-stretch;
 		src: url(#{$font-filename}.woff2) format("#{$font-format}");
 		font-display: swap;
-		unicode-range: U+0-10FFFF; /* cutting of the font file for better loading */
+		unicode-range: unquote($unicode-range); /* cutting of the font file for better loading */
 	}
 }

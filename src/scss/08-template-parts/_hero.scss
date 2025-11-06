@@ -9,8 +9,8 @@
 .hero {
 	@include row-fullwidth;
 
-	padding: var(--spacing--block-1) 0;
-	margin-bottom: var(--spacing--block-1);
+	padding: var(--wp--preset--spacing--sm) 0;
+	margin-bottom: var(--wp--preset--spacing--sm);
 
 	.container {
 		position: relative;

@@ -34,23 +34,22 @@ $all-text-inputs: assign-inputs($text-inputs-list);
 		font-family: $font-family-primary;
 		line-height: 1;
 		color: $color-text;
-		background: color.adjust($color-light, $lightness: -5%);
+		background: $color-light;
 		border: 1px solid $color-grey-500;
 		border-radius: 10px; //reset border radius for ios
 		transition: border-color .5s ease;
 		appearance: none;
 
 		&::placeholder {
-			color: color.adjust($color-text, $lightness: 50%);
+			color: $color-grey-600;
 		}
 
 		&:hover {
-			border-color: color.adjust($color-grey-500, $lightness: -10%);
+			border-color: $color-grey-500;
 		}
 
 		&:focus {
-			color: color.adjust($color-text, $lightness: -10%);
-			border-color: color.adjust($color-grey-500, $lightness: -20%);
+			border-color: $color-grey-500;
 		}
 	}
 

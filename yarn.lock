@@ -2272,6 +2272,7 @@ __metadata:
     imagemin-jpegtran: "npm:^7.0.0"
     imagemin-optipng: "npm:^8.0.0"
     imagemin-svgo: "npm:^10.0.1"
+    lazysizes: "npm:^5.3.2"
     mini-css-extract-plugin: "npm:^1.5.0"
     oneloop.js: "npm:^5.2.1"
     postcss: "npm:^8.4.24"
@@ -6700,6 +6701,13 @@ __metadata:
   version: 0.26.0
   resolution: "known-css-properties@npm:0.26.0"
   checksum: 10/40222e80385ecfafb70c9663839d2f79388251c0f6ae2297559b76b6477c9d2f7aa6d6e5c11022dfd3e11346928b5cd272853d331725127d18bb4d872873dbee
+  languageName: node
+  linkType: hard
+
+"lazysizes@npm:^5.3.2":
+  version: 5.3.2
+  resolution: "lazysizes@npm:5.3.2"
+  checksum: 10/15dfa1cc8bf8c3a4393014d411f161cb1df96ab0888a0776ba4dc34d45c6ba9c5d2b2eca22683c14dfeee552c67173cb9a512d640d3424d9910c0246e15c4edc
   languageName: node
   linkType: hard
 

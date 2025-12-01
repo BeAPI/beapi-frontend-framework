@@ -1,3 +1,4 @@
+import 'lazysizes'
 import './classes/ScrollDirection'
 import './classes/ButtonSeoClick'
 import './classes/Header'

@@ -1,5 +1,5 @@
 <picture>
     %%data-location%%
     %%sources%%
-    <img %%src%% fetchpriority="high" %%attributes%%>
+    <img %%src%% fetchpriority="high" decoding="async" %%attributes%%>
 </picture>

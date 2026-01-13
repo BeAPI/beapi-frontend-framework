@@ -12,6 +12,7 @@
             <directory name="src" />
             <directory name="dist" />
             <directory name="config" />
+            <directory name="node_modules" />
         </ignoreFiles>
     </projectFiles>
 

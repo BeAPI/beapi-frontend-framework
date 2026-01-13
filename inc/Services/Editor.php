@@ -197,7 +197,7 @@ class Editor implements Service {
 			$filepath,
 			$asset_data['dependencies'],
 			$asset_data['version'],
-			true
+			[ 'in_footer' => true ]
 		);
 
 		$this->assets_tools->add_inline_script(
@@ -309,7 +309,5 @@ class Editor implements Service {
 		];
 
 		return ( is_array( $allowed_blocks ) ) ? array_merge( $allowed, $allowed_blocks ) : $allowed;
-
 	}
-
 }

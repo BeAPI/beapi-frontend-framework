@@ -75,15 +75,15 @@ class Service_Container {
 	/**
 	 * Instantiate a single service.
 	 *
-	 * @param string $class Service class to instantiate.
+	 * @param string $service_class Service class to instantiate.
 	 *
 	 * @return Service
 	 */
-	private function instantiate_service( string $class ): Service {
+	private function instantiate_service( string $service_class ): Service {
 		/**
 		 * @var Service $service
 		 */
-		$service = new $class();
+		$service = new $service_class();
 		$service->register( $this );
 		$this->services[ $service->get_service_name() ] = $service;
 

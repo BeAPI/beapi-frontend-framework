@@ -67,25 +67,25 @@ class Body_Class implements Service {
 
 	/**
 	 *
-	 * @param array $classes
+	 * @param array $body_classes
 	 *
 	 * @return array
 	 */
-	public function body_class( array $classes ): array {
+	public function body_class( array $body_classes ): array {
 		// Filter body classes
-		return array_filter( \array_merge( $classes, $this->body_class ), [ $this, 'filter' ] );
+		return array_filter( \array_merge( $body_classes, $this->body_class ), [ $this, 'filter' ] );
 	}
 
 	/**
 	 * Filter method which handle to delete wanted body_class
 	 *
-	 * @param string $class
+	 * @param string $class_name
 	 *
 	 * @author Maxime CULEA
 	 *
 	 * @return bool
 	 */
-	private function filter( string $class ): bool {
-		return ! in_array( $class, $this->unwanted_classes, true );
+	private function filter( string $class_name ): bool {
+		return ! in_array( $class_name, $this->unwanted_classes, true );
 	}
 }

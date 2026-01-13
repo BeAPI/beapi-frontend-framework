@@ -18,8 +18,8 @@ class Breadcrumb implements Service {
 	}
 
 	public function boot( Service_Container $container ): void {
-		add_filter( 'wpseo_breadcrumb_output_wrapper', [ $this, 'replace_breadcrumb_wrapper' ]);
-		add_filter( 'wpseo_breadcrumb_single_link_wrapper', [ $this, 'replace_breadcrumb_link_wrapper' ]);
+		add_filter( 'wpseo_breadcrumb_output_wrapper', [ $this, 'replace_breadcrumb_wrapper' ] );
+		add_filter( 'wpseo_breadcrumb_single_link_wrapper', [ $this, 'replace_breadcrumb_link_wrapper' ] );
 		add_filter( 'wpseo_breadcrumb_single_link', [ $this, 'replace_breadcrumb_link' ] );
 		add_filter( 'wpseo_breadcrumb_separator', [ $this, 'remove_breadcrumb_separator' ] );
 	}

@@ -11,10 +11,12 @@
     <!-- Scan all files in directory -->
     <file>.</file>
 
-    <!-- Exclude the Composer Vendor directory. -->
+    <!-- Exclude directories -->
     <exclude-pattern>src/</exclude-pattern>
     <exclude-pattern>vendor/</exclude-pattern>
     <exclude-pattern>dist/</exclude-pattern>
+    <exclude-pattern>config/</exclude-pattern>
+    <exclude-pattern>node_modules/</exclude-pattern>
 
     <rule ref="WordPress-Extra">
         <!-- Exclude as we use a custom autoloader. -->
@@ -25,9 +27,11 @@
 
         <!-- Exclude as we use the short array syntax over the long one. -->
         <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+        <exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
 
-        <!-- Allow to use short ternary operators since they are very usefull. -->
+        <!-- Allow to use short ternary operators since they are very useful. -->
         <exclude name="WordPress.PHP.DisallowShortTernary.Found"/>
+        <exclude name="Universal.Operators.DisallowShortTernary.Found"/>
     </rule>
 
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
@@ -44,14 +48,12 @@
     <!-- Set ini. -->
     <ini name="memory_limit" value="512M"/>
     <ini name="max_execution_time" value="-1"/>
-    <rule ref="PHPCompatibility"/>
 
     <rule ref="WordPress.Security.EscapeOutput">
         <properties>
             <property name="customAutoEscapedFunctions" type="array">
-                <element value="bea_get_attachment_image" />
+                <element value="bea_get_attachment_image"/>
                 <element value="get_the_icon"/>
-                <element value="get_the_image"/>
                 <element value="get_the_image"/>
                 <element value="get_the_link"/>
                 <element value="get_acf_link"/>
@@ -63,4 +65,7 @@
             </property>
         </properties>
     </rule>
+
+    <rule ref="PHPCompatibilityWP"/>
+    <config name="testVersion" value="8.3-"/>
 </ruleset>

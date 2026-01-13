@@ -163,9 +163,9 @@ class Editor implements Service {
 	 * Theme.json settings
 	 * See https://developer.wordpress.org/block-editor/reference-guides/theme-json-reference/theme-json-living/
 	 *
-	 * @param WP_Theme_JSON_Data $theme_json Class to access and update the underlying data.
+	 * @param \WP_Theme_JSON_Data $theme_json Class to access and update the underlying data.
 	 *
-	 * return WP_Theme_JSON_Data
+	 * @return \WP_Theme_JSON_Data
 	 */
 	public function filter_theme_json_theme( \WP_Theme_JSON_Data $theme_json ): \WP_Theme_JSON_Data {
 		$custom_theme_json = [

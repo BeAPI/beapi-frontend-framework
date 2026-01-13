@@ -49,9 +49,10 @@ class Svg implements Service {
 
 		$sprite_name = 'sprite';
 
-		if ( false !== strpos( $icon_class, '/' ) ) {
+		$slash_pos = strpos( $icon_class, '/' );
+		if ( false !== $slash_pos ) {
 			$sprite_name = strtok( $icon_class, '/' );
-			$icon_class  = substr( $icon_class, strpos( $icon_class, '/' ) + 1 );
+			$icon_class  = substr( $icon_class, $slash_pos + 1 );
 		}
 
 		$icon_slug = strpos( $icon_class, 'icon-' ) === 0 ? $icon_class : sprintf( 'icon-%s', $icon_class );

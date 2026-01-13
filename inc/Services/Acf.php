@@ -78,7 +78,7 @@ class Acf implements Service {
 	 * @param string $path
 	 */
 	public function set_path( string $path ): void {
-		$this->path = (string) $path;
+		$this->path = $path;
 	}
 
 	/**

@@ -92,7 +92,7 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				'url' => $link_to_share,
 			],
 		],
-		'bluesky' => [
+		'bluesky'   => [
 			'attributes' => [
 				'title' => __( 'Share on Bluesky', 'beapi-frontend-framework' ),
 				'href'  => 'https://bsky.app/intent/compose',
@@ -138,12 +138,14 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 	// Only allow icons
 	unset( $settings['content'] );
 
+	$icon_html = isset( $network['icon'] ) ? get_the_icon( $network['icon'] ) : '';
+
 	$settings = wp_parse_args(
 		$settings,
 		[
 			'content' => sprintf(
 				'%s<span class="sr-only">%s</span>',
-				get_the_icon( $network['icon'] ),
+				$icon_html,
 				$network['attributes']['title']
 			),
 			'mode'    => 'button',

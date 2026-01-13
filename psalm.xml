@@ -7,11 +7,12 @@
 >
     <projectFiles>
         <directory name="./" />
-        <ignoreFiles>
+        <ignoreFiles allowMissingFiles="true">
             <directory name="vendor" />
             <directory name="src" />
             <directory name="dist" />
             <directory name="config" />
+            <directory name="node_modules" />
         </ignoreFiles>
     </projectFiles>
 
@@ -22,6 +23,10 @@
         <UndefinedFunction errorLevel="suppress"/>
         <UndefinedClass errorLevel="suppress"/>
         <UndefinedConstant errorLevel="suppress" />
+        <MissingDependency errorLevel="suppress" />
+
+        <!-- Common PHP/WordPress patterns -->
+        <RiskyTruthyFalsyComparison errorLevel="info" />
 
         <!-- level 3 issues - slightly lazy code writing, but provably low false-negatives -->
 

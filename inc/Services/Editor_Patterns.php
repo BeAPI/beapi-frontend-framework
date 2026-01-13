@@ -114,7 +114,7 @@ class Editor_Patterns implements Service {
 				continue;
 			}
 			$files = glob( $dirpath . '*.php' );
-			if ( $files ) {
+			if ( is_array( $files ) && count( $files ) > 0 ) {
 				foreach ( $files as $file ) {
 					$pattern_data = get_file_data( $file, $default_headers );
 					if ( empty( $pattern_data['slug'] ) ) {
@@ -209,7 +209,7 @@ class Editor_Patterns implements Service {
 					ob_start();
 					include $file;
 					$pattern_data['content'] = ob_get_clean();
-					if ( ! $pattern_data['content'] ) {
+					if ( empty( $pattern_data['content'] ) ) {
 						continue;
 					}
 

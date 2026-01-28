@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "sass:math";
+@use "./theme-json" as *;
 
 $entry-file-name: "undefined";
 
@@ -7,40 +8,12 @@ $entry-file-name: "undefined";
  * Variables
  */
 
-// ==========
-// Colors
-// ==========
-
-// ----
-// Dark/Light colors
-// ----
-$color-light: #fff;
-$color-dark: #000;
-
-// ----
-// Grey colors
-// ----
-$color-grey-100: var(--wp--preset--color--grey-100);
-$color-grey-200: var(--wp--preset--color--grey-200);
-$color-grey-300: var(--wp--preset--color--grey-300);
-$color-grey-400: var(--wp--preset--color--grey-400);
-$color-grey-500: var(--wp--preset--color--grey-500);
-$color-grey-600: var(--wp--preset--color--grey-600);
-$color-grey-700: var(--wp--preset--color--grey-700);
-$color-grey-800: var(--wp--preset--color--grey-800);
-$color-grey-900: var(--wp--preset--color--grey-900);
-
-// ----
-// Palette colors
-// ----
-$color-yellow-500: var(--wp--preset--color--yellow-500);
-
 // ----
 // Theme colors
 // ----
-$color-primary: $color-yellow-500;
-$color-secondary: $color-grey-400;
-$color-text: $color-grey-900;
+$color-primary: $settings-color-yellow-500;
+$color-secondary: $settings-color-grey-400;
+$color-text: $settings-color-grey-900;
 
 /**
 * Sizes
@@ -87,7 +60,7 @@ $breakpoints: (
 // ----
 // border
 // ----
-$base-border-color: $color-grey-800;
+$base-border-color: $settings-color-grey-800;
 $base-border: 1px solid $base-border-color;
 $base-border-radius: 3px;
 
@@ -103,13 +76,9 @@ $font-family-primary: "Poppins", "Poppins-fallback", sans-serif;
 // Font Size
 // ----
 $font-size-base: var(--paragraph--font-size-default);
-$font-size-xs: 14px;
-$font-size-sm: 16px;
-$font-size-md: 18px;
-$font-size-lg: 24px;
-$font-size-xl: 32px;
-$font-size-xxl: 48px;
-$font-size-xxxl: 56px;
+$font-size-sm: var(--paragraph--font-size-small);
+$font-size-lg: var(--paragraph--font-size-large);
+$font-size-xl: var(--paragraph--font-size-huge);
 
 // ----
 // Line Height

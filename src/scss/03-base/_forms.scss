@@ -1,4 +1,5 @@
 @use "../01-abstract/variables" as *;
+@use "../01-abstract/theme-json" as *;
 @use "../02-tools/f-assign-inputs" as *;
 @use "../02-tools/f-get-svg-url" as *;
 @use "../02-tools/m-checkbox-custom" as *;
@@ -34,22 +35,22 @@ $all-text-inputs: assign-inputs($text-inputs-list);
 		font-family: $font-family-primary;
 		line-height: 1;
 		color: $color-text;
-		background: $color-light;
-		border: 1px solid $color-grey-500;
+		background: $settings-color-white;
+		border: 1px solid $settings-color-grey-500;
 		border-radius: 10px; //reset border radius for ios
 		transition: border-color .5s ease;
 		appearance: none;
 
 		&::placeholder {
-			color: $color-grey-600;
+			color: $settings-color-grey-600;
 		}
 
 		&:hover {
-			border-color: $color-grey-500;
+			border-color: $settings-color-grey-500;
 		}
 
 		&:focus {
-			border-color: $color-grey-500;
+			border-color: $settings-color-grey-500;
 		}
 	}
 
@@ -108,7 +109,7 @@ $all-text-inputs: assign-inputs($text-inputs-list);
 			width: 16px;
 			height: 16px;
 			cursor: pointer;
-			background-image: get-svg-url("close", $color-dark);
+			background-image: get-svg-url("close", $settings-color-black);
 			background-repeat: no-repeat;
 			background-size: contain;
 			-webkit-appearance: none;

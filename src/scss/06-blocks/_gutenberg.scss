@@ -10,8 +10,8 @@
 	// Editor UI font styles
 	// ----
 	.wp-block.block-editor-default-block-appender > textarea {
-		font-family: var(--global--font-secondary);
-		font-size: $font-size-md;
+		font-family: $font-family-primary;
+		font-size: $font-size-base;
 	}
 
 	// ----

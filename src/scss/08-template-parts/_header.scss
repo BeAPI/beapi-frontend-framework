@@ -1,5 +1,6 @@
 @use "../01-abstract/constants" as *;
 @use "../01-abstract/variables" as *;
+@use "../01-abstract/theme-json" as *;
 @use "../02-tools/f-column" as *;
 @use "../02-tools/m-breakpoint" as *;
 @use "../02-tools/m-hover" as *;
@@ -62,7 +63,7 @@
 			width: 20px;
 			height: 2px;
 			margin: -1px 0 0 -10px;
-			background: $color-light;
+			background: $settings-color-white;
 			border-radius: 2px;
 			transition: background-color .5s $ease-in-out-expo;
 
@@ -74,7 +75,7 @@
 				width: 100%;
 				height: 100%;
 				content: "";
-				background: $color-light;
+				background: $settings-color-white;
 				border-radius: inherit;
 				transition: transform .5s $ease-in-out-expo;
 			}
@@ -127,7 +128,7 @@
 		width: 50px;
 		height: 50px;
 		padding: 0;
-		color: $color-dark;
+		color: $settings-color-black;
 		text-indent: -10000px;
 		vertical-align: middle;
 		cursor: pointer;
@@ -166,7 +167,7 @@
 	&--menu-is-open {
 		#{$el}__menu-toggle {
 			> span {
-				background: rgba($color-light, 0);
+				background: rgba($settings-color-white, 0);
 
 				&::before {
 					transform: rotate(135deg);
@@ -209,7 +210,7 @@
 				padding-top: 22px;
 
 				+ li {
-					border-top: 1px solid $color-dark;
+					border-top: 1px solid $settings-color-black;
 				}
 			}
 		}

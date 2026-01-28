@@ -1,3 +1,4 @@
+@use "../../01-abstract/theme-json" as *;
 @use "../../02-tools/m-breakpoint" as *;
 @use "../../02-tools/m-editor-only" as *;
 
@@ -9,7 +10,7 @@
 	}
 
 	&.has-background {
-		padding: var(--wp--preset--spacing--sm);
+		padding: $settings-spacing-sm;
 	}
 
 	@include breakpoints(sm, max) {

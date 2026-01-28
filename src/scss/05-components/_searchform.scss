@@ -2,11 +2,13 @@
  * Searchform
  */
 
+@use "../01-abstract/theme-json" as *;
+
 .searchform {
 	position: relative;
 
 	&__field[type="search"] {
-		padding-inline-end: var(--wp--preset--spacing--sm);
+		padding-inline-end: $settings-spacing-sm;
 	}
 
 	&__submit {

@@ -17,12 +17,14 @@
  *
  */
 
+@use "../01-abstract/theme-json" as *;
+
 @mixin align($direction: left) {
 	float: $direction;
 
 	@if ($direction == left) {
-		margin-inline-end: var(--wp--preset--spacing--sm);
+		margin-inline-end: $settings-spacing-sm;
 	} @else {
-		margin-inline-start: var(--wp--preset--spacing--sm);
+		margin-inline-start: $settings-spacing-sm;
 	}
 }

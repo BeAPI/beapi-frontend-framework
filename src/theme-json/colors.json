@@ -2,8 +2,13 @@
 	"version": 3,
 	"settings": {
 		"color": {
+			"duotone": [],
+			"customDuotone": false,
 			"defaultDuotone": false,
+			"gradients": [],
+			"customGradient": false,
 			"defaultGradients": false,
+			"custom": false,
 			"defaultPalette": false,
 			"palette": [
 				{

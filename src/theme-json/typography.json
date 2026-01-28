@@ -8,6 +8,7 @@
 			"dropCap": false,
 			"fontStyle": false,
 			"fontWeight": false,
+			"lineHeight": false,
 			"letterSpacing": false,
 			"textDecoration": false,
 			"textTransform": false,

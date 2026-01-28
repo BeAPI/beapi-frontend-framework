@@ -94,7 +94,7 @@ class WebpackThemeJsonPlugin {
 					palette.push(`${color.slug}: ${colorVar}`)
 				}
 
-				return result + `$settings-palette: (${palette.join(', ')});\n`
+				return result + `$settings-palette: (\n\t${palette.join(',\n\t')}\n);\n`
 			},
 			'settings-custom': 'default',
 			'settings-spacing-spacingSizes'(key, value) {

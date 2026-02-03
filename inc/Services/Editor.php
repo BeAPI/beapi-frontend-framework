@@ -164,6 +164,7 @@ class Editor implements Service {
 		for ( $i = 1; $i <= 6; $i++ ) {
 			$style = [
 				'name'  => 'h' . $i,
+				/* translators: %s: heading number */
 				'label' => sprintf( __( 'Style H%s', 'beapi-frontend-framework' ), $i ),
 			];
 

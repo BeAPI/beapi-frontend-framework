@@ -11,6 +11,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 const WebpackImageSizesPlugin = require('./webpack-image-sizes-plugin')
 const WebpackThemeJsonPlugin = require('./webpack-theme-json-plugin')
+const SpriteHashPlugin = require('./sprite-hash-plugin')
 
 module.exports = {
 	get: function (mode) {
@@ -18,6 +19,7 @@ module.exports = {
 			new WebpackThemeJsonPlugin({
 				watch: mode !== 'production',
 			}),
+			new SpriteHashPlugin(),
 			new CleanWebpackPlugin({
 				cleanOnceBeforeBuildPatterns: ['**/*', '!images', '!images/**'],
 			}),

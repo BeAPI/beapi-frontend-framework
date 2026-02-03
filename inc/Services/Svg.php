@@ -55,12 +55,13 @@ class Svg implements Service {
 			$icon_class  = substr( $icon_class, $slash_pos + 1 );
 		}
 
-		$icon_slug = strpos( $icon_class, 'icon-' ) === 0 ? $icon_class : sprintf( 'icon-%s', $icon_class );
-		$classes   = [ 'icon', $icon_slug ];
-		$classes   = array_merge( $classes, $additionnal_classes );
-		$classes   = array_map( 'sanitize_html_class', $classes );
+		$icon_slug   = strpos( $icon_class, 'icon-' ) === 0 ? $icon_class : sprintf( 'icon-%s', $icon_class );
+		$classes     = [ 'icon', $icon_slug ];
+		$classes     = array_merge( $classes, $additionnal_classes );
+		$classes     = array_map( 'sanitize_html_class', $classes );
+		$hash_sprite = $this->get_sprite_hash( $sprite_name );
 
-		return sprintf( '<svg class="%s" aria-hidden="true" focusable="false"><use href="%s#%s"></use></svg>', implode( ' ', $classes ), \get_theme_file_uri( sprintf( '/dist/icons/%s.svg', $sprite_name ) ), $icon_slug ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		return sprintf( '<svg class="%s" aria-hidden="true" focusable="false"><use href="%s%s#%s"></use></svg>', implode( ' ', $classes ), \get_theme_file_uri( sprintf( '/dist/icons/%s.svg', $sprite_name ) ), $hash_sprite, $icon_slug ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
@@ -103,5 +104,33 @@ class Svg implements Service {
 		];
 
 		return $tags;
+	}
+
+	/**
+	 * Get the hash of the sprite
+	 *
+	 * @param string $sprite_name
+	 *
+	 * @return string
+	 */
+	public function get_sprite_hash( $sprite_name ) {
+		$sprite_hash_file = \get_theme_file_path( '/dist/sprite-hashes.json' );
+
+		if ( ! is_readable( $sprite_hash_file ) ) {
+			return '';
+		}
+
+		$sprite_hash = file_get_contents( $sprite_hash_file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$sprite_hash = json_decode( $sprite_hash, true );
+
+		if ( empty( $sprite_hash ) ) {
+			return '';
+		}
+
+		if ( ! isset( $sprite_hash[ sprintf( 'icons/%s.svg', $sprite_name ) ] ) ) {
+			return '';
+		}
+
+		return '?' . $sprite_hash[ sprintf( 'icons/%s.svg', $sprite_name ) ];
 	}
 }

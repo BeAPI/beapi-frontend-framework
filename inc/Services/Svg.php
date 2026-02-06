@@ -124,15 +124,17 @@ class Svg implements Service {
 			$json_file = get_theme_file_path( '/dist/sprite-hashes.json' );
 
 			if ( is_readable( $php_file ) ) {
-				$sprite_hashes = require $php_file;
-				$sprite_hashes = \is_array( $sprite_hashes ) ? $sprite_hashes : [];
+				$sprite_hash = require $php_file;
+				$sprite_hash = \is_array( $sprite_hashes ) ? $sprite_hashes : [];
 			} elseif ( is_readable( $json_file ) ) {
-				$json_content = file_get_contents( $json_file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+				$sprite_hash = file_get_contents( $json_file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 				try {
-					$sprite_hashes = json_decode( $json_content, true, 512, JSON_THROW_ON_ERROR );
-					$sprite_hashes = \is_array( $sprite_hashes ) ? $sprite_hashes : [];
+					$sprite_hash = json_decode( $json_content, true, 512, JSON_THROW_ON_ERROR );
+					$sprite_hash = \is_array( $sprite_hashes ) ? $sprite_hashes : [];
 				} catch ( \JsonException $e ) {
 					$sprite_hashes = [];
+
+					return null;
 				}
 			} else {
 				$sprite_hashes = [];

@@ -120,23 +120,17 @@ class Svg implements Service {
 		static $sprite_hashes = null;
 
 		if ( null === $sprite_hashes ) {
-			$php_file  = get_theme_file_path( '/dist/sprite-hashes.php' );
-			$json_file = get_theme_file_path( '/dist/sprite-hashes.json' );
+			$sprite_hash_file = get_theme_file_path( '/dist/sprite-hashes.asset.php' );
 
-			if ( is_readable( $php_file ) ) {
-				$sprite_hash = require $php_file;
-				$sprite_hash = \is_array( $sprite_hashes ) ? $sprite_hashes : [];
-			} elseif ( is_readable( $json_file ) ) {
-				$sprite_hash = file_get_contents( $json_file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-				try {
-					$sprite_hash = json_decode( $json_content, true, 512, JSON_THROW_ON_ERROR );
-					$sprite_hash = \is_array( $sprite_hashes ) ? $sprite_hashes : [];
-				} catch ( \JsonException $e ) {
-					$sprite_hashes = [];
+			if ( ! is_readable( $sprite_hash_file ) ) {
+				$sprite_hashes = [];
 
-					return null;
-				}
-			} else {
+				return null;
+			}
+
+			$sprite_hash = require $sprite_hash_file;
+
+			if ( ! is_array( $sprite_hash ) ) {
 				$sprite_hashes = [];
 
 				return null;
@@ -145,6 +139,6 @@ class Svg implements Service {
 			$sprite_hashes = $sprite_hash;
 		}
 
-		return $sprite_hash[ sprintf( 'icons/%s.svg', $sprite_name ) ] ?? null;
+		return $sprite_hashes[ sprintf( 'icons/%s.svg', $sprite_name ) ] ?? null;
 	}
 }

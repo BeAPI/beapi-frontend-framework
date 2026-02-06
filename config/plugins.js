@@ -19,9 +19,7 @@ module.exports = {
 			new WebpackThemeJsonPlugin({
 				watch: mode !== 'production',
 			}),
-			new SpriteHashPlugin({
-				returnFormat: 'php',
-			}),
+			new SpriteHashPlugin(),
 			new CleanWebpackPlugin({
 				cleanOnceBeforeBuildPatterns: ['**/*', '!images', '!images/**'],
 			}),

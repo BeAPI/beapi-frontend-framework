@@ -91,6 +91,8 @@ class Svg implements Service {
 			'focusable'   => [],
 			'class'       => [],
 			'style'       => [],
+			'width'       => [],
+			'height'      => [],
 		];
 
 		$tags['path'] = [

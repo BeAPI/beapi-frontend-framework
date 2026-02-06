@@ -1,4 +1,5 @@
 @use "../01-abstract/variables" as *;
+@use "../01-abstract/theme-json" as *;
 @use "f-get-svg-url" as *;
 @use "m-rtl" as *;
 @use "sass:color";
@@ -25,12 +26,12 @@
 	font-size: 16px; // prevent iOS zoom
 	line-height: 1.15;
 	color: $color-text;
-	background-color: $color-light;
-	background-image: get-svg-url("down"), linear-gradient(to bottom, $color-light 0%, $color-light 100%);
+	background-color: $settings-color-white;
+	background-image: get-svg-url("down"), linear-gradient(to bottom, $settings-color-white 0%, $settings-color-white 100%);
 	background-repeat: no-repeat, repeat;
 	background-position: right 10px top 50%, 0 0;
 	background-size: 10px auto, 100%;
-	border: 1px solid $color-grey-500;
+	border: 1px solid $settings-color-grey-500;
 	border-radius: 10px;
 	appearance: none;
 
@@ -50,6 +51,6 @@
 
 	// Hover style
 	&:hover {
-		border-color: color.adjust($color-grey-500, $lightness: -10%);
+		border-color: $settings-color-grey-400;
 	}
 }

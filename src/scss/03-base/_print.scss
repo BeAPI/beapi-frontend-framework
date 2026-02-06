@@ -1,9 +1,10 @@
 @use "../01-abstract/variables" as *;
+@use "../01-abstract/theme-json" as *;
 
 @media print {
 	* {
 		font-family: Arial, Helvetica, sans-serif !important;
-		color: $color-dark !important;
+		color: $settings-color-black !important;
 		text-decoration: none;
 		text-shadow: none !important;
 		background: transparent !important;

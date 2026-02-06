@@ -10,10 +10,14 @@ const DependencyExtractionWebpackPlugin = require('@wordpress/dependency-extract
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const WebpackImageSizesPlugin = require('./webpack-image-sizes-plugin')
+const WebpackThemeJsonPlugin = require('./webpack-theme-json-plugin')
 
 module.exports = {
 	get: function (mode) {
 		const plugins = [
+			new WebpackThemeJsonPlugin({
+				watch: mode !== 'production',
+			}),
 			new CleanWebpackPlugin({
 				cleanOnceBeforeBuildPatterns: ['**/*', '!images', '!images/**'],
 			}),

@@ -37,7 +37,6 @@ class Editor implements Service {
 	 * @param Service_Container $container
 	 */
 	public function boot( Service_Container $container ): void {
-		$this->after_theme_setup();
 		/**
 		 * Load editor style css for admin and frontend
 		 */
@@ -49,11 +48,6 @@ class Editor implements Service {
 		$this->register_custom_block_styles();
 
 		/**
-		 * Customize theme.json settings
-		 */
-		add_filter( 'wp_theme_json_data_theme', [ $this, 'filter_theme_json_theme' ], 10, 1 );
-
-		/**
 		 * Load editor JS for ADMIN
 		 */
 		add_action( 'enqueue_block_editor_assets', [ $this, 'admin_editor_script' ] );
@@ -61,86 +55,6 @@ class Editor implements Service {
 		 * White list of gutenberg blocks
 		 */
 		add_filter( 'allowed_block_types_all', [ $this, 'gutenberg_blocks_allowed' ], 10, 2 );
-	}
-
-	/**
-	 * Register :
-	 *  - theme_supports
-	 *  - color palettes
-	 *  - font sizes
-	 *  - etc.
-	 *
-	 */
-	private function after_theme_setup(): void {
-
-		//color palettes
-		add_theme_support(
-			'editor-color-palette',
-			[
-				[
-					'name'  => __( 'Dark', 'beapi-frontend-framework' ),
-					'slug'  => 'dark',
-					'color' => '#000000',
-				],
-				[
-					'name'  => __( 'Light', 'beapi-frontend-framework' ),
-					'slug'  => 'light',
-					'color' => '#ffffff',
-				],
-				[
-					'name'  => __( 'Primary', 'beapi-frontend-framework' ),
-					'slug'  => 'primary',
-					'color' => '#ffff00',
-				],
-				[
-					'name'  => __( 'Secondary', 'beapi-frontend-framework' ),
-					'slug'  => 'secondary',
-					'color' => '#00ffff',
-				],
-			]
-		);
-		// font sizes
-		add_theme_support(
-			'editor-font-sizes',
-			[
-				[
-					'name'      => __( 'Title 6', 'beapi-frontend-framework' ),
-					'shortName' => 'h6',
-					'size'      => 14,
-					'slug'      => 'h6',
-				],
-				[
-					'name'      => __( 'Title 5', 'beapi-frontend-framework' ),
-					'shortName' => 'h5',
-					'size'      => 16,
-					'slug'      => 'h5',
-				],
-				[
-					'name'      => __( 'Title 4', 'beapi-frontend-framework' ),
-					'shortName' => 'h4',
-					'size'      => 18,
-					'slug'      => 'h4',
-				],
-				[
-					'name'      => __( 'Title 3', 'beapi-frontend-framework' ),
-					'shortName' => 'h3',
-					'size'      => 24,
-					'slug'      => 'h3',
-				],
-				[
-					'name'      => __( 'Title 2', 'beapi-frontend-framework' ),
-					'shortName' => 'h2',
-					'size'      => 40,
-					'slug'      => 'h2',
-				],
-				[
-					'name'      => __( 'Title 1', 'beapi-frontend-framework' ),
-					'shortName' => 'h1',
-					'size'      => 58,
-					'slug'      => 'h1',
-				],
-			]
-		);
 	}
 
 	/**
@@ -157,27 +71,6 @@ class Editor implements Service {
 		}
 
 		add_editor_style( 'dist/' . $file );
-	}
-
-	/**
-	 * Theme.json settings
-	 * See https://developer.wordpress.org/block-editor/reference-guides/theme-json-reference/theme-json-living/
-	 *
-	 * @param \WP_Theme_JSON_Data $theme_json Class to access and update the underlying data.
-	 *
-	 * @return \WP_Theme_JSON_Data
-	 */
-	public function filter_theme_json_theme( \WP_Theme_JSON_Data $theme_json ): \WP_Theme_JSON_Data {
-		$custom_theme_json = [
-			'version'  => 2,
-			'settings' => [
-				'typography' => [
-					'dropCap' => false,
-				],
-			],
-		];
-
-		return $theme_json->update_with( $custom_theme_json );
 	}
 
 	/**
@@ -267,6 +160,26 @@ class Editor implements Service {
 				'label' => __( 'Huge', 'beapi-frontend-framework' ),
 			]
 		);
+
+		for ( $i = 1; $i <= 6; $i++ ) {
+			$style = [
+				'name'  => 'h' . $i,
+				/* translators: %s: heading number */
+				'label' => sprintf( __( 'Style H%s', 'beapi-frontend-framework' ), $i ),
+			];
+
+			// heading
+			register_block_style(
+				'core/heading',
+				$style
+			);
+
+			// paragraph
+			register_block_style(
+				'core/paragraph',
+				$style
+			);
+		}
 	}
 
 	/**

@@ -84,3 +84,7 @@ package-lock.json
 
 ### conf-img
 assets/conf-img/*.json
+
+### theme.json
+src/scss/01-abstract/_theme-json.scss
+theme.json

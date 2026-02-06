@@ -30,6 +30,15 @@
 @include Poppins.faces($weights: (300, 400, 500, 700), $styles: normal);
 @include Poppins.faces($weights: (300, 400, 500, 700), $styles: italic);
 
+// Fallbacks for DM Sans  to improve cls
+// https://deploy-preview-15--upbeat-shirley-608546.netlify.app/perfect-ish-font-fallback/?font=Poppins
+@font-face {
+	font-family: Poppins-fallback;
+	src: local("Arial");
+	size-adjust: 112.5%;
+	ascent-override: 109%;
+}
+
 /**
  * Custom font here
  *

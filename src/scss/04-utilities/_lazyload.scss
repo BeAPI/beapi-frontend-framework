@@ -1,9 +1,10 @@
 @use "../01-abstract/variables" as *;
+@use "../01-abstract/theme-json" as *;
 @use "sass:math";
 
 .lazyload,
 .lazyloading {
-	background: $color-grey-200;
+	background: $settings-color-grey-200;
 	opacity: 0;
 }
 
@@ -43,7 +44,7 @@ $loading-dimensions: 50px;
 		width: $loading-dimensions;
 		height: $loading-dimensions;
 		content: "";
-		border: 5px solid $color-light;
+		border: 5px solid $settings-color-white;
 		border-top-color: transparent;
 		border-radius: $loading-dimensions;
 		opacity: 1;

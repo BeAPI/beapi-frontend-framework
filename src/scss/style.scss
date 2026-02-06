@@ -34,11 +34,11 @@ variables.$entry-file-name: "style";
 @use "04-utilities/lazyload";
 @use "04-utilities/seo";
 @use "04-utilities/video-wrapper";
-@use "04-utilities/palette";
 @use "04-utilities/container";
 @use "04-utilities/sr-only";
 @use "04-utilities/js-animation";
 @use "04-utilities/aria";
+@use "04-utilities/palette";
 
 /**
  * Components

@@ -1,0 +1,18 @@
+{
+	"version": 3,
+	"settings": {
+		"typography": {
+			"fontSizes": [],
+			"defaultFontSizes": false,
+			"customFontSize": false,
+			"dropCap": false,
+			"fontStyle": false,
+			"fontWeight": false,
+			"lineHeight": false,
+			"letterSpacing": false,
+			"textDecoration": false,
+			"textTransform": false,
+			"fluid": true
+		}
+	}
+}

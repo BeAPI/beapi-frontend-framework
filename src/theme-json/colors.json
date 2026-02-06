@@ -1,0 +1,77 @@
+{
+	"version": 3,
+	"settings": {
+		"color": {
+			"duotone": [],
+			"customDuotone": false,
+			"defaultDuotone": false,
+			"gradients": [],
+			"customGradient": false,
+			"defaultGradients": false,
+			"custom": false,
+			"defaultPalette": false,
+			"palette": [
+				{
+					"name": "Noir",
+					"slug": "black",
+					"color": "#000"
+				},
+				{
+					"name": "Blanc",
+					"slug": "white",
+					"color": "#fff"
+				},
+				{
+					"name": "Jaune 500",
+					"slug": "yellow-500",
+					"color": "#ffe600"
+				},
+				{
+					"name": "Gris 100",
+					"slug": "grey-100",
+					"color": "#eee"
+				},
+				{
+					"name": "Gris 200",
+					"slug": "grey-200",
+					"color": "#ccc"
+				},
+				{
+					"name": "Gris 300",
+					"slug": "grey-300",
+					"color": "#aaa"
+				},
+				{
+					"name": "Gris 400",
+					"slug": "grey-400",
+					"color": "#999"
+				},
+				{
+					"name": "Gris 500",
+					"slug": "grey-500",
+					"color": "#888"
+				},
+				{
+					"name": "Gris 600",
+					"slug": "grey-600",
+					"color": "#777"
+				},
+				{
+					"name": "Gris 700",
+					"slug": "grey-700",
+					"color": "#555"
+				},
+				{
+					"name": "Gris 800",
+					"slug": "grey-800",
+					"color": "#333"
+				},
+				{
+					"name": "Gris 900",
+					"slug": "grey-900",
+					"color": "#111"
+				}
+			]
+		}
+	}
+}

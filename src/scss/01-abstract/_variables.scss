@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "sass:math";
+@use "./theme-json" as *;
 
 $entry-file-name: "undefined";
 
@@ -7,90 +8,18 @@ $entry-file-name: "undefined";
  * Variables
  */
 
-// ==========
-// Colors
-// ==========
-
-// ----
-// Dark/Light colors
-// ----
-$color-light: #fff;
-$color-dark: #000;
-
-// ----
-// Grey colors
-// ----
-$color-grey-100: #eee;
-$color-grey-200: #ccc;
-$color-grey-300: #aaa;
-$color-grey-400: #999;
-$color-grey-500: #888;
-$color-grey-600: #777;
-$color-grey-700: #555;
-$color-grey-800: #333;
-$color-grey-900: #111;
-
-// ----
-// Palette colors
-// ----
-$color-yellow-500: #ffe600;
-
 // ----
 // Theme colors
 // ----
-$color-primary: $color-yellow-500;
-$color-secondary: $color-grey-400;
-$color-text: $color-grey-900;
-
-// ----
-// Gutenberg palette
-// ----
-$palette: (
-	"primary": (
-		"color": $color-primary,
-		"isColorLight": true,
-	),
-	"secondary": (
-		"color": $color-secondary,
-		"isColorLight": false,
-	),
-	"dark": (
-		"color":  $color-dark,
-		"isColorLight": false,
-	),
-	"light": (
-		"color":  $color-light,
-		"isColorLight": true,
-	),
-);
+$color-primary: $settings-color-yellow-500;
+$color-secondary: $settings-color-grey-400;
+$color-text: $settings-color-grey-900;
 
 /**
 * Sizes
 *
-* If is fluid website and for example you have a container of 1304px on figma -> column : 72px and gutter -> 40px
-*
-* The max width of the fluid size container is for example 2200px.
-*
-*     $column-preset: (
-*         // preset for desktop
-*         d : (
-*             column-width: 121.4724, // (2220 * 72 / 1304)  - Container width : 2200px (1304px on 1440px viewport) - Column width : 121px (72px on 1440px viewport)
-*             gutter-width: 67.4846, // (2200 * 40 / 1304) - Gutter width : 67px (40px on 1440px viewport)
-*             total-column: 12
-*         ),
-*         // preset for tablet
-*         t : (
-*             column-width: 121.4724,
-*             gutter-width: 67.4846,
-*             total-column: 12
-*         ),
-*         // preset for mobile
-*         m : (
-*             column-width: 36,
-*             gutter-width: 24,
-*             total-column: 6
-*         )
-*     );
+* Only use for setup the grid to use the column mixin -> Corresponding to the layout settings in theme.json (1160px)
+* The default and wide size is defined in the theme.json file.
 */
 $column-preset: (
 	// preset for desktop
@@ -114,19 +43,6 @@ $column-preset: (
 );
 
 // ----
-// Containers
-// ----
-$container-default-column-length: 8;
-$container-default: (
-	map.get(map.get($column-preset, d), column-width) * $container-default-column-length + map.get(map.get($column-preset, d), gutter-width) * ($container-default-column-length - 1)
-) * 1px;
-$container-wide: (
-	map.get(map.get($column-preset, d), column-width) * map.get(map.get($column-preset, d), total-column) + map.get(map.get($column-preset, d), gutter-width) * (map.get(map.get($column-preset, d), total-column) - 1)
-) * 1px;
-$external-gutter: 50px;
-$external-gutter-mobile: 20px;
-
-// ----
 // Breakpoints
 // Based on WordPress breakpoints (https://github.com/WordPress/gutenberg/blob/trunk/packages/base-styles/_breakpoints.scss)
 // ----
@@ -139,14 +55,12 @@ $breakpoints: (
 	md: 1080,
 	mdl: 1279, // Do not use 1280px, it causes a bug under Window Edge with a device pixel ratio higher than 1
 	l: 1440,
-	container-default: math.div($container-default + $external-gutter-mobile * 2, 1px),
-	container-wide: math.div($container-wide + $external-gutter * 2, 1px),
 );
 
 // ----
 // border
 // ----
-$base-border-color: $color-grey-800;
+$base-border-color: $settings-color-grey-800;
 $base-border: 1px solid $base-border-color;
 $base-border-radius: 3px;
 
@@ -156,21 +70,17 @@ $base-border-radius: 3px;
 // ----
 // Font Family
 // ----
-$font-family-primary: "Poppins", sans-serif;
+$font-family-primary: "Poppins", "Poppins-fallback", sans-serif;
 
 // ----
 // Font Size
 // ----
-$font-size-base: 16px;
-$font-size-xs: 14px;
-$font-size-sm: 16px;
-$font-size-md: 18px;
-$font-size-lg: 24px;
-$font-size-xl: 32px;
-$font-size-xxl: 48px;
-$font-size-xxxl: 56px;
+$font-size-base: var(--paragraph--font-size-default);
+$font-size-sm: var(--paragraph--font-size-small);
+$font-size-lg: var(--paragraph--font-size-large);
+$font-size-xl: var(--paragraph--font-size-huge);
 
 // ----
 // Line Height
 // ----
-$line-height-base: 1.4;
+$line-height-base: var(--paragraph--line-height-default);

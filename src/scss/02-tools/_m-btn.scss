@@ -1,4 +1,5 @@
 @use "../01-abstract/variables" as *;
+@use "../01-abstract/theme-json" as *;
 @use "m-hover" as *;
 
 /**
@@ -34,7 +35,7 @@
 	font-size: 12px;
 	font-weight: 700;
 	line-height: 16px;
-	color: $color-dark;
+	color: $settings-color-black;
 	text-align: center;
 	background-color: $color-primary;
 	border-radius: 10px;
@@ -48,7 +49,7 @@
 
 @mixin btn-block-hover {
 	color: $color-primary;
-	background-color: $color-dark;
+	background-color: $settings-color-black;
 }
 
 // Coloring

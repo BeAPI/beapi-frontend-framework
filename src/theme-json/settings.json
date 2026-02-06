@@ -1,0 +1,28 @@
+{
+	"version": 3,
+	"settings": {
+		"useRootPaddingAwareAlignments": true,
+		"layout": {
+			"contentSize": "760px",
+			"wideSize": "1160px"
+		},
+		"border": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true
+		},
+		"shadow": {
+			"defaultPresets": false
+		}
+	},
+	"styles": {
+		"spacing": {
+			"blockGap": "var(--wp--preset--spacing--sm)",
+			"padding": {
+				"right": "clamp(20px, calc(20px + 20 * ((100vw - 400px) / 880)), 40px)",
+				"left": "clamp(20px, calc(20px + 20 * ((100vw - 400px) / 880)), 40px)"
+			}
+		}
+	}
+}

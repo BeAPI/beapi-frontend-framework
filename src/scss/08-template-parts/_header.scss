@@ -1,5 +1,6 @@
 @use "../01-abstract/constants" as *;
 @use "../01-abstract/variables" as *;
+@use "../01-abstract/theme-json" as *;
 @use "../02-tools/f-column" as *;
 @use "../02-tools/m-breakpoint" as *;
 @use "../02-tools/m-hover" as *;
@@ -19,7 +20,7 @@
 		top: var(--wp-admin-bar-height);
 		z-index: 10;
 		width: 100%;
-		background: var(--wp--preset--color--cyan-bluish-gray);
+		background: $settings-color-grey-500;
 	}
 
 	.container {
@@ -40,7 +41,7 @@
 	&__menu-toggle {
 		position: absolute;
 		top: 14px;
-		right: var(--responsive--gutter);
+		right: var(--responsive--gutter-right);
 		z-index: 2;
 		width: 46px;
 		height: 46px;
@@ -52,7 +53,7 @@
 
 		@include rtl {
 			right: auto;
-			left: var(--responsive--gutter);
+			left: var(--responsive--gutter-left);
 		}
 
 		> span {
@@ -62,7 +63,7 @@
 			width: 20px;
 			height: 2px;
 			margin: -1px 0 0 -10px;
-			background: $color-light;
+			background: $settings-color-white;
 			border-radius: 2px;
 			transition: background-color .5s $ease-in-out-expo;
 
@@ -74,7 +75,7 @@
 				width: 100%;
 				height: 100%;
 				content: "";
-				background: $color-light;
+				background: $settings-color-white;
 				border-radius: inherit;
 				transition: transform .5s $ease-in-out-expo;
 			}
@@ -127,7 +128,7 @@
 		width: 50px;
 		height: 50px;
 		padding: 0;
-		color: $color-dark;
+		color: $settings-color-black;
 		text-indent: -10000px;
 		vertical-align: middle;
 		cursor: pointer;
@@ -166,7 +167,7 @@
 	&--menu-is-open {
 		#{$el}__menu-toggle {
 			> span {
-				background: rgba($color-light, 0);
+				background: rgba($settings-color-white, 0);
 
 				&::before {
 					transform: rotate(135deg);
@@ -197,7 +198,7 @@
 			}
 
 			> div {
-				padding: 76px calc(var(--responsive--gutter) * 2) 25px;
+				padding: 76px var(--responsive--gutter) 25px;
 			}
 		}
 
@@ -209,7 +210,7 @@
 				padding-top: 22px;
 
 				+ li {
-					border-top: 1px solid $color-dark;
+					border-top: 1px solid $settings-color-black;
 				}
 			}
 		}

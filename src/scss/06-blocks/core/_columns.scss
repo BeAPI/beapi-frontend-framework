@@ -1,19 +1,12 @@
-@use "../../02-tools/m-block-vertical-spacing" as *;
+@use "../../01-abstract/theme-json" as *;
 @use "../../02-tools/m-breakpoint" as *;
 
 .wp-block-columns {
-	--wp-block-columns-row-gap: var(--spacing--block-2);
-	--wp-block-columns-column-gap: #{get_gutter-width()};
-
-	@include block-vertical-spacing();
-
-	row-gap: var(--wp-block-columns-row-gap);
-	column-gap: var(--wp-block-columns-column-gap) !important;
 	justify-content: space-between;
 
 	.wp-block-column {
 		&.has-background {
-			padding: var(--spacing--block-1);
+			padding: $settings-spacing-sm;
 		}
 	}
 

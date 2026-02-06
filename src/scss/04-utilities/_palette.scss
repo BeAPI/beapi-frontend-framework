@@ -1,12 +1,30 @@
-@use "../01-abstract/variables" as *;
-@use "sass:map";
+@use "../01-abstract/theme-json.scss" as *;
 
-@each $name, $colors in $palette {
-	.has-#{$name}-color {
-		color: map.get($colors, color);
+/*
+ * Palette : Usefully to get the color or background color of a parent element
+ * Usage Example:
+ * Use these classes to store a color value in a CSS variable.
+ * This allows any child element to reuse the parent's background color.
+ *
+ * HTML:
+ * <div class="has-primary-background-color">
+ *    <span class="child-element">
+ *        I will use the parent's background as my text color
+ *    </span>
+ * </div>
+ *
+ * CSS:
+ * .child-element {
+ *    color: var(--background-color);
+ * }
+ */
+
+@each $color-name, $color-value in $settings-palette {
+	.has-#{$color-name}-color {
+		--color: #{$color-value};
 	}
 
-	.has-#{$name}-background-color {
-		background-color: map.get($colors, color);
+	.has-#{$color-name}-background-color {
+		--background-color: #{$color-value};
 	}
 }

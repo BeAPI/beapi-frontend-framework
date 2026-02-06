@@ -26,7 +26,7 @@
  * Examples :
  *
  *      .my-scrollbar-custom {
- *          @include scrollbar-color(10px, $color-primary, $color-dark);
+ *          @include scrollbar-color(10px, $color-primary, $settings-color-black);
  *      }
  *
  */

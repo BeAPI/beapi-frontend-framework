@@ -8,5 +8,5 @@
 }
 
 .container-default {
-	@include container($container-default);
+	@include container(var(--wp--style--global--content-size));
 }

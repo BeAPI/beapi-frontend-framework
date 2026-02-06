@@ -1,4 +1,5 @@
 @use "../01-abstract/variables" as *;
+@use "../01-abstract/theme-json" as *;
 @use "m-style-only" as *;
 
 /**
@@ -11,12 +12,12 @@
  * Examples :
  *
  *      .test {
- *          @include bg-fullwidth($color-dark);
+ *          @include bg-fullwidth($settings-color-black);
  *      }
  *
  */
 
-@mixin bg-fullwidth($color: $color-grey-100) {
+@mixin bg-fullwidth($color: $settings-color-grey-100) {
 	position: relative;
 
 	&::before {

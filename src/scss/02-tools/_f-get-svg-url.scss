@@ -1,4 +1,5 @@
 @use "../01-abstract/variables" as *;
+@use "../01-abstract/theme-json" as *;
 @use "sass:color";
 @use "sass:list";
 @use "sass:map";
@@ -33,7 +34,7 @@
  *
  */
 
-@function get-svg-url($name: null, $fill: $color-dark, $opacity: 1, $style: "") {
+@function get-svg-url($name: null, $fill: $settings-color-black, $opacity: 1, $style: "") {
 
 	$svgs: (
 		// name-of-the-svg: (viewBox, content of the svg element)

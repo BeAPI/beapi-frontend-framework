@@ -1,4 +1,5 @@
 @use "../01-abstract/variables" as *;
+@use "../01-abstract/theme-json" as *;
 @use "../02-tools/m-breakpoint" as *;
 @use "../02-tools/m-row-fullwidth" as *;
 
@@ -9,14 +10,14 @@
 .hero {
 	@include row-fullwidth;
 
-	padding: var(--spacing--block-1) 0;
-	margin-bottom: var(--spacing--block-1);
+	padding: $settings-spacing-sm 0;
+	margin-bottom: $settings-spacing-sm;
 
 	.container {
 		position: relative;
 		z-index: 4;
 		padding: 20px;
-		background: rgba($color-light, .5);
+		background: rgba($settings-color-white, .5);
 	}
 
 	&__img {

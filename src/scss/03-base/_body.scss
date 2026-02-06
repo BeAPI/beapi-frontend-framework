@@ -1,4 +1,5 @@
 @use "../01-abstract/variables" as *;
+@use "../01-abstract/theme-json" as *;
 @use "../02-tools/m-rtl" as *;
 
 html {
@@ -38,5 +39,5 @@ body {
 	font-size: $font-size-base;
 	font-weight: normal;
 	color: $color-text;
-	background-color: $color-light;
+	background-color: $settings-color-white;
 }

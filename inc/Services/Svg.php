@@ -59,9 +59,10 @@ class Svg implements Service {
 		$classes     = [ 'icon', $icon_slug ];
 		$classes     = array_merge( $classes, $additionnal_classes );
 		$classes     = array_map( 'sanitize_html_class', $classes );
+		$icon_url = \get_theme_file_uri( sprintf( '/dist/icons/%s.svg', $sprite_name ) );
 		$hash_sprite = $this->get_sprite_hash( $sprite_name );
 
-		return sprintf( '<svg class="%s" aria-hidden="true" focusable="false"><use href="%s%s#%s"></use></svg>', implode( ' ', $classes ), \get_theme_file_uri( sprintf( '/dist/icons/%s.svg', $sprite_name ) ), $hash_sprite, $icon_slug ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		return sprintf( '<svg class="%s" aria-hidden="true" focusable="false"><use href="%s#%s"></use></svg>', implode( ' ', $classes ), add_query_arg( [ 'v' => $hash_sprite ], $icon_url ), $icon_slug );
 	}
 
 	/**

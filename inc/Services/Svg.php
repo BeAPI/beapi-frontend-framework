@@ -120,19 +120,21 @@ class Svg implements Service {
 		static $sprite_hashes = null;
 
 		if ( null === $sprite_hashes ) {
-			$sprite_hash_file = \get_theme_file_path( '/dist/sprite-hashes.json' );
+			$php_file  = get_theme_file_path( '/dist/sprite-hashes.php' );
+			$json_file = get_theme_file_path( '/dist/sprite-hashes.json' );
 
-			if ( ! is_readable( $sprite_hash_file ) ) {
-				$sprite_hashes = [];
-
-				return null;
-			}
-
-			$sprite_hash = file_get_contents( $sprite_hash_file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-
-			try {
-				$sprite_hash = json_decode( $sprite_hash, true, 512, JSON_THROW_ON_ERROR );
-			} catch ( \JsonException $e ) {
+			if ( is_readable( $php_file ) ) {
+				$sprite_hashes = require $php_file;
+				$sprite_hashes = \is_array( $sprite_hashes ) ? $sprite_hashes : [];
+			} elseif ( is_readable( $json_file ) ) {
+				$json_content = file_get_contents( $json_file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+				try {
+					$sprite_hashes = json_decode( $json_content, true, 512, JSON_THROW_ON_ERROR );
+					$sprite_hashes = \is_array( $sprite_hashes ) ? $sprite_hashes : [];
+				} catch ( \JsonException $e ) {
+					$sprite_hashes = [];
+				}
+			} else {
 				$sprite_hashes = [];
 
 				return null;

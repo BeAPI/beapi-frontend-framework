@@ -111,26 +111,33 @@ class Svg implements Service {
 	 *
 	 * @param string $sprite_name
 	 *
-	 * @return string
+	 * @return string | null
 	 */
-	public function get_sprite_hash( $sprite_name ) {
-		$sprite_hash_file = \get_theme_file_path( '/dist/sprite-hashes.json' );
+	public function get_sprite_hash( string $sprite_name ): ?string {
+		static $sprite_hashes = null;
 
-		if ( ! is_readable( $sprite_hash_file ) ) {
-			return '';
+		if ( null === $sprite_hashes ) {
+			$sprite_hash_file = \get_theme_file_path( '/dist/sprite-hashes.json' );
+
+			if ( ! is_readable( $sprite_hash_file ) ) {
+				$sprite_hashes = [];
+
+				return null;
+			}
+
+			$sprite_hash = file_get_contents( $sprite_hash_file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+
+			try {
+				$sprite_hash = json_decode( $sprite_hash, true, 512, JSON_THROW_ON_ERROR );
+			} catch ( \JsonException $e ) {
+				$sprite_hashes = [];
+
+				return null;
+			}
+
+			$sprite_hashes = $sprite_hash;
 		}
 
-		$sprite_hash = file_get_contents( $sprite_hash_file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-		$sprite_hash = json_decode( $sprite_hash, true );
-
-		if ( empty( $sprite_hash ) ) {
-			return '';
-		}
-
-		if ( ! isset( $sprite_hash[ sprintf( 'icons/%s.svg', $sprite_name ) ] ) ) {
-			return '';
-		}
-
-		return '?' . $sprite_hash[ sprintf( 'icons/%s.svg', $sprite_name ) ];
+		return $sprite_hash[ sprintf( 'icons/%s.svg', $sprite_name ) ] ?? null;
 	}
 }

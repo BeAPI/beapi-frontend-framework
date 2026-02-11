@@ -23,6 +23,16 @@ class SpriteHashPlugin {
 	}
 
 	/**
+	 * Escapes a string for safe use inside a PHP single-quoted string literal.
+	 *
+	 * @param {string} str Input string.
+	 * @return {string} Escaped string.
+	 */
+	_escapePhpSingleQuoted(str) {
+		return String(str).replace(/\\/g, '\\\\').replace(/'/g, "\\'")
+	}
+
+	/**
 	 * Formats a plain object as a PHP associative array string.
 	 *
 	 * @param {Record<string, string>} obj Key-value pairs.
@@ -30,8 +40,8 @@ class SpriteHashPlugin {
 	 */
 	formatPhpArray(obj) {
 		const entries = Object.entries(obj).map(([key, value]) => {
-			const escapedKey = key.replace(/'/g, "\\'")
-			const escapedValue = String(value).replace(/'/g, "\\'")
+			const escapedKey = this._escapePhpSingleQuoted(key)
+			const escapedValue = this._escapePhpSingleQuoted(value)
 			return `\t'${escapedKey}' => '${escapedValue}'`
 		})
 		return `array(\n${entries.join(',\n')}\n)`

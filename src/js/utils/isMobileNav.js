@@ -1,4 +1,4 @@
-import getBreakpoint from './getBreakpoint'
+import getCssVar from './getCssVar'
 
 /**
  * Check if the current viewport is mobile based on a CSS breakpoint.
@@ -8,6 +8,6 @@ import getBreakpoint from './getBreakpoint'
  * @example isMobileNav() => true; !isMobileNav() => false
  */
 export default function isMobileNav(breakpointVar = '--breakpoint-mobile-to-desktop-nav') {
-	const breakpoint = parseInt(getBreakpoint(breakpointVar), 10)
+	const breakpoint = parseInt(getCssVar(breakpointVar), 10)
 	return window.matchMedia(`(max-width: ${breakpoint - 1}px)`).matches
 }

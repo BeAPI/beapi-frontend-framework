@@ -8,6 +8,19 @@ import getCssVar from './getCssVar'
  * @example isMobileNav() => true; !isMobileNav() => false
  */
 export default function isMobileNav(breakpointVar = '--breakpoint-mobile-to-desktop-nav') {
-	const breakpoint = parseInt(getCssVar(breakpointVar), 10)
+	const rawValue = getCssVar(breakpointVar)
+
+	if (!rawValue) {
+		console.warn(`isMobileNav: Variable ${breakpointVar} is empty or undefined. Returning false.`)
+		return false
+	}
+
+	const breakpoint = parseInt(rawValue, 10)
+
+	if (isNaN(breakpoint)) {
+		console.warn(`isMobileNav: Could not parse "${rawValue}" as a number.`)
+		return false
+	}
+
 	return window.matchMedia(`(max-width: ${breakpoint - 1}px)`).matches
 }

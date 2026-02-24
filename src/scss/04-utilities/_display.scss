@@ -1,0 +1,27 @@
+@use "../02-tools/m-breakpoint" as *;
+@use "../02-tools/m-style-only" as *;
+
+/**
+ * Display utilities
+ *
+ * Utility classes for showing/hiding elements based on the mobile-to-desktop-nav breakpoint.
+ * Used primarily for skip links and navigation-related elements.
+ */
+
+// Visible only on mobile (below mobile-to-desktop-nav breakpoint)
+.display-mobile-only {
+	@include breakpoints(mobile-to-desktop-nav) {
+		@include style-only {
+			display: none !important;
+		}
+	}
+}
+
+// Visible only on desktop (at or above mobile-to-desktop-nav breakpoint)
+.display-desktop-only {
+	@include breakpoints(mobile-to-desktop-nav, max) {
+		@include style-only {
+			display: none !important;
+		}
+	}
+}

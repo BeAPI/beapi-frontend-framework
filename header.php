@@ -27,8 +27,11 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 	<?php wp_body_open(); ?>
 	<nav class="skip-links skip-links--hidden" aria-label="<?php esc_attr_e( 'Fast access links', 'beapi-frontend-framework' ); ?>">
 		<ul>
-			<li>
+			<li class="display-desktop-only">
 				<a href="#menu"><?php esc_html_e( 'Go to main navigation menu', 'beapi-frontend-framework' ); ?></a>
+			</li>
+			<li class="display-mobile-only">
+				<a href="#menu-toggle"><?php esc_html_e( 'Go to main navigation menu', 'beapi-frontend-framework' ); ?></a>
 			</li>
 			<li>
 				<a href="#content"><?php esc_html_e( 'Go to main content', 'beapi-frontend-framework' ); ?></a>
@@ -46,7 +49,7 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 					<span class="sr-only"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
 				</a>
 				<?php if ( has_nav_menu( 'menu-main' ) ) : ?>
-					<button class="header__menu-toggle" aria-expanded="false" aria-controls="menu">
+					<button id="menu-toggle" class="header__menu-toggle" aria-expanded="false" aria-controls="menu">
 						<span></span>
 						<span class="sr-only aria-expanded-false-text"><?php esc_html_e( 'Open the menu', 'beapi-frontend-framework' ); ?></span>
 						<span class="sr-only aria-expanded-true-text"><?php esc_html_e( 'Close the menu', 'beapi-frontend-framework' ); ?></span>

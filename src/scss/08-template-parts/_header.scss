@@ -180,7 +180,7 @@
 		}
 	}
 
-	@include breakpoints(mdl, max) {
+	@include breakpoints(mobile-to-desktop-nav, max) {
 		&__menu {
 			position: absolute;
 			top: 0;
@@ -229,7 +229,7 @@
 		}
 	}
 
-	@include breakpoints(sm, mdl) {
+	@include breakpoints(sm, mobile-to-desktop-nav) {
 		#{$el}__menu {
 			right: 0;
 			left: auto;
@@ -248,7 +248,7 @@
 		}
 	}
 
-	@include breakpoints(mdl) {
+	@include breakpoints(mobile-to-desktop-nav) {
 		.container {
 			display: flex;
 			align-items: flex-start;

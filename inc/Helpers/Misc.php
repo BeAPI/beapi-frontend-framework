@@ -44,7 +44,7 @@ function get_file_infos( int $file_id ): array {
 		'details'            => get_file_detail( $file_name, $file_ext, $file_size ),
 		'details_accessible' => get_file_detail( $file_name, $file_ext, get_accessible_file_size_label( $file_size ) ),
 		'href'               => $file_href,
-		'caption'            => wp_get_attachment_caption( $file_id ),
+		'caption'            => (string) wp_get_attachment_caption( $file_id ),
 	];
 }
 

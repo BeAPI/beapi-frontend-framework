@@ -21,6 +21,11 @@ class Assets implements Service {
 	private $assets_tools;
 
 	/**
+	 * @var array $assets_json_index
+	 */
+	protected $assets_json_index;
+
+	/**
 	 * @param Service_Container $container
 	 */
 	public function register( Service_Container $container ): void {
@@ -135,32 +140,27 @@ class Assets implements Service {
 			return '';
 		}
 
-		if ( ! file_exists( \get_theme_file_path( '/dist/assets.json' ) ) ) {
-			return '';
-		}
+		$assets = $this->get_assets_json_index_file();
 
-		$json   = file_get_contents( \get_theme_file_path( '/dist/assets.json' ) ); //phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-		$assets = json_decode( $json, true );
-
-		if ( empty( $assets ) || JSON_ERROR_NONE !== json_last_error() ) {
+		if ( empty( $assets ) ) {
 			return '';
 		}
 
 		switch ( $type ) {
 			case 'css':
-				$file = $assets['app.css'];
+				$file = $assets['app.css'] ?? '';
 				break;
 			case 'editor.css':
-				$file = $assets['editor.css'];
+				$file = $assets['editor.css'] ?? '';
 				break;
 			case 'login':
-				$file = $assets['login.css'];
+				$file = $assets['login.css'] ?? '';
 				break;
 			case 'editor.js':
-				$file = $assets['editor.js'];
+				$file = $assets['editor.js'] ?? '';
 				break;
 			case 'js':
-				$file = $assets['app.js'];
+				$file = $assets['app.js'] ?? '';
 				break;
 			default:
 				$file = null;
@@ -177,6 +177,36 @@ class Assets implements Service {
 		}
 
 		return $file;
+	}
+
+	/**
+	 * Read and get assets json index only once
+	 *
+	 * @return array
+	 *
+	 * @author Léonard Phoumpakka
+	 */
+	protected function get_assets_json_index_file(): array {
+		if ( isset( $this->assets_json_index ) ) {
+			return $this->assets_json_index;
+		}
+
+		$this->assets_json_index = [];
+
+		if ( ! file_exists( \get_theme_file_path( '/dist/assets.json' ) ) ) {
+			return $this->assets_json_index;
+		}
+
+		$json   = file_get_contents( \get_theme_file_path( '/dist/assets.json' ) ); //phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$assets = json_decode( $json, true );
+
+		if ( empty( $assets ) || JSON_ERROR_NONE !== json_last_error() ) {
+			return $this->assets_json_index;
+		}
+
+		$this->assets_json_index = $assets;
+
+		return $this->assets_json_index;
 	}
 
 	/**

@@ -5,6 +5,11 @@
 
 :root {
 	/*
+	* Breakpoints
+	*/
+	--breakpoint-mobile-to-desktop-nav: #{map-get($breakpoints, mobile-to-desktop-nav)}; // Used by JavaScript
+
+	/*
      * Heading
      */
 	// Font size

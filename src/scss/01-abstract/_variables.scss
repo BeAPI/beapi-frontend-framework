@@ -53,6 +53,7 @@ $breakpoints: (
 	admin-bar: 784, // admin bar height change
 	m: 960,
 	md: 1080,
+	mobile-to-desktop-nav: 1200,
 	mdl: 1279, // Do not use 1280px, it causes a bug under Window Edge with a device pixel ratio higher than 1
 	l: 1440,
 );

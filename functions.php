@@ -10,6 +10,8 @@ add_action(
 		\BEA\Theme\Framework\Framework::get_container()->boot_services();
 	}
 );
+
+require_once __DIR__ . '/inc/Helpers/Misc.php';
 require_once __DIR__ . '/inc/Helpers/Svg.php';
 require_once __DIR__ . '/inc/Helpers/Formatting/Escape.php';
 require_once __DIR__ . '/inc/Helpers/Formatting/Image.php';

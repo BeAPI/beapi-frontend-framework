@@ -27,10 +27,10 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 	<?php wp_body_open(); ?>
 	<nav class="skip-links skip-links--hidden" aria-label="<?php esc_attr_e( 'Fast access links', 'beapi-frontend-framework' ); ?>">
 		<ul>
-			<li class="display-desktop-only">
+			<li class="is-desktop-only">
 				<a href="#menu"><?php esc_html_e( 'Go to main navigation menu', 'beapi-frontend-framework' ); ?></a>
 			</li>
-			<li class="display-mobile-only">
+			<li class="is-mobile-only">
 				<a href="#menu-toggle"><?php esc_html_e( 'Go to main navigation menu', 'beapi-frontend-framework' ); ?></a>
 			</li>
 			<li>

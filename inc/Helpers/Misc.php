@@ -58,7 +58,7 @@ function get_file_infos( int $file_id ): array {
  * @return string $file_detail
  */
 function get_file_detail( string $file_name, string $file_ext, string $file_size ): string {
-	$details  = [];
+	$details = [];
 
 	if ( ! empty( $file_name ) ) {
 		$details[] = $file_name;

@@ -108,34 +108,18 @@ function get_accessible_file_size_label( string $file_size ): string {
 	$int_value = (int) $value; // Cast to int for _n() pluralization.
 	$unit      = strtolower( $matches[2] ?? '' );
 
-	switch ( $unit ) {
-		case 'b':
-		case 'o':
-			/* translators: %s: file size */
-			$unit_label = _n( 'byte', 'bytes', $int_value, 'beapi-frontend-framework' );
-			break;
-		case 'kb':
-		case 'ko':
-			/* translators: %s: file size */
-			$unit_label = _n( 'kilobyte', 'kilobytes', $int_value, 'beapi-frontend-framework' );
-			break;
-		case 'mb':
-		case 'mo':
-			/* translators: %s: file size */
-			$unit_label = _n( 'megabyte', 'megabytes', $int_value, 'beapi-frontend-framework' );
-			break;
-		case 'gb':
-		case 'go':
-			/* translators: %s: file size */
-			$unit_label = _n( 'gigabyte', 'gigabytes', $int_value, 'beapi-frontend-framework' );
-			break;
-		case 'tb':
-		case 'to':
-			/* translators: %s: file size */
-			$unit_label = _n( 'terabyte', 'terabytes', $int_value, 'beapi-frontend-framework' );
-			break;
-		default:
-			return $file_size;
+	/* translators: file size units (byte, kilobyte, megabyte, etc.) */
+	$unit_label = match ( $unit ) {
+		'b', 'o'   => _n( 'byte', 'bytes', $int_value, 'beapi-frontend-framework' ),
+		'kb', 'ko' => _n( 'kilobyte', 'kilobytes', $int_value, 'beapi-frontend-framework' ),
+		'mb', 'mo' => _n( 'megabyte', 'megabytes', $int_value, 'beapi-frontend-framework' ),
+		'gb', 'go' => _n( 'gigabyte', 'gigabytes', $int_value, 'beapi-frontend-framework' ),
+		'tb', 'to' => _n( 'terabyte', 'terabytes', $int_value, 'beapi-frontend-framework' ),
+		default    => null,
+	};
+
+	if ( null === $unit_label ) {
+		return $file_size;
 	}
 
 	return $value . ' ' . $unit_label;

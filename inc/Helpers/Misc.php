@@ -111,22 +111,27 @@ function get_accessible_file_size_label( string $file_size ): string {
 	switch ( $unit ) {
 		case 'b':
 		case 'o':
+			/* translators: %s: file size */
 			$unit_label = _n( 'byte', 'bytes', $int_value, 'beapi-frontend-framework' );
 			break;
 		case 'kb':
 		case 'ko':
+			/* translators: %s: file size */
 			$unit_label = _n( 'kilobyte', 'kilobytes', $int_value, 'beapi-frontend-framework' );
 			break;
 		case 'mb':
 		case 'mo':
+			/* translators: %s: file size */
 			$unit_label = _n( 'megabyte', 'megabytes', $int_value, 'beapi-frontend-framework' );
 			break;
 		case 'gb':
 		case 'go':
+			/* translators: %s: file size */
 			$unit_label = _n( 'gigabyte', 'gigabytes', $int_value, 'beapi-frontend-framework' );
 			break;
 		case 'tb':
 		case 'to':
+			/* translators: %s: file size */
 			$unit_label = _n( 'terabyte', 'terabytes', $int_value, 'beapi-frontend-framework' );
 			break;
 		default:

@@ -30,7 +30,7 @@ function get_file_infos( int $file_id ): array {
 		return $file_infos;
 	}
 
-	$file_ext = get_mime_type( $file_id );
+	$file_ext = pathinfo( $file_path, PATHINFO_EXTENSION );
 
 	if ( empty( $file_ext ) ) {
 		return $file_infos;

@@ -35,6 +35,10 @@ namespace BEA\Theme\Framework\Helpers\Formatting\Image;
  * @return string Return the markup of the image
  */
 function get_the_image( int $image_id, array $attributes, array $settings = [] ): string {
+	// When the caller passes 'alt' => '', it was overridden by filters/wp_get_attachment_image with the attachment alt from BO.
+	// We remember the intent here and force empty alt in the final markup below so decorative images get alt="" as intended.
+	$force_empty_alt = array_key_exists( 'alt', $attributes ) && '' === $attributes['alt'];
+
 	$attributes = wp_parse_args(
 		$attributes,
 		[
@@ -73,6 +77,11 @@ function get_the_image( int $image_id, array $attributes, array $settings = [] )
 	}
 
 	$image_markup = apply_filters( 'bea_theme_framework_the_image_markup', $image_markup, $image_id, $attributes, $settings );
+
+	// Force alt="" in markup when empty alt was requested (see $force_empty_alt above).
+	if ( $force_empty_alt ) {
+		$image_markup = preg_replace( '/\salt="[^"]*"/', ' alt=""', $image_markup );
+	}
 
 	return $settings['before'] . $image_markup . $settings['after'];
 }

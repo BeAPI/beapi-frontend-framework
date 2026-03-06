@@ -7,7 +7,7 @@ psalm.xml export-ignore
 composer.json export-ignore
 composer.lock export-ignore
 grumphp.yml export-ignore
-phpcs.xml export-ignore
+phpcs.xml.dist export-ignore
 psalm.xml export-ignore
 /.yarn/releases/** binary
 /.yarn/plugins/** binary

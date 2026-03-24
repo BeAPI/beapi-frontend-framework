@@ -8,6 +8,8 @@
   },
   "scripts": {
     "start": "yarn webpack --watch --config config/webpack.dev.js",
+    "start:host": "node config/webpack-start.js --host",
+    "start:ip": "node config/webpack-start.js --ip",
     "build": "yarn webpack --config config/webpack.prod.js",
     "lint:css": "node_modules/.bin/stylelint \"src/scss/**/*.scss\"",
     "lint:js": "node_modules/.bin/eslint \"src/js/**/*.js\"",
@@ -27,6 +29,8 @@
     "@wordpress/dom-ready": "^3.17.0",
     "@wordpress/hooks": "^3.17.0",
     "@wordpress/stylelint-config": "^21.0.0",
+    "browser-sync": "^3.0.4",
+    "browser-sync-webpack-plugin": "^2.4.0",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "concurrently": "^8.2.2",
     "css-loader": "^5.2.4",

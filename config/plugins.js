@@ -12,6 +12,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const WebpackImageSizesPlugin = require('./webpack-image-sizes-plugin')
 const WebpackThemeJsonPlugin = require('./webpack-theme-json-plugin')
 const SpriteHashPlugin = require('./webpack-sprite-hash-plugin')
+const WebpackBrowserSyncPlugin = require('./webpack-browser-sync-plugin')
 
 module.exports = {
 	get: function (mode) {
@@ -75,6 +76,7 @@ module.exports = {
 					filename: '[name].css',
 				})
 			)
+			plugins.push(...WebpackBrowserSyncPlugin.getPlugins(mode))
 		}
 
 		return plugins

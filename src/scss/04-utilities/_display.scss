@@ -1,5 +1,4 @@
 @use "../02-tools/m-breakpoint" as *;
-@use "../02-tools/m-style-only" as *;
 
 /**
  * Display utilities
@@ -11,17 +10,13 @@
 // Visible only on mobile (below mobile-to-desktop-nav breakpoint)
 .is-mobile-only {
 	@include breakpoints(mobile-to-desktop-nav) {
-		@include style-only {
-			display: none !important;
-		}
+		display: none !important;
 	}
 }
 
 // Visible only on desktop (at or above mobile-to-desktop-nav breakpoint)
 .is-desktop-only {
 	@include breakpoints(mobile-to-desktop-nav, max) {
-		@include style-only {
-			display: none !important;
-		}
+		display: none !important;
 	}
 }

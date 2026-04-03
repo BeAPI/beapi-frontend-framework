@@ -30,6 +30,7 @@
 		mask-image: url(../img/static/#{$icon}.svg);
 		mask-position: center;
 		mask-repeat: no-repeat;
+		mask-size: contain;
 		transition: background-color .5s $ease-out-expo;
 	}
 }

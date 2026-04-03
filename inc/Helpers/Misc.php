@@ -76,25 +76,6 @@ function get_file_detail( string $file_name, string $file_ext, string $file_size
 }
 
 /**
- * Get mime type
- *
- * @param int $file_id
- *
- * @return string
- */
-function get_mime_type( int $file_id ) {
-	$mime_type = (string) get_post_mime_type( $file_id );
-
-	if ( empty( $mime_type ) ) {
-		return '';
-	}
-
-	$mime_type = explode( '/', $mime_type );
-
-	return end( $mime_type );
-}
-
-/**
  * Get accessible file size label
  *
  * @param string $file_size

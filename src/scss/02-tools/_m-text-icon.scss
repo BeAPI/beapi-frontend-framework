@@ -17,7 +17,6 @@
  */
 
 @mixin text-icon($icon: "arrow", $position: after, $color: currentColor, $size: 12px, $gap: 8px) {
-	position: relative;
 	display: inline-flex;
 	gap: $gap;
 	align-items: center;
@@ -25,10 +24,11 @@
 	&::#{$position} {
 		display: block;
 		width: $size;
+		min-width: $size;
 		height: $size;
 		content: "";
 		background-color: $color;
-		mask-image: get-svg-url($icon);
+		mask-image: url(../img/static/#{$icon}.svg);
 		mask-position: center;
 		mask-repeat: no-repeat;
 		transition: background-color .5s $ease-out-expo;
@@ -38,9 +38,11 @@
 @mixin text-external-icon($icon: "external", $position: after, $color: currentColor, $size: 12px, $gap: 8px) {
 	@include text-icon($icon, $position, $color, $size);
 	display: inline-block;
+	gap: 0;
 
 	&::#{$position} {
 		display: inline-block;
 		margin-inline-start: $gap;
+		vertical-align: middle;
 	}
 }

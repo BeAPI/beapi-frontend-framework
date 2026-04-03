@@ -45,6 +45,7 @@ function get_file_infos( int $file_id ): array {
 		'details_accessible' => get_file_detail( $file_name, $file_ext, get_accessible_file_size_label( $file_size ) ),
 		'href'               => $file_href,
 		'caption'            => (string) wp_get_attachment_caption( $file_id ),
+		'icon'               => get_file_icon( $file_ext ),
 	];
 }
 
@@ -104,4 +105,20 @@ function get_accessible_file_size_label( string $file_size ): string {
 	}
 
 	return $value . ' ' . $unit_label;
+}
+
+/**
+ * @param string $file_ext
+ *
+ * @return string
+ */
+function get_file_icon( string $file_ext ): string {
+
+	$file_icon = 'file';
+
+	if ( in_array( $file_ext, [ 'jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'bmp', 'ico' ], true ) ) {
+		$file_icon = 'file-image';
+	}
+
+	return $file_icon;
 }

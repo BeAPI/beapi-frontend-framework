@@ -6,7 +6,9 @@
  *
  * Examples :
  *
- *      1 - Install the font by the command :
+ *      1 - Install the font and the utilities by the command :
+ *          yarn add @fontsource-utils/scss
+ *
  *          // For Classic font
  *          yarn add @fontsource/myFont
  *
@@ -15,20 +17,23 @@
  *
  *      2 - Declare font-face :
  *          // For Classic font
- *          @use "~@fontsource/myFont/scss/mixins" as MyFont;
- *          @include MyFont.faces($weights: (400, 700));
+ *          @use "../../../node_modules/@fontsource-utils/scss/src/mixins" as fontsource;
+ *          @use "../../../node_modules/@fontsource/myFont/scss/mixins" as MyFont;
+ *          @include fontsource.faces($metadata: MyFont.$metadata, $weights: (400, 700));
  *          ...
  *
  *          // For Variable font
- *          @use "~@fontsource-variable/myFont/scss/mixins" as MyFont;
- *          @include MyFont.faces($axes: all);
+ *          @use "../../../node_modules/@fontsource-utils/scss/src/mixins" as fontsource;
+ *          @use "../../../node_modules/@fontsource-variable/myFont/scss/mixins" as MyFont;
+ *          @include fontsource.faces($metadata: MyFont.$metadata, $axes: wght);
  *          ...
  */
 
+@use "../../../node_modules/@fontsource-utils/scss/src/mixins" as fontsource;
 @use "../../../node_modules/@fontsource/poppins/scss/mixins" as Poppins;
 
-@include Poppins.faces($weights: (300, 400, 500, 700), $styles: normal);
-@include Poppins.faces($weights: (300, 400, 500, 700), $styles: italic);
+@include fontsource.faces($metadata: Poppins.$metadata, $weights: (300, 400, 500, 700), $styles: normal);
+@include fontsource.faces($metadata: Poppins.$metadata, $weights: (300, 400, 500, 700), $styles: italic);
 
 // Fallbacks for DM Sans  to improve cls
 // https://deploy-preview-15--upbeat-shirley-608546.netlify.app/perfect-ish-font-fallback/?font=Poppins

@@ -16,9 +16,12 @@
   },
   "license": "GPL-2.0",
   "dependencies": {
+    "@fontsource-utils/scss": "^0.2.2",
     "@fontsource/poppins": "^5.0.5",
+    "add": "^2.0.6",
     "lazysizes": "^5.3.2",
-    "oneloop.js": "^5.2.1"
+    "oneloop.js": "^5.2.1",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "@wordpress/blocks": "^11.16.0",

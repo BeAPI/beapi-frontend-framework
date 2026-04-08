@@ -7,7 +7,7 @@ a {
 	cursor: pointer;
 
 	&[target="_blank"] {
-		@include text-icon("external");
+		@include text-external-icon("external");
 	}
 
 	@include hover {
@@ -15,6 +15,14 @@ a {
 	}
 }
 
+a,
+button {
+	text-decoration-thickness: 1px !important;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+	cursor: pointer;
+}
+
 .link-external {
-	@include text-icon("external");
+	@include text-external-icon("external");
 }

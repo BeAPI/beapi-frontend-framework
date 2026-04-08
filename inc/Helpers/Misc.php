@@ -12,12 +12,12 @@ namespace BEA\Theme\Framework\Helpers\Misc;
 function get_file_infos( int $file_id ): array {
 	$file_href  = wp_get_attachment_url( $file_id );
 	$file_infos = [
-		'href'      => '',
-		'file_name' => '',
-		'path'      => '',
-		'size'      => '',
-		'ext'       => '',
-		'caption'   => '',
+		'file_name'          => '',
+		'details'            => '',
+		'details_accessible' => '',
+		'href'               => '',
+		'caption'            => '',
+		'icon'               => get_file_icon( '' ),
 	];
 
 	if ( empty( $file_href ) ) {
@@ -113,7 +113,6 @@ function get_accessible_file_size_label( string $file_size ): string {
  * @return string
  */
 function get_file_icon( string $file_ext ): string {
-
 	$file_icon = 'file';
 
 	if ( in_array( $file_ext, [ 'jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'bmp', 'ico' ], true ) ) {

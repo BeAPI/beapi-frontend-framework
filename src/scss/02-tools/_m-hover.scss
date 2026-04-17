@@ -42,7 +42,7 @@
  *
  */
 @mixin hover($onlyNoTouch: null, $additionalSelectors: null) {
-	$selectors: "&:hover", "&:active", "&:focus";
+	$selectors: "&:hover", "&:active", "&:focus-visible";
 
 	@if ($additionalSelectors) {
 		@if (meta.type-of($additionalSelectors) == "string") {

@@ -628,6 +628,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource-utils/scss@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "@fontsource-utils/scss@npm:0.2.2"
+  checksum: 10/d4092b7564a82806d83e6f2d9a3b5e2b7ee187e52d57a24ae26fe2d074ab4aea205ed729ce2f2ffa3ecd4dfae1089e4003b7ae4e92162c0ac6fa1ff9ad5e0adf
+  languageName: node
+  linkType: hard
+
 "@fontsource/poppins@npm:^5.0.5":
   version: 5.2.5
   resolution: "@fontsource/poppins@npm:5.2.5"
@@ -2250,6 +2257,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "beapi-frontend-framework@workspace:."
   dependencies:
+    "@fontsource-utils/scss": "npm:^0.2.2"
     "@fontsource/poppins": "npm:^5.0.5"
     "@wordpress/blocks": "npm:^11.16.0"
     "@wordpress/browserslist-config": "npm:^6.21.0"

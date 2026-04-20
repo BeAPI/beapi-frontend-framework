@@ -1,5 +1,5 @@
-# Copyright (C) 2025 BeAPI
-# This file is distributed under the .
+# Copyright (C) 2026 BeAPI
+# This file is distributed under the same license as the Be API Frontend Framework theme.
 msgid ""
 msgstr ""
 "Project-Id-Version: Be API Frontend Framework 1.0.0\n"
@@ -9,9 +9,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-18T15:06:50+00:00\n"
+"POT-Creation-Date: 2026-04-20T12:32:17+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.10.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: beapi-frontend-framework\n"
 
 #. Theme Name of the theme
@@ -43,39 +43,40 @@ msgstr ""
 msgid "Footer"
 msgstr ""
 
-#: header.php:33
+#: header.php:28
 msgid "Fast access links"
 msgstr ""
 
-#: header.php:36
+#: header.php:31
+#: header.php:34
 msgid "Go to main navigation menu"
 msgstr ""
 
-#: header.php:39
+#: header.php:37
 msgid "Go to main content"
 msgstr ""
 
-#: header.php:42
+#: header.php:40
 msgid "Go to footer"
 msgstr ""
 
-#: header.php:46
+#: header.php:44
 msgid "Header"
 msgstr ""
 
-#: header.php:56
+#: header.php:54
 msgid "Open the menu"
 msgstr ""
 
-#: header.php:57
+#: header.php:55
 msgid "Close the menu"
 msgstr ""
 
-#: header.php:60
+#: header.php:58
 msgid "Main navigation"
 msgstr ""
 
-#: header.php:79
+#: header.php:77
 msgid "Main content"
 msgstr ""
 
@@ -91,80 +92,46 @@ msgstr ""
 msgid "New window"
 msgstr ""
 
-#: inc/Helpers/Formatting/Share.php:53
+#: inc/Helpers/Formatting/Share.php:52
 msgid "Share on Facebook"
 msgstr ""
 
-#: inc/Helpers/Formatting/Share.php:64
+#: inc/Helpers/Formatting/Share.php:63
 msgid "Share on X"
 msgstr ""
 
-#: inc/Helpers/Formatting/Share.php:75
+#: inc/Helpers/Formatting/Share.php:74
 msgid "Share on Linkedin"
 msgstr ""
 
-#: inc/Helpers/Formatting/Share.php:86
+#: inc/Helpers/Formatting/Share.php:85
 msgid "Share on Instagram"
 msgstr ""
 
-#: inc/Helpers/Formatting/Share.php:97
+#: inc/Helpers/Formatting/Share.php:96
 msgid "Share on Bluesky"
 msgstr ""
 
-#: inc/Helpers/Formatting/Share.php:108
-msgid "Share on Email"
+#: inc/Helpers/Formatting/Share.php:107
+msgid "Share by email"
 msgstr ""
 
-#: inc/Services/Editor.php:81
-msgid "Dark"
-msgstr ""
-
-#: inc/Services/Editor.php:86
-msgid "Light"
-msgstr ""
-
-#: inc/Services/Editor.php:91
-msgid "Primary"
-msgstr ""
-
-#: inc/Services/Editor.php:96
-msgid "Secondary"
-msgstr ""
-
-#: inc/Services/Editor.php:107
-msgid "Title 6"
-msgstr ""
-
-#: inc/Services/Editor.php:113
-msgid "Title 5"
-msgstr ""
-
-#: inc/Services/Editor.php:119
-msgid "Title 4"
-msgstr ""
-
-#: inc/Services/Editor.php:125
-msgid "Title 3"
-msgstr ""
-
-#: inc/Services/Editor.php:131
-msgid "Title 2"
-msgstr ""
-
-#: inc/Services/Editor.php:137
-msgid "Title 1"
-msgstr ""
-
-#: inc/Services/Editor.php:251
+#: inc/Services/Editor.php:144
 msgid "Small"
 msgstr ""
 
-#: inc/Services/Editor.php:259
+#: inc/Services/Editor.php:152
 msgid "Large"
 msgstr ""
 
-#: inc/Services/Editor.php:267
+#: inc/Services/Editor.php:160
 msgid "Huge"
+msgstr ""
+
+#. translators: %s: heading number
+#: inc/Services/Editor.php:168
+#, php-format
+msgid "Style H%s"
 msgstr ""
 
 #: inc/Services/Editor_Patterns.php:40
@@ -173,16 +140,19 @@ msgstr ""
 
 #. translators: %s: file name.
 #: inc/Services/Editor_Patterns.php:125
+#, php-format
 msgid "Could not register file \"%s\" as a block pattern (\"Slug\" field missing)"
 msgstr ""
 
 #. translators: %1s: file name; %2s: slug value found.
 #: inc/Services/Editor_Patterns.php:138
+#, php-format
 msgid "Could not register file \"%1$s\" as a block pattern (invalid slug \"%2$s\")"
 msgstr ""
 
 #. translators: %1s: file name; %2s: slug value found.
 #: inc/Services/Editor_Patterns.php:155
+#, php-format
 msgid "Could not register file \"%s\" as a block pattern (\"Title\" field missing)"
 msgstr ""
 
@@ -197,4 +167,84 @@ msgstr ""
 #: patterns/media-text.php
 msgctxt "Pattern title"
 msgid "Media Text"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Noir"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Blanc"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Jaune 500"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gris 100"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gris 200"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gris 300"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gris 400"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gris 500"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gris 600"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gris 700"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gris 800"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gris 900"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "xs (16px)"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "sm (32px)"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "md (48px)"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "lg (64px)"
 msgstr ""

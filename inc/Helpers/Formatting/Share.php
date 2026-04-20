@@ -49,8 +49,8 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 
 	$networks = [
 		'facebook'  => [
-			'attributes' => [
-				'title' => __( 'Share on Facebook', 'beapi-frontend-framework' ),
+			'accessible_name' => __( 'Share on Facebook', 'beapi-frontend-framework' ),
+			'attributes'      => [
 				'href'  => 'http://www.facebook.com/sharer.php',
 				'class' => 'share__link',
 			],
@@ -60,8 +60,8 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 			],
 		],
 		'x'         => [
-			'attributes' => [
-				'title' => __( 'Share on X', 'beapi-frontend-framework' ),
+			'accessible_name' => __( 'Share on X', 'beapi-frontend-framework' ),
+			'attributes'      => [
 				'href'  => 'https://twitter.com/intent/tweet',
 				'class' => 'share__link',
 			],
@@ -71,8 +71,8 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 			],
 		],
 		'linkedin'  => [
-			'attributes' => [
-				'title' => __( 'Share on Linkedin', 'beapi-frontend-framework' ),
+			'accessible_name' => __( 'Share on Linkedin', 'beapi-frontend-framework' ),
+			'attributes'      => [
 				'href'  => 'https://www.linkedin.com/shareArticle',
 				'class' => 'share__link',
 			],
@@ -82,8 +82,8 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 			],
 		],
 		'instagram' => [
-			'attributes' => [
-				'title' => __( 'Share on Instagram', 'beapi-frontend-framework' ),
+			'accessible_name' => __( 'Share on Instagram', 'beapi-frontend-framework' ),
+			'attributes'      => [
 				'href'  => 'https://www.instagram.com/',
 				'class' => 'share__link',
 			],
@@ -93,8 +93,8 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 			],
 		],
 		'bluesky'   => [
-			'attributes' => [
-				'title' => __( 'Share on Bluesky', 'beapi-frontend-framework' ),
+			'accessible_name' => __( 'Share on Bluesky', 'beapi-frontend-framework' ),
+			'attributes'      => [
 				'href'  => 'https://bsky.app/intent/compose',
 				'class' => 'share__link',
 			],
@@ -104,8 +104,8 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 			],
 		],
 		'email'     => [
-			'attributes' => [
-				'title' => __( 'Share on Email', 'beapi-frontend-framework' ),
+			'accessible_name' => __( 'Share by email', 'beapi-frontend-framework' ),
+			'attributes'      => [
 				'href'  => 'mailto:',
 				'class' => 'share__link',
 			],
@@ -146,7 +146,7 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 			'content' => sprintf(
 				'%s<span class="sr-only">%s</span>',
 				$icon_html,
-				$network['attributes']['title']
+				(string) ( $network['accessible_name'] ?? '' )
 			),
 			'mode'    => 'button',
 			'before'  => '<li>',

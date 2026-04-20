@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Be API Frontend Framework 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/beapi-frontend-"
 "framework\n"
-"POT-Creation-Date: 2025-02-18T15:06:50+00:00\n"
-"PO-Revision-Date: 2025-02-18 16:08+0100\n"
+"POT-Creation-Date: 2026-04-20T12:32:17+00:00\n"
+"PO-Revision-Date: 2026-04-20 14:33+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.8\n"
 "X-Domain: beapi-frontend-framework\n"
 
 #. Theme Name of the theme
@@ -46,39 +46,39 @@ msgstr "Fil d’ariane"
 msgid "Footer"
 msgstr "Pied de Page"
 
-#: header.php:33
+#: header.php:28
 msgid "Fast access links"
 msgstr "Liens d’accès rapide"
 
-#: header.php:36
+#: header.php:31 header.php:34
 msgid "Go to main navigation menu"
 msgstr "Aller au menu de navigation principal"
 
-#: header.php:39
+#: header.php:37
 msgid "Go to main content"
 msgstr "Aller au contenu principal"
 
-#: header.php:42
+#: header.php:40
 msgid "Go to footer"
 msgstr "Aller au pied de page"
 
-#: header.php:46
+#: header.php:44
 msgid "Header"
 msgstr "Entête"
 
-#: header.php:56
+#: header.php:54
 msgid "Open the menu"
 msgstr "Ouvrir le menu"
 
-#: header.php:57
+#: header.php:55
 msgid "Close the menu"
 msgstr "Fermer le menu"
 
-#: header.php:60
+#: header.php:58
 msgid "Main navigation"
 msgstr "Navigation principale"
 
-#: header.php:79
+#: header.php:77
 msgid "Main content"
 msgstr "Contenu principal"
 
@@ -94,81 +94,47 @@ msgstr "Fermer le menu"
 msgid "New window"
 msgstr "Nouvelle fenêtre"
 
-#: inc/Helpers/Formatting/Share.php:53
+#: inc/Helpers/Formatting/Share.php:52
 msgid "Share on Facebook"
 msgstr "Partager sur Facebook"
 
-#: inc/Helpers/Formatting/Share.php:64
+#: inc/Helpers/Formatting/Share.php:63
 msgid "Share on X"
 msgstr "Partager sur X"
 
-#: inc/Helpers/Formatting/Share.php:75
+#: inc/Helpers/Formatting/Share.php:74
 msgid "Share on Linkedin"
 msgstr "Partager sur Linkedin"
 
-#: inc/Helpers/Formatting/Share.php:86
+#: inc/Helpers/Formatting/Share.php:85
 msgid "Share on Instagram"
 msgstr "Partager sur Instagram"
 
-#: inc/Helpers/Formatting/Share.php:97
+#: inc/Helpers/Formatting/Share.php:96
 msgid "Share on Bluesky"
 msgstr "Partager sur Bluesky"
 
-#: inc/Helpers/Formatting/Share.php:108
-msgid "Share on Email"
+#: inc/Helpers/Formatting/Share.php:107
+msgid "Share by email"
 msgstr "Partager par email"
 
-#: inc/Services/Editor.php:81
-msgid "Dark"
-msgstr "Sombre"
-
-#: inc/Services/Editor.php:86
-msgid "Light"
-msgstr "Clair"
-
-#: inc/Services/Editor.php:91
-msgid "Primary"
-msgstr "Primaire"
-
-#: inc/Services/Editor.php:96
-msgid "Secondary"
-msgstr "Secondaire"
-
-#: inc/Services/Editor.php:107
-msgid "Title 6"
-msgstr "Titre de niveau 6"
-
-#: inc/Services/Editor.php:113
-msgid "Title 5"
-msgstr "Titre de niveau 5"
-
-#: inc/Services/Editor.php:119
-msgid "Title 4"
-msgstr "Titre de niveau 4"
-
-#: inc/Services/Editor.php:125
-msgid "Title 3"
-msgstr "Titre de niveau 3"
-
-#: inc/Services/Editor.php:131
-msgid "Title 2"
-msgstr "Titre de niveau 2"
-
-#: inc/Services/Editor.php:137
-msgid "Title 1"
-msgstr "Titre de niveau 1"
-
-#: inc/Services/Editor.php:251
+#: inc/Services/Editor.php:144
 msgid "Small"
 msgstr "Petit"
 
-#: inc/Services/Editor.php:259
+#: inc/Services/Editor.php:152
 msgid "Large"
 msgstr "Grand"
 
-#: inc/Services/Editor.php:267
+#: inc/Services/Editor.php:160
 msgid "Huge"
-msgstr "Énorme"
+msgstr "Très grand"
+
+#. translators: %s: heading number
+#: inc/Services/Editor.php:168
+#, php-format
+msgid "Style H%s"
+msgstr ""
 
 #: inc/Services/Editor_Patterns.php:40
 msgid "Common"
@@ -176,27 +142,30 @@ msgstr "Général"
 
 #. translators: %s: file name.
 #: inc/Services/Editor_Patterns.php:125
+#, php-format
 msgid ""
 "Could not register file \"%s\" as a block pattern (\"Slug\" field missing)"
 msgstr ""
-"Impossible de déclarer la composition de blocs à partir du fichier \"%s"
-"\" (Le champ \"Slug\" est manquant)"
+"Impossible de déclarer la composition de blocs à partir du fichier \"%s\" "
+"(Le champ \"Slug\" est manquant)"
 
 #. translators: %1s: file name; %2s: slug value found.
 #: inc/Services/Editor_Patterns.php:138
+#, php-format
 msgid ""
 "Could not register file \"%1$s\" as a block pattern (invalid slug \"%2$s\")"
 msgstr ""
-"Impossible de déclarer la composition de blocs à partir du fichier \"%1$s"
-"\" (Le slug \"%2$s\" n'est pas valide)"
+"Impossible de déclarer la composition de blocs à partir du fichier \"%1$s\" "
+"(Le slug \"%2$s\" n'est pas valide)"
 
 #. translators: %1s: file name; %2s: slug value found.
 #: inc/Services/Editor_Patterns.php:155
+#, php-format
 msgid ""
 "Could not register file \"%s\" as a block pattern (\"Title\" field missing)"
 msgstr ""
-"Impossible de déclarer la composition de blocs à partir du fichier \"%s"
-"\" (Le champ \"Title\" est manquant)"
+"Impossible de déclarer la composition de blocs à partir du fichier \"%s\" "
+"(Le champ \"Title\" est manquant)"
 
 #: inc/Services/Menu.php:37
 msgid "Main menu"
@@ -210,6 +179,116 @@ msgstr "Menu pied de page"
 msgctxt "Pattern title"
 msgid "Media Text"
 msgstr "Média et texte"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Noir"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Blanc"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Jaune 500"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gris 100"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gris 200"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gris 300"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gris 400"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gris 500"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gris 600"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gris 700"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gris 800"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gris 900"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "xs (16px)"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "sm (32px)"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "md (48px)"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "lg (64px)"
+msgstr ""
+
+#~ msgid "Dark"
+#~ msgstr "Sombre"
+
+#~ msgid "Light"
+#~ msgstr "Clair"
+
+#~ msgid "Primary"
+#~ msgstr "Primaire"
+
+#~ msgid "Secondary"
+#~ msgstr "Secondaire"
+
+#~ msgid "Title 6"
+#~ msgstr "Titre de niveau 6"
+
+#~ msgid "Title 5"
+#~ msgstr "Titre de niveau 5"
+
+#~ msgid "Title 4"
+#~ msgstr "Titre de niveau 4"
+
+#~ msgid "Title 3"
+#~ msgstr "Titre de niveau 3"
+
+#~ msgid "Title 2"
+#~ msgstr "Titre de niveau 2"
+
+#~ msgid "Title 1"
+#~ msgstr "Titre de niveau 1"
 
 #~ msgid "Toggle menu"
 #~ msgstr "Ouvrir/Fermer le menu"

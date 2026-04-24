@@ -77,7 +77,7 @@ class Editor implements Service {
 	 * Editor script
 	 */
 	public function admin_editor_script(): void {
-		$file     = $this->assets->is_minified() ? $this->assets->get_min_file( 'editor.js' ) : 'editor.js';
+		$file     = $this->assets->get_min_file( 'editor.js' );
 		$filepath = 'dist/' . $file;
 
 		if ( ! file_exists( get_theme_file_path( $filepath ) ) ) {

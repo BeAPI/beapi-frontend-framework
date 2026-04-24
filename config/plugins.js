@@ -1,4 +1,6 @@
 const path = require('path')
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
+const svgoconfig = require('./svgo.config')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
@@ -15,7 +17,38 @@ const SpriteHashPlugin = require('./webpack-sprite-hash-plugin')
 
 module.exports = {
 	get: function (mode) {
+		const isProduction = mode === 'production'
+		// A single instance: `optimization.minimizer` is only `apply()`'d when `minimize: true`
+		// (see webpack `WebpackOptionsApply.js`), so WebP `?as=webp` must live on the main
+		// `plugins` list to work with `yarn start` / dev. Image minify runs on `processAssets`
+		// from this same plugin in production only (keeps dev watch fast).
+		const imageMinimizerOptions = {
+			loader: true,
+			generator: [
+				{
+					preset: 'webp',
+					implementation: ImageMinimizerPlugin.imageminGenerate,
+					options: {
+						plugins: ['imagemin-webp'],
+					},
+				},
+			],
+		}
+		if (isProduction) {
+			imageMinimizerOptions.minimizer = {
+				implementation: ImageMinimizerPlugin.imageminMinify,
+				options: {
+					plugins: [
+						['gifsicle', { interlaced: true }],
+						['jpegtran', { progressive: true }],
+						['optipng', { optimizationLevel: 5 }],
+						['svgo', { svgoconfig }],
+					],
+				},
+			}
+		}
 		const plugins = [
+			new ImageMinimizerPlugin(imageMinimizerOptions),
 			new WebpackThemeJsonPlugin({
 				watch: mode !== 'production',
 			}),

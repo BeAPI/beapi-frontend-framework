@@ -6,7 +6,7 @@ const loaders = require('./loaders')
 const mode = 'development'
 
 module.exports = merge(common, {
-	mode: mode,
+	mode,
 	stats: 'errors-only',
 	devtool: 'inline-source-map',
 	devServer: {

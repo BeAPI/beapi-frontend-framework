@@ -115,7 +115,7 @@ function get_accessible_file_size_label( string $file_size ): string {
 function get_file_icon( string $file_ext ): string {
 	$file_icon = 'file';
 
-	if ( in_array( $file_ext, [ 'jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'bmp', 'ico' ], true ) ) {
+	if ( in_array( strtolower( $file_ext ), [ 'jpg', 'jpeg', 'png', 'gif', 'webp', 'avif', 'svg', 'bmp', 'ico' ], true ) ) {
 		$file_icon = 'file-image';
 	}
 

@@ -61,7 +61,7 @@ class Editor implements Service {
 	 * editor style
 	 */
 	private function style(): void {
-		$file = $this->assets->is_minified() ? $this->assets->get_min_file( 'editor.css' ) : 'editor.css';
+		$file = $this->assets->get_min_file( 'editor.css' );
 
 		/**
 		 * Do not enqueue a inexistant file on admin

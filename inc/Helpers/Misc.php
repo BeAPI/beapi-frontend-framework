@@ -84,11 +84,16 @@ function get_file_detail( string $file_name, string $file_ext, string $file_size
  * @return string
  */
 function get_accessible_file_size_label( string $file_size ): string {
-	// Extract value and unit from file size (e.g., "7ko" → "7" + "ko").
-	preg_match( '/^([\d.,]+)\s*([a-zA-Z]+)$/', $file_size, $matches );
-	$value     = $matches[1] ?? '';
-	$int_value = (int) $value; // Cast to int for _n() pluralization.
-	$unit      = strtolower( $matches[2] ?? '' );
+	// Extract value and unit (e.g. "7ko" or "1\u{00A0}000 KB" from i18n thousands separators).
+	// UTF-8 mode: allow NBSP/NNBSP inside the value; a non-possessive +? so the last \s* is the gap before the unit, not the thousands separator.
+	if ( 1 !== preg_match( '/^([\d\.,\p{Zs}]+?)\s*+([a-zA-Z]+)$/u', $file_size, $matches ) ) {
+		return $file_size;
+	}
+
+	$value = $matches[1] ?? '';
+	$unit  = strtolower( $matches[2] ?? '' );
+	// Strip group separators (ASCII space, NBSP, NNBSP) for _n() plural; (int) leaves decimals as floor (e.g. 1.5 -> 1).
+	$int_value = (int) str_replace( [ ' ', "\u{00A0}", "\u{202F}" ], '', $value );
 
 	/* translators: file size units (byte, kilobyte, megabyte, etc.) */
 	$unit_label = match ( $unit ) {

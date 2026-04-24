@@ -2280,6 +2280,7 @@ __metadata:
     imagemin-jpegtran: "npm:^7.0.0"
     imagemin-optipng: "npm:^8.0.0"
     imagemin-svgo: "npm:^10.0.1"
+    imagemin-webp: "npm:^8.0.0"
     lazysizes: "npm:^5.3.2"
     mini-css-extract-plugin: "npm:^1.5.0"
     oneloop.js: "npm:^5.2.1"
@@ -2363,7 +2364,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bin-wrapper@npm:^4.0.0":
+"bin-wrapper@npm:^4.0.0, bin-wrapper@npm:^4.0.1":
   version: 4.1.0
   resolution: "bin-wrapper@npm:4.1.0"
   dependencies:
@@ -2678,9 +2679,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001688, caniuse-lite@npm:^1.0.30001702":
-  version: 1.0.30001712
-  resolution: "caniuse-lite@npm:1.0.30001712"
-  checksum: 10/1831ac3260b9657c5a0236d21c02bea6a6b88fd67a451a0ff166d27da17c95ab398c5721e08aeb24f766bced1d38f562f07c8de84e91a10a065808e83835e89e
+  version: 1.0.30001790
+  resolution: "caniuse-lite@npm:1.0.30001790"
+  checksum: 10/2625ba0b9c2648d14b4b02daf2fe7013d4efe087a45b034f40849c97077d435dbc610b47a34d3d6360cd62b7972864ae16978955205b7b8f7397303ba793e0ed
   languageName: node
   linkType: hard
 
@@ -3380,6 +3381,18 @@ __metadata:
   dependencies:
     array-find-index: "npm:^1.0.1"
   checksum: 10/53fb803e582737bdb5de6b150f0924dd9abf7be606648b4c2871db1c682bf288e248e8066ef10548979732a680cfb6c047294e3877846c2cf2f8d40437d8a741
+  languageName: node
+  linkType: hard
+
+"cwebp-bin@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "cwebp-bin@npm:8.0.0"
+  dependencies:
+    bin-build: "npm:^3.0.0"
+    bin-wrapper: "npm:^4.0.1"
+  bin:
+    cwebp: cli.js
+  checksum: 10/cdf14da37bcc225a5ec577955ad32dfc97469f574af37520030d4da8858e74b9433e8dca5f892041f88f8e19554cdbdc94851afde1e0f22271308f0dd270e767
   languageName: node
   linkType: hard
 
@@ -4461,7 +4474,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"exec-buffer@npm:^3.0.0":
+"exec-buffer@npm:^3.0.0, exec-buffer@npm:^3.2.0":
   version: 3.2.0
   resolution: "exec-buffer@npm:3.2.0"
   dependencies:
@@ -4728,7 +4741,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"file-type@npm:^10.4.0":
+"file-type@npm:^10.4.0, file-type@npm:^10.5.0":
   version: 10.11.0
   resolution: "file-type@npm:10.11.0"
   checksum: 10/787ab64574316dbd423eccbadac2876879c5d2f1d24309948debdaf1dfbd0f5f25f881a716f44d294090bf435407f6938da41c833895c888a78127113337a608
@@ -5779,6 +5792,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"imagemin-webp@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "imagemin-webp@npm:8.0.0"
+  dependencies:
+    cwebp-bin: "npm:^8.0.0"
+    exec-buffer: "npm:^3.2.0"
+    is-cwebp-readable: "npm:^3.0.0"
+  checksum: 10/707404df20f346b83b5651bc99017c2f272f400b87238ed64236a0dce112dd9c5d77d10ab365af6356e6ce33afd6a2d79fe534c82a8717ea746d9bc6f70b6804
+  languageName: node
+  linkType: hard
+
 "imagemin@npm:^8.0.1":
   version: 8.0.1
   resolution: "imagemin@npm:8.0.1"
@@ -6018,6 +6042,15 @@ __metadata:
   dependencies:
     hasown: "npm:^2.0.2"
   checksum: 10/452b2c2fb7f889cbbf7e54609ef92cf6c24637c568acc7e63d166812a0fb365ae8a504c333a29add8bdb1686704068caa7f4e4b639b650dde4f00a038b8941fb
+  languageName: node
+  linkType: hard
+
+"is-cwebp-readable@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "is-cwebp-readable@npm:3.0.0"
+  dependencies:
+    file-type: "npm:^10.5.0"
+  checksum: 10/768ae017586ba2fb0831d3cc9cfb4cd56c9580b71684ea5584cf61910597c5fe91a419490ed85422424c6339fe9c327df3643c3496145134d4d0385fb479b591
   languageName: node
   linkType: hard
 

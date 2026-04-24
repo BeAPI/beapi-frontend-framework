@@ -43,6 +43,7 @@
     "imagemin-jpegtran": "^7.0.0",
     "imagemin-optipng": "^8.0.0",
     "imagemin-svgo": "^10.0.1",
+    "imagemin-webp": "^8.0.0",
     "mini-css-extract-plugin": "^1.5.0",
     "postcss": "^8.4.24",
     "postcss-import": "^15.1.0",

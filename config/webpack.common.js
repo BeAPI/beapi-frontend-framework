@@ -29,6 +29,15 @@ module.exports = {
 						],
 					},
 				},
+				generator: [
+					{
+						preset: 'webp',
+						implementation: ImageMinimizerPlugin.imageminGenerate,
+						options: {
+							plugins: ['imagemin-webp'],
+						},
+					},
+				],
 			}),
 			new TerserPlugin({
 				parallel: true,

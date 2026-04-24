@@ -52,6 +52,12 @@ module.exports = {
 				defaultImageFormat: 'jpg', // Generated image format (jpg, png, webp, avif)
 				silence: true, // Suppress console output
 			}),
+			new MiniCssExtractPlugin({
+				filename: '[name].css',
+			}),
+			new WebpackManifestPlugin({
+				fileName: 'assets.json',
+			}),
 		]
 
 		if (mode === 'production') {
@@ -59,20 +65,6 @@ module.exports = {
 				new BundleAnalyzerPlugin({
 					analyzerMode: 'json',
 					generateStatsFile: true,
-				})
-			)
-			plugins.push(
-				new WebpackManifestPlugin({
-					fileName: 'assets.json',
-				}),
-				new MiniCssExtractPlugin({
-					filename: '[name].[contenthash:8].min.css',
-				})
-			)
-		} else {
-			plugins.push(
-				new MiniCssExtractPlugin({
-					filename: '[name].css',
 				})
 			)
 		}

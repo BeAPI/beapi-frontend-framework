@@ -55,13 +55,11 @@ class Assets implements Service {
 		if ( is_admin() ) {
 			return;
 		}
+
 		$theme = wp_get_theme();
 
-		// Do not add a versioning query param in assets URLs if minified
-		$version = $this->is_minified() ? null : $theme->get( 'Version' );
-
-		// Js
-		$file       = $this->is_minified() ? $this->get_min_file( 'js' ) : 'app.js';
+		// JavaScript
+		$file       = $this->get_min_file( 'js' );
 		$asset_data = $this->get_asset_data( $file );
 		$this->assets_tools->register_script(
 			'scripts',
@@ -80,15 +78,15 @@ class Assets implements Service {
 			),
 		);
 
-		// CSS
-		wp_register_style( 'theme-style', get_stylesheet_uri(), [], $version );
+		// Styles
+		wp_register_style( 'theme-style', get_stylesheet_uri(), [], $theme->get( 'Version' ) );
 	}
 
 	/**
 	 * Enqueue the scripts
 	 */
 	public function enqueue_scripts(): void {
-		// JS
+		// JavaScript
 		$this->assets_tools->enqueue_script( 'scripts' );
 	}
 
@@ -96,24 +94,23 @@ class Assets implements Service {
 	 * Enqueue the styles
 	 */
 	public function enqueue_styles(): void {
-		// CSS
+		// Styles
 		$this->assets_tools->enqueue_style( 'theme-style' );
 	}
 
 	/**
-	 * The stylesheet uri based on the dev or not constant
+	 * Point the theme stylesheet to the built CSS in `dist/` when `assets.json` is present.
 	 *
-	 * @param string $stylesheet_uri
+	 * @param string $stylesheet_uri Default theme stylesheet URI.
 	 *
 	 * @return string
 	 * @author Nicolas Juen
 	 */
 	public function stylesheet_uri( string $stylesheet_uri ): string {
-		if ( $this->is_minified() ) {
-			$file = $this->get_min_file( 'css' );
-			if ( ! empty( $file ) && file_exists( \get_theme_file_path( '/dist/' . $file ) ) ) {
-				return \get_theme_file_uri( '/dist/' . $file );
-			}
+		$file = $this->get_min_file( 'css' );
+
+		if ( ! empty( $file ) && file_exists( \get_theme_file_path( '/dist/' . $file ) ) ) {
+			return \get_theme_file_uri( '/dist/' . $file );
 		}
 
 		if ( file_exists( \get_theme_file_path( '/dist/app.css' ) ) ) {
@@ -124,9 +121,9 @@ class Assets implements Service {
 	}
 
 	/**
-	 * Return JS/CSS .min file based on assets.json
+	 * Return the compiled asset filename for a type from `assets.json`.
 	 *
-	 * @param string $type
+	 * @param string $type Asset type key (e.g. `js`, `css`, `editor.js`).
 	 *
 	 * @return string
 	 */
@@ -185,7 +182,7 @@ class Assets implements Service {
 	 * Asset data are produced by the webpack dependencies extraction plugin. They contain for each asset the list of
 	 * dependencies use by the asset and a hash representing the current version of the asset.
 	 *
-	 * @param string $file The asset name including its extension, eg: app.js, app-min.js
+	 * @param string $file The asset name including its extension, e.g. `app.js`.
 	 *
 	 * @return array{dependencies: string[], version:string} The asset data if available or an array with the default keys.
 	 */
@@ -202,30 +199,22 @@ class Assets implements Service {
 			return $empty_asset_data;
 		}
 
-		if ( isset( $cache_data[ $file ] ) ) {
-			return $cache_data[ $file ];
+		$cache_key = $file;
+
+		if ( isset( $cache_data[ $cache_key ] ) ) {
+			return $cache_data[ $cache_key ];
 		}
 
-		$filename = strtok( $file, '.' );
-		$file     = sprintf( '/dist/%s.asset.php', $filename );
-		if ( ! file_exists( \get_theme_file_path( $file ) ) ) {
-			$cache_data[ $file ] = $empty_asset_data;
-			return $cache_data[ $file ];
+		$filename  = strtok( $file, '.' );
+		$asset_php = sprintf( '/dist/%s.asset.php', $filename );
+		if ( ! file_exists( \get_theme_file_path( $asset_php ) ) ) {
+			$cache_data[ $cache_key ] = $empty_asset_data;
+			return $cache_data[ $cache_key ];
 		}
 
-		$cache_data[ $file ] = require \get_theme_file_path( $file );
+		$cache_data[ $cache_key ] = require \get_theme_file_path( $asset_php );
 
-		return $cache_data[ $file ];
-	}
-
-	/**
-	 * Check if we are on minified environment.
-	 *
-	 * @return bool
-	 * @author Nicolas JUEN
-	 */
-	public function is_minified(): bool {
-		return ( ! defined( 'SCRIPT_DEBUG' ) || SCRIPT_DEBUG === false );
+		return $cache_data[ $cache_key ];
 	}
 
 	/**
@@ -233,6 +222,6 @@ class Assets implements Service {
 	 * @return string
 	 */
 	public function login_stylesheet_uri(): string {
-		return $this->is_minified() ? 'dist/' . $this->get_min_file( 'login' ) : 'dist/login.css';
+		return 'dist/' . $this->get_min_file( 'login' );
 	}
 }

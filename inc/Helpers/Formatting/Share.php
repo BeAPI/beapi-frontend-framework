@@ -54,8 +54,8 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				'href'  => 'http://www.facebook.com/sharer.php',
 				'class' => 'share__link',
 			],
-			'icon'       => 'social/facebook',
-			'params'     => [
+			'icon'            => 'social/facebook',
+			'params'          => [
 				'u' => $link_to_share,
 			],
 		],
@@ -65,8 +65,8 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				'href'  => 'https://twitter.com/intent/tweet',
 				'class' => 'share__link',
 			],
-			'icon'       => 'social/x',
-			'params'     => [
+			'icon'            => 'social/x',
+			'params'          => [
 				'url' => $link_to_share,
 			],
 		],
@@ -76,8 +76,8 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				'href'  => 'https://www.linkedin.com/shareArticle',
 				'class' => 'share__link',
 			],
-			'icon'       => 'social/linkedin',
-			'params'     => [
+			'icon'            => 'social/linkedin',
+			'params'          => [
 				'url' => $link_to_share,
 			],
 		],
@@ -87,8 +87,8 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				'href'  => 'https://www.instagram.com/',
 				'class' => 'share__link',
 			],
-			'icon'       => 'social/instagram',
-			'params'     => [
+			'icon'            => 'social/instagram',
+			'params'          => [
 				'url' => $link_to_share,
 			],
 		],
@@ -98,8 +98,8 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				'href'  => 'https://bsky.app/intent/compose',
 				'class' => 'share__link',
 			],
-			'icon'       => 'social/bluesky',
-			'params'     => [
+			'icon'            => 'social/bluesky',
+			'params'          => [
 				'text' => $link_to_share,
 			],
 		],
@@ -109,8 +109,8 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 				'href'  => 'mailto:',
 				'class' => 'share__link',
 			],
-			'icon'       => 'social/email',
-			'params'     => [
+			'icon'            => 'social/email',
+			'params'          => [
 				'body' => $link_to_share,
 			],
 		],

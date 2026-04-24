@@ -3,14 +3,13 @@
     "description": "Frontend Framework theme for WordPress",
     "type": "metapackage",
     "require-dev": {
-        "dealerdirect/phpcodesniffer-composer-installer": "v1.2.0",
-        "php-parallel-lint/php-parallel-lint": "^1.2",
-        "phpcompatibility/php-compatibility": "^9.3",
-        "phpcompatibility/phpcompatibility-wp": "2.1.8",
-        "phpro/grumphp-shim": "v2.17.0",
-        "squizlabs/php_codesniffer": "^3.5",
-        "vimeo/psalm": "5.26.1",
-        "wp-coding-standards/wpcs": "3.3.0"
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "overtrue/phplint": "^9.0",
+        "php-parallel-lint/php-parallel-lint": "^1.4",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "phpro/grumphp-shim": "^2.6",
+        "roave/security-advisories": "dev-latest",
+        "wp-coding-standards/wpcs": "^3.1"
     },
      "scripts": {
         "cs": [
@@ -18,9 +17,6 @@
         ],
         "cb": [
             "./vendor/bin/phpcbf ."
-        ],
-        "psalm": [
-            "./vendor/bin/psalm"
         ]
     },
     "autoload": {

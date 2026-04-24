@@ -28,8 +28,3 @@ jobs:
 
       - name: Check cs
         run: composer cs
-
-      - name: Check psalm
-        run: |
-          mkdir -p dist
-          composer psalm

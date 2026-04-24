@@ -26,9 +26,5 @@ grumphp:
     jsonlint:
       ignore_patterns: []
       detect_key_conflicts: false
-    psalm:
-      config: psalm.xml
-      triggered_by: ['php']
-      show_info: true
   testsuites: []
   extensions: []

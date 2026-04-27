@@ -5,7 +5,7 @@ use function BEA\Theme\Framework\Helpers\Formatting\Escape\escape_content_value;
 
 /**
  * @usage BEA\Theme\Framework\Helpers\Formatting\Text\the_text( $text, [ 'before' => '<p>', 'after' => '</p>' ] );
- * @usage BEA\Theme\Framework\Helpers\Formatting\Text\the_text( $text, [ 'has_textarea' => true, 'before' => '<div>', 'after' => '</div>' ] );
+ * @usage BEA\Theme\Framework\Helpers\Formatting\Text\the_text( $text, [ 'wpautop' => true, 'before' => '<div>', 'after' => '</div>' ] );
  *
  * @param string $value Text to display
  * @param array $settings {
@@ -14,7 +14,7 @@ use function BEA\Theme\Framework\Helpers\Formatting\Escape\escape_content_value;
  * @type string  $before Optional. Markup to prepend to the text. Default empty.
  * @type string  $after Optional. Markup to append after the text. Default empty.
  * @type string  $escape Optional. Escape callback name (e.g. esc_html, wp_kses_post). Default esc_html.
- * @type bool    $has_textarea Optional. When true, uses wp_kses_post if escape is still the default esc_html, then wpautop(). Default false.
+ * @type bool    $wpautop Optional. When true, uses wp_kses_post if escape is still the default esc_html, then wpautop(). Default false.
  *
  * }
  *
@@ -35,7 +35,7 @@ function the_text( string $value, array $settings = [] ): void {
  * @type string  $before Optional. Markup to prepend to the text. Default empty.
  * @type string  $after Optional. Markup to append after the text. Default empty.
  * @type string  $escape Optional. Escape callback name (e.g. esc_html, wp_kses_post). Default esc_html.
- * @type bool    $has_textarea Optional. When true, uses wp_kses_post if escape is still the default esc_html, then wpautop(). Default false.
+ * @type bool    $wpautop Optional. When true, uses wp_kses_post if escape is still the default esc_html, then wpautop(). Default false.
  *
  * }
  *
@@ -49,22 +49,22 @@ function get_the_text( string $value, array $settings = [] ): string {
 	$settings = wp_parse_args(
 		$settings,
 		[
-			'before'       => '',
-			'after'        => '',
-			'escape'       => 'esc_html',
-			'has_textarea' => false,
+			'before'  => '',
+			'after'   => '',
+			'escape'  => 'esc_html',
+			'wpautop' => false,
 		]
 	);
 
 	$settings = apply_filters( 'bea_theme_framework_text_settings', $settings, $value );
 
-	if ( ! empty( $settings['has_textarea'] ) && 'esc_html' === $settings['escape'] ) {
+	if ( ! empty( $settings['wpautop'] ) && 'esc_html' === $settings['escape'] ) {
 		$settings['escape'] = 'wp_kses_post';
 	}
 
 	$value = escape_content_value( $value, $settings['escape'] );
 
-	if ( ! empty( $settings['has_textarea'] ) ) {
+	if ( ! empty( $settings['wpautop'] ) ) {
 		$value = wpautop( $value );
 	}
 

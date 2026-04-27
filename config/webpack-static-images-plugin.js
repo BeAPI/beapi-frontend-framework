@@ -10,7 +10,7 @@ try {
 }
 
 /**
- * Webpack plugin to copy and automatically convert static images in a folder to WebP.
+ * Webpack plugin to copy static images byte-for-byte and generate WebP derivatives with Sharp.
  */
 class WebpackStaticImagesPlugin {
 	/**
@@ -19,7 +19,7 @@ class WebpackStaticImagesPlugin {
 	 * @param {Object} [options={}] - Configuration options
 	 * @param {string} [options.inputDir='src/img/static'] - Input directory
 	 * @param {string} [options.outputDir='dist/images'] - Output directory
-	 * @param {number} [options.quality=80] - WebP compression quality
+	 * @param {number} [options.quality=80] - WebP output quality (originals are not re-encoded)
 	 * @param {boolean} [options.silence=false] - Disable console output
 	 */
 	constructor(options = {}) {
@@ -133,15 +133,13 @@ class WebpackStaticImagesPlugin {
 				const outputOriginal = path.join(outputPath, file)
 				const outputWebp = path.join(outputPath, `${fileName}.webp`)
 
-				// Prepare the Sharp instances.
-				// (Sharp returns Promises, it is crucial to wait for them.)
-				const copyPromise = sharp(filePath).toFile(outputOriginal)
+				// Byte copy preserves source quality, EXIF/ICC, etc. WebP is generated separately.
+				const copyPromise = fs.promises.copyFile(filePath, outputOriginal)
 				const webpPromise = sharp(filePath).webp({ quality: this.options.quality }).toFile(outputWebp)
 
-				// Group the two actions for this file.
 				const filePromise = Promise.all([copyPromise, webpPromise])
 					.then(() => {
-						this.log('log', `  ✅ Converted: ${file} (+ .webp version)`)
+						this.log('log', `  ✅ ${file} (original copied, .webp generated)`)
 					})
 					.catch((err) => {
 						this.log('error', `  ❌ Error on ${file}:`, err.message)

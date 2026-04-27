@@ -218,10 +218,23 @@ class Assets implements Service {
 	}
 
 	/**
-	 * Change login CSS URL
-	 * @return string
+	 * Point the login page stylesheet to the built CSS in `dist/` when available.
+	 *
+	 * @param string $stylesheet_path Default path relative to the theme root (from `wp_login_page_theme_css`).
+	 *
+	 * @return string Path relative to the theme root.
 	 */
-	public function login_stylesheet_uri(): string {
-		return 'dist/' . $this->get_min_file( 'login' );
+	public function login_stylesheet_uri( string $stylesheet_path = '' ): string {
+		$file = $this->get_min_file( 'login' );
+
+		if ( ! empty( $file ) && file_exists( \get_theme_file_path( '/dist/' . $file ) ) ) {
+			return 'dist/' . $file;
+		}
+
+		if ( file_exists( \get_theme_file_path( '/dist/login.css' ) ) ) {
+			return 'dist/login.css';
+		}
+
+		return $stylesheet_path;
 	}
 }

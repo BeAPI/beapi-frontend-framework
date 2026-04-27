@@ -30,6 +30,7 @@ class WebpackStaticImagesPlugin {
 			silence: false,
 			...options,
 		}
+		this.hasBeenBuiltOnce = false
 	}
 
 	/**
@@ -49,6 +50,13 @@ class WebpackStaticImagesPlugin {
 			return
 		} // If Sharp is not installed, silently cancel.
 
+		compiler.hooks.compilation.tap('WebpackStaticImagesPlugin', (compilation) => {
+			const inputPath = path.resolve(compiler.context, this.options.inputDir)
+			if (fs.existsSync(inputPath)) {
+				compilation.contextDependencies.add(inputPath)
+			}
+		})
+
 		// Use afterEmit to ensure that Webpack has created the dist folder.
 		compiler.hooks.afterEmit.tapPromise('WebpackStaticImagesPlugin', async (compilation) => {
 			const { context } = compiler
@@ -60,6 +68,24 @@ class WebpackStaticImagesPlugin {
 				this.log('warn', `⚠️ Source directory not found: ${inputPath}`)
 				return
 			}
+
+			// Skip re-processing in watch when nothing under inputDir changed (see WebpackImageSizesPlugin).
+			let hasChanges = false
+			if (this.hasBeenBuiltOnce && compilation.modifiedFiles) {
+				for (const filePath of compilation.modifiedFiles) {
+					if (this.isFileUnderDir(filePath, inputPath)) {
+						hasChanges = true
+						break
+					}
+				}
+			}
+
+			if (this.hasBeenBuiltOnce && !hasChanges) {
+				this.log('log', `✅ No changes detected in ${this.options.inputDir}`)
+				return
+			}
+
+			this.hasBeenBuiltOnce = true
 
 			// Create the output directory if it doesn't exist.
 			if (!fs.existsSync(outputPath)) {
@@ -74,6 +100,19 @@ class WebpackStaticImagesPlugin {
 				this.log('error', '❌ Error during static images processing:', error)
 			}
 		})
+	}
+
+	/**
+	 * Returns true if `filePath` is `inputDir` or a file inside it (cross-platform).
+	 */
+	isFileUnderDir(filePath, inputDirResolved) {
+		const resolvedFile = path.resolve(filePath)
+		const resolvedDir = path.resolve(inputDirResolved)
+		if (resolvedFile === resolvedDir) {
+			return true
+		}
+		const relative = path.relative(resolvedDir, resolvedFile)
+		return !relative.startsWith('..') && !path.isAbsolute(relative)
 	}
 
 	/**

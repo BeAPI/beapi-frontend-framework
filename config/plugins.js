@@ -14,6 +14,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const WebpackImageSizesPlugin = require('./webpack-image-sizes-plugin')
 const WebpackThemeJsonPlugin = require('./webpack-theme-json-plugin')
 const SpriteHashPlugin = require('./webpack-sprite-hash-plugin')
+const WebpackStaticImagesPlugin = require('./webpack-static-images-plugin')
 
 module.exports = {
 	get: function (mode) {
@@ -84,6 +85,12 @@ module.exports = {
 				defaultImagesOutputDir: 'dist/images', // Default images output directory
 				defaultImageFormat: 'jpg', // Generated image format (jpg, png, webp, avif)
 				silence: true, // Suppress console output
+			}),
+			new WebpackStaticImagesPlugin({
+				inputDir: 'src/img/static',
+				outputDir: 'dist/images',
+				quality: 80,
+				silence: false, // Suppress console output
 			}),
 		]
 

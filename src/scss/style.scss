@@ -84,7 +84,7 @@ variables.$entry-file-name: "style";
  * == Contains styles for gutenberg patterns.
  */
 
-// @use "07-patterns/...";
+// Import patterns from "07-patterns/...";
 
 /**
  * Template parts
@@ -108,4 +108,4 @@ variables.$entry-file-name: "style";
  * == Plugins or libraries custom styles.
  */
 
-// @use "10-vendor/...";
+// Import vendor styles from "10-vendor/...";

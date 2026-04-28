@@ -41,9 +41,9 @@ class WebpackImageSizesPlugin {
 			outputImageLocations: 'image-locations.json',
 			outputImageSizes: 'image-sizes.json',
 			generateDefaultImages: false,
-			defaultImageSource: 'src/img/static/default.jpg',
+			defaultImageSource: 'src/img/static/default.webp',
 			defaultImagesOutputDir: 'dist/images',
-			defaultImageFormat: 'jpg',
+			defaultImageFormat: 'webp',
 			silence: false,
 			...options,
 		}
@@ -543,8 +543,7 @@ class WebpackImageSizesPlugin {
 
 		this.log(
 			'log',
-			`🖼️  Processing ${sizeKeys.length} default images (${format.toUpperCase()}) from ${
-				this.options.defaultImageSource
+			`🖼️  Processing ${sizeKeys.length} default images (${format.toUpperCase()}) from ${this.options.defaultImageSource
 			}`
 		)
 

@@ -18,38 +18,7 @@ const WebpackStaticImagesPlugin = require('./webpack-static-images-plugin')
 
 module.exports = {
 	get: function (mode) {
-		const isProduction = mode === 'production'
-		// A single instance: `optimization.minimizer` is only `apply()`'d when `minimize: true`
-		// (see webpack `WebpackOptionsApply.js`), so WebP `?as=webp` must live on the main
-		// `plugins` list to work with `yarn start` / dev. Image minify runs on `processAssets`
-		// from this same plugin in production only (keeps dev watch fast).
-		const imageMinimizerOptions = {
-			loader: true,
-			generator: [
-				{
-					preset: 'webp',
-					implementation: ImageMinimizerPlugin.imageminGenerate,
-					options: {
-						plugins: ['imagemin-webp'],
-					},
-				},
-			],
-		}
-		if (isProduction) {
-			imageMinimizerOptions.minimizer = {
-				implementation: ImageMinimizerPlugin.imageminMinify,
-				options: {
-					plugins: [
-						['gifsicle', { interlaced: true }],
-						['jpegtran', { progressive: true }],
-						['optipng', { optimizationLevel: 5 }],
-						['svgo', { svgoconfig }],
-					],
-				},
-			}
-		}
 		const plugins = [
-			new ImageMinimizerPlugin(imageMinimizerOptions),
 			new WebpackThemeJsonPlugin({
 				watch: mode !== 'production',
 			}),
@@ -81,9 +50,9 @@ module.exports = {
 				outputImageLocations: 'image-locations.json', // Output locations file name
 				outputImageSizes: 'image-sizes.json', // Output sizes file name
 				generateDefaultImages: true, // Generate default images
-				defaultImageSource: 'src/img/static/default.jpg', // Source image for generation
+				defaultImageSource: 'src/img/static/default.webp', // Source image for generation
 				defaultImagesOutputDir: 'dist/images', // Default images output directory
-				defaultImageFormat: 'jpg', // Generated image format (jpg, png, webp, avif)
+				defaultImageFormat: 'webp', // Generated image format (jpg, png, webp, avif)
 				silence: true, // Suppress console output
 			}),
 			new WebpackStaticImagesPlugin({
@@ -95,6 +64,21 @@ module.exports = {
 		]
 
 		if (mode === 'production') {
+			plugins.push(
+				new ImageMinimizerPlugin({
+					minimizer: {
+						implementation: ImageMinimizerPlugin.imageminMinify,
+						options: {
+							plugins: [
+								['gifsicle', { interlaced: true }],
+								['jpegtran', { progressive: true }],
+								['optipng', { optimizationLevel: 5 }],
+								['svgo', { svgoconfig }],
+							],
+						},
+					},
+				})
+			)
 			plugins.push(
 				new BundleAnalyzerPlugin({
 					analyzerMode: 'json',

@@ -92,6 +92,8 @@ module.exports = {
 								let obj = {
 									quietDeps: true,
 									sourceMap: true,
+									// Resolve package-style imports (e.g. @fontsource-variable/...) like Node does
+									loadPaths: [nodeModulesPath],
 								}
 
 								if (isProduction && isEditor(loaderContext)) {

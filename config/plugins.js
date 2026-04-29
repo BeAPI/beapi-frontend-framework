@@ -66,7 +66,7 @@ module.exports = {
 								['gifsicle', { interlaced: true }],
 								['jpegtran', { progressive: true }],
 								['optipng', { optimizationLevel: 5 }],
-								['svgo', { svgoconfig }],
+								['svgo', svgoconfig],
 							],
 						},
 					},

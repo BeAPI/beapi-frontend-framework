@@ -59,7 +59,7 @@ class Assets implements Service {
 		$theme = wp_get_theme();
 
 		// JavaScript
-		$file       = $this->get_min_file( 'js' );
+		$file       = $this->get_min_file( 'js' ) ?: 'app.js';
 		$asset_data = $this->get_asset_data( $file );
 		$this->assets_tools->register_script(
 			'scripts',

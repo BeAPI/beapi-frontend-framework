@@ -1,8 +1,5 @@
-const chalk = require('chalk')
 const path = require('path')
 const fs = require('fs')
-
-const logId = '[' + chalk.blue('WebpackThemeJsonPlugin') + ']'
 
 class WebpackThemeJsonPlugin {
 	/**
@@ -32,7 +29,7 @@ class WebpackThemeJsonPlugin {
 	/**
 	 * apply
 	 */
-	apply() {}
+	apply() { }
 
 	/**
 	 * Generate theme json file
@@ -51,21 +48,21 @@ class WebpackThemeJsonPlugin {
 					json = JSON.parse(json)
 				} catch (e) {
 					// eslint-disable-next-line no-console
-					console.error(logId, 'Error parsing JSON file:', file.name)
+					console.error('WebpackThemeJsonPlugin: Error parsing JSON file:', file.name)
 				}
 
 				if (isPlainObject(json)) {
 					extend(true, themeJson, json)
 				} else {
 					// eslint-disable-next-line no-console
-					console.error(logId, 'JSON file is not a plain object:', file.name)
+					console.error('WebpackThemeJsonPlugin: JSON file is not a plain object:', file.name)
 				}
 			}
 		})
 
 		fs.writeFileSync(this._output, JSON.stringify(themeJson, null, 2))
 		// eslint-disable-next-line no-console
-		console.log(logId, 'JSON files successfully generated !')
+		console.log('WebpackThemeJsonPlugin: JSON files successfully generated !')
 
 		return this
 	}
@@ -116,7 +113,7 @@ class WebpackThemeJsonPlugin {
 			jsonFile = JSON.parse(jsonFile)
 		} catch (e) {
 			// eslint-disable-next-line no-console
-			console.error(logId, 'Error parsing JSON file:', this._output)
+			console.error('WebpackThemeJsonPlugin: Error parsing JSON file:', this._output)
 			return this
 		}
 

@@ -1,0 +1,29 @@
+# depcheck — https://github.com/depcheck/depcheck
+#
+# Ignore-only setup: depcheck's webpack special does not scan webpack.dev.js / loaders.js naming,
+# and there is no Stylelint special for .stylelintrc. Listed packages are used via Webpack,
+# Stylelint config, or SCSS paths—not plain JS imports.
+
+ignores:
+  - "@wordpress/stylelint-config"
+  - stylelint-config-recess-order
+  - stylelint-scss
+  - postcss-scss
+  - css-loader
+  - cssnano
+  - esbuild-loader
+  - imagemin
+  - imagemin-gifsicle
+  - imagemin-jpegtran
+  - imagemin-optipng
+  - imagemin-svgo
+  - postcss
+  - postcss-import
+  - postcss-loader
+  - postcss-preset-env
+  - postcss-pxtorem
+  - postcss-sort-media-queries
+  - sass-loader
+  - svgo
+  - svgo-loader
+  - webpack-cli

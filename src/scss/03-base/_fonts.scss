@@ -17,14 +17,14 @@
  *
  *      2 - Declare font-face :
  *          // For Classic font
- *          @use "@fontsource-utils/scss/src/mixins" as fontsource;
- *          @use "@fontsource/myFont/scss/mixins" as MyFont;
+ *          import the utils mixins from "@fontsource-utils/scss/src/mixins" as fontsource;
+ *          import the font mixins from "@fontsource/myFont/scss/mixins" as MyFont;
  *          @include fontsource.faces($metadata: MyFont.$metadata, $weights: (400, 700));
  *          ...
  *
  *          // For Variable font
- *          @use "@fontsource-utils/scss/src/mixins" as fontsource;
- *          @use "@fontsource-variable/myFont/scss/mixins" as MyFont;
+ *          import the utils mixins from "@fontsource-utils/scss/src/mixins" as fontsource;
+ *          import the font mixins from "@fontsource-variable/myFont/scss/mixins" as MyFont;
  *          @include fontsource.faces($metadata: MyFont.$metadata, $axes: wght);
  *          ...
  */

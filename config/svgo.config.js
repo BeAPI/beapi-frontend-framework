@@ -10,6 +10,7 @@ module.exports = {
 			},
 		},
 		// Plugins that are not in the "preset-default" and that you want to activate
+		'removeTitle',
 		'convertStyleToAttrs',
 		'prefixIds',
 	],

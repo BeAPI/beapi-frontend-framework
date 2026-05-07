@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/beapi-frontend-"
 "framework\n"
 "POT-Creation-Date: 2026-05-07T14:30:39+00:00\n"
-"PO-Revision-Date: 2026-05-07 16:32+0200\n"
+"PO-Revision-Date: 2026-05-07 16:41+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -52,7 +52,7 @@ msgstr "Liens d’accès rapide"
 
 #: header.php:31
 msgid "Go to header"
-msgstr "Aller au à l’entête de page"
+msgstr "Aller à l’entête de page"
 
 #: header.php:34 header.php:37
 msgid "Go to main navigation menu"

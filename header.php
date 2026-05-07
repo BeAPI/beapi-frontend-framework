@@ -27,6 +27,9 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 	<?php wp_body_open(); ?>
 	<nav class="skip-links skip-links--hidden" aria-label="<?php esc_attr_e( 'Fast access links', 'beapi-frontend-framework' ); ?>">
 		<ul>
+			<li>
+				<a href="#header"><?php esc_html_e( 'Go to header', 'beapi-frontend-framework' ); ?></a>
+			</li>
 			<li class="is-desktop-only">
 				<a href="#menu"><?php esc_html_e( 'Go to main navigation menu', 'beapi-frontend-framework' ); ?></a>
 			</li>

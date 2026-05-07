@@ -44,7 +44,7 @@ use BEA\Theme\Framework\Helpers\Custom_Menu_Walker;
 			</li>
 		</ul>
 	</nav>
-	<header role="banner" id="header" class="header" aria-label="<?php esc_attr_e( 'Header', 'beapi-frontend-framework' ); ?>">
+	<header role="banner" id="header" tabindex="-1" class="header" aria-label="<?php esc_attr_e( 'Header', 'beapi-frontend-framework' ); ?>">
 		<div class="header__inner">
 			<div class="container">
 				<a class="header__logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">

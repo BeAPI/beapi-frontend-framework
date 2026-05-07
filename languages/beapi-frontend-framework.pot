@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-20T12:32:17+00:00\n"
+"POT-Creation-Date: 2026-05-07T14:30:39+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: beapi-frontend-framework\n"
@@ -48,35 +48,39 @@ msgid "Fast access links"
 msgstr ""
 
 #: header.php:31
+msgid "Go to header"
+msgstr ""
+
 #: header.php:34
+#: header.php:37
 msgid "Go to main navigation menu"
 msgstr ""
 
-#: header.php:37
+#: header.php:40
 msgid "Go to main content"
 msgstr ""
 
-#: header.php:40
+#: header.php:43
 msgid "Go to footer"
 msgstr ""
 
-#: header.php:44
+#: header.php:47
 msgid "Header"
 msgstr ""
 
-#: header.php:54
+#: header.php:57
 msgid "Open the menu"
 msgstr ""
 
-#: header.php:55
+#: header.php:58
 msgid "Close the menu"
 msgstr ""
 
-#: header.php:58
+#: header.php:61
 msgid "Main navigation"
 msgstr ""
 
-#: header.php:77
+#: header.php:80
 msgid "Main content"
 msgstr ""
 

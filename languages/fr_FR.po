@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Be API Frontend Framework 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/beapi-frontend-"
 "framework\n"
-"POT-Creation-Date: 2026-04-20T12:32:17+00:00\n"
-"PO-Revision-Date: 2026-04-20 14:33+0200\n"
+"POT-Creation-Date: 2026-05-07T14:30:39+00:00\n"
+"PO-Revision-Date: 2026-05-07 16:41+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -50,35 +50,39 @@ msgstr "Pied de Page"
 msgid "Fast access links"
 msgstr "Liens d’accès rapide"
 
-#: header.php:31 header.php:34
+#: header.php:31
+msgid "Go to header"
+msgstr "Aller à l’entête de page"
+
+#: header.php:34 header.php:37
 msgid "Go to main navigation menu"
 msgstr "Aller au menu de navigation principal"
 
-#: header.php:37
+#: header.php:40
 msgid "Go to main content"
 msgstr "Aller au contenu principal"
 
-#: header.php:40
+#: header.php:43
 msgid "Go to footer"
 msgstr "Aller au pied de page"
 
-#: header.php:44
+#: header.php:47
 msgid "Header"
 msgstr "Entête"
 
-#: header.php:54
+#: header.php:57
 msgid "Open the menu"
 msgstr "Ouvrir le menu"
 
-#: header.php:55
+#: header.php:58
 msgid "Close the menu"
 msgstr "Fermer le menu"
 
-#: header.php:58
+#: header.php:61
 msgid "Main navigation"
 msgstr "Navigation principale"
 
-#: header.php:77
+#: header.php:80
 msgid "Main content"
 msgstr "Contenu principal"
 

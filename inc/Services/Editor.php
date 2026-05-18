@@ -95,7 +95,7 @@ class Editor implements Service {
 
 		$this->assets_tools->add_inline_script(
 			'theme-admin-editor-script',
-			'const BFFEditorSettings = ' . wp_json_encode(
+			'const BEAPI_EDITOR_SETTINGS = ' . wp_json_encode(
 				apply_filters(
 					'bff_editor_custom_settings',
 					[

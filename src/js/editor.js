@@ -5,7 +5,6 @@ import domReady from '@wordpress/dom-ready'
 import { subscribe } from '@wordpress/data'
 import { addFilter } from '@wordpress/hooks'
 import { unregisterBlockStyle, getBlockVariations, getBlockType, unregisterBlockVariation } from '@wordpress/blocks'
-import './utils/beapi'
 
 const unregisterDisabledBlockStyles = () => {
 	if (!BEAPI_EDITOR_SETTINGS.disabledBlocksStyles) {

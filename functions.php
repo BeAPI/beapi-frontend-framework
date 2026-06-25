@@ -1,5 +1,13 @@
 <?php
 
+if ( ! class_exists( 'BEA\\Theme\\Framework\\Framework', false ) ) {
+	$autoloader = __DIR__ . '/vendor/autoload.php';
+
+	if ( file_exists( $autoloader ) ) {
+		require_once $autoloader;
+	}
+}
+
 /**
  * Load all services
  */

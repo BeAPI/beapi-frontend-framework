@@ -67,6 +67,86 @@ Alternatively, you can use NPM.
 npm install
 ```
 
+## Local development with wp-env
+
+BFF ships with a [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) configuration (`.wp-env.json`) to run a local WordPress instance with Docker.
+
+### Requirements
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (or a compatible Docker runtime)
+- Node.js (see [Requirements](#nodejs))
+
+### Installing wp-env
+
+You can run wp-env without a global install via `npx @wordpress/env`, or install the CLI once and use the `wp-env` command:
+
+```bash
+# Global install (npm or yarn)
+npm install -g @wordpress/env
+# or
+yarn global add @wordpress/env
+```
+
+After installation, replace `npx @wordpress/env` with `wp-env` in the commands below.
+
+### Getting started
+
+From the theme root:
+
+```bash
+yarn
+npx @wordpress/env start
+# or, if wp-env is installed globally:
+wp-env start
+```
+
+On first start, wp-env will:
+
+- Spin up WordPress (PHP 8.3)
+- Mount this theme from the current directory
+- Install the [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/) plugin
+- Run `composer install` in the theme via the `afterStart` lifecycle script
+
+### URLs and credentials
+
+| | |
+|---|---|
+| Site | http://localhost:8888 |
+| Admin | http://localhost:8888/wp-admin |
+| Username | `admin` |
+| Password | `password` |
+
+### Common commands
+
+```bash
+# Start the environment
+npx @wordpress/env start   # or: wp-env start
+
+# Stop containers (data is preserved)
+npx @wordpress/env stop    # or: wp-env stop
+
+# Remove containers and volumes
+npx @wordpress/env destroy # or: wp-env destroy
+
+# Run WP-CLI inside the environment
+npx @wordpress/env run cli wp plugin list
+# or: wp-env run cli wp plugin list
+
+# Run a command in the theme directory
+npx @wordpress/env run cli --env-cwd=wp-content/themes/beapi-frontend-framework composer install
+# or: wp-env run cli --env-cwd=wp-content/themes/beapi-frontend-framework composer install
+```
+
+### Development workflow
+
+With wp-env running, start the Webpack watcher in a second terminal:
+
+```bash
+yarn start
+```
+
+Changes to PHP, SCSS, and JavaScript assets are reflected after Webpack rebuilds. Theme PHP changes are picked up immediately thanks to the mounted volume.
+
 ## Configuration
 
 The configurations files are in `config` directory.

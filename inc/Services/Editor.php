@@ -48,9 +48,21 @@ class Editor implements Service {
 		$this->register_custom_block_styles();
 
 		/**
-		 * Load editor JS for ADMIN
+		 * Load editor JS
+		 *
+		 * WP 6.3+ isolates the editor canvas in an iframe (`iframe[name="editor-canvas"]`).
+		 * This affects all blocks, but ACF Blocks V3 (`blockVersion: 3`) rely on it: their PHP
+		 * render templates (and ARI lazyload markup) are injected into that iframe on each preview
+		 * refresh — not into the admin shell where `enqueue_block_editor_assets` loads scripts.
+		 *
+		 * - `enqueue_block_editor_assets`  → admin shell only (outside the iframe).
+		 * - `enqueue_block_assets`         → iframe + front end (guarded with is_admin() below).
+		 *
+		 * lazySizes must therefore load via `enqueue_block_assets` to unveil `.lazyload` images
+		 * in ACF V3 block previews. Other blocks (e.g. ServerSideRender) may still work without
+		 * this, but ACF V3 previews will stay invisible until a DOM mutation triggers lazySizes.
 		 */
-		add_action( 'enqueue_block_editor_assets', [ $this, 'admin_editor_script' ] );
+		add_action( 'enqueue_block_assets', [ $this, 'admin_editor_script' ] );
 		/**
 		 * White list of gutenberg blocks
 		 */
@@ -77,6 +89,11 @@ class Editor implements Service {
 	 * Editor script
 	 */
 	public function admin_editor_script(): void {
+		// enqueue_block_assets also runs on the front end; skip outside wp-admin.
+		if ( ! is_admin() ) {
+			return;
+		}
+
 		$file     = $this->assets->get_min_file( 'editor.js' ) ?: 'editor.js';
 		$filepath = 'dist/' . $file;
 

@@ -1,7 +1,21 @@
 {
     "name": "beapi/beapi-frontend-framework",
     "description": "Frontend Framework theme for WordPress",
-    "type": "metapackage",
+    "type": "wordpress-theme",
+    "extra": {
+        "installer-paths": {
+            ".wp-env/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ]
+        }
+    },
+    "repositories": [
+        {
+            "name": "wp-packages",
+            "type": "composer",
+            "url": "https://repo.wp-packages.org"
+        }
+    ],
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
         "overtrue/phplint": "^9.0",
@@ -9,9 +23,10 @@
         "phpcompatibility/phpcompatibility-wp": "^2.1",
         "phpro/grumphp-shim": "^2.6",
         "roave/security-advisories": "dev-latest",
-        "wp-coding-standards/wpcs": "^3.1"
+        "wp-coding-standards/wpcs": "3.3.0",
+        "wp-plugin/advanced-custom-fields": "6.8.4"
     },
-     "scripts": {
+    "scripts": {
         "cs": [
             "./vendor/bin/phpcs ."
         ],
@@ -27,7 +42,11 @@
     "config": {
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "phpro/grumphp-shim": true
+            "phpro/grumphp-shim": true,
+            "composer/installers": true
+        },
+        "platform": {
+            "php": "8.3.0"
         }
     }
 }

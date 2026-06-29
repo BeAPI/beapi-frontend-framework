@@ -104,8 +104,7 @@ On first start, wp-env will:
 
 - Spin up WordPress (PHP 8.3)
 - Mount this theme from the current directory
-- Install the [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/) plugin
-- Run `composer install` in the theme via the `afterStart` lifecycle script
+- Install and activate the [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/) plugin
 
 ### URLs and credentials
 

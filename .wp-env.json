@@ -2,8 +2,13 @@
 	"$schema": "https://schemas.wp.org/trunk/wp-env.json",
 	"core": null,
 	"phpVersion": "8.3",
-	"themes": [ "." ],
-  	"plugins": [ "https://downloads.wordpress.org/plugin/advanced-custom-fields.zip" ],
+	"testsEnvironment": false,
+	"themes": [
+		"."
+	],
+	"plugins": [
+		".wp-env/plugins/advanced-custom-fields"
+	],
 	"config": {
 		"WP_DEBUG": true,
 		"WP_DEBUG_LOG": true,
@@ -13,6 +18,6 @@
 		"WP_DEVELOPMENT_MODE": "theme"
 	},
 	"lifecycleScripts": {
-		"afterStart": "wp-env run cli --env-cwd=wp-content/themes/beapi-frontend-framework composer install --no-interaction"
+		"afterStart": "wp-env run cli wp theme activate beapi-frontend-framework && wp-env run cli wp plugin activate advanced-custom-fields"
 	}
 }

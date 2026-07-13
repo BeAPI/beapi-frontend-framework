@@ -17,6 +17,7 @@
     <exclude-pattern>dist/</exclude-pattern>
     <exclude-pattern>config/</exclude-pattern>
     <exclude-pattern>node_modules/</exclude-pattern>
+    <exclude-pattern>.wp-env/</exclude-pattern>
 
     <rule ref="WordPress-Extra">
         <!-- Exclude as we use a custom autoloader. -->

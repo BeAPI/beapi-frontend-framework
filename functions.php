@@ -1,6 +1,22 @@
 <?php
 
 /**
+ * Bootstrap the theme Composer autoloader when classes are not already available.
+ *
+ * Root projects (Bedrock, composer-scaffold-theme) usually register this namespace
+ * via their own autoload. Standalone setups (wp-env, theme-only) rely on vendor/.
+ *
+ * @since 5.4.0
+ */
+if ( ! class_exists( 'BEA\\Theme\\Framework\\Framework', false ) ) {
+	$autoloader = __DIR__ . '/vendor/autoload.php';
+
+	if ( file_exists( $autoloader ) ) {
+		require_once $autoloader;
+	}
+}
+
+/**
  * Load all services
  */
 add_action(

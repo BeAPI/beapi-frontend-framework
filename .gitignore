@@ -88,3 +88,9 @@ assets/conf-img/*.json
 ### theme.json
 src/scss/01-abstract/_theme-json.scss
 theme.json
+
+### wp-env
+.wp-env/
+
+### Composer
+composer.lock

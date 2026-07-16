@@ -132,14 +132,9 @@ class Assets implements Service {
 			return '';
 		}
 
-		if ( ! file_exists( \get_theme_file_path( '/dist/assets.json' ) ) ) {
-			return '';
-		}
+		$assets = $this->get_assets_manifest();
 
-		$json   = file_get_contents( \get_theme_file_path( '/dist/assets.json' ) ); //phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-		$assets = json_decode( $json, true );
-
-		if ( empty( $assets ) || JSON_ERROR_NONE !== json_last_error() ) {
+		if ( empty( $assets ) ) {
 			return '';
 		}
 
@@ -174,6 +169,41 @@ class Assets implements Service {
 		}
 
 		return $file;
+	}
+
+	/**
+	 * Read and decode the `dist/assets.json` manifest once per request.
+	 *
+	 * The manifest is requested several times per request (scripts registration,
+	 * `stylesheet_uri` filter, editor assets…): memoize the decoded content to
+	 * avoid repeated filesystem reads and JSON decoding.
+	 *
+	 * @return array<string, string> Manifest entries, or an empty array if unavailable/invalid.
+	 */
+	private function get_assets_manifest(): array {
+		static $manifest = null;
+
+		if ( null !== $manifest ) {
+			return $manifest;
+		}
+
+		$manifest      = [];
+		$manifest_path = \get_theme_file_path( '/dist/assets.json' );
+
+		if ( ! file_exists( $manifest_path ) ) {
+			return $manifest;
+		}
+
+		$json   = file_get_contents( $manifest_path ); //phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$assets = json_decode( $json, true );
+
+		if ( ! is_array( $assets ) || JSON_ERROR_NONE !== json_last_error() ) {
+			return $manifest;
+		}
+
+		$manifest = $assets;
+
+		return $manifest;
 	}
 
 	/**

@@ -10,6 +10,11 @@
 
 ## Requirements
 
+### PHP & WordPress
+
+- PHP **8.3** or higher
+- WordPress **6.3** or higher
+
 ### Composer
 
 You need composer to autoload all your classes from the inc folder.

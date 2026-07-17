@@ -71,8 +71,15 @@ class Editor implements Service {
 
 	/**
 	 * editor style
+	 *
+	 * Editor styles are only consumed in admin/editor context: skip the
+	 * manifest lookup and filesystem check on front-end requests.
 	 */
 	private function style(): void {
+		if ( ! is_admin() ) {
+			return;
+		}
+
 		$file = $this->assets->get_min_file( 'editor.css' ) ?: 'editor.css';
 
 		/**

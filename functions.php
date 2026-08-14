@@ -27,6 +27,7 @@ add_action(
 	}
 );
 require_once __DIR__ . '/inc/Helpers/Svg.php';
+require_once __DIR__ . '/inc/Helpers/Formatting/Datetime.php';
 require_once __DIR__ . '/inc/Helpers/Formatting/Escape.php';
 require_once __DIR__ . '/inc/Helpers/Formatting/Image.php';
 require_once __DIR__ . '/inc/Helpers/Formatting/Link.php';

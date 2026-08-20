@@ -23,7 +23,7 @@
         "phpcompatibility/phpcompatibility-wp": "^2.1",
         "phpro/grumphp-shim": "^2.6",
         "roave/security-advisories": "dev-latest",
-        "wp-coding-standards/wpcs": "3.3.0",
+        "wp-coding-standards/wpcs": "3.4.1",
         "wp-plugin/advanced-custom-fields": "6.8.4"
     },
     "scripts": {

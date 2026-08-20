@@ -76,9 +76,6 @@ dist/assets/img/sample/cache
 dist/
 src/conf-img/*.csv
 
-### NPM (use Yarn instead)
-package-lock.json
-
 ### config
 /vendor/
 

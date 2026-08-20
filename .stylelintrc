@@ -1,6 +1,6 @@
 {
     "extends": [
-        "@wordpress/stylelint-config/scss",
+        "@wordpress/stylelint-config/scss-stylistic",
         "stylelint-config-recess-order"
     ],
     "customSyntax": "postcss-scss",
@@ -13,7 +13,7 @@
                 "at-rule-no-unknown": null,
                 "comment-empty-line-before": null,
                 "font-weight-notation": null,
-                "max-line-length": null,
+                "@stylistic/max-line-length": null,
                 "no-descending-specificity": null,
                 "rule-empty-line-before": null,
                 "selector-class-pattern": null,
@@ -30,9 +30,10 @@
                 "scss/at-if-closing-brace-space-after": null,
                 "no-invalid-position-at-import-rule": null,
                 "custom-property-pattern": null,
-                "indentation": "tab",
-                "number-leading-zero": "never",
-                "string-quotes": "double",
+                "order/properties-order": null,
+                "@stylistic/indentation": "tab",
+                "@stylistic/number-leading-zero": "never",
+                "@stylistic/string-quotes": "double",
                 "length-zero-no-unit": [
                     true,
                     {

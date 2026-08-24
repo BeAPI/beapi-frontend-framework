@@ -1,11 +1,9 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# This workflow will do a clean install of node dependencies and build the source code.
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
 name: Node.js CI
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -14,20 +12,12 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [24.x]
-
     steps:
-    - uses: actions/checkout@v4
-    - name: Enable Corepack
-      # Must run before setup-node's yarn cache: resolves Yarn from packageManager, not v1.
-      # See: https://github.com/actions/setup-node/issues/1027
-      run: corepack enable
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
+    - uses: actions/checkout@v7
+    - name: Use Node.js from package.json
+      uses: actions/setup-node@v7
       with:
-        node-version: ${{ matrix.node-version }}
-        cache: yarn
-    - run: yarn
-    - run: yarn build
+        node-version-file: package.json
+        cache: npm
+    - run: npm ci
+    - run: npm run build

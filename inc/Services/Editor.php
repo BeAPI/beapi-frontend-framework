@@ -222,15 +222,88 @@ class Editor implements Service {
 
 		// List of disallowed blocks.
 		$disallowed_blocks = [
+			// Code & raw content.
 			'core/html',
 			'core/freeform',
 			'core/code',
 			'core/preformatted',
 			'core/verse',
 			'core/footnotes',
-			'core/more',
-			'core/loginout',
+			'core/shortcode',
+			'core/math',
+			// Layout & media (unused).
+			'core/text-columns',
+			'core/nextpage',
+			'core/read-more',
+			// Embeds & widgets.
 			'core/embed',
+			'core/legacy-widget',
+			'core/widget-group',
+			// Accordion.
+			'core/accordion',
+			'core/accordion-heading',
+			'core/accordion-item',
+			'core/accordion-panel',
+			'core/icon',
+			// Theme & site (unused).
+			'core/archives',
+			'core/calendar',
+			'core/categories',
+			'core/latest-comments',
+			'core/latest-posts',
+			'core/rss',
+			'core/search',
+			'core/tag-cloud',
+			'core/site-tagline',
+			'core/site-title',
+			'core/breadcrumbs',
+			'core/navigation-overlay-close',
+			// Post meta & author (unused).
+			'core/post-author',
+			'core/post-author-biography',
+			'core/post-author-name',
+			'core/post-navigation-link',
+			'core/post-terms',
+			'core/post-time-to-read',
+			'core/avatar',
+			// Comments (unused).
+			'core/comments',
+			'core/comments-pagination',
+			'core/comments-pagination-next',
+			'core/comments-pagination-numbers',
+			'core/comments-pagination-previous',
+			'core/comments-title',
+			'core/comment-author-name',
+			'core/comment-content',
+			'core/comment-date',
+			'core/comment-edit-link',
+			'core/comment-reply-link',
+			'core/comment-template',
+			'core/post-comments',
+			'core/post-comments-count',
+			'core/post-comments-form',
+			'core/post-comments-link',
+			// Query loop (unused).
+			'core/query',
+			'core/query-no-results',
+			'core/query-pagination',
+			'core/query-pagination-next',
+			'core/query-pagination-numbers',
+			'core/query-pagination-previous',
+			'core/query-title',
+			'core/query-total',
+			'core/post-template',
+			// Terms (unused).
+			'core/term-count',
+			'core/term-description',
+			// Lists & navigation (unused).
+			'core/page-list',
+			'core/page-list-item',
+			// Reusable & misc.
+			'core/loginout',
+			'core/more',
+			'core/social-link',
+			'core/social-links',
 		];
 
 		// Remove disallowed blocks from allowed blocks.

@@ -1,7 +1,6 @@
 @use "../01-abstract/theme-json" as *;
 @use "../02-tools/m-breakpoint" as *;
 @use "../02-tools/m-hover" as *;
-@use "../02-tools/m-sr-only" as *;
 
 /**
  * Post sharing — copy link (desktop) / native share (mobile).
@@ -79,10 +78,6 @@
 		&--check {
 			display: none;
 		}
-	}
-
-	&__status {
-		@include sr-only;
 	}
 
 	// Fallback when Web Share API is unavailable: show copy on small screens.

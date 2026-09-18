@@ -60,12 +60,12 @@ PostSharing.defaults = {
  * @param {number}      delay   Duration before clearing (ms).
  */
 function showTemporaryMessage(el, message, delay) {
+	// Keep the live region in the accessibility tree (no `hidden`):
+	// `sr-only` already hides it visually; toggling `hidden` would block announcements.
 	el.textContent = message
-	el.hidden = false
 
 	window.setTimeout(() => {
 		el.textContent = ''
-		el.hidden = true
 	}, delay)
 }
 

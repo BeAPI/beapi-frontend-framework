@@ -37,5 +37,5 @@ if ( '' === $url ) {
 			<span class="post-sharing__label"><?php echo esc_html__( 'Share', 'beapi-frontend-framework' ); ?></span>
 		</button>
 	</div>
-	<p class="post-sharing__status" role="status" aria-live="polite" hidden></p>
+	<p class="post-sharing__status sr-only" role="status" aria-live="polite"></p>
 </div>

@@ -1,0 +1,97 @@
+@use "../01-abstract/theme-json" as *;
+@use "../02-tools/m-breakpoint" as *;
+@use "../02-tools/m-hover" as *;
+
+/**
+ * Post sharing — copy link (desktop) / native share (mobile).
+ * Without navigator.share, copy is also shown on small screens as fallback.
+ */
+
+.post-sharing {
+	$el: &;
+
+	&__actions {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+
+	&__button {
+		--post-sharing-color: #{$settings-color-black};
+		--post-sharing-bg: #{$settings-color-grey-100};
+		--post-sharing-hover-color: #{$settings-color-black};
+		--post-sharing-hover-bg: #{$settings-color-grey-200};
+		--post-sharing-icon-size: 20px;
+
+		display: inline-flex;
+		gap: 8px;
+		align-items: center;
+		padding: 8px 12px;
+		color: var(--post-sharing-color);
+		cursor: pointer;
+		background-color: var(--post-sharing-bg);
+		border: 0;
+		border-radius: 50px;
+		transition: background-color .3s ease, color .3s ease;
+		appearance: none;
+
+		@include hover {
+			color: var(--post-sharing-hover-color);
+			background-color: var(--post-sharing-hover-bg);
+		}
+
+		&--copy {
+			&.is-copied {
+				#{$el}__icon--copy {
+					display: none;
+				}
+
+				#{$el}__icon--check {
+					display: block;
+				}
+			}
+
+			@include breakpoints(sm) {
+				display: inline-flex;
+			}
+
+			@include breakpoints(sm, max) {
+				display: none;
+			}
+		}
+
+		&--share {
+			@include breakpoints(sm) {
+				display: none;
+			}
+
+			@include breakpoints(sm, max) {
+				display: inline-flex;
+			}
+		}
+	}
+
+	&__icon {
+		width: var(--post-sharing-icon-size);
+		height: var(--post-sharing-icon-size);
+
+		&--check {
+			display: none;
+		}
+	}
+
+	// Fallback when Web Share API is unavailable: show copy on small screens.
+	&--no-native-share {
+		#{$el}__button--share {
+			@include breakpoints(sm, max) {
+				display: none;
+			}
+		}
+
+		#{$el}__button--copy {
+			@include breakpoints(sm, max) {
+				display: inline-flex;
+			}
+		}
+	}
+}

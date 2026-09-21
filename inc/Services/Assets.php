@@ -79,7 +79,7 @@ class Assets implements Service {
 		);
 
 		// Styles
-		wp_register_style( 'theme-style', get_stylesheet_uri(), [], $theme->get( 'Version' ) );
+		wp_register_style( 'theme-style', get_stylesheet_uri(), [], $asset_data['version'] );
 	}
 
 	/**

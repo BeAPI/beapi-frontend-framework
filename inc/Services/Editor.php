@@ -64,7 +64,7 @@ class Editor implements Service {
 		 */
 		add_action( 'enqueue_block_assets', [ $this, 'admin_editor_script' ] );
 		/**
-		 * White list of gutenberg blocks
+		 * Black list of Gutenberg blocks
 		 */
 		add_filter( 'allowed_block_types_all', [ $this, 'gutenberg_blocks_allowed' ], 10, 2 );
 	}
@@ -207,44 +207,112 @@ class Editor implements Service {
 	}
 
 	/**
-	 * Allow some core Gutenberg blocks
+	 * Disallow some Gutenberg blocks (blacklist).
 	 *
-	 * @param bool|array $allowed_blocks
-	 * @param \WP_Block_Editor_Context $block_editor_context
+	 * @param bool|array               $allowed_blocks        The allowed blocks.
+	 * @param \WP_Block_Editor_Context $block_editor_context The block editor context.
 	 *
-	 * @return array
+	 * @return array The allowed blocks.
 	 */
 	public function gutenberg_blocks_allowed( $allowed_blocks, \WP_Block_Editor_Context $block_editor_context ): array {
+		// If boolean, get explicit list of allowed blocks.
+		if ( is_bool( $allowed_blocks ) ) {
+			$allowed_blocks = $allowed_blocks ? array_keys( \WP_Block_Type_Registry::get_instance()->get_all_registered() ) : [];
+		}
 
-		$allowed = [
-			//base
-			'core/block',
-			'core/heading',
-			'core/paragraph',
-			'core/image',
-			'core/list',
-			'core/list-item',
-			'core/quote',
-			'core/pullquote',
-			'core/table',
-			'core/buttons',
-			'core/button',
-			'core/group',
-			'core/columns',
-			'core/column',
-			'core/media-text',
-			'core/spacer',
-			'core/separator',
-			'core/cover',
-			'core/gallery',
-			'core/video',
-			'core/file',
+		// List of disallowed blocks.
+		$disallowed_blocks = [
+			// Code & raw content.
+			'core/html',
+			'core/freeform',
+			'core/code',
+			'core/preformatted',
+			'core/verse',
+			'core/footnotes',
+			'core/shortcode',
+			'core/math',
+			// Layout & media (unused).
+			'core/text-columns',
+			'core/nextpage',
+			'core/read-more',
+			// Embeds & widgets.
 			'core/embed',
-			// custom
-			'beapi/manual-block',
-			'beapi/dynamic-block',
+			'core/legacy-widget',
+			'core/widget-group',
+			// Accordion.
+			'core/accordion',
+			'core/accordion-heading',
+			'core/accordion-item',
+			'core/accordion-panel',
+			'core/icon',
+			// Theme & site (unused).
+			'core/archives',
+			'core/calendar',
+			'core/categories',
+			'core/latest-comments',
+			'core/latest-posts',
+			'core/rss',
+			'core/search',
+			'core/tag-cloud',
+			'core/site-tagline',
+			'core/site-title',
+			'core/breadcrumbs',
+			'core/navigation-overlay-close',
+			// Post meta & author (unused).
+			'core/post-author',
+			'core/post-author-biography',
+			'core/post-author-name',
+			'core/post-navigation-link',
+			'core/post-terms',
+			'core/post-time-to-read',
+			'core/avatar',
+			// Comments (unused).
+			'core/comments',
+			'core/comments-pagination',
+			'core/comments-pagination-next',
+			'core/comments-pagination-numbers',
+			'core/comments-pagination-previous',
+			'core/comments-title',
+			'core/comment-author-name',
+			'core/comment-content',
+			'core/comment-date',
+			'core/comment-edit-link',
+			'core/comment-reply-link',
+			'core/comment-template',
+			'core/post-comments',
+			'core/post-comments-count',
+			'core/post-comments-form',
+			'core/post-comments-link',
+			// Query loop (unused).
+			'core/query',
+			'core/query-no-results',
+			'core/query-pagination',
+			'core/query-pagination-next',
+			'core/query-pagination-numbers',
+			'core/query-pagination-previous',
+			'core/query-title',
+			'core/query-total',
+			'core/post-template',
+			// Terms (unused).
+			'core/term-count',
+			'core/term-description',
+			// Lists & navigation (unused).
+			'core/page-list',
+			'core/page-list-item',
+			// Reusable & misc.
+			'core/loginout',
+			'core/more',
+			'core/social-link',
+			'core/social-links',
 		];
 
-		return ( is_array( $allowed_blocks ) ) ? array_merge( $allowed, $allowed_blocks ) : $allowed;
+		// Remove disallowed blocks from allowed blocks.
+		foreach ( $disallowed_blocks as $block ) {
+			if ( in_array( $block, $allowed_blocks, true ) ) {
+				unset( $allowed_blocks[ array_search( $block, $allowed_blocks, true ) ] );
+			}
+		}
+
+		return array_values( $allowed_blocks );
 	}
 }

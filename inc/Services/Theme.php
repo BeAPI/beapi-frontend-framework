@@ -36,6 +36,12 @@ class Theme implements Service {
 		 */
 		$this->add_theme_supports();
 		$this->remove_theme_supports();
+		$this->add_images_sizes();
+
+		/**
+		 * Load images sizes in Gutenberg.
+		 */
+		add_filter( 'image_size_names_choose', [ $this, 'image_size_names_choose' ] );
 
 		/**
 		 * Load translations.
@@ -71,6 +77,31 @@ class Theme implements Service {
 	 */
 	private function i18n(): void {
 		// Load theme texdomain
-		load_theme_textdomain( 'framework-textdomain', \get_theme_file_path( '/languages' ) );
+		load_theme_textdomain( 'beapi-frontend-framework', \get_theme_file_path( '/languages' ) );
+	}
+
+	/**
+	 * Add images sizes for Gutenberg
+	 */
+	private function add_images_sizes(): void {
+		add_image_size( 'landscape', 600, 400, true );
+		add_image_size( 'landscape-2x', 1200, 800, true );
+	}
+
+	/**
+	 * Display custom image sizes in Gutenberg
+	 * If you use the WP-THUMB plugin, force to Generate this images (bypass the bea-wp-thumb mu-plugin to restart the generation)
+	 *
+	 * @param array $sizes
+	 *
+	 * @return array
+	 */
+	public function image_size_names_choose( array $sizes ): array {
+		return array_merge(
+			$sizes,
+			[
+				'landscape' => __( 'Landscape - 600 x 400', 'beapi-frontend-framework' ),
+			]
+		);
 	}
 }

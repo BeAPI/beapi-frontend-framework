@@ -1,30 +1,49 @@
 /**
- * Reduced-motion for animations
+ * Motion preference helpers for animations
+ *
+ * Driven by `html.js-animation` / `html.no-js-animation` (toggled from
+ * prefers-reduced-motion in header.php, and by the a11y access config plugin).
  *
  * @author Paolo Tesei
- *
- * @param $reduce
  *
  * Examples :
  *
  *      @include reduced-motion { ... }
- *          return @media screen and (prefers-reduced-motion : reduce) { ... }
+ *          → html.no-js-animation & { ... }
+ *          → html.no-js-animation { ... } when used at root / inside :root or html
  *
- *      you can add heavy animation using :
- *
- *      @include reduced-motion (false) { ... }
- *          return @media screen and (prefers-reduced-motion : no-preference) { ... }
+ *      @include allows-motion { ... }
+ *          → html.js-animation & { ... }
+ *          → html.js-animation { ... } when used at root / inside :root or html
  *
  */
 
-@mixin reduced-motion($reduce: true) {
-	@if ($reduce == true) {
-		@media screen and (prefers-reduced-motion: reduce) {
+@mixin _html-animation-class($class) {
+	// `:root` and `html` are the same element as the animation class host, so they
+	// cannot appear as descendants of `html.#{$class}`.
+	$parent: "#{&}";
+
+	@if not & or $parent == ":root" or $parent == "html" {
+		@at-root html.#{$class} {
 			@content;
 		}
 	} @else {
-		@media screen and (prefers-reduced-motion: no-preference) {
+		html.#{$class} & {
 			@content;
 		}
+	}
+}
+
+// Styles when motion is reduced (`html.no-js-animation`).
+@mixin reduced-motion {
+	@include _html-animation-class("no-js-animation") {
+		@content;
+	}
+}
+
+// Styles when animations are allowed (`html.js-animation`).
+@mixin allows-motion {
+	@include _html-animation-class("js-animation") {
+		@content;
 	}
 }

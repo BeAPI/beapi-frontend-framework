@@ -1,0 +1,48 @@
+@use "../01-abstract/theme-json" as *;
+@use "m-scrollbar" as *;
+
+/**
+ * Horizontal scroll track with mandatory snap (no Swiper).
+ * Full-bleed track via responsive gutters; next slide peeks on the right.
+ *
+ * @author Cédric Andrietti
+ *
+ * @param $item-selector - slide items (default: direct li children)
+ *
+ * Custom properties (optional overrides on the scroll container, set before the include):
+ * --horizontal-scroll-gap  - flex gap (falls back to --column-gap, then theme spacing)
+ * --horizontal-scroll-peek - visible part of the next slide (defaults to gap + xs spacing)
+ *
+ * Example:
+ *
+ *     .my-track {
+ *         @include breakpoints(sm, max) {
+ *             --horizontal-scroll-gap: var(--column-gap);
+ *             @include horizontal-scroll-snap;
+ *         }
+ *     }
+ */
+@mixin horizontal-scroll-snap($item-selector: "> li") {
+	$_horizontal-scroll-gap: var(--horizontal-scroll-gap, var(--column-gap, #{$settings-spacing-xs}));
+	$_horizontal-scroll-peek: var(--horizontal-scroll-peek, calc(#{$_horizontal-scroll-gap} + #{$settings-spacing-xs}));
+
+	display: flex;
+	flex-wrap: nowrap;
+	gap: #{$_horizontal-scroll-gap};
+	width: calc(100% + var(--responsive--gutter-left) + var(--responsive--gutter-right));
+	padding-inline: var(--responsive--gutter-left) var(--responsive--gutter-right);
+	margin-inline: calc(-1 * var(--responsive--gutter-left)) calc(-1 * var(--responsive--gutter-right));
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	scroll-snap-type: x mandatory;
+	scroll-padding-inline: var(--responsive--gutter-left) var(--responsive--gutter-right);
+	-webkit-overflow-scrolling: touch;
+
+	@include scrollbar-invisible;
+
+	#{$item-selector} {
+		flex: 0 0 calc(100% - #{$_horizontal-scroll-peek});
+		min-width: 0;
+		scroll-snap-align: start;
+	}
+}

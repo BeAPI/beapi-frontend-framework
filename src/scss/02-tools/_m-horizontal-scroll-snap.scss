@@ -9,25 +9,26 @@
  *
  * @param $item-selector - slide items (default: direct li children)
  *
- * Custom properties (optional overrides on the scroll container):
- * --horizontal-scroll-gap  - flex gap (falls back to --column-gap)
- * --horizontal-scroll-peek - visible part of the next slide
+ * Custom properties (optional overrides on the scroll container, set before the include):
+ * --horizontal-scroll-gap  - flex gap (falls back to --column-gap, then theme spacing)
+ * --horizontal-scroll-peek - visible part of the next slide (defaults to gap + xs spacing)
  *
  * Example:
  *
  *     .my-track {
  *         @include breakpoints(sm, max) {
+ *             --horizontal-scroll-gap: var(--column-gap);
  *             @include horizontal-scroll-snap;
  *         }
  *     }
  */
 @mixin horizontal-scroll-snap($item-selector: "> li") {
-	--horizontal-scroll-gap: #{$settings-spacing-xs};
-	--horizontal-scroll-peek: calc(var(--horizontal-scroll-gap) + #{$settings-spacing-xs});
+	$_horizontal-scroll-gap: var(--horizontal-scroll-gap, var(--column-gap, #{$settings-spacing-xs}));
+	$_horizontal-scroll-peek: var(--horizontal-scroll-peek, calc(#{$_horizontal-scroll-gap} + #{$settings-spacing-xs}));
 
 	display: flex;
 	flex-wrap: nowrap;
-	gap: var(--horizontal-scroll-gap);
+	gap: #{$_horizontal-scroll-gap};
 	width: calc(100% + var(--responsive--gutter-left) + var(--responsive--gutter-right));
 	padding-inline: var(--responsive--gutter-left) var(--responsive--gutter-right);
 	margin-inline: calc(-1 * var(--responsive--gutter-left)) calc(-1 * var(--responsive--gutter-right));
@@ -40,7 +41,7 @@
 	@include scrollbar-invisible;
 
 	#{$item-selector} {
-		flex: 0 0 calc(100% - var(--horizontal-scroll-peek));
+		flex: 0 0 calc(100% - #{$_horizontal-scroll-peek});
 		min-width: 0;
 		scroll-snap-align: start;
 	}

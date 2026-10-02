@@ -106,6 +106,10 @@ class WebpackThemeJsonPlugin {
 					gradients.push(`${gradient.slug}: ${gradientVar}`)
 				}
 
+				if (gradients.length === 0) {
+					return result + '$settings-gradients: ();\n'
+				}
+
 				return result + `$settings-gradients: (\n\t${gradients.join(',\n\t')}\n);\n`
 			},
 			'settings-custom': 'default',

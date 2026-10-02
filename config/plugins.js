@@ -1,6 +1,4 @@
 const path = require('path')
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
-const svgoconfig = require('./svgo.config')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
@@ -63,21 +61,6 @@ module.exports = {
 		]
 
 		if (mode === 'production') {
-			plugins.push(
-				new ImageMinimizerPlugin({
-					minimizer: {
-						implementation: ImageMinimizerPlugin.imageminMinify,
-						options: {
-							plugins: [
-								['gifsicle', { interlaced: true }],
-								['jpegtran', { progressive: true }],
-								['optipng', { optimizationLevel: 5 }],
-								['svgo', svgoconfig],
-							],
-						},
-					},
-				})
-			)
 			plugins.push(
 				new BundleAnalyzerPlugin({
 					analyzerMode: 'json',

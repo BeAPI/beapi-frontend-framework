@@ -10,15 +10,21 @@
  *
  *      @include reduced-motion { ... }
  *          → html.no-js-animation & { ... }
+ *          → html.no-js-animation { ... } when used at root / inside :root or html
  *
  *      @include allows-motion { ... }
  *          → html.js-animation & { ... }
+ *          → html.js-animation { ... } when used at root / inside :root or html
  *
  */
 
 @mixin _html-animation-class($class) {
-	@if not & {
-		html.#{$class} {
+	// `:root` and `html` are the same element as the animation class host, so they
+	// cannot appear as descendants of `html.#{$class}`.
+	$parent: "#{&}";
+
+	@if not & or $parent == ":root" or $parent == "html" {
+		@at-root html.#{$class} {
 			@content;
 		}
 	} @else {

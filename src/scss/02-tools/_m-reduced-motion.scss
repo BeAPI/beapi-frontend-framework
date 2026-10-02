@@ -1,28 +1,22 @@
 /**
- * Reduced-motion for animations
+ * Motion preference helpers for animations
  *
  * Driven by `html.js-animation` / `html.no-js-animation` (toggled from
  * prefers-reduced-motion in header.php, and by the a11y access config plugin).
  *
  * @author Paolo Tesei
  *
- * @param $reduce
- *
  * Examples :
  *
  *      @include reduced-motion { ... }
  *          → html.no-js-animation & { ... }
  *
- *      you can add heavy animation using :
- *
- *      @include reduced-motion (false) { ... }
+ *      @include allows-motion { ... }
  *          → html.js-animation & { ... }
  *
  */
 
-@mixin reduced-motion($reduce: true) {
-	$class: if($reduce, "no-js-animation", "js-animation");
-
+@mixin _html-animation-class($class) {
 	@if not & {
 		html.#{$class} {
 			@content;
@@ -31,5 +25,19 @@
 		html.#{$class} & {
 			@content;
 		}
+	}
+}
+
+// Styles when motion is reduced (`html.no-js-animation`).
+@mixin reduced-motion {
+	@include _html-animation-class("no-js-animation") {
+		@content;
+	}
+}
+
+// Styles when animations are allowed (`html.js-animation`).
+@mixin allows-motion {
+	@include _html-animation-class("js-animation") {
+		@content;
 	}
 }

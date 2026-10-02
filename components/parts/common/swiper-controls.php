@@ -11,7 +11,7 @@
 
 <div class="swiper__controls">
 	<div class="swiper__buttons">
-		<div class="swiper-button-prev swiper__button" role="button" aria-label="Diapositive précédente"></div>
-		<div class="swiper-button-next swiper__button" role="button" aria-label="Diapositive suivante"></div>
+		<div class="swiper-button-prev swiper__button" role="button" aria-label="<?php esc_attr_e( 'Previous slide', 'beapi-frontend-framework' ); ?>"></div>
+		<div class="swiper-button-next swiper__button" role="button" aria-label="<?php esc_attr_e( 'Next slide', 'beapi-frontend-framework' ); ?>"></div>
 	</div>
 </div>

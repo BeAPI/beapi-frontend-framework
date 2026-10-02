@@ -253,10 +253,12 @@ msgctxt "Space size name"
 msgid "lg (64px)"
 msgstr ""
 
+#: components/parts/common/swiper-controls.php:14
 #: dist/app.js
 msgid "Previous slide"
 msgstr ""
 
+#: components/parts/common/swiper-controls.php:15
 #: dist/app.js
 msgid "Next slide"
 msgstr ""

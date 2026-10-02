@@ -297,10 +297,12 @@ msgstr ""
 #~ msgid "Toggle menu"
 #~ msgstr "Ouvrir/Fermer le menu"
 
+#: components/parts/common/swiper-controls.php:14
 #: dist/app.js
 msgid "Previous slide"
 msgstr "Diapositive précédente"
 
+#: components/parts/common/swiper-controls.php:15
 #: dist/app.js
 msgid "Next slide"
 msgstr "Diapositive suivante"

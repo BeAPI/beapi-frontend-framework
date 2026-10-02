@@ -19,13 +19,15 @@
     "@fontsource-utils/scss": "^0.2.4",
     "@fontsource/poppins": "^5.3.0",
     "lazysizes": "^5.3.2",
-    "oneloop.js": "^5.3.1"
+    "oneloop.js": "^5.3.1",
+    "swiper": "^14.3.0"
   },
   "devDependencies": {
     "@wordpress/blocks": "^11.21.0",
     "@wordpress/browserslist-config": "^6.53.0",
     "@wordpress/dependency-extraction-webpack-plugin": "^6.53.0",
     "@wordpress/dom-ready": "^3.58.0",
+    "@wordpress/i18n": "^4.58.0",
     "@wordpress/hooks": "^3.58.0",
     "@wordpress/stylelint-config": "^24.2.0",
     "clean-webpack-plugin": "^4.0.0",

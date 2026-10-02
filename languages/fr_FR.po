@@ -296,3 +296,27 @@ msgstr ""
 
 #~ msgid "Toggle menu"
 #~ msgstr "Ouvrir/Fermer le menu"
+
+#: dist/app.js
+msgid "Previous slide"
+msgstr "Diapositive précédente"
+
+#: dist/app.js
+msgid "Next slide"
+msgstr "Diapositive suivante"
+
+#: dist/app.js
+msgid "This is the first slide"
+msgstr "C'est la première diapositive"
+
+#: dist/app.js
+msgid "This is the last slide"
+msgstr "C'est la dernière diapositive"
+
+#: dist/app.js
+msgid "Go to slide {{index}}"
+msgstr "Aller à la diapositive {{index}}"
+
+#: dist/app.js
+msgid "{{index}} of {{slidesLength}}"
+msgstr "{{index}} sur {{slidesLength}}"

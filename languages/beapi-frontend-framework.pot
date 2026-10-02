@@ -252,3 +252,27 @@ msgstr ""
 msgctxt "Space size name"
 msgid "lg (64px)"
 msgstr ""
+
+#: dist/app.js
+msgid "Previous slide"
+msgstr ""
+
+#: dist/app.js
+msgid "Next slide"
+msgstr ""
+
+#: dist/app.js
+msgid "This is the first slide"
+msgstr ""
+
+#: dist/app.js
+msgid "This is the last slide"
+msgstr ""
+
+#: dist/app.js
+msgid "Go to slide {{index}}"
+msgstr ""
+
+#: dist/app.js
+msgid "{{index}} of {{slidesLength}}"
+msgstr ""

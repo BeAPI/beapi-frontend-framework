@@ -18,14 +18,11 @@ module.exports = {
 				minimizer: {
 					implementation: ImageMinimizerPlugin.imageminMinify,
 					options: {
-						// Lossless optimization with custom option
-						// Feel free to experiment with options for better result for you
 						plugins: [
 							['gifsicle', { interlaced: true }],
 							['jpegtran', { progressive: true }],
 							['optipng', { optimizationLevel: 5 }],
-							// Svgo configuration here https://github.com/svg/svgo#configuratio
-							['svgo', { svgoconfig }],
+							['svgo', svgoconfig],
 						],
 					},
 				},

@@ -3,8 +3,8 @@
 /*
  * Palette : Usefully to get the color or background color of a parent element
  * Usage Example:
- * Use these classes to store a color value in a CSS variable.
- * This allows any child element to reuse the parent's background color.
+ * Use these classes to store a color / gradient value in a CSS variable.
+ * This allows any child element to reuse the parent's background color or image.
  *
  * HTML:
  * <div class="has-primary-background-color">
@@ -17,6 +17,8 @@
  * .child-element {
  *    color: var(--background-color);
  * }
+ *
+ * Gradients expose --gradient on .has-{slug}-gradient-background.
  */
 
 @each $color-name, $color-value in $settings-palette {
@@ -26,5 +28,11 @@
 
 	.has-#{$color-name}-background-color {
 		--background-color: #{$color-value};
+	}
+}
+
+@each $gradient-name, $gradient-value in $settings-gradients {
+	.has-#{$gradient-name}-gradient-background {
+		--gradient: #{$gradient-value};
 	}
 }

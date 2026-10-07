@@ -143,7 +143,7 @@ class WebpackThemeJsonPlugin {
 
 		// Quote map keys so slugs like black/white are strings, not Sass color literals.
 		function formatMapKey(slug) {
-			return `"${String(slug).replace(/"/g, '\\"')}"`
+			return JSON.stringify(String(slug))
 		}
 
 		// traverse the theme.json file and generate the scss variables

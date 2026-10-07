@@ -91,7 +91,7 @@ class WebpackThemeJsonPlugin {
 				for (const color of value) {
 					const colorVar = getVariableName('settings-color-' + color.slug)
 					result += `${colorVar}: ${color.color};\n`
-					palette.push(`${color.slug}: ${colorVar}`)
+					palette.push(`${formatMapKey(color.slug)}: ${colorVar}`)
 				}
 
 				return result + `$settings-palette: (\n\t${palette.join(',\n\t')}\n);\n`
@@ -103,7 +103,7 @@ class WebpackThemeJsonPlugin {
 				for (const gradient of value) {
 					const gradientVar = getVariableName('settings-gradient-' + gradient.slug)
 					result += `${gradientVar}: ${gradient.gradient};\n`
-					gradients.push(`${gradient.slug}: ${gradientVar}`)
+					gradients.push(`${formatMapKey(gradient.slug)}: ${gradientVar}`)
 				}
 
 				if (gradients.length === 0) {
@@ -139,6 +139,11 @@ class WebpackThemeJsonPlugin {
 		// format the scss variable name
 		function getVariableName(id) {
 			return `$${id.replace(/([A-Z])/g, '-$1').toLowerCase()}`
+		}
+
+		// Quote map keys so slugs like black/white are strings, not Sass color literals.
+		function formatMapKey(slug) {
+			return `"${String(slug).replace(/"/g, '\\"')}"`
 		}
 
 		// traverse the theme.json file and generate the scss variables

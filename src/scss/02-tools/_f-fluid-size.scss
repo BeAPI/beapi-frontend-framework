@@ -6,12 +6,13 @@
  *
  * Converted from source:  : https://www.aleksandrhovhannisyan.com/blog/fluid-type-scale-with-css-clamp/
  *
- * Convert value px to fluid typography and spacing using clamp
+ * Convert value px to fluid typography and spacing using clamp.
+ * Supports both growing and shrinking scales between breakpoints.
  *
  * @author Cédric Andrietti
  *
- * @param $min -> Minimal display size (mobile)
- * @param $max -> Maximal display size (Desktop)
+ * @param $from -> Size at the start breakpoint (mobile)
+ * @param $to -> Size at the end breakpoint (desktop)
  * @param $start -> Start breakpoint
  * @param $end -> End breakpoint
  *
@@ -22,14 +23,21 @@
  *          line-height: #{fluid-size(1.05, 1.2)};
  *      }
  *
+ *      // Larger on mobile, smaller on desktop
+ *      .hero {
+ *          padding-top: #{fluid-size(40px, 3px)};
+ *      }
+ *
  */
 
 @use "sass:map";
 @use "sass:math";
 
-@function fluid-size($min, $max, $start: xs, $end: sm) {
+@function fluid-size($from, $to, $start: xs, $end: l) {
 	$start: math.div(map.get($breakpoints, $start), 100);
 	$end: math.div(map.get($breakpoints, $end), 100);
+	$lower: math.min($from, $to);
+	$upper: math.max($from, $to);
 
-	@return clamp(#{$min}, #{$min} + (1vw - #{$start}px) / #{$end - $start} * #{strip-units($max - $min)}, #{$max});
+	@return clamp(#{$lower}, #{$from} + (1vw - #{$start}px) / #{$end - $start} * #{strip-units($to - $from)}, #{$upper});
 }

@@ -33,6 +33,12 @@ module.exports = {
 									compressionLevel: 9,
 								},
 								gif: {},
+								webp: {
+									lossless: true,
+								},
+								avif: {
+									lossless: true,
+								},
 							},
 						},
 					},

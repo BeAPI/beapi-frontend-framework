@@ -11,7 +11,7 @@
     "build": "webpack-cli --config config/webpack.prod.js",
     "lint:css": "stylelint \"src/scss/**/*.scss\"",
     "lint:js": "eslint \"src/js/**/*.js\"",
-    "lint": "concurrently \"npm run lint:css\" \"npm run lint:js\"",
+    "lint": "npm run lint:css && npm run lint:js",
     "bundle-report": "npm run build && webpack-bundle-analyzer dist/stats.json"
   },
   "license": "GPL-2.0",
@@ -29,7 +29,6 @@
     "@wordpress/hooks": "^3.58.0",
     "@wordpress/stylelint-config": "^24.2.0",
     "clean-webpack-plugin": "^4.0.0",
-    "concurrently": "^9.2.1",
     "css-loader": "^7.1.4",
     "cssnano": "^7.1.2",
     "esbuild-loader": "^4.5.0",

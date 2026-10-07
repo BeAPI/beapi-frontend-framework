@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Be API Frontend Framework 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/beapi-frontend-"
 "framework\n"
-"POT-Creation-Date: 2026-05-07T14:30:39+00:00\n"
-"PO-Revision-Date: 2026-05-07 16:41+0200\n"
+"POT-Creation-Date: 2026-09-18T09:57:30+00:00\n"
+"PO-Revision-Date: 2026-09-18 12:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -41,6 +41,26 @@ msgstr ""
 #: components/parts/common/breadcrumb.php:7
 msgid "Breadcrumb"
 msgstr "Fil d’ariane"
+
+#: components/parts/common/post-sharing.php:25
+msgid "Link copied!"
+msgstr "Lien copié !"
+
+#: components/parts/common/post-sharing.php:26
+msgid "Unable to copy the link"
+msgstr "Impossible de copier le lien"
+
+#: components/parts/common/post-sharing.php:27
+msgid "Unable to share"
+msgstr "Impossible de partager"
+
+#: components/parts/common/post-sharing.php:33
+msgid "Copy link"
+msgstr "Copier le lien"
+
+#: components/parts/common/post-sharing.php:37
+msgid "Share"
+msgstr "Partager"
 
 #: footer.php:2
 msgid "Footer"
@@ -94,6 +114,10 @@ msgstr "Ouvrir le menu"
 msgid "Close menu"
 msgstr "Fermer le menu"
 
+#: inc/Helpers/Formatting/Datetime.php:53
+msgid "Published on"
+msgstr "Publié le"
+
 #: inc/Helpers/Formatting/Link.php:144
 msgid "New window"
 msgstr "Nouvelle fenêtre"
@@ -122,54 +146,27 @@ msgstr "Partager sur Bluesky"
 msgid "Share by email"
 msgstr "Partager par email"
 
-#: inc/Services/Editor.php:144
+#: inc/Services/Editor.php:168
 msgid "Small"
 msgstr "Petit"
 
-#: inc/Services/Editor.php:152
+#: inc/Services/Editor.php:176
 msgid "Large"
 msgstr "Grand"
 
-#: inc/Services/Editor.php:160
+#: inc/Services/Editor.php:184
 msgid "Huge"
 msgstr "Très grand"
 
 #. translators: %s: heading number
-#: inc/Services/Editor.php:168
+#: inc/Services/Editor.php:192
 #, php-format
 msgid "Style H%s"
 msgstr ""
 
-#: inc/Services/Editor_Patterns.php:40
+#: inc/Services/Editor_Patterns.php:45
 msgid "Common"
 msgstr "Général"
-
-#. translators: %s: file name.
-#: inc/Services/Editor_Patterns.php:125
-#, php-format
-msgid ""
-"Could not register file \"%s\" as a block pattern (\"Slug\" field missing)"
-msgstr ""
-"Impossible de déclarer la composition de blocs à partir du fichier \"%s\" "
-"(Le champ \"Slug\" est manquant)"
-
-#. translators: %1s: file name; %2s: slug value found.
-#: inc/Services/Editor_Patterns.php:138
-#, php-format
-msgid ""
-"Could not register file \"%1$s\" as a block pattern (invalid slug \"%2$s\")"
-msgstr ""
-"Impossible de déclarer la composition de blocs à partir du fichier \"%1$s\" "
-"(Le slug \"%2$s\" n'est pas valide)"
-
-#. translators: %1s: file name; %2s: slug value found.
-#: inc/Services/Editor_Patterns.php:155
-#, php-format
-msgid ""
-"Could not register file \"%s\" as a block pattern (\"Title\" field missing)"
-msgstr ""
-"Impossible de déclarer la composition de blocs à partir du fichier \"%s\" "
-"(Le champ \"Title\" est manquant)"
 
 #: inc/Services/Menu.php:37
 msgid "Main menu"
@@ -263,6 +260,29 @@ msgstr ""
 msgctxt "Space size name"
 msgid "lg (64px)"
 msgstr ""
+
+#, php-format
+#~ msgid ""
+#~ "Could not register file \"%s\" as a block pattern (\"Slug\" field missing)"
+#~ msgstr ""
+#~ "Impossible de déclarer la composition de blocs à partir du fichier \"%s\" "
+#~ "(Le champ \"Slug\" est manquant)"
+
+#, php-format
+#~ msgid ""
+#~ "Could not register file \"%1$s\" as a block pattern (invalid slug "
+#~ "\"%2$s\")"
+#~ msgstr ""
+#~ "Impossible de déclarer la composition de blocs à partir du fichier "
+#~ "\"%1$s\" (Le slug \"%2$s\" n'est pas valide)"
+
+#, php-format
+#~ msgid ""
+#~ "Could not register file \"%s\" as a block pattern (\"Title\" field "
+#~ "missing)"
+#~ msgstr ""
+#~ "Impossible de déclarer la composition de blocs à partir du fichier \"%s\" "
+#~ "(Le champ \"Title\" est manquant)"
 
 #~ msgid "Dark"
 #~ msgstr "Sombre"

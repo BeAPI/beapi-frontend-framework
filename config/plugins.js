@@ -47,9 +47,9 @@ module.exports = {
 				outputImageLocations: 'image-locations.json', // Output locations file name
 				outputImageSizes: 'image-sizes.json', // Output sizes file name
 				generateDefaultImages: true, // Generate default images
-				defaultImageSource: 'src/img/static/default.jpg', // Source image for generation
+				defaultImageSource: 'src/img/static/default.webp', // Source image for generation
 				defaultImagesOutputDir: 'dist/images', // Default images output directory
-				defaultImageFormat: 'jpg', // Generated image format (jpg, png, webp, avif)
+				defaultImageFormat: 'webp', // Generated image format (jpg, png, webp, avif)
 				silence: true, // Suppress console output
 			}),
 			new MiniCssExtractPlugin({

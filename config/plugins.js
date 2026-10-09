@@ -12,6 +12,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const WebpackImageSizesPlugin = require('./webpack-image-sizes-plugin')
 const WebpackThemeJsonPlugin = require('./webpack-theme-json-plugin')
 const SpriteHashPlugin = require('./webpack-sprite-hash-plugin')
+const WebpackIconFilesPlugin = require('./webpack-icon-files-plugin')
 
 module.exports = {
 	get: function (mode) {
@@ -20,6 +21,11 @@ module.exports = {
 				watch: mode !== 'production',
 			}),
 			new SpriteHashPlugin(),
+			new WebpackIconFilesPlugin({
+				sourcePath: 'src/img/icons',
+				outputPath: 'dist/images',
+				silence: true,
+			}),
 			new CleanWebpackPlugin({
 				cleanOnceBeforeBuildPatterns: ['**/*', '!images', '!images/**'],
 			}),

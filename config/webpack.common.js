@@ -15,17 +15,43 @@ module.exports = {
 	optimization: {
 		minimizer: [
 			new ImageMinimizerPlugin({
-				minimizer: {
-					implementation: ImageMinimizerPlugin.imageminMinify,
-					options: {
-						plugins: [
-							['gifsicle', { interlaced: true }],
-							['jpegtran', { progressive: true }],
-							['optipng', { optimizationLevel: 5 }],
-							['svgo', svgoconfig],
-						],
+				minimizer: [
+					{
+						implementation: ImageMinimizerPlugin.sharpMinify,
+						filter: (source, sourcePath) => !/\.svg$/i.test(sourcePath),
+						options: {
+							encodeOptions: {
+								jpeg: {
+									quality: 100,
+									progressive: true,
+								},
+								jpg: {
+									quality: 100,
+									progressive: true,
+								},
+								png: {
+									compressionLevel: 9,
+								},
+								gif: {},
+								webp: {
+									lossless: true,
+								},
+								avif: {
+									lossless: true,
+								},
+							},
+						},
 					},
-				},
+					{
+						implementation: ImageMinimizerPlugin.svgoMinify,
+						options: {
+							encodeOptions: {
+								multipass: true,
+								...svgoconfig,
+							},
+						},
+					},
+				],
 			}),
 			new TerserPlugin({
 				parallel: true,

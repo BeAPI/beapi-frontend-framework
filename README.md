@@ -194,6 +194,43 @@ You can launch a bundle report with the following command :
 yarn bundle-report
 ```
 
+## Core Web Vitals
+
+### What the theme provides
+
+- **LCP image**: pass `'is_lcp' => true` in the settings of `get_the_image()` for the main above-the-fold image (hero, cover). It removes `loading="lazy"` and adds `fetchpriority="high"` and `decoding="sync"`. Use it on one image per page only.
+
+```php
+the_image( $image_id, [ 'alt' => '' ], [ 'size' => 'hero', 'is_lcp' => true ] );
+```
+
+- **Decorative images**: pass `'alt' => ''` to output `alt=""`, so assistive technologies skip the image. Omitting `alt` is not equivalent.
+- **Static theme images** (logos, placeholders, illustrations from `dist/`): use `get_theme_static_image_markup()` / `the_theme_static_image()`. `width` and `height` are read from the file (SVG or raster) to avoid layout shifts (CLS).
+
+```php
+the_theme_static_image( 'dist/images/placeholder.svg', [ 'class' => 'card__image', 'loading' => 'lazy' ] );
+```
+
+- **Custom logo**: gets `fetchpriority="low"` so it never competes with the real LCP image.
+- **Fonts preload**: opt-in, only for fonts rendered on first paint.
+
+```php
+add_filter( 'bea_theme_framework_preload_fonts', fn() => [ 'dist/fonts/my-font-regular.woff2' ] );
+```
+
+- **JS**: `Animation` relies on `IntersectionObserver` (no scroll loop). Use `deferInitialization()` from `src/js/utils` to run non-critical code when the browser is idle (INP).
+
+### What each project still has to configure
+
+These depend on the hosting, plugins and content, so they are not part of the theme:
+
+- Page cache and WP Rocket settings (Remove Unused CSS, defer / delay JS and their exclusions, lazyload exclusions for the LCP image, preconnect hints limited to the third parties loaded early).
+- `robots.txt` (technical and AJAX endpoints) and `Cache-Control` headers for static assets.
+- SEO plugin settings: canonical URLs on custom pagination, structured data duplicates.
+- Fonts: subset files to the weights and glyphs actually used, drop unused files (italics, extra weights).
+- Third-party embeds (videos, forms, webinars): load them on interaction or when they enter the viewport.
+- Plugin assets: dequeue front scripts and styles on pages that do not use them.
+
 ## WordPress Editor (Gutenberg)
 
 ### Customize blocks

@@ -4,23 +4,23 @@
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 
-## What is BFF ?
+## Qu’est-ce que BFF ?
 
-**Be API Frontend Framework** *(or BFF)*  is a WordPress theme boilerplate designed to assist you in launching your own WordPress theme using modern tools.
+**Be API Frontend Framework** *(ou BFF)* est un boilerplate de thème WordPress conçu pour vous aider à lancer votre propre thème WordPress avec des outils modernes.
 
-## Requirements
+## Prérequis
 
-### PHP & WordPress
+### PHP et WordPress
 
-- PHP **8.3** or higher
-- WordPress **6.3** or higher
+- PHP **8.3** ou supérieur
+- WordPress **6.3** ou supérieur
 
 ### Composer
 
-You need composer to autoload all your classes from the inc folder.
+Composer est nécessaire pour autoloader toutes vos classes depuis le dossier `inc`.
 
-Use the `beapi/composer-scaffold-theme` package that add it automatically to the composer.json file.
-You can add it yourself like this :
+Utilisez le package `beapi/composer-scaffold-theme`, qui l’ajoute automatiquement au fichier `composer.json`.
+Vous pouvez aussi l’ajouter vous-même ainsi :
 
 ```composer.json
     "autoload": {
@@ -32,15 +32,15 @@ You can add it yourself like this :
 
 ### Autoload
 
-The autoload is based on psr-4 and handled by composer.
+L’autoload repose sur PSR-4 et est géré par Composer.
 
 ### Node.js
 
-You need [the latest stable version of Node.js](https://nodejs.org/).
+Vous avez besoin de [la dernière version stable de Node.js](https://nodejs.org/).
 
 ## Installation
 
-Download the latest release of BFF [here](https://github.com/BeAPI/beapi-frontend-framework/releases) and extract the zip archive into your `themes` WordPress's folder.
+Téléchargez la dernière release de BFF [ici](https://github.com/BeAPI/beapi-frontend-framework/releases) et extrayez l’archive zip dans le dossier `themes` de WordPress.
 
 ```bash
 |____wp-admin
@@ -52,133 +52,133 @@ Download the latest release of BFF [here](https://github.com/BeAPI/beapi-fronten
 |____wp-includes
 ```
 
-Of course, you can rename `beapi-frontend-framework` to define your WordPress theme's name.
+Vous pouvez bien sûr renommer `beapi-frontend-framework` pour définir le nom de votre thème WordPress.
 
-Next, go to your theme folder (in the following example, I didn't rename `beapi-frontend-framework`) with your favorite Term software.
+Ensuite, rendez-vous dans le dossier du thème (dans l’exemple ci-dessous, je n’ai pas renommé `beapi-frontend-framework`) avec votre terminal préféré.
 
 ```bash
 cd wp-content/themes/beapi-frontend-framework
 ```
 
-Then install node dependencies with Yarn.
+Puis installez les dépendances Node avec Yarn.
 
 ```bash
 yarn
 ```
 
-Alternatively, you can use NPM.
+Vous pouvez aussi utiliser NPM.
 
 ```bash
 npm install
 ```
 
-## Local development with wp-env
+## Développement local avec wp-env
 
-BFF ships with a [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) configuration (`.wp-env.json`) to run a local WordPress instance with Docker.
+BFF inclut une configuration [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) (`.wp-env.json`) pour exécuter une instance WordPress locale avec Docker.
 
-### Requirements
+### Prérequis
 
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (or a compatible Docker runtime)
-- Node.js (see [Requirements](#nodejs))
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (ou un runtime Docker compatible)
+- Node.js (voir [Prérequis](#nodejs))
 
-### Installing wp-env
+### Installation de wp-env
 
-You can run wp-env without a global install via `npx @wordpress/env`, or install the CLI once and use the `wp-env` command:
+Vous pouvez lancer wp-env sans installation globale via `npx @wordpress/env`, ou installer la CLI une fois et utiliser la commande `wp-env` :
 
 ```bash
 # Global install (npm or yarn)
 npm install -g @wordpress/env
-# or
+# ou
 yarn global add @wordpress/env
 ```
 
-After installation, replace `npx @wordpress/env` with `wp-env` in the commands below.
+Après l’installation, remplacez `npx @wordpress/env` par `wp-env` dans les commandes ci-dessous.
 
-### Getting started
+### Démarrage
 
-From the theme root:
+Depuis la racine du thème :
 
 ```bash
 yarn
 npx @wordpress/env start
-# or, if wp-env is installed globally:
+# ou, si wp-env est installé globalement :
 wp-env start
 ```
 
-On first start, wp-env will:
+Au premier démarrage, wp-env va :
 
-- Spin up WordPress (PHP 8.3)
-- Mount this theme from the current directory
-- Install and activate the [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/) plugin
+- Démarrer WordPress (PHP 8.3)
+- Monter ce thème depuis le répertoire courant
+- Installer et activer l’extension [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/)
 
-### URLs and credentials
+### URLs et identifiants
 
 | | |
 |---|---|
 | Site | http://localhost:8888 |
 | Admin | http://localhost:8888/wp-admin |
-| Username | `admin` |
-| Password | `password` |
+| Identifiant | `admin` |
+| Mot de passe | `password` |
 
-### Common commands
+### Commandes courantes
 
 ```bash
-# Start the environment
-npx @wordpress/env start   # or: wp-env start
+# Démarrer l’environnement
+npx @wordpress/env start   # ou : wp-env start
 
-# Stop containers (data is preserved)
-npx @wordpress/env stop    # or: wp-env stop
+# Arrêter les conteneurs (les données sont conservées)
+npx @wordpress/env stop    # ou : wp-env stop
 
-# Remove containers and volumes
-npx @wordpress/env destroy # or: wp-env destroy
+# Supprimer conteneurs et volumes
+npx @wordpress/env destroy # ou : wp-env destroy
 
-# Run WP-CLI inside the environment
+# Exécuter WP-CLI dans l’environnement
 npx @wordpress/env run cli wp plugin list
-# or: wp-env run cli wp plugin list
+# ou : wp-env run cli wp plugin list
 
-# Run a command in the theme directory
+# Exécuter une commande dans le dossier du thème
 npx @wordpress/env run cli --env-cwd=wp-content/themes/beapi-frontend-framework composer install
-# or: wp-env run cli --env-cwd=wp-content/themes/beapi-frontend-framework composer install
+# ou : wp-env run cli --env-cwd=wp-content/themes/beapi-frontend-framework composer install
 ```
 
-### Development workflow
+### Workflow de développement
 
-With wp-env running, start the Webpack watcher in a second terminal:
+Avec wp-env en cours d’exécution, lancez le watcher Webpack dans un second terminal :
 
 ```bash
 yarn start
 ```
 
-Changes to PHP, SCSS, and JavaScript assets are reflected after Webpack rebuilds. Theme PHP changes are picked up immediately thanks to the mounted volume.
+Les changements sur les assets PHP, SCSS et JavaScript sont pris en compte après rebuild Webpack. Les modifications PHP du thème sont appliquées immédiatement grâce au volume monté.
 
 ## Configuration
 
-The configurations files are in `config` directory.
+Les fichiers de configuration se trouvent dans le dossier `config`.
 
 ### Webpack
 
-You can find the common Webpack settings file in `webpack.common.js`. For development mode purpose, you can edit `webpack.dev.js` file and for production mode, you can edit `webpack.prod.js`.
-You also have the loaders in `loaders.js` file and Webpack's plugin in `plugins.js` file.
+Vous trouverez le fichier de paramètres Webpack communs dans `webpack.common.js`. Pour le mode développement, éditez `webpack.dev.js` ; pour la production, `webpack.prod.js`.
+Les loaders sont dans `loaders.js` et les plugins Webpack dans `plugins.js`.
 
-## How to use BFF ?
+## Comment utiliser BFF ?
 
-After installing dependencies, you can run some commands which are explained below.
+Après l’installation des dépendances, vous pouvez exécuter les commandes décrites ci-dessous.
 
-### Start with Browser Sync
+### Démarrer avec Browser Sync
 
-BFF is configured to work with [lando](https://lando.dev/). If you have a `.lando.yml` file in your project's root, set the path to your file in the `browsersync.config.js` file.
+BFF est configuré pour fonctionner avec [Lando](https://lando.dev/). Si vous avez un fichier `.lando.yml` à la racine de votre projet, indiquez le chemin vers ce fichier dans `browsersync.config.js`.
 
 ```js
 let fileContents = fs.readFileSync('../../../../.lando.yml', 'utf8')
 ```
 
-Then, run the following command from the theme :
+Puis exécutez la commande suivante depuis le thème :
 
 ```bash
 yarn start
 ```
 
-BrowserSync will proxy your lando'server based on the name defined in your `.lando.yml`.
+BrowserSync proxifiera votre serveur Lando d’après le nom défini dans votre `.lando.yml`.
 
 ### Build
 
@@ -186,19 +186,56 @@ BrowserSync will proxy your lando'server based on the name defined in your `.lan
 yarn build
 ```
 
-### Bundle report
+### Rapport de bundle
 
-You can launch a bundle report with the following command :
+Vous pouvez générer un rapport de bundle avec la commande suivante :
 
 ```bash
 yarn bundle-report
 ```
 
-## WordPress Editor (Gutenberg)
+## Core Web Vitals
 
-### Customize blocks
+### Ce que le thème fournit
 
-The `bff_editor_custom_settings` filter allow you to customize blocks styles and variations. For example:
+- **Image LCP** : passez `'is_lcp' => true` dans les réglages de `get_the_image()` pour l’image principale above-the-fold (hero, couverture). Cela retire `loading="lazy"` et ajoute `fetchpriority="high"` et `decoding="sync"`. À utiliser sur une seule image par page.
+
+```php
+the_image( $image_id, [ 'alt' => '' ], [ 'size' => 'hero', 'is_lcp' => true ] );
+```
+
+- **Images décoratives** : passez `'alt' => ''` pour produire `alt=""`, afin que les technologies d’assistance ignorent l’image. Omettre `alt` n’est pas équivalent.
+- **Images statiques du thème** (logos, placeholders, illustrations depuis `dist/`) : utilisez `get_theme_static_image_markup()` / `the_theme_static_image()`. `width` et `height` sont lus depuis le fichier (SVG ou raster) pour limiter les décalages de mise en page (CLS).
+
+```php
+the_theme_static_image( 'dist/images/placeholder.svg', [ 'class' => 'card__image', 'loading' => 'lazy' ] );
+```
+
+- **Logo personnalisé** : reçoit `fetchpriority="low"` pour ne pas concurrencer la vraie image LCP.
+- **Preload des polices** : opt-in, uniquement pour les polices rendues au premier affichage.
+
+```php
+add_filter( 'bea_theme_framework_preload_fonts', fn() => [ 'dist/fonts/my-font-regular.woff2' ] );
+```
+
+- **JS** : `Animation` s’appuie sur `IntersectionObserver` (pas de boucle au scroll). Utilisez `deferInitialization()` depuis `src/js/utils` pour exécuter du code non critique lorsque le navigateur est inactif (INP).
+
+### Ce que chaque projet doit encore configurer
+
+Cela dépend de l’hébergement, des extensions et du contenu ; ce n’est donc pas inclus dans le thème :
+
+- Cache de page et réglages WP Rocket (Remove Unused CSS, defer / delay JS et leurs exclusions, exclusions lazyload pour l’image LCP, preconnect limités aux tiers chargés tôt).
+- `robots.txt` (endpoints techniques et AJAX) et en-têtes `Cache-Control` pour les assets statiques.
+- Réglages du plugin SEO : URLs canoniques sur pagination personnalisée, doublons de données structurées.
+- Polices : sous-ensemble des fichiers aux graisses et glyphes réellement utilisés, suppression des fichiers inutiles (italiques, graisses supplémentaires).
+- Intégrations tierces (vidéos, formulaires, webinars) : chargement à l’interaction ou à l’entrée dans le viewport.
+- Assets des plugins : dequeue des scripts et styles front sur les pages qui ne les utilisent pas.
+
+## Éditeur WordPress (Gutenberg)
+
+### Personnaliser les blocs
+
+Le filtre `bff_editor_custom_settings` permet de personnaliser les styles et variations de blocs. Par exemple :
 
 ```php
 add_filter( 'bff_editor_custom_settings', 'customize_editor_settings', 10, 1 );

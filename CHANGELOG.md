@@ -1,3 +1,14 @@
+# 5.5.0
+
+- Add `is_lcp` setting to `get_the_image()` (fetchpriority high, sync decoding, no lazy loading)
+- Never output `fetchpriority="high"` together with `loading="lazy"` in image helpers
+- Add `get_theme_static_image_markup()` helpers: static theme images get width/height (CLS) and keep `alt=""` for decorative images
+- Lower the custom logo `fetchpriority` so it does not compete with the LCP image
+- Add `bea_theme_framework_preload_fonts` filter (empty by default) to preload above-the-fold fonts
+- Rewrite `Animation` with shared IntersectionObservers instead of a scroll loop (same options and callbacks)
+- Add `deferInitialization()` JS util to run non-critical code on idle (INP)
+- Document the Core Web Vitals baseline in README
+
 # 5.3.2
 
 - Update CHANGELOG.md and package.json files with the last BFF version number

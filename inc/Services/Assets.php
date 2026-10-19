@@ -140,19 +140,19 @@ class Assets implements Service {
 
 		switch ( $type ) {
 			case 'css':
-				$file = $assets['app.css'];
+				$file = $assets['app.css'] ?? null;
 				break;
 			case 'editor.css':
-				$file = $assets['editor.css'];
+				$file = $assets['editor.css'] ?? null;
 				break;
 			case 'login':
-				$file = $assets['login.css'];
+				$file = $assets['login.css'] ?? null;
 				break;
 			case 'editor.js':
-				$file = $assets['editor.js'];
+				$file = $assets['editor.js'] ?? null;
 				break;
 			case 'js':
-				$file = $assets['app.js'];
+				$file = $assets['app.js'] ?? null;
 				break;
 			default:
 				$file = null;
@@ -160,15 +160,49 @@ class Assets implements Service {
 		}
 
 		// Custom type
-		if ( ! empty( $assets[ $type ] ) ) {
+		if ( null === $file && ! empty( $assets[ $type ] ) && is_string( $assets[ $type ] ) ) {
 			$file = $assets[ $type ];
 		}
 
-		if ( empty( $file ) ) {
+		if ( empty( $file ) || ! is_string( $file ) ) {
 			return '';
 		}
 
 		return $file;
+	}
+
+	/**
+	 * Return intrinsic dimensions for a static theme image from the build manifest.
+	 *
+	 * @param string $relative_theme_path Path relative to the theme root (e.g. dist/images/logo.svg).
+	 *
+	 * @return array{width:int,height:int}|null Null when dimensions are not in the manifest.
+	 */
+	public function get_static_image_dimensions( string $relative_theme_path ): ?array {
+		$relative_theme_path = ltrim( $relative_theme_path, '/' );
+		$manifest            = $this->get_assets_manifest();
+
+		if ( empty( $manifest['imageDimensions'] ) || ! is_array( $manifest['imageDimensions'] ) ) {
+			return null;
+		}
+
+		$dimensions = $manifest['imageDimensions'][ $relative_theme_path ] ?? null;
+
+		if ( ! is_array( $dimensions ) ) {
+			return null;
+		}
+
+		$width  = isset( $dimensions['width'] ) ? (int) $dimensions['width'] : 0;
+		$height = isset( $dimensions['height'] ) ? (int) $dimensions['height'] : 0;
+
+		if ( $width <= 0 || $height <= 0 ) {
+			return null;
+		}
+
+		return [
+			'width'  => $width,
+			'height' => $height,
+		];
 	}
 
 	/**
@@ -178,7 +212,7 @@ class Assets implements Service {
 	 * `stylesheet_uri` filter, editor assets…): memoize the decoded content to
 	 * avoid repeated filesystem reads and JSON decoding.
 	 *
-	 * @return array<string, string> Manifest entries, or an empty array if unavailable/invalid.
+	 * @return array<string, mixed> Manifest entries, or an empty array if unavailable/invalid.
 	 */
 	private function get_assets_manifest(): array {
 		static $manifest = null;

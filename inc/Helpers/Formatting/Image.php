@@ -1,6 +1,8 @@
 <?php
 namespace BEA\Theme\Framework\Helpers\Formatting\Image;
 
+use BEA\Theme\Framework\Framework;
+
 /**
  * @usage BEA\Theme\Framework\Helpers\Formatting\Image\get_the_image( 1, [  'data-location' => 'image-size' ] );
  *
@@ -32,8 +34,8 @@ namespace BEA\Theme\Framework\Helpers\Formatting\Image;
  * @type string $after Optional. Markup to append to the image. Default empty.
  * @type boolean $default Optional. If WP image does not exists, display a default image.
  * @type boolean $is_lcp Optional. When true, applies LCP-friendly attributes
- *                                 (loading omitted, fetchpriority=high, decoding=sync)
- *                                 unless decoding is already set in $attributes.
+ *                                 (loading omitted, fetchpriority=high).
+ *                                 decoding may be set explicitly in $attributes.
  *
  * }
  *
@@ -71,7 +73,6 @@ function get_the_image( int $image_id, array $attributes, array $settings = [] )
 		// Always win over caller/WP defaults: the LCP image must not be lazy-loaded.
 		$attributes['loading']       = false;
 		$attributes['fetchpriority'] = 'high';
-		$attributes['decoding']      = $attributes['decoding'] ?? 'sync';
 	}
 
 	// Never combine fetchpriority=high with loading=lazy (undefined browser behavior).
@@ -144,7 +145,37 @@ function the_image( int $image_id, array $attributes, array $settings = [] ): vo
 }
 
 /**
+ * Resolve the public URI for a static theme asset without redundant filesystem checks.
+ *
+ * @param string $relative_theme_path Path relative to the theme root.
+ *
+ * @return string
+ */
+function get_theme_static_image_uri( string $relative_theme_path ): string {
+	static $uri_cache = [];
+
+	$relative_theme_path = ltrim( $relative_theme_path, '/' );
+
+	if ( isset( $uri_cache[ $relative_theme_path ] ) ) {
+		return $uri_cache[ $relative_theme_path ];
+	}
+
+	if ( get_stylesheet() === get_template() ) {
+		$uri = get_stylesheet_directory_uri() . '/' . $relative_theme_path;
+		$uri = apply_filters( 'theme_file_uri', $uri, $relative_theme_path );
+	} else {
+		$uri = get_theme_file_uri( $relative_theme_path );
+	}
+
+	$uri_cache[ $relative_theme_path ] = $uri;
+
+	return $uri;
+}
+
+/**
  * Read intrinsic dimensions from a static file under the active theme directory.
+ *
+ * Uses build-time dimensions from `dist/assets.json` when available; otherwise reads the file once per request.
  *
  * @usage BEA\Theme\Framework\Helpers\Formatting\Image\get_theme_static_image_dimensions( 'dist/images/logo.svg' );
  *
@@ -153,8 +184,38 @@ function the_image( int $image_id, array $attributes, array $settings = [] ): vo
  * @return array{width:int,height:int}|null Null when the file is missing or dimensions cannot be read.
  */
 function get_theme_static_image_dimensions( string $relative_theme_path ): ?array {
+	static $cache = [];
+
 	$relative_theme_path = ltrim( $relative_theme_path, '/' );
-	$file_path           = get_theme_file_path( $relative_theme_path );
+
+	if ( array_key_exists( $relative_theme_path, $cache ) ) {
+		return $cache[ $relative_theme_path ];
+	}
+
+	$assets        = Framework::get_container()->get_service( 'assets' );
+	$from_manifest = $assets->get_static_image_dimensions( $relative_theme_path );
+
+	if ( null !== $from_manifest ) {
+		$cache[ $relative_theme_path ] = $from_manifest;
+
+		return $from_manifest;
+	}
+
+	$from_filesystem               = read_theme_static_image_dimensions_from_filesystem( $relative_theme_path );
+	$cache[ $relative_theme_path ] = $from_filesystem;
+
+	return $from_filesystem;
+}
+
+/**
+ * Fallback: read intrinsic dimensions from the theme filesystem.
+ *
+ * @param string $relative_theme_path Path relative to the theme root.
+ *
+ * @return array{width:int,height:int}|null
+ */
+function read_theme_static_image_dimensions_from_filesystem( string $relative_theme_path ): ?array {
+	$file_path = get_theme_file_path( $relative_theme_path );
 
 	if ( ! is_string( $file_path ) || '' === $file_path || ! is_readable( $file_path ) ) {
 		return null;
@@ -214,7 +275,7 @@ function get_theme_static_image_markup( string $relative_theme_path, array $attr
 	$attributes = wp_parse_args(
 		$attributes,
 		[
-			'src' => get_theme_file_uri( $relative_theme_path ),
+			'src' => get_theme_static_image_uri( $relative_theme_path ),
 			'alt' => '',
 		]
 	);

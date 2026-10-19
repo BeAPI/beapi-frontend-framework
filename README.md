@@ -198,14 +198,14 @@ yarn bundle-report
 
 ### What the theme provides
 
-- **LCP image**: pass `'is_lcp' => true` in the settings of `get_the_image()` for the main above-the-fold image (hero, cover). It removes `loading="lazy"` and adds `fetchpriority="high"` and `decoding="sync"`. Use it on one image per page only.
+- **LCP image**: pass `'is_lcp' => true` in the settings of `get_the_image()` for the main above-the-fold image (hero, cover). It removes `loading="lazy"` and adds `fetchpriority="high"`. Set `decoding` explicitly in `$attributes` when you have measured that it helps (e.g. WebPageTest). Use it on one image per page only.
 
 ```php
 the_image( $image_id, [ 'alt' => '' ], [ 'size' => 'hero', 'is_lcp' => true ] );
 ```
 
 - **Decorative images**: pass `'alt' => ''` to output `alt=""`, so assistive technologies skip the image. Omitting `alt` is not equivalent.
-- **Static theme images** (logos, placeholders, illustrations from `dist/`): use `get_theme_static_image_markup()` / `the_theme_static_image()`. `width` and `height` are read from the file (SVG or raster) to avoid layout shifts (CLS).
+- **Static theme images** (logos, placeholders, illustrations from `dist/`): use `get_theme_static_image_markup()` / `the_theme_static_image()`. `width` and `height` come from `dist/assets.json` (`imageDimensions`, written at build time) to avoid layout shifts (CLS) without per-request filesystem reads. Files outside the build manifest fall back to a one-time read per path per request.
 
 ```php
 the_theme_static_image( 'dist/images/placeholder.svg', [ 'class' => 'card__image', 'loading' => 'lazy' ] );

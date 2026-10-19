@@ -10,6 +10,7 @@ const DependencyExtractionWebpackPlugin = require('@wordpress/dependency-extract
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const WebpackImageSizesPlugin = require('./webpack-image-sizes-plugin')
+const WebpackStaticImageDimensionsPlugin = require('./webpack-static-image-dimensions-plugin')
 const WebpackThemeJsonPlugin = require('./webpack-theme-json-plugin')
 const SpriteHashPlugin = require('./webpack-sprite-hash-plugin')
 const WebpackIconFilesPlugin = require('./webpack-icon-files-plugin')
@@ -64,6 +65,7 @@ module.exports = {
 			new WebpackManifestPlugin({
 				fileName: 'assets.json',
 			}),
+			new WebpackStaticImageDimensionsPlugin(),
 		]
 
 		if (mode === 'production') {

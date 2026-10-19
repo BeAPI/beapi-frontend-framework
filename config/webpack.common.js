@@ -44,6 +44,7 @@ module.exports = {
 					},
 					{
 						implementation: ImageMinimizerPlugin.svgoMinify,
+						filter: (source, sourcePath) => /\.svg$/i.test(sourcePath),
 						options: {
 							encodeOptions: {
 								multipass: true,

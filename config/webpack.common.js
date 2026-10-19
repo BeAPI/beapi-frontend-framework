@@ -15,6 +15,8 @@ module.exports = {
 	optimization: {
 		minimizer: [
 			new ImageMinimizerPlugin({
+				// svg-sprite-loader extract publicPath; sprites are already optimized via svgo-loader.
+				exclude: /(?:^|[/\\])icons[/\\]/i,
 				minimizer: [
 					{
 						implementation: ImageMinimizerPlugin.sharpMinify,
@@ -44,23 +46,7 @@ module.exports = {
 					},
 					{
 						implementation: ImageMinimizerPlugin.svgoMinify,
-						// Return true to run SVGO on this asset, false to leave it unchanged.
-						// sourcePath is the webpack compilation asset name (e.g. icons/sprite.svg).
-						filter: (source, sourcePath) => {
-							// Only SVG assets go through SVGO (raster images use sharpMinify above).
-							if (!/\.svg$/i.test(sourcePath)) {
-								return false
-							}
-
-							// Skip extracted sprite sheets under icons/ (svg-sprite-loader publicPath).
-							// Those files only hold <symbol> defs; SVGO treats them as unused and
-							// strips them, which empties the sprite and breaks #icon-* references.
-							if (/(?:^|[/\\])icons[/\\]/i.test(sourcePath)) {
-								return false
-							}
-
-							return true
-						},
+						filter: (source, sourcePath) => /\.svg$/i.test(sourcePath),
 						options: {
 							encodeOptions: {
 								multipass: true,

@@ -44,7 +44,18 @@ module.exports = {
 					},
 					{
 						implementation: ImageMinimizerPlugin.svgoMinify,
-						filter: (source, sourcePath) => /\.svg$/i.test(sourcePath),
+						filter: (source, sourcePath) => {
+							if (!/\.svg$/i.test(sourcePath)) {
+								return false
+							}
+
+							// svg-sprite-loader extract: dist/icons/{sprite}.svg — prod SVGO breaks <symbol> entries.
+							if (/[/\\]icons[/\\][^/\\]+\.svg$/i.test(sourcePath)) {
+								return false
+							}
+
+							return true
+						},
 						options: {
 							encodeOptions: {
 								multipass: true,

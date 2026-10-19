@@ -49,8 +49,9 @@ module.exports = {
 								return false
 							}
 
-							// svg-sprite-loader extract: dist/icons/{sprite}.svg — prod SVGO breaks <symbol> entries.
-							if (/[/\\]icons[/\\][^/\\]+\.svg$/i.test(sourcePath)) {
+							// svg-sprite-loader extract publicPath is `icons/` — prod SVGO
+							// removes unused <symbol> entries and empties sprite sheets.
+							if (/(?:^|[/\\])icons[/\\]/i.test(sourcePath)) {
 								return false
 							}
 

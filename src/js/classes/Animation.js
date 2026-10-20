@@ -10,6 +10,7 @@ const animationClass = 'js-animation'
 // one IntersectionObserver per rootMargin, shared by all instances using it
 const observers = new Map()
 const lastScroll = { x: window.scrollX, y: window.scrollY }
+let scrollUpdateScheduled = false
 
 // ----
 // class Animation
@@ -303,14 +304,22 @@ function getObserver(rootMargin) {
 /**
  * Scroll infos passed to callbacks, same shape as oneloop.js ScrollObserver (direction.y = 1 when scrolling down).
  * Computed on demand: no scroll listener is attached.
+ * lastScroll is committed on the next animation frame so every caller in the same turn
+ * (multiple IntersectionObservers, destroy) shares the same delta / direction.
  * @returns {object}
  */
 function getScrollInfos() {
 	const scroll = { x: window.scrollX, y: window.scrollY }
 	const delta = { x: scroll.x - lastScroll.x, y: scroll.y - lastScroll.y }
 
-	lastScroll.x = scroll.x
-	lastScroll.y = scroll.y
+	if (!scrollUpdateScheduled) {
+		scrollUpdateScheduled = true
+		requestAnimationFrame(() => {
+			lastScroll.x = window.scrollX
+			lastScroll.y = window.scrollY
+			scrollUpdateScheduled = false
+		})
+	}
 
 	return {
 		scroll,

@@ -211,7 +211,6 @@ the_image( $image_id, [ 'alt' => '' ], [ 'size' => 'hero', 'is_lcp' => true ] );
 the_theme_static_image( 'dist/images/placeholder.svg', [ 'class' => 'card__image', 'loading' => 'lazy' ] );
 ```
 
-- **Custom logo**: gets `fetchpriority="low"` so it never competes with the real LCP image.
 - **Fonts preload**: opt-in, only for fonts rendered on first paint.
 
 ```php
@@ -248,7 +247,6 @@ the_image( $image_id, [ 'alt' => '' ], [ 'size' => 'hero', 'is_lcp' => true ] );
 the_theme_static_image( 'dist/images/placeholder.svg', [ 'class' => 'card__image', 'loading' => 'lazy' ] );
 ```
 
-- **Logo personnalisé** : reçoit `fetchpriority="low"` pour ne pas concurrencer la vraie image LCP.
 - **Preload des polices** : opt-in, uniquement pour les polices rendues au premier affichage.
 
 ```php

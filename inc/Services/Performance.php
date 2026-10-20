@@ -26,7 +26,6 @@ class Performance implements Service {
 		 */
 		add_action( 'wp', [ $this, 'register_assets' ] );
 		add_action( 'wp_head', [ $this, 'preload_fonts' ], 1 );
-		add_filter( 'get_custom_logo_image_attributes', [ $this, 'deprioritize_custom_logo' ], 20 );
 	}
 
 	/**
@@ -88,23 +87,6 @@ class Performance implements Service {
 				esc_url( get_theme_file_uri( $relative_path ) )
 			);
 		}
-	}
-
-	/**
-	 * Prevent the site logo from competing with the real LCP candidate.
-	 *
-	 * @param array $custom_logo_attr Image attributes for the custom logo.
-	 *
-	 * @return array
-	 */
-	public function deprioritize_custom_logo( $custom_logo_attr ): array {
-		if ( ! is_array( $custom_logo_attr ) ) {
-			return [];
-		}
-
-		$custom_logo_attr['fetchpriority'] = 'low';
-
-		return $custom_logo_attr;
 	}
 
 	/**

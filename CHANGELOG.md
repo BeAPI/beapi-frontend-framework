@@ -3,7 +3,6 @@
 - Ajout du réglage `is_lcp` à `get_the_image()` (fetchpriority high, decoding sync, pas de lazy loading)
 - Ne jamais produire `fetchpriority="high"` avec `loading="lazy"` dans les helpers d’images
 - Ajout des helpers `get_theme_static_image_markup()` : images statiques du thème avec width/height (CLS) et conservation de `alt=""` pour les images décoratives
-- Abaissement du `fetchpriority` du logo personnalisé pour ne pas concurrencer l’image LCP
 - Ajout du filtre `bea_theme_framework_preload_fonts` (vide par défaut) pour précharger les polices above-the-fold
 - Réécriture de `Animation` avec des IntersectionObservers partagés au lieu d’une boucle au scroll (mêmes options et callbacks)
 - Ajout de l’utilitaire JS `deferInitialization()` pour exécuter du code non critique à idle (INP)

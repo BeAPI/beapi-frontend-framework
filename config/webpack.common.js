@@ -15,6 +15,8 @@ module.exports = {
 	optimization: {
 		minimizer: [
 			new ImageMinimizerPlugin({
+				// svg-sprite-loader extract publicPath; sprites are already optimized via svgo-loader.
+				exclude: /(?:^|[/\\])icons[/\\]/i,
 				minimizer: [
 					{
 						implementation: ImageMinimizerPlugin.sharpMinify,
@@ -44,6 +46,7 @@ module.exports = {
 					},
 					{
 						implementation: ImageMinimizerPlugin.svgoMinify,
+						filter: (source, sourcePath) => /\.svg$/i.test(sourcePath),
 						options: {
 							encodeOptions: {
 								multipass: true,

@@ -86,7 +86,7 @@ BFF inclut une configuration [wp-env](https://developer.wordpress.org/block-edit
 Vous pouvez lancer wp-env sans installation globale via `npx @wordpress/env`, ou installer la CLI une fois et utiliser la commande `wp-env` :
 
 ```bash
-# Global install (npm or yarn)
+# Installation globale (npm ou yarn)
 npm install -g @wordpress/env
 # ou
 yarn global add @wordpress/env
@@ -196,58 +196,15 @@ yarn bundle-report
 
 ## Core Web Vitals
 
-### What the theme provides
-
-- **LCP image**: pass `'is_lcp' => true` in the settings of `get_the_image()` for the main above-the-fold image (hero, cover). It removes `loading="lazy"` and adds `fetchpriority="high"`. Set `decoding` explicitly in `$attributes` when you have measured that it helps (e.g. WebPageTest). Use it on one image per page only.
-
-```php
-the_image( $image_id, [ 'alt' => '' ], [ 'size' => 'hero', 'is_lcp' => true ] );
-```
-
-- **Decorative images (`alt=""`)** — same goal, two helpers depending on the source:
-  - **Media library** (`the_image` / `get_the_image`): pass `'alt' => ''` explicitly when the image is decorative. WordPress otherwise outputs the attachment alt from the admin. Omitting the `alt` key is not equivalent to `alt=""`.
-  - **Built theme files** under `dist/` (`the_theme_static_image` / `get_theme_static_image_markup`): decorative by default (`alt=""` if you do not pass `alt`). Pass a text alt when the image conveys meaning (e.g. logo with site name). Do not use `the_image` for these files (no attachment ID).
-- **Static theme images** (placeholders, illustrations from `dist/`): the static helper also sets `width` and `height` from `dist/assets.json` (`imageDimensions`, written at build time) to limit CLS, without per-request filesystem reads when the manifest is present. Paths outside the build fall back to a one-time read per path per request.
-
-```php
-// Media (decorative)
-the_image( $image_id, [ 'alt' => '', 'class' => 'card__thumb' ], [ 'size' => 'card' ] );
-
-// dist/ asset (decorative by default)
-the_theme_static_image( 'dist/images/placeholder.svg', [ 'class' => 'card__image', 'loading' => 'lazy' ] );
-
-// dist/ asset (meaningful alt)
-the_theme_static_image( 'dist/images/logo.svg', [ 'alt' => get_bloginfo( 'name' ), 'class' => 'header__logo' ] );
-```
-
-- **Fonts preload**: opt-in, only for fonts rendered on first paint.
-
-```php
-add_filter( 'bea_theme_framework_preload_fonts', fn() => [ 'dist/fonts/my-font-regular.woff2' ] );
-```
-
-- **JS**: `Animation` relies on `IntersectionObserver` (no scroll loop). Use `deferInitialization()` from `src/js/utils` to run non-critical code when the browser is idle (INP).
-
-### What each project still has to configure
-
-These depend on the hosting, plugins and content, so they are not part of the theme:
-
-- Page cache and WP Rocket settings (Remove Unused CSS, defer / delay JS and their exclusions, lazyload exclusions for the LCP image, preconnect hints limited to the third parties loaded early).
-- `robots.txt` (technical and AJAX endpoints) and `Cache-Control` headers for static assets.
-- SEO plugin settings: canonical URLs on custom pagination, structured data duplicates.
-- Fonts: subset files to the weights and glyphs actually used, drop unused files (italics, extra weights).
-- Third-party embeds (videos, forms, webinars): load them on interaction or when they enter the viewport.
-- Plugin assets: dequeue front scripts and styles on pages that do not use them.
-
-## WordPress Editor (Gutenberg)
-
 ### Ce que le thème fournit
 
-- **Image LCP** : passez `'is_lcp' => true` dans les réglages de `get_the_image()` pour l’image principale above-the-fold (hero, couverture). Cela retire `loading="lazy"` et ajoute `fetchpriority="high"` et `decoding="sync"`. À utiliser sur une seule image par page.
+- **Image LCP** : passez `'is_lcp' => true` dans les réglages de `get_the_image()` pour l’image principale au-dessus de la ligne de flottaison (hero, couverture). Cela retire `loading="lazy"` et ajoute `fetchpriority="high"`. Définissez `decoding` dans `$attributes` uniquement si une mesure le justifie (ex. WebPageTest). Une seule image par page. Par défaut `is_lcp => false` (opt-in).
 
 ```php
 the_image( $image_id, [ 'alt' => '' ], [ 'size' => 'hero', 'is_lcp' => true ] );
 ```
+
+- **ARI (Auto Responsive Images)** : sur les projets avec ARI, ne pas activer `is_lcp` sur les images déjà gérées par ARI (taille / `data-location` au bon format). ARI pilote la priorité et le lazy-load ; `is_lcp` sur la même image est redondant ou incompatible. Réserver `is_lcp` aux projets sans ARI, ou valider manuellement (page hero avec ARI, sans `is_lcp`).
 
 - **Images décoratives (`alt=""`)** — même objectif, deux helpers selon la source :
   - **Médiathèque** (`the_image` / `get_the_image`) : passez `'alt' => ''` explicitement si l’image est décorative. Sinon WordPress reprend l’alt saisi dans le BO. Omettre la clé `alt` n’est pas équivalent à `alt=""`.
@@ -265,7 +222,7 @@ the_theme_static_image( 'dist/images/placeholder.svg', [ 'class' => 'card__image
 the_theme_static_image( 'dist/images/logo.svg', [ 'alt' => get_bloginfo( 'name' ), 'class' => 'header__logo' ] );
 ```
 
-- **Preload des polices** : opt-in, uniquement pour les polices rendues au premier affichage.
+- **Preload des polices** : opt-in, uniquement pour les polices rendues au premier affichage. Indiquez le chemin **après build** (ex. polices Fontsource ou custom copiées dans `dist/fonts/`, en `.woff2`).
 
 ```php
 add_filter( 'bea_theme_framework_preload_fonts', fn() => [ 'dist/fonts/my-font-regular.woff2' ] );
@@ -277,12 +234,12 @@ add_filter( 'bea_theme_framework_preload_fonts', fn() => [ 'dist/fonts/my-font-r
 
 Cela dépend de l’hébergement, des extensions et du contenu ; ce n’est donc pas inclus dans le thème :
 
-- Cache de page et réglages WP Rocket (Remove Unused CSS, defer / delay JS et leurs exclusions, exclusions lazyload pour l’image LCP, preconnect limités aux tiers chargés tôt).
+- Cache de page et réglages WP Rocket (suppression du CSS inutilisé, différer / retarder le JS et leurs exclusions, exclusions du lazyload pour l’image LCP, preconnect limités aux tiers chargés tôt).
 - `robots.txt` (endpoints techniques et AJAX) et en-têtes `Cache-Control` pour les assets statiques.
 - Réglages du plugin SEO : URLs canoniques sur pagination personnalisée, doublons de données structurées.
 - Polices : sous-ensemble des fichiers aux graisses et glyphes réellement utilisés, suppression des fichiers inutiles (italiques, graisses supplémentaires).
 - Intégrations tierces (vidéos, formulaires, webinars) : chargement à l’interaction ou à l’entrée dans le viewport.
-- Assets des plugins : dequeue des scripts et styles front sur les pages qui ne les utilisent pas.
+- Assets des extensions : retirer les scripts et styles front (dequeue) sur les pages qui ne les utilisent pas.
 
 ## Éditeur WordPress (Gutenberg)
 
@@ -293,13 +250,13 @@ Le filtre `bff_editor_custom_settings` permet de personnaliser les styles et var
 ```php
 add_filter( 'bff_editor_custom_settings', 'customize_editor_settings', 10, 1 );
 function customize_editor_settings( $settings ) {
-	// Disable all block styles for Separator block
+	// Désactiver tous les styles du bloc Séparateur
 	$settings[ 'disableAllBlocksStyles' ] = [ 'core/separator' ];
 
-	// Disable specific block style for Button block
+	// Désactiver le style outline du bloc Bouton
 	$settings[ 'disabledBlocksStyles' ]   = [ 'core/button' => [ 'outline' ] ];
 
-	// Allow only YouTube variation for Embed block
+	// Autoriser uniquement la variation YouTube du bloc Intégration
 	$settings[ 'allowedBlocksVariations' ] = [ 'core/embed' => [ 'youtube' ] ];
 
 	return $settings;

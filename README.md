@@ -204,11 +204,20 @@ yarn bundle-report
 the_image( $image_id, [ 'alt' => '' ], [ 'size' => 'hero', 'is_lcp' => true ] );
 ```
 
-- **Decorative images**: pass `'alt' => ''` to output `alt=""`, so assistive technologies skip the image. Omitting `alt` is not equivalent.
-- **Static theme images** (logos, placeholders, illustrations from `dist/`): use `get_theme_static_image_markup()` / `the_theme_static_image()`. `width` and `height` come from `dist/assets.json` (`imageDimensions`, written at build time) to avoid layout shifts (CLS) without per-request filesystem reads. Files outside the build manifest fall back to a one-time read per path per request.
+- **Decorative images (`alt=""`)** — same goal, two helpers depending on the source:
+  - **Media library** (`the_image` / `get_the_image`): pass `'alt' => ''` explicitly when the image is decorative. WordPress otherwise outputs the attachment alt from the admin. Omitting the `alt` key is not equivalent to `alt=""`.
+  - **Built theme files** under `dist/` (`the_theme_static_image` / `get_theme_static_image_markup`): decorative by default (`alt=""` if you do not pass `alt`). Pass a text alt when the image conveys meaning (e.g. logo with site name). Do not use `the_image` for these files (no attachment ID).
+- **Static theme images** (placeholders, illustrations from `dist/`): the static helper also sets `width` and `height` from `dist/assets.json` (`imageDimensions`, written at build time) to limit CLS, without per-request filesystem reads when the manifest is present. Paths outside the build fall back to a one-time read per path per request.
 
 ```php
+// Media (decorative)
+the_image( $image_id, [ 'alt' => '', 'class' => 'card__thumb' ], [ 'size' => 'card' ] );
+
+// dist/ asset (decorative by default)
 the_theme_static_image( 'dist/images/placeholder.svg', [ 'class' => 'card__image', 'loading' => 'lazy' ] );
+
+// dist/ asset (meaningful alt)
+the_theme_static_image( 'dist/images/logo.svg', [ 'alt' => get_bloginfo( 'name' ), 'class' => 'header__logo' ] );
 ```
 
 - **Fonts preload**: opt-in, only for fonts rendered on first paint.
@@ -240,11 +249,20 @@ These depend on the hosting, plugins and content, so they are not part of the th
 the_image( $image_id, [ 'alt' => '' ], [ 'size' => 'hero', 'is_lcp' => true ] );
 ```
 
-- **Images décoratives** : passez `'alt' => ''` pour produire `alt=""`, afin que les technologies d’assistance ignorent l’image. Omettre `alt` n’est pas équivalent.
-- **Images statiques du thème** (logos, placeholders, illustrations depuis `dist/`) : utilisez `get_theme_static_image_markup()` / `the_theme_static_image()`. `width` et `height` sont lus depuis le fichier (SVG ou raster) pour limiter les décalages de mise en page (CLS).
+- **Images décoratives (`alt=""`)** — même objectif, deux helpers selon la source :
+  - **Médiathèque** (`the_image` / `get_the_image`) : passez `'alt' => ''` explicitement si l’image est décorative. Sinon WordPress reprend l’alt saisi dans le BO. Omettre la clé `alt` n’est pas équivalent à `alt=""`.
+  - **Fichiers buildés** dans `dist/` (`the_theme_static_image` / `get_theme_static_image_markup`) : décoratif par défaut (`alt=""` si vous ne passez pas `alt`). Indiquez un texte d’alt si l’image porte du sens (ex. logo + nom du site). Ne pas utiliser `the_image` pour ces fichiers (pas d’ID attachment).
+- **Images statiques du thème** (placeholders, illustrations dans `dist/`) : le helper statique ajoute aussi `width` et `height` via `dist/assets.json` (`imageDimensions`, généré au build) pour limiter le CLS, sans lecture disque répétée lorsque le manifeste est présent. Hors manifeste : une lecture par chemin et par requête.
 
 ```php
+// Média (décoratif)
+the_image( $image_id, [ 'alt' => '', 'class' => 'card__thumb' ], [ 'size' => 'card' ] );
+
+// Asset dist/ (décoratif par défaut)
 the_theme_static_image( 'dist/images/placeholder.svg', [ 'class' => 'card__image', 'loading' => 'lazy' ] );
+
+// Asset dist/ (alt porteur de sens)
+the_theme_static_image( 'dist/images/logo.svg', [ 'alt' => get_bloginfo( 'name' ), 'class' => 'header__logo' ] );
 ```
 
 - **Preload des polices** : opt-in, uniquement pour les polices rendues au premier affichage.

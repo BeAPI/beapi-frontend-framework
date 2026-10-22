@@ -1,0 +1,57 @@
+@use "../01-abstract/variables" as *;
+@use "../01-abstract/theme-json" as *;
+@use "~swiper/css";
+@use "~swiper/css/a11y";
+
+.swiper {
+	--swiper-theme-color: #{$color-primary};
+
+	&__controls {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&:has(.swiper-button-lock) {
+			display: none;
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		gap: $settings-spacing-xs;
+
+		button,
+		[role="button"] {
+			&.swiper-button-prev {
+				transform: scaleX(-1);
+			}
+
+			&.swiper-button-disabled {
+				cursor: not-allowed;
+				opacity: .3;
+			}
+		}
+	}
+
+	&__button {
+		width: 44px;
+		height: 44px;
+		border-radius: 100%;
+		background-color: var(--swiper-theme-color);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+	}
+
+	&-overflow-visible {
+		overflow: visible;
+	}
+
+	.swiper-wrapper {
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+}

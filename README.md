@@ -86,7 +86,7 @@ BFF inclut une configuration [wp-env](https://developer.wordpress.org/block-edit
 Vous pouvez lancer wp-env sans installation globale via `npx @wordpress/env`, ou installer la CLI une fois et utiliser la commande `wp-env` :
 
 ```bash
-# Global install (npm or yarn)
+# Installation globale (npm ou yarn)
 npm install -g @wordpress/env
 # ou
 yarn global add @wordpress/env
@@ -198,21 +198,31 @@ yarn bundle-report
 
 ### Ce que le thème fournit
 
-- **Image LCP** : passez `'is_lcp' => true` dans les réglages de `get_the_image()` pour l’image principale above-the-fold (hero, couverture). Cela retire `loading="lazy"` et ajoute `fetchpriority="high"` et `decoding="sync"`. À utiliser sur une seule image par page.
+- **Image LCP** : passez `'is_lcp' => true` dans les réglages de `get_the_image()` pour l’image principale au-dessus de la ligne de flottaison (hero, couverture). Cela retire `loading="lazy"` et ajoute `fetchpriority="high"`. Définissez `decoding` dans `$attributes` uniquement si une mesure le justifie (ex. WebPageTest). Une seule image par page. Par défaut `is_lcp => false` (opt-in).
 
 ```php
 the_image( $image_id, [ 'alt' => '' ], [ 'size' => 'hero', 'is_lcp' => true ] );
 ```
 
-- **Images décoratives** : passez `'alt' => ''` pour produire `alt=""`, afin que les technologies d’assistance ignorent l’image. Omettre `alt` n’est pas équivalent.
-- **Images statiques du thème** (logos, placeholders, illustrations depuis `dist/`) : utilisez `get_theme_static_image_markup()` / `the_theme_static_image()`. `width` et `height` sont lus depuis le fichier (SVG ou raster) pour limiter les décalages de mise en page (CLS).
+- **ARI (Auto Responsive Images)** : sur les projets avec ARI, ne pas activer `is_lcp` sur les images déjà gérées par ARI (taille / `data-location` au bon format). ARI pilote la priorité et le lazy-load ; `is_lcp` sur la même image est redondant ou incompatible. Réserver `is_lcp` aux projets sans ARI, ou valider manuellement (page hero avec ARI, sans `is_lcp`).
+
+- **Images décoratives (`alt=""`)** — même objectif, deux helpers selon la source :
+  - **Médiathèque** (`the_image` / `get_the_image`) : passez `'alt' => ''` explicitement si l’image est décorative. Sinon WordPress reprend l’alt saisi dans le BO. Omettre la clé `alt` n’est pas équivalent à `alt=""`.
+  - **Fichiers buildés** dans `dist/` (`the_theme_static_image` / `get_theme_static_image_markup`) : décoratif par défaut (`alt=""` si vous ne passez pas `alt`). Indiquez un texte d’alt si l’image porte du sens (ex. logo + nom du site). Ne pas utiliser `the_image` pour ces fichiers (pas d’ID attachment).
+- **Images statiques du thème** (placeholders, illustrations dans `dist/`) : le helper statique ajoute aussi `width` et `height` via `dist/assets.json` (`imageDimensions`, généré au build) pour limiter le CLS, sans lecture disque répétée lorsque le manifeste est présent. Hors manifeste : une lecture par chemin et par requête.
 
 ```php
+// Média (décoratif)
+the_image( $image_id, [ 'alt' => '', 'class' => 'card__thumb' ], [ 'size' => 'card' ] );
+
+// Asset dist/ (décoratif par défaut)
 the_theme_static_image( 'dist/images/placeholder.svg', [ 'class' => 'card__image', 'loading' => 'lazy' ] );
+
+// Asset dist/ (alt porteur de sens)
+the_theme_static_image( 'dist/images/logo.svg', [ 'alt' => get_bloginfo( 'name' ), 'class' => 'header__logo' ] );
 ```
 
-- **Logo personnalisé** : reçoit `fetchpriority="low"` pour ne pas concurrencer la vraie image LCP.
-- **Preload des polices** : opt-in, uniquement pour les polices rendues au premier affichage.
+- **Preload des polices** : opt-in, uniquement pour les polices rendues au premier affichage. Indiquez le chemin **après build** (ex. polices Fontsource ou custom copiées dans `dist/fonts/`, en `.woff2`).
 
 ```php
 add_filter( 'bea_theme_framework_preload_fonts', fn() => [ 'dist/fonts/my-font-regular.woff2' ] );
@@ -224,12 +234,12 @@ add_filter( 'bea_theme_framework_preload_fonts', fn() => [ 'dist/fonts/my-font-r
 
 Cela dépend de l’hébergement, des extensions et du contenu ; ce n’est donc pas inclus dans le thème :
 
-- Cache de page et réglages WP Rocket (Remove Unused CSS, defer / delay JS et leurs exclusions, exclusions lazyload pour l’image LCP, preconnect limités aux tiers chargés tôt).
+- Cache de page et réglages WP Rocket (suppression du CSS inutilisé, différer / retarder le JS et leurs exclusions, exclusions du lazyload pour l’image LCP, preconnect limités aux tiers chargés tôt).
 - `robots.txt` (endpoints techniques et AJAX) et en-têtes `Cache-Control` pour les assets statiques.
 - Réglages du plugin SEO : URLs canoniques sur pagination personnalisée, doublons de données structurées.
 - Polices : sous-ensemble des fichiers aux graisses et glyphes réellement utilisés, suppression des fichiers inutiles (italiques, graisses supplémentaires).
 - Intégrations tierces (vidéos, formulaires, webinars) : chargement à l’interaction ou à l’entrée dans le viewport.
-- Assets des plugins : dequeue des scripts et styles front sur les pages qui ne les utilisent pas.
+- Assets des extensions : retirer les scripts et styles front (dequeue) sur les pages qui ne les utilisent pas.
 
 ## Éditeur WordPress (Gutenberg)
 
@@ -240,13 +250,13 @@ Le filtre `bff_editor_custom_settings` permet de personnaliser les styles et var
 ```php
 add_filter( 'bff_editor_custom_settings', 'customize_editor_settings', 10, 1 );
 function customize_editor_settings( $settings ) {
-	// Disable all block styles for Separator block
+	// Désactiver tous les styles du bloc Séparateur
 	$settings[ 'disableAllBlocksStyles' ] = [ 'core/separator' ];
 
-	// Disable specific block style for Button block
+	// Désactiver le style outline du bloc Bouton
 	$settings[ 'disabledBlocksStyles' ]   = [ 'core/button' => [ 'outline' ] ];
 
-	// Allow only YouTube variation for Embed block
+	// Autoriser uniquement la variation YouTube du bloc Intégration
 	$settings[ 'allowedBlocksVariations' ] = [ 'core/embed' => [ 'youtube' ] ];
 
 	return $settings;

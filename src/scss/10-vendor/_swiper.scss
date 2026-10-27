@@ -1,7 +1,7 @@
 @use "../01-abstract/variables" as *;
 @use "../01-abstract/theme-json" as *;
-@use "~swiper/css";
-@use "~swiper/css/a11y";
+@use "swiper/css";
+@use "swiper/css/a11y";
 
 .swiper {
 	--swiper-theme-color: #{$color-primary};

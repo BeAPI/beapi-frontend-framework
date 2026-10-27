@@ -124,7 +124,7 @@ export default class Slider extends AbstractDomElement {
 			},
 			on: {
 				...options.on,
-				afterInit: (swiper) => {
+				afterInit: function (swiper) {
 					hideNavigationButtons(swiper)
 
 					// Live region announces nav messages on keyboard prev/next; keep it when
@@ -133,12 +133,12 @@ export default class Slider extends AbstractDomElement {
 						swiper.el.querySelector('.swiper-notification')?.remove()
 					}
 
-					options.on?.afterInit?.(swiper)
+					options.on?.afterInit?.call(this, swiper)
 				},
 				// Swiper resets tabindex on slide change, so we need to hide buttons again
-				transitionEnd: (swiper) => {
+				transitionEnd: function (swiper) {
 					hideNavigationButtons(swiper)
-					options.on?.transitionEnd?.(swiper)
+					options.on?.transitionEnd?.call(this, swiper)
 				},
 				progress: function (swiper, progress) {
 					if (fixLastSlideActiveOnEnd) {

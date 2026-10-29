@@ -9,6 +9,7 @@ use BEA\Theme\Framework\Services\Performance;
 use BEA\Theme\Framework\Services\Editor;
 use BEA\Theme\Framework\Services\Editor_Patterns;
 use BEA\Theme\Framework\Services\Gravity_Forms;
+use BEA\Theme\Framework\Services\Icon;
 use BEA\Theme\Framework\Services\Menu;
 use BEA\Theme\Framework\Services\Svg;
 use BEA\Theme\Framework\Services\Theme;
@@ -38,6 +39,7 @@ class Framework {
 		Editor_Patterns::class,
 		Gravity_Forms::class,
 		Svg::class,
+		Icon::class,
 		Acf::class,
 		Menu::class,
 		Breadcrumb::class,

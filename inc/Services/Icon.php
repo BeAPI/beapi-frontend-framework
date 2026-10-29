@@ -140,24 +140,20 @@ class Icon implements Service {
 			return null;
 		}
 
-		$candidates = [
-			get_theme_file_path( 'dist/images/' . $source_subdir ),
-			get_theme_file_path( 'src/img/icons/' . $source_subdir ),
-		];
+		$icons_directory = get_theme_file_path( 'dist/images/' . $source_subdir );
 
-		foreach ( $candidates as $candidate ) {
-			if ( ! is_dir( $candidate ) ) {
-				continue;
-			}
-
-			$real_path = realpath( $candidate );
-
-			if ( false !== $real_path ) {
-				return $real_path;
-			}
+		if ( ! is_dir( $icons_directory ) ) {
+			return null;
 		}
 
-		return null;
+		$real_path = realpath( $icons_directory );
+		$real_base = realpath( get_theme_file_path( 'dist/images' ) );
+
+		if ( false === $real_path || false === $real_base || ! str_starts_with( $real_path, $real_base ) ) {
+			return null;
+		}
+
+		return $real_path;
 	}
 
 	/**

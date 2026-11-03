@@ -244,7 +244,6 @@ class Editor implements Service {
 			'core/accordion-heading',
 			'core/accordion-item',
 			'core/accordion-panel',
-			'core/icon',
 			// Theme & site (unused).
 			'core/archives',
 			'core/calendar',

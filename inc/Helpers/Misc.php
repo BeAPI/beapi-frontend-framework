@@ -2,6 +2,9 @@
 
 namespace BEA\Theme\Framework\Helpers\Misc;
 
+// Object cache group for get_file_infos().
+const FILE_INFOS_CACHE_GROUP = 'beapi_file_infos';
+
 /**
  * Get file infos
  *
@@ -17,8 +20,7 @@ namespace BEA\Theme\Framework\Helpers\Misc;
  * }
  */
 function get_file_infos( int $file_id ): array {
-	$cache_group = 'beapi_file_infos';
-	$cached      = wp_cache_get( $file_id, $cache_group );
+	$cached = wp_cache_get( $file_id, FILE_INFOS_CACHE_GROUP );
 
 	if ( false !== $cached && is_array( $cached ) ) {
 		return $cached;
@@ -36,7 +38,7 @@ function get_file_infos( int $file_id ): array {
 	$file_href = wp_get_attachment_url( $file_id );
 
 	if ( empty( $file_href ) ) {
-		wp_cache_set( $file_id, $file_infos, $cache_group );
+		wp_cache_set( $file_id, $file_infos, FILE_INFOS_CACHE_GROUP );
 
 		return $file_infos;
 	}
@@ -44,7 +46,7 @@ function get_file_infos( int $file_id ): array {
 	$file_path = get_attached_file( $file_id );
 
 	if ( empty( $file_path ) ) {
-		wp_cache_set( $file_id, $file_infos, $cache_group );
+		wp_cache_set( $file_id, $file_infos, FILE_INFOS_CACHE_GROUP );
 
 		return $file_infos;
 	}
@@ -52,7 +54,7 @@ function get_file_infos( int $file_id ): array {
 	$file_ext = pathinfo( $file_path, PATHINFO_EXTENSION );
 
 	if ( empty( $file_ext ) ) {
-		wp_cache_set( $file_id, $file_infos, $cache_group );
+		wp_cache_set( $file_id, $file_infos, FILE_INFOS_CACHE_GROUP );
 
 		return $file_infos;
 	}
@@ -71,10 +73,40 @@ function get_file_infos( int $file_id ): array {
 		'icon'               => get_file_icon( $file_ext ),
 	];
 
-	wp_cache_set( $file_id, $file_infos, $cache_group );
+	wp_cache_set( $file_id, $file_infos, FILE_INFOS_CACHE_GROUP );
 
 	return $file_infos;
 }
+
+/**
+ * Delete cached file infos for an attachment.
+ *
+ * @param int $file_id Attachment ID.
+ */
+function delete_file_infos_cache( int $file_id ): void {
+	wp_cache_delete( $file_id, FILE_INFOS_CACHE_GROUP );
+}
+
+/**
+ * Invalidate file infos cache when attached file path or metadata (incl. filesize) change.
+ *
+ * @param mixed  $meta_id   Meta ID, or list of meta IDs for deleted_post_meta.
+ * @param int    $object_id Object ID.
+ * @param string $meta_key  Meta key.
+ */
+function delete_file_infos_cache_on_meta_change( $meta_id, $object_id, string $meta_key ): void {
+	if ( ! in_array( $meta_key, [ '_wp_attachment_metadata', '_wp_attached_file' ], true ) ) {
+		return;
+	}
+
+	delete_file_infos_cache( (int) $object_id );
+}
+
+add_action( 'edit_attachment', __NAMESPACE__ . '\\delete_file_infos_cache' );
+add_action( 'delete_attachment', __NAMESPACE__ . '\\delete_file_infos_cache' );
+add_action( 'added_post_meta', __NAMESPACE__ . '\\delete_file_infos_cache_on_meta_change', 10, 3 );
+add_action( 'updated_post_meta', __NAMESPACE__ . '\\delete_file_infos_cache_on_meta_change', 10, 3 );
+add_action( 'deleted_post_meta', __NAMESPACE__ . '\\delete_file_infos_cache_on_meta_change', 10, 3 );
 
 /**
  * Resolve attachment filesize in bytes from metadata, with wp_filesize() fallback and meta backfill.

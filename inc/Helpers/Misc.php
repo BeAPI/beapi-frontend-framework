@@ -5,12 +5,25 @@ namespace BEA\Theme\Framework\Helpers\Misc;
 /**
  * Get file infos
  *
- * @param int $file_id
+ * @param int $file_id Attachment ID.
  *
- * @return array $file_infos
+ * @return array{
+ *     file_name: string,
+ *     details: string,
+ *     details_accessible: string,
+ *     href: string,
+ *     caption: string,
+ *     icon: string
+ * }
  */
 function get_file_infos( int $file_id ): array {
-	$file_href  = wp_get_attachment_url( $file_id );
+	$cache_group = 'beapi_file_infos';
+	$cached      = wp_cache_get( $file_id, $cache_group );
+
+	if ( false !== $cached && is_array( $cached ) ) {
+		return $cached;
+	}
+
 	$file_infos = [
 		'file_name'          => '',
 		'details'            => '',
@@ -20,41 +33,86 @@ function get_file_infos( int $file_id ): array {
 		'icon'               => get_file_icon( '' ),
 	];
 
+	$file_href = wp_get_attachment_url( $file_id );
+
 	if ( empty( $file_href ) ) {
+		wp_cache_set( $file_id, $file_infos, $cache_group );
+
 		return $file_infos;
 	}
 
 	$file_path = get_attached_file( $file_id );
 
 	if ( empty( $file_path ) ) {
+		wp_cache_set( $file_id, $file_infos, $cache_group );
+
 		return $file_infos;
 	}
 
 	$file_ext = pathinfo( $file_path, PATHINFO_EXTENSION );
 
 	if ( empty( $file_ext ) ) {
+		wp_cache_set( $file_id, $file_infos, $cache_group );
+
 		return $file_infos;
 	}
 
-	$file_size = (string) size_format( wp_filesize( $file_path ) );
-	$file_name = (string) ( get_the_title( $file_id ) ?? '' );
+	$file_bytes           = get_attachment_filesize( $file_id, $file_path );
+	$file_size            = $file_bytes > 0 ? (string) size_format( $file_bytes ) : '';
+	$accessible_file_size = $file_bytes > 0 ? get_accessible_file_size_label( $file_bytes ) : '';
+	$file_name            = (string) ( get_the_title( $file_id ) ?? '' );
 
-	return [
+	$file_infos = [
 		'file_name'          => $file_name,
 		'details'            => get_file_detail( $file_name, $file_ext, $file_size ),
-		'details_accessible' => get_file_detail( $file_name, $file_ext, get_accessible_file_size_label( $file_size ) ),
+		'details_accessible' => get_file_detail( $file_name, $file_ext, $accessible_file_size ),
 		'href'               => $file_href,
 		'caption'            => (string) wp_get_attachment_caption( $file_id ),
 		'icon'               => get_file_icon( $file_ext ),
 	];
+
+	wp_cache_set( $file_id, $file_infos, $cache_group );
+
+	return $file_infos;
+}
+
+/**
+ * Resolve attachment filesize in bytes from metadata, with wp_filesize() fallback and meta backfill.
+ *
+ * @param int    $file_id   Attachment ID.
+ * @param string $file_path Absolute path to the attached file.
+ *
+ * @return int Filesize in bytes, or 0 when unavailable.
+ */
+function get_attachment_filesize( int $file_id, string $file_path ): int {
+	$metadata = wp_get_attachment_metadata( $file_id );
+
+	if ( is_array( $metadata ) && ! empty( $metadata['filesize'] ) ) {
+		return (int) $metadata['filesize'];
+	}
+
+	$filesize = wp_filesize( $file_path );
+
+	if ( $filesize <= 0 ) {
+		return 0;
+	}
+
+	if ( ! is_array( $metadata ) ) {
+		$metadata = [];
+	}
+
+	$metadata['filesize'] = $filesize;
+	wp_update_attachment_metadata( $file_id, $metadata );
+
+	return $filesize;
 }
 
 /**
  * Get file details
  *
- * @param string $file_name
- * @param string $file_ext
- * @param string $file_size
+ * @param string $file_name File display name.
+ * @param string $file_ext  File extension.
+ * @param string $file_size Formatted file size label.
  *
  * @return string $file_detail
  */
@@ -77,43 +135,61 @@ function get_file_detail( string $file_name, string $file_ext, string $file_size
 }
 
 /**
- * Get accessible file size label
+ * Get accessible file size label from raw bytes (screen-reader friendly, pluralized units).
  *
- * @param string $file_size
+ * Mirrors size_format() unit thresholds without parsing its localized output.
+ *
+ * @param int $bytes File size in bytes.
  *
  * @return string
  */
-function get_accessible_file_size_label( string $file_size ): string {
-	// Extract value and unit (e.g. "7ko" or "1\u{00A0}000 KB" from i18n thousands separators).
-	// UTF-8 mode: allow NBSP/NNBSP inside the value; a non-possessive +? so the last \s* is the gap before the unit, not the thousands separator.
-	if ( 1 !== preg_match( '/^([\d\.,\p{Zs}]+?)\s*+([a-zA-Z]+)$/u', $file_size, $matches ) ) {
-		return $file_size;
+function get_accessible_file_size_label( int $bytes ): string {
+	if ( $bytes <= 0 ) {
+		return '';
 	}
 
-	$value = $matches[1] ?? '';
-	$unit  = strtolower( $matches[2] ?? '' );
-	// Strip group separators (ASCII space, NBSP, NNBSP) for _n() plural; (int) leaves decimals as floor (e.g. 1.5 -> 1).
-	$int_value = (int) str_replace( [ ' ', "\u{00A0}", "\u{202F}" ], '', $value );
+	$quant = [
+		'tb' => TB_IN_BYTES,
+		'gb' => GB_IN_BYTES,
+		'mb' => MB_IN_BYTES,
+		'kb' => KB_IN_BYTES,
+		'b'  => 1,
+	];
+
+	$unit = 'b';
+	$mag  = 1;
+
+	foreach ( $quant as $unit_key => $unit_mag ) {
+		if ( (float) $bytes >= $unit_mag ) {
+			$unit = $unit_key;
+			$mag  = $unit_mag;
+			break;
+		}
+	}
+
+	$value     = $bytes / $mag;
+	$int_value = (int) round( $value );
+	$formatted = number_format_i18n( $value, 0 );
 
 	/* translators: file size units (byte, kilobyte, megabyte, etc.) */
 	$unit_label = match ( $unit ) {
-		'b', 'o'   => _n( 'byte', 'bytes', $int_value, 'beapi-frontend-framework' ),
-		'kb', 'ko' => _n( 'kilobyte', 'kilobytes', $int_value, 'beapi-frontend-framework' ),
-		'mb', 'mo' => _n( 'megabyte', 'megabytes', $int_value, 'beapi-frontend-framework' ),
-		'gb', 'go' => _n( 'gigabyte', 'gigabytes', $int_value, 'beapi-frontend-framework' ),
-		'tb', 'to' => _n( 'terabyte', 'terabytes', $int_value, 'beapi-frontend-framework' ),
-		default    => null,
+		'b'     => _n( 'byte', 'bytes', $int_value, 'beapi-frontend-framework' ),
+		'kb'    => _n( 'kilobyte', 'kilobytes', $int_value, 'beapi-frontend-framework' ),
+		'mb'    => _n( 'megabyte', 'megabytes', $int_value, 'beapi-frontend-framework' ),
+		'gb'    => _n( 'gigabyte', 'gigabytes', $int_value, 'beapi-frontend-framework' ),
+		'tb'    => _n( 'terabyte', 'terabytes', $int_value, 'beapi-frontend-framework' ),
+		default => null,
 	};
 
 	if ( null === $unit_label ) {
-		return $file_size;
+		return '';
 	}
 
-	return $value . ' ' . $unit_label;
+	return $formatted . ' ' . $unit_label;
 }
 
 /**
- * @param string $file_ext
+ * @param string $file_ext File extension.
  *
  * @return string
  */

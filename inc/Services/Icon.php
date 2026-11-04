@@ -165,7 +165,7 @@ class Icon implements Service {
 		}
 
 		$icon_slug = pathinfo( $real_file, PATHINFO_FILENAME );
-		$icon_slug = preg_replace( '/[^a-z0-9-]/', '', strtolower( (string) $icon_slug ) );
+		$icon_slug = sanitize_title( (string) $icon_slug );
 
 		if ( '' === $icon_slug ) {
 			return;

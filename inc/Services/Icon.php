@@ -23,8 +23,15 @@ class Icon implements Service {
 	 * @param Service_Container $container Service container.
 	 */
 	public function boot( Service_Container $container ): void {
+		if ( ! function_exists( 'wp_register_icon_collection' ) || ! function_exists( 'wp_register_icon' ) ) {
+			return;
+		}
+
 		add_action( 'init', [ $this, 'register_icon_collections' ] );
-		add_action( 'init', [ $this, 'unregister_core_icon_collection' ], 20 );
+
+		if ( function_exists( 'wp_unregister_icon_collection' ) ) {
+			add_action( 'init', [ $this, 'unregister_core_icon_collection' ], 20 );
+		}
 	}
 
 	/**
@@ -40,10 +47,6 @@ class Icon implements Service {
 	 * @return void
 	 */
 	public function register_icon_collections(): void {
-		if ( ! function_exists( 'wp_register_icon_collection' ) || ! function_exists( 'wp_register_icon' ) ) {
-			return;
-		}
-
 		$collections = apply_filters(
 			'bff_icon_collections',
 			[
@@ -73,10 +76,6 @@ class Icon implements Service {
 	 * @return void
 	 */
 	public function unregister_core_icon_collection(): void {
-		if ( ! function_exists( 'wp_unregister_icon_collection' ) ) {
-			return;
-		}
-
 		if ( ! apply_filters( 'bff_unregister_core_icon_collection', true ) ) {
 			return;
 		}
@@ -91,10 +90,6 @@ class Icon implements Service {
 	 * @return void
 	 */
 	private function register_collection( string $collection_slug, array $collection_args ): void {
-		if ( ! function_exists( 'wp_register_icon_collection' ) ) {
-			return;
-		}
-
 		$source_subdir = isset( $collection_args['source_subdir'] ) ? (string) $collection_args['source_subdir'] : '';
 
 		if ( '' === $source_subdir ) {
@@ -163,10 +158,6 @@ class Icon implements Service {
 	 * @return void
 	 */
 	private function register_icon_file( string $collection_slug, string $svg_file ): void {
-		if ( ! function_exists( 'wp_register_icon' ) ) {
-			return;
-		}
-
 		$real_file = realpath( $svg_file );
 
 		if ( false === $real_file || ! is_readable( $real_file ) ) {

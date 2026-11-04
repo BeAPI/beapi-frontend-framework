@@ -96,14 +96,6 @@ class Icon implements Service {
 			return;
 		}
 
-		wp_register_icon_collection(
-			$collection_slug,
-			[
-				'label'       => $collection_args['label'] ?? $collection_slug,
-				'description' => $collection_args['description'] ?? '',
-			]
-		);
-
 		$icons_directory = $this->resolve_icons_directory( $source_subdir );
 
 		if ( null === $icons_directory ) {
@@ -111,6 +103,18 @@ class Icon implements Service {
 		}
 
 		$svg_files = $this->get_collection_svg_files( $icons_directory );
+
+		if ( [] === $svg_files ) {
+			return;
+		}
+
+		wp_register_icon_collection(
+			$collection_slug,
+			[
+				'label'       => $collection_args['label'] ?? $collection_slug,
+				'description' => $collection_args['description'] ?? '',
+			]
+		);
 
 		foreach ( $svg_files as $svg_file ) {
 			$this->register_icon_file( $collection_slug, $svg_file );

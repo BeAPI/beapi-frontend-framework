@@ -119,14 +119,14 @@ class Icon implements Service {
 	}
 
 	/**
-	 * Returns SVG file paths for a collection directory, with transient caching in production.
+	 * Returns SVG file paths for a collection directory, with transient caching outside theme development mode.
 	 *
 	 * @param string $icons_directory Validated absolute path to a collection icons directory.
 	 *
 	 * @return list<string>
 	 */
 	private function get_collection_svg_files( string $icons_directory ): array {
-		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+		if ( in_array( wp_get_development_mode(), [ 'theme', 'all' ], true ) ) {
 			return $this->glob_svg_files( $icons_directory );
 		}
 

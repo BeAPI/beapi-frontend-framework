@@ -1,3 +1,6 @@
+@use "../01-abstract/variables" as *;
+@use "../01-abstract/theme-json" as *;
+
 /**
  * Text - Used in src/scss/06-blocks/core/_paragraph.scss and src/scss/03-base/_text.scss
  *
@@ -15,26 +18,26 @@
 
 @mixin text($name: default) {
 	@if $name == default {
-		font-size: var(--paragraph--font-size-default);
+		font-size: $settings-font-size-default;
 		font-weight: 400;
-		line-height: var(--paragraph--line-height-default);
+		line-height: $settings-custom-line-height-default;
 	}
 
 	@if $name == small {
-		font-size: var(--paragraph--font-size-small);
+		font-size: $settings-font-size-small;
 		font-weight: 400;
-		line-height: var(--paragraph--line-height-small);
+		line-height: $settings-custom-line-height-default;
 	}
 
 	@if $name == large {
-		font-size: var(--paragraph--font-size-large);
+		font-size: $settings-font-size-large;
 		font-weight: 400;
-		line-height: var(--paragraph--line-height-large);
+		line-height: $settings-custom-line-height-default;
 	}
 
 	@if $name == huge {
-		font-size: var(--paragraph--font-size-huge);
+		font-size: $settings-font-size-huge;
 		font-weight: 400;
-		line-height: var(--paragraph--line-height-huge);
+		line-height: $settings-custom-line-height-default;
 	}
 }

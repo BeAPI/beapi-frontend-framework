@@ -5,6 +5,8 @@
  *
  * See https://github.com/BeAPI/beapi-frontend-framework/pull/247 for used heading style variation (depend of projects)
  *
+ * Font size presets (has-h-*-font-size): handled by core global styles from theme.json only.
+ *
  * examples :
  *  $headings: (
  *      "1": (),
@@ -46,10 +48,5 @@ $headings: (
 
 	.is-style-h#{$i} {
 		@include heading(h#{$i});
-	}
-
-	.has-h-#{$i}-font-size {
-		font-size: var(--heading--font-size-h#{$i});
-		line-height: var(--heading--line-height-h#{$i});
 	}
 }

@@ -1,4 +1,5 @@
 @use "../01-abstract/variables" as *;
+@use "../01-abstract/theme-json" as *;
 @use "../02-tools/f-context-selector" as *;
 @use "../02-tools/f-get-gutter-width" as *;
 @use "../02-tools/m-align" as *;
@@ -34,10 +35,10 @@
 .has-drop-cap:not(:focus)::first-letter {
 	float: left;
 	margin: .1em .1em 0 0;
-	font-family: var($font-family-primary);
-	font-size: calc(1.2 * var(--heading--font-size-h1));
+	font-family: $font-family-secondary;
+	font-size: calc(1.2 * #{$settings-font-size-h1});
 	font-style: normal;
-	font-weight: var(--heading--font-weight);
+	font-weight: 400;
 	line-height: .66;
 	text-transform: uppercase;
 }

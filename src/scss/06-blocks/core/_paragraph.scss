@@ -1,5 +1,12 @@
 @use "../../02-tools/m-text" as *;
 
+/**
+ * Paragraph
+ *
+ * Block styles (is-style-*): full paragraph typography via @include text.
+ * Font size presets (has-*-font-size): core global styles from theme.json only.
+ */
+
 $paragraphs: "default", "small", "large", "huge";
 
 p {

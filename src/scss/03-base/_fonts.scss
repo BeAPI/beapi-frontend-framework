@@ -1,62 +1,24 @@
 /**
- * Fontsource
+ * Web fonts
  *
- * Fonts list : https://fontsource.org/
- * Documentation : https://fontsource.org/docs/getting-started/faces-mixin
+ * Primary @font-face rules are declared in theme.json (fontFamilies.fontFace, variable woff2).
+ * Metric fallbacks for CLS cannot live in theme.json (size-adjust / ascent-override).
  *
- * Examples :
+ * Project fonts: edit src/theme-json/typography.json (fontFace). Edge cases: @mixin declare-font-face in 02-tools.
  *
- *      1 - Install the font and the utilities by the command :
- *          yarn add @fontsource-utils/scss
- *
- *          // For Classic font
- *          yarn add @fontsource/myFont
- *
- *          // For Variable font
- *          yarn add @fontsource-variable/myFont
- *
- *      2 - Declare font-face :
- *          // For Classic font
- *          @use "@fontsource-utils/scss/src/mixins" as fontsource;
- *          @use "@fontsource/myFont/scss/mixins" as MyFont;
- *          @include fontsource.faces($metadata: MyFont.$metadata, $weights: (400, 700));
- *          ...
- *
- *          // For Variable font
- *          @use "@fontsource-utils/scss/src/mixins" as fontsource;
- *          @use "@fontsource-variable/myFont/scss/mixins" as MyFont;
- *          @include fontsource.faces($metadata: MyFont.$metadata, $axes: wght);
- *          ...
+ * @see https://www.industrialempathy.com/perfect-ish-font-fallback/
  */
 
-@use "@fontsource-utils/scss/src/mixins" as fontsource;
-@use "@fontsource/poppins/scss/mixins" as Poppins;
-
-@include fontsource.faces($metadata: Poppins.$metadata, $weights: (300, 400, 500, 700), $styles: normal);
-@include fontsource.faces($metadata: Poppins.$metadata, $weights: (300, 400, 500, 700), $styles: italic);
-
-// Fallbacks for DM Sans  to improve cls
-// https://deploy-preview-15--upbeat-shirley-608546.netlify.app/perfect-ish-font-fallback/?font=Poppins
 @font-face {
-	font-family: Poppins-fallback;
+	font-family: "SourceSans3-fallback";
 	src: local("Arial");
-	size-adjust: 112.5%;
-	ascent-override: 109%;
+	size-adjust: 100%;
+	ascent-override: 105%;
 }
 
-/**
- * Custom font here
- *
- * Examples :
- *
- *      // For Classic font
- *      @include declare-font-face("My classic font", "../fonts/gmy-classic-font-regular", 400);
- *      @include declare-font-face("My classic font", "../fonts/gmy-classic-font-regular-italic", 400, italic);
- *      @include declare-font-face("My classic font", "../fonts/gmy-classic-font-bold", 700);
- *      ...
- *
- *      // For Variable font
- *      @include declare-font-face("My variable font", "../fonts/my-variable-font", 100 950, normal, normal, "woff2-variations");
- *      ...
- *
- */
+@font-face {
+	font-family: Fraunces-fallback;
+	src: local("Georgia");
+	size-adjust: 100%;
+	ascent-override: 95%;
+}

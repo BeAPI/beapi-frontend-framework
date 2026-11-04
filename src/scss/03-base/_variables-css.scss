@@ -1,6 +1,5 @@
 @use "sass:map";
 @use "../01-abstract/variables" as *;
-@use "../02-tools/f-fluid-size" as *;
 @use "../02-tools/m-breakpoint" as *;
 @use "../02-tools/m-reduced-motion" as *;
 
@@ -9,40 +8,6 @@
 	* Breakpoints
 	*/
 	--breakpoint-mobile-to-desktop-nav: #{map.get($breakpoints, mobile-to-desktop-nav)}; // Used by JavaScript
-
-	/*
-     * Heading
-     */
-	// Font size
-	--heading--font-size-h1: #{fluid-size(45px, 56px)};
-	--heading--font-size-h2: #{fluid-size(32px, 48px)};
-	--heading--font-size-h3: #{fluid-size(24px, 36px)};
-	--heading--font-size-h4: #{fluid-size(20px, 32px)};
-	--heading--font-size-h5: #{fluid-size(18px, 24px)};
-	--heading--font-size-h6: #{fluid-size(16px, 18px)};
-
-	// Line height
-	--heading--line-height-h1: 1.25;
-	--heading--line-height-h2: 1.25;
-	--heading--line-height-h3: 1.25;
-	--heading--line-height-h4: 1.25;
-	--heading--line-height-h5: 1.25;
-	--heading--line-height-h6: 1.25;
-
-	/*
-     * paragraph
-    */
-	// Font size
-	--paragraph--font-size-huge: #{fluid-size(28px, 32px)};
-	--paragraph--font-size-large: #{fluid-size(20px, 24px)};
-	--paragraph--font-size-small: #{fluid-size(12px, 14px)};
-	--paragraph--font-size-default: #{fluid-size(14px, 16px)};
-
-	// line height
-	--paragraph--line-height-huge: 1.4;
-	--paragraph--line-height-large: 1.4;
-	--paragraph--line-height-small: 1.4;
-	--paragraph--line-height-default: 1.4;
 
 	/*
      * Admin bar

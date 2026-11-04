@@ -28,10 +28,7 @@ class Icon implements Service {
 		}
 
 		add_action( 'init', [ $this, 'register_icon_collections' ] );
-
-		if ( function_exists( 'wp_unregister_icon_collection' ) ) {
-			add_action( 'init', [ $this, 'unregister_core_icon_collection' ], 20 );
-		}
+		add_action( 'init', [ $this, 'unregister_core_icon_collection' ], 20 );
 	}
 
 	/**

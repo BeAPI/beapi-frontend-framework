@@ -35,8 +35,8 @@
 	ul:where(.wp-block-list),
 	ol:where(.wp-block-list) {
 		&:not([class*="no-list-style"]):not([role="list"]):not(.chosen-choices):not(.chosen-results) {
-			font-size: var(--paragraph--font-size-default, $font-size-base);
-			line-height: var(--paragraph--line-height-default, $line-height-base);
+			font-size: $font-size-base;
+			line-height: $line-height-base;
 
 			ul,
 			ol {

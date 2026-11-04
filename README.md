@@ -160,6 +160,12 @@ Les fichiers de configuration se trouvent dans le dossier `config`.
 Vous trouverez le fichier de paramètres Webpack communs dans `webpack.common.js`. Pour le mode développement, éditez `webpack.dev.js` ; pour la production, `webpack.prod.js`.
 Les loaders sont dans `loaders.js` et les plugins Webpack dans `plugins.js`.
 
+### Typographie (`theme.json`)
+
+À partir de **BFF 5.5.1**, l’échelle typographique du socle (tailles fluid, familles, `fontFace`, line-heights) vit dans `src/theme-json/` (notamment `typography.json`). Le build régénère `theme.json` et `src/scss/01-abstract/_theme-json.scss` ; les mixins SCSS consomment les variables `$settings-*` générées.
+
+Ne pas éditer à la main les fichiers générés. Sur un projet issu d’un BFF antérieur à **5.5.1** qui garde encore la typo en SCSS / propriétés CSS custom, conserver ce pipeline — ne pas migrer vers les fragments typo uniquement parce que le socle upstream a changé.
+
 ## Comment utiliser BFF ?
 
 Après l’installation des dépendances, vous pouvez exécuter les commandes décrites ci-dessous.

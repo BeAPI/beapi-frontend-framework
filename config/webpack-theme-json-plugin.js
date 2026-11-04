@@ -122,6 +122,31 @@ class WebpackThemeJsonPlugin {
 
 				return result
 			},
+			'settings-typography-fontSizes'(key, value) {
+				let result = ''
+
+				for (const fontSize of value) {
+					const cssSlug = toPresetCssSlug(fontSize.slug)
+					result += `${getVariableName(
+						'settings-font-size-' + fontSize.slug
+					)}: var(--wp--preset--font-size--${cssSlug});\n`
+				}
+
+				return result
+			},
+			'settings-typography-fontFamilies'(key, value) {
+				let result = ''
+				const families = []
+
+				for (const family of value) {
+					result += `${getVariableName('settings-font-family-' + family.slug)}: var(--wp--preset--font-family--${
+						family.slug
+					});\n`
+					families.push(`${formatMapKey(family.slug)}: ${getVariableName('settings-font-family-' + family.slug)}`)
+				}
+
+				return result + `$settings-font-families: (\n\t${families.join(',\n\t')}\n);\n`
+			},
 		}
 		// eslint-disable-next-line @wordpress/no-unused-vars-before-return
 		const taskNames = Object.keys(tasks)
@@ -139,6 +164,11 @@ class WebpackThemeJsonPlugin {
 		// format the scss variable name
 		function getVariableName(id) {
 			return `$${id.replace(/([A-Z])/g, '-$1').toLowerCase()}`
+		}
+
+		// Match WordPress preset CSS custom property segments (e.g. h1 -> h-1).
+		function toPresetCssSlug(slug) {
+			return String(slug).replace(/([a-zA-Z])(\d)/g, '$1-$2')
 		}
 
 		// Quote map keys so slugs like black/white are strings, not Sass color literals.

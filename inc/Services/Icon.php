@@ -110,15 +110,57 @@ class Icon implements Service {
 			return;
 		}
 
-		$svg_files = glob( $icons_directory . '/*.svg' );
-
-		if ( false === $svg_files ) {
-			return;
-		}
+		$svg_files = $this->get_collection_svg_files( $icons_directory );
 
 		foreach ( $svg_files as $svg_file ) {
 			$this->register_icon_file( $collection_slug, $svg_file );
 		}
+	}
+
+	/**
+	 * Returns SVG file paths for a collection directory, with transient caching in production.
+	 *
+	 * @param string $icons_directory Validated absolute path to a collection icons directory.
+	 *
+	 * @return list<string>
+	 */
+	private function get_collection_svg_files( string $icons_directory ): array {
+		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+			return $this->glob_svg_files( $icons_directory );
+		}
+
+		$directory_mtime = filemtime( $icons_directory );
+		if ( false === $directory_mtime ) {
+			$directory_mtime = 0;
+		}
+
+		$cache_key = 'bff_icon_svg_files_' . md5( $icons_directory . ':' . (string) $directory_mtime );
+		$cached    = get_transient( $cache_key );
+
+		if ( is_array( $cached ) ) {
+			return $cached;
+		}
+
+		$svg_files = $this->glob_svg_files( $icons_directory );
+
+		set_transient( $cache_key, $svg_files, WEEK_IN_SECONDS );
+
+		return $svg_files;
+	}
+
+	/**
+	 * @param string $icons_directory Validated absolute path to a collection icons directory.
+	 *
+	 * @return list<string>
+	 */
+	private function glob_svg_files( string $icons_directory ): array {
+		$svg_files = glob( $icons_directory . '/*.svg' );
+
+		if ( false === $svg_files ) {
+			return [];
+		}
+
+		return $svg_files;
 	}
 
 	/**

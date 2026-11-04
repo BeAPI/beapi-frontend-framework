@@ -158,13 +158,7 @@ class Icon implements Service {
 	 * @return void
 	 */
 	private function register_icon_file( string $collection_slug, string $svg_file ): void {
-		$real_file = realpath( $svg_file );
-
-		if ( false === $real_file || ! is_readable( $real_file ) ) {
-			return;
-		}
-
-		$icon_slug = pathinfo( $real_file, PATHINFO_FILENAME );
+		$icon_slug = pathinfo( $svg_file, PATHINFO_FILENAME );
 		$icon_slug = sanitize_title( (string) $icon_slug );
 
 		if ( '' === $icon_slug ) {
@@ -183,7 +177,7 @@ class Icon implements Service {
 			'bff_icon_properties',
 			[
 				'label'     => $label,
-				'file_path' => $real_file,
+				'file_path' => $svg_file,
 			],
 			$icon_name,
 			$collection_slug

@@ -12,7 +12,7 @@
 
 ### PHP et WordPress
 
-- PHP **8.3** ou supérieur
+- PHP **8.4** ou supérieur
 - WordPress **6.3** ou supérieur
 
 ### Composer
@@ -107,7 +107,7 @@ wp-env start
 
 Au premier démarrage, wp-env va :
 
-- Démarrer WordPress (PHP 8.3)
+- Démarrer WordPress (PHP 8.4)
 - Monter ce thème depuis le répertoire courant
 - Installer et activer l’extension [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/)
 

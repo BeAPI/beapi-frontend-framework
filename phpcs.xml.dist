@@ -18,6 +18,7 @@
     <exclude-pattern>config/</exclude-pattern>
     <exclude-pattern>node_modules/</exclude-pattern>
     <exclude-pattern>.wp-env/</exclude-pattern>
+    <exclude-pattern>tests/</exclude-pattern>
 
     <rule ref="WordPress-Extra">
         <!-- Exclude as we use a custom autoloader. -->
@@ -51,7 +52,7 @@
     <ini name="max_execution_time" value="-1"/>
 
     <rule ref="PHPCompatibilityWP"/>
-    <config name="testVersion" value="8.3-"/>
+    <config name="testVersion" value="8.4-"/>
 
     <rule ref="WordPress.Security.EscapeOutput">
         <properties>

@@ -13,6 +13,7 @@
             <directory name="dist" />
             <directory name="config" />
             <directory name="node_modules" />
+            <directory name="tests" />
         </ignoreFiles>
     </projectFiles>
 

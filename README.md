@@ -155,7 +155,7 @@ Les changements sur les assets PHP, SCSS et JavaScript sont pris en compte aprè
 
 Les tests PHPUnit (`tests/php/`) sont des tests d’intégration : ils s’exécutent dans un WordPress réel fourni par wp-env, avec le thème actif et ACF chargé (`WP_UnitTestCase`, bibliothèque de tests de WordPress).
 
-Ils utilisent un environnement dédié (`.wp-env.test.json`, port 8889), isolé de l’environnement de développement, et leurs propres tables (`wptests_`).
+Ils utilisent un environnement dédié (`.wp-env.test.json`, port 8889, PHP 8.4), isolé de l’environnement de développement, et leurs propres tables (`wptests_`).
 
 ```bash
 composer install

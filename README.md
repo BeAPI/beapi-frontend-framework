@@ -181,7 +181,7 @@ npm run env:stop-tests
 
 Les tests ne dépendent pas du dossier `dist/` : les fichiers attendus sont fournis par les fixtures de `tests/assets/` via les filtres `theme_file_path` / `theme_file_uri`.
 
-En CI, le workflow `.github/workflows/tests-php.yml` lance la suite sur la version minimale de WordPress supportée et sur la dernière version stable, puis publie le rapport de couverture en artefact.
+En CI, le workflow `.github/workflows/tests-php.yml` lance la suite sur la version minimale de WordPress supportée et sur la dernière version stable.
 
 ## Configuration
 

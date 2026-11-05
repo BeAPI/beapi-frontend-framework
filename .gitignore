@@ -91,3 +91,7 @@ theme.json
 
 ### Composer
 composer.lock
+
+### Tests
+.phpunit.result.cache
+/coverage/

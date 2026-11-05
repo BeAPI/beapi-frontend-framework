@@ -24,7 +24,9 @@
         "phpro/grumphp-shim": "^2.6",
         "roave/security-advisories": "dev-latest",
         "wp-coding-standards/wpcs": "3.4.1",
-        "wp-plugin/advanced-custom-fields": "6.8.4"
+        "wp-plugin/advanced-custom-fields": "6.8.4",
+        "phpunit/phpunit": "9.6.38",
+        "yoast/phpunit-polyfills": "4.0.0"
     },
     "scripts": {
         "cs": [

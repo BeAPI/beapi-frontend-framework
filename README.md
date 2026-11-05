@@ -151,6 +151,38 @@ yarn start
 
 Les changements sur les assets PHP, SCSS et JavaScript sont pris en compte après rebuild Webpack. Les modifications PHP du thème sont appliquées immédiatement grâce au volume monté.
 
+## Tests PHP
+
+Les tests PHPUnit (`tests/php/`) sont des tests d’intégration : ils s’exécutent dans un WordPress réel fourni par wp-env, avec le thème actif et ACF chargé (`WP_UnitTestCase`, bibliothèque de tests de WordPress).
+
+Ils utilisent un environnement dédié (`.wp-env.test.json`, port 8889), isolé de l’environnement de développement, et leurs propres tables (`wptests_`).
+
+```bash
+composer install
+npm install
+
+# Démarrer l’environnement de test (avec Xdebug pour la couverture)
+npm run env:start-tests
+# ou, sans couverture : npm run env:start-ci
+
+# Lancer les tests
+npm run test:php
+
+# Lancer un seul fichier ou un seul test
+npm run test:php -- tests/php/Services/AssetsTest.php
+npm run test:php -- --filter test_theme_is_active
+
+# Générer le rapport de couverture (coverage/index.html)
+npm run test:php -- --coverage-html=coverage/ --coverage-text
+
+# Arrêter l’environnement de test
+npm run env:stop-tests
+```
+
+Les tests ne dépendent pas du dossier `dist/` : les fichiers attendus sont fournis par les fixtures de `tests/assets/` via les filtres `theme_file_path` / `theme_file_uri`.
+
+En CI, le workflow `.github/workflows/tests-php.yml` lance la suite sur la version minimale de WordPress supportée et sur la dernière version stable, puis publie le rapport de couverture en artefact.
+
 ## Configuration
 
 Les fichiers de configuration se trouvent dans le dossier `config`.

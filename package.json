@@ -68,8 +68,8 @@
     "webpackbar": "^7.0.0"
   },
   "volta": {
-    "node": "24.19.0",
-    "npm": "12.0.2"
+    "node": "26.13.0",
+    "npm": "12.2.1"
   },
   "allowScripts": {
     "@parcel/watcher": true,

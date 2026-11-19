@@ -23,6 +23,10 @@ class Icon implements Service {
 	 * @param Service_Container $container Service container.
 	 */
 	public function boot( Service_Container $container ): void {
+		if ( ! function_exists( 'wp_register_icon_collection' ) || ! function_exists( 'wp_register_icon' ) ) {
+			return;
+		}
+
 		add_action( 'init', [ $this, 'register_icon_collections' ] );
 		add_action( 'init', [ $this, 'unregister_core_icon_collection' ], 20 );
 	}
@@ -40,10 +44,6 @@ class Icon implements Service {
 	 * @return void
 	 */
 	public function register_icon_collections(): void {
-		if ( ! function_exists( 'wp_register_icon_collection' ) || ! function_exists( 'wp_register_icon' ) ) {
-			return;
-		}
-
 		$collections = apply_filters(
 			'bff_icon_collections',
 			[
@@ -73,10 +73,6 @@ class Icon implements Service {
 	 * @return void
 	 */
 	public function unregister_core_icon_collection(): void {
-		if ( ! function_exists( 'wp_unregister_icon_collection' ) ) {
-			return;
-		}
-
 		if ( ! apply_filters( 'bff_unregister_core_icon_collection', true ) ) {
 			return;
 		}
@@ -91,13 +87,21 @@ class Icon implements Service {
 	 * @return void
 	 */
 	private function register_collection( string $collection_slug, array $collection_args ): void {
-		if ( ! function_exists( 'wp_register_icon_collection' ) ) {
-			return;
-		}
-
 		$source_subdir = isset( $collection_args['source_subdir'] ) ? (string) $collection_args['source_subdir'] : '';
 
 		if ( '' === $source_subdir ) {
+			return;
+		}
+
+		$icons_directory = $this->resolve_icons_directory( $source_subdir );
+
+		if ( null === $icons_directory ) {
+			return;
+		}
+
+		$svg_files = $this->get_collection_svg_files( $icons_directory );
+
+		if ( [] === $svg_files ) {
 			return;
 		}
 
@@ -109,21 +113,55 @@ class Icon implements Service {
 			]
 		);
 
-		$icons_directory = $this->resolve_icons_directory( $source_subdir );
-
-		if ( null === $icons_directory ) {
-			return;
-		}
-
-		$svg_files = glob( $icons_directory . '/*.svg' );
-
-		if ( false === $svg_files ) {
-			return;
-		}
-
 		foreach ( $svg_files as $svg_file ) {
 			$this->register_icon_file( $collection_slug, $svg_file );
 		}
+	}
+
+	/**
+	 * Returns SVG file paths for a collection directory, with transient caching outside theme development mode.
+	 *
+	 * @param string $icons_directory Validated absolute path to a collection icons directory.
+	 *
+	 * @return list<string>
+	 */
+	private function get_collection_svg_files( string $icons_directory ): array {
+		if ( in_array( wp_get_development_mode(), [ 'theme', 'all' ], true ) ) {
+			return $this->glob_svg_files( $icons_directory );
+		}
+
+		$directory_mtime = filemtime( $icons_directory );
+		if ( false === $directory_mtime ) {
+			$directory_mtime = 0;
+		}
+
+		$cache_key = 'bff_icon_svg_files_' . md5( $icons_directory . ':' . (string) $directory_mtime );
+		$cached    = get_transient( $cache_key );
+
+		if ( is_array( $cached ) ) {
+			return $cached;
+		}
+
+		$svg_files = $this->glob_svg_files( $icons_directory );
+
+		set_transient( $cache_key, $svg_files, WEEK_IN_SECONDS );
+
+		return $svg_files;
+	}
+
+	/**
+	 * @param string $icons_directory Validated absolute path to a collection icons directory.
+	 *
+	 * @return list<string>
+	 */
+	private function glob_svg_files( string $icons_directory ): array {
+		$svg_files = glob( $icons_directory . '/*.svg' );
+
+		if ( false === $svg_files ) {
+			return [];
+		}
+
+		return $svg_files;
 	}
 
 	/**
@@ -163,18 +201,8 @@ class Icon implements Service {
 	 * @return void
 	 */
 	private function register_icon_file( string $collection_slug, string $svg_file ): void {
-		if ( ! function_exists( 'wp_register_icon' ) ) {
-			return;
-		}
-
-		$real_file = realpath( $svg_file );
-
-		if ( false === $real_file || ! is_readable( $real_file ) ) {
-			return;
-		}
-
-		$icon_slug = pathinfo( $real_file, PATHINFO_FILENAME );
-		$icon_slug = preg_replace( '/[^a-z0-9-]/', '', strtolower( (string) $icon_slug ) );
+		$icon_slug = pathinfo( $svg_file, PATHINFO_FILENAME );
+		$icon_slug = sanitize_title( (string) $icon_slug );
 
 		if ( '' === $icon_slug ) {
 			return;
@@ -192,7 +220,7 @@ class Icon implements Service {
 			'bff_icon_properties',
 			[
 				'label'     => $label,
-				'file_path' => $real_file,
+				'file_path' => $svg_file,
 			],
 			$icon_name,
 			$collection_slug

@@ -10,8 +10,9 @@ namespace BEA\Theme\Framework\Helpers\Formatting\Escape;
  * @return mixed Return value escape
  */
 function escape_attribute_value( string $value, string $escape ) {
+	// Fail closed: an unknown callback must never let a raw value reach an attribute.
 	if ( ! function_exists( $escape ) ) {
-		return $value;
+		return esc_attr( $value );
 	}
 
 	return $escape( $value );
@@ -26,8 +27,9 @@ function escape_attribute_value( string $value, string $escape ) {
  * @return mixed Return value escape
  */
 function escape_content_value( string $value, string $escape ) {
+	// Fail closed: fall back to the post-content KSES filter for an unknown callback.
 	if ( ! function_exists( $escape ) ) {
-		return $value;
+		return wp_kses_post( $value );
 	}
 
 	return $escape( $value );

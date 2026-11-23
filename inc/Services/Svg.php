@@ -60,8 +60,8 @@ class Svg implements Service {
 		return sprintf(
 			'<svg class="%s" aria-hidden="true" focusable="false"><use href="%s#%s"></use></svg>',
 			implode( ' ', $classes ),
-			add_query_arg( [ 'v' => $hash_sprite ], $icon_url ),
-			$parts['icon_slug']
+			esc_url( add_query_arg( [ 'v' => $hash_sprite ], $icon_url ) ),
+			esc_attr( $parts['icon_slug'] )
 		);
 	}
 

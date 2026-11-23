@@ -8,6 +8,7 @@
 - Réécriture de `Animation` avec des `IntersectionObserver` partagés au lieu d’une boucle au scroll (mêmes options et callbacks)
 - Ajout de l’utilitaire JS `deferInitialization()` pour exécuter du code non critique à idle (INP)
 - Documentation de la base Core Web Vitals dans le README (dont compatibilité ARI / `is_lcp`)
+- Passage du lien de partage Facebook (`sharer.php`) en HTTPS
 
 # 5.3.2
 

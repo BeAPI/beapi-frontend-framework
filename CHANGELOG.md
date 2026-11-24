@@ -1,3 +1,9 @@
+# 5.5.2
+
+- Ajout du service `Content_Picking` : configuration des blocs de remontée dynamique et manuelle (`beapi/dynamic-block`, `beapi/manual-block`), sans erreur si le plugin est absent
+- Blocs de remontée : articles par défaut, modes grille, liste et mega menu, templates dans `components/parts/content-picking-block/`
+- Ajout de la card article `components/loops/crd-post.php` (niveau de titre réglable, option `is_megamenu`) et de son emplacement d’image `card-post`
+
 # 5.5.1
 
 - Typographie du socle dans les fragments `theme.json` (`fontSizes` fluid Gutenberg, `fontFamilies` + `fontFace`, `custom.lineHeight`)

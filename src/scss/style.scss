@@ -50,6 +50,7 @@ variables.$entry-file-name: "style";
 @use "05-components/searchform";
 @use "05-components/skip-links";
 @use "05-components/post-sharing";
+@use "05-components/crd-post";
 
 /**
  * Gutenberg
@@ -79,6 +80,9 @@ variables.$entry-file-name: "style";
 @use "06-blocks/core/spacer";
 @use "06-blocks/core/table";
 @use "06-blocks/core/video";
+
+// Custom blocks
+@use "06-blocks/custom/beapi-content-picking-block";
 
 /**
  * Patterns

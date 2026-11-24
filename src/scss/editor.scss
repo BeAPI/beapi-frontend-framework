@@ -42,6 +42,7 @@ variables.$entry-file-name: "editor";
  */
 
 @use "05-components/btn";
+@use "05-components/crd-post";
 
 /**
  * Gutenberg
@@ -71,6 +72,9 @@ variables.$entry-file-name: "editor";
 @use "06-blocks/core/spacer";
 @use "06-blocks/core/table";
 @use "06-blocks/core/video";
+
+// Custom blocks
+@use "06-blocks/custom/beapi-content-picking-block";
 
 /**
  * Patterns

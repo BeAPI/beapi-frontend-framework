@@ -47,5 +47,13 @@ addFilter('blocks.registerBlockType', 'beapi-framework', function (settings, nam
 		settings.styles = []
 	}
 
+	// Content picking blocks: wide by default (the class is added in inc/Services/Content_Picking.php)
+	if ((name === 'beapi/dynamic-block' || name === 'beapi/manual-block') && settings.attributes) {
+		settings.attributes.align = {
+			type: 'string',
+			default: 'wide',
+		}
+	}
+
 	return settings
 })

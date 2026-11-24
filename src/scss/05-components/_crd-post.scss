@@ -1,0 +1,22 @@
+/**
+ * Post card (components/loops/crd-post.php)
+ *
+ * Functional styles only. The image ratio matches the sizes of assets/conf-img/tpl/card-post.tpl.
+ */
+
+.crd {
+	$el: &;
+
+	&--post {
+		#{$el}__image-wrapper {
+			aspect-ratio: 3 / 2;
+
+			img {
+				display: block;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+}

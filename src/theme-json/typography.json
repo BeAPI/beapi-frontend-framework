@@ -2,7 +2,136 @@
 	"version": 3,
 	"settings": {
 		"typography": {
-			"fontSizes": [],
+			"fluid": {
+				"minViewportWidth": "480px",
+				"maxViewportWidth": "1440px"
+			},
+			"fontSizes": [
+				{
+					"name": "H1 (45–56px)",
+					"slug": "h1",
+					"size": "56px",
+					"fluid": {
+						"min": "45px",
+						"max": "56px"
+					}
+				},
+				{
+					"name": "H2 (32–48px)",
+					"slug": "h2",
+					"size": "48px",
+					"fluid": {
+						"min": "32px",
+						"max": "48px"
+					}
+				},
+				{
+					"name": "H3 (24–36px)",
+					"slug": "h3",
+					"size": "36px",
+					"fluid": {
+						"min": "24px",
+						"max": "36px"
+					}
+				},
+				{
+					"name": "H4 (20–32px)",
+					"slug": "h4",
+					"size": "32px",
+					"fluid": {
+						"min": "20px",
+						"max": "32px"
+					}
+				},
+				{
+					"name": "H5 (18–24px)",
+					"slug": "h5",
+					"size": "24px",
+					"fluid": {
+						"min": "18px",
+						"max": "24px"
+					}
+				},
+				{
+					"name": "H6 (16–18px)",
+					"slug": "h6",
+					"size": "18px",
+					"fluid": {
+						"min": "16px",
+						"max": "18px"
+					}
+				},
+				{
+					"name": "Huge (28–32px)",
+					"slug": "huge",
+					"size": "32px",
+					"fluid": {
+						"min": "28px",
+						"max": "32px"
+					}
+				},
+				{
+					"name": "Large (20–24px)",
+					"slug": "large",
+					"size": "24px",
+					"fluid": {
+						"min": "20px",
+						"max": "24px"
+					}
+				},
+				{
+					"name": "Small (12–14px)",
+					"slug": "small",
+					"size": "14px",
+					"fluid": {
+						"min": "12px",
+						"max": "14px"
+					}
+				},
+				{
+					"name": "Default (14–16px)",
+					"slug": "default",
+					"size": "16px",
+					"fluid": {
+						"min": "14px",
+						"max": "16px"
+					}
+				}
+			],
+			"fontFamilies": [
+				{
+					"name": "Secondary (Fraunces)",
+					"slug": "secondary",
+					"fontFamily": "\"Fraunces\", Fraunces-fallback, serif",
+					"fontFace": [
+						{
+							"fontFamily": "Fraunces",
+							"fontWeight": "100 900",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [
+								"file:./src/fonts/fraunces/fraunces-latin-wght-normal.woff2"
+							]
+						}
+					]
+				},
+				{
+					"name": "Primary (Source Sans 3)",
+					"slug": "primary",
+					"fontFamily": "\"Source Sans 3\", SourceSans3-fallback, sans-serif",
+					"fontFace": [
+						{
+							"fontFamily": "Source Sans 3",
+							"fontWeight": "200 900",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [
+								"file:./src/fonts/source-sans-3/source-sans-3-latin-wght-normal.woff2"
+							]
+						}
+					]
+				}
+			],
 			"defaultFontSizes": false,
 			"customFontSize": false,
 			"dropCap": false,
@@ -11,8 +140,18 @@
 			"lineHeight": false,
 			"letterSpacing": false,
 			"textDecoration": false,
-			"textTransform": false,
-			"fluid": true
+			"textTransform": false
+		},
+		"custom": {
+			"lineHeight": {
+				"h1": "1.1",
+				"h2": "1.15",
+				"h3": "1.2",
+				"h4": "1.25",
+				"h5": "1.3",
+				"h6": "1.35",
+				"default": "1.4"
+			}
 		}
 	}
 }

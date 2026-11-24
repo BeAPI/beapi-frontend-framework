@@ -1,3 +1,11 @@
+# 5.5.1
+
+- Typographie du socle dans les fragments `theme.json` (`fontSizes` fluid Gutenberg, `fontFamilies` + `fontFace`, `custom.lineHeight`)
+- Polices locales variable woff2 (latin) : Source Sans 3 / Fraunces à la place de Poppins / `@fontsource`
+- Mixins `heading` / `text` branchés sur les tokens SCSS générés (`$settings-font-size-*`, `$settings-font-family-*`, `$settings-custom-line-height-*`)
+- Suppression de l’échelle `--heading--*` / `--paragraph--*` dans `_variables-css.scss` sur ce socle
+- Les projets BFF antérieurs à `5.5.1` conservent leur pipeline typo SCSS ; ne pas migrer automatiquement
+
 # 5.5.0
 
 - Ajout du réglage `is_lcp` à `get_the_image()` (`fetchpriority` élevé, pas de lazy loading ; `decoding` en opt-in via les attributs)

@@ -1,4 +1,4 @@
-# Non publié
+# 5.5.2
 
 - Activation du mode panel mobile de Be API Mega Menu Block (`add_theme_support( 'beapi-mega-menu-panel' )`) : sur les nouveaux projets, les sous-menus s'ouvrent en panel au lieu de l'accordéon. Nécessite Be API Mega Menu Block 1.3.0 ou plus ; sans effet avec une version antérieure ou sans le plugin.
 

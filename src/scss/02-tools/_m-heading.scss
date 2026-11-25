@@ -1,4 +1,5 @@
 @use "../01-abstract/variables" as *;
+@use "../01-abstract/theme-json" as *;
 
 /**
  * Heading - Used in src/scss/06-blocks/core/_heading.scss
@@ -20,8 +21,8 @@
  *
  *      mixin :
  *      @if $name == h3 {
- *          font-size: var(--heading--font-size-h3);
- *          line-height: var(--heading--line-height-h3);
+ *          font-size: $settings-font-size-h3;
+ *          line-height: $settings-custom-line-height-h3;
  *
  *          @if $style == uppercase {
  *              text-transform: uppercase;
@@ -44,36 +45,41 @@
  */
 
 @mixin heading($name: h1, $style: default) {
-	font-family: $font-family-primary;
-	font-weight: 400;
+	font-family: $font-family-secondary;
 
 	@if $name == h1 {
-		font-size: var(--heading--font-size-h1);
-		line-height: var(--heading--line-height-h1);
+		font-size: $settings-font-size-h1;
+		font-weight: 500;
+		line-height: $settings-custom-line-height-h1;
 	}
 
 	@if $name == h2 {
-		font-size: var(--heading--font-size-h2);
-		line-height: var(--heading--line-height-h2);
+		font-size: $settings-font-size-h2;
+		font-weight: 500;
+		line-height: $settings-custom-line-height-h2;
 	}
 
 	@if $name == h3 {
-		font-size: var(--heading--font-size-h3);
-		line-height: var(--heading--line-height-h3);
+		font-size: $settings-font-size-h3;
+		font-weight: 500;
+		line-height: $settings-custom-line-height-h3;
 	}
 
 	@if $name == h4 {
-		font-size: var(--heading--font-size-h4);
-		line-height: var(--heading--line-height-h4);
+		font-size: $settings-font-size-h4;
+		font-weight: 500;
+		line-height: $settings-custom-line-height-h4;
 	}
 
 	@if $name == h5 {
-		font-size: var(--heading--font-size-h5);
-		line-height: var(--heading--line-height-h5);
+		font-size: $settings-font-size-h5;
+		font-weight: 500;
+		line-height: $settings-custom-line-height-h5;
 	}
 
 	@if $name == h6 {
-		font-size: var(--heading--font-size-h6);
-		line-height: var(--heading--line-height-h6);
+		font-size: $settings-font-size-h6;
+		font-weight: 500;
+		line-height: $settings-custom-line-height-h6;
 	}
 }

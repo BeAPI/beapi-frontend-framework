@@ -172,6 +172,15 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 		]
 	);
 
+	// wp_parse_args() is shallow: merge the escape map so a partial caller map keeps the URL escaping defaults.
+	$settings['escape'] = array_merge(
+		[
+			'href'      => 'esc_url',
+			'data-href' => 'esc_url',
+		],
+		(array) $settings['escape']
+	);
+
 	$settings = apply_filters( 'bea_theme_framework_link_settings', $settings, $attributes );
 
 	/**************************************** MODE BUTTON ****************************************/
@@ -182,8 +191,12 @@ function get_the_link( array $attributes, array $settings = [] ): string {
 		$attributes['type']           = 'button';
 		$attributes['role']           = 'link';
 		$attributes['data-href']      = $attributes['href'];
-		$attributes['data-rel']       = $attributes['rel'];
-		$attributes['data-target']    = $attributes['target'];
+		$attributes['data-rel']       = $attributes['rel'] ?? '';
+		$attributes['data-target']    = $attributes['target'] ?? '';
+		// The renamed attribute carries a URL: keep URL escaping unless the caller set a valid one for it.
+		if ( empty( $settings['escape']['data-href'] ) || ! function_exists( $settings['escape']['data-href'] ) ) {
+			$settings['escape']['data-href'] = 'esc_url';
+		}
 		unset( $attributes['href'], $attributes['rel'], $attributes['target'] );
 	}
 

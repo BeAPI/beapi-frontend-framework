@@ -1,3 +1,11 @@
+# 5.5.1
+
+- Typographie du socle dans les fragments `theme.json` (`fontSizes` fluid Gutenberg, `fontFamilies` + `fontFace`, `custom.lineHeight`)
+- Polices locales variable woff2 (latin) : Source Sans 3 / Fraunces à la place de Poppins / `@fontsource`
+- Mixins `heading` / `text` branchés sur les tokens SCSS générés (`$settings-font-size-*`, `$settings-font-family-*`, `$settings-custom-line-height-*`)
+- Suppression de l’échelle `--heading--*` / `--paragraph--*` dans `_variables-css.scss` sur ce socle
+- Les projets BFF antérieurs à `5.5.1` conservent leur pipeline typo SCSS ; ne pas migrer automatiquement
+
 # 5.5.0
 
 - Ajout du réglage `is_lcp` à `get_the_image()` (`fetchpriority` élevé, pas de lazy loading ; `decoding` en opt-in via les attributs)
@@ -8,6 +16,7 @@
 - Réécriture de `Animation` avec des `IntersectionObserver` partagés au lieu d’une boucle au scroll (mêmes options et callbacks)
 - Ajout de l’utilitaire JS `deferInitialization()` pour exécuter du code non critique à idle (INP)
 - Documentation de la base Core Web Vitals dans le README (dont compatibilité ARI / `is_lcp`)
+- Passage du lien de partage Facebook (`sharer.php`) en HTTPS
 
 # 5.3.2
 

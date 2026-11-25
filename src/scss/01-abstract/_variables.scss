@@ -71,17 +71,18 @@ $base-border-radius: 3px;
 // ----
 // Font Family
 // ----
-$font-family-primary: "Poppins", "Poppins-fallback", sans-serif;
+$font-family-primary: $settings-font-family-primary;
+$font-family-secondary: $settings-font-family-secondary;
 
 // ----
 // Font Size
 // ----
-$font-size-base: var(--paragraph--font-size-default);
-$font-size-sm: var(--paragraph--font-size-small);
-$font-size-lg: var(--paragraph--font-size-large);
-$font-size-xl: var(--paragraph--font-size-huge);
+$font-size-base: $settings-font-size-default;
+$font-size-sm: $settings-font-size-small;
+$font-size-lg: $settings-font-size-large;
+$font-size-xl: $settings-font-size-huge;
 
 // ----
 // Line Height
 // ----
-$line-height-base: var(--paragraph--line-height-default);
+$line-height-base: $settings-custom-line-height-default;

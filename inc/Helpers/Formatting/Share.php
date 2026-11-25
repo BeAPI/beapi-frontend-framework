@@ -6,7 +6,7 @@ use function BEA\Theme\Framework\Helpers\Svg\get_the_icon;
 
 
 /**
- * @usage BEA\Theme\Framework\Helpers\Formatting\Share\get_share_link( 'facebook', "https://......", ['title' => 'My title', 'class' => "...", 'href' => 'http://www.facebook.com/sharer.php'  ], ['title' => 'My title', 'class' => "...", 'href' => 'http://www.facebook.com/sharer.php'  ], [ 'before' => '', 'after' => ''] );
+ * @usage BEA\Theme\Framework\Helpers\Formatting\Share\get_share_link( 'facebook', "https://......", ['title' => 'My title', 'class' => "...", 'href' => 'https://www.facebook.com/sharer.php'  ], ['title' => 'My title', 'class' => "...", 'href' => 'https://www.facebook.com/sharer.php'  ], [ 'before' => '', 'after' => ''] );
  *
  * @param string $name The network name ( example : "facebook", "linkedin", etc....).
  * @param string $link_to_share The sharing link.
@@ -51,7 +51,7 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 		'facebook'  => [
 			'accessible_name' => __( 'Share on Facebook', 'beapi-frontend-framework' ),
 			'attributes'      => [
-				'href'  => 'http://www.facebook.com/sharer.php',
+				'href'  => 'https://www.facebook.com/sharer.php',
 				'class' => 'share__link',
 			],
 			'icon'            => 'social/facebook',
@@ -163,7 +163,7 @@ function get_share_link( string $name, string $link_to_share, array $share_attri
 }
 
 /**
- * @usage BEA\Theme\Framework\Helpers\Formatting\Share\get_share_link( 'facebook', "https://......", ['title' => 'My title', 'class' => "...", 'href' => 'http://www.facebook.com/sharer.php'  ], ['title' => 'My title', 'class' => "...", 'href' => 'http://www.facebook.com/sharer.php'  ], [ 'before' => '', 'after' => ''] );
+ * @usage BEA\Theme\Framework\Helpers\Formatting\Share\get_share_link( 'facebook', "https://......", ['title' => 'My title', 'class' => "...", 'href' => 'https://www.facebook.com/sharer.php'  ], ['title' => 'My title', 'class' => "...", 'href' => 'https://www.facebook.com/sharer.php'  ], [ 'before' => '', 'after' => ''] );
  *
  * @param string $name The network name ( example : "facebook", "linkedin", etc....).
  * @param string $link_to_share The sharing link.

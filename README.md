@@ -268,3 +268,19 @@ function customize_editor_settings( $settings ) {
 	return $settings;
 }
 ```
+
+### Blocs de remontée
+
+Le service `Content_Picking` (`inc/Services/Content_Picking.php`) configure les blocs de remontée dynamique (`beapi/dynamic-block`) et manuelle (`beapi/manual-block`) quand le plugin qui les fournit est actif. Par défaut, seuls les articles sont proposés, en grille, en liste ou en mega menu, avec la card `components/loops/crd-post.php`.
+
+Le rendu passe par `components/gutenberg/content-picking-block.php`, qui charge `components/parts/content-picking-block/{post_type}-{mode}.php`, ou `{post_type}.php` si le mode n’a pas de template dédié. Pour les articles : `post.php` (grille), `post-list.php` (liste) et `post-megamenu.php` (mega menu, sans titre ni lien de bloc).
+
+Dans le mode mega menu, la card reçoit `is_megamenu` : son titre sort en `<p role="heading" aria-level="N">` au lieu d’un `<hN>`, pour ne pas ajouter le menu au plan HTML de la page. Les lecteurs d’écran l’annoncent quand même comme un titre.
+
+Niveaux de titre : le titre du bloc prend le niveau choisi dans l’éditeur, et les titres des cards le niveau suivant (jusqu’à `h6`). Sans titre de bloc, les cards prennent le niveau choisi. Cela permet d’imbriquer les blocs dans le plan de la page.
+
+Toute la configuration des blocs est dans ce service. Pour ajouter un type de contenu :
+
+1. Ajoutez-le dans `get_post_types()`.
+2. Autorisez-le dans au moins un mode d’affichage de `get_display_modes()` (clé `postTypes`).
+3. Créez ses templates : `components/parts/content-picking-block/{post_type}.php` (et `{post_type}-{mode}.php` si besoin) et sa card dans `components/loops/`.

@@ -1,0 +1,127 @@
+@use "../../01-abstract/theme-json" as *;
+@use "../../02-tools/m-breakpoint" as *;
+@use "../../02-tools/m-editor-only" as *;
+
+/**
+ * Content picking blocks (beapi/dynamic-block and beapi/manual-block)
+ *
+ * Grid: `data-grid` holds the number of columns chosen in the editor, `--grid-columns` sets it on large screens.
+ * List and mega menu: `data-list`.
+ * Carousel (display mode added by projects): Swiper markup, see 10-vendor/_swiper.scss.
+ */
+
+.block--content-picking {
+	$el: &;
+
+	--content-picking-spacing: #{$settings-spacing-lg};
+	--content-picking-header-spacing: #{$settings-spacing-sm};
+	--content-picking-gap: #{$settings-spacing-sm};
+
+	width: 100%;
+	padding-block: var(--content-picking-spacing);
+
+	// Mega menu: the menu panel handles the spacing
+	&[data-layout="megamenu"] {
+		--content-picking-spacing: 0;
+	}
+
+	// Carousel: cards of a slide take its full height
+	.swiper-slide {
+		box-sizing: border-box;
+		height: auto;
+
+		.crd {
+			height: 100%;
+		}
+	}
+
+	// Carousel: lay out the slides before Swiper initializes, to prevent CLS
+	.swiper:not(.swiper-initialized) {
+		.swiper-wrapper {
+			display: flex;
+			gap: var(--content-picking-gap);
+
+			@include editor-only {
+				overflow-x: auto;
+			}
+		}
+	}
+
+	&__header {
+		margin-bottom: var(--content-picking-header-spacing);
+
+		.wp-block-heading {
+			margin: 0;
+		}
+	}
+
+	&__items {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+
+	&__item {
+		display: block;
+		margin: 0;
+	}
+
+	&__footer {
+		margin-top: var(--content-picking-header-spacing);
+	}
+
+	&__no-results {
+		font-style: italic;
+	}
+
+	// List
+	[data-list] {
+		#{$el}__items {
+			display: flex;
+			flex-direction: column;
+			gap: var(--content-picking-gap);
+		}
+	}
+
+	// Grid
+	[data-grid] {
+		#{$el}__items {
+			display: grid;
+			grid-template-columns: 100%;
+			gap: var(--content-picking-gap);
+
+			@include breakpoints(sm) {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+
+			@include breakpoints(m) {
+				grid-template-columns: repeat(var(--grid-columns, 3), minmax(0, 1fr));
+			}
+		}
+
+		.crd {
+			height: 100%;
+		}
+	}
+
+	[data-grid="1"] {
+		#{$el}__items {
+			@include breakpoints(sm) {
+				grid-template-columns: 100%;
+			}
+		}
+	}
+
+	[data-grid="5"],
+	[data-grid="6"] {
+		#{$el}__items {
+			@include breakpoints(m) {
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+			}
+
+			@include breakpoints(mdl) {
+				grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+			}
+		}
+	}
+}

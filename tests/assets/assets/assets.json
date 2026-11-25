@@ -1,0 +1,12 @@
+{
+  "app.css" : "app.min.css",
+  "app.js" : "app.min.js",
+  "editor.js" : "editor.min.js",
+  "editor.css" : "editor.min.css",
+  "login.css" : "login.min.css",
+  "custom.css" : "custom.min.css",
+  "imageDimensions" : {
+    "dist/images/logo.svg" : { "width" : 120, "height" : 40 },
+    "dist/images/invalid.svg" : { "width" : 0, "height" : 40 }
+  }
+}

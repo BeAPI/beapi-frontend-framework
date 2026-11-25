@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/wp-env.json",
+	"core": null,
+	"phpVersion": "8.4",
+	"testsEnvironment": false,
+	"port": 8889,
+	"themes": [
+		"."
+	],
+	"plugins": [
+		".wp-env/plugins/advanced-custom-fields"
+	],
+	"lifecycleScripts": {
+		"afterStart": "./tests/bin/initialize.sh --config=./.wp-env.test.json"
+	}
+}

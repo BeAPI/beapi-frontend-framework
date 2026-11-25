@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<phpunit
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+	bootstrap="tests/bootstrap.php"
+	backupGlobals="false"
+	colors="true"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true"
+	convertDeprecationsToExceptions="true"
+>
+	<testsuites>
+		<testsuite name="default">
+			<directory suffix="Test.php">./tests/php</directory>
+		</testsuite>
+	</testsuites>
+	<coverage processUncoveredFiles="false">
+		<include>
+			<file>functions.php</file>
+			<directory suffix=".php">inc</directory>
+		</include>
+	</coverage>
+</phpunit>
